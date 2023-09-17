@@ -49,10 +49,25 @@ class LoginScreen extends StatelessWidget {
   }
 
   Future<String?> _signupUser(SignupData data) {
+    debugPrint('Signup info');
+    debugPrint('Name: ${data.name}');
+    debugPrint('Password: ${data.password}');
+
+    data.additionalSignupData?.forEach((key, value) {
+      debugPrint('$key: $value');
+    });
+    if (data.termsOfService.isNotEmpty) {
+      debugPrint('Terms of service: ');
+      for (final element in data.termsOfService) {
+        debugPrint(' - ${element.term.id}: ${element.accepted == true ? 'accepted' : 'rejected'}');
+      }
+    }
     return Future.value();
   }
 
   Future<String?> _recoverPassword(String name) {
+    debugPrint('Recover password info');
+    debugPrint('Name: $name');
     return Future.value();
   }
 
@@ -239,24 +254,7 @@ class LoginScreen extends StatelessWidget {
       userValidator: (value) => EmailValidator.validate(value!) ? null : "Please provide a valid email address",
       passwordValidator: (value) => value!.isEmpty ? 'Password is empty' : null,
       onLogin: _loginUser,
-      onSignup: (signupData) {
-        debugPrint('Signup info');
-        debugPrint('Name: ${signupData.name}');
-        debugPrint('Password: ${signupData.password}');
-
-        signupData.additionalSignupData?.forEach((key, value) {
-          debugPrint('$key: $value');
-        });
-        if (signupData.termsOfService.isNotEmpty) {
-          debugPrint('Terms of service: ');
-          for (final element in signupData.termsOfService) {
-            debugPrint(
-              ' - ${element.term.id}: ${element.accepted == true ? 'accepted' : 'rejected'}',
-            );
-          }
-        }
-        return _signupUser(signupData);
-      },
+      onSignup: _signupUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(
           FadePageRoute(
@@ -264,12 +262,7 @@ class LoginScreen extends StatelessWidget {
           ),
         );
       },
-      onRecoverPassword: (name) {
-        debugPrint('Recover password info');
-        debugPrint('Name: $name');
-        return _recoverPassword(name);
-        // Show new password dialog
-      },
+      onRecoverPassword: _recoverPassword,
       headerWidget: const IntroWidget(),
     );
   }

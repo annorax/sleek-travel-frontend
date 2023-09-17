@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,39 +12,29 @@ class LoginScreen extends StatelessWidget {
 
   const LoginScreen({super.key});
 
-  Duration get loginTime => Duration(milliseconds: timeDilation.ceil() * 2250);
-
   Future<String?> _loginUser(LoginData data) {
-    return Future.delayed(loginTime).then((_) {
-      if (!mockUsers.containsKey(data.name)) {
-        return 'User not exists';
-      }
-      if (mockUsers[data.name] != data.password) {
-        return 'Password does not match';
-      }
-      return null;
-    });
+    if (!mockUsers.containsKey(data.name)) {
+      return Future.value('User does not exist');
+    }
+    if (mockUsers[data.name] != data.password) {
+      return Future.value('Password does not match');
+    }
+    return Future.value();
   }
 
   Future<String?> _signupUser(SignupData data) {
-    return Future.delayed(loginTime).then((_) {
-      return null;
-    });
+    return Future.value();
   }
 
   Future<String?> _recoverPassword(String name) {
-    return Future.delayed(loginTime).then((_) {
-      if (!mockUsers.containsKey(name)) {
-        return 'User not exists';
-      }
-      return null;
-    });
+    if (!mockUsers.containsKey(name)) {
+      return Future.value('User not exists');
+    }
+    return Future.value();
   }
 
   Future<String?> _signupConfirm(String error, LoginData data) {
-    return Future.delayed(loginTime).then((_) {
-      return null;
-    });
+    return Future.value();
   }
 
   @override
@@ -82,7 +71,6 @@ class LoginScreen extends StatelessWidget {
           icon: FontAwesomeIcons.githubAlt,
           callback: () async {
             debugPrint('start github sign in');
-            await Future.delayed(loginTime);
             debugPrint('stop github sign in');
             return null;
           },

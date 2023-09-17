@@ -236,18 +236,8 @@ class LoginScreen extends StatelessWidget {
       //     // shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
       //   ),
       // ),
-      userValidator: (value) {
-        if (!EmailValidator.validate(value!)) {
-          return "Please provide a valid email address";
-        }
-        return null;
-      },
-      passwordValidator: (value) {
-        if (value!.isEmpty) {
-          return 'Password is empty';
-        }
-        return null;
-      },
+      userValidator: (value) => EmailValidator.validate(value!) ? null : "Please provide a valid email address",
+      passwordValidator: (value) => value!.isEmpty ? 'Password is empty' : null,
       onLogin: _loginUser,
       onSignup: (signupData) {
         debugPrint('Signup info');

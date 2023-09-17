@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -44,8 +45,6 @@ class LoginScreen extends StatelessWidget {
     final token = logInUser['token'];
     final userMap = logInUser['user'];
     final user = User.fromMap(data.name, userMap as Map<String, dynamic>);
-    debugPrint(token.toString());
-    debugPrint(user.toString());
     return Future.value();
   }
 
@@ -238,8 +237,8 @@ class LoginScreen extends StatelessWidget {
       //   ),
       // ),
       userValidator: (value) {
-        if (!value!.contains('@') || !value.endsWith('.com')) {
-          return "Email must contain '@' and end with '.com'";
+        if (!EmailValidator.validate(value!)) {
+          return "Please provide a valid email address";
         }
         return null;
       },
@@ -249,12 +248,7 @@ class LoginScreen extends StatelessWidget {
         }
         return null;
       },
-      onLogin: (loginData) {
-        debugPrint('Login info');
-        debugPrint('Name: ${loginData.name}');
-        debugPrint('Password: ${loginData.password}');
-        return _loginUser(loginData);
-      },
+      onLogin: _loginUser,
       onSignup: (signupData) {
         debugPrint('Signup info');
         debugPrint('Name: ${signupData.name}');

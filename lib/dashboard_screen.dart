@@ -125,9 +125,6 @@ class DashboardScreenState extends State<DashboardScreen>
       title: title,
       backgroundColor: theme.primaryColor.withOpacity(.1),
       elevation: 0,
-      // toolbarTextStyle: TextStle(),
-      // textTheme: theme.accentTextTheme,
-      // iconTheme: theme.accentIconTheme,
     );
   }
 
@@ -210,7 +207,6 @@ class DashboardScreenState extends State<DashboardScreen>
         vertical: 20,
       ),
       childAspectRatio: .9,
-      // crossAxisSpacing: 5,
       crossAxisCount: 3,
       children: [
         _buildButton(
@@ -316,7 +312,6 @@ class DashboardScreenState extends State<DashboardScreen>
                     Expanded(
                       flex: 8,
                       child: ShaderMask(
-                        // blendMode: BlendMode.srcOver,
                         shaderCallback: (Rect bounds) {
                           return LinearGradient(
                             begin: Alignment.topLeft,

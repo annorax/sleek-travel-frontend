@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:graphql/client.dart';
+import 'package:slim_travel_frontend/constants.dart';
 
 import 'package:slim_travel_frontend/dashboard_screen.dart';
 import 'package:slim_travel_frontend/login_screen.dart';
 import 'package:slim_travel_frontend/transition_route_observer.dart';
+
+GraphQLClient getGithubGraphQLClient() {
+  final Link link = HttpLink(Constants.gqlUrl);
+
+  return GraphQLClient(
+    cache: GraphQLCache(),
+    link: link,
+  );
+}
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -26,12 +37,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textSelectionTheme:
             const TextSelectionThemeData(cursorColor: Colors.orange),
-        // fontFamily: 'SourceSansPro',
         textTheme: TextTheme(
           displaySmall: const TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 45.0,
-            // fontWeight: FontWeight.w400,
             color: Colors.orange,
           ),
           labelLarge: const TextStyle(

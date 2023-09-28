@@ -36,6 +36,7 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   graphql: ^5.1.3
   intl: ^0.18.1
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

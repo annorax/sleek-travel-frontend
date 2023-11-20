@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:graphql/client.dart';
 import 'package:slim_travel_frontend/constants.dart';
 
@@ -23,11 +24,11 @@ void main() {
           SystemUiOverlayStyle.dark.systemNavigationBarColor,
     ),
   );
-  runApp(const MyApp());
+  runApp(const GetMaterialApp(home: Home()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {

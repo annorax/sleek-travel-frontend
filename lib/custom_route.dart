@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:slim_travel_frontend/login_screen.dart';
+import 'package:slim_travel_frontend/app/modules/login/view.dart';
 
 class FadePageRoute<T> extends MaterialPageRoute<T> {
   FadePageRoute({

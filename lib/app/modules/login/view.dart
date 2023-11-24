@@ -2,51 +2,17 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:graphql/client.dart';
+import 'package:get/get.dart';
 
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/custom_route.dart';
-import 'package:slim_travel_frontend/dashboard_screen.dart';
-import 'package:slim_travel_frontend/main.dart';
-import 'package:slim_travel_frontend/user.dart';
+import 'package:slim_travel_frontend/app/modules/dashboard/view.dart';
+import 'package:slim_travel_frontend/services/auth_service.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/auth';
 
   const LoginScreen({super.key});
-
-  Future<String?> _loginUser(LoginData data) async {
-    final GraphQLClient client = getGithubGraphQLClient();
-    final QueryResult result = await client.mutate(
-      MutationOptions(
-        document: gql(
-          r'''
-            mutation LogInUser($email: String!, $password: String!) {
-              logInUser(email: $email, password: $password) {
-                token,
-                user {
-                  id,
-                  name
-                }
-              }
-            }
-          ''',
-        ),
-        variables: {
-          'email': data.name,
-          'password': data.password,
-        },
-      ),
-    );
-    final logInUser = result.data?['logInUser'] as Map<String, dynamic>?;
-    if (logInUser == null) {
-      return Future.value('Login failed');
-    }
-    final token = logInUser['token'];
-    final userMap = logInUser['user'];
-    final user = User.fromMap(data.name, userMap as Map<String, dynamic>);
-    return Future.value();
-  }
 
   Future<String?> _signupUser(SignupData data) {
     debugPrint('Signup info');
@@ -253,7 +219,7 @@ class LoginScreen extends StatelessWidget {
       // ),
       userValidator: (value) => EmailValidator.validate(value!) ? null : "Please provide a valid email address",
       passwordValidator: (value) => value!.isEmpty ? 'Password is empty' : null,
-      onLogin: _loginUser,
+      onLogin: Get.find<AuthService>().login,
       onSignup: _signupUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(

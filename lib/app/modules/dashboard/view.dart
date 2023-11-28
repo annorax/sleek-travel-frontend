@@ -129,17 +129,6 @@ class DashboardScreenState extends State<DashboardScreen>
   }
 
   Widget _buildHeader(ThemeData theme) {
-    final primaryColor =
-        Colors.primaries.where((c) => c == theme.primaryColor).first;
-    final accentColor =
-        Colors.primaries.where((c) => c == theme.colorScheme.secondary).first;
-    final linearGradient = LinearGradient(
-      colors: [
-        primaryColor.shade800,
-        primaryColor.shade200,
-      ],
-    ).createShader(const Rect.fromLTWH(0.0, 0.0, 418.0, 78.0));
-
     return ScaleTransition(
       scale: _headerScaleAnimation,
       child: FadeIn(
@@ -155,10 +144,6 @@ class DashboardScreenState extends State<DashboardScreen>
               children: <Widget>[
                 Text(
                   '\$',
-                  style: theme.textTheme.displaySmall!.copyWith(
-                    fontWeight: FontWeight.w300,
-                    color: accentColor.shade400,
-                  ),
                 ),
                 const SizedBox(width: 5),
                 AnimatedNumericText(
@@ -166,9 +151,6 @@ class DashboardScreenState extends State<DashboardScreen>
                   targetValue: 3467.87,
                   curve: const Interval(0, .5, curve: Curves.easeOut),
                   controller: _loadingController!,
-                  style: theme.textTheme.displaySmall!.copyWith(
-                    foreground: Paint()..shader = linearGradient,
-                  ),
                 ),
               ],
             ),

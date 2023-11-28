@@ -1,5 +1,6 @@
 import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:graphql/client.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/user.dart';
@@ -7,8 +8,22 @@ import 'package:slim_travel_frontend/user.dart';
 class AuthService extends GetxService {
   static AuthService get to => Get.find();
 
+  final box = GetStorage();
+
   final isLoggedIn = false.obs;
   bool get isLoggedInValue => isLoggedIn.value;
+
+  @override
+  void onInit() {
+    super.onInit();
+    isLoggedIn.value = box.read<bool>('isLoggedIn') ?? false;
+    ever(
+      isLoggedIn,
+      (value) {
+        box.write('isLoggedIn', value);
+      },
+    );
+  }
 
   Future<String?> login(LoginData data) async {
     final Link link = HttpLink(Constants.gqlUrl);

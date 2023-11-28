@@ -61,8 +61,6 @@ class RoundButtonState extends State<RoundButton>
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final primaryColor =
-        Colors.primaries.where((c) => c == theme.primaryColor).first;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -80,7 +78,6 @@ class RoundButtonState extends State<RoundButton>
                   child: FloatingActionButton(
                     // allow more than 1 FAB in the same screen (hero tag cannot be duplicated)
                     heroTag: null,
-                    backgroundColor: primaryColor.shade400,
                     onPressed: () {
                       _pressController.forward().then((_) {
                         _pressController.reverse();

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/user.dart';
+import 'package:slim_travel_frontend/util.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,16 +24,15 @@ class _LoginPageState extends State<LoginPage> {
                   .isEmpty ||
               (_formKey.currentState?.value[passwordFieldName] ?? '').isEmpty
           ? null
-          : () {
+          : () async {
               // Validate and save the form values
-              bool valid = _formKey.currentState!.saveAndValidate();
+              bool valid = _formKey.currentState!.validate();
               Map value = _formKey.currentState!.value;
               String email = value[emailFieldName];
               String password = value[passwordFieldName];
-              debugPrint(email);
-              debugPrint(password);
               if (valid) {
-                debugPrint('ok');
+                User? user = await Util.login(email, password);
+                debugPrint(user.toString());
               }
             };
     });

@@ -1,11 +1,16 @@
+import 'dart:convert';
+
+import 'package:flutter/widgets.dart';
 import 'package:graphql/client.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/user.dart';
 
 class Util {
   Util._();
 
-  static Future<User?> login(String email, String password) async {
+  static Future<User?> login(
+      String email, String password, BuildContext context) async {
     final Link link = HttpLink(backendUrl);
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),
@@ -37,8 +42,16 @@ class Util {
       return null;
     }
     final token = logInUser['token'];
-    final userMap = logInUser['user'];
-    final user = User.fromMap(email, token, userMap as Map<String, dynamic>);
+    final Map<String, dynamic> safeUserMap = logInUser['user'];
+    final Map<String, dynamic> userMap = {
+      ...safeUserMap,
+      "email": email,
+      "token": token
+    };
+    final user = User.fromJson(userMap);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(userKey, jsonEncode(user));
+
     return user;
   }
 }

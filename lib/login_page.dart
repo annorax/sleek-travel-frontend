@@ -17,27 +17,6 @@ class _LoginPageState extends State<LoginPage> {
   final _emailFieldKey = GlobalKey<FormBuilderFieldState>();
   void Function()? _onPressedHandler;
 
-  void setOnPressedHandler() {
-    _formKey.currentState?.save();
-    setState(() {
-      _onPressedHandler = (_formKey.currentState?.value[emailFieldName] ?? '')
-                  .isEmpty ||
-              (_formKey.currentState?.value[passwordFieldName] ?? '').isEmpty
-          ? null
-          : () async {
-              // Validate and save the form values
-              bool valid = _formKey.currentState!.validate();
-              Map value = _formKey.currentState!.value;
-              String email = value[emailFieldName];
-              String password = value[passwordFieldName];
-              if (valid) {
-                User? user = await Util.login(email, password);
-                debugPrint(user.toString());
-              }
-            };
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +27,25 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: FormBuilder(
           key: _formKey,
-          onChanged: setOnPressedHandler,
+          onChanged: () {
+            _formKey.currentState?.save();
+            setState(() {
+              _onPressedHandler =
+                (_formKey.currentState?.value[emailFieldName] ?? '').isEmpty ||
+                (_formKey.currentState?.value[passwordFieldName] ?? '').isEmpty
+                  ? null
+                  : () async {
+                      // Validate and save the form values
+                      bool valid = _formKey.currentState!.validate();
+                      Map value = _formKey.currentState!.value;
+                      String email = value[emailFieldName];
+                      String password = value[passwordFieldName];
+                      if (valid) {
+                        User? user = await Util.login(email, password, context);
+                      }
+                    };
+              });
+          },
           child: Column(
             children: [
               FormBuilderTextField(

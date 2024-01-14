@@ -1,3 +1,4 @@
 const String backendUrl = 'http://localhost:4000/graphql';
 const String emailFieldName = 'email';
 const String passwordFieldName = 'password';
+const String userKey = 'user';

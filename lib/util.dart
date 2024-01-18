@@ -1,10 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/widgets.dart';
 import 'package:graphql/client.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/user.dart';
+import 'package:slim_travel_frontend/user.model.dart';
+import 'package:slim_travel_frontend/user.state.dart';
 
 class Util {
   Util._();
@@ -49,9 +47,7 @@ class Util {
       "token": token
     };
     final user = User.fromJson(userMap);
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(userKey, jsonEncode(user));
-
+    userState.setValue(user);
     return user;
   }
 }

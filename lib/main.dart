@@ -1,19 +1,12 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/login_page.dart';
-import 'package:slim_travel_frontend/user.dart';
+import 'package:slim_travel_frontend/user.model.dart';
+import 'package:slim_travel_frontend/user.state.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  if (prefs.containsKey(userKey)) {
-    // load user details from SharedPreferences
-    String jsonUser = prefs.getString(userKey)!;
-    Map<String, dynamic> userMap = jsonDecode(jsonUser);
-    User user = User.fromJson(userMap);
+  User? user = await userState.getValue();
+  if (user != null) {
     debugPrint('user $user');
   }
   runApp(const MyApp());

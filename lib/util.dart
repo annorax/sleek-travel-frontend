@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:graphql/client.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/user.model.dart';
@@ -8,7 +7,7 @@ class Util {
   Util._();
 
   static Future<User?> login(
-      String email, String password, BuildContext context) async {
+      String email, String password) async {
     final Link link = HttpLink(backendUrl);
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),
@@ -44,6 +43,48 @@ class Util {
     final Map<String, dynamic> userMap = {
       ...safeUserMap,
       "email": email,
+      "token": token
+    };
+    final user = User.fromJson(userMap);
+    userState.setValue(user);
+    return user;
+  }
+
+  static Future<User?> validateToken(String tokenValue) async {
+    final Link link = HttpLink(backendUrl);
+    final GraphQLClient client = GraphQLClient(
+      cache: GraphQLCache(),
+      link: link,
+    );
+    final QueryResult result = await client.mutate(
+      MutationOptions(
+        document: gql(
+          r'''
+            query ValidateToken($tokenValue: String!) {
+              validateToken(tokenValue: $tokenValue) {
+                token,
+                user {
+                  id,
+                  name,
+                  email
+                }
+              }
+            }
+          ''',
+        ),
+        variables: {
+          'tokenValue': tokenValue
+        },
+      ),
+    );
+    final validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
+    if (validateToken == null) {
+      return null;
+    }
+    final token = validateToken['token'];
+    final Map<String, dynamic> safeUserMap = validateToken['user'];
+    final Map<String, dynamic> userMap = {
+      ...safeUserMap,
       "token": token
     };
     final user = User.fromJson(userMap);

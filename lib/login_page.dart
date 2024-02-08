@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                       String email = value[emailFieldName];
                       String password = value[passwordFieldName];
                       if (valid) {
-                        User? user = await Util.login(email, password, context);
+                        User? user = await Util.login(email, password);
                       }
                     };
               });

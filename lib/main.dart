@@ -6,13 +6,12 @@ import 'package:slim_travel_frontend/util.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  User? storedUser = await userState.getValue();
-  if (storedUser != null) {
-    debugPrint('storedUser $storedUser');
-    User? user = await Util.validateToken(storedUser.token);
-    debugPrint('user $user');
-    if (user == null) {
-      userState.clearValue();
+  User? user = await userState.getValue();
+  if (user != null) {
+    User? remoteUser = await Util.validateToken(user.token);
+    if (remoteUser == null) {
+      await userState.clearValue();
+      user = null;
     }
   }
   runApp(const MyApp());

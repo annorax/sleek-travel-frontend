@@ -5,7 +5,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class AbstractState<T> {
-  final _subject = BehaviorSubject<T>();
+  BehaviorSubject<T> _subject = BehaviorSubject<T>();
   Future<void>? initFuture;
 
   AbstractState() {
@@ -33,9 +33,11 @@ abstract class AbstractState<T> {
     return Future.value(true);
   }
 
-  Future<bool> clearValue() async {
+  Future<bool> removeValue() async {
+    _subject.close();
+    _subject = BehaviorSubject<T>();
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.remove(_serializationKey);
+    return await prefs.remove(_serializationKey);
   }
 
   Future<void> init() async {

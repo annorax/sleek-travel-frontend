@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:graphql/client.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/user.model.dart';
@@ -35,7 +36,7 @@ class Util {
     );
     final logInUser = result.data?['logInUser'] as Map<String, dynamic>?;
     if (logInUser == null) {
-      await userState.clearValue();
+      await userState.removeValue();
       return;
     }
     final token = logInUser['token'];
@@ -71,22 +72,18 @@ class Util {
             }
           ''',
         ),
-        variables: {
-          'tokenValue': tokenValue
-        },
+        variables: {'tokenValue': tokenValue},
       ),
     );
-    final validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
+    final validateToken =
+        result.data?['validateToken'] as Map<String, dynamic>?;
     if (validateToken == null) {
-      await userState.clearValue();
+      await userState.removeValue();
       return;
     }
     final token = validateToken['token'];
     final Map<String, dynamic> safeUserMap = validateToken['user'];
-    final Map<String, dynamic> userMap = {
-      ...safeUserMap,
-      "token": token
-    };
+    final Map<String, dynamic> userMap = {...safeUserMap, "token": token};
     final user = User.fromJson(userMap);
     await userState.setValue(user);
   }

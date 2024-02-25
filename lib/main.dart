@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slim_travel_frontend/home_page.dart';
 import 'package:slim_travel_frontend/login_page.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
@@ -19,13 +20,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    User? user = userState.getValueSyncNoInit();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginPage(),
+      home: user != null ? const HomePage() : const LoginPage(),
     );
   }
 }

@@ -6,8 +6,7 @@ import 'package:slim_travel_frontend/user.state.dart';
 class Util {
   Util._();
 
-  static Future<User?> login(
-      String email, String password) async {
+  static Future<void> login(String email, String password) async {
     final Link link = HttpLink(backendUrl);
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),
@@ -36,7 +35,8 @@ class Util {
     );
     final logInUser = result.data?['logInUser'] as Map<String, dynamic>?;
     if (logInUser == null) {
-      return null;
+      await userState.clearValue();
+      return;
     }
     final token = logInUser['token'];
     final Map<String, dynamic> safeUserMap = logInUser['user'];
@@ -46,11 +46,10 @@ class Util {
       "token": token
     };
     final user = User.fromJson(userMap);
-    userState.setValue(user);
-    return user;
+    await userState.setValue(user);
   }
 
-  static Future<User?> validateToken(String tokenValue) async {
+  static Future<void> validateToken(String tokenValue) async {
     final Link link = HttpLink(backendUrl);
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),
@@ -79,7 +78,8 @@ class Util {
     );
     final validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
     if (validateToken == null) {
-      return null;
+      await userState.clearValue();
+      return;
     }
     final token = validateToken['token'];
     final Map<String, dynamic> safeUserMap = validateToken['user'];
@@ -88,7 +88,6 @@ class Util {
       "token": token
     };
     final user = User.fromJson(userMap);
-    userState.setValue(user);
-    return user;
+    await userState.setValue(user);
   }
 }

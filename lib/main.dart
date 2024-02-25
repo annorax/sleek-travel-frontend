@@ -8,11 +8,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   User? user = await userState.getValue();
   if (user != null) {
-    User? remoteUser = await Util.validateToken(user.token);
-    if (remoteUser == null) {
-      await userState.clearValue();
-      user = null;
-    }
+    await Util.validateToken(user.token);
   }
   runApp(const MyApp());
 }

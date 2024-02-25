@@ -14,25 +14,28 @@ abstract class AbstractState<T> {
 
   Stream<T> get stream => _subject.stream;
 
+  T? getValueSyncNoInit() {
+    return _subject.hasValue ? _subject.value : null;
+  }
+
   Future<T?> getValue() async {
     await initFuture;
-    return _subject.hasValue ? _subject.value : null;
+    return getValueSyncNoInit();
   }
 
   Future<bool> setValue(T model) async {
     _subject.add(model);
     if (getKey() != null) {
       final String value = serialize(model);
-      return SharedPreferences.getInstance().then((prefs) {
-        return prefs.setString(_serializationKey, value);
-      });
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.setString(_serializationKey, value);
     }
     return Future.value(true);
   }
 
-  Future<bool> clearValue() {
-    return SharedPreferences.getInstance()
-        .then((prefs) => prefs.remove(_serializationKey));
+  Future<bool> clearValue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.remove(_serializationKey);
   }
 
   Future<void> init() async {

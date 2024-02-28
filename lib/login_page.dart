@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/util.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,6 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormBuilderState>();
   final _emailFieldKey = GlobalKey<FormBuilderFieldState>();
   void Function()? _onPressedHandler;
@@ -19,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Login Page"),
@@ -30,20 +34,36 @@ class _LoginPageState extends State<LoginPage> {
             _formKey.currentState?.save();
             setState(() {
               _onPressedHandler =
-                (_formKey.currentState?.value[emailFieldName] ?? '').isEmpty ||
-                (_formKey.currentState?.value[passwordFieldName] ?? '').isEmpty
-                  ? null
-                  : () async {
-                      // Validate and save the form values
-                      bool valid = _formKey.currentState!.validate();
-                      Map value = _formKey.currentState!.value;
-                      String email = value[emailFieldName];
-                      String password = value[passwordFieldName];
-                      if (valid) {
-                        await Util.login(email, password);
-                      }
-                    };
-              });
+                  (_formKey.currentState?.value[emailFieldName] ?? '')
+                              .isEmpty ||
+                          (_formKey.currentState?.value[passwordFieldName] ??
+                                  '')
+                              .isEmpty
+                      ? null
+                      : () async {
+                          // Validate and save the form values
+                          bool valid = _formKey.currentState!.validate();
+                          Map value = _formKey.currentState!.value;
+                          String email = value[emailFieldName];
+                          String password = value[passwordFieldName];
+                          if (valid) {
+                            String? errorMessage =
+                                await Util.login(email, password);
+                            BuildContext? currentContext = router!.routerDelegate.navigatorKey.currentContext;
+                            if (errorMessage == null) {
+                              currentContext?.go(basePath);
+                            } else {
+                              // ignore: use_build_context_synchronously
+                              ScaffoldMessenger.of(currentContext!).showSnackBar(
+                                  SnackBar(
+                                    content: Text(errorMessage),
+                                    backgroundColor: Colors.red,
+                                  )
+                              );
+                            }
+                          }
+                        };
+            });
           },
           child: Column(
             children: [

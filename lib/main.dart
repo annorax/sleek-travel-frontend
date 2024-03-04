@@ -3,11 +3,15 @@ import 'package:go_router/go_router.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/home_page.dart';
 import 'package:slim_travel_frontend/login_page.dart';
+import 'package:slim_travel_frontend/shared_scaffold.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 GoRouter? router;
+
+final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,21 +20,30 @@ Future<void> main() async {
     user = await Util.validateToken(user.token);
   }
   router = GoRouter(
+    navigatorKey: _rootNavigatorKey,
     initialLocation: user != null ? basePath : loginPageAbsolutePath,
-    routes: <RouteBase>[
-      GoRoute(
-        path: basePath,
-        builder: (BuildContext context, GoRouterState state) {
-          return const HomePage();
+    routes: [
+      ShellRoute(
+        navigatorKey: _shellNavigatorKey,
+        builder: (context, state, child) {
+          return SharedScaffold(child: child);
         },
-        routes: <RouteBase>[
+        routes: [
           GoRoute(
-            path: loginPagePath,
+            path: basePath,
             builder: (BuildContext context, GoRouterState state) {
-              return const LoginPage();
+              return const HomePage();
             },
+            routes: <RouteBase>[
+              GoRoute(
+                path: loginPagePath,
+                builder: (BuildContext context, GoRouterState state) {
+                  return const LoginPage();
+                },
+              ),
+            ],
           ),
-        ],
+        ]
       ),
     ],
   );

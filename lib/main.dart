@@ -26,7 +26,7 @@ Future<void> main() async {
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
         builder: (context, state, child) {
-          return SharedScaffold(child: child);
+          return SharedScaffold(title: "Slim Travel", child: child);
         },
         routes: [
           GoRoute(

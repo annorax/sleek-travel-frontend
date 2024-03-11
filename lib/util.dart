@@ -1,5 +1,5 @@
 import 'package:graphql/client.dart';
-import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 
@@ -7,10 +7,9 @@ class Util {
   Util._();
 
   static Future<String?> login(String email, String password) async {
-    final Link link = HttpLink(backendUrl);
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),
-      link: link,
+      link: backendLink,
     );
     final QueryResult result = await client.mutate(
       MutationOptions(
@@ -51,13 +50,12 @@ class Util {
   }
 
   static Future<User?> validateToken(String tokenValue) async {
-    final Link link = HttpLink(backendUrl);
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),
-      link: link,
+      link: backendLink,
     );
-    final QueryResult result = await client.mutate(
-      MutationOptions(
+    final QueryResult result = await client.query(
+      QueryOptions(
         document: gql(
           r'''
             query ValidateToken($tokenValue: String!) {

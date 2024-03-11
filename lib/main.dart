@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/home_page.dart';
 import 'package:slim_travel_frontend/login_page.dart';
+import 'package:slim_travel_frontend/products_page.dart';
 import 'package:slim_travel_frontend/shared_scaffold.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
@@ -12,6 +13,8 @@ GoRouter? router;
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<SharedScaffoldState> sharedScaffoldKey = GlobalKey<SharedScaffoldState>();
+final Link backendLink = HttpLink(backendUrl);
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,44 +27,75 @@ Future<void> main() async {
     initialLocation: user != null ? basePath : loginPageAbsolutePath,
     routes: [
       ShellRoute(
-        navigatorKey: _shellNavigatorKey,
-        builder: (context, state, child) {
-          return SharedScaffold(title: "Slim Travel", child: child);
-        },
-        routes: [
-          GoRoute(
-            path: basePath,
-            builder: (BuildContext context, GoRouterState state) {
-              return const HomePage();
-            },
-            routes: <RouteBase>[
-              GoRoute(
-                path: loginPagePath,
-                builder: (BuildContext context, GoRouterState state) {
-                  return const LoginPage();
-                },
-              ),
-            ],
-          ),
-        ]
-      ),
+          navigatorKey: _shellNavigatorKey,
+          builder: (context, state, child) {
+            return SharedScaffold(
+              key: sharedScaffoldKey,
+              child: child
+            );
+          },
+          routes: [
+            GoRoute(
+              path: basePath,
+              builder: (BuildContext context, GoRouterState state) {
+                return const ProductsPage();
+              },
+              routes: <RouteBase>[
+                GoRoute(
+                  path: loginPagePath,
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const LoginPage();
+                  },
+                ),
+              ],
+            ),
+          ]),
     ],
   );
-  runApp(const MyApp());
+
+  ValueNotifier<GraphQLClient> client = ValueNotifier(
+    GraphQLClient(
+      link: backendLink,
+      // The default store is the InMemoryStore, which does NOT persist to disk
+      cache: GraphQLCache(),
+    ),
+  );
+  userState.stream.listen((user) {
+    final Link link = AuthLink(
+      getToken: () async => "Bearer ${user.token}",
+    ).concat(backendLink);
+    client.value = GraphQLClient(
+      link: link,
+      cache: GraphQLCache(),
+    );
+  }, onDone: () {
+    client.value = GraphQLClient(
+      link: backendLink,
+      // The default store is the InMemoryStore, which does NOT persist to disk
+      cache: GraphQLCache(),
+    );
+  });
+
+  runApp(MyApp(client: client));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ValueNotifier<GraphQLClient> client;
+
+  const MyApp({super.key, required this.client});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Flutter Demo',
-      routerConfig: router,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return GraphQLProvider(
+      client: client,
+      child: MaterialApp.router(
+        title: 'Flutter Demo',
+        routerConfig: router,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
       ),
     );
   }

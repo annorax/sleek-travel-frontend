@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/main.dart';
 
+enum ProductSortOptions { name, updateTime }
+
 class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});
 
@@ -9,6 +11,7 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_){
       sharedScaffoldKey.currentState?.title = "Products";
+      sharedScaffoldKey.currentState?.sortOptions = ProductSortOptions.values;
     });
     return Query(
       options: QueryOptions(

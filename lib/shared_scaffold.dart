@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
+import 'package:slim_travel_frontend/util.dart';
 
 class SharedScaffold extends StatefulWidget {
   final Widget child;
@@ -13,10 +14,17 @@ class SharedScaffold extends StatefulWidget {
 
 class SharedScaffoldState extends State<SharedScaffold> {
   String? _title;
+  List? _sortOptions;
 
   set title(String title) {
     setState(() {
       _title = title;
+    });
+  }
+
+  set sortOptions(List sortOptions) {
+    setState(() {
+      _sortOptions = sortOptions;
     });
   }
 
@@ -58,13 +66,19 @@ class SharedScaffoldState extends State<SharedScaffold> {
                 tooltip: 'Sort by',
               );
             },
-            menuChildren: List<MenuItemButton>.generate(
-              3,
-              (int index) => MenuItemButton(
-                onPressed: () {},
-                child: Text('Item ${index + 1}'),
-              ),
-            ),
+            menuChildren: _sortOptions == null
+              ? []
+              : _sortOptions!.map<Widget>((sortOption) {
+                  String sortOptionName = sortOption
+                      .toString()
+                      .replaceAll(RegExp(r'^[^.]+\.'), '');
+                  String sortOptionCaption =
+                      Util.camelToSentence(sortOptionName);
+                  return MenuItemButton(
+                    child: Text(sortOptionCaption),
+                    onPressed: () {}
+                  );
+                }).toList()
           ),
         ],
       ),

@@ -6,6 +6,11 @@ import 'package:slim_travel_frontend/user.state.dart';
 class Util {
   Util._();
 
+  static String camelToSentence(String text) {
+    return text.replaceAllMapped(RegExp(r'^([a-z])|[A-Z]'), 
+          (Match m) => m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
+  }
+
   static Future<String?> login(String email, String password) async {
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),

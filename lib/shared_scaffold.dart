@@ -75,8 +75,11 @@ class SharedScaffoldState extends State<SharedScaffold> {
                   String sortOptionCaption =
                       Util.camelToSentence(sortOptionName);
                   return MenuItemButton(
-                    child: Text(sortOptionCaption),
-                    onPressed: () {}
+                    style: MenuItemButton.styleFrom(
+
+                    ),
+                    onPressed: () {},
+                    child: Text(sortOptionCaption)
                   );
                 }).toList()
           ),

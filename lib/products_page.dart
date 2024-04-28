@@ -12,6 +12,8 @@ class ProductsPage extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_){
       sharedScaffoldKey.currentState?.title = "Products";
       sharedScaffoldKey.currentState?.sortOptions = ProductSortOptions.values;
+      sharedScaffoldKey.currentState?.sortOption = ProductSortOptions.updateTime;
+      sharedScaffoldKey.currentState?.sortAscending = false;
     });
     return Query(
       options: QueryOptions(

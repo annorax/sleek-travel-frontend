@@ -15,6 +15,8 @@ class SharedScaffold extends StatefulWidget {
 class SharedScaffoldState extends State<SharedScaffold> {
   String? _title;
   List? _sortOptions;
+  dynamic _sortOption;
+  bool? _sortAscending;
 
   set title(String title) {
     setState(() {
@@ -25,6 +27,18 @@ class SharedScaffoldState extends State<SharedScaffold> {
   set sortOptions(List sortOptions) {
     setState(() {
       _sortOptions = sortOptions;
+    });
+  }
+
+  set sortOption(dynamic sortOption) {
+    setState(() {
+      _sortOption = sortOption;
+    });
+  }
+
+  set sortAscending(bool sortAscending) {
+    setState(() {
+      _sortAscending = sortAscending;
     });
   }
 
@@ -52,37 +66,47 @@ class SharedScaffoldState extends State<SharedScaffold> {
                 }),
           ),
           MenuAnchor(
-            builder: (BuildContext context, MenuController controller,
-                Widget? child) {
-              return IconButton(
-                onPressed: () {
-                  if (controller.isOpen) {
-                    controller.close();
-                  } else {
-                    controller.open();
-                  }
-                },
-                icon: const Icon(Icons.sort),
-                tooltip: 'Sort by',
-              );
-            },
-            menuChildren: _sortOptions == null
-              ? []
-              : _sortOptions!.map<Widget>((sortOption) {
-                  String sortOptionName = sortOption
-                      .toString()
-                      .replaceAll(RegExp(r'^[^.]+\.'), '');
-                  String sortOptionCaption =
-                      Util.camelToSentence(sortOptionName);
-                  return MenuItemButton(
-                    style: MenuItemButton.styleFrom(
-
-                    ),
-                    onPressed: () {},
-                    child: Text(sortOptionCaption)
-                  );
-                }).toList()
-          ),
+              builder: (BuildContext context, MenuController controller,
+                  Widget? child) {
+                return IconButton(
+                  onPressed: () {
+                    if (controller.isOpen) {
+                      controller.close();
+                    } else {
+                      controller.open();
+                    }
+                  },
+                  icon: const Icon(Icons.sort),
+                  tooltip: 'Sort by',
+                );
+              },
+              menuChildren: _sortOptions == null
+                  ? []
+                  : _sortOptions!.map<Widget>((sortOption) {
+                      String sortOptionName = sortOption
+                          .toString()
+                          .replaceAll(RegExp(r'^[^.]+\.'), '');
+                      String sortOptionCaption =
+                          Util.camelToSentence(sortOptionName);
+                      MenuItemButton button = MenuItemButton(
+                        leadingIcon: Icon(_sortOption != sortOption
+                          ? null
+                          : _sortAscending!
+                              ? Icons.arrow_upward
+                              : Icons.arrow_downward
+                        ),
+                        onPressed: () {
+                          if (_sortOption != sortOption) {
+                            this.sortOption = sortOption;
+                            sortAscending = false;
+                          } else {
+                            sortAscending = !_sortAscending!;
+                          }
+                        },
+                        child: Text(sortOptionCaption)
+                      );
+                      return button;
+                    }).toList()),
         ],
       ),
       body: widget.child,

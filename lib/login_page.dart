@@ -3,10 +3,12 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/main.dart';
+import 'package:slim_travel_frontend/products_page.dart';
 import 'package:slim_travel_frontend/util.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
+  static const path = '$basePath$loginPagePath';
   const LoginPage({super.key});
 
   @override
@@ -43,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                       BuildContext? currentContext =
                           router!.routerDelegate.navigatorKey.currentContext;
                       if (errorMessage == null) {
-                        currentContext?.go(basePath);
+                        currentContext?.go(ProductsPage.path);
                       } else {
                         // ignore: use_build_context_synchronously
                         ScaffoldMessenger.of(currentContext!)

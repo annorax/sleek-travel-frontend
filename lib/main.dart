@@ -12,8 +12,10 @@ import 'package:slim_travel_frontend/util.dart';
 GoRouter? router;
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
-final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
-final GlobalKey<SharedScaffoldState> sharedScaffoldKey = GlobalKey<SharedScaffoldState>();
+final GlobalKey<NavigatorState> _shellNavigatorKey =
+    GlobalKey<NavigatorState>();
+final GlobalKey<SharedScaffoldState> sharedScaffoldKey =
+    GlobalKey<SharedScaffoldState>();
 final Link backendLink = HttpLink(backendUrl);
 
 Future<void> main() async {
@@ -24,21 +26,35 @@ Future<void> main() async {
   }
   router = GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: user != null ? basePath : loginPageAbsolutePath,
+    initialLocation: user != null ? ProductsPage.path : LoginPage.path,
     routes: [
       ShellRoute(
           navigatorKey: _shellNavigatorKey,
           builder: (context, state, child) {
             return SharedScaffold(
-              key: sharedScaffoldKey,
-              child: child
-            );
+                key: sharedScaffoldKey, routerState: state, child: child);
           },
           routes: [
             GoRoute(
-              path: basePath,
+              path: ProductsPage.path,
               builder: (BuildContext context, GoRouterState state) {
-                return const ProductsPage();
+                String? sortOptionName =
+                    state.uri.queryParameters['sortOption'];
+                String? sortDirectionName =
+                    state.uri.queryParameters['sortDirection'];
+                ProductSortOption? sortOption = sortOptionName != null
+                    ? ProductSortOption.values.byName(sortOptionName)
+                    : null;
+                SortDirection? sortDirection = sortDirectionName != null
+                    ? SortDirection.values.byName(sortDirectionName)
+                    : null;
+                if (sortOption == null) {
+                  return const ProductsPage();
+                }
+                return ProductsPage(
+                  sortOption: sortOption,
+                  sortDirection: sortDirection ?? SortDirection.desc,
+                );
               },
               routes: <RouteBase>[
                 GoRoute(
@@ -90,14 +106,13 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: client,
       child: MaterialApp.router(
-        title: 'Flutter Demo',
-        routerConfig: router,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        debugShowCheckedModeBanner: false
-      ),
+          title: 'Flutter Demo',
+          routerConfig: router,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          debugShowCheckedModeBanner: false),
     );
   }
 }

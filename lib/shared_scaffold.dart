@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
+enum SortDirection { asc, desc }
+
 class SharedScaffold extends StatefulWidget {
+  final GoRouterState routerState;
   final Widget child;
 
-  const SharedScaffold({super.key, required this.child});
+  const SharedScaffold(
+      {super.key, required this.routerState, required this.child});
 
   @override
   State<SharedScaffold> createState() => SharedScaffoldState();
@@ -16,7 +21,7 @@ class SharedScaffoldState extends State<SharedScaffold> {
   String? _title;
   List? _sortOptions;
   dynamic _sortOption;
-  bool? _sortAscending;
+  SortDirection? _sortDirection;
 
   set title(String title) {
     setState(() {
@@ -31,14 +36,20 @@ class SharedScaffoldState extends State<SharedScaffold> {
   }
 
   set sortOption(dynamic sortOption) {
+    if (_sortOption == sortOption) {
+      return;
+    }
     setState(() {
       _sortOption = sortOption;
     });
   }
 
-  set sortAscending(bool sortAscending) {
+  set sortDirection(SortDirection? sortDirection) {
+    if (_sortDirection == sortDirection) {
+      return;
+    }
     setState(() {
-      _sortAscending = sortAscending;
+      _sortDirection = sortDirection;
     });
   }
 
@@ -89,22 +100,28 @@ class SharedScaffoldState extends State<SharedScaffold> {
                       String sortOptionCaption =
                           Util.camelToSentence(sortOptionName);
                       MenuItemButton button = MenuItemButton(
-                        leadingIcon: Icon(_sortOption != sortOption
-                          ? null
-                          : _sortAscending!
-                              ? Icons.arrow_upward
-                              : Icons.arrow_downward
-                        ),
-                        onPressed: () {
-                          if (_sortOption != sortOption) {
-                            this.sortOption = sortOption;
-                            sortAscending = false;
-                          } else {
-                            sortAscending = !_sortAscending!;
-                          }
-                        },
-                        child: Text(sortOptionCaption)
-                      );
+                          leadingIcon: Icon(_sortOption != sortOption
+                              ? null
+                              : _sortDirection == SortDirection.asc
+                                  ? Icons.arrow_upward
+                                  : Icons.arrow_downward),
+                          onPressed: () {
+                            if (_sortOption != sortOption) {
+                              this.sortOption = sortOption;
+                              _sortDirection = SortDirection.desc;
+                            } else {
+                              _sortDirection =
+                                  _sortDirection == SortDirection.asc
+                                      ? SortDirection.desc
+                                      : SortDirection.asc;
+                            }
+                            context.goNamed(widget.routerState.path!,
+                                queryParameters: {
+                                  "sortOption": sortOption.toString(),
+                                  "sortDirection": _sortDirection.toString()
+                                });
+                          },
+                          child: Text(sortOptionCaption));
                       return button;
                     }).toList()),
         ],

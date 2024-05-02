@@ -4,4 +4,3 @@ const String passwordFieldName = 'password';
 const String userKey = 'user';
 const String basePath = '/';
 const String loginPagePath = 'login';
-const String loginPageAbsolutePath = '$basePath$loginPagePath';

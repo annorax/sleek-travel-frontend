@@ -106,7 +106,7 @@ class SharedScaffoldState extends State<SharedScaffold> {
                           onPressed: () {
                             if (_sortOption != sortOption) {
                               this.sortOption = sortOption;
-                              _sortDirection = SortDirection.desc;
+                              _sortDirection = sortOption.defaultDirection;
                             } else {
                               _sortDirection =
                                   _sortDirection == SortDirection.asc

@@ -48,12 +48,12 @@ Future<void> main() async {
                 SortDirection? sortDirection = sortDirectionName != null
                     ? SortDirection.values.byName(sortDirectionName)
                     : null;
-                if (sortOption == null) {
+                if (sortOption == null || sortDirection == null) {
                   return const ProductsPage();
                 }
                 return ProductsPage(
                   sortOption: sortOption.name,
-                  sortDirection: (sortDirection ?? SortDirection.desc).name,
+                  sortDirection: sortDirection.name,
                 );
               },
               routes: <RouteBase>[

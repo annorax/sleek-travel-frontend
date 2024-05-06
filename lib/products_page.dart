@@ -4,7 +4,16 @@ import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/shared_scaffold.dart';
 
-enum ProductSortOption { name, updatedAt }
+enum ProductSortOption {
+  name(defaultDirection: SortDirection.asc),
+  updatedAt(defaultDirection: SortDirection.desc);
+
+  final SortDirection defaultDirection;
+
+  const ProductSortOption({
+    required this.defaultDirection
+  });
+}
 
 class ProductsPage extends StatelessWidget {
   static const path = basePath;
@@ -13,17 +22,19 @@ class ProductsPage extends StatelessWidget {
   final String? sortDirection;
 
   const ProductsPage(
-      {super.key,
-      this.sortOption = 'updatedAt',
-      this.sortDirection = 'desc'});
+      {super.key, this.sortOption = 'updatedAt', this.sortDirection = 'desc'});
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       sharedScaffoldKey.currentState?.title = "Products";
       sharedScaffoldKey.currentState?.sortOptions = ProductSortOption.values;
-      sharedScaffoldKey.currentState?.sortOption = sortOption != null ? ProductSortOption.values.byName(sortOption!) : null;
-      sharedScaffoldKey.currentState?.sortDirection = sortDirection != null ? SortDirection.values.byName(sortDirection!) : null;
+      sharedScaffoldKey.currentState?.sortOption = sortOption != null
+          ? ProductSortOption.values.byName(sortOption!)
+          : null;
+      sharedScaffoldKey.currentState?.sortDirection = sortDirection != null
+          ? SortDirection.values.byName(sortDirection!)
+          : null;
     });
     debugPrint(sortOption.toString());
     debugPrint(sortDirection.toString());
@@ -35,8 +46,7 @@ class ProductsPage extends StatelessWidget {
               name
             }
           }
-        ''')
-      ),
+        ''')),
       builder: (QueryResult result,
           {VoidCallback? refetch, FetchMore? fetchMore}) {
         if (result.hasException) {

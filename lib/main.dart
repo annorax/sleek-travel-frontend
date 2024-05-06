@@ -52,8 +52,8 @@ Future<void> main() async {
                   return const ProductsPage();
                 }
                 return ProductsPage(
-                  sortOption: sortOption,
-                  sortDirection: sortDirection ?? SortDirection.desc,
+                  sortOption: sortOption.name,
+                  sortDirection: (sortDirection ?? SortDirection.desc).name,
                 );
               },
               routes: <RouteBase>[

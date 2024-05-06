@@ -11,6 +11,8 @@ class Util {
           (Match m) => m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
   }
 
+  static String enumValueToName(dynamic value) => value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
+
   static Future<String?> login(String email, String password) async {
     final GraphQLClient client = GraphQLClient(
       cache: GraphQLCache(),

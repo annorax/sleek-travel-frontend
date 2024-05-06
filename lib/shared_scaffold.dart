@@ -94,9 +94,7 @@ class SharedScaffoldState extends State<SharedScaffold> {
               menuChildren: _sortOptions == null
                   ? []
                   : _sortOptions!.map<Widget>((sortOption) {
-                      String sortOptionName = sortOption
-                          .toString()
-                          .replaceAll(RegExp(r'^[^.]+\.'), '');
+                      String sortOptionName = Util.enumValueToName(sortOption);
                       String sortOptionCaption =
                           Util.camelToSentence(sortOptionName);
                       MenuItemButton button = MenuItemButton(
@@ -115,11 +113,12 @@ class SharedScaffoldState extends State<SharedScaffold> {
                                       ? SortDirection.desc
                                       : SortDirection.asc;
                             }
-                            context.goNamed(widget.routerState.path!,
+                            context.go(Uri(
+                                path: widget.routerState.fullPath!,
                                 queryParameters: {
-                                  "sortOption": sortOption.toString(),
-                                  "sortDirection": _sortDirection.toString()
-                                });
+                                  "sortOption": Util.enumValueToName(sortOption),
+                                  "sortDirection": _sortDirection?.name
+                                }).toString());
                           },
                           child: Text(sortOptionCaption));
                       return button;

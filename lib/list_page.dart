@@ -19,19 +19,19 @@ abstract class ListPage extends StatelessWidget {
       this.sortDirection,
       required this.sortOptions});
 
-  static createBuilder(Function({String? sortOption, String? sortDirection}) create) => (BuildContext context, GoRouterState state) {
-    String? sortOptionName =
-        state.uri.queryParameters['sortOption'];
-    String? sortDirectionName =
-        state.uri.queryParameters['sortDirection'];
-    if (sortOptionName == null || sortDirectionName == null) {
-      return create();
-    }
-    return create(
-      sortOption: sortOptionName,
-      sortDirection: sortDirectionName,
-    );
-  }
+  static createBuilder(
+          Function({String? sortOption, String? sortDirection}) create) =>
+      (BuildContext context, GoRouterState state) {
+        String? sortOptionName = state.uri.queryParameters['sortOption'];
+        String? sortDirectionName = state.uri.queryParameters['sortDirection'];
+        if (sortOptionName == null || sortDirectionName == null) {
+          return create();
+        }
+        return create(
+          sortOption: sortOptionName,
+          sortDirection: sortDirectionName,
+        );
+      };
 
   String get entityTypeDisplayNamePlural;
   String get entityTypeNamePlural;
@@ -39,7 +39,8 @@ abstract class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      sharedScaffoldKey.currentState?.title = entityTypeDisplayNamePlural.toCapitalized();
+      sharedScaffoldKey.currentState?.title =
+          entityTypeDisplayNamePlural.toCapitalized();
       sharedScaffoldKey.currentState?.sortOptions = sortOptions;
       sharedScaffoldKey.currentState?.sortOption =
           sortOption != null ? sortOptions.byName(sortOption!) : null;

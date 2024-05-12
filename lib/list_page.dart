@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/main.dart';
@@ -17,6 +18,20 @@ abstract class ListPage extends StatelessWidget {
       this.sortOption,
       this.sortDirection,
       required this.sortOptions});
+
+  static createBuilder(Function({String? sortOption, String? sortDirection}) create) => (BuildContext context, GoRouterState state) {
+    String? sortOptionName =
+        state.uri.queryParameters['sortOption'];
+    String? sortDirectionName =
+        state.uri.queryParameters['sortDirection'];
+    if (sortOptionName == null || sortDirectionName == null) {
+      return create();
+    }
+    return create(
+      sortOption: sortOptionName,
+      sortDirection: sortDirectionName,
+    );
+  }
 
   String get entityTypeDisplayNamePlural;
   String get entityTypeNamePlural;

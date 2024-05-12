@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/list_page.dart';
 import 'package:slim_travel_frontend/login_page.dart';
 import 'package:slim_travel_frontend/products_page.dart';
 import 'package:slim_travel_frontend/shared_scaffold.dart';
@@ -37,25 +38,7 @@ Future<void> main() async {
           routes: [
             GoRoute(
               path: ProductsPage.path,
-              builder: (BuildContext context, GoRouterState state) {
-                String? sortOptionName =
-                    state.uri.queryParameters['sortOption'];
-                String? sortDirectionName =
-                    state.uri.queryParameters['sortDirection'];
-                ProductSortOption? sortOption = sortOptionName != null
-                    ? ProductSortOption.values.byName(sortOptionName)
-                    : null;
-                SortDirection? sortDirection = sortDirectionName != null
-                    ? SortDirection.values.byName(sortDirectionName)
-                    : null;
-                if (sortOption == null || sortDirection == null) {
-                  return const ProductsPage();
-                }
-                return ProductsPage(
-                  sortOption: sortOption.name,
-                  sortDirection: sortDirection.name,
-                );
-              },
+              builder: ListPage.createBuilder(ProductsPage.create),
               routes: <RouteBase>[
                 GoRoute(
                   path: loginPagePath,

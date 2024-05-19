@@ -14,10 +14,12 @@ enum ProductSortOption {
 class ProductsPage extends ListPage {
   static const path = basePath;
 
-  static create({String? sortOption, String? sortDirection}) => ProductsPage(sortOption: sortOption, sortDirection: sortDirection);
+  static create({
+    String? sortOption = 'updatedAt', String? sortDirection = 'desc'
+  }) => ProductsPage(sortOption: sortOption, sortDirection: sortDirection);
 
   const ProductsPage(
-      {super.key, super.sortOption = 'updatedAt', super.sortDirection = 'desc'})
+      {super.key, super.sortOption, super.sortDirection})
       : super(sortOptions: ProductSortOption.values);
 
   @override

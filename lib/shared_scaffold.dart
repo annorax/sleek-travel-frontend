@@ -116,7 +116,8 @@ class SharedScaffoldState extends State<SharedScaffold> {
                             context.go(Uri(
                                 path: widget.routerState.fullPath!,
                                 queryParameters: {
-                                  "sortOption": Util.enumValueToName(sortOption),
+                                  "sortOption":
+                                      Util.enumValueToName(sortOption),
                                   "sortDirection": _sortDirection?.name
                                 }).toString());
                           },

@@ -19,7 +19,8 @@ abstract class ListPage extends StatelessWidget {
       this.sortDirection,
       required this.sortOptions});
 
-  static createBuilder(
+  static Widget Function(
+      BuildContext context, GoRouterState state) createBuilder(
           Function({String? sortOption, String? sortDirection}) create) =>
       (BuildContext context, GoRouterState state) {
         String? sortOptionName = state.uri.queryParameters['sortOption'];
@@ -48,6 +49,9 @@ abstract class ListPage extends StatelessWidget {
           ? SortDirection.values.byName(sortDirection!)
           : null;
     });
+    if (sortOption == null || sortDirection == null) {
+      return const Text("Loading");
+    }
     return Query(
       options: QueryOptions(document: gql('''
           query List${entityTypeNamePlural.toCapitalized()} {

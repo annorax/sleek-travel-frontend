@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/main.dart';
-import 'package:slim_travel_frontend/shared_scaffold.dart';
+import 'package:slim_travel_frontend/pages/dashboard_page.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 abstract class ListPage extends StatelessWidget {
@@ -12,27 +10,18 @@ abstract class ListPage extends StatelessWidget {
   final String? sortOption;
   final String? sortDirection;
   final List<Enum> sortOptions;
+  final Function(
+      {String? title,
+      List? sortOptions,
+      dynamic sortOption,
+      SortDirection? sortDirection})? updateDashboardState;
 
   const ListPage(
       {super.key,
       this.sortOption,
       this.sortDirection,
+      this.updateDashboardState,
       required this.sortOptions});
-
-  static Widget Function(
-      BuildContext context, GoRouterState state) createBuilder(
-          Function({String? sortOption, String? sortDirection}) create) =>
-      (BuildContext context, GoRouterState state) {
-        String? sortOptionName = state.uri.queryParameters['sortOption'];
-        String? sortDirectionName = state.uri.queryParameters['sortDirection'];
-        if (sortOptionName == null || sortDirectionName == null) {
-          return create();
-        }
-        return create(
-          sortOption: sortOptionName,
-          sortDirection: sortDirectionName,
-        );
-      };
 
   String get entityTypeDisplayNamePlural;
   String get entityTypeNamePlural;
@@ -40,14 +29,16 @@ abstract class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      sharedScaffoldKey.currentState?.title =
-          entityTypeDisplayNamePlural.toCapitalized();
-      sharedScaffoldKey.currentState?.sortOptions = sortOptions;
-      sharedScaffoldKey.currentState?.sortOption =
-          sortOption != null ? sortOptions.byName(sortOption!) : null;
-      sharedScaffoldKey.currentState?.sortDirection = sortDirection != null
-          ? SortDirection.values.byName(sortDirection!)
-          : null;
+      if (updateDashboardState != null) {
+        updateDashboardState!(
+            title: entityTypeDisplayNamePlural.toCapitalized(),
+            sortOptions: sortOptions,
+            sortOption:
+                sortOption != null ? sortOptions.byName(sortOption!) : null,
+            sortDirection: sortDirection != null
+                ? SortDirection.values.byName(sortDirection!)
+                : null);
+      }
     });
     if (sortOption == null || sortDirection == null) {
       return const Text("Loading");

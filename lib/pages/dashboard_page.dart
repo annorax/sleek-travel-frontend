@@ -1,37 +1,37 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:slim_travel_frontend/app_router.gr.dart';
+import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 enum SortDirection { asc, desc }
 
-class SharedScaffold extends StatefulWidget {
-  final GoRouterState routerState;
-  final Widget child;
-
-  const SharedScaffold(
-      {super.key, required this.routerState, required this.child});
+@RoutePage()
+class DashboardPage extends StatefulWidget {
+  const DashboardPage({super.key});
 
   @override
-  State<SharedScaffold> createState() => SharedScaffoldState();
+  State<DashboardPage> createState() => DashboardPageState();
 }
 
-class SharedScaffoldState extends State<SharedScaffold> {
+class DashboardPageState extends State<DashboardPage> {
   String? _title;
   List? _sortOptions;
   dynamic _sortOption;
   SortDirection? _sortDirection;
 
-  set title(String title) {
+  void updateDashboardState(
+      {String? title,
+      List? sortOptions,
+      dynamic sortOption,
+      SortDirection? sortDirection}) {
     setState(() {
       _title = title;
-    });
-  }
-
-  set sortOptions(List sortOptions) {
-    setState(() {
       _sortOptions = sortOptions;
+      _sortOption = sortOption;
+      _sortDirection = sortDirection;
     });
   }
 
@@ -57,9 +57,8 @@ class SharedScaffoldState extends State<SharedScaffold> {
   Widget build(BuildContext context) {
     User? user = userState.getValueSyncNoInit();
     final GlobalKey<TooltipState> tooltipKey = GlobalKey<TooltipState>();
-
-    return Scaffold(
-      appBar: AppBar(
+    return AutoTabsScaffold(
+      appBarBuilder: (context, tabsRouter) => AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: _title != null ? Text(_title!) : null,
         actions: [
@@ -104,29 +103,48 @@ class SharedScaffoldState extends State<SharedScaffold> {
                                   ? Icons.arrow_upward
                                   : Icons.arrow_downward),
                           onPressed: () {
-                            if (_sortOption != sortOption) {
+                            if (sortOption != sortOption) {
                               this.sortOption = sortOption;
-                              _sortDirection = sortOption.defaultDirection;
+                              sortDirection = sortOption.defaultDirection;
                             } else {
-                              _sortDirection =
+                              sortDirection =
                                   _sortDirection == SortDirection.asc
                                       ? SortDirection.desc
                                       : SortDirection.asc;
                             }
-                            context.go(Uri(
-                                path: widget.routerState.fullPath!,
-                                queryParameters: {
-                                  "sortOption":
-                                      Util.enumValueToName(sortOption),
-                                  "sortDirection": _sortDirection?.name
-                                }).toString());
+                            PageRouteInfo pageRouteInfo =
+                                appRouter.topMatch.toPageRouteInfo();
+                            pageRouteInfo = pageRouteInfo.copyWith(
+                                args: ProductsRouteArgs(
+                                    key: pageRouteInfo.args.key,
+                                    updateDashboardState: pageRouteInfo.args.updateDashboardState,
+                                    sortOption: Util.enumValueToName(sortOption),
+                                    sortDirection: _sortDirection?.name
+                                  )
+                            );
+                            appRouter.replace(pageRouteInfo);
                           },
                           child: Text(sortOptionCaption));
                       return button;
                     }).toList()),
         ],
       ),
-      body: widget.child,
+      routes: [
+        ProductsRoute(updateDashboardState: updateDashboardState),
+        PurchaseOrdersRoute(updateDashboardState: updateDashboardState),
+      ],
+      bottomNavigationBuilder: (_, tabsRouter) {
+        return BottomNavigationBar(
+          currentIndex: tabsRouter.activeIndex,
+          onTap: tabsRouter.setActiveIndex,
+          items: const [
+            BottomNavigationBarItem(
+                label: 'Products', icon: Icon(Icons.redeem)),
+            BottomNavigationBarItem(
+                label: 'Orders', icon: Icon(Icons.assignment)),
+          ],
+        );
+      },
     );
   }
 }

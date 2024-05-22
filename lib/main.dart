@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:slim_travel_frontend/app_router.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/list_page.dart';
-import 'package:slim_travel_frontend/login_page.dart';
-import 'package:slim_travel_frontend/products_page.dart';
-import 'package:slim_travel_frontend/shared_scaffold.dart';
+import 'package:slim_travel_frontend/golbal_keys.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
-GoRouter? router;
-
-final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
-final GlobalKey<NavigatorState> _shellNavigatorKey =
-    GlobalKey<NavigatorState>();
-final GlobalKey<SharedScaffoldState> sharedScaffoldKey =
-    GlobalKey<SharedScaffoldState>();
+final appRouter = AppRouter();
 final Link backendLink = HttpLink(backendUrl);
 
 Future<void> main() async {
@@ -25,33 +16,6 @@ Future<void> main() async {
   if (user != null) {
     user = await Util.validateToken(user.token);
   }
-  router = GoRouter(
-    navigatorKey: _rootNavigatorKey,
-    initialLocation: user != null ? ProductsPage.path : LoginPage.path,
-    routes: [
-      ShellRoute(
-          navigatorKey: _shellNavigatorKey,
-          builder: (context, state, child) {
-            return SharedScaffold(
-                key: sharedScaffoldKey, routerState: state, child: child);
-          },
-          routes: [
-            GoRoute(
-              path: ProductsPage.path,
-              builder: ListPage.createBuilder(ProductsPage.create),
-              routes: <RouteBase>[
-                GoRoute(
-                  path: loginPagePath,
-                  builder: (BuildContext context, GoRouterState state) {
-                    return const LoginPage();
-                  },
-                ),
-              ],
-            ),
-          ]),
-    ],
-  );
-
   ValueNotifier<GraphQLClient> client = ValueNotifier(
     GraphQLClient(
       link: backendLink,
@@ -74,13 +38,11 @@ Future<void> main() async {
       cache: GraphQLCache(),
     );
   });
-
   runApp(MyApp(client: client));
 }
 
 class MyApp extends StatelessWidget {
   final ValueNotifier<GraphQLClient> client;
-
   const MyApp({super.key, required this.client});
 
   // This widget is the root of your application.
@@ -89,13 +51,13 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: client,
       child: MaterialApp.router(
-          title: 'Flutter Demo',
-          routerConfig: router,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          debugShowCheckedModeBanner: false),
+        routerConfig: appRouter.config(),
+        scaffoldMessengerKey: scaffoldMessengerKey,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false),
     );
   }
 }

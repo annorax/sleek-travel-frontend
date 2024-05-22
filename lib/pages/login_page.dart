@@ -1,15 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/main.dart';
-import 'package:slim_travel_frontend/products_page.dart';
+import 'package:slim_travel_frontend/golbal_keys.dart';
 import 'package:slim_travel_frontend/util.dart';
-import 'package:go_router/go_router.dart';
 
+@RoutePage()
 class LoginPage extends StatefulWidget {
+  final ValueChanged<bool> onResult;
   static const path = '$basePath$loginPagePath';
-  const LoginPage({super.key});
+  const LoginPage({super.key, required this.onResult});
 
   @override
   createState() => _LoginPageState();
@@ -22,7 +23,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Scaffold(
+        body: SingleChildScrollView(
       child: FormBuilder(
         key: _formKey,
         onChanged: () {
@@ -42,13 +44,10 @@ class _LoginPageState extends State<LoginPage> {
                     String password = value[passwordFieldName];
                     if (valid) {
                       String? errorMessage = await Util.login(email, password);
-                      BuildContext? currentContext =
-                          router!.routerDelegate.navigatorKey.currentContext;
                       if (errorMessage == null) {
-                        currentContext?.go(ProductsPage.path);
+                        widget.onResult(true);
                       } else {
-                        // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(currentContext!)
+                        scaffoldMessengerKey.currentState!
                             .showSnackBar(SnackBar(
                           content: Text(errorMessage),
                           backgroundColor: Colors.red,
@@ -88,6 +87,6 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
-    );
+    ));
   }
 }

@@ -37,8 +37,18 @@ abstract class $AppRouter extends _i5.RootStackRouter {
       );
     },
     ProductsRoute.name: (routeData) {
+      final queryParams = routeData.queryParams;
       final args = routeData.argsAs<ProductsRouteArgs>(
-          orElse: () => const ProductsRouteArgs());
+          orElse: () => ProductsRouteArgs(
+                sortOption: queryParams.optString(
+                  'sortOption',
+                  'updatedAt',
+                ),
+                sortDirection: queryParams.optString(
+                  'sortDirection',
+                  'desc',
+                ),
+              ));
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i3.ProductsPage(
@@ -50,8 +60,18 @@ abstract class $AppRouter extends _i5.RootStackRouter {
       );
     },
     PurchaseOrdersRoute.name: (routeData) {
+      final queryParams = routeData.queryParams;
       final args = routeData.argsAs<PurchaseOrdersRouteArgs>(
-          orElse: () => const PurchaseOrdersRouteArgs());
+          orElse: () => PurchaseOrdersRouteArgs(
+                sortOption: queryParams.optString(
+                  'sortOption',
+                  'updatedAt',
+                ),
+                sortDirection: queryParams.optString(
+                  'sortDirection',
+                  'desc',
+                ),
+              ));
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i4.PurchaseOrdersPage(
@@ -139,6 +159,10 @@ class ProductsRoute extends _i5.PageRouteInfo<ProductsRouteArgs> {
             sortOption: sortOption,
             sortDirection: sortDirection,
           ),
+          rawQueryParams: {
+            'sortOption': sortOption,
+            'sortDirection': sortDirection,
+          },
           initialChildren: children,
         );
 
@@ -197,6 +221,10 @@ class PurchaseOrdersRoute extends _i5.PageRouteInfo<PurchaseOrdersRouteArgs> {
             sortOption: sortOption,
             sortDirection: sortDirection,
           ),
+          rawQueryParams: {
+            'sortOption': sortOption,
+            'sortDirection': sortDirection,
+          },
           initialChildren: children,
         );
 

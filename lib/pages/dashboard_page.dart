@@ -114,14 +114,10 @@ class DashboardPageState extends State<DashboardPage> {
                             }
                             PageRouteInfo pageRouteInfo =
                                 appRouter.topMatch.toPageRouteInfo();
-                            pageRouteInfo = pageRouteInfo.copyWith(
-                                args: ProductsRouteArgs(
-                                    key: pageRouteInfo.args.key,
-                                    updateDashboardState: pageRouteInfo.args.updateDashboardState,
-                                    sortOption: Util.enumValueToName(sortOption),
-                                    sortDirection: _sortDirection?.name
-                                  )
-                            );
+                            pageRouteInfo = pageRouteInfo.copyWith(queryParams: {
+                              "sortOption": Util.enumValueToName(sortOption),
+                              "sortDirection": _sortDirection?.name
+                            });
                             appRouter.replace(pageRouteInfo);
                           },
                           child: Text(sortOptionCaption));

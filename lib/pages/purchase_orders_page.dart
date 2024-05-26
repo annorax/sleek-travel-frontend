@@ -20,8 +20,8 @@ class PurchaseOrdersPage extends ListPage {
     {
       super.key,
       super.updateDashboardState,
-      super.sortOption = 'updatedAt',
-      super.sortDirection = 'desc'
+      @queryParam super.sortOption = 'updatedAt',
+      @queryParam super.sortDirection = 'desc'
     }
   ) : super(sortOptions: PurchaseOrderSortOption.values);
 

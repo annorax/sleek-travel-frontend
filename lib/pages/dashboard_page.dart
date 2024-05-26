@@ -103,7 +103,7 @@ class DashboardPageState extends State<DashboardPage> {
                                   ? Icons.arrow_upward
                                   : Icons.arrow_downward),
                           onPressed: () {
-                            if (sortOption != sortOption) {
+                            if (_sortOption != sortOption) {
                               this.sortOption = sortOption;
                               sortDirection = sortOption.defaultDirection;
                             } else {

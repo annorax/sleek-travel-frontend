@@ -3,29 +3,29 @@ import 'package:slim_travel_frontend/router/app_router.gr.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 
-@AutoRouterConfig()
+@AutoRouterConfig(replaceInRouteName: "Page,")
 class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     User? user = userState.getValueSyncNoInit();
-    if (user != null || resolver.route.name == LoginRoute.name) {
+    if (user != null || resolver.route.name == Login.name) {
       resolver.next();
     } else {
-      resolver.redirect(LoginRoute(onResult: (didLogin) => resolver.next(didLogin)));
+      resolver.redirect(Login(onResult: (didLogin) => resolver.next(didLogin)));
     }
   }
 
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: DashboardRoute.page,
+          page: Dashboard.page,
           initial: true,
           children: [
-            AutoRoute(page: ProductsRoute.page),
-            AutoRoute(page: PurchaseOrdersRoute.page)
+            AutoRoute(page: Products.page),
+            AutoRoute(page: PurchaseOrders.page)
           ]
         ),
-        AutoRoute(page: LoginRoute.page),
+        AutoRoute(page: Login.page),
       ];
 }

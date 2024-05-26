@@ -126,8 +126,8 @@ class DashboardPageState extends State<DashboardPage> {
         ],
       ),
       routes: [
-        ProductsRoute(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name),
-        PurchaseOrdersRoute(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name),
+        _sortOption != null && _sortDirection != null ? Products(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Products(updateDashboardState: updateDashboardState),
+        _sortOption != null && _sortDirection != null ? PurchaseOrders(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : PurchaseOrders(updateDashboardState: updateDashboardState),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(

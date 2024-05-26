@@ -20,14 +20,14 @@ abstract class $AppRouter extends _i5.RootStackRouter {
 
   @override
   final Map<String, _i5.PageFactory> pagesMap = {
-    DashboardRoute.name: (routeData) {
+    Dashboard.name: (routeData) {
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.DashboardPage(),
       );
     },
-    LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>();
+    Login.name: (routeData) {
+      final args = routeData.argsAs<LoginArgs>();
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i2.LoginPage(
@@ -36,10 +36,10 @@ abstract class $AppRouter extends _i5.RootStackRouter {
         ),
       );
     },
-    ProductsRoute.name: (routeData) {
+    Products.name: (routeData) {
       final queryParams = routeData.queryParams;
-      final args = routeData.argsAs<ProductsRouteArgs>(
-          orElse: () => ProductsRouteArgs(
+      final args = routeData.argsAs<ProductsArgs>(
+          orElse: () => ProductsArgs(
                 sortOption: queryParams.optString(
                   'sortOption',
                   'updatedAt',
@@ -59,10 +59,10 @@ abstract class $AppRouter extends _i5.RootStackRouter {
         ),
       );
     },
-    PurchaseOrdersRoute.name: (routeData) {
+    PurchaseOrders.name: (routeData) {
       final queryParams = routeData.queryParams;
-      final args = routeData.argsAs<PurchaseOrdersRouteArgs>(
-          orElse: () => PurchaseOrdersRouteArgs(
+      final args = routeData.argsAs<PurchaseOrdersArgs>(
+          orElse: () => PurchaseOrdersArgs(
                 sortOption: queryParams.optString(
                   'sortOption',
                   'updatedAt',
@@ -87,42 +87,41 @@ abstract class $AppRouter extends _i5.RootStackRouter {
 
 /// generated route for
 /// [_i1.DashboardPage]
-class DashboardRoute extends _i5.PageRouteInfo<void> {
-  const DashboardRoute({List<_i5.PageRouteInfo>? children})
+class Dashboard extends _i5.PageRouteInfo<void> {
+  const Dashboard({List<_i5.PageRouteInfo>? children})
       : super(
-          DashboardRoute.name,
+          Dashboard.name,
           initialChildren: children,
         );
 
-  static const String name = 'DashboardRoute';
+  static const String name = 'Dashboard';
 
   static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i2.LoginPage]
-class LoginRoute extends _i5.PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
+class Login extends _i5.PageRouteInfo<LoginArgs> {
+  Login({
     _i6.Key? key,
     required void Function(bool) onResult,
     List<_i5.PageRouteInfo>? children,
   }) : super(
-          LoginRoute.name,
-          args: LoginRouteArgs(
+          Login.name,
+          args: LoginArgs(
             key: key,
             onResult: onResult,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'LoginRoute';
+  static const String name = 'Login';
 
-  static const _i5.PageInfo<LoginRouteArgs> page =
-      _i5.PageInfo<LoginRouteArgs>(name);
+  static const _i5.PageInfo<LoginArgs> page = _i5.PageInfo<LoginArgs>(name);
 }
 
-class LoginRouteArgs {
-  const LoginRouteArgs({
+class LoginArgs {
+  const LoginArgs({
     this.key,
     required this.onResult,
   });
@@ -133,14 +132,14 @@ class LoginRouteArgs {
 
   @override
   String toString() {
-    return 'LoginRouteArgs{key: $key, onResult: $onResult}';
+    return 'LoginArgs{key: $key, onResult: $onResult}';
   }
 }
 
 /// generated route for
 /// [_i3.ProductsPage]
-class ProductsRoute extends _i5.PageRouteInfo<ProductsRouteArgs> {
-  ProductsRoute({
+class Products extends _i5.PageRouteInfo<ProductsArgs> {
+  Products({
     _i6.Key? key,
     dynamic Function({
       _i1.SortDirection? sortDirection,
@@ -152,8 +151,8 @@ class ProductsRoute extends _i5.PageRouteInfo<ProductsRouteArgs> {
     String? sortDirection = 'desc',
     List<_i5.PageRouteInfo>? children,
   }) : super(
-          ProductsRoute.name,
-          args: ProductsRouteArgs(
+          Products.name,
+          args: ProductsArgs(
             key: key,
             updateDashboardState: updateDashboardState,
             sortOption: sortOption,
@@ -166,14 +165,14 @@ class ProductsRoute extends _i5.PageRouteInfo<ProductsRouteArgs> {
           initialChildren: children,
         );
 
-  static const String name = 'ProductsRoute';
+  static const String name = 'Products';
 
-  static const _i5.PageInfo<ProductsRouteArgs> page =
-      _i5.PageInfo<ProductsRouteArgs>(name);
+  static const _i5.PageInfo<ProductsArgs> page =
+      _i5.PageInfo<ProductsArgs>(name);
 }
 
-class ProductsRouteArgs {
-  const ProductsRouteArgs({
+class ProductsArgs {
+  const ProductsArgs({
     this.key,
     this.updateDashboardState,
     this.sortOption = 'updatedAt',
@@ -195,14 +194,14 @@ class ProductsRouteArgs {
 
   @override
   String toString() {
-    return 'ProductsRouteArgs{key: $key, updateDashboardState: $updateDashboardState, sortOption: $sortOption, sortDirection: $sortDirection}';
+    return 'ProductsArgs{key: $key, updateDashboardState: $updateDashboardState, sortOption: $sortOption, sortDirection: $sortDirection}';
   }
 }
 
 /// generated route for
 /// [_i4.PurchaseOrdersPage]
-class PurchaseOrdersRoute extends _i5.PageRouteInfo<PurchaseOrdersRouteArgs> {
-  PurchaseOrdersRoute({
+class PurchaseOrders extends _i5.PageRouteInfo<PurchaseOrdersArgs> {
+  PurchaseOrders({
     _i6.Key? key,
     dynamic Function({
       _i1.SortDirection? sortDirection,
@@ -214,8 +213,8 @@ class PurchaseOrdersRoute extends _i5.PageRouteInfo<PurchaseOrdersRouteArgs> {
     String? sortDirection = 'desc',
     List<_i5.PageRouteInfo>? children,
   }) : super(
-          PurchaseOrdersRoute.name,
-          args: PurchaseOrdersRouteArgs(
+          PurchaseOrders.name,
+          args: PurchaseOrdersArgs(
             key: key,
             updateDashboardState: updateDashboardState,
             sortOption: sortOption,
@@ -228,14 +227,14 @@ class PurchaseOrdersRoute extends _i5.PageRouteInfo<PurchaseOrdersRouteArgs> {
           initialChildren: children,
         );
 
-  static const String name = 'PurchaseOrdersRoute';
+  static const String name = 'PurchaseOrders';
 
-  static const _i5.PageInfo<PurchaseOrdersRouteArgs> page =
-      _i5.PageInfo<PurchaseOrdersRouteArgs>(name);
+  static const _i5.PageInfo<PurchaseOrdersArgs> page =
+      _i5.PageInfo<PurchaseOrdersArgs>(name);
 }
 
-class PurchaseOrdersRouteArgs {
-  const PurchaseOrdersRouteArgs({
+class PurchaseOrdersArgs {
+  const PurchaseOrdersArgs({
     this.key,
     this.updateDashboardState,
     this.sortOption = 'updatedAt',
@@ -257,6 +256,6 @@ class PurchaseOrdersRouteArgs {
 
   @override
   String toString() {
-    return 'PurchaseOrdersRouteArgs{key: $key, updateDashboardState: $updateDashboardState, sortOption: $sortOption, sortDirection: $sortDirection}';
+    return 'PurchaseOrdersArgs{key: $key, updateDashboardState: $updateDashboardState, sortOption: $sortOption, sortDirection: $sortDirection}';
   }
 }

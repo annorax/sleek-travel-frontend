@@ -28,7 +28,6 @@ abstract class ListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("Mark 1");
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (updateDashboardState != null) {
         updateDashboardState!(

@@ -35,13 +35,13 @@ abstract class ListPage extends StatelessWidget {
             title: entityTypeDisplayNamePlural.toCapitalized(),
             sortOptions: sortOptions,
             sortOption:
-                sortOption != null ? sortOptions.byName(sortOption!) : null,
-            sortDirection: sortDirection != null
+                sortOption != null && sortOption != "null" ? sortOptions.byName(sortOption!) : null,
+            sortDirection: sortDirection != null && sortDirection != "null"
                 ? SortDirection.values.byName(sortDirection!)
                 : null);
       }
     });
-    if (sortOption == null || sortDirection == null) {
+    if (sortOption == null || sortOption == "null" || sortDirection == null || sortDirection == "null") {
       return const Text("Loading");
     }
     return Query(

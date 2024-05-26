@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:slim_travel_frontend/app_router.dart';
+import 'package:slim_travel_frontend/router/app_router.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/golbal_keys.dart';
 import 'package:slim_travel_frontend/user.model.dart';

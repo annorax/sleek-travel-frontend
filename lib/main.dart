@@ -45,7 +45,6 @@ class MyApp extends StatelessWidget {
   final ValueNotifier<GraphQLClient> client;
   const MyApp({super.key, required this.client});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GraphQLProvider(

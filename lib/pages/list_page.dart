@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/pages/dashboard_page.dart';
+import 'package:slim_travel_frontend/user.model.dart';
+import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 abstract class ListPage extends StatelessWidget {
@@ -25,6 +27,7 @@ abstract class ListPage extends StatelessWidget {
 
   String get entityTypeDisplayNamePlural;
   String get entityTypeNamePlural;
+  bool get filterByUserId;
 
   @override
   Widget build(BuildContext context) {
@@ -33,20 +36,27 @@ abstract class ListPage extends StatelessWidget {
         updateDashboardState!(
             title: entityTypeDisplayNamePlural.toCapitalized(),
             sortOptions: sortOptions,
-            sortOption:
-                sortOption != null && sortOption != "null" ? sortOptions.byName(sortOption!) : null,
+            sortOption: sortOption != null && sortOption != "null"
+                ? sortOptions.byName(sortOption!)
+                : null,
             sortDirection: sortDirection != null && sortDirection != "null"
                 ? SortDirection.values.byName(sortDirection!)
                 : null);
       }
     });
-    if (sortOption == null || sortOption == "null" || sortDirection == null || sortDirection == "null") {
+    if (sortOption == null ||
+        sortOption == "null" ||
+        sortDirection == null ||
+        sortDirection == "null") {
       return const Text("Loading");
     }
+    User? user = userState.getValueSyncNoInit();
+    String wherePredicate = filterByUserId && user != null ? ", where: {userId: ${user.id}}" : '';
+    if (filterByUserId) {}
     return Query(
       options: QueryOptions(document: gql('''
           query List${entityTypeNamePlural.toCapitalized()} {
-            $entityTypeNamePlural(orderBy: {$sortOption: $sortDirection}) {
+            $entityTypeNamePlural(orderBy: {$sortOption: $sortDirection}$wherePredicate) {
               id
               name
             }

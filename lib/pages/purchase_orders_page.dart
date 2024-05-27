@@ -4,7 +4,7 @@ import 'package:slim_travel_frontend/pages/dashboard_page.dart';
 import 'package:slim_travel_frontend/pages/list_page.dart';
 
 enum PurchaseOrderSortOption {
-  name(defaultDirection: SortDirection.asc),
+  status(defaultDirection: SortDirection.asc),
   updatedAt(defaultDirection: SortDirection.desc);
 
   final SortDirection defaultDirection;
@@ -30,4 +30,7 @@ class PurchaseOrdersPage extends ListPage {
 
   @override
   String get entityTypeDisplayNamePlural => 'orders';
+  
+  @override
+  bool get filterByUserId => true;
 }

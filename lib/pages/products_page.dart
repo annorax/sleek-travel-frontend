@@ -25,9 +25,14 @@ class ProductsPage extends ListPage {
     }
   ) : super(sortOptions: ProductSortOption.values);
 
+
+
   @override
   String get entityTypeNamePlural => 'products';
 
   @override
   String get entityTypeDisplayNamePlural => 'products';
+  
+  @override
+  bool get filterByUserId => false;
 }

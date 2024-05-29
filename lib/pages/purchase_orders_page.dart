@@ -23,13 +23,16 @@ class PurchaseOrdersPage extends ListPage {
       @queryParam super.sortOption = 'updatedAt',
       @queryParam super.sortDirection = 'desc'
     }
-  ) : super(sortOptions: PurchaseOrderSortOption.values);
+  );
 
   @override
   String get entityTypeNamePlural => 'purchaseOrders';
 
   @override
   String get entityTypeDisplayNamePlural => 'orders';
+  
+  @override
+  List<Enum> get sortOptions => PurchaseOrderSortOption.values;
   
   @override
   bool get filterByUserId => true;

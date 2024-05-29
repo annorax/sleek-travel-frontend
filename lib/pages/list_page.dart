@@ -11,7 +11,6 @@ abstract class ListPage extends StatelessWidget {
 
   final String? sortOption;
   final String? sortDirection;
-  final List<Enum> sortOptions;
   final Function(
       {String? title,
       List? sortOptions,
@@ -22,19 +21,19 @@ abstract class ListPage extends StatelessWidget {
       {super.key,
       this.sortOption,
       this.sortDirection,
-      this.updateDashboardState,
-      required this.sortOptions});
+      this.updateDashboardState});
 
   String get entityTypeDisplayNamePlural;
   String get entityTypeNamePlural;
   bool get filterByUserId;
+  List<Enum> get sortOptions;
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (updateDashboardState != null) {
         updateDashboardState!(
-            title: entityTypeDisplayNamePlural.toCapitalized(),
+          title: entityTypeDisplayNamePlural.toCapitalized(),
             sortOptions: sortOptions,
             sortOption: sortOption != null && sortOption != "null"
                 ? sortOptions.byName(sortOption!)
@@ -51,7 +50,8 @@ abstract class ListPage extends StatelessWidget {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
-    String wherePredicate = filterByUserId && user != null ? ", where: {userId: ${user.id}}" : '';
+    String wherePredicate =
+        filterByUserId && user != null ? ", where: {userId: ${user.id}}" : '';
     if (filterByUserId) {}
     return Query(
       options: QueryOptions(document: gql('''

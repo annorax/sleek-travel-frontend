@@ -19,7 +19,6 @@ Future<void> main() async {
   ValueNotifier<GraphQLClient> client = ValueNotifier(
     GraphQLClient(
       link: backendLink,
-      // The default store is the InMemoryStore, which does NOT persist to disk
       cache: GraphQLCache(),
     ),
   );
@@ -34,7 +33,6 @@ Future<void> main() async {
   }, onDone: () {
     client.value = GraphQLClient(
       link: backendLink,
-      // The default store is the InMemoryStore, which does NOT persist to disk
       cache: GraphQLCache(),
     );
   });

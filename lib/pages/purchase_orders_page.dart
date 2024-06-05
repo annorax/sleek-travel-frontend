@@ -12,6 +12,12 @@ enum PurchaseOrderSortOption {
   const PurchaseOrderSortOption({required this.defaultDirection});
 }
 
+enum PurchaseOrdersField {
+  id,
+  entries,
+  quantity
+}
+
 @RoutePage()
 class PurchaseOrdersPage extends ListPage {
   static const path = basePath;
@@ -33,8 +39,8 @@ class PurchaseOrdersPage extends ListPage {
 
   @override
   List<dynamic> get columnsToFetch => [
-        'id',
-        {'entries': ['quantity'] }
+        PurchaseOrdersField.id.name,
+        {PurchaseOrdersField.entries.name: [PurchaseOrdersField.quantity.name] }
       ];
 
   @override
@@ -42,5 +48,5 @@ class PurchaseOrdersPage extends ListPage {
 
   @override
   String createItemDescription(item) =>
-      "${item['entries'].map((entry) => entry['quantity']).reduce((a, b) => a + b)} items";
+      "${item[PurchaseOrdersField.entries.name].map((entry) => entry[PurchaseOrdersField.quantity.name]).reduce((a, b) => a + b)} items";
 }

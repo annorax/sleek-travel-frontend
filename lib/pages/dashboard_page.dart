@@ -126,6 +126,7 @@ class DashboardPageState extends State<DashboardPage> {
         ],
       ),
       routes: [
+        _sortOption != null && _sortDirection != null ? Items(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Items(updateDashboardState: updateDashboardState),
         _sortOption != null && _sortDirection != null ? Products(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Products(updateDashboardState: updateDashboardState),
         _sortOption != null && _sortDirection != null ? PurchaseOrders(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : PurchaseOrders(updateDashboardState: updateDashboardState),
       ],
@@ -134,6 +135,8 @@ class DashboardPageState extends State<DashboardPage> {
           currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
           items: const [
+            BottomNavigationBarItem(
+                label: 'Items', icon: Icon(Icons.grain)),
             BottomNavigationBarItem(
                 label: 'Products', icon: Icon(Icons.redeem)),
             BottomNavigationBarItem(

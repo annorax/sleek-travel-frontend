@@ -17,23 +17,30 @@ class PurchaseOrdersPage extends ListPage {
   static const path = basePath;
 
   const PurchaseOrdersPage(
-    {
-      super.key,
+      {super.key,
       super.updateDashboardState,
       @queryParam super.sortOption = 'updatedAt',
-      @queryParam super.sortDirection = 'desc'
-    }
-  );
+      @queryParam super.sortDirection = 'desc'});
 
   @override
   String get entityTypeNamePlural => 'purchaseOrders';
 
   @override
   String get entityTypeDisplayNamePlural => 'orders';
-  
+
   @override
   List<Enum> get sortOptions => PurchaseOrderSortOption.values;
-  
+
+  @override
+  List<dynamic> get columnsToFetch => [
+        'id',
+        {'entries': ['quantity'] }
+      ];
+
   @override
   bool get filterByUserId => true;
+
+  @override
+  String createItemDescription(item) =>
+      "${item['entries'].map((entry) => entry['quantity']).reduce((a, b) => a + b)} items";
 }

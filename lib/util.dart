@@ -4,19 +4,41 @@ import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 
 extension StringCasingExtension on String {
-  String toCapitalized() => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';
-  String toTitleCase() => replaceAll(RegExp(' +'), ' ').split(' ').map((str) => str.toCapitalized()).join(' ');
+  String toCapitalized() =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+  String toTitleCase() => replaceAll(RegExp(' +'), ' ')
+      .split(' ')
+      .map((str) => str.toCapitalized())
+      .join(' ');
+}
+
+String columnsListToGraphQL(List<dynamic> columns) {
+  StringBuffer resultBuffer = StringBuffer();
+  for (dynamic column in columns) {
+    if (column is String) {
+      resultBuffer.writeln(column);
+    } else {
+      MapEntry<String, List<dynamic>> entry =
+          (column as Map<String, List<dynamic>>).entries.first;
+      String innerColumnsGraphQL = columnsListToGraphQL(entry.value);
+      resultBuffer.writeln("${entry.key} {\n$innerColumnsGraphQL\n}");
+    }
+  }
+  return resultBuffer.toString();
 }
 
 class Util {
   Util._();
 
   static String camelToSentence(String text) {
-    return text.replaceAllMapped(RegExp(r'^([a-z])|[A-Z]'), 
-          (Match m) => m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
+    return text.replaceAllMapped(
+        RegExp(r'^([a-z])|[A-Z]'),
+        (Match m) =>
+            m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
   }
 
-  static String enumValueToName(dynamic value) => value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
+  static String enumValueToName(dynamic value) =>
+      value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
 
   static Future<String?> login(String email, String password) async {
     final GraphQLClient client = GraphQLClient(

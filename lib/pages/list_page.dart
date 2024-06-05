@@ -27,13 +27,15 @@ abstract class ListPage extends StatelessWidget {
   String get entityTypeNamePlural;
   bool get filterByUserId;
   List<Enum> get sortOptions;
+  List<dynamic> get columnsToFetch;
+  String createItemDescription(dynamic item);
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (updateDashboardState != null) {
         updateDashboardState!(
-          title: entityTypeDisplayNamePlural.toCapitalized(),
+            title: entityTypeDisplayNamePlural.toCapitalized(),
             sortOptions: sortOptions,
             sortOption: sortOption != null && sortOption != "null"
                 ? sortOptions.byName(sortOption!)
@@ -50,15 +52,14 @@ abstract class ListPage extends StatelessWidget {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
-    String wherePredicate =
-        filterByUserId && user != null ? ", where: {userId: ${user.id}}" : '';
-    if (filterByUserId) {}
+    String wherePredicate = filterByUserId && user != null
+        ? ", where: {userId: {equals: ${user.id}}}"
+        : '';
     return Query(
       options: QueryOptions(document: gql('''
           query List${entityTypeNamePlural.toCapitalized()} {
             $entityTypeNamePlural(orderBy: {$sortOption: $sortDirection}$wherePredicate) {
-              id
-              name
+              ${columnsListToGraphQL(columnsToFetch)}
             }
           }
         ''')),
@@ -78,7 +79,8 @@ abstract class ListPage extends StatelessWidget {
             itemCount: items.length,
             itemBuilder: (context, index) {
               final item = items[index];
-              return Card(child: ListTile(title: Text(item['name'] ?? '')));
+              return Card(
+                  child: ListTile(title: Text(createItemDescription(item))));
             });
       },
     );

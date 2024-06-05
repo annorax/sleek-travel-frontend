@@ -17,13 +17,10 @@ class ProductsPage extends ListPage {
   static const path = basePath;
 
   const ProductsPage(
-    {
-      super.key,
+      {super.key,
       super.updateDashboardState,
       @queryParam super.sortOption = 'updatedAt',
-      @queryParam super.sortDirection = 'desc'
-    }
-  );
+      @queryParam super.sortDirection = 'desc'});
 
   @override
   String get entityTypeNamePlural => 'products';
@@ -35,5 +32,11 @@ class ProductsPage extends ListPage {
   List<Enum> get sortOptions => ProductSortOption.values;
   
   @override
+  List<dynamic> get columnsToFetch => ['id', 'name'];
+
+  @override
   bool get filterByUserId => false;
+
+  @override
+  String createItemDescription(item) => item['name'];
 }

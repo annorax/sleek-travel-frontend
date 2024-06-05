@@ -22,6 +22,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
           page: Dashboard.page,
           initial: true,
           children: [
+            AutoRoute(page: Items.page),
             AutoRoute(page: Products.page),
             AutoRoute(page: PurchaseOrders.page)
           ]

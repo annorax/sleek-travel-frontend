@@ -131,15 +131,15 @@ class DashboardPageState extends State<DashboardPage> {
         _sortOption != null && _sortDirection != null ? PurchaseOrders(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : PurchaseOrders(updateDashboardState: updateDashboardState),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomNavigationBar(
-          currentIndex: tabsRouter.activeIndex,
-          onTap: tabsRouter.setActiveIndex,
-          items: const [
-            BottomNavigationBarItem(
+        return NavigationBar(
+          selectedIndex: tabsRouter.activeIndex,
+          onDestinationSelected: tabsRouter.setActiveIndex,
+          destinations: const [
+            NavigationDestination(
                 label: 'Items', icon: Icon(Icons.grain)),
-            BottomNavigationBarItem(
+            NavigationDestination(
                 label: 'Products', icon: Icon(Icons.redeem)),
-            BottomNavigationBarItem(
+            NavigationDestination(
                 label: 'Orders', icon: Icon(Icons.assignment)),
           ],
         );

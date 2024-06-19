@@ -130,6 +130,7 @@ class DashboardPageState extends State<DashboardPage> {
         _sortOption != null && _sortDirection != null ? Products(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Products(updateDashboardState: updateDashboardState),
         _sortOption != null && _sortDirection != null ? PurchaseOrders(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : PurchaseOrders(updateDashboardState: updateDashboardState),
       ],
+      navigatorObservers: () => [AutoRouteObserver()],
       bottomNavigationBuilder: (_, tabsRouter) {
         return NavigationBar(
           selectedIndex: tabsRouter.activeIndex,

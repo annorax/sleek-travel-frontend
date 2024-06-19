@@ -12,10 +12,7 @@ enum ProductSortOption {
   const ProductSortOption({required this.defaultDirection});
 }
 
-enum ProductsField {
-  id,
-  name
-}
+enum ProductsField { id, name }
 
 @RoutePage()
 class ProductsPage extends ListPage {
@@ -35,9 +32,10 @@ class ProductsPage extends ListPage {
 
   @override
   List<Enum> get sortOptions => ProductSortOption.values;
-  
+
   @override
-  List<dynamic> get columnsToFetch => [ProductsField.id.name, ProductsField.name.name];
+  List<dynamic> get columnsToFetch =>
+      [ProductsField.id.name, ProductsField.name.name];
 
   @override
   bool get filterByUserId => false;

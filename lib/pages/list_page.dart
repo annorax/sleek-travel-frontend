@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
@@ -6,7 +7,7 @@ import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
-abstract class ListPage extends StatelessWidget {
+abstract class ListPage extends StatefulWidget {
   static const path = basePath;
 
   final String? sortOption;
@@ -31,35 +32,42 @@ abstract class ListPage extends StatelessWidget {
   String createItemDescription(dynamic item);
 
   @override
+  State<ListPage> createState() => ListPageState();
+}
+
+class ListPageState extends State<ListPage>
+    with AutoRouteAwareStateMixin<ListPage> {
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (updateDashboardState != null) {
-        updateDashboardState!(
-            title: entityTypeDisplayNamePlural.toCapitalized(),
-            sortOptions: sortOptions,
-            sortOption: sortOption != null && sortOption != "null"
-                ? sortOptions.byName(sortOption!)
+    /*WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.updateDashboardState != null) {
+        widget.updateDashboardState!(
+            title: widget.entityTypeDisplayNamePlural.toCapitalized(),
+            sortOptions: widget.sortOptions,
+            sortOption: widget.sortOption != null && widget.sortOption != "null"
+                ? widget.sortOptions.byName(widget.sortOption!)
                 : null,
-            sortDirection: sortDirection != null && sortDirection != "null"
-                ? SortDirection.values.byName(sortDirection!)
-                : null);
+            sortDirection:
+                widget.sortDirection != null && widget.sortDirection != "null"
+                    ? SortDirection.values.byName(widget.sortDirection!)
+                    : null);
       }
-    });
-    if (sortOption == null ||
-        sortOption == "null" ||
-        sortDirection == null ||
-        sortDirection == "null") {
+    });*/
+    if (widget.sortOption == null ||
+        widget.sortOption == "null" ||
+        widget.sortDirection == null ||
+        widget.sortDirection == "null") {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
-    String wherePredicate = filterByUserId && user != null
+    String wherePredicate = widget.filterByUserId && user != null
         ? ", where: {userId: {equals: ${user.id}}}"
         : '';
     return Query(
       options: QueryOptions(document: gql('''
-          query List${entityTypeNamePlural.toCapitalized()} {
-            $entityTypeNamePlural(orderBy: {$sortOption: $sortDirection}$wherePredicate) {
-              ${columnsListToGraphQL(columnsToFetch)}
+          query List${widget.entityTypeNamePlural.toCapitalized()} {
+            ${widget.entityTypeNamePlural}(orderBy: {${widget.sortOption}: ${widget.sortDirection}}$wherePredicate) {
+              ${columnsListToGraphQL(widget.columnsToFetch)}
             }
           }
         ''')),
@@ -71,18 +79,42 @@ abstract class ListPage extends StatelessWidget {
         if (result.isLoading) {
           return const Text('Loading');
         }
-        List? items = result.data?[entityTypeNamePlural];
+        List? items = result.data?[widget.entityTypeNamePlural];
         if (items == null) {
-          return Text('No $entityTypeDisplayNamePlural');
+          return Text('No ${widget.entityTypeDisplayNamePlural}');
         }
         return ListView.builder(
             itemCount: items.length,
             itemBuilder: (context, index) {
               final item = items[index];
               return Card(
-                  child: ListTile(title: Text(createItemDescription(item))));
+                  child: ListTile(
+                      title: Text(widget.createItemDescription(item))));
             });
       },
     );
+  }
+
+  @override
+  void didInitTabRoute(TabPageRoute? previousRoute) {
+    didChangeTabRoute(previousRoute);
+  }
+
+  @override
+  void didChangeTabRoute(TabPageRoute? previousRoute) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.updateDashboardState != null) {
+        widget.updateDashboardState!(
+            title: widget.entityTypeDisplayNamePlural.toCapitalized(),
+            sortOptions: widget.sortOptions,
+            sortOption: widget.sortOption != null && widget.sortOption != "null"
+                ? widget.sortOptions.byName(widget.sortOption!)
+                : null,
+            sortDirection:
+                widget.sortDirection != null && widget.sortDirection != "null"
+                    ? SortDirection.values.byName(widget.sortDirection!)
+                    : null);
+      }
+    });
   }
 }

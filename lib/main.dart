@@ -1,5 +1,8 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:json_theme/json_theme.dart';
 import 'package:slim_travel_frontend/router/app_router.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/golbal_keys.dart';
@@ -36,12 +39,16 @@ Future<void> main() async {
       cache: GraphQLCache(),
     );
   });
-  runApp(MyApp(client: client));
+  final themeStr = await rootBundle.loadString('assets/appainter_theme.json');
+  final themeJson = jsonDecode(themeStr);
+  final theme = ThemeDecoder.decodeThemeData(themeJson)!;
+  runApp(MyApp(client: client, theme: theme));
 }
 
 class MyApp extends StatelessWidget {
   final ValueNotifier<GraphQLClient> client;
-  const MyApp({super.key, required this.client});
+  final ThemeData theme;
+  const MyApp({super.key, required this.client, required this.theme});
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +57,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         routerConfig: appRouter.config(),
         scaffoldMessengerKey: scaffoldMessengerKey,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: theme,
         debugShowCheckedModeBanner: false),
     );
   }

@@ -22,11 +22,12 @@ class DashboardPageState extends State<DashboardPage> {
   dynamic _sortOption;
   SortDirection? _sortDirection;
 
-  void updateDashboardState(
-      {String? title,
-      List? sortOptions,
-      dynamic sortOption,
-      SortDirection? sortDirection}) {
+  void updateDashboardState({
+    String? title,
+    List? sortOptions,
+    dynamic sortOption,
+    SortDirection? sortDirection,
+  }) {
     setState(() {
       _title = title;
       _sortOptions = sortOptions;
@@ -35,28 +36,63 @@ class DashboardPageState extends State<DashboardPage> {
     });
   }
 
-  set sortOption(dynamic sortOption) {
-    if (_sortOption == sortOption) {
-      return;
+  void _updateSortOption(dynamic sortOption) {
+    if (_sortOption != sortOption) {
+      setState(() {
+        _sortOption = sortOption;
+        _sortDirection = sortOption.defaultDirection;
+      });
+      _updateRoute();
     }
-    setState(() {
-      _sortOption = sortOption;
-    });
   }
 
-  set sortDirection(SortDirection? sortDirection) {
-    if (_sortDirection == sortDirection) {
-      return;
-    }
+  void _toggleSortDirection() {
     setState(() {
-      _sortDirection = sortDirection;
+      _sortDirection = _sortDirection == SortDirection.asc
+          ? SortDirection.desc
+          : SortDirection.asc;
     });
+    _updateRoute();
+  }
+
+  void _updateRoute() {
+    final pageRouteInfo = appRouter.topMatch.toPageRouteInfo().copyWith(
+      queryParams: {
+        "sortOption": Util.enumValueToName(_sortOption),
+        "sortDirection": _sortDirection?.name,
+      },
+    );
+    appRouter.replace(pageRouteInfo);
+  }
+
+  List<Widget> _buildSortMenuItems() {
+    return _sortOptions?.map<Widget>((sortOption) {
+          String sortOptionName = Util.enumValueToName(sortOption);
+          String sortOptionCaption = Util.camelToSentence(sortOptionName);
+          return MenuItemButton(
+            leadingIcon: Icon(_sortOption != sortOption
+                ? null
+                : _sortDirection == SortDirection.asc
+                    ? Icons.arrow_upward
+                    : Icons.arrow_downward),
+            onPressed: () {
+              if (_sortOption != sortOption) {
+                _updateSortOption(sortOption);
+              } else {
+                _toggleSortDirection();
+              }
+            },
+            child: Text(sortOptionCaption),
+          );
+        }).toList() ??
+        [];
   }
 
   @override
   Widget build(BuildContext context) {
-    User? user = userState.getValueSyncNoInit();
+    final User? user = userState.getValueSyncNoInit();
     final GlobalKey<TooltipState> tooltipKey = GlobalKey<TooltipState>();
+
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) => AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -65,18 +101,18 @@ class DashboardPageState extends State<DashboardPage> {
           Tooltip(
             key: tooltipKey,
             triggerMode: TooltipTriggerMode.manual,
-            //enableTapToDismiss: false,
             preferBelow: true,
             message:
                 user?.id != null ? "Logged in as ${user!.name}" : "Logged out",
             child: IconButton(
-                icon: const Icon(Icons.account_circle),
-                onPressed: () {
-                  tooltipKey.currentState?.ensureTooltipVisible();
-                }),
+              icon: const Icon(Icons.account_circle),
+              onPressed: () {
+                tooltipKey.currentState?.ensureTooltipVisible();
+              },
+            ),
           ),
           MenuAnchor(
-              builder: (BuildContext context, MenuController controller,
+            builder: (BuildContext context, MenuController controller,
                   Widget? child) {
                 return IconButton(
                   onPressed: () {
@@ -90,39 +126,8 @@ class DashboardPageState extends State<DashboardPage> {
                   tooltip: 'Sort by',
                 );
               },
-              menuChildren: _sortOptions == null
-                  ? []
-                  : _sortOptions!.map<Widget>((sortOption) {
-                      String sortOptionName = Util.enumValueToName(sortOption);
-                      String sortOptionCaption =
-                          Util.camelToSentence(sortOptionName);
-                      MenuItemButton button = MenuItemButton(
-                          leadingIcon: Icon(_sortOption != sortOption
-                              ? null
-                              : _sortDirection == SortDirection.asc
-                                  ? Icons.arrow_upward
-                                  : Icons.arrow_downward),
-                          onPressed: () {
-                            if (_sortOption != sortOption) {
-                              this.sortOption = sortOption;
-                              sortDirection = sortOption.defaultDirection;
-                            } else {
-                              sortDirection =
-                                  _sortDirection == SortDirection.asc
-                                      ? SortDirection.desc
-                                      : SortDirection.asc;
-                            }
-                            PageRouteInfo pageRouteInfo =
-                                appRouter.topMatch.toPageRouteInfo();
-                            pageRouteInfo = pageRouteInfo.copyWith(queryParams: {
-                              "sortOption": Util.enumValueToName(sortOption),
-                              "sortDirection": _sortDirection?.name
-                            });
-                            appRouter.replace(pageRouteInfo);
-                          },
-                          child: Text(sortOptionCaption));
-                      return button;
-                    }).toList()),
+            menuChildren: _buildSortMenuItems(),
+          ),
         ],
       ),
       routes: [
@@ -136,10 +141,8 @@ class DashboardPageState extends State<DashboardPage> {
           selectedIndex: tabsRouter.activeIndex,
           onDestinationSelected: tabsRouter.setActiveIndex,
           destinations: const [
-            NavigationDestination(
-                label: 'Items', icon: Icon(Icons.grain)),
-            NavigationDestination(
-                label: 'Products', icon: Icon(Icons.redeem)),
+            NavigationDestination(label: 'Items', icon: Icon(Icons.grain)),
+            NavigationDestination(label: 'Products', icon: Icon(Icons.redeem)),
             NavigationDestination(
                 label: 'Orders', icon: Icon(Icons.assignment)),
           ],

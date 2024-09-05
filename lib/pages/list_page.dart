@@ -104,15 +104,21 @@ class ListPageState extends State<ListPage>
   void didChangeTabRoute(TabPageRoute? previousRoute) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.updateDashboardState != null) {
+        Map<String, Enum> sortOptionsNameMap = widget.sortOptions.asNameMap();
+        Map<String, SortDirection> sortDirectionsNameMap = SortDirection.values.asNameMap();
         widget.updateDashboardState!(
             title: widget.entityTypeDisplayNamePlural.toCapitalized(),
             sortOptions: widget.sortOptions,
             sortOption: widget.sortOption != null && widget.sortOption != "null"
-                ? widget.sortOptions.byName(widget.sortOption!)
+                ? (sortOptionsNameMap.containsKey(widget.sortOption!)
+                    ? sortOptionsNameMap[widget.sortOption!]
+                    : null)
                 : null,
             sortDirection:
                 widget.sortDirection != null && widget.sortDirection != "null"
-                    ? SortDirection.values.byName(widget.sortDirection!)
+                    ? (sortDirectionsNameMap.containsKey(widget.sortDirection!)
+                        ? sortDirectionsNameMap[widget.sortDirection!]
+                        : null)
                     : null);
       }
     });

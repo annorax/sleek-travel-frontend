@@ -16,99 +16,6 @@ import 'package:slim_travel_frontend/pages/login_page.dart' as _i3;
 import 'package:slim_travel_frontend/pages/products_page.dart' as _i4;
 import 'package:slim_travel_frontend/pages/purchase_orders_page.dart' as _i5;
 
-abstract class $AppRouter extends _i6.RootStackRouter {
-  $AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, _i6.PageFactory> pagesMap = {
-    Dashboard.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i1.DashboardPage(),
-      );
-    },
-    Items.name: (routeData) {
-      final queryParams = routeData.queryParams;
-      final args = routeData.argsAs<ItemsArgs>(
-          orElse: () => ItemsArgs(
-                sortOption: queryParams.optString(
-                  'sortOption',
-                  'updatedAt',
-                ),
-                sortDirection: queryParams.optString(
-                  'sortDirection',
-                  'desc',
-                ),
-              ));
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i2.ItemsPage(
-          key: args.key,
-          updateDashboardState: args.updateDashboardState,
-          sortOption: args.sortOption,
-          sortDirection: args.sortDirection,
-        ),
-      );
-    },
-    Login.name: (routeData) {
-      final args = routeData.argsAs<LoginArgs>();
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i3.LoginPage(
-          key: args.key,
-          onResult: args.onResult,
-        ),
-      );
-    },
-    Products.name: (routeData) {
-      final queryParams = routeData.queryParams;
-      final args = routeData.argsAs<ProductsArgs>(
-          orElse: () => ProductsArgs(
-                sortOption: queryParams.optString(
-                  'sortOption',
-                  'updatedAt',
-                ),
-                sortDirection: queryParams.optString(
-                  'sortDirection',
-                  'desc',
-                ),
-              ));
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i4.ProductsPage(
-          key: args.key,
-          updateDashboardState: args.updateDashboardState,
-          sortOption: args.sortOption,
-          sortDirection: args.sortDirection,
-        ),
-      );
-    },
-    PurchaseOrders.name: (routeData) {
-      final queryParams = routeData.queryParams;
-      final args = routeData.argsAs<PurchaseOrdersArgs>(
-          orElse: () => PurchaseOrdersArgs(
-                sortOption: queryParams.optString(
-                  'sortOption',
-                  'updatedAt',
-                ),
-                sortDirection: queryParams.optString(
-                  'sortDirection',
-                  'desc',
-                ),
-              ));
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i5.PurchaseOrdersPage(
-          key: args.key,
-          updateDashboardState: args.updateDashboardState,
-          sortOption: args.sortOption,
-          sortDirection: args.sortDirection,
-        ),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [_i1.DashboardPage]
 class Dashboard extends _i6.PageRouteInfo<void> {
@@ -120,7 +27,12 @@ class Dashboard extends _i6.PageRouteInfo<void> {
 
   static const String name = 'Dashboard';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static _i6.PageInfo page = _i6.PageInfo(
+    name,
+    builder: (data) {
+      return const _i1.DashboardPage();
+    },
+  );
 }
 
 /// generated route for
@@ -154,7 +66,29 @@ class Items extends _i6.PageRouteInfo<ItemsArgs> {
 
   static const String name = 'Items';
 
-  static const _i6.PageInfo<ItemsArgs> page = _i6.PageInfo<ItemsArgs>(name);
+  static _i6.PageInfo page = _i6.PageInfo(
+    name,
+    builder: (data) {
+      final queryParams = data.queryParams;
+      final args = data.argsAs<ItemsArgs>(
+          orElse: () => ItemsArgs(
+                sortOption: queryParams.optString(
+                  'sortOption',
+                  'updatedAt',
+                ),
+                sortDirection: queryParams.optString(
+                  'sortDirection',
+                  'desc',
+                ),
+              ));
+      return _i2.ItemsPage(
+        key: args.key,
+        updateDashboardState: args.updateDashboardState,
+        sortOption: args.sortOption,
+        sortDirection: args.sortDirection,
+      );
+    },
+  );
 }
 
 class ItemsArgs {
@@ -189,7 +123,7 @@ class ItemsArgs {
 class Login extends _i6.PageRouteInfo<LoginArgs> {
   Login({
     _i7.Key? key,
-    required void Function(bool) onResult,
+    required _i7.ValueChanged<bool> onResult,
     List<_i6.PageRouteInfo>? children,
   }) : super(
           Login.name,
@@ -202,7 +136,16 @@ class Login extends _i6.PageRouteInfo<LoginArgs> {
 
   static const String name = 'Login';
 
-  static const _i6.PageInfo<LoginArgs> page = _i6.PageInfo<LoginArgs>(name);
+  static _i6.PageInfo page = _i6.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<LoginArgs>();
+      return _i3.LoginPage(
+        key: args.key,
+        onResult: args.onResult,
+      );
+    },
+  );
 }
 
 class LoginArgs {
@@ -213,7 +156,7 @@ class LoginArgs {
 
   final _i7.Key? key;
 
-  final void Function(bool) onResult;
+  final _i7.ValueChanged<bool> onResult;
 
   @override
   String toString() {
@@ -252,8 +195,29 @@ class Products extends _i6.PageRouteInfo<ProductsArgs> {
 
   static const String name = 'Products';
 
-  static const _i6.PageInfo<ProductsArgs> page =
-      _i6.PageInfo<ProductsArgs>(name);
+  static _i6.PageInfo page = _i6.PageInfo(
+    name,
+    builder: (data) {
+      final queryParams = data.queryParams;
+      final args = data.argsAs<ProductsArgs>(
+          orElse: () => ProductsArgs(
+                sortOption: queryParams.optString(
+                  'sortOption',
+                  'updatedAt',
+                ),
+                sortDirection: queryParams.optString(
+                  'sortDirection',
+                  'desc',
+                ),
+              ));
+      return _i4.ProductsPage(
+        key: args.key,
+        updateDashboardState: args.updateDashboardState,
+        sortOption: args.sortOption,
+        sortDirection: args.sortDirection,
+      );
+    },
+  );
 }
 
 class ProductsArgs {
@@ -314,8 +278,29 @@ class PurchaseOrders extends _i6.PageRouteInfo<PurchaseOrdersArgs> {
 
   static const String name = 'PurchaseOrders';
 
-  static const _i6.PageInfo<PurchaseOrdersArgs> page =
-      _i6.PageInfo<PurchaseOrdersArgs>(name);
+  static _i6.PageInfo page = _i6.PageInfo(
+    name,
+    builder: (data) {
+      final queryParams = data.queryParams;
+      final args = data.argsAs<PurchaseOrdersArgs>(
+          orElse: () => PurchaseOrdersArgs(
+                sortOption: queryParams.optString(
+                  'sortOption',
+                  'updatedAt',
+                ),
+                sortDirection: queryParams.optString(
+                  'sortDirection',
+                  'desc',
+                ),
+              ));
+      return _i5.PurchaseOrdersPage(
+        key: args.key,
+        updateDashboardState: args.updateDashboardState,
+        sortOption: args.sortOption,
+        sortDirection: args.sortDirection,
+      );
+    },
+  );
 }
 
 class PurchaseOrdersArgs {

@@ -40,7 +40,7 @@ dependencies:
   graphql: ^5.2.0-beta.8
   graphql_flutter: ^5.2.0-beta.7
   json_theme: ^6.5.3
-  rxdart: ^0.27.7
+  rxdart: ^0.28.0
   shared_preferences: ^2.2.2
 
 dev_dependencies:

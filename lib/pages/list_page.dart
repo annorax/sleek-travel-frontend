@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/pages/dashboard_page.dart';
+import 'package:slim_travel_frontend/slidable/action_pane_motions.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
@@ -70,13 +72,34 @@ class ListPageState extends State<ListPage>
           return Text('No ${widget.entityTypeDisplayNamePlural}');
         }
         return ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              final item = items[index];
-              return Card(
-                  child: ListTile(
-                      title: Text(widget.createItemDescription(item))));
-            });
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return Slidable(
+              endActionPane: ActionPane(
+                motion: const FadeInStretchMotion(),
+                children: [
+                  SlidableAction(
+                    onPressed: (context) {},
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                    label: 'Delete',
+                  ),
+                  SlidableAction(
+                    onPressed: (context) {},
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                    label: 'Edit',
+                  ),
+                ],
+              ),
+              child: ListTile(
+                title: Text(widget.createItemDescription(item))
+              )
+            );
+          });
       },
     );
   }
@@ -91,7 +114,8 @@ class ListPageState extends State<ListPage>
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.updateDashboardState != null) {
         Map<String, Enum> sortOptionsNameMap = widget.sortOptions.asNameMap();
-        Map<String, SortDirection> sortDirectionsNameMap = SortDirection.values.asNameMap();
+        Map<String, SortDirection> sortDirectionsNameMap =
+            SortDirection.values.asNameMap();
         widget.updateDashboardState!(
             title: widget.entityTypeDisplayNamePlural.toCapitalized(),
             sortOptions: widget.sortOptions,

@@ -39,20 +39,6 @@ class ListPageState extends State<ListPage>
     with AutoRouteAwareStateMixin<ListPage> {
   @override
   Widget build(BuildContext context) {
-    /*WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (widget.updateDashboardState != null) {
-        widget.updateDashboardState!(
-            title: widget.entityTypeDisplayNamePlural.toCapitalized(),
-            sortOptions: widget.sortOptions,
-            sortOption: widget.sortOption != null && widget.sortOption != "null"
-                ? widget.sortOptions.byName(widget.sortOption!)
-                : null,
-            sortDirection:
-                widget.sortDirection != null && widget.sortDirection != "null"
-                    ? SortDirection.values.byName(widget.sortDirection!)
-                    : null);
-      }
-    });*/
     if (widget.sortOption == null ||
         widget.sortOption == "null" ||
         widget.sortDirection == null ||

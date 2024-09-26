@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
             });
           },
           child: Column(
-          children: [
+            children: [
             FormBuilderTextField(
               key: _emailFieldKey,
               name: emailFieldName,
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text('Login'),
                 ))
           ],
-        ),
+          ),
         ),
       )
     );

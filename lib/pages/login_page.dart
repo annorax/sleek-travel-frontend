@@ -24,8 +24,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: FormBuilder(
+      appBar: AppBar(
+        title: Text("Log in")
+      ),
+      body: SingleChildScrollView(
+        child: FormBuilder(
         key: _formKey,
         onChanged: () {
           _formKey.currentState?.save();

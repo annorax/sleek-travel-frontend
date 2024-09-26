@@ -62,32 +62,33 @@ class _LoginPageState extends State<LoginPage> {
           },
           child: Column(
             children: [
-            FormBuilderTextField(
-              key: _emailFieldKey,
-              name: emailFieldName,
-              decoration: const InputDecoration(labelText: 'Email'),
-              validator: FormBuilderValidators.compose([
-                FormBuilderValidators.required(),
-                FormBuilderValidators.email(),
-              ]),
-            ),
-            const SizedBox(height: 10),
-            FormBuilderTextField(
-              name: passwordFieldName,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
-              validator: FormBuilderValidators.compose([
-                FormBuilderValidators.required(),
-              ]),
-            ),
-            Padding(
+              FormBuilderTextField(
+                key: _emailFieldKey,
+                name: emailFieldName,
+                decoration: const InputDecoration(labelText: 'Email'),
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.email(),
+                ]),
+              ),
+              const SizedBox(height: 10),
+              FormBuilderTextField(
+                name: passwordFieldName,
+                decoration: const InputDecoration(labelText: 'Password'),
+                obscureText: true,
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(),
+                ]),
+              ),
+              Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: MaterialButton(
                   color: Theme.of(context).colorScheme.secondary,
                   onPressed: _onPressedHandler,
                   child: const Text('Login'),
-                ))
-          ],
+                )
+              )
+            ],
           ),
         ),
       )

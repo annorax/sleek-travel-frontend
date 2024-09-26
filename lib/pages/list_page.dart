@@ -9,6 +9,34 @@ import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
+enum ItemAction {
+  edit(
+    backgroundColor: Colors.blue,
+    foregroundColor: Colors.white,
+    icon: Icons.edit,
+    label: 'Edit',
+  ),
+  delete(
+    backgroundColor: Colors.red,
+    foregroundColor: Colors.white,
+    icon: Icons.delete,
+    label: 'Delete',
+  );
+
+  const ItemAction({
+    required this.backgroundColor,
+    required this.foregroundColor,
+    required this.icon,
+    required this.label,
+  });
+
+  //final SlidableActionCallback? onPressed;
+  final Color backgroundColor;
+  final Color? foregroundColor;
+  final IconData? icon;
+  final String? label;
+}
+
 abstract class ListPage extends StatefulWidget {
   static const path = basePath;
 
@@ -72,34 +100,32 @@ class ListPageState extends State<ListPage>
           return Text('No ${widget.entityTypeDisplayNamePlural}');
         }
         return ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index];
-            return Slidable(
-              endActionPane: ActionPane(
-                motion: const FadeInStretchMotion(),
-                children: [
-                  SlidableAction(
-                    onPressed: (context) {},
-                    backgroundColor: Colors.red,
-                    foregroundColor: Colors.white,
-                    icon: Icons.delete,
-                    label: 'Delete',
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              final item = items[index];
+              return Slidable(
+                  endActionPane: ActionPane(
+                    motion: const FadeInStretchMotion(),
+                    children: [
+                      SlidableAction(
+                        onPressed: (context) {},
+                        backgroundColor: ItemAction.edit.backgroundColor,
+                        foregroundColor: ItemAction.edit.foregroundColor,
+                        icon: ItemAction.edit.icon,
+                        label: ItemAction.edit.label,
+                      ),
+                      SlidableAction(
+                        onPressed: (context) {},
+                        backgroundColor: ItemAction.delete.backgroundColor,
+                        foregroundColor: ItemAction.delete.foregroundColor,
+                        icon: ItemAction.delete.icon,
+                        label: ItemAction.delete.label,
+                      ),
+                    ],
                   ),
-                  SlidableAction(
-                    onPressed: (context) {},
-                    backgroundColor: Colors.blue,
-                    foregroundColor: Colors.white,
-                    icon: Icons.edit,
-                    label: 'Edit',
-                  ),
-                ],
-              ),
-              child: ListTile(
-                title: Text(widget.createItemDescription(item))
-              )
-            );
-          });
+                  child: ListTile(
+                      title: Text(widget.createItemDescription(item))));
+            });
       },
     );
   }

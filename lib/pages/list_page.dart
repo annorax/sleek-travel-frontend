@@ -32,9 +32,9 @@ enum ItemAction {
 
   //final SlidableActionCallback? onPressed;
   final Color backgroundColor;
-  final Color? foregroundColor;
-  final IconData? icon;
-  final String? label;
+  final Color foregroundColor;
+  final IconData icon;
+  final String label;
 }
 
 abstract class ListPage extends StatefulWidget {
@@ -64,6 +64,14 @@ abstract class ListPage extends StatefulWidget {
   @override
   State<ListPage> createState() => ListPageState();
 }
+
+List<Widget> _buildRowMenuItems() => ItemAction.values
+    .map<Widget>((itemAction) => MenuItemButton(
+          leadingIcon: Icon(itemAction.icon),
+          onPressed: () {},
+          child: Text(itemAction.label),
+        ))
+    .toList();
 
 class ListPageState extends State<ListPage>
     with AutoRouteAwareStateMixin<ListPage> {
@@ -104,6 +112,7 @@ class ListPageState extends State<ListPage>
             itemBuilder: (context, index) {
               final item = items[index];
               return Slidable(
+                  enabled: isMobilePlatform(),
                   endActionPane: ActionPane(
                     motion: const FadeInStretchMotion(),
                     children: [
@@ -124,7 +133,25 @@ class ListPageState extends State<ListPage>
                     ],
                   ),
                   child: ListTile(
-                      title: Text(widget.createItemDescription(item))));
+                      title: Text(widget.createItemDescription(item)),
+                      trailing: isMobilePlatform()
+                          ? null
+                          : MenuAnchor(
+                              builder: (BuildContext context,
+                                  MenuController controller, Widget? child) {
+                                return IconButton(
+                                  onPressed: () {
+                                    if (controller.isOpen) {
+                                      controller.close();
+                                    } else {
+                                      controller.open();
+                                    }
+                                  },
+                                  icon: const Icon(Icons.more_vert),
+                                );
+                              },
+                              menuChildren: _buildRowMenuItems(),
+                            )));
             });
       },
     );

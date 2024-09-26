@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:graphql/client.dart';
 import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/user.model.dart';
@@ -11,6 +12,10 @@ extension StringCasingExtension on String {
       .map((str) => str.toCapitalized())
       .join(' ');
 }
+
+bool isMobilePlatform() => defaultTargetPlatform == TargetPlatform.iOS ||
+  defaultTargetPlatform == TargetPlatform.android;
+
 
 String columnsListToGraphQL(List<dynamic> columns) {
   StringBuffer resultBuffer = StringBuffer();

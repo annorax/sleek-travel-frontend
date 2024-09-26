@@ -29,38 +29,38 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: SingleChildScrollView(
         child: FormBuilder(
-        key: _formKey,
-        onChanged: () {
-          _formKey.currentState?.save();
-          setState(() {
-            _onPressedHandler = (_formKey.currentState?.value[emailFieldName] ??
-                            '')
-                        .isEmpty ||
-                    (_formKey.currentState?.value[passwordFieldName] ?? '')
-                        .isEmpty
-                ? null
-                : () async {
-                    // Validate and save the form values
-                    bool valid = _formKey.currentState!.validate();
-                    Map value = _formKey.currentState!.value;
-                    String email = value[emailFieldName];
-                    String password = value[passwordFieldName];
-                    if (valid) {
-                      String? errorMessage = await Util.login(email, password);
-                      if (errorMessage == null) {
-                        widget.onResult(true);
-                      } else {
-                        scaffoldMessengerKey.currentState!
-                            .showSnackBar(SnackBar(
-                          content: Text(errorMessage),
-                          backgroundColor: Colors.red,
-                        ));
+          key: _formKey,
+          onChanged: () {
+            _formKey.currentState?.save();
+            setState(() {
+              _onPressedHandler = (_formKey.currentState?.value[emailFieldName] ??
+                              '')
+                          .isEmpty ||
+                      (_formKey.currentState?.value[passwordFieldName] ?? '')
+                          .isEmpty
+                  ? null
+                  : () async {
+                      // Validate and save the form values
+                      bool valid = _formKey.currentState!.validate();
+                      Map value = _formKey.currentState!.value;
+                      String email = value[emailFieldName];
+                      String password = value[passwordFieldName];
+                      if (valid) {
+                        String? errorMessage = await Util.login(email, password);
+                        if (errorMessage == null) {
+                          widget.onResult(true);
+                        } else {
+                          scaffoldMessengerKey.currentState!
+                              .showSnackBar(SnackBar(
+                            content: Text(errorMessage),
+                            backgroundColor: Colors.red,
+                          ));
+                        }
                       }
-                    }
-                  };
-          });
-        },
-        child: Column(
+                    };
+            });
+          },
+          child: Column(
           children: [
             FormBuilderTextField(
               key: _emailFieldKey,
@@ -89,7 +89,8 @@ class _LoginPageState extends State<LoginPage> {
                 ))
           ],
         ),
-      ),
-    ));
+        ),
+      )
+    );
   }
 }

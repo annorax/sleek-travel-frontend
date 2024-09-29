@@ -29,7 +29,13 @@ class PurchaseOrdersPage extends ListPage {
       @queryParam super.sortDirection = 'desc'});
 
   @override
+  String get entityTypeNameSingular => 'purchaseOrder';
+
+  @override
   String get entityTypeNamePlural => 'purchaseOrders';
+
+  @override
+  String get entityTypeDisplayNameSingular => 'order';
 
   @override
   String get entityTypeDisplayNamePlural => 'orders';

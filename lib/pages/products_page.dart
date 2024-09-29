@@ -25,7 +25,13 @@ class ProductsPage extends ListPage {
       @queryParam super.sortDirection = 'desc'});
 
   @override
+  String get entityTypeNameSingular => 'product';
+
+  @override
   String get entityTypeNamePlural => 'products';
+
+  @override
+  String get entityTypeDisplayNameSingular => 'product';
 
   @override
   String get entityTypeDisplayNamePlural => 'products';

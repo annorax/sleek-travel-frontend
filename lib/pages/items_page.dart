@@ -28,7 +28,13 @@ class ItemsPage extends ListPage {
       @queryParam super.sortDirection = 'desc'});
 
   @override
+  String get entityTypeNameSingular => 'item';
+
+  @override
   String get entityTypeNamePlural => 'items';
+
+  @override
+  String get entityTypeDisplayNameSingular => 'item';
 
   @override
   String get entityTypeDisplayNamePlural => 'items';

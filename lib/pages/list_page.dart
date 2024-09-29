@@ -55,7 +55,9 @@ abstract class ListPage extends StatefulWidget {
       this.sortDirection,
       this.updateDashboardState});
 
+  String get entityTypeDisplayNameSingular;
   String get entityTypeDisplayNamePlural;
+  String get entityTypeNameSingular;
   String get entityTypeNamePlural;
   bool get filterByUserId;
   List<Enum> get sortOptions;

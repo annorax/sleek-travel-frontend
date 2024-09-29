@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/graphql/queries.dart';
 import 'package:slim_travel_frontend/pages/dashboard_page.dart';
 import 'package:slim_travel_frontend/slidable/action_pane_motions.dart';
 import 'package:slim_travel_frontend/user.model.dart';
@@ -65,16 +66,14 @@ abstract class ListPage extends StatefulWidget {
   State<ListPage> createState() => ListPageState();
 }
 
-List<Widget> _buildRowMenuItems() => ItemAction.values
-    .map<Widget>((itemAction) => MenuItemButton(
-          leadingIcon: Icon(itemAction.icon),
-          onPressed: () {},
-          child: Text(itemAction.label),
-        ))
-    .toList();
-
 class ListPageState extends State<ListPage>
     with AutoRouteAwareStateMixin<ListPage> {
+  List? items;
+
+  void Function([BuildContext context]) onPressedDelete(item) => ([BuildContext? context]) => setState(() {
+    items!.remove(item);
+  });
+
   @override
   Widget build(BuildContext context) {
     if (widget.sortOption == null ||
@@ -84,17 +83,8 @@ class ListPageState extends State<ListPage>
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
-    String wherePredicate = widget.filterByUserId && user != null
-        ? ", where: {userId: {equals: ${user.id}}}"
-        : '';
     return Query(
-      options: QueryOptions(document: gql('''
-          query List${widget.entityTypeNamePlural.toCapitalized()} {
-            ${widget.entityTypeNamePlural}(orderBy: {${widget.sortOption}: ${widget.sortDirection}}$wherePredicate) {
-              ${columnsListToGraphQL(widget.columnsToFetch)}
-            }
-          }
-        ''')),
+      options: QueryOptions(document: gql(listQuery(user, widget))),
       builder: (QueryResult result,
           {VoidCallback? refetch, FetchMore? fetchMore}) {
         if (result.hasException) {
@@ -103,14 +93,14 @@ class ListPageState extends State<ListPage>
         if (result.isLoading) {
           return const Text('Loading');
         }
-        List? items = result.data?[widget.entityTypeNamePlural];
+        items = result.data?[widget.entityTypeNamePlural];
         if (items == null) {
           return Text('No ${widget.entityTypeDisplayNamePlural}');
         }
         return ListView.builder(
-            itemCount: items.length,
+            itemCount: items!.length,
             itemBuilder: (context, index) {
-              final item = items[index];
+              final item = items![index];
               return Slidable(
                   enabled: isMobilePlatform(),
                   endActionPane: ActionPane(
@@ -124,7 +114,7 @@ class ListPageState extends State<ListPage>
                         label: ItemAction.edit.label,
                       ),
                       SlidableAction(
-                        onPressed: (context) {},
+                        onPressed: onPressedDelete(item),
                         backgroundColor: ItemAction.delete.backgroundColor,
                         foregroundColor: ItemAction.delete.foregroundColor,
                         icon: ItemAction.delete.icon,
@@ -150,7 +140,18 @@ class ListPageState extends State<ListPage>
                                   icon: const Icon(Icons.more_vert),
                                 );
                               },
-                              menuChildren: _buildRowMenuItems(),
+                              menuChildren: [
+                                MenuItemButton(
+                                  leadingIcon: Icon(ItemAction.edit.icon),
+                                  onPressed: () {},
+                                  child: Text(ItemAction.edit.label),
+                                ),
+                                MenuItemButton(
+                                  leadingIcon: Icon(ItemAction.delete.icon),
+                                  onPressed: onPressedDelete(item),
+                                  child: Text(ItemAction.delete.label),
+                                )
+                              ],
                             )));
             });
       },

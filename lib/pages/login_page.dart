@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/golbal_keys.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 @RoutePage()
@@ -24,74 +23,68 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Log in")
-      ),
-      body: SingleChildScrollView(
-        child: FormBuilder(
-          key: _formKey,
-          onChanged: () {
-            _formKey.currentState?.save();
-            setState(() {
-              _onPressedHandler = (_formKey.currentState?.value[emailFieldName] ??
-                              '')
-                          .isEmpty ||
-                      (_formKey.currentState?.value[passwordFieldName] ?? '')
-                          .isEmpty
-                  ? null
-                  : () async {
-                      // Validate and save the form values
-                      bool valid = _formKey.currentState!.validate();
-                      Map value = _formKey.currentState!.value;
-                      String email = value[emailFieldName];
-                      String password = value[passwordFieldName];
-                      if (valid) {
-                        String? errorMessage = await Util.login(email, password);
-                        if (errorMessage == null) {
-                          widget.onResult(true);
-                        } else {
-                          scaffoldMessengerKey.currentState!
-                              .showSnackBar(SnackBar(
-                            content: Text(errorMessage),
-                            backgroundColor: Colors.red,
-                          ));
-                        }
-                      }
-                    };
-            });
-          },
-          child: Column(
-            children: [
-              FormBuilderTextField(
-                key: _emailFieldKey,
-                name: emailFieldName,
-                decoration: const InputDecoration(labelText: 'Email'),
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(),
-                  FormBuilderValidators.email(),
-                ]),
-              ),
-              const SizedBox(height: 10),
-              FormBuilderTextField(
-                name: passwordFieldName,
-                decoration: const InputDecoration(labelText: 'Password'),
-                obscureText: true,
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(),
-                ]),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: MaterialButton(
-                  color: Theme.of(context).colorScheme.secondary,
-                  onPressed: _onPressedHandler,
-                  child: const Text('Login'),
-                )
-              )
-            ],
+        appBar: AppBar(title: Text("Log in")),
+        body: SingleChildScrollView(
+          child: FormBuilder(
+            key: _formKey,
+            onChanged: () {
+              _formKey.currentState?.save();
+              setState(() {
+                _onPressedHandler =
+                    (_formKey.currentState?.value[emailFieldName] ?? '')
+                                .isEmpty ||
+                            (_formKey.currentState?.value[passwordFieldName] ??
+                                    '')
+                                .isEmpty
+                        ? null
+                        : () async {
+                            // Validate and save the form values
+                            bool valid = _formKey.currentState!.validate();
+                            Map value = _formKey.currentState!.value;
+                            String email = value[emailFieldName];
+                            String password = value[passwordFieldName];
+                            if (valid) {
+                              String? errorMessage =
+                                  await login(email, password);
+                              if (errorMessage == null) {
+                                widget.onResult(true);
+                              } else {
+                                showError(errorMessage);
+                              }
+                            }
+                          };
+              });
+            },
+            child: Column(
+              children: [
+                FormBuilderTextField(
+                  key: _emailFieldKey,
+                  name: emailFieldName,
+                  decoration: const InputDecoration(labelText: 'Email'),
+                  validator: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(),
+                    FormBuilderValidators.email(),
+                  ]),
+                ),
+                const SizedBox(height: 10),
+                FormBuilderTextField(
+                  name: passwordFieldName,
+                  decoration: const InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                  validator: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(),
+                  ]),
+                ),
+                Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: MaterialButton(
+                      color: Theme.of(context).colorScheme.secondary,
+                      onPressed: _onPressedHandler,
+                      child: const Text('Login'),
+                    ))
+              ],
+            ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }

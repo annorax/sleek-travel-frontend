@@ -5,7 +5,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:slim_travel_frontend/router/app_router.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/golbal_keys.dart';
+import 'package:slim_travel_frontend/global_keys.dart';
 import 'package:slim_travel_frontend/services/graphql_service.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
@@ -20,9 +20,9 @@ Future<void> main() async {
     User? user = await userState.getValue();
     if (user != null) {
       try {
-        user = await Util.validateToken(user.token);
+        user = await validateToken(user.token);
       } catch (e) {
-        print('Error validating token: $e');
+        showError('Error validating token: $e');
         await userState.removeValue();
         user = null;
       }
@@ -41,7 +41,7 @@ Future<void> main() async {
     runApp(MyApp(client: client, theme: theme));
   } catch (e) {
     print('Error initializing app: $e');
-    // You might want to show an error dialog or screen here
+    // Might want to show an error dialog or screen here
     runApp(ErrorApp(error: e.toString()));
   }
 }

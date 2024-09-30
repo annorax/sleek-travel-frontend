@@ -58,7 +58,7 @@ class DashboardPageState extends State<DashboardPage> {
   void _updateRoute() {
     final pageRouteInfo = appRouter.topMatch.toPageRouteInfo().copyWith(
       queryParams: {
-        "sortOption": Util.enumValueToName(_sortOption),
+        "sortOption": enumValueToName(_sortOption),
         "sortDirection": _sortDirection?.name,
       },
     );
@@ -67,8 +67,8 @@ class DashboardPageState extends State<DashboardPage> {
 
   List<Widget> _buildSortMenuItems() {
     return _sortOptions?.map<Widget>((sortOption) {
-          String sortOptionName = Util.enumValueToName(sortOption);
-          String sortOptionCaption = Util.camelToSentence(sortOptionName);
+          String sortOptionName = enumValueToName(sortOption);
+          String sortOptionCaption = sortOptionName.camelToSentence();
           return MenuItemButton(
             leadingIcon: Icon(_sortOption != sortOption
                 ? null
@@ -131,9 +131,9 @@ class DashboardPageState extends State<DashboardPage> {
         ],
       ),
       routes: [
-        _sortOption != null && _sortDirection != null ? Items(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Items(updateDashboardState: updateDashboardState),
-        _sortOption != null && _sortDirection != null ? Products(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Products(updateDashboardState: updateDashboardState),
-        _sortOption != null && _sortDirection != null ? PurchaseOrders(updateDashboardState: updateDashboardState, sortOption: Util.enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : PurchaseOrders(updateDashboardState: updateDashboardState),
+        _sortOption != null && _sortDirection != null ? Items(updateDashboardState: updateDashboardState, sortOption: enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Items(updateDashboardState: updateDashboardState),
+        _sortOption != null && _sortDirection != null ? Products(updateDashboardState: updateDashboardState, sortOption: enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Products(updateDashboardState: updateDashboardState),
+        _sortOption != null && _sortDirection != null ? PurchaseOrders(updateDashboardState: updateDashboardState, sortOption: enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : PurchaseOrders(updateDashboardState: updateDashboardState),
       ],
       navigatorObservers: () => [AutoRouteObserver()],
       bottomNavigationBuilder: (_, tabsRouter) {

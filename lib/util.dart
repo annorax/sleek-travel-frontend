@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:graphql/client.dart';
+import 'package:slim_travel_frontend/global_keys.dart';
 import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
@@ -11,11 +13,14 @@ extension StringCasingExtension on String {
       .split(' ')
       .map((str) => str.toCapitalized())
       .join(' ');
+  String camelToSentence() => replaceAllMapped(
+    RegExp(r'^([a-z])|[A-Z]'),
+    (Match m) => m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
 }
 
-bool isMobilePlatform() => defaultTargetPlatform == TargetPlatform.iOS ||
-  defaultTargetPlatform == TargetPlatform.android;
-
+bool isMobilePlatform() =>
+    defaultTargetPlatform == TargetPlatform.iOS ||
+    defaultTargetPlatform == TargetPlatform.android;
 
 String columnsListToGraphQL(List<dynamic> columns) {
   StringBuffer resultBuffer = StringBuffer();
@@ -32,97 +37,94 @@ String columnsListToGraphQL(List<dynamic> columns) {
   return resultBuffer.toString();
 }
 
-class Util {
-  Util._();
+void showError(String message) {
+  scaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
+    content: Text(message),
+    backgroundColor: Colors.red,
+  ));
+  print(message);
+}
 
-  static String camelToSentence(String text) {
-    return text.replaceAllMapped(
-        RegExp(r'^([a-z])|[A-Z]'),
-        (Match m) =>
-            m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
-  }
-
-  static String enumValueToName(dynamic value) =>
+String enumValueToName(dynamic value) =>
       value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
 
-  static Future<String?> login(String email, String password) async {
-    final GraphQLClient client = GraphQLClient(
-      cache: GraphQLCache(),
-      link: backendLink,
-    );
-    final QueryResult result = await client.mutate(
-      MutationOptions(
-        document: gql(
-          r'''
-            mutation LogInUser($email: String!, $password: String!) {
-              logInUser(email: $email, password: $password) {
-                token,
-                user {
-                  id,
-                  name
-                }
+Future<String?> login(String email, String password) async {
+  final GraphQLClient client = GraphQLClient(
+    cache: GraphQLCache(),
+    link: backendLink,
+  );
+  final QueryResult result = await client.mutate(
+    MutationOptions(
+      document: gql(
+        r'''
+          mutation LogInUser($email: String!, $password: String!) {
+            logInUser(email: $email, password: $password) {
+              token,
+              user {
+                id,
+                name
               }
             }
-          ''',
-        ),
-        variables: {
-          'email': email,
-          'password': password,
-        },
+          }
+        ''',
       ),
-    );
-    final logInUser = result.data?['logInUser'] as Map<String, dynamic>?;
-    if (logInUser == null) {
-      await userState.removeValue();
-      return "Login failed";
-    }
-    final token = logInUser['token'];
-    final Map<String, dynamic> safeUserMap = logInUser['user'];
-    final Map<String, dynamic> userMap = {
-      ...safeUserMap,
-      "email": email,
-      "token": token
-    };
-    final user = User.fromJson(userMap);
-    await userState.setValue(user);
+      variables: {
+        'email': email,
+        'password': password,
+      },
+    ),
+  );
+  final logInUser = result.data?['logInUser'] as Map<String, dynamic>?;
+  if (logInUser == null) {
+    await userState.removeValue();
+    return "Login failed";
+  }
+  final token = logInUser['token'];
+  final Map<String, dynamic> safeUserMap = logInUser['user'];
+  final Map<String, dynamic> userMap = {
+    ...safeUserMap,
+    "email": email,
+    "token": token
+  };
+  final user = User.fromJson(userMap);
+  await userState.setValue(user);
+  return null;
+}
+
+Future<User?> validateToken(String tokenValue) async {
+  final GraphQLClient client = GraphQLClient(
+    cache: GraphQLCache(),
+    link: backendLink,
+  );
+  final QueryResult result = await client.query(
+    QueryOptions(
+      document: gql(
+        r'''
+          query ValidateToken($tokenValue: String!) {
+            validateToken(tokenValue: $tokenValue) {
+              token,
+              user {
+                id,
+                name,
+                email
+              }
+            }
+          }
+        ''',
+      ),
+      variables: {'tokenValue': tokenValue},
+    ),
+  );
+  final validateToken =
+      result.data?['validateToken'] as Map<String, dynamic>?;
+  if (validateToken == null) {
+    await userState.removeValue();
     return null;
   }
-
-  static Future<User?> validateToken(String tokenValue) async {
-    final GraphQLClient client = GraphQLClient(
-      cache: GraphQLCache(),
-      link: backendLink,
-    );
-    final QueryResult result = await client.query(
-      QueryOptions(
-        document: gql(
-          r'''
-            query ValidateToken($tokenValue: String!) {
-              validateToken(tokenValue: $tokenValue) {
-                token,
-                user {
-                  id,
-                  name,
-                  email
-                }
-              }
-            }
-          ''',
-        ),
-        variables: {'tokenValue': tokenValue},
-      ),
-    );
-    final validateToken =
-        result.data?['validateToken'] as Map<String, dynamic>?;
-    if (validateToken == null) {
-      await userState.removeValue();
-      return null;
-    }
-    final token = validateToken['token'];
-    final Map<String, dynamic> safeUserMap = validateToken['user'];
-    final Map<String, dynamic> userMap = {...safeUserMap, "token": token};
-    final user = User.fromJson(userMap);
-    await userState.setValue(user);
-    return user;
-  }
+  final token = validateToken['token'];
+  final Map<String, dynamic> safeUserMap = validateToken['user'];
+  final Map<String, dynamic> userMap = {...safeUserMap, "token": token};
+  final user = User.fromJson(userMap);
+  await userState.setValue(user);
+  return user;
 }

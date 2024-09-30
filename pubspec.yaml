@@ -41,6 +41,7 @@ dependencies:
   graphql: ^5.2.0-beta.8
   graphql_flutter: ^5.2.0-beta.7
   json_theme: ^6.5.3
+  modal_progress_hud_nsn: ^0.5.1
   rxdart: ^0.28.0
   shared_preferences: ^2.2.2
 

@@ -76,6 +76,9 @@ class ListPageState extends State<ListPage>
   void Function([BuildContext context]) onPressedDelete(
       BuildContext givenContext, GraphQLClient client, dynamic item) {
     return ([BuildContext? context]) async {
+      if (!(await showConfirmationDialog(context ?? givenContext))) {
+        return;
+      }
       int index = _items!.indexOf(item);
       final MutationOptions options = MutationOptions(
           document: gql(deleteMutation(widget)), variables: {"id": item["id"]});
@@ -142,44 +145,39 @@ class ListPageState extends State<ListPage>
                           ],
                         ),
                         child: ListTile(
-                          title: Text(widget.createItemDescription(item)),
-                          trailing: isMobilePlatform()
-                              ? null
-                              : MenuAnchor(
-                                  builder: (BuildContext context,
-                                      MenuController controller,
-                                      Widget? child) {
-                                    return IconButton(
-                                      onPressed: () {
-                                        if (controller.isOpen) {
-                                          controller.close();
-                                        } else {
-                                          controller.open();
-                                        }
-                                      },
-                                      icon: const Icon(Icons.more_vert),
-                                    );
-                                  },
-                                  menuChildren: [
-                                    MenuItemButton(
-                                      leadingIcon:
-                                          Icon(ItemAction.edit.icon),
-                                      onPressed: () {},
-                                      child: Text(ItemAction.edit.label),
-                                    ),
-                                    MenuItemButton(
-                                      leadingIcon:
-                                          Icon(ItemAction.delete.icon),
-                                      onPressed: onPressedDelete(
-                                          context, client, item),
-                                      child:
-                                          Text(ItemAction.delete.label),
-                                    )
-                                  ],
-                                )
-                        )
-                      )
-                    );
+                            title: Text(widget.createItemDescription(item)),
+                            trailing: isMobilePlatform()
+                                ? null
+                                : MenuAnchor(
+                                    builder: (BuildContext context,
+                                        MenuController controller,
+                                        Widget? child) {
+                                      return IconButton(
+                                        onPressed: () {
+                                          if (controller.isOpen) {
+                                            controller.close();
+                                          } else {
+                                            controller.open();
+                                          }
+                                        },
+                                        icon: const Icon(Icons.more_vert),
+                                      );
+                                    },
+                                    menuChildren: [
+                                      MenuItemButton(
+                                        leadingIcon: Icon(ItemAction.edit.icon),
+                                        onPressed: () {},
+                                        child: Text(ItemAction.edit.label),
+                                      ),
+                                      MenuItemButton(
+                                        leadingIcon:
+                                            Icon(ItemAction.delete.icon),
+                                        onPressed: onPressedDelete(
+                                            context, client, item),
+                                        child: Text(ItemAction.delete.label),
+                                      )
+                                    ],
+                                  ))));
               });
         });
   }

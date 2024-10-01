@@ -14,8 +14,9 @@ extension StringCasingExtension on String {
       .map((str) => str.toCapitalized())
       .join(' ');
   String camelToSentence() => replaceAllMapped(
-    RegExp(r'^([a-z])|[A-Z]'),
-    (Match m) => m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
+      RegExp(r'^([a-z])|[A-Z]'),
+      (Match m) =>
+          m[1] == null ? " ${m[0]!.toLowerCase()}" : m[1]!.toUpperCase());
 }
 
 bool isMobilePlatform() =>
@@ -46,7 +47,7 @@ void showError(String message) {
 }
 
 String enumValueToName(dynamic value) =>
-      value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
+    value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
 
 Future<String?> login(String email, String password) async {
   final GraphQLClient client = GraphQLClient(
@@ -115,8 +116,7 @@ Future<User?> validateToken(String tokenValue) async {
       variables: {'tokenValue': tokenValue},
     ),
   );
-  final validateToken =
-      result.data?['validateToken'] as Map<String, dynamic>?;
+  final validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
   if (validateToken == null) {
     await userState.removeValue();
     return null;
@@ -127,4 +127,32 @@ Future<User?> validateToken(String tokenValue) async {
   final user = User.fromJson(userMap);
   await userState.setValue(user);
   return user;
+}
+
+Future<bool> showConfirmationDialog(BuildContext context,
+  {
+    String title = "Confirmation",
+    String message = "Are you sure?",
+    String trueButtonLabel = "Yes",
+    String falseButtonLabel = "No",
+  }
+) async {
+  final result = await showDialog<bool?>(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: Text(title),
+      content: Text(message),
+      actions: [
+        ElevatedButton(
+          child: Text(trueButtonLabel),
+          onPressed: () => Navigator.of(context).pop(true)
+        ),
+        ElevatedButton(
+          child: Text(falseButtonLabel),
+          onPressed: () => Navigator.of(context).pop(false)
+        )
+      ],
+    ),
+  );
+  return result ?? false;
 }

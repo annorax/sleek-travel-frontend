@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:json_theme/json_theme.dart';
-import 'package:slim_travel_frontend/router/app_router.dart';
 import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/global_keys.dart';
+import 'package:slim_travel_frontend/globals.dart';
 import 'package:slim_travel_frontend/services/graphql_service.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
-final appRouter = AppRouter();
 final Link backendLink = HttpLink(backendUrl);
 
 Future<void> main() async {

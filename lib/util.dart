@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql/client.dart';
-import 'package:slim_travel_frontend/global_keys.dart';
+import 'package:slim_travel_frontend/globals.dart';
 import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';

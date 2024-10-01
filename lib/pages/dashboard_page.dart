@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:slim_travel_frontend/globals.dart';
 import 'package:slim_travel_frontend/router/app_router.gr.dart';
-import 'package:slim_travel_frontend/main.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';

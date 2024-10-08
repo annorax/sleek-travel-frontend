@@ -494,10 +494,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: b557bf12f108ae8f429a20bd34f3ac180c8dc4338c9519f654a0bf6fb42ebff7
+      sha256: f7eb07e248554df939a51ca8ee11c2230533835a5d458cf84d77a2d63f3a1d5f
       url: "https://pub.dev"
     source: hosted
-    version: "6.5.3+1"
+    version: "6.5.3+2"
   json_theme_annotation:
     dependency: transitive
     description:
@@ -630,10 +630,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: f7544c346a0742aee1450f9e5c0f5269d7c602b9c95fdbcd9fb8f5b1df13b1cc
+      sha256: c464428172cb986b758c6d1724c603097febb8fb855aa265aeecc9280c294d4a
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.11"
+    version: "2.2.12"
   path_provider_foundation:
     dependency: transitive
     description:

@@ -65,68 +65,83 @@ class DashboardPageState extends State<DashboardPage> {
     appRouter.replace(pageRouteInfo);
   }
 
-  List<Widget> _buildSortMenuItems() {
-    return _sortOptions?.map<Widget>((sortOption) {
-          String sortOptionName = enumValueToName(sortOption);
-          String sortOptionCaption = sortOptionName.camelToSentence();
-          return MenuItemButton(
-            leadingIcon: Icon(_sortOption != sortOption
-                ? null
-                : _sortDirection == SortDirection.asc
-                    ? Icons.arrow_upward
-                    : Icons.arrow_downward),
-            onPressed: () {
-              if (_sortOption != sortOption) {
-                _updateSortOption(sortOption);
-              } else {
-                _toggleSortDirection();
-              }
-            },
-            child: Text(sortOptionCaption),
-          );
-        }).toList() ??
-        [];
-  }
+  List<Widget> _buildSortMenuItems() =>
+    _sortOptions?.map<Widget>((sortOption) {
+      String sortOptionName = enumValueToName(sortOption);
+      String sortOptionCaption = sortOptionName.camelToSentence();
+      return MenuItemButton(
+        leadingIcon: Icon(_sortOption != sortOption
+            ? null
+            : _sortDirection == SortDirection.asc
+                ? Icons.arrow_upward
+                : Icons.arrow_downward),
+        onPressed: () {
+          if (_sortOption != sortOption) {
+            _updateSortOption(sortOption);
+          } else {
+            _toggleSortDirection();
+          }
+        },
+        child: Text(sortOptionCaption),
+      );
+    }).toList() ?? [];
 
   @override
   Widget build(BuildContext context) {
     final User? user = userState.getValueSyncNoInit();
     final GlobalKey<TooltipState> tooltipKey = GlobalKey<TooltipState>();
-
+    final bool isSignedIn = user?.id != null;
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) => AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: _title != null ? Text(_title!) : null,
         actions: [
-          Tooltip(
-            key: tooltipKey,
-            triggerMode: TooltipTriggerMode.manual,
-            preferBelow: true,
-            message:
-                user?.id != null ? "Logged in as ${user!.name}" : "Logged out",
-            child: IconButton(
-              icon: const Icon(Icons.account_circle),
-              onPressed: () {
-                tooltipKey.currentState?.ensureTooltipVisible();
-              },
+          MenuAnchor(
+            builder: (BuildContext context, MenuController controller,
+                Widget? child) => Tooltip(
+              key: tooltipKey,
+              triggerMode: TooltipTriggerMode.manual,
+              preferBelow: true,
+              message:
+                  isSignedIn ? "Signed in as ${user!.name}" : "Signed out",
+              child: IconButton(
+                icon: const Icon(Icons.account_circle),
+                onPressed: () {
+                  tooltipKey.currentState?.ensureTooltipVisible();
+                  if (!isSignedIn) {
+                    return;
+                  }
+                  if (controller.isOpen) {
+                    controller.close();
+                  } else {
+                    controller.open();
+                  }
+                },
+              ),
             ),
+            menuChildren: [
+              MenuItemButton(
+                leadingIcon: Icon(Icons.logout),
+                onPressed: () {
+                },
+                child: Text("Sign out"),
+              )
+            ],
           ),
           MenuAnchor(
             builder: (BuildContext context, MenuController controller,
-                  Widget? child) {
-                return IconButton(
-                  onPressed: () {
-                    if (controller.isOpen) {
-                      controller.close();
-                    } else {
-                      controller.open();
-                    }
-                  },
-                  icon: const Icon(Icons.sort),
-                  tooltip: 'Sort by',
-                );
+                Widget? child) => IconButton(
+              onPressed: () {
+                if (controller.isOpen) {
+                  controller.close();
+                } else {
+                  controller.open();
+                }
               },
-            menuChildren: _buildSortMenuItems(),
+              icon: const Icon(Icons.sort),
+              tooltip: 'Sort by',
+            ),
+            menuChildren: _buildSortMenuItems()
           ),
         ],
       ),

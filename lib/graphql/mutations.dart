@@ -22,3 +22,16 @@ const String loginMutation = r'''
     }
   }
 ''';
+
+const String validateTokenMutation = r'''
+  mutation ValidateToken($tokenValue: String!) {
+    validateToken(tokenValue: $tokenValue) {
+      token,
+      user {
+        id,
+        name,
+        email
+      }
+    }
+  }
+''';

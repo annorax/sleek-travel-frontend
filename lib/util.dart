@@ -1,10 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql/client.dart';
 import 'package:slim_travel_frontend/globals.dart';
-import 'package:slim_travel_frontend/main.dart';
-import 'package:slim_travel_frontend/user.model.dart';
-import 'package:slim_travel_frontend/user.state.dart';
 
 extension StringCasingExtension on String {
   String toCapitalized() =>
@@ -48,43 +44,6 @@ void showError(String message) {
 
 String enumValueToName(dynamic value) =>
     value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
-
-Future<User?> validateToken(String tokenValue) async {
-  final GraphQLClient client = GraphQLClient(
-    cache: GraphQLCache(),
-    link: backendLink,
-  );
-  final QueryResult result = await client.query(
-    QueryOptions(
-      document: gql(
-        r'''
-          mutation ValidateToken($tokenValue: String!) {
-            validateToken(tokenValue: $tokenValue) {
-              token,
-              user {
-                id,
-                name,
-                email
-              }
-            }
-          }
-        ''',
-      ),
-      variables: {'tokenValue': tokenValue},
-    ),
-  );
-  final validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
-  if (validateToken == null) {
-    await userState.removeValue();
-    return null;
-  }
-  final token = validateToken['token'];
-  final Map<String, dynamic> safeUserMap = validateToken['user'];
-  final Map<String, dynamic> userMap = {...safeUserMap, "token": token};
-  final user = User.fromJson(userMap);
-  await userState.setValue(user);
-  return user;
-}
 
 Future<bool> showConfirmationDialog(BuildContext context,
   {

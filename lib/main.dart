@@ -5,28 +5,26 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/globals.dart';
+import 'package:slim_travel_frontend/graphql/mutations.dart';
 import 'package:slim_travel_frontend/services/graphql_service.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
-import 'package:slim_travel_frontend/util.dart';
 
 final Link backendLink = HttpLink(backendUrl);
 
 Future<void> main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
+    ValueNotifier<GraphQLClient> client = GraphQLService.initializeClient();
     User? user = await userState.getValue();
     if (user != null) {
       try {
-        user = await validateToken(user.token);
+        user = await validateToken(client.value, user.token);
       } catch (e) {
-        showError('Error validating token: $e');
         await userState.removeValue();
-        user = null;
+        rethrow;
       }
     }
-
-    ValueNotifier<GraphQLClient> client = GraphQLService.initializeClient();
 
     userState.stream.listen((user) {
       GraphQLService.updateClientWithUser(client, user);
@@ -42,6 +40,26 @@ Future<void> main() async {
     // Might want to show an error dialog or screen here
     runApp(ErrorApp(error: e.toString()));
   }
+}
+
+Future<User?> validateToken(GraphQLClient client, String tokenValue) async {
+  final QueryResult result = await client.query(
+    QueryOptions(
+      document: gql(validateTokenMutation),
+      variables: {'tokenValue': tokenValue},
+    ),
+  );
+  final validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
+  if (validateToken == null) {
+    await userState.removeValue();
+    return null;
+  }
+  final token = validateToken['token'];
+  final Map<String, dynamic> safeUserMap = validateToken['user'];
+  final Map<String, dynamic> userMap = {...safeUserMap, "token": token};
+  final user = User.fromJson(userMap);
+  await userState.setValue(user);
+  return user;
 }
 
 class MyApp extends StatelessWidget {

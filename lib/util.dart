@@ -101,7 +101,7 @@ Future<User?> validateToken(String tokenValue) async {
     QueryOptions(
       document: gql(
         r'''
-          query ValidateToken($tokenValue: String!) {
+          mutation ValidateToken($tokenValue: String!) {
             validateToken(tokenValue: $tokenValue) {
               token,
               user {

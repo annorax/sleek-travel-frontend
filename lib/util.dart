@@ -49,49 +49,6 @@ void showError(String message) {
 String enumValueToName(dynamic value) =>
     value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
 
-Future<String?> login(String email, String password) async {
-  final GraphQLClient client = GraphQLClient(
-    cache: GraphQLCache(),
-    link: backendLink,
-  );
-  final QueryResult result = await client.mutate(
-    MutationOptions(
-      document: gql(
-        r'''
-          mutation LogInUser($email: String!, $password: String!) {
-            logInUser(email: $email, password: $password) {
-              token,
-              user {
-                id,
-                name
-              }
-            }
-          }
-        ''',
-      ),
-      variables: {
-        'email': email,
-        'password': password,
-      },
-    ),
-  );
-  final logInUser = result.data?['logInUser'] as Map<String, dynamic>?;
-  if (logInUser == null) {
-    await userState.removeValue();
-    return "Login failed";
-  }
-  final token = logInUser['token'];
-  final Map<String, dynamic> safeUserMap = logInUser['user'];
-  final Map<String, dynamic> userMap = {
-    ...safeUserMap,
-    "email": email,
-    "token": token
-  };
-  final user = User.fromJson(userMap);
-  await userState.setValue(user);
-  return null;
-}
-
 Future<User?> validateToken(String tokenValue) async {
   final GraphQLClient client = GraphQLClient(
     cache: GraphQLCache(),

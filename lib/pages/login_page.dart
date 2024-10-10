@@ -2,7 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/graphql/mutations.dart';
+import 'package:slim_travel_frontend/user.model.dart';
+import 'package:slim_travel_frontend/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 @RoutePage()
@@ -19,6 +23,9 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
   final _emailFieldKey = GlobalKey<FormBuilderFieldState>();
   void Function()? _onPressedHandler;
+  RunMutation? _runMutation;
+
+  String extractFormValue(String fieldName) => _formKey.currentState!.value[fieldName];
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +44,16 @@ class _LoginPageState extends State<LoginPage> {
                                     '')
                                 .isEmpty
                         ? null
-                        : () async {
+                        : () {
                             // Validate and save the form values
                             bool valid = _formKey.currentState!.validate();
-                            Map value = _formKey.currentState!.value;
-                            String email = value[emailFieldName];
-                            String password = value[passwordFieldName];
-                            if (valid) {
-                              String? errorMessage =
-                                  await login(email, password);
-                              if (errorMessage == null) {
-                                widget.onResult(true);
-                              } else {
-                                showError(errorMessage);
-                              }
+                            if (!valid) {
+                              return;
                             }
+                            _runMutation!({
+                              'email': extractFormValue(emailFieldName),
+                              'password': extractFormValue(passwordFieldName),
+                            });
                           };
               });
             },
@@ -76,12 +78,41 @@ class _LoginPageState extends State<LoginPage> {
                   ]),
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: MaterialButton(
-                      color: Theme.of(context).colorScheme.secondary,
-                      onPressed: _onPressedHandler,
-                      child: const Text('Login'),
-                    ))
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Mutation(
+                    options: MutationOptions(
+                      document: gql(loginMutation),
+                      onCompleted: (dynamic resultData) async {
+                        final logInUser =
+                            resultData?['logInUser'] as Map<String, dynamic>?;
+                        if (logInUser == null) {
+                          await userState.removeValue();
+                          showError("Login failed");
+                          return;
+                        }
+                        final token = logInUser['token'];
+                        final Map<String, dynamic> safeUserMap =
+                            logInUser['user'];
+                        final Map<String, dynamic> userMap = {
+                          ...safeUserMap,
+                          "email": extractFormValue(emailFieldName),
+                          "token": token
+                        };
+                        final user = User.fromJson(userMap);
+                        await userState.setValue(user);
+                        widget.onResult(true);
+                      },
+                    ),
+                    builder: (runMutation, result) {
+                      _runMutation = runMutation;
+                      return MaterialButton(
+                        color: Theme.of(context).colorScheme.secondary,
+                        onPressed: _onPressedHandler,
+                        child: const Text('Login'),
+                      );
+                    },
+                  )
+                )
               ],
             ),
           ),

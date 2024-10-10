@@ -10,3 +10,15 @@ String deleteMutation(ListPage widget) {
     }
   ''';
 }
+
+const String loginMutation = r'''
+  mutation LogInUser($email: String!, $password: String!) {
+    logInUser(email: $email, password: $password) {
+      token,
+      user {
+        id,
+        name
+      }
+    }
+  }
+''';

@@ -23,6 +23,12 @@ const String loginMutation = r'''
   }
 ''';
 
+const String logoutMutation = r'''
+  mutation LogOutUser() {
+    logOutUser()
+  }
+''';
+
 const String validateTokenMutation = r'''
   mutation ValidateToken($tokenValue: String!) {
     validateToken(tokenValue: $tokenValue) {

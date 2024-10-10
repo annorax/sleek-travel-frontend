@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/globals.dart';
+import 'package:slim_travel_frontend/graphql/mutations.dart';
 import 'package:slim_travel_frontend/router/app_router.gr.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
@@ -66,25 +68,26 @@ class DashboardPageState extends State<DashboardPage> {
   }
 
   List<Widget> _buildSortMenuItems() =>
-    _sortOptions?.map<Widget>((sortOption) {
-      String sortOptionName = enumValueToName(sortOption);
-      String sortOptionCaption = sortOptionName.camelToSentence();
-      return MenuItemButton(
-        leadingIcon: Icon(_sortOption != sortOption
-            ? null
-            : _sortDirection == SortDirection.asc
-                ? Icons.arrow_upward
-                : Icons.arrow_downward),
-        onPressed: () {
-          if (_sortOption != sortOption) {
-            _updateSortOption(sortOption);
-          } else {
-            _toggleSortDirection();
-          }
-        },
-        child: Text(sortOptionCaption),
-      );
-    }).toList() ?? [];
+      _sortOptions?.map<Widget>((sortOption) {
+        String sortOptionName = enumValueToName(sortOption);
+        String sortOptionCaption = sortOptionName.camelToSentence();
+        return MenuItemButton(
+          leadingIcon: Icon(_sortOption != sortOption
+              ? null
+              : _sortDirection == SortDirection.asc
+                  ? Icons.arrow_upward
+                  : Icons.arrow_downward),
+          onPressed: () {
+            if (_sortOption != sortOption) {
+              _updateSortOption(sortOption);
+            } else {
+              _toggleSortDirection();
+            }
+          },
+          child: Text(sortOptionCaption),
+        );
+      }).toList() ??
+      [];
 
   @override
   Widget build(BuildContext context) {
@@ -98,12 +101,12 @@ class DashboardPageState extends State<DashboardPage> {
         actions: [
           MenuAnchor(
             builder: (BuildContext context, MenuController controller,
-                Widget? child) => Tooltip(
+                    Widget? child) =>
+                Tooltip(
               key: tooltipKey,
               triggerMode: TooltipTriggerMode.manual,
               preferBelow: true,
-              message:
-                  isSignedIn ? "Signed in as ${user!.name}" : "Signed out",
+              message: isSignedIn ? "Signed in as ${user!.name}" : "Signed out",
               child: IconButton(
                 icon: const Icon(Icons.account_circle),
                 onPressed: () {
@@ -120,35 +123,57 @@ class DashboardPageState extends State<DashboardPage> {
               ),
             ),
             menuChildren: [
-              MenuItemButton(
-                leadingIcon: Icon(Icons.logout),
-                onPressed: () {
-                },
-                child: Text("Sign out"),
-              )
+              Mutation(
+                  options: MutationOptions(
+                    document: gql(logoutMutation),
+                    // or do something with the result.data on completion
+                    onCompleted: (dynamic resultData) async {
+                      await userState.removeValue();
+                    },
+                  ),
+                  builder: (runMutation, result) => MenuItemButton(
+                        leadingIcon: Icon(Icons.logout),
+                        onPressed: () => runMutation({}),
+                        child: Text("Sign out"),
+                      ))
             ],
           ),
           MenuAnchor(
-            builder: (BuildContext context, MenuController controller,
-                Widget? child) => IconButton(
-              onPressed: () {
-                if (controller.isOpen) {
-                  controller.close();
-                } else {
-                  controller.open();
-                }
-              },
-              icon: const Icon(Icons.sort),
-              tooltip: 'Sort by',
-            ),
-            menuChildren: _buildSortMenuItems()
-          ),
+              builder: (BuildContext context, MenuController controller,
+                      Widget? child) =>
+                  IconButton(
+                    onPressed: () {
+                      if (controller.isOpen) {
+                        controller.close();
+                      } else {
+                        controller.open();
+                      }
+                    },
+                    icon: const Icon(Icons.sort),
+                    tooltip: 'Sort by',
+                  ),
+              menuChildren: _buildSortMenuItems()),
         ],
       ),
       routes: [
-        _sortOption != null && _sortDirection != null ? Items(updateDashboardState: updateDashboardState, sortOption: enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Items(updateDashboardState: updateDashboardState),
-        _sortOption != null && _sortDirection != null ? Products(updateDashboardState: updateDashboardState, sortOption: enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : Products(updateDashboardState: updateDashboardState),
-        _sortOption != null && _sortDirection != null ? PurchaseOrders(updateDashboardState: updateDashboardState, sortOption: enumValueToName(_sortOption), sortDirection: _sortDirection?.name) : PurchaseOrders(updateDashboardState: updateDashboardState),
+        _sortOption != null && _sortDirection != null
+            ? Items(
+                updateDashboardState: updateDashboardState,
+                sortOption: enumValueToName(_sortOption),
+                sortDirection: _sortDirection?.name)
+            : Items(updateDashboardState: updateDashboardState),
+        _sortOption != null && _sortDirection != null
+            ? Products(
+                updateDashboardState: updateDashboardState,
+                sortOption: enumValueToName(_sortOption),
+                sortDirection: _sortDirection?.name)
+            : Products(updateDashboardState: updateDashboardState),
+        _sortOption != null && _sortDirection != null
+            ? PurchaseOrders(
+                updateDashboardState: updateDashboardState,
+                sortOption: enumValueToName(_sortOption),
+                sortDirection: _sortDirection?.name)
+            : PurchaseOrders(updateDashboardState: updateDashboardState),
       ],
       navigatorObservers: () => [AutoRouteObserver()],
       bottomNavigationBuilder: (_, tabsRouter) {

@@ -6,7 +6,6 @@ import 'package:json_theme/json_theme.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/globals.dart';
 import 'package:slim_travel_frontend/graphql/mutations.dart';
-import 'package:slim_travel_frontend/services/graphql_service.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
 
@@ -15,26 +14,33 @@ final Link backendLink = HttpLink(backendUrl);
 Future<void> main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
-    ValueNotifier<GraphQLClient> client = GraphQLService.initializeClient();
+    GraphQLClient client = GraphQLClient(
+      link: backendLink,
+      cache: GraphQLCache(),
+    );
+    ValueNotifier<GraphQLClient> clientNotifier = ValueNotifier(client);
     User? user = await userState.getValue();
     if (user != null) {
       try {
-        user = await validateToken(client.value, user.token);
+        user = await validateToken(client, user.token);
       } catch (e) {
         await userState.removeValue();
         rethrow;
       }
     }
-
     userState.stream.listen((user) {
-      GraphQLService.updateClientWithUser(client, user);
+      clientNotifier.value = GraphQLClient(
+        link: AuthLink(
+            getToken: () => "Bearer ${user.token}",
+          ).concat(backendLink),
+        cache: GraphQLCache(),
+      );
     });
-
     final themeStr = await rootBundle.loadString('assets/appainter_theme.json');
     final themeJson = jsonDecode(themeStr);
     final theme = ThemeDecoder.decodeThemeData(themeJson)!;
 
-    runApp(MyApp(client: client, theme: theme));
+    runApp(MyApp(clientNotifier: clientNotifier, theme: theme));
   } catch (e) {
     print('Error initializing app: $e');
     // Might want to show an error dialog or screen here
@@ -63,14 +69,14 @@ Future<User?> validateToken(GraphQLClient client, String tokenValue) async {
 }
 
 class MyApp extends StatelessWidget {
-  final ValueNotifier<GraphQLClient> client;
+  final ValueNotifier<GraphQLClient> clientNotifier;
   final ThemeData theme;
-  const MyApp({super.key, required this.client, required this.theme});
+  const MyApp({super.key, required this.clientNotifier, required this.theme});
 
   @override
   Widget build(BuildContext context) {
     return GraphQLProvider(
-      client: client,
+      client: clientNotifier,
       child: MaterialApp.router(
           routerConfig: appRouter.config(),
           scaffoldMessengerKey: scaffoldMessengerKey,

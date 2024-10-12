@@ -25,7 +25,7 @@ const String loginMutation = r'''
 
 const String logoutMutation = r'''
   mutation LogOutUser() {
-    logOutUser()
+    logOutUser
   }
 ''';
 

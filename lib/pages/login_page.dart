@@ -86,7 +86,6 @@ class _LoginPageState extends State<LoginPage> {
                         final logInUser =
                             resultData?['logInUser'] as Map<String, dynamic>?;
                         if (logInUser == null) {
-                          await userState.removeValue();
                           showError("Login failed");
                           return;
                         }

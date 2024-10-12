@@ -77,7 +77,9 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: clientNotifier,
       child: MaterialApp.router(
-          routerConfig: appRouter.config(),
+          routerConfig: appRouter.config(
+            reevaluateListenable: authProvider
+          ),
           scaffoldMessengerKey: scaffoldMessengerKey,
           theme: theme,
           debugShowCheckedModeBanner: false),

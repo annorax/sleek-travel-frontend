@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:slim_travel_frontend/globals.dart';
 import 'package:slim_travel_frontend/router/app_router.gr.dart';
 import 'package:slim_travel_frontend/user.model.dart';
 import 'package:slim_travel_frontend/user.state.dart';
@@ -10,10 +11,10 @@ class AppRouter extends RootStackRouter {
   late final List<AutoRouteGuard> guards = [
     AutoRouteGuard.simple((resolver, router) {
       User? user = userState.getValueSyncNoInit();
-      if (user != null || resolver.route.name == Login.name) {
+      if (user != null || resolver.route.name == Login.name || authProvider.isLoggedIn) {
         resolver.next();
       } else {
-        resolver.redirect(Login(onResult: (didLogin) => resolver.next(didLogin)));
+        resolver.redirect(Login(onResult: (didLogin) => resolver.resolveNext(didLogin, reevaluateNext: false)));
       }
     }) 
   ];

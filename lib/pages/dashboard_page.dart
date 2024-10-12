@@ -30,6 +30,9 @@ class DashboardPageState extends State<DashboardPage> {
     dynamic sortOption,
     SortDirection? sortDirection,
   }) {
+    if (!mounted) {
+      return;
+    }
     setState(() {
       _title = title;
       _sortOptions = sortOptions;
@@ -124,18 +127,16 @@ class DashboardPageState extends State<DashboardPage> {
             ),
             menuChildren: [
               Mutation(
-                  options: MutationOptions(
-                    document: gql(logoutMutation)
-                  ),
+                  options: MutationOptions(document: gql(logoutMutation)),
                   builder: (runMutation, result) => MenuItemButton(
-                    leadingIcon: Icon(Icons.logout),
-                    onPressed: () {
-                      runMutation({});
-                      userState.removeValue();
-                    },
-                    child: Text("Sign out"),
-                  )
-              )
+                        leadingIcon: Icon(Icons.logout),
+                        onPressed: () {
+                          runMutation({});
+                          userState.removeValue();
+                          authProvider.logout();
+                        },
+                        child: Text("Sign out"),
+                      ))
             ],
           ),
           MenuAnchor(

@@ -21,18 +21,13 @@ Future<void> main() async {
     ValueNotifier<GraphQLClient> clientNotifier = ValueNotifier(client);
     User? user = await userState.getValue();
     if (user != null) {
-      try {
-        user = await validateToken(client, user.token);
-      } catch (e) {
-        await userState.removeValue();
-        rethrow;
-      }
+      user = await validateToken(client, user.token);
     }
     userState.stream.listen((user) {
       clientNotifier.value = GraphQLClient(
         link: AuthLink(
-            getToken: () => "Bearer ${user.token}",
-          ).concat(backendLink),
+          getToken: () => "Bearer ${user.token}",
+        ).concat(backendLink),
         cache: GraphQLCache(),
       );
     });
@@ -43,19 +38,23 @@ Future<void> main() async {
     runApp(MyApp(clientNotifier: clientNotifier, theme: theme));
   } catch (e) {
     print('Error initializing app: $e');
-    // Might want to show an error dialog or screen here
     runApp(ErrorApp(error: e.toString()));
   }
 }
 
 Future<User?> validateToken(GraphQLClient client, String tokenValue) async {
-  final QueryResult result = await client.query(
-    QueryOptions(
-      document: gql(validateTokenMutation),
-      variables: {'tokenValue': tokenValue},
-    ),
-  );
-  final validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
+  Map<String, dynamic>? validateToken;
+  try {
+    final QueryResult result = await client.mutate(
+      MutationOptions(
+        document: gql(validateTokenMutation),
+        variables: {'tokenValue': tokenValue},
+      ),
+    );
+    validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
+  } catch (e) {
+    validateToken = null;
+  }
   if (validateToken == null) {
     await userState.removeValue();
     return null;

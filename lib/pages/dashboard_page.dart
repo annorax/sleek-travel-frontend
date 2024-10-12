@@ -126,9 +126,8 @@ class DashboardPageState extends State<DashboardPage> {
               Mutation(
                   options: MutationOptions(
                     document: gql(logoutMutation),
-                    // or do something with the result.data on completion
-                    onCompleted: (dynamic resultData) async {
-                      await userState.removeValue();
+                    onCompleted: (dynamic resultData) {
+                      userState.removeValue();
                     },
                   ),
                   builder: (runMutation, result) => MenuItemButton(

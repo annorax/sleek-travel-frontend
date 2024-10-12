@@ -125,16 +125,17 @@ class DashboardPageState extends State<DashboardPage> {
             menuChildren: [
               Mutation(
                   options: MutationOptions(
-                    document: gql(logoutMutation),
-                    onCompleted: (dynamic resultData) {
-                      userState.removeValue();
-                    },
+                    document: gql(logoutMutation)
                   ),
                   builder: (runMutation, result) => MenuItemButton(
-                        leadingIcon: Icon(Icons.logout),
-                        onPressed: () => runMutation({}),
-                        child: Text("Sign out"),
-                      ))
+                    leadingIcon: Icon(Icons.logout),
+                    onPressed: () {
+                      runMutation({});
+                      userState.removeValue();
+                    },
+                    child: Text("Sign out"),
+                  )
+              )
             ],
           ),
           MenuAnchor(

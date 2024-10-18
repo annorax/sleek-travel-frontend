@@ -23,7 +23,7 @@ Future<void> main() async {
     if (user != null) {
       user = await validateToken(client, user.token);
     }
-    userState.stream.listen((user) {
+    userState.listen((user) {
       clientNotifier.value = GraphQLClient(
         link: AuthLink(
           getToken: () => "Bearer ${user.token}",
@@ -77,9 +77,7 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: clientNotifier,
       child: MaterialApp.router(
-          routerConfig: appRouter.config(
-            reevaluateListenable: authProvider
-          ),
+          routerConfig: appRouter.config(reevaluateListenable: authProvider),
           scaffoldMessengerKey: scaffoldMessengerKey,
           theme: theme,
           debugShowCheckedModeBanner: false),

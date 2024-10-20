@@ -25,11 +25,16 @@ class AppRouter extends RootStackRouter {
           page: Dashboard.page,
           initial: true,
           children: [
-            AutoRoute(page: Items.page),
+            AutoRoute(
+              page: Items.page,
+              initial: true
+            ),
             AutoRoute(page: Products.page),
             AutoRoute(page: PurchaseOrders.page)
           ]
         ),
-        AutoRoute(page: Login.page),
+        AutoRoute(
+          page: Login.page
+        ),
       ];
 }

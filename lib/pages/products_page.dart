@@ -41,7 +41,7 @@ class ProductsPage extends ListPage {
 
   @override
   List<dynamic> get columnsToFetch =>
-      [ProductsField.id.name, ProductsField.name.name];
+    [ProductsField.id.name, ProductsField.name.name];
 
   @override
   bool get filterByUserId => false;

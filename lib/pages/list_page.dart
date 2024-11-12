@@ -6,9 +6,10 @@ import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/graphql/mutations.dart';
 import 'package:slim_travel_frontend/graphql/queries.dart';
 import 'package:slim_travel_frontend/pages/dashboard_page.dart';
+import 'package:slim_travel_frontend/pages/polymorphic_page.dart';
 import 'package:slim_travel_frontend/slidable/action_pane_motions.dart';
-import 'package:slim_travel_frontend/user.model.dart';
-import 'package:slim_travel_frontend/user.state.dart';
+import 'package:slim_travel_frontend/model/user.model.dart';
+import 'package:slim_travel_frontend/model/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 enum ItemAction {
@@ -39,7 +40,7 @@ enum ItemAction {
   final String label;
 }
 
-abstract class ListPage extends StatefulWidget {
+abstract class ListPage extends StatefulWidget with PolymorphicPage {
   static const path = basePath;
 
   final String? sortOption;
@@ -56,21 +57,15 @@ abstract class ListPage extends StatefulWidget {
       this.sortDirection,
       this.updateDashboardState});
 
-  String get entityTypeDisplayNameSingular;
-  String get entityTypeDisplayNamePlural;
-  String get entityTypeNameSingular;
-  String get entityTypeNamePlural;
   bool get filterByUserId;
   List<Enum> get sortOptions;
-  List<dynamic> get columnsToFetch;
   String createItemDescription(dynamic item);
 
   @override
   State<ListPage> createState() => ListPageState();
 }
 
-class ListPageState extends State<ListPage>
-    with AutoRouteAwareStateMixin<ListPage> {
+class ListPageState extends State<ListPage> with AutoRouteAwareStateMixin<ListPage> {
   List? _items;
 
   void Function([BuildContext context]) onPressedDelete(
@@ -112,9 +107,9 @@ class ListPageState extends State<ListPage>
           if (result.isLoading) {
             return const Text('Loading');
           }
-          _items = result.data?[widget.entityTypeNamePlural];
+          _items = result.data?[widget.entityType.namePlural];
           if (_items == null) {
-            return Text('No ${widget.entityTypeDisplayNamePlural}');
+            return Text('No ${widget.entityType.displayNamePlural}');
           }
           return ListView.builder(
               itemCount: _items!.length,
@@ -195,7 +190,7 @@ class ListPageState extends State<ListPage>
         Map<String, SortDirection> sortDirectionsNameMap =
             SortDirection.values.asNameMap();
         widget.updateDashboardState!(
-            title: widget.entityTypeDisplayNamePlural.toCapitalized(),
+            title: widget.entityType.displayNamePlural.toCapitalized(),
             sortOptions: widget.sortOptions,
             sortOption: widget.sortOption != null && widget.sortOption != "null"
                 ? (sortOptionsNameMap.containsKey(widget.sortOption!)

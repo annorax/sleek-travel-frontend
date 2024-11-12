@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/listable_entity_type.dart';
 import 'package:slim_travel_frontend/pages/dashboard_page.dart';
 import 'package:slim_travel_frontend/pages/list_page.dart';
 
@@ -25,16 +26,7 @@ class ItemsPage extends ListPage {
       @queryParam super.sortDirection = 'desc'});
 
   @override
-  String get entityTypeNameSingular => 'item';
-
-  @override
-  String get entityTypeNamePlural => 'items';
-
-  @override
-  String get entityTypeDisplayNameSingular => 'item';
-
-  @override
-  String get entityTypeDisplayNamePlural => 'items';
+  ListableEntityType get entityType => ListableEntityType.item;
 
   @override
   List<Enum> get sortOptions => ItemSortOption.values;

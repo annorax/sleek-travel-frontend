@@ -1,5 +1,5 @@
 import 'package:slim_travel_frontend/pages/list_page.dart';
-import 'package:slim_travel_frontend/user.model.dart';
+import 'package:slim_travel_frontend/model/user.model.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 String listQuery(User? user, ListPage widget) {
@@ -7,8 +7,8 @@ String listQuery(User? user, ListPage widget) {
         ? ", where: {userId: {equals: ${user.id}}}"
         : '';
   return '''
-    query List${widget.entityTypeNamePlural.toCapitalized()} {
-      ${widget.entityTypeNamePlural}(orderBy: {${widget.sortOption}: ${widget.sortDirection}}$wherePredicate) {
+    query List${widget.entityType.namePlural.toCapitalized()} {
+      ${widget.entityType.namePlural}(orderBy: {${widget.sortOption}: ${widget.sortDirection}}$wherePredicate) {
         ${columnsListToGraphQL(widget.columnsToFetch)}
       }
     }

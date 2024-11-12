@@ -6,8 +6,8 @@ import 'package:json_theme/json_theme.dart';
 import 'package:slim_travel_frontend/constants.dart';
 import 'package:slim_travel_frontend/globals.dart';
 import 'package:slim_travel_frontend/graphql/mutations.dart';
-import 'package:slim_travel_frontend/user.model.dart';
-import 'package:slim_travel_frontend/user.state.dart';
+import 'package:slim_travel_frontend/model/user.model.dart';
+import 'package:slim_travel_frontend/model/user.state.dart';
 
 final Link backendLink = HttpLink(backendUrl);
 

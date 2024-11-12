@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:slim_travel_frontend/constants.dart';
+import 'package:slim_travel_frontend/listable_entity_type.dart';
 import 'package:slim_travel_frontend/pages/dashboard_page.dart';
 import 'package:slim_travel_frontend/pages/list_page.dart';
 
@@ -29,16 +30,7 @@ class PurchaseOrdersPage extends ListPage {
       @queryParam super.sortDirection = 'desc'});
 
   @override
-  String get entityTypeNameSingular => 'purchaseOrder';
-
-  @override
-  String get entityTypeNamePlural => 'purchaseOrders';
-
-  @override
-  String get entityTypeDisplayNameSingular => 'order';
-
-  @override
-  String get entityTypeDisplayNamePlural => 'orders';
+  ListableEntityType get entityType => ListableEntityType.purchaseOrder;
 
   @override
   List<Enum> get sortOptions => PurchaseOrderSortOption.values;

@@ -4,8 +4,8 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slim_travel_frontend/globals.dart';
 import 'package:slim_travel_frontend/graphql/mutations.dart';
 import 'package:slim_travel_frontend/router/app_router.gr.dart';
-import 'package:slim_travel_frontend/user.model.dart';
-import 'package:slim_travel_frontend/user.state.dart';
+import 'package:slim_travel_frontend/model/user.model.dart';
+import 'package:slim_travel_frontend/model/user.state.dart';
 import 'package:slim_travel_frontend/util.dart';
 
 enum SortDirection { asc, desc }

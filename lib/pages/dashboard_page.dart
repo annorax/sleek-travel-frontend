@@ -179,6 +179,7 @@ class DashboardPageState extends State<DashboardPage> {
       navigatorObservers: () => [AutoRouteObserver()],
       bottomNavigationBuilder: (_, tabsRouter) {
         return NavigationBar(
+          indicatorColor: Colors.white,
           selectedIndex: tabsRouter.activeIndex,
           onDestinationSelected: tabsRouter.setActiveIndex,
           destinations: const [

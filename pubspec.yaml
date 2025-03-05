@@ -1,4 +1,4 @@
-name: slim_travel_frontend
+name: slick_travel_frontend
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -42,7 +42,7 @@ dependencies:
   graphql_flutter: ^5.2.0-beta.7
   json_theme: ^6.5.3+6
   rxdart: ^0.28.0
-  shared_preferences: ^2.3.3
+  shared_preferences: ^2.5.2
 
 dev_dependencies:
   flutter_test:

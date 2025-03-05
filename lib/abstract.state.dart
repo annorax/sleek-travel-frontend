@@ -31,17 +31,16 @@ abstract class AbstractState<T> {
     return getValueSyncNoInit();
   }
 
-  Future<bool> setValue(T model) async {
+  Future<void> setValue(T model) async {
     _subject.add(model);
     if (getKey() != null) {
       final String value = serialize(model);
-      SharedPreferences prefs = await SharedPreferences.getInstance();
+      SharedPreferencesAsync prefs = SharedPreferencesAsync();
       return prefs.setString(_serializationKey, value);
     }
-    return Future.value(true);
   }
 
-  Future<bool> removeValue() async {
+  Future<void> removeValue() async {
     _subject.close();
     _subject = BehaviorSubject<T>();
     for (Listener<T> listener in listeners) {
@@ -52,16 +51,16 @@ abstract class AbstractState<T> {
         cancelOnError: listener.cancelOnError
       );
     }
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return await prefs.remove(_serializationKey);
+    SharedPreferencesAsync prefs = SharedPreferencesAsync();
+    return prefs.remove(_serializationKey);
   }
 
   Future<void> init() async {
     if (getKey() == null) {
       return;
     }
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? value = prefs.getString(_serializationKey);
+    SharedPreferencesAsync prefs = SharedPreferencesAsync();
+    String? value = await prefs.getString(_serializationKey);
     if (value == null) {
       return;
     }

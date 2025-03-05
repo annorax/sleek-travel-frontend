@@ -2,15 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/graphql/mutations.dart';
-import 'package:slim_travel_frontend/graphql/queries.dart';
-import 'package:slim_travel_frontend/pages/dashboard_page.dart';
-import 'package:slim_travel_frontend/pages/polymorphic_page.dart';
-import 'package:slim_travel_frontend/slidable/action_pane_motions.dart';
-import 'package:slim_travel_frontend/model/user.model.dart';
-import 'package:slim_travel_frontend/model/user.state.dart';
-import 'package:slim_travel_frontend/util.dart';
+import 'package:slick_travel_frontend/constants.dart';
+import 'package:slick_travel_frontend/graphql/mutations.dart';
+import 'package:slick_travel_frontend/graphql/queries.dart';
+import 'package:slick_travel_frontend/pages/dashboard_page.dart';
+import 'package:slick_travel_frontend/pages/polymorphic_page.dart';
+import 'package:slick_travel_frontend/slidable/action_pane_motions.dart';
+import 'package:slick_travel_frontend/model/user.model.dart';
+import 'package:slick_travel_frontend/model/user.state.dart';
+import 'package:slick_travel_frontend/util.dart';
 
 enum ItemAction {
   edit(

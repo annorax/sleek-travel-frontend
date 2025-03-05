@@ -1,5 +1,5 @@
-import 'package:slim_travel_frontend/pages/list_page.dart';
-import 'package:slim_travel_frontend/util.dart';
+import 'package:slick_travel_frontend/pages/list_page.dart';
+import 'package:slick_travel_frontend/util.dart';
 
 String deleteMutation(ListPage widget) {
   return '''

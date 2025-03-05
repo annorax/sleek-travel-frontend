@@ -1,6 +1,4 @@
-# slim_travel_frontend
-
-A new Flutter project.
+# slick_travel_frontend
 
 ## Getting Started
 

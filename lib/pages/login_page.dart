@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/graphql/mutations.dart';
-import 'package:slim_travel_frontend/model/user.model.dart';
-import 'package:slim_travel_frontend/model/user.state.dart';
-import 'package:slim_travel_frontend/util.dart';
+import 'package:slick_travel_frontend/constants.dart';
+import 'package:slick_travel_frontend/graphql/mutations.dart';
+import 'package:slick_travel_frontend/model/user.model.dart';
+import 'package:slick_travel_frontend/model/user.state.dart';
+import 'package:slick_travel_frontend/util.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {

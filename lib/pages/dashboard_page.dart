@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:slim_travel_frontend/globals.dart';
-import 'package:slim_travel_frontend/graphql/mutations.dart';
-import 'package:slim_travel_frontend/router/app_router.gr.dart';
-import 'package:slim_travel_frontend/model/user.model.dart';
-import 'package:slim_travel_frontend/model/user.state.dart';
-import 'package:slim_travel_frontend/util.dart';
+import 'package:slick_travel_frontend/globals.dart';
+import 'package:slick_travel_frontend/graphql/mutations.dart';
+import 'package:slick_travel_frontend/router/app_router.gr.dart';
+import 'package:slick_travel_frontend/model/user.model.dart';
+import 'package:slick_travel_frontend/model/user.state.dart';
+import 'package:slick_travel_frontend/util.dart';
 
 enum SortDirection { asc, desc }
 

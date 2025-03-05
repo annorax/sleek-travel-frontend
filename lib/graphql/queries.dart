@@ -1,6 +1,6 @@
-import 'package:slim_travel_frontend/pages/list_page.dart';
-import 'package:slim_travel_frontend/model/user.model.dart';
-import 'package:slim_travel_frontend/util.dart';
+import 'package:slick_travel_frontend/pages/list_page.dart';
+import 'package:slick_travel_frontend/model/user.model.dart';
+import 'package:slick_travel_frontend/util.dart';
 
 String listQuery(User? user, ListPage widget) {
   String wherePredicate = widget.filterByUserId && user != null

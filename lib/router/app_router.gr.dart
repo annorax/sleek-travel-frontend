@@ -10,11 +10,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
-import 'package:slim_travel_frontend/pages/dashboard_page.dart' as _i1;
-import 'package:slim_travel_frontend/pages/items_page.dart' as _i2;
-import 'package:slim_travel_frontend/pages/login_page.dart' as _i3;
-import 'package:slim_travel_frontend/pages/products_page.dart' as _i4;
-import 'package:slim_travel_frontend/pages/purchase_orders_page.dart' as _i5;
+import 'package:slick_travel_frontend/pages/dashboard_page.dart' as _i1;
+import 'package:slick_travel_frontend/pages/items_page.dart' as _i2;
+import 'package:slick_travel_frontend/pages/login_page.dart' as _i3;
+import 'package:slick_travel_frontend/pages/products_page.dart' as _i4;
+import 'package:slick_travel_frontend/pages/purchase_orders_page.dart' as _i5;
 
 /// generated route for
 /// [_i1.DashboardPage]
@@ -39,15 +39,10 @@ class Dashboard extends _i6.PageRouteInfo<void> {
 /// [_i2.ItemsPage]
 class Items extends _i6.PageRouteInfo<ItemsArgs> {
   Items({
-    _i7.Key? key,
-    dynamic Function({
-      _i1.SortDirection? sortDirection,
-      dynamic sortOption,
-      List<dynamic>? sortOptions,
-      String? title,
-    })? updateDashboardState,
-    String? sortOption = 'updatedAt',
-    String? sortDirection = 'desc',
+    dynamic key,
+    dynamic updateDashboardState,
+    dynamic sortOption = 'updatedAt',
+    dynamic sortDirection = 'desc',
     List<_i6.PageRouteInfo>? children,
   }) : super(
           Items.name,
@@ -72,11 +67,11 @@ class Items extends _i6.PageRouteInfo<ItemsArgs> {
       final queryParams = data.queryParams;
       final args = data.argsAs<ItemsArgs>(
           orElse: () => ItemsArgs(
-                sortOption: queryParams.optString(
+                sortOption: queryParams.get(
                   'sortOption',
                   'updatedAt',
                 ),
-                sortDirection: queryParams.optString(
+                sortDirection: queryParams.get(
                   'sortDirection',
                   'desc',
                 ),
@@ -99,18 +94,13 @@ class ItemsArgs {
     this.sortDirection = 'desc',
   });
 
-  final _i7.Key? key;
+  final dynamic key;
 
-  final dynamic Function({
-    _i1.SortDirection? sortDirection,
-    dynamic sortOption,
-    List<dynamic>? sortOptions,
-    String? title,
-  })? updateDashboardState;
+  final dynamic updateDashboardState;
 
-  final String? sortOption;
+  final dynamic sortOption;
 
-  final String? sortDirection;
+  final dynamic sortDirection;
 
   @override
   String toString() {
@@ -168,15 +158,10 @@ class LoginArgs {
 /// [_i4.ProductsPage]
 class Products extends _i6.PageRouteInfo<ProductsArgs> {
   Products({
-    _i7.Key? key,
-    dynamic Function({
-      _i1.SortDirection? sortDirection,
-      dynamic sortOption,
-      List<dynamic>? sortOptions,
-      String? title,
-    })? updateDashboardState,
-    String? sortOption = 'updatedAt',
-    String? sortDirection = 'desc',
+    dynamic key,
+    dynamic updateDashboardState,
+    dynamic sortOption = 'updatedAt',
+    dynamic sortDirection = 'desc',
     List<_i6.PageRouteInfo>? children,
   }) : super(
           Products.name,
@@ -201,11 +186,11 @@ class Products extends _i6.PageRouteInfo<ProductsArgs> {
       final queryParams = data.queryParams;
       final args = data.argsAs<ProductsArgs>(
           orElse: () => ProductsArgs(
-                sortOption: queryParams.optString(
+                sortOption: queryParams.get(
                   'sortOption',
                   'updatedAt',
                 ),
-                sortDirection: queryParams.optString(
+                sortDirection: queryParams.get(
                   'sortDirection',
                   'desc',
                 ),
@@ -228,18 +213,13 @@ class ProductsArgs {
     this.sortDirection = 'desc',
   });
 
-  final _i7.Key? key;
+  final dynamic key;
 
-  final dynamic Function({
-    _i1.SortDirection? sortDirection,
-    dynamic sortOption,
-    List<dynamic>? sortOptions,
-    String? title,
-  })? updateDashboardState;
+  final dynamic updateDashboardState;
 
-  final String? sortOption;
+  final dynamic sortOption;
 
-  final String? sortDirection;
+  final dynamic sortDirection;
 
   @override
   String toString() {
@@ -251,15 +231,10 @@ class ProductsArgs {
 /// [_i5.PurchaseOrdersPage]
 class PurchaseOrders extends _i6.PageRouteInfo<PurchaseOrdersArgs> {
   PurchaseOrders({
-    _i7.Key? key,
-    dynamic Function({
-      _i1.SortDirection? sortDirection,
-      dynamic sortOption,
-      List<dynamic>? sortOptions,
-      String? title,
-    })? updateDashboardState,
-    String? sortOption = 'updatedAt',
-    String? sortDirection = 'desc',
+    dynamic key,
+    dynamic updateDashboardState,
+    dynamic sortOption = 'updatedAt',
+    dynamic sortDirection = 'desc',
     List<_i6.PageRouteInfo>? children,
   }) : super(
           PurchaseOrders.name,
@@ -284,11 +259,11 @@ class PurchaseOrders extends _i6.PageRouteInfo<PurchaseOrdersArgs> {
       final queryParams = data.queryParams;
       final args = data.argsAs<PurchaseOrdersArgs>(
           orElse: () => PurchaseOrdersArgs(
-                sortOption: queryParams.optString(
+                sortOption: queryParams.get(
                   'sortOption',
                   'updatedAt',
                 ),
-                sortDirection: queryParams.optString(
+                sortDirection: queryParams.get(
                   'sortDirection',
                   'desc',
                 ),
@@ -311,18 +286,13 @@ class PurchaseOrdersArgs {
     this.sortDirection = 'desc',
   });
 
-  final _i7.Key? key;
+  final dynamic key;
 
-  final dynamic Function({
-    _i1.SortDirection? sortDirection,
-    dynamic sortOption,
-    List<dynamic>? sortOptions,
-    String? title,
-  })? updateDashboardState;
+  final dynamic updateDashboardState;
 
-  final String? sortOption;
+  final dynamic sortOption;
 
-  final String? sortDirection;
+  final dynamic sortDirection;
 
   @override
   String toString() {

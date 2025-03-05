@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:slim_travel_frontend/globals.dart';
+import 'package:slick_travel_frontend/globals.dart';
 
 extension StringCasingExtension on String {
   String toCapitalized() =>

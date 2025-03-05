@@ -1,6 +1,6 @@
-import 'package:slim_travel_frontend/abstract.state.dart';
-import 'package:slim_travel_frontend/constants.dart';
-import 'package:slim_travel_frontend/model/user.model.dart';
+import 'package:slick_travel_frontend/abstract.state.dart';
+import 'package:slick_travel_frontend/constants.dart';
+import 'package:slick_travel_frontend/model/user.model.dart';
 
 class _UserState extends AbstractState<User> {
 

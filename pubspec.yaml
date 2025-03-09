@@ -33,14 +33,14 @@ dependencies:
 
 
   # The following adds the Cupertino Icons font to your application.
-  auto_route: ^9.2.2
+  auto_route: ^10.0.1
   cupertino_icons: ^1.0.8
-  flutter_form_builder: ^9.5.0
-  flutter_slidable: ^3.1.1
-  form_builder_validators: ^11.0.0
-  graphql: ^5.2.0-beta.9
-  graphql_flutter: ^5.2.0-beta.7
-  json_theme: ^6.5.3+6
+  flutter_form_builder: ^10.0.0
+  flutter_slidable: ^4.0.0
+  form_builder_validators: ^11.1.2
+  graphql: ^5.2.0-beta.11
+  graphql_flutter: ^5.2.0-beta.8
+  json_theme: ^8.0.0+2
   rxdart: ^0.28.0
   shared_preferences: ^2.5.2
 
@@ -48,7 +48,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  auto_route_generator: ^9.0.0
+  auto_route_generator: ^10.0.1
   flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the

@@ -14,7 +14,7 @@ class AppRouter extends RootStackRouter {
       if (user != null || resolver.route.name == Login.name || authProvider.isLoggedIn) {
         resolver.next();
       } else {
-        resolver.redirect(Login(onResult: (didLogin) => resolver.resolveNext(didLogin, reevaluateNext: false)));
+        resolver.redirectUntil(Login(onResult: (didLogin) => resolver.resolveNext(didLogin, reevaluateNext: false)));
       }
     }) 
   ];

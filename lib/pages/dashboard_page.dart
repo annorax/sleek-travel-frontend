@@ -190,6 +190,34 @@ class DashboardPageState extends State<DashboardPage> {
           ],
         );
       },
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            isScrollControlled: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            builder: (BuildContext context) {
+              return Column(
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Botton 1')),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(onPressed: () {}, child: Text('Botton 2'))
+                ],
+              );
+            },
+            context: context
+          );
+        },
+        tooltip: 'Create',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

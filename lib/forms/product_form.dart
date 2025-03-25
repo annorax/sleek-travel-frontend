@@ -25,7 +25,6 @@ class ProductForm extends StatelessWidget {
             controller: nameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Enter product name',
             ),
           ),
           SizedBox(height: 16),
@@ -34,7 +33,6 @@ class ProductForm extends StatelessWidget {
             controller: descriptionController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Enter product description',
             ),
           ),
           SizedBox(height: 16),
@@ -43,7 +41,6 @@ class ProductForm extends StatelessWidget {
             controller: priceController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Enter product price',
             ),
             keyboardType: TextInputType.number,
           ),

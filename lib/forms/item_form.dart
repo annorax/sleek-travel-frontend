@@ -24,7 +24,6 @@ class ItemForm extends StatelessWidget {
             controller: nameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Enter product name',
             ),
           ),
           SizedBox(height: 16),
@@ -33,7 +32,6 @@ class ItemForm extends StatelessWidget {
             controller: descriptionController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Enter product description',
             ),
           ),
           SizedBox(height: 16),

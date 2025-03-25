@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/model/product.model.dart';
 
 class ProductForm extends StatelessWidget {
@@ -36,12 +38,14 @@ class ProductForm extends StatelessWidget {
             ),
           ),
           SizedBox(height: 16),
-          Text('Price', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Text('Price'),
           TextField(
             controller: priceController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
+              prefixText: NumberFormat().simpleCurrencySymbol(product?.currency ?? currencyCode)
             ),
+            
             keyboardType: TextInputType.number,
           ),
           SizedBox(height: 16),

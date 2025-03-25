@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/model/purchase_order.model.dart';
 
 class PurchaseOrderForm extends StatelessWidget {
@@ -32,6 +34,7 @@ class PurchaseOrderForm extends StatelessWidget {
             controller: priceController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
+              prefixText: NumberFormat().simpleCurrencySymbol(purchaseOrder?.currency ?? currencyCode)
             ),
             keyboardType: TextInputType.number,
           ),

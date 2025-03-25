@@ -44,9 +44,9 @@ class ProductsPage extends ListPage {
 
   @override
   Widget get createForm {
-    final TextEditingController nameController = TextEditingController(text: 'Name');
-    final TextEditingController descriptionController = TextEditingController(text: 'Description');
-    final TextEditingController priceController = TextEditingController(text: 'Price');
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController descriptionController = TextEditingController();
+    final TextEditingController priceController = TextEditingController();
   
     return Padding(
       padding: const EdgeInsets.all(16.0),

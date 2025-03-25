@@ -23,12 +23,14 @@ class DashboardPageState extends State<DashboardPage> {
   List? _sortOptions;
   dynamic _sortOption;
   SortDirection? _sortDirection;
+  Widget? _createForm;
 
   void updateDashboardState({
     String? title,
     List? sortOptions,
     dynamic sortOption,
     SortDirection? sortDirection,
+    Widget? createForm
   }) {
     if (!mounted) {
       return;
@@ -38,6 +40,7 @@ class DashboardPageState extends State<DashboardPage> {
       _sortOptions = sortOptions;
       _sortOption = sortOption;
       _sortDirection = sortDirection;
+      _createForm = createForm;
     });
   }
 
@@ -190,34 +193,20 @@ class DashboardPageState extends State<DashboardPage> {
           ],
         );
       },
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: _createForm != null ? FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
             isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            builder: (BuildContext context) {
-              return Column(
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text('Botton 1')),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ElevatedButton(onPressed: () {}, child: Text('Botton 2'))
-                ],
-              );
-            },
+            builder: (BuildContext context) => _createForm!,
             context: context
           );
         },
         tooltip: 'Create',
         child: const Icon(Icons.add),
-      ),
+      ) : null,
     );
   }
 }

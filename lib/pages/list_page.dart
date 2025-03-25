@@ -49,7 +49,8 @@ abstract class ListPage extends StatefulWidget with PolymorphicPage {
       {String? title,
       List? sortOptions,
       dynamic sortOption,
-      SortDirection? sortDirection})? updateDashboardState;
+      SortDirection? sortDirection,
+      Widget? createForm})? updateDashboardState;
 
   const ListPage(
       {super.key,
@@ -59,6 +60,7 @@ abstract class ListPage extends StatefulWidget with PolymorphicPage {
 
   bool get filterByUserId;
   List<Enum> get sortOptions;
+  Widget? get createForm;
   String createItemDescription(dynamic item);
 
   @override
@@ -192,6 +194,7 @@ class ListPageState extends State<ListPage> with AutoRouteAwareStateMixin<ListPa
         widget.updateDashboardState!(
             title: widget.entityType.displayNamePlural.toCapitalized(),
             sortOptions: widget.sortOptions,
+            createForm: widget.createForm,
             sortOption: widget.sortOption != null && widget.sortOption != "null"
                 ? (sortOptionsNameMap.containsKey(widget.sortOption!)
                     ? sortOptionsNameMap[widget.sortOption!]

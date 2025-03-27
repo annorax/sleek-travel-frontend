@@ -19,19 +19,19 @@ class ItemForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Name', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           TextField(
             controller: nameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
+              labelText: 'Name'
             ),
           ),
           SizedBox(height: 16),
-          Text('Description', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           TextField(
             controller: descriptionController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
+              labelText: 'Description'
             ),
           ),
           SizedBox(height: 16),

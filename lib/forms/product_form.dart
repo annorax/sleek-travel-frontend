@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:slick_travel_frontend/constants.dart';
+import 'package:slick_travel_frontend/currency_input_formatter.dart';
 import 'package:slick_travel_frontend/model/product.model.dart';
 
 class ProductForm extends StatelessWidget {
@@ -22,30 +24,33 @@ class ProductForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Name', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          TextField(
+          TextFormField(
             controller: nameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
+              labelText: 'Name'
             ),
           ),
           SizedBox(height: 16),
-          Text('Description', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          TextField(
+          TextFormField(
             controller: descriptionController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
+              labelText: 'Description'
             ),
           ),
           SizedBox(height: 16),
-          Text('Price'),
-          TextField(
+          TextFormField(
             controller: priceController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
+              labelText: 'Price',
               prefixText: NumberFormat().simpleCurrencySymbol(product?.currency ?? currencyCode)
             ),
-            
+            inputFormatters: [
+              LengthLimitingTextInputFormatter(11),
+              CurrencyInputFormatter()
+            ],
             keyboardType: TextInputType.number,
           ),
           SizedBox(height: 16),

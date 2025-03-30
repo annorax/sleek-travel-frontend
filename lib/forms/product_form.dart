@@ -69,8 +69,7 @@ class ProductForm extends StatelessWidget {
                   // TODO: Add proper feedback on completion (e.g., show Snackbar, navigate back)
                   print('Mutation completed: $resultData');
                   if (resultData != null) {
-                    // Optionally navigate back or show success message
-                    // Navigator.of(context).pop(); 
+                    Navigator.of(context).pop(); 
                   }
                 },
                 onError: (error) {
@@ -106,13 +105,12 @@ class ProductForm extends StatelessWidget {
                       final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
 
                       runMutation({
-                        'product': {
-                          'name': name,
-                          'description': description,
-                          'price': priceString,
-                          // Assuming currency is handled by backend or is fixed
-                          'currency': product?.currency ?? currencyCode, 
-                        }
+                        'product': Product(
+                          name: name,
+                          description: description.isEmpty ? null : description,
+                          price: priceString,
+                          currency: product?.currency ?? currencyCode,
+                        )
                       });
                     }
                   },

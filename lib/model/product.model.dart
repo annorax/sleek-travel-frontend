@@ -1,11 +1,11 @@
 class Product {
-  final int id;
+  final int? id;
   final String name;
-  final String description;
-  final num price;
+  final String? description;
+  final String price;
   final String currency;
 
-  Product(this.id, this.name, this.description, this.price, this.currency);
+  Product({this.id, required this.name, this.description, required this.price, required this.currency});
 
   Product.fromJson(Map<String, dynamic> json)
       : id = json['id'],
@@ -15,9 +15,9 @@ class Product {
         currency = json['currency'];
 
   Map<String, dynamic> toJson() => {
-    'id': id,
+    ...(id != null  ? {'id': id} : {}),
     'name': name,
-    'description': description,
+    ...(description != null ? {'description': description} : {}),
     'price': price,
     'currency': currency
   };

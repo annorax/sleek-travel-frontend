@@ -44,8 +44,6 @@ const String validateTokenMutation = r'''
 
 const String createProductMutation = r'''
   mutation CreateProduct($product: ProductCreateInput!) {
-    createOneProduct(data: $product) {
-      
-    }
+    createOneProduct(data: $product) {}
   }
 ''';

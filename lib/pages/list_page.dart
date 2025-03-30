@@ -81,7 +81,7 @@ class ListPageState extends State<ListPage> with AutoRouteAwareStateMixin<ListPa
           document: gql(deleteMutation(widget)), variables: {"id": item["id"]});
       final QueryResult result = await client.mutate(options);
       if (result.hasException) {
-        showError("Error: ${result.exception.toString()}");
+        showError("Error: ${result.exception.toString()}", context ?? givenContext);
       } else {
         setState(() {
           _items!.removeAt(index);

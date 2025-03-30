@@ -5,7 +5,9 @@ import 'package:intl/intl.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/currency_input_formatter.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
+import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/model/product.model.dart';
+import 'package:slick_travel_frontend/util.dart';
 
 class ProductForm extends StatelessWidget {
   final Product? product;
@@ -63,36 +65,29 @@ class ProductForm extends StatelessWidget {
             SizedBox(height: 16),
             Mutation(
               options: MutationOptions(
-                document: gql(createProductMutation), // this is the mutation string you just created
-                // or do something with the result.data on completion
+                document: gql(createEntityMutation(ListableEntityType.product)),
                 onCompleted: (dynamic resultData) {
-                  // TODO: Add proper feedback on completion (e.g., show Snackbar, navigate back)
-                  print('Mutation completed: $resultData');
-                  if (resultData != null) {
-                    Navigator.of(context).pop(); 
-                  }
+                  Navigator.of(context).pop();
+                  showInfo('Product saved', context);
                 },
                 onError: (error) {
-                  // TODO: Add proper error handling (e.g., show Snackbar)
-                  print('Mutation Error: $error');
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Error saving product: ${error?.graphqlErrors.isNotEmpty ?? false ? error!.graphqlErrors.first.message : 'Unknown error'}'))
+                  showError(
+                      'Error saving product: ${error?.graphqlErrors.isNotEmpty ?? false ? error!.graphqlErrors.first.message : 'Unknown error'}',
+                      context
                   );
                 }
               ),
               builder: (
                 RunMutation runMutation,
-                QueryResult? result, // QueryResult can be null
+                QueryResult? result,
               ) {
-                // Handle loading and error states from the mutation result
                 if (result != null) {
                   if (result.isLoading) {
                     return Center(child: CircularProgressIndicator());
                   }
 
                   if (result.hasException) {
-                    print('GraphQL Error: ${result.exception.toString()}');
-                    // Optionally show error indication without disabling button
+                    showError('GraphQL Error: ${result.exception.toString()}', context);
                   }
                 }
                 
@@ -101,7 +96,6 @@ class ProductForm extends StatelessWidget {
                     if (formKey.currentState!.validate()) {
                       final String name = nameController.text;
                       final String description = descriptionController.text;
-                      // Clean the price of commas
                       final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
 
                       runMutation({

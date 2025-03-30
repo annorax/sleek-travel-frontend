@@ -1,3 +1,4 @@
+import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/list_page.dart';
 import 'package:slick_travel_frontend/util.dart';
 
@@ -42,8 +43,10 @@ const String validateTokenMutation = r'''
   }
 ''';
 
-const String createProductMutation = r'''
-  mutation CreateProduct($product: ProductCreateInput!) {
-    createOneProduct(data: $product) {}
-  }
-''';
+String createEntityMutation(ListableEntityType entityType) {
+  return '''
+    mutation Create${entityType.nameSingular.toCapitalized()}(\$${entityType.nameSingular}: ProductCreateInput!) {
+      createOne${entityType.nameSingular.toCapitalized()}(data: \$${entityType.nameSingular}) {}
+    }
+  ''';
+}

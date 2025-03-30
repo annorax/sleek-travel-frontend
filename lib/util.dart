@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:slick_travel_frontend/globals.dart';
 
 extension StringCasingExtension on String {
   String toCapitalized() =>
@@ -34,12 +33,26 @@ String columnsListToGraphQL(List<dynamic> columns) {
   return resultBuffer.toString();
 }
 
-void showError(String message) {
-  scaffoldMessengerKey.currentState!.showSnackBar(SnackBar(
-    content: Text(message),
-    backgroundColor: Colors.red,
-  ));
-  print(message);
+void showInfo(String message, BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        message
+      )
+    )
+  );
+}
+
+void showError(String message, BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        message,
+        style: TextStyle(color: Theme.of(context).colorScheme.error),
+      ),
+      backgroundColor: Theme.of(context).colorScheme.errorContainer
+    )
+  );
 }
 
 String enumValueToName(dynamic value) =>

@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                         final logInUser =
                             resultData?['logInUser'] as Map<String, dynamic>?;
                         if (logInUser == null) {
-                          showError("Login failed");
+                          showError("Login failed", context);
                           return;
                         }
                         final token = logInUser['token'];

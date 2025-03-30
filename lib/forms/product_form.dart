@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/currency_input_formatter.dart';
+import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/model/product.model.dart';
 
 class ProductForm extends StatelessWidget {
@@ -59,14 +61,64 @@ class ProductForm extends StatelessWidget {
               validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
             ),
             SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                    // TODO: implement save logic here
-                    print('Product Saved: ${nameController.text}, ${descriptionController.text}, ${priceController.text}');
+            Mutation(
+              options: MutationOptions(
+                document: gql(createProductMutation), // this is the mutation string you just created
+                // or do something with the result.data on completion
+                onCompleted: (dynamic resultData) {
+                  // TODO: Add proper feedback on completion (e.g., show Snackbar, navigate back)
+                  print('Mutation completed: $resultData');
+                  if (resultData != null) {
+                    // Optionally navigate back or show success message
+                    // Navigator.of(context).pop(); 
+                  }
+                },
+                onError: (error) {
+                  // TODO: Add proper error handling (e.g., show Snackbar)
+                  print('Mutation Error: $error');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Error saving product: ${error?.graphqlErrors.isNotEmpty ?? false ? error!.graphqlErrors.first.message : 'Unknown error'}'))
+                  );
                 }
+              ),
+              builder: (
+                RunMutation runMutation,
+                QueryResult? result, // QueryResult can be null
+              ) {
+                // Handle loading and error states from the mutation result
+                if (result != null) {
+                  if (result.isLoading) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+
+                  if (result.hasException) {
+                    print('GraphQL Error: ${result.exception.toString()}');
+                    // Optionally show error indication without disabling button
+                  }
+                }
+                
+                return ElevatedButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      final String name = nameController.text;
+                      final String description = descriptionController.text;
+                      // Clean the price of commas
+                      final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
+
+                      runMutation({
+                        'product': {
+                          'name': name,
+                          'description': description,
+                          'price': priceString,
+                          // Assuming currency is handled by backend or is fixed
+                          'currency': product?.currency ?? currencyCode, 
+                        }
+                      });
+                    }
+                  },
+                  child: Text('Save'),
+                );
               },
-              child: Text('Save'),
             )
           ]
         )

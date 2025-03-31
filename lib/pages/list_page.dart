@@ -33,7 +33,6 @@ enum ItemAction {
     required this.label,
   });
 
-  //final SlidableActionCallback? onPressed;
   final Color backgroundColor;
   final Color foregroundColor;
   final IconData icon;

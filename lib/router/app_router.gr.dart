@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -20,10 +21,7 @@ import 'package:slick_travel_frontend/pages/purchase_orders_page.dart' as _i5;
 /// [_i1.DashboardPage]
 class Dashboard extends _i6.PageRouteInfo<void> {
   const Dashboard({List<_i6.PageRouteInfo>? children})
-      : super(
-          Dashboard.name,
-          initialChildren: children,
-        );
+    : super(Dashboard.name, initialChildren: children);
 
   static const String name = 'Dashboard';
 
@@ -39,25 +37,32 @@ class Dashboard extends _i6.PageRouteInfo<void> {
 /// [_i2.ItemsPage]
 class Items extends _i6.PageRouteInfo<ItemsArgs> {
   Items({
-    dynamic key,
-    dynamic updateDashboardState,
-    dynamic sortOption = 'updatedAt',
-    dynamic sortDirection = 'desc',
+    _i7.Key? key,
+    dynamic Function({
+      _i7.Widget? createForm,
+      _i1.SortDirection? sortDirection,
+      dynamic sortOption,
+      List<dynamic>? sortOptions,
+      String? title,
+    })?
+    updateDashboardState,
+    String? sortOption = 'updatedAt',
+    String? sortDirection = 'desc',
     List<_i6.PageRouteInfo>? children,
   }) : super(
-          Items.name,
-          args: ItemsArgs(
-            key: key,
-            updateDashboardState: updateDashboardState,
-            sortOption: sortOption,
-            sortDirection: sortDirection,
-          ),
-          rawQueryParams: {
-            'sortOption': sortOption,
-            'sortDirection': sortDirection,
-          },
-          initialChildren: children,
-        );
+         Items.name,
+         args: ItemsArgs(
+           key: key,
+           updateDashboardState: updateDashboardState,
+           sortOption: sortOption,
+           sortDirection: sortDirection,
+         ),
+         rawQueryParams: {
+           'sortOption': sortOption,
+           'sortDirection': sortDirection,
+         },
+         initialChildren: children,
+       );
 
   static const String name = 'Items';
 
@@ -66,16 +71,12 @@ class Items extends _i6.PageRouteInfo<ItemsArgs> {
     builder: (data) {
       final queryParams = data.queryParams;
       final args = data.argsAs<ItemsArgs>(
-          orElse: () => ItemsArgs(
-                sortOption: queryParams.get(
-                  'sortOption',
-                  'updatedAt',
-                ),
-                sortDirection: queryParams.get(
-                  'sortDirection',
-                  'desc',
-                ),
-              ));
+        orElse:
+            () => ItemsArgs(
+              sortOption: queryParams.optString('sortOption', 'updatedAt'),
+              sortDirection: queryParams.optString('sortDirection', 'desc'),
+            ),
+      );
       return _i2.ItemsPage(
         key: args.key,
         updateDashboardState: args.updateDashboardState,
@@ -94,13 +95,20 @@ class ItemsArgs {
     this.sortDirection = 'desc',
   });
 
-  final dynamic key;
+  final _i7.Key? key;
 
-  final dynamic updateDashboardState;
+  final dynamic Function({
+    _i7.Widget? createForm,
+    _i1.SortDirection? sortDirection,
+    dynamic sortOption,
+    List<dynamic>? sortOptions,
+    String? title,
+  })?
+  updateDashboardState;
 
-  final dynamic sortOption;
+  final String? sortOption;
 
-  final dynamic sortDirection;
+  final String? sortDirection;
 
   @override
   String toString() {
@@ -116,13 +124,10 @@ class Login extends _i6.PageRouteInfo<LoginArgs> {
     required _i7.ValueChanged<bool> onResult,
     List<_i6.PageRouteInfo>? children,
   }) : super(
-          Login.name,
-          args: LoginArgs(
-            key: key,
-            onResult: onResult,
-          ),
-          initialChildren: children,
-        );
+         Login.name,
+         args: LoginArgs(key: key, onResult: onResult),
+         initialChildren: children,
+       );
 
   static const String name = 'Login';
 
@@ -130,19 +135,13 @@ class Login extends _i6.PageRouteInfo<LoginArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<LoginArgs>();
-      return _i3.LoginPage(
-        key: args.key,
-        onResult: args.onResult,
-      );
+      return _i3.LoginPage(key: args.key, onResult: args.onResult);
     },
   );
 }
 
 class LoginArgs {
-  const LoginArgs({
-    this.key,
-    required this.onResult,
-  });
+  const LoginArgs({this.key, required this.onResult});
 
   final _i7.Key? key;
 
@@ -158,25 +157,32 @@ class LoginArgs {
 /// [_i4.ProductsPage]
 class Products extends _i6.PageRouteInfo<ProductsArgs> {
   Products({
-    dynamic key,
-    dynamic updateDashboardState,
-    dynamic sortOption = 'updatedAt',
-    dynamic sortDirection = 'desc',
+    _i7.Key? key,
+    dynamic Function({
+      _i7.Widget? createForm,
+      _i1.SortDirection? sortDirection,
+      dynamic sortOption,
+      List<dynamic>? sortOptions,
+      String? title,
+    })?
+    updateDashboardState,
+    String? sortOption = 'updatedAt',
+    String? sortDirection = 'desc',
     List<_i6.PageRouteInfo>? children,
   }) : super(
-          Products.name,
-          args: ProductsArgs(
-            key: key,
-            updateDashboardState: updateDashboardState,
-            sortOption: sortOption,
-            sortDirection: sortDirection,
-          ),
-          rawQueryParams: {
-            'sortOption': sortOption,
-            'sortDirection': sortDirection,
-          },
-          initialChildren: children,
-        );
+         Products.name,
+         args: ProductsArgs(
+           key: key,
+           updateDashboardState: updateDashboardState,
+           sortOption: sortOption,
+           sortDirection: sortDirection,
+         ),
+         rawQueryParams: {
+           'sortOption': sortOption,
+           'sortDirection': sortDirection,
+         },
+         initialChildren: children,
+       );
 
   static const String name = 'Products';
 
@@ -185,16 +191,12 @@ class Products extends _i6.PageRouteInfo<ProductsArgs> {
     builder: (data) {
       final queryParams = data.queryParams;
       final args = data.argsAs<ProductsArgs>(
-          orElse: () => ProductsArgs(
-                sortOption: queryParams.get(
-                  'sortOption',
-                  'updatedAt',
-                ),
-                sortDirection: queryParams.get(
-                  'sortDirection',
-                  'desc',
-                ),
-              ));
+        orElse:
+            () => ProductsArgs(
+              sortOption: queryParams.optString('sortOption', 'updatedAt'),
+              sortDirection: queryParams.optString('sortDirection', 'desc'),
+            ),
+      );
       return _i4.ProductsPage(
         key: args.key,
         updateDashboardState: args.updateDashboardState,
@@ -213,13 +215,20 @@ class ProductsArgs {
     this.sortDirection = 'desc',
   });
 
-  final dynamic key;
+  final _i7.Key? key;
 
-  final dynamic updateDashboardState;
+  final dynamic Function({
+    _i7.Widget? createForm,
+    _i1.SortDirection? sortDirection,
+    dynamic sortOption,
+    List<dynamic>? sortOptions,
+    String? title,
+  })?
+  updateDashboardState;
 
-  final dynamic sortOption;
+  final String? sortOption;
 
-  final dynamic sortDirection;
+  final String? sortDirection;
 
   @override
   String toString() {
@@ -231,25 +240,32 @@ class ProductsArgs {
 /// [_i5.PurchaseOrdersPage]
 class PurchaseOrders extends _i6.PageRouteInfo<PurchaseOrdersArgs> {
   PurchaseOrders({
-    dynamic key,
-    dynamic updateDashboardState,
-    dynamic sortOption = 'updatedAt',
-    dynamic sortDirection = 'desc',
+    _i7.Key? key,
+    dynamic Function({
+      _i7.Widget? createForm,
+      _i1.SortDirection? sortDirection,
+      dynamic sortOption,
+      List<dynamic>? sortOptions,
+      String? title,
+    })?
+    updateDashboardState,
+    String? sortOption = 'updatedAt',
+    String? sortDirection = 'desc',
     List<_i6.PageRouteInfo>? children,
   }) : super(
-          PurchaseOrders.name,
-          args: PurchaseOrdersArgs(
-            key: key,
-            updateDashboardState: updateDashboardState,
-            sortOption: sortOption,
-            sortDirection: sortDirection,
-          ),
-          rawQueryParams: {
-            'sortOption': sortOption,
-            'sortDirection': sortDirection,
-          },
-          initialChildren: children,
-        );
+         PurchaseOrders.name,
+         args: PurchaseOrdersArgs(
+           key: key,
+           updateDashboardState: updateDashboardState,
+           sortOption: sortOption,
+           sortDirection: sortDirection,
+         ),
+         rawQueryParams: {
+           'sortOption': sortOption,
+           'sortDirection': sortDirection,
+         },
+         initialChildren: children,
+       );
 
   static const String name = 'PurchaseOrders';
 
@@ -258,16 +274,12 @@ class PurchaseOrders extends _i6.PageRouteInfo<PurchaseOrdersArgs> {
     builder: (data) {
       final queryParams = data.queryParams;
       final args = data.argsAs<PurchaseOrdersArgs>(
-          orElse: () => PurchaseOrdersArgs(
-                sortOption: queryParams.get(
-                  'sortOption',
-                  'updatedAt',
-                ),
-                sortDirection: queryParams.get(
-                  'sortDirection',
-                  'desc',
-                ),
-              ));
+        orElse:
+            () => PurchaseOrdersArgs(
+              sortOption: queryParams.optString('sortOption', 'updatedAt'),
+              sortDirection: queryParams.optString('sortDirection', 'desc'),
+            ),
+      );
       return _i5.PurchaseOrdersPage(
         key: args.key,
         updateDashboardState: args.updateDashboardState,
@@ -286,13 +298,20 @@ class PurchaseOrdersArgs {
     this.sortDirection = 'desc',
   });
 
-  final dynamic key;
+  final _i7.Key? key;
 
-  final dynamic updateDashboardState;
+  final dynamic Function({
+    _i7.Widget? createForm,
+    _i1.SortDirection? sortDirection,
+    dynamic sortOption,
+    List<dynamic>? sortOptions,
+    String? title,
+  })?
+  updateDashboardState;
 
-  final dynamic sortOption;
+  final String? sortOption;
 
-  final dynamic sortDirection;
+  final String? sortDirection;
 
   @override
   String toString() {

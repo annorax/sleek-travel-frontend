@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/forms/product_form.dart';
+import 'package:slick_travel_frontend/pages/product_form.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/pages/list_page.dart';

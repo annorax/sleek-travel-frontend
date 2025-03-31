@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/forms/purchase_order_form.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/pages/list_page.dart';
@@ -49,7 +47,4 @@ class PurchaseOrdersPage extends ListPage {
   @override
   String createItemDescription(item) =>
       "${item[PurchaseOrdersField.entries.name].map((entry) => entry[PurchaseOrdersField.quantity.name]).reduce((a, b) => a + b)} items";
-
-  @override
-  Widget? get createForm => PurchaseOrderForm();
 }

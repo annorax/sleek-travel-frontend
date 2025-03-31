@@ -60,8 +60,8 @@ abstract class ListPage extends StatefulWidget with PolymorphicPage {
 
   bool get filterByUserId;
   List<Enum> get sortOptions;
-  Widget? get createForm;
   String createItemDescription(dynamic item);
+  Widget? get createForm => null;
 
   @override
   State<ListPage> createState() => ListPageState();

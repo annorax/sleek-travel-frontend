@@ -1,13 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/util.dart';
+import 'package:string_validator/string_validator.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
@@ -20,62 +19,43 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormBuilderState>();
-  final _emailFieldKey = GlobalKey<FormBuilderFieldState>();
-  void Function()? _onPressedHandler;
+  final _formKey = GlobalKey<FormState>();
   RunMutation? _runMutation;
 
-  String extractFormValue(String fieldName) => _formKey.currentState!.value[fieldName];
+  extractValue(GlobalKey<State<StatefulWidget>> key) => (key.currentState as FormFieldState).value;
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey emailFieldKey = GlobalKey<FormFieldState>();
+    final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
+
     return Scaffold(
         appBar: AppBar(title: Text("Log in")),
         body: SingleChildScrollView(
-          child: FormBuilder(
+          child: Form(
             key: _formKey,
-            onChanged: () {
-              _formKey.currentState?.save();
-              setState(() {
-                _onPressedHandler =
-                    (_formKey.currentState?.value[emailFieldName] ?? '')
-                                .isEmpty ||
-                            (_formKey.currentState?.value[passwordFieldName] ??
-                                    '')
-                                .isEmpty
-                        ? null
-                        : () {
-                            // Validate and save the form values
-                            bool valid = _formKey.currentState!.validate();
-                            if (!valid) {
-                              return;
-                            }
-                            _runMutation!({
-                              'email': extractFormValue(emailFieldName),
-                              'password': extractFormValue(passwordFieldName),
-                            });
-                          };
-              });
-            },
+            autovalidateMode: AutovalidateMode.onUnfocus,
             child: Column(
               children: [
-                FormBuilderTextField(
-                  key: _emailFieldKey,
-                  name: emailFieldName,
+                TextFormField(
+                  key: emailFieldKey,
                   decoration: const InputDecoration(labelText: 'Email'),
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                    FormBuilderValidators.email(),
-                  ]),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Required';
+                    }
+                    if (!isEmail(value)) {
+                      return 'Invalid email address';
+                    }
+                    return null;
+                  }
                 ),
                 const SizedBox(height: 10),
-                FormBuilderTextField(
-                  name: passwordFieldName,
+                TextFormField(
+                  key: passwordFieldKey,
                   decoration: const InputDecoration(labelText: 'Password'),
                   obscureText: true,
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                  ]),
+                  validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
@@ -94,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                             logInUser['user'];
                         final Map<String, dynamic> userMap = {
                           ...safeUserMap,
-                          "email": extractFormValue(emailFieldName),
+                          "email": extractValue(emailFieldKey),
                           "token": token
                         };
                         final user = User.fromJson(userMap);
@@ -106,7 +86,15 @@ class _LoginPageState extends State<LoginPage> {
                       _runMutation = runMutation;
                       return MaterialButton(
                         color: Theme.of(context).colorScheme.secondary,
-                        onPressed: _onPressedHandler,
+                        onPressed: () {
+                          if (!_formKey.currentState!.validate()) {
+                            return;
+                          }
+                          _runMutation!({
+                            'email': extractValue(emailFieldKey),
+                            'password': extractValue(passwordFieldKey),
+                          });
+                        },
                         child: const Text('Login'),
                       );
                     },

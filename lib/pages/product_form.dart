@@ -28,6 +28,7 @@ class ProductForm extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Form(
         key: formKey,
+        autovalidateMode: AutovalidateMode.onUnfocus,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

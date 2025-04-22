@@ -5,8 +5,8 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/graphql/queries.dart';
+import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
-import 'package:slick_travel_frontend/pages/polymorphic_page.dart';
 import 'package:slick_travel_frontend/slidable/action_pane_motions.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
@@ -39,7 +39,7 @@ enum ItemAction {
   final String label;
 }
 
-abstract class ListPage extends StatefulWidget with PolymorphicPage {
+abstract class ListPage extends StatefulWidget {
   static const path = basePath;
 
   final String? sortOption;
@@ -61,6 +61,10 @@ abstract class ListPage extends StatefulWidget with PolymorphicPage {
   List<Enum> get sortOptions;
   String createItemDescription(dynamic item);
   Widget? get createForm => null;
+
+  ListableEntityType get entityType;
+  
+  List<dynamic> get columnsToFetch;
 
   @override
   State<ListPage> createState() => ListPageState();

@@ -24,9 +24,6 @@ class AppRouteInformationParser extends RouteInformationParser<AppRoutePath> {
         case 'purchase-orders':
           return AppRoutePath.purchaseOrders();
         default:
-          // Treat any other single segment as home for simplicity,
-          // or handle specific cases if needed.
-          // Consider adding specific paths if deep linking is required.
           return AppRoutePath.home(); // Or AppRoutePath.unknown() if preferred
       }
     }

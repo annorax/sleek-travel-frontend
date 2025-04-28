@@ -7,6 +7,7 @@ import 'package:slick_travel_frontend/router/auth_provider.dart'; // Import Auth
 
 class AppRouterDelegate extends RouterDelegate<AppRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<AppRoutePath> {
+  
   @override
   final GlobalKey<NavigatorState> navigatorKey;
 
@@ -17,7 +18,6 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
 
   AppRouterDelegate({required this.authProvider})
       : navigatorKey = GlobalKey<NavigatorState>() {
-    // Listen to AuthProvider changes
     authProvider.addListener(() {
       _loggedIn = authProvider.isLoggedIn;
       // Also check persistent state in case app restarts while logged in
@@ -88,26 +88,15 @@ class AppRouterDelegate extends RouterDelegate<AppRoutePath>
     return Navigator(
       key: navigatorKey,
       pages: pages,
-      // Replace deprecated onPopPage with onDidRemovePage
       onDidRemovePage: (Page page) {
-        // Handle logic when a page is removed if necessary.
-        // For this simple structure (Login or Dashboard), explicit handling
-        // might not be needed when a page is removed by the system (e.g., back button).
-        // If we had detail pages pushed onto the stack, we might update
-        // _currentPath or other state here based on the removed 'page'.
-        print("Page removed: ${page.key}"); // Optional logging
-        // No need to call notifyListeners() here typically, as the
-        // removal is usually triggered by state changes already handled.
+        print("Page removed: ${page.key}");
       },
     );
   }
 
   @override
   Future<void> setNewRoutePath(AppRoutePath path) async {
-    // This is called by the Router when a new route is pushed.
-    // We update our internal state based on the path.
     _currentPath = path;
-    // No need to notifyListeners() here, Router does that.
     // We might need more logic here if we support deep linking while logged in.
     // For example, if path.isItemsPage, we might want DashboardPage to
     // navigate to the Items tab.

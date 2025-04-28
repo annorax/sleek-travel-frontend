@@ -91,18 +91,9 @@ class DashboardPageState extends State<DashboardPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         _pages = [
-          ItemsPage(
-            updateDashboardState: updateDashboardState,
-            sortOption: _sortOption != null ? enumValueToName(_sortOption) : null,
-            sortDirection: _sortDirection?.name),
-          ProductsPage(
-            updateDashboardState: updateDashboardState,
-            sortOption: _sortOption != null ? enumValueToName(_sortOption) : null,
-            sortDirection: _sortDirection?.name),
-          PurchaseOrdersPage(
-            updateDashboardState: updateDashboardState,
-            sortOption: _sortOption != null ? enumValueToName(_sortOption) : null,
-            sortDirection: _sortDirection?.name)
+          ItemsPage(updateDashboardState: updateDashboardState),
+          ProductsPage(updateDashboardState: updateDashboardState),
+          PurchaseOrdersPage(updateDashboardState: updateDashboardState)
         ];
       });
     });

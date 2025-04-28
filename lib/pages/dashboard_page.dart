@@ -1,16 +1,16 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slick_travel_frontend/globals.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
-import 'package:slick_travel_frontend/router/app_router.gr.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
+import 'package:slick_travel_frontend/pages/items_page.dart';
+import 'package:slick_travel_frontend/pages/products_page.dart';
+import 'package:slick_travel_frontend/pages/purchase_orders_page.dart';
 import 'package:slick_travel_frontend/util.dart';
 
 enum SortDirection { asc, desc }
 
-@RoutePage()
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
@@ -24,6 +24,8 @@ class DashboardPageState extends State<DashboardPage> {
   dynamic _sortOption;
   SortDirection? _sortDirection;
   Widget? _createForm;
+  int _currentIndex = 0;
+  List<Widget> _pages = [];
 
   void updateDashboardState({
     String? title,
@@ -50,7 +52,6 @@ class DashboardPageState extends State<DashboardPage> {
         _sortOption = sortOption;
         _sortDirection = sortOption.defaultDirection;
       });
-      _updateRoute();
     }
   }
 
@@ -60,17 +61,6 @@ class DashboardPageState extends State<DashboardPage> {
           ? SortDirection.desc
           : SortDirection.asc;
     });
-    _updateRoute();
-  }
-
-  void _updateRoute() {
-    final pageRouteInfo = appRouter.topMatch.toPageRouteInfo().copyWith(
-      queryParams: {
-        "sortOption": enumValueToName(_sortOption),
-        "sortDirection": _sortDirection?.name,
-      },
-    );
-    appRouter.replace(pageRouteInfo);
   }
 
   List<Widget> _buildSortMenuItems() =>
@@ -96,12 +86,36 @@ class DashboardPageState extends State<DashboardPage> {
       [];
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _pages = [
+          ItemsPage(
+            updateDashboardState: updateDashboardState,
+            sortOption: _sortOption != null ? enumValueToName(_sortOption) : null,
+            sortDirection: _sortDirection?.name),
+          ProductsPage(
+            updateDashboardState: updateDashboardState,
+            sortOption: _sortOption != null ? enumValueToName(_sortOption) : null,
+            sortDirection: _sortDirection?.name),
+          PurchaseOrdersPage(
+            updateDashboardState: updateDashboardState,
+            sortOption: _sortOption != null ? enumValueToName(_sortOption) : null,
+            sortDirection: _sortDirection?.name)
+        ];
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final User? user = userState.getValueSyncNoInit();
     final GlobalKey<TooltipState> tooltipKey = GlobalKey<TooltipState>();
     final bool isSignedIn = user?.id != null;
-    return AutoTabsScaffold(
-      appBarBuilder: (context, tabsRouter) => AppBar(
+
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: _title != null ? Text(_title!) : null,
         actions: [
@@ -159,40 +173,22 @@ class DashboardPageState extends State<DashboardPage> {
               menuChildren: _buildSortMenuItems()),
         ],
       ),
-      routes: [
-        _sortOption != null && _sortDirection != null
-            ? Items(
-                updateDashboardState: updateDashboardState,
-                sortOption: enumValueToName(_sortOption),
-                sortDirection: _sortDirection?.name)
-            : Items(updateDashboardState: updateDashboardState),
-        _sortOption != null && _sortDirection != null
-            ? Products(
-                updateDashboardState: updateDashboardState,
-                sortOption: enumValueToName(_sortOption),
-                sortDirection: _sortDirection?.name)
-            : Products(updateDashboardState: updateDashboardState),
-        _sortOption != null && _sortDirection != null
-            ? PurchaseOrders(
-                updateDashboardState: updateDashboardState,
-                sortOption: enumValueToName(_sortOption),
-                sortDirection: _sortDirection?.name)
-            : PurchaseOrders(updateDashboardState: updateDashboardState),
-      ],
-      navigatorObservers: () => [AutoRouteObserver()],
-      bottomNavigationBuilder: (_, tabsRouter) {
-        return NavigationBar(
+      body: _pages.isNotEmpty ? _pages[_currentIndex] : null,
+      bottomNavigationBar: NavigationBar( // Use NavigationBar
           indicatorColor: Colors.white,
-          selectedIndex: tabsRouter.activeIndex,
-          onDestinationSelected: tabsRouter.setActiveIndex,
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
           destinations: const [
             NavigationDestination(label: 'Items', icon: Icon(Icons.grain)),
             NavigationDestination(label: 'Products', icon: Icon(Icons.redeem)),
             NavigationDestination(
                 label: 'Orders', icon: Icon(Icons.assignment)),
           ],
-        );
-      },
+      ),
       floatingActionButton: _createForm != null ? FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(

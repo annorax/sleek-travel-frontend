@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
@@ -19,15 +18,14 @@ enum PurchaseOrdersField {
   quantity
 }
 
-@RoutePage()
 class PurchaseOrdersPage extends ListPage {
   static const path = basePath;
 
   const PurchaseOrdersPage(
       {super.key,
       super.updateDashboardState,
-      @queryParam super.sortOption = 'updatedAt',
-      @queryParam super.sortDirection = 'desc'});
+      super.sortOption = 'updatedAt',
+      super.sortDirection = 'desc'});
 
   @override
   ListableEntityType get entityType => ListableEntityType.purchaseOrder;

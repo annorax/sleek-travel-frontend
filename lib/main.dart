@@ -4,8 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/globals.dart';
+import 'package:slick_travel_frontend/globals.dart'; // Provides authProvider
 import 'package:slick_travel_frontend/graphql/mutations.dart';
+import 'package:slick_travel_frontend/router/app_route_information_parser.dart';
+import 'package:slick_travel_frontend/router/app_router_delegate.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 
@@ -77,7 +79,8 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: clientNotifier,
       child: MaterialApp.router(
-          routerConfig: appRouter.config(reevaluateListenable: authProvider),
+          routeInformationParser: AppRouteInformationParser(),
+          routerDelegate: AppRouterDelegate(authProvider: authProvider),
           scaffoldMessengerKey: scaffoldMessengerKey,
           theme: theme,
           debugShowCheckedModeBanner: false),

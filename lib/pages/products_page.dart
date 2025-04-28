@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/pages/product_form.dart';
@@ -17,15 +16,14 @@ enum ProductSortOption {
 
 enum ProductsField { id, name }
 
-@RoutePage()
 class ProductsPage extends ListPage {
   static const path = basePath;
 
   const ProductsPage(
-      {super.key,
-      super.updateDashboardState,
-      @queryParam super.sortOption = 'updatedAt',
-      @queryParam super.sortDirection = 'desc'});
+    {super.key,
+    super.updateDashboardState,
+    super.sortOption = 'updatedAt',
+    super.sortDirection = 'desc'});
 
   @override
   ListableEntityType get entityType => ListableEntityType.product;

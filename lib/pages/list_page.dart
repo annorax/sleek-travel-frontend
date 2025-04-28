@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -70,11 +69,54 @@ abstract class ListPage extends StatefulWidget {
   State<ListPage> createState() => ListPageState();
 }
 
-class ListPageState extends State<ListPage> with AutoRouteAwareStateMixin<ListPage> {
+class ListPageState extends State<ListPage> {
   List? _items;
 
+  @override
+  void initState() {
+    super.initState();
+    // Call updateDashboardState when the page initializes
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateDashboard();
+    });
+  }
+
+  @override
+  void didUpdateWidget(ListPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateDashboard();
+    });
+  }
+
+  // Extracted dashboard update logic
+  void _updateDashboard() {
+    if (widget.updateDashboardState == null) {
+      return;
+    }
+    Map<String, Enum> sortOptionsNameMap = widget.sortOptions.asNameMap();
+    Map<String, SortDirection> sortDirectionsNameMap = SortDirection.values.asNameMap();
+    widget.updateDashboardState!(
+        title: widget.entityType.displayNamePlural.toCapitalized(),
+        sortOptions: widget.sortOptions,
+        createForm: widget.createForm,
+        sortOption: widget.sortOption != null && widget.sortOption != "null"
+            ? (sortOptionsNameMap.containsKey(widget.sortOption!)
+                ? sortOptionsNameMap[widget.sortOption!]
+                : null)
+            : null,
+        sortDirection:
+            widget.sortDirection != null && widget.sortDirection != "null"
+                ? (sortDirectionsNameMap.containsKey(widget.sortDirection!)
+                    ? sortDirectionsNameMap[widget.sortDirection!]
+                    : null)
+                : null);
+  }
+
   void Function([BuildContext context]) onPressedDelete(
-      BuildContext givenContext, GraphQLClient client, dynamic item) {
+      BuildContext givenContext,
+      GraphQLClient client,
+      dynamic item) {
     return ([BuildContext? context]) async {
       if (!(await showConfirmationDialog(context ?? givenContext))) {
         return;
@@ -182,34 +224,4 @@ class ListPageState extends State<ListPage> with AutoRouteAwareStateMixin<ListPa
         });
   }
 
-  @override
-  void didInitTabRoute(TabPageRoute? previousRoute) {
-    didChangeTabRoute(previousRoute);
-  }
-
-  @override
-  void didChangeTabRoute(TabPageRoute? previousRoute) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (widget.updateDashboardState != null) {
-        Map<String, Enum> sortOptionsNameMap = widget.sortOptions.asNameMap();
-        Map<String, SortDirection> sortDirectionsNameMap =
-            SortDirection.values.asNameMap();
-        widget.updateDashboardState!(
-            title: widget.entityType.displayNamePlural.toCapitalized(),
-            sortOptions: widget.sortOptions,
-            createForm: widget.createForm,
-            sortOption: widget.sortOption != null && widget.sortOption != "null"
-                ? (sortOptionsNameMap.containsKey(widget.sortOption!)
-                    ? sortOptionsNameMap[widget.sortOption!]
-                    : null)
-                : null,
-            sortDirection:
-                widget.sortDirection != null && widget.sortDirection != "null"
-                    ? (sortDirectionsNameMap.containsKey(widget.sortDirection!)
-                        ? sortDirectionsNameMap[widget.sortDirection!]
-                        : null)
-                    : null);
-      }
-    });
-  }
 }

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
@@ -15,15 +14,14 @@ enum ItemSortOption {
 
 enum ItemsField { id, name }
 
-@RoutePage()
 class ItemsPage extends ListPage {
   static const path = basePath;
 
   const ItemsPage(
-      {super.key,
-      super.updateDashboardState,
-      @queryParam super.sortOption = 'updatedAt',
-      @queryParam super.sortDirection = 'desc'});
+    {super.key,
+    super.updateDashboardState,
+    super.sortOption = 'updatedAt',
+    super.sortDirection = 'desc'});
 
   @override
   ListableEntityType get entityType => ListableEntityType.item;

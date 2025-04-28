@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:slick_travel_frontend/constants.dart';
@@ -8,7 +7,6 @@ import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/util.dart';
 import 'package:string_validator/string_validator.dart';
 
-@RoutePage()
 class LoginPage extends StatefulWidget {
   final ValueChanged<bool> onResult;
   static const path = '$basePath$loginPagePath';

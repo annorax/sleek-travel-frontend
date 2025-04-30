@@ -1,0 +1,16 @@
+import 'package:navigation_utils/navigation_utils.dart';
+import 'package:slick_travel_frontend/pages/dashboard_page.dart';
+import 'package:slick_travel_frontend/pages/login_page.dart';
+
+final List<NavigationData> routes = [
+  ...DashboardTab.values.map(
+    (tab) => NavigationData(
+      label: tab.name,
+      url: '/${tab.name}',
+      builder: (context, routeData, globalData) => DashboardPage(activeTab: tab)
+    )
+  ),
+  NavigationData(
+      url: '/login',
+      builder: (context, routeData, globalData) => const LoginPage()),
+];

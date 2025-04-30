@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
@@ -8,9 +9,8 @@ import 'package:slick_travel_frontend/util.dart';
 import 'package:string_validator/string_validator.dart';
 
 class LoginPage extends StatefulWidget {
-  final ValueChanged<bool> onResult;
   static const path = '$basePath$loginPagePath';
-  const LoginPage({super.key, required this.onResult});
+  const LoginPage({super.key});
 
   @override
   createState() => _LoginPageState();
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                         };
                         final user = User.fromJson(userMap);
                         await userState.setValue(user);
-                        widget.onResult(true);
+                        NavigationManager.instance.pushReplacement("/items");
                       },
                     ),
                     builder: (runMutation, result) {

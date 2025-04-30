@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:json_theme/json_theme.dart';
+import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/globals.dart'; // Provides authProvider
 import 'package:slick_travel_frontend/graphql/mutations.dart';
-import 'package:slick_travel_frontend/router/app_route_information_parser.dart';
-import 'package:slick_travel_frontend/router/app_router_delegate.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
+import 'package:slick_travel_frontend/router/routes.dart';
 
 final Link backendLink = HttpLink(backendUrl);
 
@@ -37,6 +37,10 @@ Future<void> main() async {
     final themeJson = jsonDecode(themeStr);
     final theme = ThemeDecoder.decodeThemeData(themeJson)!;
 
+    NavigationManager.init(
+      mainRouterDelegate: DefaultRouterDelegate(navigationDataRoutes: routes),
+      routeInformationParser: DefaultRouteInformationParser(defaultRoutePath: '/login'),
+    );
     runApp(MyApp(clientNotifier: clientNotifier, theme: theme));
   } catch (e) {
     print('Error initializing app: $e');
@@ -79,8 +83,8 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: clientNotifier,
       child: MaterialApp.router(
-          routeInformationParser: AppRouteInformationParser(),
-          routerDelegate: AppRouterDelegate(authProvider: authProvider),
+          routerDelegate: NavigationManager.instance.routerDelegate,
+          routeInformationParser: NavigationManager.instance.routeInformationParser,
           scaffoldMessengerKey: scaffoldMessengerKey,
           theme: theme,
           debugShowCheckedModeBanner: false),

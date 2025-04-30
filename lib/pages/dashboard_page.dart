@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/globals.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
@@ -11,8 +12,20 @@ import 'package:slick_travel_frontend/util.dart';
 
 enum SortDirection { asc, desc }
 
+enum DashboardTab {
+  items(icon: Icon(Icons.grain)),
+  products(icon: Icon(Icons.redeem)),
+  orders(icon: Icon(Icons.assignment));
+  
+  final Icon icon;
+
+  const DashboardTab({required this.icon});
+}
+
 class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+  final DashboardTab activeTab;
+
+  const DashboardPage({super.key, required this.activeTab});
 
   @override
   State<DashboardPage> createState() => DashboardPageState();
@@ -24,9 +37,8 @@ class DashboardPageState extends State<DashboardPage> {
   dynamic _sortOption;
   SortDirection? _sortDirection;
   Widget? _createForm;
-  int _currentIndex = 0;
-  List<Widget> _pages = [];
-
+  final Map<DashboardTab, Widget> _pages = {};
+  
   void updateDashboardState({
     String? title,
     List? sortOptions,
@@ -90,11 +102,9 @@ class DashboardPageState extends State<DashboardPage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
-        _pages = [
-          ItemsPage(updateDashboardState: updateDashboardState),
-          ProductsPage(updateDashboardState: updateDashboardState),
-          PurchaseOrdersPage(updateDashboardState: updateDashboardState)
-        ];
+        _pages[DashboardTab.items] = ItemsPage(updateDashboardState: updateDashboardState);
+        _pages[DashboardTab.products] = ProductsPage(updateDashboardState: updateDashboardState);
+        _pages[DashboardTab.orders] = PurchaseOrdersPage(updateDashboardState: updateDashboardState);
       });
     });
   }
@@ -164,21 +174,19 @@ class DashboardPageState extends State<DashboardPage> {
               menuChildren: _buildSortMenuItems()),
         ],
       ),
-      body: _pages.isNotEmpty ? _pages[_currentIndex] : null,
+      body: _pages[widget.activeTab],
       bottomNavigationBar: NavigationBar( // Use NavigationBar
           indicatorColor: Colors.white,
-          selectedIndex: _currentIndex,
+          selectedIndex: widget.activeTab.index,
           onDestinationSelected: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
+            NavigationManager.instance.pushReplacement(DashboardTab.values[index].name);
           },
-          destinations: const [
-            NavigationDestination(label: 'Items', icon: Icon(Icons.grain)),
-            NavigationDestination(label: 'Products', icon: Icon(Icons.redeem)),
-            NavigationDestination(
-                label: 'Orders', icon: Icon(Icons.assignment)),
-          ],
+          destinations: DashboardTab.values.map(
+            (tab) => NavigationDestination(
+              label: tab.name.toCapitalized(),
+              icon: tab.icon
+            )
+          ).toList(),
       ),
       floatingActionButton: _createForm != null ? FloatingActionButton(
         onPressed: () {

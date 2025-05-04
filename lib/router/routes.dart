@@ -3,11 +3,18 @@ import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/pages/login_page.dart';
 
 final List<NavigationData> routes = [
+  NavigationData(
+    label: DashboardPage.name,
+    url: '/',
+    builder: (context, routeData, globalData) => DashboardPage(),
+    group: DashboardPage.name
+  ),
   ...DashboardTab.values.map(
     (tab) => NavigationData(
       label: tab.name,
       url: '/${tab.name}',
-      builder: (context, routeData, globalData) => DashboardPage(activeTab: tab)
+      builder: (context, routeData, globalData) => DashboardPage(),
+      group: DashboardPage.name
     )
   ),
   NavigationData(

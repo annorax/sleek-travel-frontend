@@ -20,8 +20,8 @@ class ItemsPage extends ListPage {
   const ItemsPage(
     {super.key,
     super.updateDashboardState,
-    super.sortOption = 'updatedAt',
-    super.sortDirection = 'desc'});
+    super.sortOptionParam,
+    super.sortDirectionParam});
 
   @override
   ListableEntityType get entityType => ListableEntityType.item;

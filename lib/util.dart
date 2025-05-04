@@ -55,8 +55,8 @@ void showError(String message, BuildContext context) {
   );
 }
 
-String enumValueToName(dynamic value) =>
-    value.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
+String? enumValueToName(dynamic value) =>
+    value?.toString().replaceAll(RegExp(r'^[^.]+\.'), '');
 
 Future<bool> showConfirmationDialog(BuildContext context,
   {

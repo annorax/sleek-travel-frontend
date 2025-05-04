@@ -5,7 +5,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/globals.dart'; // Provides authProvider
+import 'package:slick_travel_frontend/globals.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';

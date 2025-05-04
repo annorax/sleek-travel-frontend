@@ -24,8 +24,8 @@ class PurchaseOrdersPage extends ListPage {
   const PurchaseOrdersPage(
       {super.key,
       super.updateDashboardState,
-      super.sortOption = 'updatedAt',
-      super.sortDirection = 'desc'});
+      super.sortOptionParam,
+      super.sortDirectionParam});
 
   @override
   ListableEntityType get entityType => ListableEntityType.purchaseOrder;

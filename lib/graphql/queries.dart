@@ -8,7 +8,7 @@ String listQuery(User? user, ListPage widget) {
         : '';
   return '''
     query List${widget.entityType.namePlural.toCapitalized()} {
-      ${widget.entityType.namePlural}(orderBy: {${widget.sortOption}: ${widget.sortDirection}}$wherePredicate) {
+      ${widget.entityType.namePlural}(orderBy: {${widget.sortOptionParam}: ${widget.sortDirectionParam}}$wherePredicate) {
         ${columnsListToGraphQL(widget.columnsToFetch)}
       }
     }

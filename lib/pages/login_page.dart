@@ -5,6 +5,7 @@ import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
+import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/util.dart';
 import 'package:string_validator/string_validator.dart';
 
@@ -77,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                         };
                         final user = User.fromJson(userMap);
                         await userState.setValue(user);
-                        NavigationManager.instance.pushReplacement("/items");
+                        NavigationManager.instance.pushReplacement(DashboardTab.items.name);
                       },
                     ),
                     builder: (runMutation, result) {

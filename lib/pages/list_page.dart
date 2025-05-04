@@ -10,6 +10,7 @@ import 'package:slick_travel_frontend/slidable/action_pane_motions.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/util.dart';
+import 'package:collection/collection.dart';
 
 enum ItemAction {
   edit(
@@ -41,8 +42,8 @@ enum ItemAction {
 abstract class ListPage extends StatefulWidget {
   static const path = basePath;
 
-  final String? sortOption;
-  final String? sortDirection;
+  final String? sortOptionParam;
+  final String? sortDirectionParam;
   final Function(
       {String? title,
       List? sortOptions,
@@ -52,8 +53,8 @@ abstract class ListPage extends StatefulWidget {
 
   const ListPage(
       {super.key,
-      this.sortOption,
-      this.sortDirection,
+      this.sortOptionParam,
+      this.sortDirectionParam,
       this.updateDashboardState});
 
   bool get filterByUserId;
@@ -89,28 +90,30 @@ class ListPageState extends State<ListPage> {
     });
   }
 
-  // Extracted dashboard update logic
   void _updateDashboard() {
     if (widget.updateDashboardState == null) {
       return;
     }
-    Map<String, Enum> sortOptionsNameMap = widget.sortOptions.asNameMap();
-    Map<String, SortDirection> sortDirectionsNameMap = SortDirection.values.asNameMap();
-    widget.updateDashboardState!(
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      dynamic sortOption;
+      SortDirection? sortDirection;
+      if (widget.sortOptionParam != null && widget.sortOptionParam!.isNotEmpty) {
+        sortOption = widget.sortOptions.firstWhereOrNull((sortOption) => enumValueToName(sortOption) == widget.sortOptionParam);
+      }
+      if (widget.sortDirectionParam != null && widget.sortDirectionParam!.isNotEmpty) {
+        sortDirection = SortDirection.values.firstWhereOrNull((sortDirection) => sortDirection.name == widget.sortDirectionParam);
+      }
+      if (sortOption != null && sortDirection == null) {
+        sortDirection = sortOption.defaultDirection;
+      }
+      widget.updateDashboardState!(
         title: widget.entityType.displayNamePlural.toCapitalized(),
         sortOptions: widget.sortOptions,
         createForm: widget.createForm,
-        sortOption: widget.sortOption != null && widget.sortOption != "null"
-            ? (sortOptionsNameMap.containsKey(widget.sortOption!)
-                ? sortOptionsNameMap[widget.sortOption!]
-                : null)
-            : null,
-        sortDirection:
-            widget.sortDirection != null && widget.sortDirection != "null"
-                ? (sortDirectionsNameMap.containsKey(widget.sortDirection!)
-                    ? sortDirectionsNameMap[widget.sortDirection!]
-                    : null)
-                : null);
+        sortOption: sortOption,
+        sortDirection: sortDirection
+      );
+    });
   }
 
   void Function([BuildContext context]) onPressedDelete(
@@ -137,10 +140,10 @@ class ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.sortOption == null ||
-        widget.sortOption == "null" ||
-        widget.sortDirection == null ||
-        widget.sortDirection == "null") {
+    if (widget.sortOptionParam == null ||
+        widget.sortOptionParam == "null" ||
+        widget.sortDirectionParam == null ||
+        widget.sortDirectionParam == "null") {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();

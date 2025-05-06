@@ -9,6 +9,8 @@ import 'package:slick_travel_frontend/globals.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
+import 'package:slick_travel_frontend/pages/dashboard_page.dart';
+import 'package:slick_travel_frontend/pages/login_page.dart';
 import 'package:slick_travel_frontend/router/routes.dart';
 
 final Link backendLink = HttpLink(backendUrl);
@@ -39,7 +41,7 @@ Future<void> main() async {
 
     NavigationManager.init(
       mainRouterDelegate: DefaultRouterDelegate(navigationDataRoutes: routes),
-      routeInformationParser: DefaultRouteInformationParser(defaultRoutePath: '/login'),
+      routeInformationParser: DefaultRouteInformationParser(defaultRoutePath: '/${user != null ? DashboardTab.items.name : LoginPage.name}'),
     );
     runApp(MyApp(clientNotifier: clientNotifier, theme: theme));
   } catch (e) {

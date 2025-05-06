@@ -11,6 +11,8 @@ import 'package:string_validator/string_validator.dart';
 
 class LoginPage extends StatefulWidget {
   static const path = '$basePath$loginPagePath';
+  static const String name = 'login';
+
   const LoginPage({super.key});
 
   @override

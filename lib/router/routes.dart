@@ -18,6 +18,7 @@ final List<NavigationData> routes = [
     )
   ),
   NavigationData(
-      url: '/login',
+      label: LoginPage.name,
+      url: '/${LoginPage.name}',
       builder: (context, routeData, globalData) => const LoginPage()),
 ];

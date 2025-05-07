@@ -164,8 +164,6 @@ class DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     final User? user = userState.getValueSyncNoInit();
-    final GlobalKey<TooltipState> tooltipKey = GlobalKey<TooltipState>();
-    final bool isSignedIn = user?.id != null;
 
     return Scaffold(
       appBar: AppBar(
@@ -175,37 +173,26 @@ class DashboardPageState extends State<DashboardPage> {
           MenuAnchor(
             builder: (BuildContext context, MenuController controller,
                     Widget? child) =>
-                Tooltip(
-              key: tooltipKey,
-              triggerMode: TooltipTriggerMode.manual,
-              preferBelow: true,
-              message: isSignedIn ? "Signed in as ${user!.name}" : "Signed out",
-              child: IconButton(
+              IconButton(
                 icon: const Icon(Icons.account_circle),
-                onPressed: () {
-                  tooltipKey.currentState?.ensureTooltipVisible();
-                  if (!isSignedIn) {
-                    return;
-                  }
-                  if (controller.isOpen) {
-                    controller.close();
-                  } else {
-                    controller.open();
-                  }
-                },
+                onPressed: () =>
+                  controller.isOpen ? controller.close(): controller.open()
               ),
-            ),
             menuChildren: [
+              MenuItemButton(
+                child: Text(user == null ? "Signed out" : "Signed in as ${user.name}",),
+              ),
               Mutation(
-                  options: MutationOptions(document: gql(logoutMutation)),
-                  builder: (runMutation, result) => MenuItemButton(
-                        leadingIcon: Icon(Icons.logout),
-                        onPressed: () {
-                          runMutation({});
-                          userState.removeValue();
-                        },
-                        child: Text("Sign out"),
-                      ))
+                options: MutationOptions(document: gql(logoutMutation)),
+                builder: (runMutation, result) => MenuItemButton(
+                  leadingIcon: Icon(Icons.logout),
+                  onPressed: () {
+                    runMutation({});
+                    userState.removeValue();
+                  },
+                  child: Text("Sign out"),
+                )
+              )
             ],
           ),
           MenuAnchor(

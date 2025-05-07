@@ -12,6 +12,7 @@ import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/pages/login_page.dart';
 import 'package:slick_travel_frontend/router/routes.dart';
+import 'package:slick_travel_frontend/router/routes.dart' as navigation_routes;
 
 final Link backendLink = HttpLink(backendUrl);
 
@@ -43,7 +44,7 @@ Future<void> main() async {
       mainRouterDelegate: DefaultRouterDelegate(navigationDataRoutes: routes),
       routeInformationParser: DefaultRouteInformationParser(defaultRoutePath: '/${user != null ? DashboardTab.items.name : LoginPage.name}'),
     );
-    runApp(MyApp(clientNotifier: clientNotifier, theme: theme));
+    runApp(App(clientNotifier: clientNotifier, theme: theme));
   } catch (e) {
     print('Error initializing app: $e');
     runApp(ErrorApp(error: e.toString()));
@@ -75,22 +76,93 @@ Future<User?> validateToken(GraphQLClient client, String tokenValue) async {
   return user;
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatefulWidget {
   final ValueNotifier<GraphQLClient> clientNotifier;
   final ThemeData theme;
-  const MyApp({super.key, required this.clientNotifier, required this.theme});
+  const App({super.key, required this.clientNotifier, required this.theme});
+
+  @override
+  State<App> createState() => AppState();
+}
+
+class AppState extends State<App> {
+  bool initialized = false;
+  bool loadInitialRoute = true;
+  String? errorMessage;
+
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
+
+  Future<void> init() async {
+    NavigationManager.instance.setMainRoutes = setMainRoutes;
+
+    userState.listen((dynamic data) {
+      // TODO: implement
+      /*uid != null ? onUserAuthenticated(uid) : onUserUnauthenticated()*/
+    });
+      
+    // Set initialization page.
+    User? user = await userState.getValue();
+    if (user == null) {
+      NavigationManager.instance.set([LoginPage.name]);
+    } else {
+      onUserAuthenticated();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return GraphQLProvider(
-      client: clientNotifier,
+      client: widget.clientNotifier,
       child: MaterialApp.router(
           routerDelegate: NavigationManager.instance.routerDelegate,
           routeInformationParser: NavigationManager.instance.routeInformationParser,
           scaffoldMessengerKey: scaffoldMessengerKey,
-          theme: theme,
+          theme: widget.theme,
           debugShowCheckedModeBanner: false),
     );
+  }
+
+  Future<void> onUserAuthenticated() async {
+    // Attempt to load the initial route URI.
+    if (loadInitialRoute) {
+      loadInitialRoute = false;
+      initialized = true;
+      String initialRoute =
+          NavigationManager.instance.routeInformationParser.initialRoute;
+      NavigationManager.instance.set([initialRoute]);
+    } else {
+      NavigationManager.instance.set([DashboardTab.items.name]);
+    }
+    NavigationManager.instance.resumeNavigation();
+  }
+
+  Future<void> onUserUnauthenticated() async {
+    if (NavigationManager.instance.currentRoute?.metadata?['auth'] == true) {
+      NavigationManager.instance.set([LoginPage.name]);
+    }
+    NavigationManager.instance.resumeNavigation();
+  }
+
+  List<DefaultRoute> setMainRoutes(List<DefaultRoute> routes) {
+    if (userState.getValueSyncNoInit() == null) {
+      routes.removeWhere((element) => element.metadata?['type'] != 'auth');
+      if (routes.isEmpty) {
+        routes.add(DefaultRoute(label: LoginPage.name, path: '/${LoginPage.name}'));
+        // Handle edge case
+        NavigationManager.instance.resumeNavigation();
+      }
+    } else {
+      routes.removeWhere((element) => element.metadata?['type'] == 'auth');
+      if (routes.isEmpty) {
+        routes.add(NavigationUtils.buildDefaultRouteFromName(
+            navigation_routes.routes, '/'));
+      }
+    }
+    return routes;
   }
 }
 

@@ -203,7 +203,6 @@ class DashboardPageState extends State<DashboardPage> {
                         onPressed: () {
                           runMutation({});
                           userState.removeValue();
-                          authProvider.logout();
                         },
                         child: Text("Sign out"),
                       ))

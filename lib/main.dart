@@ -100,8 +100,12 @@ class AppState extends State<App> {
     NavigationManager.instance.setMainRoutes = setMainRoutes;
 
     userState.listen((dynamic data) {
-      // TODO: implement
-      /*uid != null ? onUserAuthenticated(uid) : onUserUnauthenticated()*/
+      if (data == null) {
+        // TODO: test that this actually happens when user signs out
+        onUserUnauthenticated();
+      } else {
+        onUserAuthenticated();
+      }
     });
       
     // Set initialization page.

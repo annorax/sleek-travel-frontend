@@ -29,6 +29,13 @@ Future<void> main() async {
       user = await validateToken(client, user.token);
     }
     userState.listen((user) {
+      if (user == null) {
+        clientNotifier.value = GraphQLClient(
+          link: backendLink,
+          cache: GraphQLCache(),
+        );
+        return;
+      }
       clientNotifier.value = GraphQLClient(
         link: AuthLink(
           getToken: () => "Bearer ${user.token}",
@@ -101,7 +108,6 @@ class AppState extends State<App> {
 
     userState.listen((dynamic data) {
       if (data == null) {
-        // TODO: test that this actually happens when user signs out
         onUserUnauthenticated();
       } else {
         onUserAuthenticated();
@@ -131,7 +137,6 @@ class AppState extends State<App> {
   }
 
   Future<void> onUserAuthenticated() async {
-    // Attempt to load the initial route URI.
     if (loadInitialRoute) {
       loadInitialRoute = false;
       initialized = true;
@@ -145,9 +150,7 @@ class AppState extends State<App> {
   }
 
   Future<void> onUserUnauthenticated() async {
-    if (NavigationManager.instance.currentRoute?.metadata?['auth'] == true) {
-      NavigationManager.instance.set([LoginPage.name]);
-    }
+    NavigationManager.instance.set([LoginPage.name]);
     NavigationManager.instance.resumeNavigation();
   }
 

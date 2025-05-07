@@ -5,7 +5,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Listener<T> {
-  void Function(T event)? onData;
+  void Function(T? event)? onData;
   Function? onError;
   void Function()? onDone;
   bool? cancelOnError;
@@ -44,6 +44,7 @@ abstract class AbstractState<T> {
     _subject.close();
     _subject = BehaviorSubject<T>();
     for (Listener<T> listener in listeners) {
+      listener.onData!(null);
       _subject.listen(
         listener.onData,
         onError: listener.onError,
@@ -68,11 +69,13 @@ abstract class AbstractState<T> {
   }
 
   StreamSubscription<T> listen(
-    void Function(T event)? onData, {
-    Function? onError,
-    void Function()? onDone,
-    bool? cancelOnError,
-  }) {
+    void Function(T? event)? onData,
+    {
+      Function? onError,
+      void Function()? onDone,
+      bool? cancelOnError,
+    }
+  ) {
     listeners.add(Listener(onData,
         onError: onError, onDone: onDone, cancelOnError: cancelOnError));
     return _subject.listen(onData,

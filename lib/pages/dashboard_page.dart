@@ -154,7 +154,7 @@ class DashboardPageState extends State<DashboardPage> {
   }
 
   void setTab(DefaultRoute? route) {
-    if (route == null) return;
+    if (route == null || !mounted) return;
     setState(() {
       int tabIndex = DashboardTab.values.indexWhere((tab) => tab.name == route.label);  
       _selectedIndex = tabIndex > -1 ? tabIndex : 0;

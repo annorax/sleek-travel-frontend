@@ -28,7 +28,7 @@ class _ScannerState extends State<Scanner> {
 
   MobileScannerController initController() => MobileScannerController(
     cameraResolution: PlatformDispatcher.instance.views.first.physicalSize,
-    detectionSpeed: DetectionSpeed.unrestricted,
+    detectionSpeed: DetectionSpeed.noDuplicates,
     detectionTimeoutMs: 1000,
   );
 
@@ -63,6 +63,12 @@ class _ScannerState extends State<Scanner> {
               style: const TextStyle(color: Colors.white),
             ),
             fit: boxFit,
+            onDetect: (capture) {
+              String? value = capture.barcodes[0].rawValue;
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                Navigator.of(context, rootNavigator: true).pop(value);
+              });
+            },
           ),
           BarcodeOverlay(controller: controller!, boxFit: boxFit),
           if (useScanWindow)

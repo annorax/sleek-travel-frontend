@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:intl/intl.dart';
-import 'package:navigation_utils/navigation_utils.dart';
+
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/currency_input_formatter.dart';
 import 'package:slick_travel_frontend/graphql/mutations.dart';
@@ -58,7 +58,13 @@ class ProductForm extends StatelessWidget {
                 border: OutlineInputBorder(),
                 labelText: 'UPC',
                 suffixIcon: IconButton(
-                  onPressed: () => NavigationManager.instance.push(Scanner.name),
+                  onPressed: () async {
+                    final result = await showDialog<String?>(
+                      context: context,
+                      builder: (BuildContext context) => Scanner(),
+                    );
+                    // TODO: update UPC field accordingly
+                  },
                   icon: Icon(Icons.qr_code)
                 )
               ),

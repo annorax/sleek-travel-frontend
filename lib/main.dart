@@ -53,7 +53,6 @@ Future<void> main() async {
     );
     runApp(App(clientNotifier: clientNotifier, theme: theme));
   } catch (e) {
-    print('Error initializing app: $e');
     runApp(ErrorApp(error: e.toString()));
   }
 }

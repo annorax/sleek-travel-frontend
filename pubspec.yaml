@@ -27,6 +27,7 @@ dependencies:
   flutter_slidable: ^4.0.0
   graphql: ^5.2.1
   graphql_flutter: ^5.2.0
+  image_picker: ^1.1.2
   intl: ^0.20.2
   json_theme: ^8.0.0+2
   mobile_scanner: ^7.0.0

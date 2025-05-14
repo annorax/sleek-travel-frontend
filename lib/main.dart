@@ -128,11 +128,12 @@ class AppState extends State<App> {
     return GraphQLProvider(
       client: widget.clientNotifier,
       child: MaterialApp.router(
-          routerDelegate: NavigationManager.instance.routerDelegate,
-          routeInformationParser: NavigationManager.instance.routeInformationParser,
-          scaffoldMessengerKey: scaffoldMessengerKey,
-          theme: widget.theme,
-          debugShowCheckedModeBanner: false),
+        routerDelegate: NavigationManager.instance.routerDelegate,
+        routeInformationParser: NavigationManager.instance.routeInformationParser,
+        scaffoldMessengerKey: scaffoldMessengerKey,
+        theme: widget.theme,
+        debugShowCheckedModeBanner: false
+      ),
     );
   }
 
@@ -166,7 +167,9 @@ class AppState extends State<App> {
       routes.removeWhere((element) => element.metadata?['type'] == 'auth');
       if (routes.isEmpty) {
         routes.add(NavigationUtils.buildDefaultRouteFromName(
-            navigation_routes.routes, '/'));
+          navigation_routes.routes,
+          '/'
+        ));
       }
     }
     return routes;

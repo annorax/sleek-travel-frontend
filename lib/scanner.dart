@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _ScannerState extends State<Scanner> {
   BoxFit boxFit = BoxFit.contain;
 
   MobileScannerController initController() => MobileScannerController(
-    cameraResolution: const Size(1920, 1080),
+    cameraResolution: PlatformDispatcher.instance.views.first.physicalSize,
     detectionSpeed: DetectionSpeed.unrestricted,
     detectionTimeoutMs: 1000,
   );

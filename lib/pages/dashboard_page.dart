@@ -248,7 +248,8 @@ class DashboardPageState extends State<DashboardPage> {
               borderRadius: BorderRadius.circular(10.0),
             ),
             builder: (BuildContext context) => _createForm!,
-            context: context
+            context: context,
+            useSafeArea: true
           );
         },
         tooltip: 'Create',

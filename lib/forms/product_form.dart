@@ -11,7 +11,7 @@ import 'package:slick_travel_frontend/model/product.model.dart';
 import 'package:slick_travel_frontend/scanner.dart';
 import 'package:slick_travel_frontend/util.dart';
 
-class ProductForm extends StatelessWidget {
+class ProductForm extends StatefulWidget {
   final Product? product;
 
   const ProductForm({
@@ -20,12 +20,28 @@ class ProductForm extends StatelessWidget {
   });
 
   @override
+  createState() => _ProductFormState();
+}
+
+class _ProductFormState extends State<ProductForm> {
+  late final TextEditingController nameController;
+  late final TextEditingController descriptionController;
+  late final TextEditingController upcController;
+  late final TextEditingController priceController;
+  bool upcFieldEnabled = true;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController(text: widget.product?.name);
+    descriptionController = TextEditingController(text: widget.product?.description);
+    upcController = TextEditingController(text: widget.product?.upc);
+    priceController = TextEditingController(text: widget.product?.price.toString());
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final TextEditingController nameController = TextEditingController(text: product?.name);
-    final TextEditingController descriptionController = TextEditingController(text: product?.description);
-    final TextEditingController upcController = TextEditingController(text: product?.upc);
-    final TextEditingController priceController = TextEditingController(text: product?.price.toString());
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();  
   
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -55,18 +71,41 @@ class ProductForm extends StatelessWidget {
             TextFormField(
               controller: upcController,
               decoration: InputDecoration(
+                enabled: upcFieldEnabled,
                 border: OutlineInputBorder(),
                 labelText: 'UPC',
-                suffixIcon: IconButton(
-                  onPressed: () async {
-                    final result = await showDialog<String?>(
-                      context: context,
-                      builder: (BuildContext context) => Scanner(),
-                    );
-                    // TODO: update UPC field accordingly
-                  },
-                  icon: Icon(Icons.qr_code)
-                )
+                suffixIcon: upcFieldEnabled
+                  ? IconButton(
+                    onPressed: () async {
+                      final result = await showDialog<String?>(
+                        context: context,
+                        builder: (BuildContext context) => Scanner(),
+                      );
+                      if (result != null && result.isNotEmpty) {
+                        setState(() {
+                          upcController.value = upcController.value.copyWith(
+                            text: result,
+                            selection: TextSelection(baseOffset: result.length, extentOffset: result.length),
+                            composing: TextRange.empty,
+                          );
+                          upcFieldEnabled = false;
+                        });
+                      }
+                    },
+                    icon: Icon(Icons.qr_code)
+                  ) : IconButton(
+                    onPressed: () {
+                      setState(() {
+                        upcController.value = upcController.value.copyWith(
+                          text: "",
+                          selection: TextSelection(baseOffset: 0, extentOffset: 0),
+                          composing: TextRange.empty,
+                        );
+                        upcFieldEnabled = true;
+                      });
+                    },
+                    icon: Icon(Icons.clear)
+                  )
               ),
             ),
             SizedBox(height: 16),
@@ -75,7 +114,7 @@ class ProductForm extends StatelessWidget {
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Price',
-                prefixText: NumberFormat().simpleCurrencySymbol(product?.currency ?? currencyCode)
+                prefixText: NumberFormat().simpleCurrencySymbol(widget.product?.currency ?? currencyCode)
               ),
               inputFormatters: [
                 LengthLimitingTextInputFormatter(11),
@@ -87,7 +126,7 @@ class ProductForm extends StatelessWidget {
             SizedBox(height: 16),
             Mutation(
               options: MutationOptions(
-                document: gql(createEntityMutation(ListableEntityType.product)),
+                document: gql(upsertEntityMutation(ListableEntityType.product)),
                 onCompleted: (dynamic resultData) {
                   Navigator.of(context).pop();
                   showInfo('Product saved', context);
@@ -118,14 +157,17 @@ class ProductForm extends StatelessWidget {
                     if (formKey.currentState!.validate()) {
                       final String name = nameController.text;
                       final String description = descriptionController.text;
+                      final String upc = upcController.text;
                       final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
 
                       runMutation({
                         'product': Product(
+                          id: widget.product?.id != null ? widget.product!.id : null,
                           name: name,
                           description: description.isEmpty ? null : description,
+                          upc: upc.isEmpty ? null : upc,
                           price: priceString,
-                          currency: product?.currency ?? currencyCode,
+                          currency: widget.product?.currency ?? currencyCode,
                         )
                       });
                     }

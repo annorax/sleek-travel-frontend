@@ -43,10 +43,10 @@ const String validateTokenMutation = r'''
   }
 ''';
 
-String createEntityMutation(ListableEntityType entityType) {
+String upsertEntityMutation(ListableEntityType entityType) {
   return '''
-    mutation Create${entityType.nameSingular.toCapitalized()}(\$${entityType.nameSingular}: ProductCreateInput!) {
-      createOne${entityType.nameSingular.toCapitalized()}(data: \$${entityType.nameSingular}) {}
+    mutation Upsert${entityType.nameSingular.toCapitalized()}(\$${entityType.nameSingular}: ${entityType.nameSingular.toCapitalized()}UpsertInput!) {
+      upsertOne${entityType.nameSingular.toCapitalized()}(data: \$${entityType.nameSingular}) {}
     }
   ''';
 }

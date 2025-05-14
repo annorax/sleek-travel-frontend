@@ -22,6 +22,7 @@ class ProductForm extends StatelessWidget {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     final TextEditingController nameController = TextEditingController(text: product?.name);
     final TextEditingController descriptionController = TextEditingController(text: product?.description);
+    final TextEditingController upcController = TextEditingController(text: product?.upc);
     final TextEditingController priceController = TextEditingController(text: product?.price.toString());
   
     return Padding(
@@ -46,6 +47,14 @@ class ProductForm extends StatelessWidget {
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Description'
+              ),
+            ),
+            SizedBox(height: 16),
+            TextFormField(
+              controller: upcController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'UPC'
               ),
             ),
             SizedBox(height: 16),

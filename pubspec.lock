@@ -404,10 +404,10 @@ packages:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "61d263546a2d5c621ff3e7813def5da941d879eeb7b7e07d0e3aacc68ead85a6"
+      sha256: "4669ec5c28249a51223a04e15d51486f09b7945315d51d37b36cce54a44d567b"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+15"
+    version: "1.0.3+16"
   leak_tracker:
     dependency: transitive
     description:

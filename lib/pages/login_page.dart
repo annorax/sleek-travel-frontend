@@ -38,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
             autovalidateMode: AutovalidateMode.onUnfocus,
             child: Column(
               children: [
+                SizedBox(height: 16),
                 TextFormField(
                   key: emailFieldKey,
                   decoration: const InputDecoration(labelText: 'Email'),
@@ -51,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                     return null;
                   }
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
                 TextFormField(
                   key: passwordFieldKey,
                   decoration: const InputDecoration(labelText: 'Password'),

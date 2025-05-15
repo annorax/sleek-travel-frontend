@@ -9,8 +9,6 @@ import 'package:slick_travel_frontend/buttons/switch_camera_button.dart';
 import 'package:slick_travel_frontend/buttons/toggle_flashlight_button.dart';
 
 class Scanner extends StatefulWidget {
-  static const String name = 'scanner';
-
   const Scanner({super.key});
 
   @override

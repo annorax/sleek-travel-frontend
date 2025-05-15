@@ -1,7 +1,6 @@
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/pages/login_page.dart';
-import 'package:slick_travel_frontend/scanner.dart';
 
 final List<NavigationData> routes = [
   NavigationData(
@@ -23,11 +22,5 @@ final List<NavigationData> routes = [
       builder: (context, routeData, globalData) => DashboardPage(),
       group: DashboardPage.name
     )
-  ),
-  NavigationData(
-    label: Scanner.name,
-    url: '/${Scanner.name}',
-    builder: (context, routeData, globalData) => const Scanner(),
-    fullScreenDialog: true
-  ),
+  )
 ];

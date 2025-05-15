@@ -44,15 +44,17 @@ void showInfo(String message, BuildContext context) {
 }
 
 void showError(String message, BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(
-        message,
-        style: TextStyle(color: Theme.of(context).colorScheme.error),
-      ),
-      backgroundColor: Theme.of(context).colorScheme.errorContainer
-    )
-  );
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: TextStyle(color: Theme.of(context).colorScheme.error),
+        ),
+        backgroundColor: Theme.of(context).colorScheme.errorContainer
+      )
+    );
+  });
 }
 
 String? enumValueToName(dynamic value) =>

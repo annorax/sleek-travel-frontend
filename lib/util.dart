@@ -49,7 +49,6 @@ void showError(String message, BuildContext context) {
       SnackBar(
         content: Text(
           message,
-          style: TextStyle(color: Theme.of(context).colorScheme.error),
         ),
         backgroundColor: Theme.of(context).colorScheme.errorContainer
       )

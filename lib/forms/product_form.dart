@@ -127,7 +127,11 @@ class _ProductFormState extends State<ProductForm> {
             SizedBox(height: 16),
             Mutation(
               options: MutationOptions(
-                document: gql(upsertEntityMutation(ListableEntityType.product)),
+                document: gql(
+                  widget.product?.id == null
+                    ? createEntityMutation(ListableEntityType.product)
+                    : updateEntityMutation(ListableEntityType.product)
+                ),
                 onCompleted: (dynamic resultData) {
                   Navigator.of(context).pop();
                   showInfo('Product saved', context);

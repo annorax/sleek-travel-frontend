@@ -65,6 +65,9 @@ class _ScannerState extends State<Scanner> {
             fit: boxFit,
             onDetect: (capture) {
               String? value = capture.barcodes[0].rawValue;
+              if (value == null) {
+                return;
+              }
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 Navigator.of(context, rootNavigator: true).pop(value);
               });

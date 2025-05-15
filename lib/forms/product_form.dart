@@ -70,8 +70,8 @@ class _ProductFormState extends State<ProductForm> {
             SizedBox(height: 16),
             TextFormField(
               controller: upcController,
+              readOnly: !upcFieldEnabled,
               decoration: InputDecoration(
-                enabled: upcFieldEnabled,
                 border: OutlineInputBorder(),
                 labelText: 'UPC',
                 suffixIcon: upcFieldEnabled

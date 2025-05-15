@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-const String backendUrl = 'https://1f4h68ps-4000.euw.devtunnels.ms/graphql';
+const String backendUrl = 'https://r7z264sx-4000.euw.devtunnels.ms/graphql';
 const String emailFieldName = 'email';
 const String passwordFieldName = 'password';
 const String userKey = 'user';

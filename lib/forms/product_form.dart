@@ -28,7 +28,7 @@ class _ProductFormState extends State<ProductForm> {
   late final TextEditingController descriptionController;
   late final TextEditingController upcController;
   late final TextEditingController priceController;
-  bool upcFieldEnabled = true;
+  late final bool? upcScanned;
 
   @override
   void initState() {
@@ -37,6 +37,7 @@ class _ProductFormState extends State<ProductForm> {
     descriptionController = TextEditingController(text: widget.product?.description);
     upcController = TextEditingController(text: widget.product?.upc);
     priceController = TextEditingController(text: widget.product?.price.toString());
+    upcScanned = widget.product?.upcScanned;
   }
 
   @override
@@ -70,11 +71,11 @@ class _ProductFormState extends State<ProductForm> {
             SizedBox(height: 16),
             TextFormField(
               controller: upcController,
-              readOnly: !upcFieldEnabled,
+              readOnly: upcScanned == true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'UPC',
-                suffixIcon: upcFieldEnabled
+                suffixIcon: upcScanned != true
                   ? IconButton(
                     onPressed: () async {
                       final result = await showDialog<String?>(
@@ -88,7 +89,7 @@ class _ProductFormState extends State<ProductForm> {
                             selection: TextSelection(baseOffset: result.length, extentOffset: result.length),
                             composing: TextRange.empty,
                           );
-                          upcFieldEnabled = false;
+                          upcScanned = true;
                         });
                       }
                     },
@@ -101,7 +102,7 @@ class _ProductFormState extends State<ProductForm> {
                           selection: TextSelection(baseOffset: 0, extentOffset: 0),
                           composing: TextRange.empty,
                         );
-                        upcFieldEnabled = true;
+                        upcScanned = false;
                       });
                     },
                     icon: Icon(Icons.clear)
@@ -166,6 +167,7 @@ class _ProductFormState extends State<ProductForm> {
                           name: name,
                           description: description.isEmpty ? null : description,
                           upc: upc.isEmpty ? null : upc,
+                          upcScanned: upcScanned,
                           price: priceString,
                           currency: widget.product?.currency ?? currencyCode,
                         )

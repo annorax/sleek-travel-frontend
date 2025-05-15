@@ -28,7 +28,7 @@ class _ProductFormState extends State<ProductForm> {
   late final TextEditingController descriptionController;
   late final TextEditingController upcController;
   late final TextEditingController priceController;
-  late final bool? upcScanned;
+  late bool? upcScanned;
 
   @override
   void initState() {

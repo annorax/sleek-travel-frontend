@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
+import 'package:slick_travel_frontend/env/env.dart';
 
-const String backendUrl = 'https://r7z264sx-4000.euw.devtunnels.ms/graphql';
+const String backendUrl = '${Env.backendBaseUrl}graphql';
 const String emailFieldName = 'email';
 const String passwordFieldName = 'password';
 const String userKey = 'user';

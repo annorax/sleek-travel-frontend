@@ -132,8 +132,8 @@ class _ProductFormState extends State<ProductForm> {
                     ? createEntityMutation(ListableEntityType.product)
                     : updateEntityMutation(ListableEntityType.product)
                 ),
-                onCompleted: (dynamic resultData) {
-                  Navigator.of(context).pop();
+                update: (cache, result) {
+                  Navigator.of(context).pop(true);
                   showInfo('Product saved', context);
                 },
                 onError: (error) {

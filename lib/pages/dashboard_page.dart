@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -129,11 +130,11 @@ class DashboardPageState extends State<DashboardPage> {
             url: '/${DashboardTab.products.name}',
             builder: (context, routeData, globalData) =>
               ProductsPage(
-                key: ValueKey(DashboardTab.products.name),
-                updateDashboardState: updateDashboardState,
-                sortOptionParam: routeData.queryParameters[QueryParam.sortOption.name] ?? 'updatedAt',
-                sortDirectionParam: routeData.queryParameters[QueryParam.sortDirection.name] ?? 'desc',
-              ),
+              key: ValueKey(DashboardTab.products.name),
+              updateDashboardState: updateDashboardState,
+              sortOptionParam: routeData.queryParameters[QueryParam.sortOption.name] ?? 'updatedAt',
+              sortDirectionParam: routeData.queryParameters[QueryParam.sortDirection.name] ?? 'desc',
+            ),
           ),
           NavigationData(
             label: DashboardTab.orders.name,
@@ -218,13 +219,12 @@ class DashboardPageState extends State<DashboardPage> {
         crossFadePosition: 0.3,
         alignment: Alignment.topCenter,
         initialAnimation: false,
-        animation: (child, animation) {
-          return SharedAxisAnimation(
-              key: child.key,
-              animation: animation,
-              transitionType: SharedAxisAnimationType.vertical,
-              child: child);
-        },
+        animation: (child, animation) => SharedAxisAnimation(
+          key: child.key,
+          animation: animation,
+          transitionType: SharedAxisAnimationType.vertical,
+          child: child
+        ),
         children: NavigationManager.instance.nested(context: context, routes: _pages),
       ),
       bottomNavigationBar: NavigationBar( // Use NavigationBar
@@ -241,8 +241,8 @@ class DashboardPageState extends State<DashboardPage> {
           ).toList(),
       ),
       floatingActionButton: _createForm != null ? FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
+        onPressed: () async {
+          bool? saved = await showModalBottomSheet(
             isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
@@ -251,6 +251,9 @@ class DashboardPageState extends State<DashboardPage> {
             context: context,
             useSafeArea: true
           );
+          if (saved == true) {
+            // TODO: refresh body
+          }
         },
         tooltip: 'Create',
         child: const Icon(Icons.add),

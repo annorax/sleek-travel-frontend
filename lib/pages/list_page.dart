@@ -76,18 +76,13 @@ class ListPageState extends State<ListPage> {
   @override
   void initState() {
     super.initState();
-    // Call updateDashboardState when the page initializes
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _updateDashboard();
-    });
+    _updateDashboard();
   }
 
   @override
   void didUpdateWidget(ListPage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _updateDashboard();
-    });
+    _updateDashboard();
   }
 
   void _updateDashboard() {
@@ -140,15 +135,19 @@ class ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.sortOptionParam == null ||
-        widget.sortOptionParam == "null" ||
-        widget.sortDirectionParam == null ||
-        widget.sortDirectionParam == "null") {
+    if (
+      widget.sortOptionParam == null ||
+      widget.sortOptionParam == "null" ||
+      widget.sortDirectionParam == null ||
+      widget.sortDirectionParam == "null") {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
     return Query(
-        options: QueryOptions(document: gql(listQuery(user, widget))),
+        options: QueryOptions(
+          document: gql(listQuery(user, widget)),
+          fetchPolicy: FetchPolicy.networkOnly,
+        ),
         builder: (QueryResult result,
             {VoidCallback? refetch, FetchMore? fetchMore}) {
           if (result.hasException) {

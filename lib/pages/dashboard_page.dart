@@ -54,6 +54,15 @@ class DashboardPageState extends State<DashboardPage> {
     if (!mounted) {
       return;
     }
+    if (
+      _title == title
+      && _sortOptions == sortOptions
+      && _sortOption == sortOption
+      && _sortDirection == sortDirection
+      && _createForm.runtimeType == createForm.runtimeType
+    ) {
+      return;
+    }
     setState(() {
       _title = title;
       _sortOptions = sortOptions;
@@ -251,7 +260,7 @@ class DashboardPageState extends State<DashboardPage> {
             useSafeArea: true
           );
           if (saved == true) {
-            // TODO: refresh body
+            NavigationManager.instance.pushReplacementRoute(NavigationManager.instance.currentRoute!);
           }
         },
         tooltip: 'Create',

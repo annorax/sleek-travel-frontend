@@ -46,7 +46,9 @@ const String validateTokenMutation = r'''
 String createEntityMutation(ListableEntityType entityType) {
   return '''
     mutation Create${entityType.nameSingular.toCapitalized()}(\$${entityType.nameSingular}: ${entityType.nameSingular.toCapitalized()}CreateInput!) {
-      createOne${entityType.nameSingular.toCapitalized()}(data: \$${entityType.nameSingular}) {}
+      createOne${entityType.nameSingular.toCapitalized()}(data: \$${entityType.nameSingular}) {
+        id
+      }
     }
   ''';
 }

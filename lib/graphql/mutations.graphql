@@ -1,0 +1,52 @@
+mutation ValidateToken($tokenValue: String!) {
+  validateToken(tokenValue: $tokenValue) {
+    token,
+    user {
+      id,
+      name,
+      email
+    }
+  }
+}
+
+mutation LogInUser($email: String!, $password: String!) {
+  logInUser(email: $email, password: $password) {
+    token,
+    user {
+      id,
+      name
+    }
+  }
+}
+
+mutation LogOutUser() {
+  logOutUser
+}
+
+mutation CreateProduct($product: ProductCreateInput!) {
+  createOneProduct(data: $product) {
+    id
+  }
+}
+
+mutation UpdateProduct($id: Int!, $product: ProductCreateInput!) {
+  updateOneProduct(where: {id: $id}, data: $product) {}
+}
+
+mutation DeleteProduct($id: Int!) {
+  deleteOneProduct(where: {id: $id}) {
+    id
+  }
+}
+
+mutation DeleteItem($id: Int!) {
+  deleteOneItem(where: {id: $id}) {
+    id
+  }
+}
+
+mutation DeletePurchaseOrder($id: Int!) {
+  deleteOnePurchaseOrder(where: {id: $id}) {
+    id
+  }
+}

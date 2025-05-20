@@ -1,15 +1,15 @@
+import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/currency_input_formatter.dart';
-import 'package:slick_travel_frontend/graphql/mutations.dart';
-import 'package:slick_travel_frontend/listable_entity_type.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
 import 'package:slick_travel_frontend/model/product.model.dart';
 import 'package:slick_travel_frontend/scanner.dart';
-import 'package:slick_travel_frontend/util.dart';
 
 class ProductForm extends StatefulWidget {
   final Product? product;
@@ -125,62 +125,33 @@ class _ProductFormState extends State<ProductForm> {
               validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
             ),
             SizedBox(height: 16),
-            Mutation(
-              options: MutationOptions(
-                document: gql(
-                  widget.product?.id == null
-                    ? createEntityMutation(ListableEntityType.product)
-                    : updateEntityMutation(ListableEntityType.product)
-                ),
-                update: (cache, result) {
-                  Navigator.of(context).pop(true);
-                  showInfo('Product saved', context);
-                },
-                onError: (error) {
-                  showError(
-                      'Error saving product: ${error?.graphqlErrors.isNotEmpty ?? false ? error!.graphqlErrors.first.message : 'Unknown error'}',
-                      context
-                  );
+            ElevatedButton(
+              onPressed: () async {
+                if (formKey.currentState!.validate()) {
+                  final String name = nameController.text;
+                  final String description = descriptionController.text;
+                  final String upc = upcController.text;
+                  final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
+                  buildProduct(GProductCreateInputBuilder builder) => builder
+                          ..name = name
+                          ..description = description.isEmpty ? null : description
+                          ..upc = upc.isEmpty ? null : upc
+                          ..upcScanned = upcScanned
+                          ..price.value = priceString
+                          ..currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode);
+                  Client client = context.watch<Client>();
+                  final OperationResponse result = await client.request(
+                    widget.product?.id == null
+                      ? GCreateProductReq((builder) => buildProduct(builder.vars.product))
+                      : GUpdateProductReq((builder) {
+                        builder.vars.id = widget.product?.id;
+                        buildProduct(builder.vars.product);
+                      })
+                  ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                  // TODO: inspect result
                 }
-              ),
-              builder: (
-                RunMutation runMutation,
-                QueryResult? result,
-              ) {
-                if (result != null) {
-                  if (result.isLoading) {
-                    return Center(child: CircularProgressIndicator());
-                  }
-
-                  if (result.hasException) {
-                    showError('GraphQL Error: ${result.exception.toString()}', context);
-                  }
-                }
-                
-                return ElevatedButton(
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      final String name = nameController.text;
-                      final String description = descriptionController.text;
-                      final String upc = upcController.text;
-                      final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
-
-                      runMutation({
-                        'product': Product(
-                          id: widget.product?.id != null ? widget.product!.id : null,
-                          name: name,
-                          description: description.isEmpty ? null : description,
-                          upc: upc.isEmpty ? null : upc,
-                          upcScanned: upcScanned,
-                          price: priceString,
-                          currency: widget.product?.currency ?? currencyCode,
-                        )
-                      });
-                    }
-                  },
-                  child: Text('Save'),
-                );
               },
+              child: Text('Save'),
             )
           ]
         )

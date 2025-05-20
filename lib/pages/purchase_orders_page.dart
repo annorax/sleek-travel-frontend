@@ -34,15 +34,6 @@ class PurchaseOrdersPage extends ListPage {
   List<Enum> get sortOptions => PurchaseOrderSortOption.values;
 
   @override
-  List<dynamic> get columnsToFetch => [
-        PurchaseOrdersField.id.name,
-        {PurchaseOrdersField.entries.name: [PurchaseOrdersField.quantity.name] }
-      ];
-
-  @override
-  bool get filterByUserId => true;
-
-  @override
   String createItemDescription(item) =>
       "${item[PurchaseOrdersField.entries.name].map((entry) => entry[PurchaseOrdersField.quantity.name]).reduce((a, b) => a + b)} items";
 }

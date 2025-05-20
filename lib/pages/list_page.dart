@@ -1,9 +1,13 @@
+import 'package:ferry/ferry.dart';
+import 'package:ferry_flutter/ferry_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/graphql/mutations.dart';
-import 'package:slick_travel_frontend/graphql/queries.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/mutations.var.gql.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/queries.req.gql.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/slidable/action_pane_motions.dart';
@@ -57,14 +61,11 @@ abstract class ListPage extends StatefulWidget {
       this.sortDirectionParam,
       this.updateDashboardState});
 
-  bool get filterByUserId;
   List<Enum> get sortOptions;
   String createItemDescription(dynamic item);
   Widget? get createForm => null;
 
   ListableEntityType get entityType;
-  
-  List<dynamic> get columnsToFetch;
 
   @override
   State<ListPage> createState() => ListPageState();
@@ -111,20 +112,22 @@ class ListPageState extends State<ListPage> {
     });
   }
 
-  void Function([BuildContext context]) onPressedDelete(
-      BuildContext givenContext,
-      GraphQLClient client,
-      dynamic item) {
+  void Function([BuildContext context]) onPressedDelete(BuildContext givenContext, dynamic item) {
     return ([BuildContext? context]) async {
       if (!(await showConfirmationDialog(context ?? givenContext))) {
         return;
       }
       int index = _items!.indexOf(item);
-      final MutationOptions options = MutationOptions(
-          document: gql(deleteMutation(widget)), variables: {"id": item["id"]});
-      final QueryResult result = await client.mutate(options);
-      if (result.hasException) {
-        showError("Error: ${result.exception.toString()}", context ?? givenContext);
+      Client client = context!.watch<Client>();
+      final OperationResponse result = await client.request(
+        switch (widget.entityType) {
+          ListableEntityType.item => GDeleteItemReq((builder) => builder.vars.id = item["id"]),
+          ListableEntityType.product => GDeleteProductReq((builder) => builder.vars.id = item["id"]),
+          ListableEntityType.purchaseOrder => GDeletePurchaseOrderReq((builder) => builder.vars.id = item["id"])
+        }
+      ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+      if (result.hasErrors) {
+        showError("Error: ${result.graphqlErrors.toString()}", context ?? givenContext);
       } else {
         setState(() {
           _items!.removeAt(index);
@@ -143,87 +146,108 @@ class ListPageState extends State<ListPage> {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
-    return Query(
-        options: QueryOptions(
-          document: gql(listQuery(user, widget)),
-          fetchPolicy: FetchPolicy.networkOnly,
+    return Operation(
+      client: context.watch<Client>(),
+      operationRequest: switch (widget.entityType) {
+        ListableEntityType.product => GListAllProductsReq(
+          (b) => b.vars
+            ..sortOption = widget.sortOptionParam
+            ..sortDirection = widget.sortDirectionParam
         ),
-        builder: (QueryResult result,
-            {VoidCallback? refetch, FetchMore? fetchMore}) {
-          if (result.hasException) {
-            return Text(result.exception.toString());
-          }
-          if (result.isLoading) {
-            return const Text('Loading');
-          }
-          _items = result.data?[widget.entityType.namePlural];
-          if (_items == null) {
-            return Text('No ${widget.entityType.displayNamePlural}');
-          }
-          return ListView.builder(
-              itemCount: _items!.length,
-              itemBuilder: (context, index) {
-                final item = _items![index];
-                return GraphQLConsumer(
-                    builder: (GraphQLClient client) => Slidable(
-                        enabled: isMobilePlatform(),
-                        endActionPane: ActionPane(
-                          motion: const FadeInStretchMotion(),
-                          children: [
-                            SlidableAction(
-                              onPressed: (context) {},
-                              backgroundColor: ItemAction.edit.backgroundColor,
-                              foregroundColor: ItemAction.edit.foregroundColor,
-                              icon: ItemAction.edit.icon,
-                              label: ItemAction.edit.label,
-                            ),
-                            SlidableAction(
-                              onPressed: onPressedDelete(context, client, item),
-                              backgroundColor:
-                                  ItemAction.delete.backgroundColor,
-                              foregroundColor:
-                                  ItemAction.delete.foregroundColor,
-                              icon: ItemAction.delete.icon,
-                              label: ItemAction.delete.label,
-                            ),
-                          ],
+        ListableEntityType.item => GListUserItemsReq(
+          (b) => b.vars
+            ..userId = user!.id
+            ..sortOption = widget.sortOptionParam
+            ..sortDirection = widget.sortDirectionParam
+        ),
+        ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
+          (b) => b.vars
+            ..userId = user!.id
+            ..sortOption = widget.sortOptionParam
+            ..sortDirection = widget.sortDirectionParam
+        ),
+      },
+      builder: (
+        BuildContext context,
+        OperationResponse? response,
+        Object? error,
+      ) {
+        if (response?.hasErrors == true) {
+          return Text(response?.graphqlErrors.toString() ?? 'Error encountered');
+        }
+        if (response?.loading == true) {
+          return const Text('Loading');
+        }
+        // TODO: correctly obtain items from response
+        //_items = response.data?[widget.entityType.namePlural];
+        if (_items == null) {
+          return Text('No ${widget.entityType.displayNamePlural}');
+        }
+        return ListView.builder(
+          itemCount: _items!.length,
+          itemBuilder: (context, index) {
+            final item = _items![index];
+            return Slidable(
+              enabled: isMobilePlatform(),
+              endActionPane: ActionPane(
+                motion: const FadeInStretchMotion(),
+                children: [
+                  SlidableAction(
+                    onPressed: (context) {},
+                    backgroundColor: ItemAction.edit.backgroundColor,
+                    foregroundColor: ItemAction.edit.foregroundColor,
+                    icon: ItemAction.edit.icon,
+                    label: ItemAction.edit.label,
+                  ),
+                  SlidableAction(
+                    onPressed: onPressedDelete(context, item),
+                    backgroundColor:
+                        ItemAction.delete.backgroundColor,
+                    foregroundColor:
+                        ItemAction.delete.foregroundColor,
+                    icon: ItemAction.delete.icon,
+                    label: ItemAction.delete.label,
+                  ),
+                ],
+              ),
+              child: ListTile(
+                title: Text(widget.createItemDescription(item)),
+                trailing: isMobilePlatform()
+                  ? null
+                  : MenuAnchor(
+                      builder: (BuildContext context,
+                          MenuController controller,
+                          Widget? child) {
+                        return IconButton(
+                          onPressed: () {
+                            if (controller.isOpen) {
+                              controller.close();
+                            } else {
+                              controller.open();
+                            }
+                          },
+                          icon: const Icon(Icons.more_vert),
+                        );
+                      },
+                      menuChildren: [
+                        MenuItemButton(
+                          leadingIcon: Icon(ItemAction.edit.icon),
+                          onPressed: () {},
+                          child: Text(ItemAction.edit.label),
                         ),
-                        child: ListTile(
-                            title: Text(widget.createItemDescription(item)),
-                            trailing: isMobilePlatform()
-                                ? null
-                                : MenuAnchor(
-                                    builder: (BuildContext context,
-                                        MenuController controller,
-                                        Widget? child) {
-                                      return IconButton(
-                                        onPressed: () {
-                                          if (controller.isOpen) {
-                                            controller.close();
-                                          } else {
-                                            controller.open();
-                                          }
-                                        },
-                                        icon: const Icon(Icons.more_vert),
-                                      );
-                                    },
-                                    menuChildren: [
-                                      MenuItemButton(
-                                        leadingIcon: Icon(ItemAction.edit.icon),
-                                        onPressed: () {},
-                                        child: Text(ItemAction.edit.label),
-                                      ),
-                                      MenuItemButton(
-                                        leadingIcon:
-                                            Icon(ItemAction.delete.icon),
-                                        onPressed: onPressedDelete(
-                                            context, client, item),
-                                        child: Text(ItemAction.delete.label),
-                                      )
-                                    ],
-                                  ))));
-              });
-        });
+                        MenuItemButton(
+                          leadingIcon:
+                              Icon(ItemAction.delete.icon),
+                          onPressed: onPressedDelete(context, item),
+                          child: Text(ItemAction.delete.label),
+                        )
+                      ],
+                    )
+              )
+            );
+          }
+        );
+      }
+    );
   }
-
 }

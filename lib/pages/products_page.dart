@@ -32,13 +32,6 @@ class ProductsPage extends ListPage {
   List<Enum> get sortOptions => ProductSortOption.values;
 
   @override
-  List<dynamic> get columnsToFetch =>
-    [ProductsField.id.name, ProductsField.name.name];
-
-  @override
-  bool get filterByUserId => false;
-
-  @override
   String createItemDescription(item) => item[ProductsField.name.name];
   
   @override

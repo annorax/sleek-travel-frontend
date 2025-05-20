@@ -1,0 +1,3250 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+"""
+Indicates exactly one field must be supplied and this field must not be `null`.
+"""
+directive @oneOf on INPUT_OBJECT
+
+input AccessTokenCreateManyUserInput {
+  value: String!
+  expired: Boolean
+}
+
+input AccessTokenCreateManyUserInputEnvelope {
+  data: [AccessTokenCreateManyUserInput!]!
+  skipDuplicates: Boolean
+}
+
+input AccessTokenCreateNestedManyWithoutUserInput {
+  create: [AccessTokenCreateWithoutUserInput!]
+  connectOrCreate: [AccessTokenCreateOrConnectWithoutUserInput!]
+  createMany: AccessTokenCreateManyUserInputEnvelope
+  connect: [AccessTokenWhereUniqueInput!]
+}
+
+input AccessTokenCreateNestedOneWithoutLoginsInput {
+  create: AccessTokenCreateWithoutLoginsInput
+  connectOrCreate: AccessTokenCreateOrConnectWithoutLoginsInput
+  connect: AccessTokenWhereUniqueInput
+}
+
+input AccessTokenCreateOrConnectWithoutLoginsInput {
+  where: AccessTokenWhereUniqueInput!
+  create: AccessTokenCreateWithoutLoginsInput!
+}
+
+input AccessTokenCreateOrConnectWithoutUserInput {
+  where: AccessTokenWhereUniqueInput!
+  create: AccessTokenCreateWithoutUserInput!
+}
+
+input AccessTokenCreateWithoutLoginsInput {
+  value: String!
+  expired: Boolean
+  user: UserCreateNestedOneWithoutAccessTokensInput!
+}
+
+input AccessTokenCreateWithoutUserInput {
+  value: String!
+  expired: Boolean
+  logins: LoginCreateNestedManyWithoutAccessTokenInput
+}
+
+input AccessTokenListRelationFilter {
+  every: AccessTokenWhereInput
+  some: AccessTokenWhereInput
+  none: AccessTokenWhereInput
+}
+
+input AccessTokenOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input AccessTokenRelationFilter {
+  is: AccessTokenWhereInput
+  isNot: AccessTokenWhereInput
+}
+
+input AccessTokenScalarWhereInput {
+  AND: [AccessTokenScalarWhereInput!]
+  OR: [AccessTokenScalarWhereInput!]
+  NOT: [AccessTokenScalarWhereInput!]
+  value: StringFilter
+  userId: IntFilter
+  expired: BoolFilter
+}
+
+input AccessTokenUpdateManyMutationInput {
+  value: StringFieldUpdateOperationsInput
+  expired: BoolFieldUpdateOperationsInput
+}
+
+input AccessTokenUpdateManyWithoutUserNestedInput {
+  create: [AccessTokenCreateWithoutUserInput!]
+  connectOrCreate: [AccessTokenCreateOrConnectWithoutUserInput!]
+  upsert: [AccessTokenUpsertWithWhereUniqueWithoutUserInput!]
+  createMany: AccessTokenCreateManyUserInputEnvelope
+  set: [AccessTokenWhereUniqueInput!]
+  disconnect: [AccessTokenWhereUniqueInput!]
+  delete: [AccessTokenWhereUniqueInput!]
+  connect: [AccessTokenWhereUniqueInput!]
+  update: [AccessTokenUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [AccessTokenUpdateManyWithWhereWithoutUserInput!]
+  deleteMany: [AccessTokenScalarWhereInput!]
+}
+
+input AccessTokenUpdateManyWithWhereWithoutUserInput {
+  where: AccessTokenScalarWhereInput!
+  data: AccessTokenUpdateManyMutationInput!
+}
+
+input AccessTokenUpdateOneRequiredWithoutLoginsNestedInput {
+  create: AccessTokenCreateWithoutLoginsInput
+  connectOrCreate: AccessTokenCreateOrConnectWithoutLoginsInput
+  upsert: AccessTokenUpsertWithoutLoginsInput
+  connect: AccessTokenWhereUniqueInput
+  update: AccessTokenUpdateToOneWithWhereWithoutLoginsInput
+}
+
+input AccessTokenUpdateToOneWithWhereWithoutLoginsInput {
+  where: AccessTokenWhereInput
+  data: AccessTokenUpdateWithoutLoginsInput!
+}
+
+input AccessTokenUpdateWithoutLoginsInput {
+  value: StringFieldUpdateOperationsInput
+  expired: BoolFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutAccessTokensNestedInput
+}
+
+input AccessTokenUpdateWithoutUserInput {
+  value: StringFieldUpdateOperationsInput
+  expired: BoolFieldUpdateOperationsInput
+  logins: LoginUpdateManyWithoutAccessTokenNestedInput
+}
+
+input AccessTokenUpdateWithWhereUniqueWithoutUserInput {
+  where: AccessTokenWhereUniqueInput!
+  data: AccessTokenUpdateWithoutUserInput!
+}
+
+input AccessTokenUpsertWithoutLoginsInput {
+  update: AccessTokenUpdateWithoutLoginsInput!
+  create: AccessTokenCreateWithoutLoginsInput!
+  where: AccessTokenWhereInput
+}
+
+input AccessTokenUpsertWithWhereUniqueWithoutUserInput {
+  where: AccessTokenWhereUniqueInput!
+  update: AccessTokenUpdateWithoutUserInput!
+  create: AccessTokenCreateWithoutUserInput!
+}
+
+input AccessTokenWhereInput {
+  AND: [AccessTokenWhereInput!]
+  OR: [AccessTokenWhereInput!]
+  NOT: [AccessTokenWhereInput!]
+  value: StringFilter
+  userId: IntFilter
+  expired: BoolFilter
+  user: UserRelationFilter
+  logins: LoginListRelationFilter
+}
+
+input AccessTokenWhereUniqueInput {
+  value: String
+  AND: [AccessTokenWhereInput!]
+  OR: [AccessTokenWhereInput!]
+  NOT: [AccessTokenWhereInput!]
+  userId: IntFilter
+  expired: BoolFilter
+  user: UserRelationFilter
+  logins: LoginListRelationFilter
+}
+
+type AffectedRowsOutput {
+  count: Int!
+}
+
+type AggregateItem {
+  _count: ItemCountAggregate
+  _avg: ItemAvgAggregate
+  _sum: ItemSumAggregate
+  _min: ItemMinAggregate
+  _max: ItemMaxAggregate
+}
+
+type AggregateProduct {
+  _count: ProductCountAggregate
+  _avg: ProductAvgAggregate
+  _sum: ProductSumAggregate
+  _min: ProductMinAggregate
+  _max: ProductMaxAggregate
+}
+
+type AggregatePurchaseOrder {
+  _count: PurchaseOrderCountAggregate
+  _avg: PurchaseOrderAvgAggregate
+  _sum: PurchaseOrderSumAggregate
+  _min: PurchaseOrderMinAggregate
+  _max: PurchaseOrderMaxAggregate
+}
+
+input BoolFieldUpdateOperationsInput {
+  set: Boolean
+}
+
+input BoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input BoolNullableFilter {
+  equals: Boolean
+  not: NestedBoolNullableFilter
+}
+
+input BoolNullableWithAggregatesFilter {
+  equals: Boolean
+  not: NestedBoolNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedBoolNullableFilter
+  _max: NestedBoolNullableFilter
+}
+
+type CreateManyAndReturnItem {
+  id: Int!
+  userId: Int!
+  code: String!
+  name: String!
+  description: String
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO!
+  updatedAt: DateTimeISO!
+  user: User!
+  product(where: ProductWhereInput): Product
+}
+
+type CreateManyAndReturnProduct {
+  id: Int!
+  name: String!
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency!
+  price: Decimal!
+  createdAt: DateTimeISO!
+  updatedAt: DateTimeISO!
+}
+
+type CreateManyAndReturnPurchaseOrder {
+  id: Int!
+  userId: Int!
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  createdAt: DateTimeISO!
+  updatedAt: DateTimeISO!
+  user: User!
+}
+
+enum Currency {
+  EUR
+}
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTimeISO
+}
+
+input DateTimeFilter {
+  equals: DateTimeISO
+  in: [DateTimeISO!]
+  notIn: [DateTimeISO!]
+  lt: DateTimeISO
+  lte: DateTimeISO
+  gt: DateTimeISO
+  gte: DateTimeISO
+  not: NestedDateTimeFilter
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
+`date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO
+8601 standard for representation of dates and times using the Gregorian
+calendar.This scalar is serialized to a string in ISO 8601 format and parsed
+from a string in ISO 8601 format.
+"""
+scalar DateTimeISO
+
+input DateTimeNullableFilter {
+  equals: DateTimeISO
+  in: [DateTimeISO!]
+  notIn: [DateTimeISO!]
+  lt: DateTimeISO
+  lte: DateTimeISO
+  gt: DateTimeISO
+  gte: DateTimeISO
+  not: NestedDateTimeNullableFilter
+}
+
+input DateTimeWithAggregatesFilter {
+  equals: DateTimeISO
+  in: [DateTimeISO!]
+  notIn: [DateTimeISO!]
+  lt: DateTimeISO
+  lte: DateTimeISO
+  gt: DateTimeISO
+  gte: DateTimeISO
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+"""
+GraphQL Scalar representing the Prisma.Decimal type, based on Decimal.js library.
+"""
+scalar Decimal
+
+input DecimalFieldUpdateOperationsInput {
+  set: Decimal
+  increment: Decimal
+  decrement: Decimal
+  multiply: Decimal
+  divide: Decimal
+}
+
+input DecimalFilter {
+  equals: Decimal
+  in: [Decimal!]
+  notIn: [Decimal!]
+  lt: Decimal
+  lte: Decimal
+  gt: Decimal
+  gte: Decimal
+  not: NestedDecimalFilter
+}
+
+input DecimalWithAggregatesFilter {
+  equals: Decimal
+  in: [Decimal!]
+  notIn: [Decimal!]
+  lt: Decimal
+  lte: Decimal
+  gt: Decimal
+  gte: Decimal
+  not: NestedDecimalWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedDecimalFilter
+  _sum: NestedDecimalFilter
+  _min: NestedDecimalFilter
+  _max: NestedDecimalFilter
+}
+
+input EnumCurrencyFieldUpdateOperationsInput {
+  set: Currency
+}
+
+input EnumCurrencyFilter {
+  equals: Currency
+  in: [Currency!]
+  notIn: [Currency!]
+  not: NestedEnumCurrencyFilter
+}
+
+input EnumCurrencyWithAggregatesFilter {
+  equals: Currency
+  in: [Currency!]
+  notIn: [Currency!]
+  not: NestedEnumCurrencyWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumCurrencyFilter
+  _max: NestedEnumCurrencyFilter
+}
+
+input EnumPurchaseOrderStatusFieldUpdateOperationsInput {
+  set: PurchaseOrderStatus
+}
+
+input EnumPurchaseOrderStatusFilter {
+  equals: PurchaseOrderStatus
+  in: [PurchaseOrderStatus!]
+  notIn: [PurchaseOrderStatus!]
+  not: NestedEnumPurchaseOrderStatusFilter
+}
+
+input EnumPurchaseOrderStatusWithAggregatesFilter {
+  equals: PurchaseOrderStatus
+  in: [PurchaseOrderStatus!]
+  notIn: [PurchaseOrderStatus!]
+  not: NestedEnumPurchaseOrderStatusWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumPurchaseOrderStatusFilter
+  _max: NestedEnumPurchaseOrderStatusFilter
+}
+
+input EnumRoleFieldUpdateOperationsInput {
+  set: Role
+}
+
+input EnumRoleFilter {
+  equals: Role
+  in: [Role!]
+  notIn: [Role!]
+  not: NestedEnumRoleFilter
+}
+
+input FloatNullableFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatNullableFilter
+}
+
+input FloatNullableWithAggregatesFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _sum: NestedFloatNullableFilter
+  _min: NestedFloatNullableFilter
+  _max: NestedFloatNullableFilter
+}
+
+input IntFieldUpdateOperationsInput {
+  set: Int
+  increment: Int
+  decrement: Int
+  multiply: Int
+  divide: Int
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input IntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+input IntNullableWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _sum: NestedIntNullableFilter
+  _min: NestedIntNullableFilter
+  _max: NestedIntNullableFilter
+}
+
+input IntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}
+
+type Item {
+  id: Int!
+  userId: Int!
+  code: String!
+  name: String!
+  description: String
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+}
+
+type ItemAvgAggregate {
+  id: Float
+  userId: Float
+  productId: Float
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+}
+
+input ItemAvgOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  productId: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+}
+
+type ItemCountAggregate {
+  id: Int!
+  userId: Int!
+  code: Int!
+  name: Int!
+  description: Int!
+  productId: Int!
+  weightInKgs: Int!
+  widthInCms: Int!
+  heightInCms: Int!
+  depthInCms: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+input ItemCountOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  code: SortOrder
+  name: SortOrder
+  description: SortOrder
+  productId: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input ItemCreateInput {
+  code: String!
+  name: String!
+  description: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  user: UserCreateNestedOneWithoutItemsInput!
+  product: ProductCreateNestedOneWithoutItemsInput
+}
+
+input ItemCreateManyInput {
+  id: Int
+  userId: Int!
+  code: String!
+  name: String!
+  description: String
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ItemCreateManyProductInput {
+  id: Int
+  userId: Int!
+  code: String!
+  name: String!
+  description: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ItemCreateManyProductInputEnvelope {
+  data: [ItemCreateManyProductInput!]!
+  skipDuplicates: Boolean
+}
+
+input ItemCreateManyUserInput {
+  id: Int
+  code: String!
+  name: String!
+  description: String
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ItemCreateManyUserInputEnvelope {
+  data: [ItemCreateManyUserInput!]!
+  skipDuplicates: Boolean
+}
+
+input ItemCreateNestedManyWithoutProductInput {
+  create: [ItemCreateWithoutProductInput!]
+  connectOrCreate: [ItemCreateOrConnectWithoutProductInput!]
+  createMany: ItemCreateManyProductInputEnvelope
+  connect: [ItemWhereUniqueInput!]
+}
+
+input ItemCreateNestedManyWithoutUserInput {
+  create: [ItemCreateWithoutUserInput!]
+  connectOrCreate: [ItemCreateOrConnectWithoutUserInput!]
+  createMany: ItemCreateManyUserInputEnvelope
+  connect: [ItemWhereUniqueInput!]
+}
+
+input ItemCreateOrConnectWithoutProductInput {
+  where: ItemWhereUniqueInput!
+  create: ItemCreateWithoutProductInput!
+}
+
+input ItemCreateOrConnectWithoutUserInput {
+  where: ItemWhereUniqueInput!
+  create: ItemCreateWithoutUserInput!
+}
+
+input ItemCreateWithoutProductInput {
+  code: String!
+  name: String!
+  description: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  user: UserCreateNestedOneWithoutItemsInput!
+}
+
+input ItemCreateWithoutUserInput {
+  code: String!
+  name: String!
+  description: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  product: ProductCreateNestedOneWithoutItemsInput
+}
+
+type ItemGroupBy {
+  id: Int!
+  userId: Int!
+  code: String!
+  name: String!
+  description: String
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO!
+  updatedAt: DateTimeISO!
+  _count: ItemCountAggregate
+  _avg: ItemAvgAggregate
+  _sum: ItemSumAggregate
+  _min: ItemMinAggregate
+  _max: ItemMaxAggregate
+}
+
+input ItemListRelationFilter {
+  every: ItemWhereInput
+  some: ItemWhereInput
+  none: ItemWhereInput
+}
+
+type ItemMaxAggregate {
+  id: Int
+  userId: Int
+  code: String
+  name: String
+  description: String
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ItemMaxOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  code: SortOrder
+  name: SortOrder
+  description: SortOrder
+  productId: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+type ItemMinAggregate {
+  id: Int
+  userId: Int
+  code: String
+  name: String
+  description: String
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ItemMinOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  code: SortOrder
+  name: SortOrder
+  description: SortOrder
+  productId: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input ItemOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input ItemOrderByWithAggregationInput {
+  id: SortOrder
+  userId: SortOrder
+  code: SortOrder
+  name: SortOrder
+  description: SortOrderInput
+  productId: SortOrderInput
+  weightInKgs: SortOrderInput
+  widthInCms: SortOrderInput
+  heightInCms: SortOrderInput
+  depthInCms: SortOrderInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: ItemCountOrderByAggregateInput
+  _avg: ItemAvgOrderByAggregateInput
+  _max: ItemMaxOrderByAggregateInput
+  _min: ItemMinOrderByAggregateInput
+  _sum: ItemSumOrderByAggregateInput
+}
+
+input ItemOrderByWithRelationInput {
+  id: SortOrder
+  userId: SortOrder
+  code: SortOrder
+  name: SortOrder
+  description: SortOrderInput
+  productId: SortOrderInput
+  weightInKgs: SortOrderInput
+  widthInCms: SortOrderInput
+  heightInCms: SortOrderInput
+  depthInCms: SortOrderInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  user: UserOrderByWithRelationInput
+  product: ProductOrderByWithRelationInput
+}
+
+enum ItemScalarFieldEnum {
+  id
+  userId
+  code
+  name
+  description
+  productId
+  weightInKgs
+  widthInCms
+  heightInCms
+  depthInCms
+  createdAt
+  updatedAt
+}
+
+input ItemScalarWhereInput {
+  AND: [ItemScalarWhereInput!]
+  OR: [ItemScalarWhereInput!]
+  NOT: [ItemScalarWhereInput!]
+  id: IntFilter
+  userId: IntFilter
+  code: StringFilter
+  name: StringFilter
+  description: StringNullableFilter
+  productId: IntNullableFilter
+  weightInKgs: FloatNullableFilter
+  widthInCms: FloatNullableFilter
+  heightInCms: FloatNullableFilter
+  depthInCms: FloatNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input ItemScalarWhereWithAggregatesInput {
+  AND: [ItemScalarWhereWithAggregatesInput!]
+  OR: [ItemScalarWhereWithAggregatesInput!]
+  NOT: [ItemScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  userId: IntWithAggregatesFilter
+  code: StringWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  description: StringNullableWithAggregatesFilter
+  productId: IntNullableWithAggregatesFilter
+  weightInKgs: FloatNullableWithAggregatesFilter
+  widthInCms: FloatNullableWithAggregatesFilter
+  heightInCms: FloatNullableWithAggregatesFilter
+  depthInCms: FloatNullableWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type ItemSumAggregate {
+  id: Int
+  userId: Int
+  productId: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+}
+
+input ItemSumOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  productId: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+}
+
+input ItemUpdateInput {
+  code: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutItemsNestedInput
+  product: ProductUpdateOneWithoutItemsNestedInput
+}
+
+input ItemUpdateManyMutationInput {
+  code: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ItemUpdateManyWithoutProductNestedInput {
+  create: [ItemCreateWithoutProductInput!]
+  connectOrCreate: [ItemCreateOrConnectWithoutProductInput!]
+  upsert: [ItemUpsertWithWhereUniqueWithoutProductInput!]
+  createMany: ItemCreateManyProductInputEnvelope
+  set: [ItemWhereUniqueInput!]
+  disconnect: [ItemWhereUniqueInput!]
+  delete: [ItemWhereUniqueInput!]
+  connect: [ItemWhereUniqueInput!]
+  update: [ItemUpdateWithWhereUniqueWithoutProductInput!]
+  updateMany: [ItemUpdateManyWithWhereWithoutProductInput!]
+  deleteMany: [ItemScalarWhereInput!]
+}
+
+input ItemUpdateManyWithoutUserNestedInput {
+  create: [ItemCreateWithoutUserInput!]
+  connectOrCreate: [ItemCreateOrConnectWithoutUserInput!]
+  upsert: [ItemUpsertWithWhereUniqueWithoutUserInput!]
+  createMany: ItemCreateManyUserInputEnvelope
+  set: [ItemWhereUniqueInput!]
+  disconnect: [ItemWhereUniqueInput!]
+  delete: [ItemWhereUniqueInput!]
+  connect: [ItemWhereUniqueInput!]
+  update: [ItemUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [ItemUpdateManyWithWhereWithoutUserInput!]
+  deleteMany: [ItemScalarWhereInput!]
+}
+
+input ItemUpdateManyWithWhereWithoutProductInput {
+  where: ItemScalarWhereInput!
+  data: ItemUpdateManyMutationInput!
+}
+
+input ItemUpdateManyWithWhereWithoutUserInput {
+  where: ItemScalarWhereInput!
+  data: ItemUpdateManyMutationInput!
+}
+
+input ItemUpdateWithoutProductInput {
+  code: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutItemsNestedInput
+}
+
+input ItemUpdateWithoutUserInput {
+  code: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  product: ProductUpdateOneWithoutItemsNestedInput
+}
+
+input ItemUpdateWithWhereUniqueWithoutProductInput {
+  where: ItemWhereUniqueInput!
+  data: ItemUpdateWithoutProductInput!
+}
+
+input ItemUpdateWithWhereUniqueWithoutUserInput {
+  where: ItemWhereUniqueInput!
+  data: ItemUpdateWithoutUserInput!
+}
+
+input ItemUpsertWithWhereUniqueWithoutProductInput {
+  where: ItemWhereUniqueInput!
+  update: ItemUpdateWithoutProductInput!
+  create: ItemCreateWithoutProductInput!
+}
+
+input ItemUpsertWithWhereUniqueWithoutUserInput {
+  where: ItemWhereUniqueInput!
+  update: ItemUpdateWithoutUserInput!
+  create: ItemCreateWithoutUserInput!
+}
+
+input ItemWhereInput {
+  AND: [ItemWhereInput!]
+  OR: [ItemWhereInput!]
+  NOT: [ItemWhereInput!]
+  id: IntFilter
+  userId: IntFilter
+  code: StringFilter
+  name: StringFilter
+  description: StringNullableFilter
+  productId: IntNullableFilter
+  weightInKgs: FloatNullableFilter
+  widthInCms: FloatNullableFilter
+  heightInCms: FloatNullableFilter
+  depthInCms: FloatNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  product: ProductNullableRelationFilter
+}
+
+input ItemWhereUniqueInput {
+  id: Int
+  code: String
+  AND: [ItemWhereInput!]
+  OR: [ItemWhereInput!]
+  NOT: [ItemWhereInput!]
+  userId: IntFilter
+  name: StringFilter
+  description: StringNullableFilter
+  productId: IntNullableFilter
+  weightInKgs: FloatNullableFilter
+  widthInCms: FloatNullableFilter
+  heightInCms: FloatNullableFilter
+  depthInCms: FloatNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  product: ProductNullableRelationFilter
+}
+
+input LoginCreateManyAccessTokenInput {
+  id: Int
+  ipAddress: String
+  userId: Int!
+  explicit: Boolean!
+  createdAt: DateTimeISO
+}
+
+input LoginCreateManyAccessTokenInputEnvelope {
+  data: [LoginCreateManyAccessTokenInput!]!
+  skipDuplicates: Boolean
+}
+
+input LoginCreateManyUserInput {
+  id: Int
+  ipAddress: String
+  tokenValue: String!
+  explicit: Boolean!
+  createdAt: DateTimeISO
+}
+
+input LoginCreateManyUserInputEnvelope {
+  data: [LoginCreateManyUserInput!]!
+  skipDuplicates: Boolean
+}
+
+input LoginCreateNestedManyWithoutAccessTokenInput {
+  create: [LoginCreateWithoutAccessTokenInput!]
+  connectOrCreate: [LoginCreateOrConnectWithoutAccessTokenInput!]
+  createMany: LoginCreateManyAccessTokenInputEnvelope
+  connect: [LoginWhereUniqueInput!]
+}
+
+input LoginCreateNestedManyWithoutUserInput {
+  create: [LoginCreateWithoutUserInput!]
+  connectOrCreate: [LoginCreateOrConnectWithoutUserInput!]
+  createMany: LoginCreateManyUserInputEnvelope
+  connect: [LoginWhereUniqueInput!]
+}
+
+input LoginCreateOrConnectWithoutAccessTokenInput {
+  where: LoginWhereUniqueInput!
+  create: LoginCreateWithoutAccessTokenInput!
+}
+
+input LoginCreateOrConnectWithoutUserInput {
+  where: LoginWhereUniqueInput!
+  create: LoginCreateWithoutUserInput!
+}
+
+input LoginCreateWithoutAccessTokenInput {
+  ipAddress: String
+  explicit: Boolean!
+  createdAt: DateTimeISO
+  user: UserCreateNestedOneWithoutLoginsInput!
+}
+
+input LoginCreateWithoutUserInput {
+  ipAddress: String
+  explicit: Boolean!
+  createdAt: DateTimeISO
+  accessToken: AccessTokenCreateNestedOneWithoutLoginsInput!
+}
+
+input LoginListRelationFilter {
+  every: LoginWhereInput
+  some: LoginWhereInput
+  none: LoginWhereInput
+}
+
+input LoginOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+type LogInPayload {
+  token: String!
+  user: SafeUser!
+}
+
+input LoginScalarWhereInput {
+  AND: [LoginScalarWhereInput!]
+  OR: [LoginScalarWhereInput!]
+  NOT: [LoginScalarWhereInput!]
+  id: IntFilter
+  ipAddress: StringNullableFilter
+  userId: IntFilter
+  tokenValue: StringFilter
+  explicit: BoolFilter
+  createdAt: DateTimeFilter
+}
+
+input LoginUpdateManyMutationInput {
+  ipAddress: NullableStringFieldUpdateOperationsInput
+  explicit: BoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LoginUpdateManyWithoutAccessTokenNestedInput {
+  create: [LoginCreateWithoutAccessTokenInput!]
+  connectOrCreate: [LoginCreateOrConnectWithoutAccessTokenInput!]
+  upsert: [LoginUpsertWithWhereUniqueWithoutAccessTokenInput!]
+  createMany: LoginCreateManyAccessTokenInputEnvelope
+  set: [LoginWhereUniqueInput!]
+  disconnect: [LoginWhereUniqueInput!]
+  delete: [LoginWhereUniqueInput!]
+  connect: [LoginWhereUniqueInput!]
+  update: [LoginUpdateWithWhereUniqueWithoutAccessTokenInput!]
+  updateMany: [LoginUpdateManyWithWhereWithoutAccessTokenInput!]
+  deleteMany: [LoginScalarWhereInput!]
+}
+
+input LoginUpdateManyWithoutUserNestedInput {
+  create: [LoginCreateWithoutUserInput!]
+  connectOrCreate: [LoginCreateOrConnectWithoutUserInput!]
+  upsert: [LoginUpsertWithWhereUniqueWithoutUserInput!]
+  createMany: LoginCreateManyUserInputEnvelope
+  set: [LoginWhereUniqueInput!]
+  disconnect: [LoginWhereUniqueInput!]
+  delete: [LoginWhereUniqueInput!]
+  connect: [LoginWhereUniqueInput!]
+  update: [LoginUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [LoginUpdateManyWithWhereWithoutUserInput!]
+  deleteMany: [LoginScalarWhereInput!]
+}
+
+input LoginUpdateManyWithWhereWithoutAccessTokenInput {
+  where: LoginScalarWhereInput!
+  data: LoginUpdateManyMutationInput!
+}
+
+input LoginUpdateManyWithWhereWithoutUserInput {
+  where: LoginScalarWhereInput!
+  data: LoginUpdateManyMutationInput!
+}
+
+input LoginUpdateWithoutAccessTokenInput {
+  ipAddress: NullableStringFieldUpdateOperationsInput
+  explicit: BoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutLoginsNestedInput
+}
+
+input LoginUpdateWithoutUserInput {
+  ipAddress: NullableStringFieldUpdateOperationsInput
+  explicit: BoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  accessToken: AccessTokenUpdateOneRequiredWithoutLoginsNestedInput
+}
+
+input LoginUpdateWithWhereUniqueWithoutAccessTokenInput {
+  where: LoginWhereUniqueInput!
+  data: LoginUpdateWithoutAccessTokenInput!
+}
+
+input LoginUpdateWithWhereUniqueWithoutUserInput {
+  where: LoginWhereUniqueInput!
+  data: LoginUpdateWithoutUserInput!
+}
+
+input LoginUpsertWithWhereUniqueWithoutAccessTokenInput {
+  where: LoginWhereUniqueInput!
+  update: LoginUpdateWithoutAccessTokenInput!
+  create: LoginCreateWithoutAccessTokenInput!
+}
+
+input LoginUpsertWithWhereUniqueWithoutUserInput {
+  where: LoginWhereUniqueInput!
+  update: LoginUpdateWithoutUserInput!
+  create: LoginCreateWithoutUserInput!
+}
+
+input LoginWhereInput {
+  AND: [LoginWhereInput!]
+  OR: [LoginWhereInput!]
+  NOT: [LoginWhereInput!]
+  id: IntFilter
+  ipAddress: StringNullableFilter
+  userId: IntFilter
+  tokenValue: StringFilter
+  explicit: BoolFilter
+  createdAt: DateTimeFilter
+  user: UserRelationFilter
+  accessToken: AccessTokenRelationFilter
+}
+
+input LoginWhereUniqueInput {
+  id: Int
+  AND: [LoginWhereInput!]
+  OR: [LoginWhereInput!]
+  NOT: [LoginWhereInput!]
+  ipAddress: StringNullableFilter
+  userId: IntFilter
+  tokenValue: StringFilter
+  explicit: BoolFilter
+  createdAt: DateTimeFilter
+  user: UserRelationFilter
+  accessToken: AccessTokenRelationFilter
+}
+
+type Mutation {
+  createManyItem(data: [ItemCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createManyAndReturnItem(data: [ItemCreateManyInput!]!, skipDuplicates: Boolean): [CreateManyAndReturnItem!]!
+  createOneItem(data: ItemCreateInput!): Item!
+  deleteManyItem(where: ItemWhereInput): AffectedRowsOutput!
+  deleteOneItem(where: ItemWhereUniqueInput!): Item
+  updateManyItem(data: ItemUpdateManyMutationInput!, where: ItemWhereInput): AffectedRowsOutput!
+  updateOneItem(data: ItemUpdateInput!, where: ItemWhereUniqueInput!): Item
+  upsertOneItem(where: ItemWhereUniqueInput!, create: ItemCreateInput!, update: ItemUpdateInput!): Item!
+  createManyProduct(data: [ProductCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createManyAndReturnProduct(data: [ProductCreateManyInput!]!, skipDuplicates: Boolean): [CreateManyAndReturnProduct!]!
+  createOneProduct(data: ProductCreateInput!): Product!
+  deleteManyProduct(where: ProductWhereInput): AffectedRowsOutput!
+  deleteOneProduct(where: ProductWhereUniqueInput!): Product
+  updateManyProduct(data: ProductUpdateManyMutationInput!, where: ProductWhereInput): AffectedRowsOutput!
+  updateOneProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product
+  upsertOneProduct(where: ProductWhereUniqueInput!, create: ProductCreateInput!, update: ProductUpdateInput!): Product!
+  createManyPurchaseOrder(data: [PurchaseOrderCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+  createManyAndReturnPurchaseOrder(data: [PurchaseOrderCreateManyInput!]!, skipDuplicates: Boolean): [CreateManyAndReturnPurchaseOrder!]!
+  createOnePurchaseOrder(data: PurchaseOrderCreateInput!): PurchaseOrder!
+  deleteManyPurchaseOrder(where: PurchaseOrderWhereInput): AffectedRowsOutput!
+  deleteOnePurchaseOrder(where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
+  updateManyPurchaseOrder(data: PurchaseOrderUpdateManyMutationInput!, where: PurchaseOrderWhereInput): AffectedRowsOutput!
+  updateOnePurchaseOrder(data: PurchaseOrderUpdateInput!, where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
+  upsertOnePurchaseOrder(where: PurchaseOrderWhereUniqueInput!, create: PurchaseOrderCreateInput!, update: PurchaseOrderUpdateInput!): PurchaseOrder!
+  registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): LogInPayload!
+  resendEmailVerificationRequest(email: String!): Void
+  resendPhoneNumberVerificationRequest(phoneNumber: String!): Void
+  verifyPhoneNumber(userId: Float!, otp: String!): Void
+  verifyEmailAddress(token: String!): Void
+  logInUser(email: String!, password: String!): LogInPayload
+  logOutUser: Void
+  validateToken(tokenValue: String!): ValidateTokenPayload
+}
+
+input NestedBoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input NestedBoolNullableFilter {
+  equals: Boolean
+  not: NestedBoolNullableFilter
+}
+
+input NestedBoolNullableWithAggregatesFilter {
+  equals: Boolean
+  not: NestedBoolNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedBoolNullableFilter
+  _max: NestedBoolNullableFilter
+}
+
+input NestedDateTimeFilter {
+  equals: DateTimeISO
+  in: [DateTimeISO!]
+  notIn: [DateTimeISO!]
+  lt: DateTimeISO
+  lte: DateTimeISO
+  gt: DateTimeISO
+  gte: DateTimeISO
+  not: NestedDateTimeFilter
+}
+
+input NestedDateTimeNullableFilter {
+  equals: DateTimeISO
+  in: [DateTimeISO!]
+  notIn: [DateTimeISO!]
+  lt: DateTimeISO
+  lte: DateTimeISO
+  gt: DateTimeISO
+  gte: DateTimeISO
+  not: NestedDateTimeNullableFilter
+}
+
+input NestedDateTimeWithAggregatesFilter {
+  equals: DateTimeISO
+  in: [DateTimeISO!]
+  notIn: [DateTimeISO!]
+  lt: DateTimeISO
+  lte: DateTimeISO
+  gt: DateTimeISO
+  gte: DateTimeISO
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+input NestedDecimalFilter {
+  equals: Decimal
+  in: [Decimal!]
+  notIn: [Decimal!]
+  lt: Decimal
+  lte: Decimal
+  gt: Decimal
+  gte: Decimal
+  not: NestedDecimalFilter
+}
+
+input NestedDecimalWithAggregatesFilter {
+  equals: Decimal
+  in: [Decimal!]
+  notIn: [Decimal!]
+  lt: Decimal
+  lte: Decimal
+  gt: Decimal
+  gte: Decimal
+  not: NestedDecimalWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedDecimalFilter
+  _sum: NestedDecimalFilter
+  _min: NestedDecimalFilter
+  _max: NestedDecimalFilter
+}
+
+input NestedEnumCurrencyFilter {
+  equals: Currency
+  in: [Currency!]
+  notIn: [Currency!]
+  not: NestedEnumCurrencyFilter
+}
+
+input NestedEnumCurrencyWithAggregatesFilter {
+  equals: Currency
+  in: [Currency!]
+  notIn: [Currency!]
+  not: NestedEnumCurrencyWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumCurrencyFilter
+  _max: NestedEnumCurrencyFilter
+}
+
+input NestedEnumPurchaseOrderStatusFilter {
+  equals: PurchaseOrderStatus
+  in: [PurchaseOrderStatus!]
+  notIn: [PurchaseOrderStatus!]
+  not: NestedEnumPurchaseOrderStatusFilter
+}
+
+input NestedEnumPurchaseOrderStatusWithAggregatesFilter {
+  equals: PurchaseOrderStatus
+  in: [PurchaseOrderStatus!]
+  notIn: [PurchaseOrderStatus!]
+  not: NestedEnumPurchaseOrderStatusWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedEnumPurchaseOrderStatusFilter
+  _max: NestedEnumPurchaseOrderStatusFilter
+}
+
+input NestedEnumRoleFilter {
+  equals: Role
+  in: [Role!]
+  notIn: [Role!]
+  not: NestedEnumRoleFilter
+}
+
+input NestedFloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
+}
+
+input NestedFloatNullableFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatNullableFilter
+}
+
+input NestedFloatNullableWithAggregatesFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _sum: NestedFloatNullableFilter
+  _min: NestedFloatNullableFilter
+  _max: NestedFloatNullableFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+input NestedIntNullableWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _sum: NestedIntNullableFilter
+  _min: NestedIntNullableFilter
+  _max: NestedIntNullableFilter
+}
+
+input NestedIntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}
+
+input NestedStringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input NestedStringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
+}
+
+input NestedStringNullableWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedStringNullableFilter
+  _max: NestedStringNullableFilter
+}
+
+input NestedStringWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedStringFilter
+  _max: NestedStringFilter
+}
+
+input NullableBoolFieldUpdateOperationsInput {
+  set: Boolean
+}
+
+input NullableDateTimeFieldUpdateOperationsInput {
+  set: DateTimeISO
+}
+
+input NullableFloatFieldUpdateOperationsInput {
+  set: Float
+  increment: Float
+  decrement: Float
+  multiply: Float
+  divide: Float
+}
+
+input NullableStringFieldUpdateOperationsInput {
+  set: String
+}
+
+enum NullsOrder {
+  first
+  last
+}
+
+type Product {
+  id: Int!
+  name: String!
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency!
+  price: Decimal!
+  _count: ProductCount
+}
+
+type ProductAvgAggregate {
+  id: Float
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  price: Decimal
+}
+
+input ProductAvgOrderByAggregateInput {
+  id: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  price: SortOrder
+}
+
+type ProductCount {
+  items(where: ItemWhereInput): Int!
+  purchaseOrderEntries(where: PurchaseOrderEntryWhereInput): Int!
+}
+
+type ProductCountAggregate {
+  id: Int!
+  name: Int!
+  upc: Int!
+  upcScanned: Int!
+  description: Int!
+  amazonASIN: Int!
+  country: Int!
+  brand: Int!
+  model: Int!
+  color: Int!
+  weightInKgs: Int!
+  widthInCms: Int!
+  heightInCms: Int!
+  depthInCms: Int!
+  currency: Int!
+  price: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+input ProductCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  upc: SortOrder
+  upcScanned: SortOrder
+  description: SortOrder
+  amazonASIN: SortOrder
+  country: SortOrder
+  brand: SortOrder
+  model: SortOrder
+  color: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  currency: SortOrder
+  price: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input ProductCreateInput {
+  name: String!
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency!
+  price: Decimal!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  items: ItemCreateNestedManyWithoutProductInput
+  purchaseOrderEntries: PurchaseOrderEntryCreateNestedManyWithoutProductInput
+}
+
+input ProductCreateManyInput {
+  id: Int
+  name: String!
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency!
+  price: Decimal!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ProductCreateNestedOneWithoutItemsInput {
+  create: ProductCreateWithoutItemsInput
+  connectOrCreate: ProductCreateOrConnectWithoutItemsInput
+  connect: ProductWhereUniqueInput
+}
+
+input ProductCreateNestedOneWithoutPurchaseOrderEntriesInput {
+  create: ProductCreateWithoutPurchaseOrderEntriesInput
+  connectOrCreate: ProductCreateOrConnectWithoutPurchaseOrderEntriesInput
+  connect: ProductWhereUniqueInput
+}
+
+input ProductCreateOrConnectWithoutItemsInput {
+  where: ProductWhereUniqueInput!
+  create: ProductCreateWithoutItemsInput!
+}
+
+input ProductCreateOrConnectWithoutPurchaseOrderEntriesInput {
+  where: ProductWhereUniqueInput!
+  create: ProductCreateWithoutPurchaseOrderEntriesInput!
+}
+
+input ProductCreateWithoutItemsInput {
+  name: String!
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency!
+  price: Decimal!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  purchaseOrderEntries: PurchaseOrderEntryCreateNestedManyWithoutProductInput
+}
+
+input ProductCreateWithoutPurchaseOrderEntriesInput {
+  name: String!
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency!
+  price: Decimal!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  items: ItemCreateNestedManyWithoutProductInput
+}
+
+type ProductGroupBy {
+  id: Int!
+  name: String!
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency!
+  price: Decimal!
+  createdAt: DateTimeISO!
+  updatedAt: DateTimeISO!
+  _count: ProductCountAggregate
+  _avg: ProductAvgAggregate
+  _sum: ProductSumAggregate
+  _min: ProductMinAggregate
+  _max: ProductMaxAggregate
+}
+
+type ProductMaxAggregate {
+  id: Int
+  name: String
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency
+  price: Decimal
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ProductMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  upc: SortOrder
+  upcScanned: SortOrder
+  description: SortOrder
+  amazonASIN: SortOrder
+  country: SortOrder
+  brand: SortOrder
+  model: SortOrder
+  color: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  currency: SortOrder
+  price: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+type ProductMinAggregate {
+  id: Int
+  name: String
+  upc: String
+  upcScanned: Boolean
+  description: String
+  amazonASIN: String
+  country: String
+  brand: String
+  model: String
+  color: String
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  currency: Currency
+  price: Decimal
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input ProductMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  upc: SortOrder
+  upcScanned: SortOrder
+  description: SortOrder
+  amazonASIN: SortOrder
+  country: SortOrder
+  brand: SortOrder
+  model: SortOrder
+  color: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  currency: SortOrder
+  price: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input ProductNullableRelationFilter {
+  is: ProductWhereInput
+  isNot: ProductWhereInput
+}
+
+input ProductOrderByWithAggregationInput {
+  id: SortOrder
+  name: SortOrder
+  upc: SortOrderInput
+  upcScanned: SortOrderInput
+  description: SortOrderInput
+  amazonASIN: SortOrderInput
+  country: SortOrderInput
+  brand: SortOrderInput
+  model: SortOrderInput
+  color: SortOrderInput
+  weightInKgs: SortOrderInput
+  widthInCms: SortOrderInput
+  heightInCms: SortOrderInput
+  depthInCms: SortOrderInput
+  currency: SortOrder
+  price: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: ProductCountOrderByAggregateInput
+  _avg: ProductAvgOrderByAggregateInput
+  _max: ProductMaxOrderByAggregateInput
+  _min: ProductMinOrderByAggregateInput
+  _sum: ProductSumOrderByAggregateInput
+}
+
+input ProductOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  upc: SortOrderInput
+  upcScanned: SortOrderInput
+  description: SortOrderInput
+  amazonASIN: SortOrderInput
+  country: SortOrderInput
+  brand: SortOrderInput
+  model: SortOrderInput
+  color: SortOrderInput
+  weightInKgs: SortOrderInput
+  widthInCms: SortOrderInput
+  heightInCms: SortOrderInput
+  depthInCms: SortOrderInput
+  currency: SortOrder
+  price: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  items: ItemOrderByRelationAggregateInput
+  purchaseOrderEntries: PurchaseOrderEntryOrderByRelationAggregateInput
+}
+
+input ProductRelationFilter {
+  is: ProductWhereInput
+  isNot: ProductWhereInput
+}
+
+enum ProductScalarFieldEnum {
+  id
+  name
+  upc
+  upcScanned
+  description
+  amazonASIN
+  country
+  brand
+  model
+  color
+  weightInKgs
+  widthInCms
+  heightInCms
+  depthInCms
+  currency
+  price
+  createdAt
+  updatedAt
+}
+
+input ProductScalarWhereWithAggregatesInput {
+  AND: [ProductScalarWhereWithAggregatesInput!]
+  OR: [ProductScalarWhereWithAggregatesInput!]
+  NOT: [ProductScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  upc: StringNullableWithAggregatesFilter
+  upcScanned: BoolNullableWithAggregatesFilter
+  description: StringNullableWithAggregatesFilter
+  amazonASIN: StringNullableWithAggregatesFilter
+  country: StringNullableWithAggregatesFilter
+  brand: StringNullableWithAggregatesFilter
+  model: StringNullableWithAggregatesFilter
+  color: StringNullableWithAggregatesFilter
+  weightInKgs: FloatNullableWithAggregatesFilter
+  widthInCms: FloatNullableWithAggregatesFilter
+  heightInCms: FloatNullableWithAggregatesFilter
+  depthInCms: FloatNullableWithAggregatesFilter
+  currency: EnumCurrencyWithAggregatesFilter
+  price: DecimalWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+type ProductSumAggregate {
+  id: Int
+  weightInKgs: Float
+  widthInCms: Float
+  heightInCms: Float
+  depthInCms: Float
+  price: Decimal
+}
+
+input ProductSumOrderByAggregateInput {
+  id: SortOrder
+  weightInKgs: SortOrder
+  widthInCms: SortOrder
+  heightInCms: SortOrder
+  depthInCms: SortOrder
+  price: SortOrder
+}
+
+input ProductUpdateInput {
+  name: StringFieldUpdateOperationsInput
+  upc: NullableStringFieldUpdateOperationsInput
+  upcScanned: NullableBoolFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  amazonASIN: NullableStringFieldUpdateOperationsInput
+  country: NullableStringFieldUpdateOperationsInput
+  brand: NullableStringFieldUpdateOperationsInput
+  model: NullableStringFieldUpdateOperationsInput
+  color: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  currency: EnumCurrencyFieldUpdateOperationsInput
+  price: DecimalFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  items: ItemUpdateManyWithoutProductNestedInput
+  purchaseOrderEntries: PurchaseOrderEntryUpdateManyWithoutProductNestedInput
+}
+
+input ProductUpdateManyMutationInput {
+  name: StringFieldUpdateOperationsInput
+  upc: NullableStringFieldUpdateOperationsInput
+  upcScanned: NullableBoolFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  amazonASIN: NullableStringFieldUpdateOperationsInput
+  country: NullableStringFieldUpdateOperationsInput
+  brand: NullableStringFieldUpdateOperationsInput
+  model: NullableStringFieldUpdateOperationsInput
+  color: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  currency: EnumCurrencyFieldUpdateOperationsInput
+  price: DecimalFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProductUpdateOneRequiredWithoutPurchaseOrderEntriesNestedInput {
+  create: ProductCreateWithoutPurchaseOrderEntriesInput
+  connectOrCreate: ProductCreateOrConnectWithoutPurchaseOrderEntriesInput
+  upsert: ProductUpsertWithoutPurchaseOrderEntriesInput
+  connect: ProductWhereUniqueInput
+  update: ProductUpdateToOneWithWhereWithoutPurchaseOrderEntriesInput
+}
+
+input ProductUpdateOneWithoutItemsNestedInput {
+  create: ProductCreateWithoutItemsInput
+  connectOrCreate: ProductCreateOrConnectWithoutItemsInput
+  upsert: ProductUpsertWithoutItemsInput
+  disconnect: ProductWhereInput
+  delete: ProductWhereInput
+  connect: ProductWhereUniqueInput
+  update: ProductUpdateToOneWithWhereWithoutItemsInput
+}
+
+input ProductUpdateToOneWithWhereWithoutItemsInput {
+  where: ProductWhereInput
+  data: ProductUpdateWithoutItemsInput!
+}
+
+input ProductUpdateToOneWithWhereWithoutPurchaseOrderEntriesInput {
+  where: ProductWhereInput
+  data: ProductUpdateWithoutPurchaseOrderEntriesInput!
+}
+
+input ProductUpdateWithoutItemsInput {
+  name: StringFieldUpdateOperationsInput
+  upc: NullableStringFieldUpdateOperationsInput
+  upcScanned: NullableBoolFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  amazonASIN: NullableStringFieldUpdateOperationsInput
+  country: NullableStringFieldUpdateOperationsInput
+  brand: NullableStringFieldUpdateOperationsInput
+  model: NullableStringFieldUpdateOperationsInput
+  color: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  currency: EnumCurrencyFieldUpdateOperationsInput
+  price: DecimalFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  purchaseOrderEntries: PurchaseOrderEntryUpdateManyWithoutProductNestedInput
+}
+
+input ProductUpdateWithoutPurchaseOrderEntriesInput {
+  name: StringFieldUpdateOperationsInput
+  upc: NullableStringFieldUpdateOperationsInput
+  upcScanned: NullableBoolFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  amazonASIN: NullableStringFieldUpdateOperationsInput
+  country: NullableStringFieldUpdateOperationsInput
+  brand: NullableStringFieldUpdateOperationsInput
+  model: NullableStringFieldUpdateOperationsInput
+  color: NullableStringFieldUpdateOperationsInput
+  weightInKgs: NullableFloatFieldUpdateOperationsInput
+  widthInCms: NullableFloatFieldUpdateOperationsInput
+  heightInCms: NullableFloatFieldUpdateOperationsInput
+  depthInCms: NullableFloatFieldUpdateOperationsInput
+  currency: EnumCurrencyFieldUpdateOperationsInput
+  price: DecimalFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  items: ItemUpdateManyWithoutProductNestedInput
+}
+
+input ProductUpsertWithoutItemsInput {
+  update: ProductUpdateWithoutItemsInput!
+  create: ProductCreateWithoutItemsInput!
+  where: ProductWhereInput
+}
+
+input ProductUpsertWithoutPurchaseOrderEntriesInput {
+  update: ProductUpdateWithoutPurchaseOrderEntriesInput!
+  create: ProductCreateWithoutPurchaseOrderEntriesInput!
+  where: ProductWhereInput
+}
+
+input ProductWhereInput {
+  AND: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  NOT: [ProductWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  upc: StringNullableFilter
+  upcScanned: BoolNullableFilter
+  description: StringNullableFilter
+  amazonASIN: StringNullableFilter
+  country: StringNullableFilter
+  brand: StringNullableFilter
+  model: StringNullableFilter
+  color: StringNullableFilter
+  weightInKgs: FloatNullableFilter
+  widthInCms: FloatNullableFilter
+  heightInCms: FloatNullableFilter
+  depthInCms: FloatNullableFilter
+  currency: EnumCurrencyFilter
+  price: DecimalFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  items: ItemListRelationFilter
+  purchaseOrderEntries: PurchaseOrderEntryListRelationFilter
+}
+
+input ProductWhereUniqueInput {
+  id: Int
+  AND: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  NOT: [ProductWhereInput!]
+  name: StringFilter
+  upc: StringNullableFilter
+  upcScanned: BoolNullableFilter
+  description: StringNullableFilter
+  amazonASIN: StringNullableFilter
+  country: StringNullableFilter
+  brand: StringNullableFilter
+  model: StringNullableFilter
+  color: StringNullableFilter
+  weightInKgs: FloatNullableFilter
+  widthInCms: FloatNullableFilter
+  heightInCms: FloatNullableFilter
+  depthInCms: FloatNullableFilter
+  currency: EnumCurrencyFilter
+  price: DecimalFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  items: ItemListRelationFilter
+  purchaseOrderEntries: PurchaseOrderEntryListRelationFilter
+}
+
+type PurchaseOrder {
+  id: Int!
+  userId: Int!
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  _count: PurchaseOrderCount
+  user: User!
+  entries(where: PurchaseOrderEntryWhereInput, orderBy: [PurchaseOrderEntryOrderByWithRelationInput!], cursor: PurchaseOrderEntryWhereUniqueInput, take: Int, skip: Int, distinct: [PurchaseOrderEntryScalarFieldEnum!]): [PurchaseOrderEntry!]!
+}
+
+type PurchaseOrderAvgAggregate {
+  id: Float
+  userId: Float
+  price: Decimal
+}
+
+input PurchaseOrderAvgOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  price: SortOrder
+}
+
+type PurchaseOrderCount {
+  entries(where: PurchaseOrderEntryWhereInput): Int!
+}
+
+type PurchaseOrderCountAggregate {
+  id: Int!
+  userId: Int!
+  price: Int!
+  status: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+}
+
+input PurchaseOrderCountOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  price: SortOrder
+  status: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input PurchaseOrderCreateInput {
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  user: UserCreateNestedOneWithoutPurchaseOrdersInput!
+  entries: PurchaseOrderEntryCreateNestedManyWithoutOrderInput
+}
+
+input PurchaseOrderCreateManyInput {
+  id: Int
+  userId: Int!
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input PurchaseOrderCreateManyUserInput {
+  id: Int
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input PurchaseOrderCreateManyUserInputEnvelope {
+  data: [PurchaseOrderCreateManyUserInput!]!
+  skipDuplicates: Boolean
+}
+
+input PurchaseOrderCreateNestedManyWithoutUserInput {
+  create: [PurchaseOrderCreateWithoutUserInput!]
+  connectOrCreate: [PurchaseOrderCreateOrConnectWithoutUserInput!]
+  createMany: PurchaseOrderCreateManyUserInputEnvelope
+  connect: [PurchaseOrderWhereUniqueInput!]
+}
+
+input PurchaseOrderCreateNestedOneWithoutEntriesInput {
+  create: PurchaseOrderCreateWithoutEntriesInput
+  connectOrCreate: PurchaseOrderCreateOrConnectWithoutEntriesInput
+  connect: PurchaseOrderWhereUniqueInput
+}
+
+input PurchaseOrderCreateOrConnectWithoutEntriesInput {
+  where: PurchaseOrderWhereUniqueInput!
+  create: PurchaseOrderCreateWithoutEntriesInput!
+}
+
+input PurchaseOrderCreateOrConnectWithoutUserInput {
+  where: PurchaseOrderWhereUniqueInput!
+  create: PurchaseOrderCreateWithoutUserInput!
+}
+
+input PurchaseOrderCreateWithoutEntriesInput {
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  user: UserCreateNestedOneWithoutPurchaseOrdersInput!
+}
+
+input PurchaseOrderCreateWithoutUserInput {
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  entries: PurchaseOrderEntryCreateNestedManyWithoutOrderInput
+}
+
+type PurchaseOrderEntry {
+  id: Int!
+  orderId: Int!
+  quantity: Int!
+  productId: Int!
+  currency: Currency!
+  unitPrice: Decimal!
+}
+
+input PurchaseOrderEntryCreateManyOrderInput {
+  id: Int
+  quantity: Int!
+  productId: Int!
+  currency: Currency!
+  unitPrice: Decimal!
+  createdAt: DateTimeISO
+}
+
+input PurchaseOrderEntryCreateManyOrderInputEnvelope {
+  data: [PurchaseOrderEntryCreateManyOrderInput!]!
+  skipDuplicates: Boolean
+}
+
+input PurchaseOrderEntryCreateManyProductInput {
+  id: Int
+  orderId: Int!
+  quantity: Int!
+  currency: Currency!
+  unitPrice: Decimal!
+  createdAt: DateTimeISO
+}
+
+input PurchaseOrderEntryCreateManyProductInputEnvelope {
+  data: [PurchaseOrderEntryCreateManyProductInput!]!
+  skipDuplicates: Boolean
+}
+
+input PurchaseOrderEntryCreateNestedManyWithoutOrderInput {
+  create: [PurchaseOrderEntryCreateWithoutOrderInput!]
+  connectOrCreate: [PurchaseOrderEntryCreateOrConnectWithoutOrderInput!]
+  createMany: PurchaseOrderEntryCreateManyOrderInputEnvelope
+  connect: [PurchaseOrderEntryWhereUniqueInput!]
+}
+
+input PurchaseOrderEntryCreateNestedManyWithoutProductInput {
+  create: [PurchaseOrderEntryCreateWithoutProductInput!]
+  connectOrCreate: [PurchaseOrderEntryCreateOrConnectWithoutProductInput!]
+  createMany: PurchaseOrderEntryCreateManyProductInputEnvelope
+  connect: [PurchaseOrderEntryWhereUniqueInput!]
+}
+
+input PurchaseOrderEntryCreateOrConnectWithoutOrderInput {
+  where: PurchaseOrderEntryWhereUniqueInput!
+  create: PurchaseOrderEntryCreateWithoutOrderInput!
+}
+
+input PurchaseOrderEntryCreateOrConnectWithoutProductInput {
+  where: PurchaseOrderEntryWhereUniqueInput!
+  create: PurchaseOrderEntryCreateWithoutProductInput!
+}
+
+input PurchaseOrderEntryCreateWithoutOrderInput {
+  quantity: Int!
+  currency: Currency!
+  unitPrice: Decimal!
+  createdAt: DateTimeISO
+  product: ProductCreateNestedOneWithoutPurchaseOrderEntriesInput!
+}
+
+input PurchaseOrderEntryCreateWithoutProductInput {
+  quantity: Int!
+  currency: Currency!
+  unitPrice: Decimal!
+  createdAt: DateTimeISO
+  order: PurchaseOrderCreateNestedOneWithoutEntriesInput!
+}
+
+input PurchaseOrderEntryListRelationFilter {
+  every: PurchaseOrderEntryWhereInput
+  some: PurchaseOrderEntryWhereInput
+  none: PurchaseOrderEntryWhereInput
+}
+
+input PurchaseOrderEntryOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input PurchaseOrderEntryOrderByWithRelationInput {
+  id: SortOrder
+  orderId: SortOrder
+  quantity: SortOrder
+  productId: SortOrder
+  currency: SortOrder
+  unitPrice: SortOrder
+  createdAt: SortOrder
+  order: PurchaseOrderOrderByWithRelationInput
+  product: ProductOrderByWithRelationInput
+}
+
+enum PurchaseOrderEntryScalarFieldEnum {
+  id
+  orderId
+  quantity
+  productId
+  currency
+  unitPrice
+  createdAt
+}
+
+input PurchaseOrderEntryScalarWhereInput {
+  AND: [PurchaseOrderEntryScalarWhereInput!]
+  OR: [PurchaseOrderEntryScalarWhereInput!]
+  NOT: [PurchaseOrderEntryScalarWhereInput!]
+  id: IntFilter
+  orderId: IntFilter
+  quantity: IntFilter
+  productId: IntFilter
+  currency: EnumCurrencyFilter
+  unitPrice: DecimalFilter
+  createdAt: DateTimeFilter
+}
+
+input PurchaseOrderEntryUpdateManyMutationInput {
+  quantity: IntFieldUpdateOperationsInput
+  currency: EnumCurrencyFieldUpdateOperationsInput
+  unitPrice: DecimalFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PurchaseOrderEntryUpdateManyWithoutOrderNestedInput {
+  create: [PurchaseOrderEntryCreateWithoutOrderInput!]
+  connectOrCreate: [PurchaseOrderEntryCreateOrConnectWithoutOrderInput!]
+  upsert: [PurchaseOrderEntryUpsertWithWhereUniqueWithoutOrderInput!]
+  createMany: PurchaseOrderEntryCreateManyOrderInputEnvelope
+  set: [PurchaseOrderEntryWhereUniqueInput!]
+  disconnect: [PurchaseOrderEntryWhereUniqueInput!]
+  delete: [PurchaseOrderEntryWhereUniqueInput!]
+  connect: [PurchaseOrderEntryWhereUniqueInput!]
+  update: [PurchaseOrderEntryUpdateWithWhereUniqueWithoutOrderInput!]
+  updateMany: [PurchaseOrderEntryUpdateManyWithWhereWithoutOrderInput!]
+  deleteMany: [PurchaseOrderEntryScalarWhereInput!]
+}
+
+input PurchaseOrderEntryUpdateManyWithoutProductNestedInput {
+  create: [PurchaseOrderEntryCreateWithoutProductInput!]
+  connectOrCreate: [PurchaseOrderEntryCreateOrConnectWithoutProductInput!]
+  upsert: [PurchaseOrderEntryUpsertWithWhereUniqueWithoutProductInput!]
+  createMany: PurchaseOrderEntryCreateManyProductInputEnvelope
+  set: [PurchaseOrderEntryWhereUniqueInput!]
+  disconnect: [PurchaseOrderEntryWhereUniqueInput!]
+  delete: [PurchaseOrderEntryWhereUniqueInput!]
+  connect: [PurchaseOrderEntryWhereUniqueInput!]
+  update: [PurchaseOrderEntryUpdateWithWhereUniqueWithoutProductInput!]
+  updateMany: [PurchaseOrderEntryUpdateManyWithWhereWithoutProductInput!]
+  deleteMany: [PurchaseOrderEntryScalarWhereInput!]
+}
+
+input PurchaseOrderEntryUpdateManyWithWhereWithoutOrderInput {
+  where: PurchaseOrderEntryScalarWhereInput!
+  data: PurchaseOrderEntryUpdateManyMutationInput!
+}
+
+input PurchaseOrderEntryUpdateManyWithWhereWithoutProductInput {
+  where: PurchaseOrderEntryScalarWhereInput!
+  data: PurchaseOrderEntryUpdateManyMutationInput!
+}
+
+input PurchaseOrderEntryUpdateWithoutOrderInput {
+  quantity: IntFieldUpdateOperationsInput
+  currency: EnumCurrencyFieldUpdateOperationsInput
+  unitPrice: DecimalFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  product: ProductUpdateOneRequiredWithoutPurchaseOrderEntriesNestedInput
+}
+
+input PurchaseOrderEntryUpdateWithoutProductInput {
+  quantity: IntFieldUpdateOperationsInput
+  currency: EnumCurrencyFieldUpdateOperationsInput
+  unitPrice: DecimalFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  order: PurchaseOrderUpdateOneRequiredWithoutEntriesNestedInput
+}
+
+input PurchaseOrderEntryUpdateWithWhereUniqueWithoutOrderInput {
+  where: PurchaseOrderEntryWhereUniqueInput!
+  data: PurchaseOrderEntryUpdateWithoutOrderInput!
+}
+
+input PurchaseOrderEntryUpdateWithWhereUniqueWithoutProductInput {
+  where: PurchaseOrderEntryWhereUniqueInput!
+  data: PurchaseOrderEntryUpdateWithoutProductInput!
+}
+
+input PurchaseOrderEntryUpsertWithWhereUniqueWithoutOrderInput {
+  where: PurchaseOrderEntryWhereUniqueInput!
+  update: PurchaseOrderEntryUpdateWithoutOrderInput!
+  create: PurchaseOrderEntryCreateWithoutOrderInput!
+}
+
+input PurchaseOrderEntryUpsertWithWhereUniqueWithoutProductInput {
+  where: PurchaseOrderEntryWhereUniqueInput!
+  update: PurchaseOrderEntryUpdateWithoutProductInput!
+  create: PurchaseOrderEntryCreateWithoutProductInput!
+}
+
+input PurchaseOrderEntryWhereInput {
+  AND: [PurchaseOrderEntryWhereInput!]
+  OR: [PurchaseOrderEntryWhereInput!]
+  NOT: [PurchaseOrderEntryWhereInput!]
+  id: IntFilter
+  orderId: IntFilter
+  quantity: IntFilter
+  productId: IntFilter
+  currency: EnumCurrencyFilter
+  unitPrice: DecimalFilter
+  createdAt: DateTimeFilter
+  order: PurchaseOrderRelationFilter
+  product: ProductRelationFilter
+}
+
+input PurchaseOrderEntryWhereUniqueInput {
+  id: Int
+  AND: [PurchaseOrderEntryWhereInput!]
+  OR: [PurchaseOrderEntryWhereInput!]
+  NOT: [PurchaseOrderEntryWhereInput!]
+  orderId: IntFilter
+  quantity: IntFilter
+  productId: IntFilter
+  currency: EnumCurrencyFilter
+  unitPrice: DecimalFilter
+  createdAt: DateTimeFilter
+  order: PurchaseOrderRelationFilter
+  product: ProductRelationFilter
+}
+
+type PurchaseOrderGroupBy {
+  id: Int!
+  userId: Int!
+  price: Decimal!
+  status: PurchaseOrderStatus!
+  createdAt: DateTimeISO!
+  updatedAt: DateTimeISO!
+  _count: PurchaseOrderCountAggregate
+  _avg: PurchaseOrderAvgAggregate
+  _sum: PurchaseOrderSumAggregate
+  _min: PurchaseOrderMinAggregate
+  _max: PurchaseOrderMaxAggregate
+}
+
+input PurchaseOrderListRelationFilter {
+  every: PurchaseOrderWhereInput
+  some: PurchaseOrderWhereInput
+  none: PurchaseOrderWhereInput
+}
+
+type PurchaseOrderMaxAggregate {
+  id: Int
+  userId: Int
+  price: Decimal
+  status: PurchaseOrderStatus
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input PurchaseOrderMaxOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  price: SortOrder
+  status: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+type PurchaseOrderMinAggregate {
+  id: Int
+  userId: Int
+  price: Decimal
+  status: PurchaseOrderStatus
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+}
+
+input PurchaseOrderMinOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  price: SortOrder
+  status: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input PurchaseOrderOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input PurchaseOrderOrderByWithAggregationInput {
+  id: SortOrder
+  userId: SortOrder
+  price: SortOrder
+  status: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  _count: PurchaseOrderCountOrderByAggregateInput
+  _avg: PurchaseOrderAvgOrderByAggregateInput
+  _max: PurchaseOrderMaxOrderByAggregateInput
+  _min: PurchaseOrderMinOrderByAggregateInput
+  _sum: PurchaseOrderSumOrderByAggregateInput
+}
+
+input PurchaseOrderOrderByWithRelationInput {
+  id: SortOrder
+  userId: SortOrder
+  price: SortOrder
+  status: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  user: UserOrderByWithRelationInput
+  entries: PurchaseOrderEntryOrderByRelationAggregateInput
+}
+
+input PurchaseOrderRelationFilter {
+  is: PurchaseOrderWhereInput
+  isNot: PurchaseOrderWhereInput
+}
+
+enum PurchaseOrderScalarFieldEnum {
+  id
+  userId
+  price
+  status
+  createdAt
+  updatedAt
+}
+
+input PurchaseOrderScalarWhereInput {
+  AND: [PurchaseOrderScalarWhereInput!]
+  OR: [PurchaseOrderScalarWhereInput!]
+  NOT: [PurchaseOrderScalarWhereInput!]
+  id: IntFilter
+  userId: IntFilter
+  price: DecimalFilter
+  status: EnumPurchaseOrderStatusFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input PurchaseOrderScalarWhereWithAggregatesInput {
+  AND: [PurchaseOrderScalarWhereWithAggregatesInput!]
+  OR: [PurchaseOrderScalarWhereWithAggregatesInput!]
+  NOT: [PurchaseOrderScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  userId: IntWithAggregatesFilter
+  price: DecimalWithAggregatesFilter
+  status: EnumPurchaseOrderStatusWithAggregatesFilter
+  createdAt: DateTimeWithAggregatesFilter
+  updatedAt: DateTimeWithAggregatesFilter
+}
+
+enum PurchaseOrderStatus {
+  SUBMITTED
+  PAID
+  ORDERED_FROM_VENDOR
+  FULFILLED
+}
+
+type PurchaseOrderSumAggregate {
+  id: Int
+  userId: Int
+  price: Decimal
+}
+
+input PurchaseOrderSumOrderByAggregateInput {
+  id: SortOrder
+  userId: SortOrder
+  price: SortOrder
+}
+
+input PurchaseOrderUpdateInput {
+  price: DecimalFieldUpdateOperationsInput
+  status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutPurchaseOrdersNestedInput
+  entries: PurchaseOrderEntryUpdateManyWithoutOrderNestedInput
+}
+
+input PurchaseOrderUpdateManyMutationInput {
+  price: DecimalFieldUpdateOperationsInput
+  status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PurchaseOrderUpdateManyWithoutUserNestedInput {
+  create: [PurchaseOrderCreateWithoutUserInput!]
+  connectOrCreate: [PurchaseOrderCreateOrConnectWithoutUserInput!]
+  upsert: [PurchaseOrderUpsertWithWhereUniqueWithoutUserInput!]
+  createMany: PurchaseOrderCreateManyUserInputEnvelope
+  set: [PurchaseOrderWhereUniqueInput!]
+  disconnect: [PurchaseOrderWhereUniqueInput!]
+  delete: [PurchaseOrderWhereUniqueInput!]
+  connect: [PurchaseOrderWhereUniqueInput!]
+  update: [PurchaseOrderUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [PurchaseOrderUpdateManyWithWhereWithoutUserInput!]
+  deleteMany: [PurchaseOrderScalarWhereInput!]
+}
+
+input PurchaseOrderUpdateManyWithWhereWithoutUserInput {
+  where: PurchaseOrderScalarWhereInput!
+  data: PurchaseOrderUpdateManyMutationInput!
+}
+
+input PurchaseOrderUpdateOneRequiredWithoutEntriesNestedInput {
+  create: PurchaseOrderCreateWithoutEntriesInput
+  connectOrCreate: PurchaseOrderCreateOrConnectWithoutEntriesInput
+  upsert: PurchaseOrderUpsertWithoutEntriesInput
+  connect: PurchaseOrderWhereUniqueInput
+  update: PurchaseOrderUpdateToOneWithWhereWithoutEntriesInput
+}
+
+input PurchaseOrderUpdateToOneWithWhereWithoutEntriesInput {
+  where: PurchaseOrderWhereInput
+  data: PurchaseOrderUpdateWithoutEntriesInput!
+}
+
+input PurchaseOrderUpdateWithoutEntriesInput {
+  price: DecimalFieldUpdateOperationsInput
+  status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutPurchaseOrdersNestedInput
+}
+
+input PurchaseOrderUpdateWithoutUserInput {
+  price: DecimalFieldUpdateOperationsInput
+  status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  entries: PurchaseOrderEntryUpdateManyWithoutOrderNestedInput
+}
+
+input PurchaseOrderUpdateWithWhereUniqueWithoutUserInput {
+  where: PurchaseOrderWhereUniqueInput!
+  data: PurchaseOrderUpdateWithoutUserInput!
+}
+
+input PurchaseOrderUpsertWithoutEntriesInput {
+  update: PurchaseOrderUpdateWithoutEntriesInput!
+  create: PurchaseOrderCreateWithoutEntriesInput!
+  where: PurchaseOrderWhereInput
+}
+
+input PurchaseOrderUpsertWithWhereUniqueWithoutUserInput {
+  where: PurchaseOrderWhereUniqueInput!
+  update: PurchaseOrderUpdateWithoutUserInput!
+  create: PurchaseOrderCreateWithoutUserInput!
+}
+
+input PurchaseOrderWhereInput {
+  AND: [PurchaseOrderWhereInput!]
+  OR: [PurchaseOrderWhereInput!]
+  NOT: [PurchaseOrderWhereInput!]
+  id: IntFilter
+  userId: IntFilter
+  price: DecimalFilter
+  status: EnumPurchaseOrderStatusFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  entries: PurchaseOrderEntryListRelationFilter
+}
+
+input PurchaseOrderWhereUniqueInput {
+  id: Int
+  AND: [PurchaseOrderWhereInput!]
+  OR: [PurchaseOrderWhereInput!]
+  NOT: [PurchaseOrderWhereInput!]
+  userId: IntFilter
+  price: DecimalFilter
+  status: EnumPurchaseOrderStatusFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  user: UserRelationFilter
+  entries: PurchaseOrderEntryListRelationFilter
+}
+
+type Query {
+  aggregateItem(where: ItemWhereInput, orderBy: [ItemOrderByWithRelationInput!], cursor: ItemWhereUniqueInput, take: Int, skip: Int): AggregateItem!
+  findFirstItem(where: ItemWhereInput, orderBy: [ItemOrderByWithRelationInput!], cursor: ItemWhereUniqueInput, take: Int, skip: Int, distinct: [ItemScalarFieldEnum!]): Item
+  findFirstItemOrThrow(where: ItemWhereInput, orderBy: [ItemOrderByWithRelationInput!], cursor: ItemWhereUniqueInput, take: Int, skip: Int, distinct: [ItemScalarFieldEnum!]): Item
+  items(where: ItemWhereInput, orderBy: [ItemOrderByWithRelationInput!], cursor: ItemWhereUniqueInput, take: Int, skip: Int, distinct: [ItemScalarFieldEnum!]): [Item!]!
+  item(where: ItemWhereUniqueInput!): Item
+  getItem(where: ItemWhereUniqueInput!): Item
+  groupByItem(where: ItemWhereInput, orderBy: [ItemOrderByWithAggregationInput!], by: [ItemScalarFieldEnum!]!, having: ItemScalarWhereWithAggregatesInput, take: Int, skip: Int): [ItemGroupBy!]!
+  aggregateProduct(where: ProductWhereInput, orderBy: [ProductOrderByWithRelationInput!], cursor: ProductWhereUniqueInput, take: Int, skip: Int): AggregateProduct!
+  findFirstProduct(where: ProductWhereInput, orderBy: [ProductOrderByWithRelationInput!], cursor: ProductWhereUniqueInput, take: Int, skip: Int, distinct: [ProductScalarFieldEnum!]): Product
+  findFirstProductOrThrow(where: ProductWhereInput, orderBy: [ProductOrderByWithRelationInput!], cursor: ProductWhereUniqueInput, take: Int, skip: Int, distinct: [ProductScalarFieldEnum!]): Product
+  products(where: ProductWhereInput, orderBy: [ProductOrderByWithRelationInput!], cursor: ProductWhereUniqueInput, take: Int, skip: Int, distinct: [ProductScalarFieldEnum!]): [Product!]!
+  product(where: ProductWhereUniqueInput!): Product
+  getProduct(where: ProductWhereUniqueInput!): Product
+  groupByProduct(where: ProductWhereInput, orderBy: [ProductOrderByWithAggregationInput!], by: [ProductScalarFieldEnum!]!, having: ProductScalarWhereWithAggregatesInput, take: Int, skip: Int): [ProductGroupBy!]!
+  aggregatePurchaseOrder(where: PurchaseOrderWhereInput, orderBy: [PurchaseOrderOrderByWithRelationInput!], cursor: PurchaseOrderWhereUniqueInput, take: Int, skip: Int): AggregatePurchaseOrder!
+  findFirstPurchaseOrder(where: PurchaseOrderWhereInput, orderBy: [PurchaseOrderOrderByWithRelationInput!], cursor: PurchaseOrderWhereUniqueInput, take: Int, skip: Int, distinct: [PurchaseOrderScalarFieldEnum!]): PurchaseOrder
+  findFirstPurchaseOrderOrThrow(where: PurchaseOrderWhereInput, orderBy: [PurchaseOrderOrderByWithRelationInput!], cursor: PurchaseOrderWhereUniqueInput, take: Int, skip: Int, distinct: [PurchaseOrderScalarFieldEnum!]): PurchaseOrder
+  purchaseOrders(where: PurchaseOrderWhereInput, orderBy: [PurchaseOrderOrderByWithRelationInput!], cursor: PurchaseOrderWhereUniqueInput, take: Int, skip: Int, distinct: [PurchaseOrderScalarFieldEnum!]): [PurchaseOrder!]!
+  purchaseOrder(where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
+  getPurchaseOrder(where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
+  groupByPurchaseOrder(where: PurchaseOrderWhereInput, orderBy: [PurchaseOrderOrderByWithAggregationInput!], by: [PurchaseOrderScalarFieldEnum!]!, having: PurchaseOrderScalarWhereWithAggregatesInput, take: Int, skip: Int): [PurchaseOrderGroupBy!]!
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+enum Role {
+  NORMAL
+  ADMIN
+}
+
+type SafeUser {
+  id: Int!
+  name: String!
+  phoneNumber: String!
+  otp: Int!
+  otpCreatedAt: DateTimeISO!
+  email: String!
+  password: String!
+  role: Role!
+  phoneNumberVerified: DateTimeISO
+  emailVerified: DateTimeISO
+  _count: UserCount
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input SortOrderInput {
+  sort: SortOrder!
+  nulls: NullsOrder
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input StringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringFilter
+}
+
+input StringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringNullableFilter
+}
+
+input StringNullableWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedStringNullableFilter
+  _max: NestedStringNullableFilter
+}
+
+input StringWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedStringFilter
+  _max: NestedStringFilter
+}
+
+type User {
+  id: Int!
+  name: String!
+  phoneNumber: String!
+  otp: Int!
+  otpCreatedAt: DateTimeISO!
+  email: String!
+  password: String!
+  role: Role!
+  phoneNumberVerified: DateTimeISO
+  emailVerified: DateTimeISO
+  _count: UserCount
+}
+
+type UserCount {
+  logins(where: LoginWhereInput): Int!
+  accessTokens(where: AccessTokenWhereInput): Int!
+  items(where: ItemWhereInput): Int!
+  purchaseOrders(where: PurchaseOrderWhereInput): Int!
+}
+
+input UserCreateNestedOneWithoutAccessTokensInput {
+  create: UserCreateWithoutAccessTokensInput
+  connectOrCreate: UserCreateOrConnectWithoutAccessTokensInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateNestedOneWithoutItemsInput {
+  create: UserCreateWithoutItemsInput
+  connectOrCreate: UserCreateOrConnectWithoutItemsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateNestedOneWithoutLoginsInput {
+  create: UserCreateWithoutLoginsInput
+  connectOrCreate: UserCreateOrConnectWithoutLoginsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateNestedOneWithoutPurchaseOrdersInput {
+  create: UserCreateWithoutPurchaseOrdersInput
+  connectOrCreate: UserCreateOrConnectWithoutPurchaseOrdersInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOrConnectWithoutAccessTokensInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutAccessTokensInput!
+}
+
+input UserCreateOrConnectWithoutItemsInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutItemsInput!
+}
+
+input UserCreateOrConnectWithoutLoginsInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutLoginsInput!
+}
+
+input UserCreateOrConnectWithoutPurchaseOrdersInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutPurchaseOrdersInput!
+}
+
+input UserCreateWithoutAccessTokensInput {
+  name: String!
+  phoneNumber: String!
+  otp: Int!
+  otpCreatedAt: DateTimeISO!
+  email: String!
+  password: String!
+  role: Role!
+  phoneNumberVerified: DateTimeISO
+  emailVerified: DateTimeISO
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  logins: LoginCreateNestedManyWithoutUserInput
+  items: ItemCreateNestedManyWithoutUserInput
+  purchaseOrders: PurchaseOrderCreateNestedManyWithoutUserInput
+}
+
+input UserCreateWithoutItemsInput {
+  name: String!
+  phoneNumber: String!
+  otp: Int!
+  otpCreatedAt: DateTimeISO!
+  email: String!
+  password: String!
+  role: Role!
+  phoneNumberVerified: DateTimeISO
+  emailVerified: DateTimeISO
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  logins: LoginCreateNestedManyWithoutUserInput
+  accessTokens: AccessTokenCreateNestedManyWithoutUserInput
+  purchaseOrders: PurchaseOrderCreateNestedManyWithoutUserInput
+}
+
+input UserCreateWithoutLoginsInput {
+  name: String!
+  phoneNumber: String!
+  otp: Int!
+  otpCreatedAt: DateTimeISO!
+  email: String!
+  password: String!
+  role: Role!
+  phoneNumberVerified: DateTimeISO
+  emailVerified: DateTimeISO
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  accessTokens: AccessTokenCreateNestedManyWithoutUserInput
+  items: ItemCreateNestedManyWithoutUserInput
+  purchaseOrders: PurchaseOrderCreateNestedManyWithoutUserInput
+}
+
+input UserCreateWithoutPurchaseOrdersInput {
+  name: String!
+  phoneNumber: String!
+  otp: Int!
+  otpCreatedAt: DateTimeISO!
+  email: String!
+  password: String!
+  role: Role!
+  phoneNumberVerified: DateTimeISO
+  emailVerified: DateTimeISO
+  createdAt: DateTimeISO
+  updatedAt: DateTimeISO
+  logins: LoginCreateNestedManyWithoutUserInput
+  accessTokens: AccessTokenCreateNestedManyWithoutUserInput
+  items: ItemCreateNestedManyWithoutUserInput
+}
+
+input UserOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  phoneNumber: SortOrder
+  otp: SortOrder
+  otpCreatedAt: SortOrder
+  email: SortOrder
+  password: SortOrder
+  role: SortOrder
+  phoneNumberVerified: SortOrderInput
+  emailVerified: SortOrderInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  logins: LoginOrderByRelationAggregateInput
+  accessTokens: AccessTokenOrderByRelationAggregateInput
+  items: ItemOrderByRelationAggregateInput
+  purchaseOrders: PurchaseOrderOrderByRelationAggregateInput
+}
+
+input UserRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+input UserUpdateOneRequiredWithoutAccessTokensNestedInput {
+  create: UserCreateWithoutAccessTokensInput
+  connectOrCreate: UserCreateOrConnectWithoutAccessTokensInput
+  upsert: UserUpsertWithoutAccessTokensInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateToOneWithWhereWithoutAccessTokensInput
+}
+
+input UserUpdateOneRequiredWithoutItemsNestedInput {
+  create: UserCreateWithoutItemsInput
+  connectOrCreate: UserCreateOrConnectWithoutItemsInput
+  upsert: UserUpsertWithoutItemsInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateToOneWithWhereWithoutItemsInput
+}
+
+input UserUpdateOneRequiredWithoutLoginsNestedInput {
+  create: UserCreateWithoutLoginsInput
+  connectOrCreate: UserCreateOrConnectWithoutLoginsInput
+  upsert: UserUpsertWithoutLoginsInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateToOneWithWhereWithoutLoginsInput
+}
+
+input UserUpdateOneRequiredWithoutPurchaseOrdersNestedInput {
+  create: UserCreateWithoutPurchaseOrdersInput
+  connectOrCreate: UserCreateOrConnectWithoutPurchaseOrdersInput
+  upsert: UserUpsertWithoutPurchaseOrdersInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateToOneWithWhereWithoutPurchaseOrdersInput
+}
+
+input UserUpdateToOneWithWhereWithoutAccessTokensInput {
+  where: UserWhereInput
+  data: UserUpdateWithoutAccessTokensInput!
+}
+
+input UserUpdateToOneWithWhereWithoutItemsInput {
+  where: UserWhereInput
+  data: UserUpdateWithoutItemsInput!
+}
+
+input UserUpdateToOneWithWhereWithoutLoginsInput {
+  where: UserWhereInput
+  data: UserUpdateWithoutLoginsInput!
+}
+
+input UserUpdateToOneWithWhereWithoutPurchaseOrdersInput {
+  where: UserWhereInput
+  data: UserUpdateWithoutPurchaseOrdersInput!
+}
+
+input UserUpdateWithoutAccessTokensInput {
+  name: StringFieldUpdateOperationsInput
+  phoneNumber: StringFieldUpdateOperationsInput
+  otp: IntFieldUpdateOperationsInput
+  otpCreatedAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  role: EnumRoleFieldUpdateOperationsInput
+  phoneNumberVerified: NullableDateTimeFieldUpdateOperationsInput
+  emailVerified: NullableDateTimeFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  logins: LoginUpdateManyWithoutUserNestedInput
+  items: ItemUpdateManyWithoutUserNestedInput
+  purchaseOrders: PurchaseOrderUpdateManyWithoutUserNestedInput
+}
+
+input UserUpdateWithoutItemsInput {
+  name: StringFieldUpdateOperationsInput
+  phoneNumber: StringFieldUpdateOperationsInput
+  otp: IntFieldUpdateOperationsInput
+  otpCreatedAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  role: EnumRoleFieldUpdateOperationsInput
+  phoneNumberVerified: NullableDateTimeFieldUpdateOperationsInput
+  emailVerified: NullableDateTimeFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  logins: LoginUpdateManyWithoutUserNestedInput
+  accessTokens: AccessTokenUpdateManyWithoutUserNestedInput
+  purchaseOrders: PurchaseOrderUpdateManyWithoutUserNestedInput
+}
+
+input UserUpdateWithoutLoginsInput {
+  name: StringFieldUpdateOperationsInput
+  phoneNumber: StringFieldUpdateOperationsInput
+  otp: IntFieldUpdateOperationsInput
+  otpCreatedAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  role: EnumRoleFieldUpdateOperationsInput
+  phoneNumberVerified: NullableDateTimeFieldUpdateOperationsInput
+  emailVerified: NullableDateTimeFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  accessTokens: AccessTokenUpdateManyWithoutUserNestedInput
+  items: ItemUpdateManyWithoutUserNestedInput
+  purchaseOrders: PurchaseOrderUpdateManyWithoutUserNestedInput
+}
+
+input UserUpdateWithoutPurchaseOrdersInput {
+  name: StringFieldUpdateOperationsInput
+  phoneNumber: StringFieldUpdateOperationsInput
+  otp: IntFieldUpdateOperationsInput
+  otpCreatedAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  role: EnumRoleFieldUpdateOperationsInput
+  phoneNumberVerified: NullableDateTimeFieldUpdateOperationsInput
+  emailVerified: NullableDateTimeFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  logins: LoginUpdateManyWithoutUserNestedInput
+  accessTokens: AccessTokenUpdateManyWithoutUserNestedInput
+  items: ItemUpdateManyWithoutUserNestedInput
+}
+
+input UserUpsertWithoutAccessTokensInput {
+  update: UserUpdateWithoutAccessTokensInput!
+  create: UserCreateWithoutAccessTokensInput!
+  where: UserWhereInput
+}
+
+input UserUpsertWithoutItemsInput {
+  update: UserUpdateWithoutItemsInput!
+  create: UserCreateWithoutItemsInput!
+  where: UserWhereInput
+}
+
+input UserUpsertWithoutLoginsInput {
+  update: UserUpdateWithoutLoginsInput!
+  create: UserCreateWithoutLoginsInput!
+  where: UserWhereInput
+}
+
+input UserUpsertWithoutPurchaseOrdersInput {
+  update: UserUpdateWithoutPurchaseOrdersInput!
+  create: UserCreateWithoutPurchaseOrdersInput!
+  where: UserWhereInput
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  phoneNumber: StringFilter
+  otp: IntFilter
+  otpCreatedAt: DateTimeFilter
+  email: StringFilter
+  password: StringFilter
+  role: EnumRoleFilter
+  phoneNumberVerified: DateTimeNullableFilter
+  emailVerified: DateTimeNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  logins: LoginListRelationFilter
+  accessTokens: AccessTokenListRelationFilter
+  items: ItemListRelationFilter
+  purchaseOrders: PurchaseOrderListRelationFilter
+}
+
+input UserWhereUniqueInput {
+  id: Int
+  phoneNumber: String
+  email: String
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  name: StringFilter
+  otp: IntFilter
+  otpCreatedAt: DateTimeFilter
+  password: StringFilter
+  role: EnumRoleFilter
+  phoneNumberVerified: DateTimeNullableFilter
+  emailVerified: DateTimeNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  logins: LoginListRelationFilter
+  accessTokens: AccessTokenListRelationFilter
+  items: ItemListRelationFilter
+  purchaseOrders: PurchaseOrderListRelationFilter
+}
+
+type ValidateTokenPayload {
+  token: String!
+  user: SafeUser!
+}
+
+"""Represents NULL values"""
+scalar Void
+

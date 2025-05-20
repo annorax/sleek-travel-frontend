@@ -1,12 +1,15 @@
 import 'dart:convert';
+import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:gql_http_link/gql_http_link.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:navigation_utils/navigation_utils.dart';
+import 'package:provider/provider.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/globals.dart';
-import 'package:slick_travel_frontend/graphql/mutations.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
@@ -14,33 +17,34 @@ import 'package:slick_travel_frontend/pages/login_page.dart';
 import 'package:slick_travel_frontend/router/routes.dart';
 import 'package:slick_travel_frontend/router/routes.dart' as navigation_routes;
 
-final Link backendLink = HttpLink(backendUrl);
-
 Future<void> main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
-    GraphQLClient client = GraphQLClient(
-      link: backendLink,
-      cache: GraphQLCache(),
+    Client client = Client(
+      link: HttpLink(backendUrl),
+      cache: Cache(possibleTypes: possibleTypesMap)
     );
-    ValueNotifier<GraphQLClient> clientNotifier = ValueNotifier(client);
+    ValueNotifier<Client> clientNotifier = ValueNotifier(client);
     User? user = await userState.getValue();
     if (user != null) {
       user = await validateToken(client, user.token);
     }
     userState.listen((user) {
       if (user == null) {
-        clientNotifier.value = GraphQLClient(
-          link: backendLink,
-          cache: GraphQLCache(),
+        clientNotifier.value = Client(
+          link: HttpLink(backendUrl),
+          cache: Cache(possibleTypes: possibleTypesMap)
         );
         return;
       }
-      clientNotifier.value = GraphQLClient(
-        link: AuthLink(
-          getToken: () => "Bearer ${user.token}",
-        ).concat(backendLink),
-        cache: GraphQLCache(),
+      clientNotifier.value = Client(
+        link: HttpLink(
+          backendUrl,
+          defaultHeaders: {
+            'Authorization': 'Bearer ${user.token}',
+          },
+        ),
+        cache: Cache(possibleTypes: possibleTypesMap)
       );
     });
     final themeStr = await rootBundle.loadString('assets/appainter_theme.json');
@@ -57,15 +61,16 @@ Future<void> main() async {
   }
 }
 
-Future<User?> validateToken(GraphQLClient client, String tokenValue) async {
+Future<User?> validateToken(Client client, String tokenValue) async {
   Map<String, dynamic>? validateToken;
   try {
-    final QueryResult result = await client.mutate(
-      MutationOptions(
-        document: gql(validateTokenMutation),
-        variables: {'tokenValue': tokenValue},
-      ),
-    );
+    final OperationResponse result = await client.request(
+      GValidateTokenReq(
+        (builder) => builder
+          ..vars.tokenValue = tokenValue
+      )
+    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+    // TODO: verify that validateToken is successfully retrieved
     validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
   } catch (e) {
     validateToken = null;
@@ -83,7 +88,7 @@ Future<User?> validateToken(GraphQLClient client, String tokenValue) async {
 }
 
 class App extends StatefulWidget {
-  final ValueNotifier<GraphQLClient> clientNotifier;
+  final ValueNotifier<Client> clientNotifier;
   final ThemeData theme;
   const App({super.key, required this.clientNotifier, required this.theme});
 
@@ -124,8 +129,8 @@ class AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return GraphQLProvider(
-      client: widget.clientNotifier,
+    return ChangeNotifierProvider.value(
+      value: widget.clientNotifier,
       child: MaterialApp.router(
         routerDelegate: NavigationManager.instance.routerDelegate,
         routeInformationParser: NavigationManager.instance.routeInformationParser,

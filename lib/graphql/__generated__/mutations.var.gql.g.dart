@@ -241,7 +241,7 @@ class _$GUpdateProductVarsSerializer
       'product',
       serializers.serialize(
         object.product,
-        specifiedType: const FullType(_i2.GProductCreateInput),
+        specifiedType: const FullType(_i2.GProductUpdateInput),
       ),
     ];
 
@@ -274,9 +274,9 @@ class _$GUpdateProductVarsSerializer
           result.product.replace(
             serializers.deserialize(
                   value,
-                  specifiedType: const FullType(_i2.GProductCreateInput),
+                  specifiedType: const FullType(_i2.GProductUpdateInput),
                 )!
-                as _i2.GProductCreateInput,
+                as _i2.GProductUpdateInput,
           );
           break;
       }
@@ -810,7 +810,7 @@ class _$GUpdateProductVars extends GUpdateProductVars {
   @override
   final int id;
   @override
-  final _i2.GProductCreateInput product;
+  final _i2.GProductUpdateInput product;
 
   factory _$GUpdateProductVars([
     void Function(GUpdateProductVarsBuilder)? updates,
@@ -869,10 +869,10 @@ class GUpdateProductVarsBuilder
   int? get id => _$this._id;
   set id(int? id) => _$this._id = id;
 
-  _i2.GProductCreateInputBuilder? _product;
-  _i2.GProductCreateInputBuilder get product =>
-      _$this._product ??= new _i2.GProductCreateInputBuilder();
-  set product(_i2.GProductCreateInputBuilder? product) =>
+  _i2.GProductUpdateInputBuilder? _product;
+  _i2.GProductUpdateInputBuilder get product =>
+      _$this._product ??= new _i2.GProductUpdateInputBuilder();
+  set product(_i2.GProductUpdateInputBuilder? product) =>
       _$this._product = product;
 
   GUpdateProductVarsBuilder();

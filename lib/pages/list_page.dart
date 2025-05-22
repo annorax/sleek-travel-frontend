@@ -2,13 +2,11 @@ import 'package:ferry/ferry.dart';
 import 'package:ferry_flutter/ferry_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:provider/provider.dart';
 import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.var.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/queries.req.gql.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
+import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/slidable/action_pane_motions.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
@@ -118,7 +116,6 @@ class ListPageState extends State<ListPage> {
         return;
       }
       int index = _items!.indexOf(item);
-      Client client = context!.watch<Client>();
       final OperationResponse result = await client.request(
         switch (widget.entityType) {
           ListableEntityType.item => GDeleteItemReq((builder) => builder.vars.id = item["id"]),
@@ -147,7 +144,7 @@ class ListPageState extends State<ListPage> {
     }
     User? user = userState.getValueSyncNoInit();
     return Operation(
-      client: context.watch<Client>(),
+      client: client,
       operationRequest: switch (widget.entityType) {
         ListableEntityType.product => GListAllProductsReq(
           (b) => b.vars

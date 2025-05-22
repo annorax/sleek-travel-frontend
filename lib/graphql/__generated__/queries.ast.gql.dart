@@ -29,7 +29,7 @@ const ListUserItems = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'userId')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'int'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -44,16 +44,19 @@ const ListUserItems = _i1.OperationDefinitionNode(
       arguments: [
         _i1.ArgumentNode(
           name: _i1.NameNode(value: 'orderBy'),
-          value: _i1.ObjectValueNode(fields: [
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'field'),
-              value: _i1.VariableNode(name: _i1.NameNode(value: 'sortOption')),
-            ),
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'direction'),
-              value:
-                  _i1.VariableNode(name: _i1.NameNode(value: 'sortDirection')),
-            ),
+          value: _i1.ListValueNode(values: [
+            _i1.ObjectValueNode(fields: [
+              _i1.ObjectFieldNode(
+                name: _i1.NameNode(value: 'field'),
+                value:
+                    _i1.VariableNode(name: _i1.NameNode(value: 'sortOption')),
+              ),
+              _i1.ObjectFieldNode(
+                name: _i1.NameNode(value: 'direction'),
+                value: _i1.VariableNode(
+                    name: _i1.NameNode(value: 'sortDirection')),
+              ),
+            ])
           ]),
         ),
         _i1.ArgumentNode(
@@ -116,7 +119,7 @@ const ListUserPurchaseOrders = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'userId')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'int'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -131,16 +134,19 @@ const ListUserPurchaseOrders = _i1.OperationDefinitionNode(
       arguments: [
         _i1.ArgumentNode(
           name: _i1.NameNode(value: 'orderBy'),
-          value: _i1.ObjectValueNode(fields: [
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'field'),
-              value: _i1.VariableNode(name: _i1.NameNode(value: 'sortOption')),
-            ),
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'direction'),
-              value:
-                  _i1.VariableNode(name: _i1.NameNode(value: 'sortDirection')),
-            ),
+          value: _i1.ListValueNode(values: [
+            _i1.ObjectValueNode(fields: [
+              _i1.ObjectFieldNode(
+                name: _i1.NameNode(value: 'field'),
+                value:
+                    _i1.VariableNode(name: _i1.NameNode(value: 'sortOption')),
+              ),
+              _i1.ObjectFieldNode(
+                name: _i1.NameNode(value: 'direction'),
+                value: _i1.VariableNode(
+                    name: _i1.NameNode(value: 'sortDirection')),
+              ),
+            ])
           ]),
         ),
         _i1.ArgumentNode(
@@ -217,16 +223,19 @@ const ListAllProducts = _i1.OperationDefinitionNode(
       arguments: [
         _i1.ArgumentNode(
           name: _i1.NameNode(value: 'orderBy'),
-          value: _i1.ObjectValueNode(fields: [
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'field'),
-              value: _i1.VariableNode(name: _i1.NameNode(value: 'sortOption')),
-            ),
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'direction'),
-              value:
-                  _i1.VariableNode(name: _i1.NameNode(value: 'sortDirection')),
-            ),
+          value: _i1.ListValueNode(values: [
+            _i1.ObjectValueNode(fields: [
+              _i1.ObjectFieldNode(
+                name: _i1.NameNode(value: 'field'),
+                value:
+                    _i1.VariableNode(name: _i1.NameNode(value: 'sortOption')),
+              ),
+              _i1.ObjectFieldNode(
+                name: _i1.NameNode(value: 'direction'),
+                value: _i1.VariableNode(
+                    name: _i1.NameNode(value: 'sortDirection')),
+              ),
+            ])
           ]),
         )
       ],

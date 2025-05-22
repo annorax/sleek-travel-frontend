@@ -1,9 +1,9 @@
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:provider/provider.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
@@ -67,7 +67,6 @@ class _LoginPageState extends State<LoginPage> {
                       if (!_formKey.currentState!.validate()) {
                         return;
                       }
-                      Client client = context.watch<Client>();
                       final OperationResponse result = await client.request(
                         GLogInUserReq(
                           (builder) =>
@@ -76,66 +75,28 @@ class _LoginPageState extends State<LoginPage> {
                               ..password = extractValue(passwordFieldKey)
                         )
                       ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                      // TODO: correctly extract logInUser from result
-                      final logInUser = null;
-                          //resultData?['logInUser'] as Map<String, dynamic>?;
+                      if (result.hasErrors) {
+                        print(result.graphqlErrors);
+                        showError("Login failed", context);
+                      }
+                      dynamic logInUser = result.data.logInUser;
                       if (logInUser == null) {
                         showError("Login failed", context);
                         return;
                       }
-                      final token = logInUser['token'];
-                      final Map<String, dynamic> safeUserMap =
-                          logInUser['user'];
-                      final Map<String, dynamic> userMap = {
-                        ...safeUserMap,
-                        "email": extractValue(emailFieldKey),
-                        "token": token
-                      };
-                      final user = User.fromJson(userMap);
+                      final token = logInUser.token;
+                      final dynamic safeUser = logInUser.user;
+                      final User user = User(
+                        id: safeUser.id,
+                        name: safeUser.name,
+                        email: extractValue(emailFieldKey),
+                        token: token
+                      );
                       await userState.setValue(user);
                       NavigationManager.instance.pushReplacement(DashboardTab.items.name);
                     },
                     child: const Text('Login'),
                   )
-                  /*child: Mutation(
-                    options: MutationOptions(
-                      document: gql(loginMutation),
-                      onCompleted: (dynamic resultData) async {
-                        final logInUser =
-                            resultData?['logInUser'] as Map<String, dynamic>?;
-                        if (logInUser == null) {
-                          showError("Login failed", context);
-                          return;
-                        }
-                        final token = logInUser['token'];
-                        final Map<String, dynamic> safeUserMap =
-                            logInUser['user'];
-                        final Map<String, dynamic> userMap = {
-                          ...safeUserMap,
-                          "email": extractValue(emailFieldKey),
-                          "token": token
-                        };
-                        final user = User.fromJson(userMap);
-                        await userState.setValue(user);
-                        NavigationManager.instance.pushReplacement(DashboardTab.items.name);
-                      },
-                    ),
-                    builder: (runMutation, result) {
-                      _runMutation = runMutation;
-                      return MaterialButton(
-                        color: Theme.of(context).colorScheme.secondary,
-                        onPressed: () {
-                          if (!_formKey.currentState!.validate()) {
-                            return;
-                          }
-                          _runMutation!({
-                            'email': extractValue(emailFieldKey),
-                            'password': extractValue(passwordFieldKey),
-                          });
-                        },
-                        child: const Text('Login'),
-                      );
-                    },*/
                 )
               ],
             ),

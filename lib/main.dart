@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:gql_http_link/gql_http_link.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:provider/provider.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/globals.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
@@ -17,27 +16,28 @@ import 'package:slick_travel_frontend/pages/login_page.dart';
 import 'package:slick_travel_frontend/router/routes.dart';
 import 'package:slick_travel_frontend/router/routes.dart' as navigation_routes;
 
+late Client client;
+
 Future<void> main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
-    Client client = Client(
+    client = Client(
       link: HttpLink(backendUrl),
       cache: Cache(possibleTypes: possibleTypesMap)
     );
-    ValueNotifier<Client> clientNotifier = ValueNotifier(client);
     User? user = await userState.getValue();
     if (user != null) {
-      user = await validateToken(client, user.token);
+      user = await validateToken(user.token);
     }
     userState.listen((user) {
       if (user == null) {
-        clientNotifier.value = Client(
+        client = Client(
           link: HttpLink(backendUrl),
           cache: Cache(possibleTypes: possibleTypesMap)
         );
         return;
       }
-      clientNotifier.value = Client(
+      client = Client(
         link: HttpLink(
           backendUrl,
           defaultHeaders: {
@@ -55,13 +55,13 @@ Future<void> main() async {
       mainRouterDelegate: DefaultRouterDelegate(navigationDataRoutes: routes),
       routeInformationParser: DefaultRouteInformationParser(defaultRoutePath: '/${user != null ? DashboardTab.items.name : LoginPage.name}'),
     );
-    runApp(App(clientNotifier: clientNotifier, theme: theme));
+    runApp(App(theme: theme));
   } catch (e) {
     runApp(ErrorApp(error: e.toString()));
   }
 }
 
-Future<User?> validateToken(Client client, String tokenValue) async {
+Future<User?> validateToken(String tokenValue) async {
   Map<String, dynamic>? validateToken;
   try {
     final OperationResponse result = await client.request(
@@ -88,9 +88,8 @@ Future<User?> validateToken(Client client, String tokenValue) async {
 }
 
 class App extends StatefulWidget {
-  final ValueNotifier<Client> clientNotifier;
   final ThemeData theme;
-  const App({super.key, required this.clientNotifier, required this.theme});
+  const App({super.key, required this.theme});
 
   @override
   State<App> createState() => AppState();
@@ -129,15 +128,12 @@ class AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: widget.clientNotifier,
-      child: MaterialApp.router(
-        routerDelegate: NavigationManager.instance.routerDelegate,
-        routeInformationParser: NavigationManager.instance.routeInformationParser,
-        scaffoldMessengerKey: scaffoldMessengerKey,
-        theme: widget.theme,
-        debugShowCheckedModeBanner: false
-      ),
+    return MaterialApp.router(
+      routerDelegate: NavigationManager.instance.routerDelegate,
+      routeInformationParser: NavigationManager.instance.routeInformationParser,
+      scaffoldMessengerKey: scaffoldMessengerKey,
+      theme: widget.theme,
+      debugShowCheckedModeBanner: false
     );
   }
 

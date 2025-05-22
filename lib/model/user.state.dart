@@ -1,4 +1,4 @@
-import 'package:slick_travel_frontend/abstract.state.dart';
+import 'package:slick_travel_frontend/model/abstract.state.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 

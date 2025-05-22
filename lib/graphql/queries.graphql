@@ -1,12 +1,22 @@
-query ListUserItems($sortOption: String!, $sortDirection: String!, $userId: int!) {
-  items(orderBy: {field: $sortOption, direction: $sortDirection}, where: {userId: {equals: $userId}}) {
+query ListUserItems($sortOption: String!, $sortDirection: String!, $userId: Int!) {
+  items(
+    orderBy: [
+      {field: $sortOption, direction: $sortDirection}
+    ],
+    where: {userId: {equals: $userId}}
+  ) {
     id
     name
   }
 }
 
-query ListUserPurchaseOrders($sortOption: String!, $sortDirection: String!, $userId: int!) {
-  purchaseOrders(orderBy: {field: $sortOption, direction: $sortDirection}, where: {userId: {equals: $userId}}) {
+query ListUserPurchaseOrders($sortOption: String!, $sortDirection: String!, $userId: Int!) {
+  purchaseOrders(
+    orderBy: [
+      {field: $sortOption, direction: $sortDirection}
+    ],
+    where: {userId: {equals: $userId}}
+  ) {
     id
     entries {
       quantity
@@ -15,7 +25,11 @@ query ListUserPurchaseOrders($sortOption: String!, $sortDirection: String!, $use
 }
 
 query ListAllProducts($sortOption: String!, $sortDirection: String!) {
-  products(orderBy: {field: $sortOption, direction: $sortDirection}) {
+  products(
+    orderBy: [
+      {field: $sortOption, direction: $sortDirection}
+    ]
+  ) {
     id
     name
   }

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:provider/provider.dart';
 import 'package:slick_travel_frontend/globals.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/items_page.dart';
@@ -195,11 +195,13 @@ class DashboardPageState extends State<DashboardPage> {
               MenuItemButton(
                 leadingIcon: Icon(Icons.logout),
                 onPressed: () async {
-                  Client client = context.watch<Client>();
                   final OperationResponse result = await client.request(
                     GLogOutUserReq()
                   ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                  // TODO: inspect result
+                  if (result.hasErrors) {
+                    showError("Logout failed", context);
+                    print(result.graphqlErrors);
+                  }
                   userState.removeValue();
                 },
                 child: Text("Sign out"),

@@ -29,7 +29,7 @@ mutation CreateProduct($product: ProductCreateInput!) {
   }
 }
 
-mutation UpdateProduct($id: Int!, $product: ProductCreateInput!) {
+mutation UpdateProduct($id: Int!, $product: ProductUpdateInput!) {
   updateOneProduct(where: {id: $id}, data: $product) {}
 }
 

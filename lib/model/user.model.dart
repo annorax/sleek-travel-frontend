@@ -4,7 +4,7 @@ class User {
   final String email;
   final String token;
 
-  User(this.id, this.name, this.email, this.token);
+  User({required this.id, required this.name, required this.email, required this.token});
 
   User.fromJson(Map<String, dynamic> json)
       : id = json['id'],

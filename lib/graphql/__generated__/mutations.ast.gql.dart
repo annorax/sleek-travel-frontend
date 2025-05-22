@@ -213,7 +213,7 @@ const UpdateProduct = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'product')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'ProductCreateInput'),
+        name: _i1.NameNode(value: 'ProductUpdateInput'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),

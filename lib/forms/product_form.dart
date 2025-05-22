@@ -2,12 +2,12 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/currency_input_formatter.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
+import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/model/product.model.dart';
 import 'package:slick_travel_frontend/scanner.dart';
 
@@ -132,21 +132,22 @@ class _ProductFormState extends State<ProductForm> {
                   final String description = descriptionController.text;
                   final String upc = upcController.text;
                   final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
-                  buildProduct(GProductCreateInputBuilder builder) => builder
-                          ..name = name
-                          ..description = description.isEmpty ? null : description
-                          ..upc = upc.isEmpty ? null : upc
-                          ..upcScanned = upcScanned
-                          ..price.value = priceString
-                          ..currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode);
-                  Client client = context.watch<Client>();
                   final OperationResponse result = await client.request(
                     widget.product?.id == null
-                      ? GCreateProductReq((builder) => buildProduct(builder.vars.product))
-                      : GUpdateProductReq((builder) {
-                        builder.vars.id = widget.product?.id;
-                        buildProduct(builder.vars.product);
-                      })
+                      ? GCreateProductReq((builder) => builder.vars.product
+                        ..name = name
+                        ..description = description.isEmpty ? null : description
+                        ..upc = upc.isEmpty ? null : upc
+                        ..upcScanned = upcScanned
+                        ..price.value = priceString
+                        ..currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
+                      : GUpdateProductReq((builder) => builder.vars
+                        ..id = widget.product?.id
+                        ..product.description.set = description.isEmpty ? null : description
+                        ..product.upc.set = upc.isEmpty ? null : upc
+                        ..product.upcScanned.set = upcScanned
+                        ..product.price.set.value = priceString
+                        ..product.currency.set = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
                   ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                   // TODO: inspect result
                 }

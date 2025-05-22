@@ -114,7 +114,7 @@ abstract class GUpdateProductVars
       _$GUpdateProductVars;
 
   int get id;
-  _i2.GProductCreateInput get product;
+  _i2.GProductUpdateInput get product;
   static Serializer<GUpdateProductVars> get serializer =>
       _$gUpdateProductVarsSerializer;
 

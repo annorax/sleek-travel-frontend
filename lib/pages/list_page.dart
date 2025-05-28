@@ -5,6 +5,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/queries.req.gql.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
@@ -148,20 +149,20 @@ class ListPageState extends State<ListPage> {
       operationRequest: switch (widget.entityType) {
         ListableEntityType.product => GListAllProductsReq(
           (b) => b.vars
-            ..sortOption = widget.sortOptionParam
-            ..sortDirection = widget.sortDirectionParam
+            ..sortOption = GProductScalarFieldEnum.valueOf(widget.sortOptionParam!)
+            ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.item => GListUserItemsReq(
           (b) => b.vars
             ..userId = user!.id
-            ..sortOption = widget.sortOptionParam
-            ..sortDirection = widget.sortDirectionParam
+            ..sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam!)
+            ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
           (b) => b.vars
             ..userId = user!.id
-            ..sortOption = widget.sortOptionParam
-            ..sortDirection = widget.sortDirectionParam
+            ..sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam!)
+            ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
       },
       builder: (

@@ -23,7 +23,7 @@ abstract class GListUserItemsData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  BuiltList<GListUserItemsData_items> get items;
+  BuiltList<GListUserItemsData_listAllItems> get listAllItems;
   static Serializer<GListUserItemsData> get serializer =>
       _$gListUserItemsDataSerializer;
 
@@ -39,33 +39,34 @@ abstract class GListUserItemsData
       );
 }
 
-abstract class GListUserItemsData_items
+abstract class GListUserItemsData_listAllItems
     implements
-        Built<GListUserItemsData_items, GListUserItemsData_itemsBuilder> {
-  GListUserItemsData_items._();
+        Built<GListUserItemsData_listAllItems,
+            GListUserItemsData_listAllItemsBuilder> {
+  GListUserItemsData_listAllItems._();
 
-  factory GListUserItemsData_items(
-          [void Function(GListUserItemsData_itemsBuilder b) updates]) =
-      _$GListUserItemsData_items;
+  factory GListUserItemsData_listAllItems(
+          [void Function(GListUserItemsData_listAllItemsBuilder b) updates]) =
+      _$GListUserItemsData_listAllItems;
 
-  static void _initializeBuilder(GListUserItemsData_itemsBuilder b) =>
+  static void _initializeBuilder(GListUserItemsData_listAllItemsBuilder b) =>
       b..G__typename = 'Item';
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   int get id;
   String get name;
-  static Serializer<GListUserItemsData_items> get serializer =>
-      _$gListUserItemsDataItemsSerializer;
+  static Serializer<GListUserItemsData_listAllItems> get serializer =>
+      _$gListUserItemsDataListAllItemsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GListUserItemsData_items.serializer,
+        GListUserItemsData_listAllItems.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GListUserItemsData_items? fromJson(Map<String, dynamic> json) =>
+  static GListUserItemsData_listAllItems? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-        GListUserItemsData_items.serializer,
+        GListUserItemsData_listAllItems.serializer,
         json,
       );
 }
@@ -84,7 +85,8 @@ abstract class GListUserPurchaseOrdersData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  BuiltList<GListUserPurchaseOrdersData_purchaseOrders> get purchaseOrders;
+  BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders>
+      get listAllPurchaseOrders;
   static Serializer<GListUserPurchaseOrdersData> get serializer =>
       _$gListUserPurchaseOrdersDataSerializer;
 
@@ -100,71 +102,74 @@ abstract class GListUserPurchaseOrdersData
       );
 }
 
-abstract class GListUserPurchaseOrdersData_purchaseOrders
+abstract class GListUserPurchaseOrdersData_listAllPurchaseOrders
     implements
-        Built<GListUserPurchaseOrdersData_purchaseOrders,
-            GListUserPurchaseOrdersData_purchaseOrdersBuilder> {
-  GListUserPurchaseOrdersData_purchaseOrders._();
+        Built<GListUserPurchaseOrdersData_listAllPurchaseOrders,
+            GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder> {
+  GListUserPurchaseOrdersData_listAllPurchaseOrders._();
 
-  factory GListUserPurchaseOrdersData_purchaseOrders(
-      [void Function(GListUserPurchaseOrdersData_purchaseOrdersBuilder b)
-          updates]) = _$GListUserPurchaseOrdersData_purchaseOrders;
+  factory GListUserPurchaseOrdersData_listAllPurchaseOrders(
+      [void Function(GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder b)
+          updates]) = _$GListUserPurchaseOrdersData_listAllPurchaseOrders;
 
   static void _initializeBuilder(
-          GListUserPurchaseOrdersData_purchaseOrdersBuilder b) =>
+          GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder b) =>
       b..G__typename = 'PurchaseOrder';
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   int get id;
-  BuiltList<GListUserPurchaseOrdersData_purchaseOrders_entries> get entries;
-  static Serializer<GListUserPurchaseOrdersData_purchaseOrders>
-      get serializer => _$gListUserPurchaseOrdersDataPurchaseOrdersSerializer;
+  BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
+      get entries;
+  static Serializer<GListUserPurchaseOrdersData_listAllPurchaseOrders>
+      get serializer =>
+          _$gListUserPurchaseOrdersDataListAllPurchaseOrdersSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GListUserPurchaseOrdersData_purchaseOrders.serializer,
+        GListUserPurchaseOrdersData_listAllPurchaseOrders.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GListUserPurchaseOrdersData_purchaseOrders? fromJson(
+  static GListUserPurchaseOrdersData_listAllPurchaseOrders? fromJson(
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-        GListUserPurchaseOrdersData_purchaseOrders.serializer,
+        GListUserPurchaseOrdersData_listAllPurchaseOrders.serializer,
         json,
       );
 }
 
-abstract class GListUserPurchaseOrdersData_purchaseOrders_entries
+abstract class GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
     implements
-        Built<GListUserPurchaseOrdersData_purchaseOrders_entries,
-            GListUserPurchaseOrdersData_purchaseOrders_entriesBuilder> {
-  GListUserPurchaseOrdersData_purchaseOrders_entries._();
+        Built<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
+            GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder> {
+  GListUserPurchaseOrdersData_listAllPurchaseOrders_entries._();
 
-  factory GListUserPurchaseOrdersData_purchaseOrders_entries(
+  factory GListUserPurchaseOrdersData_listAllPurchaseOrders_entries(
       [void Function(
-              GListUserPurchaseOrdersData_purchaseOrders_entriesBuilder b)
-          updates]) = _$GListUserPurchaseOrdersData_purchaseOrders_entries;
+              GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder
+                  b)
+          updates]) = _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries;
 
   static void _initializeBuilder(
-          GListUserPurchaseOrdersData_purchaseOrders_entriesBuilder b) =>
+          GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder b) =>
       b..G__typename = 'PurchaseOrderEntry';
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   int get quantity;
-  static Serializer<GListUserPurchaseOrdersData_purchaseOrders_entries>
+  static Serializer<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
       get serializer =>
-          _$gListUserPurchaseOrdersDataPurchaseOrdersEntriesSerializer;
+          _$gListUserPurchaseOrdersDataListAllPurchaseOrdersEntriesSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GListUserPurchaseOrdersData_purchaseOrders_entries.serializer,
+        GListUserPurchaseOrdersData_listAllPurchaseOrders_entries.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GListUserPurchaseOrdersData_purchaseOrders_entries? fromJson(
+  static GListUserPurchaseOrdersData_listAllPurchaseOrders_entries? fromJson(
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-        GListUserPurchaseOrdersData_purchaseOrders_entries.serializer,
+        GListUserPurchaseOrdersData_listAllPurchaseOrders_entries.serializer,
         json,
       );
 }
@@ -182,7 +187,7 @@ abstract class GListAllProductsData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  BuiltList<GListAllProductsData_products> get products;
+  BuiltList<GListAllProductsData_listAllProducts> get listAllProducts;
   static Serializer<GListAllProductsData> get serializer =>
       _$gListAllProductsDataSerializer;
 
@@ -198,34 +203,36 @@ abstract class GListAllProductsData
       );
 }
 
-abstract class GListAllProductsData_products
+abstract class GListAllProductsData_listAllProducts
     implements
-        Built<GListAllProductsData_products,
-            GListAllProductsData_productsBuilder> {
-  GListAllProductsData_products._();
+        Built<GListAllProductsData_listAllProducts,
+            GListAllProductsData_listAllProductsBuilder> {
+  GListAllProductsData_listAllProducts._();
 
-  factory GListAllProductsData_products(
-          [void Function(GListAllProductsData_productsBuilder b) updates]) =
-      _$GListAllProductsData_products;
+  factory GListAllProductsData_listAllProducts(
+      [void Function(GListAllProductsData_listAllProductsBuilder b)
+          updates]) = _$GListAllProductsData_listAllProducts;
 
-  static void _initializeBuilder(GListAllProductsData_productsBuilder b) =>
+  static void _initializeBuilder(
+          GListAllProductsData_listAllProductsBuilder b) =>
       b..G__typename = 'Product';
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   int get id;
   String get name;
-  static Serializer<GListAllProductsData_products> get serializer =>
-      _$gListAllProductsDataProductsSerializer;
+  static Serializer<GListAllProductsData_listAllProducts> get serializer =>
+      _$gListAllProductsDataListAllProductsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GListAllProductsData_products.serializer,
+        GListAllProductsData_listAllProducts.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GListAllProductsData_products? fromJson(Map<String, dynamic> json) =>
+  static GListAllProductsData_listAllProducts? fromJson(
+          Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-        GListAllProductsData_products.serializer,
+        GListAllProductsData_listAllProducts.serializer,
         json,
       );
 }

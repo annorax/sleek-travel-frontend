@@ -2789,6 +2789,9 @@ type Query {
   purchaseOrder(where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
   getPurchaseOrder(where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
   groupByPurchaseOrder(where: PurchaseOrderWhereInput, orderBy: [PurchaseOrderOrderByWithAggregationInput!], by: [PurchaseOrderScalarFieldEnum!]!, having: PurchaseOrderScalarWhereWithAggregatesInput, take: Int, skip: Int): [PurchaseOrderGroupBy!]!
+  listAllProducts(where: ProductWhereInput, orderBy: [STProductOrderByWithRelationInput!], cursor: ProductWhereUniqueInput, take: Int, skip: Int, distinct: ProductScalarFieldEnum): [Product!]!
+  listAllItems(where: ItemWhereInput, orderBy: [STItemOrderByWithRelationInput!], cursor: ItemWhereUniqueInput, take: Int, skip: Int, distinct: ItemScalarFieldEnum): [Item!]!
+  listAllPurchaseOrders(where: PurchaseOrderWhereInput, orderBy: [STPurchaseOrderOrderByWithRelationInput!], cursor: PurchaseOrderWhereUniqueInput, take: Int, skip: Int, distinct: PurchaseOrderScalarFieldEnum): [PurchaseOrder!]!
 }
 
 enum QueryMode {
@@ -2823,6 +2826,21 @@ enum SortOrder {
 input SortOrderInput {
   sort: SortOrder!
   nulls: NullsOrder
+}
+
+input STItemOrderByWithRelationInput {
+  field: ItemScalarFieldEnum!
+  direction: SortOrder
+}
+
+input STProductOrderByWithRelationInput {
+  field: ProductScalarFieldEnum!
+  direction: SortOrder
+}
+
+input STPurchaseOrderOrderByWithRelationInput {
+  field: PurchaseOrderScalarFieldEnum!
+  direction: SortOrder
 }
 
 input StringFieldUpdateOperationsInput {

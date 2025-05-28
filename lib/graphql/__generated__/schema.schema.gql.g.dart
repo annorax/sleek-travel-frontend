@@ -1074,6 +1074,15 @@ Serializer<GRole> _$gRoleSerializer = new _$GRoleSerializer();
 Serializer<GSortOrder> _$gSortOrderSerializer = new _$GSortOrderSerializer();
 Serializer<GSortOrderInput> _$gSortOrderInputSerializer =
     new _$GSortOrderInputSerializer();
+Serializer<GSTItemOrderByWithRelationInput>
+_$gSTItemOrderByWithRelationInputSerializer =
+    new _$GSTItemOrderByWithRelationInputSerializer();
+Serializer<GSTProductOrderByWithRelationInput>
+_$gSTProductOrderByWithRelationInputSerializer =
+    new _$GSTProductOrderByWithRelationInputSerializer();
+Serializer<GSTPurchaseOrderOrderByWithRelationInput>
+_$gSTPurchaseOrderOrderByWithRelationInputSerializer =
+    new _$GSTPurchaseOrderOrderByWithRelationInputSerializer();
 Serializer<GStringFieldUpdateOperationsInput>
 _$gStringFieldUpdateOperationsInputSerializer =
     new _$GStringFieldUpdateOperationsInputSerializer();
@@ -41932,6 +41941,233 @@ class _$GSortOrderInputSerializer
                     specifiedType: const FullType(GNullsOrder),
                   )
                   as GNullsOrder?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GSTItemOrderByWithRelationInputSerializer
+    implements StructuredSerializer<GSTItemOrderByWithRelationInput> {
+  @override
+  final Iterable<Type> types = const [
+    GSTItemOrderByWithRelationInput,
+    _$GSTItemOrderByWithRelationInput,
+  ];
+  @override
+  final String wireName = 'GSTItemOrderByWithRelationInput';
+
+  @override
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GSTItemOrderByWithRelationInput object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'field',
+      serializers.serialize(
+        object.field,
+        specifiedType: const FullType(GItemScalarFieldEnum),
+      ),
+    ];
+    Object? value;
+    value = object.direction;
+    if (value != null) {
+      result
+        ..add('direction')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(GSortOrder),
+          ),
+        );
+    }
+    return result;
+  }
+
+  @override
+  GSTItemOrderByWithRelationInput deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = new GSTItemOrderByWithRelationInputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'field':
+          result.field =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(GItemScalarFieldEnum),
+                  )!
+                  as GItemScalarFieldEnum;
+          break;
+        case 'direction':
+          result.direction =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(GSortOrder),
+                  )
+                  as GSortOrder?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GSTProductOrderByWithRelationInputSerializer
+    implements StructuredSerializer<GSTProductOrderByWithRelationInput> {
+  @override
+  final Iterable<Type> types = const [
+    GSTProductOrderByWithRelationInput,
+    _$GSTProductOrderByWithRelationInput,
+  ];
+  @override
+  final String wireName = 'GSTProductOrderByWithRelationInput';
+
+  @override
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GSTProductOrderByWithRelationInput object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'field',
+      serializers.serialize(
+        object.field,
+        specifiedType: const FullType(GProductScalarFieldEnum),
+      ),
+    ];
+    Object? value;
+    value = object.direction;
+    if (value != null) {
+      result
+        ..add('direction')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(GSortOrder),
+          ),
+        );
+    }
+    return result;
+  }
+
+  @override
+  GSTProductOrderByWithRelationInput deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = new GSTProductOrderByWithRelationInputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'field':
+          result.field =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(GProductScalarFieldEnum),
+                  )!
+                  as GProductScalarFieldEnum;
+          break;
+        case 'direction':
+          result.direction =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(GSortOrder),
+                  )
+                  as GSortOrder?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GSTPurchaseOrderOrderByWithRelationInputSerializer
+    implements StructuredSerializer<GSTPurchaseOrderOrderByWithRelationInput> {
+  @override
+  final Iterable<Type> types = const [
+    GSTPurchaseOrderOrderByWithRelationInput,
+    _$GSTPurchaseOrderOrderByWithRelationInput,
+  ];
+  @override
+  final String wireName = 'GSTPurchaseOrderOrderByWithRelationInput';
+
+  @override
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GSTPurchaseOrderOrderByWithRelationInput object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'field',
+      serializers.serialize(
+        object.field,
+        specifiedType: const FullType(GPurchaseOrderScalarFieldEnum),
+      ),
+    ];
+    Object? value;
+    value = object.direction;
+    if (value != null) {
+      result
+        ..add('direction')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(GSortOrder),
+          ),
+        );
+    }
+    return result;
+  }
+
+  @override
+  GSTPurchaseOrderOrderByWithRelationInput deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = new GSTPurchaseOrderOrderByWithRelationInputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'field':
+          result.field =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(
+                      GPurchaseOrderScalarFieldEnum,
+                    ),
+                  )!
+                  as GPurchaseOrderScalarFieldEnum;
+          break;
+        case 'direction':
+          result.direction =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(GSortOrder),
+                  )
+                  as GSortOrder?;
           break;
       }
     }
@@ -95601,6 +95837,358 @@ class GSortOrderInputBuilder
             'sort',
           ),
           nulls: nulls,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GSTItemOrderByWithRelationInput
+    extends GSTItemOrderByWithRelationInput {
+  @override
+  final GItemScalarFieldEnum field;
+  @override
+  final GSortOrder? direction;
+
+  factory _$GSTItemOrderByWithRelationInput([
+    void Function(GSTItemOrderByWithRelationInputBuilder)? updates,
+  ]) =>
+      (new GSTItemOrderByWithRelationInputBuilder()..update(updates))._build();
+
+  _$GSTItemOrderByWithRelationInput._({required this.field, this.direction})
+    : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+      field,
+      r'GSTItemOrderByWithRelationInput',
+      'field',
+    );
+  }
+
+  @override
+  GSTItemOrderByWithRelationInput rebuild(
+    void Function(GSTItemOrderByWithRelationInputBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
+
+  @override
+  GSTItemOrderByWithRelationInputBuilder toBuilder() =>
+      new GSTItemOrderByWithRelationInputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GSTItemOrderByWithRelationInput &&
+        field == other.field &&
+        direction == other.direction;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, field.hashCode);
+    _$hash = $jc(_$hash, direction.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GSTItemOrderByWithRelationInput')
+          ..add('field', field)
+          ..add('direction', direction))
+        .toString();
+  }
+}
+
+class GSTItemOrderByWithRelationInputBuilder
+    implements
+        Builder<
+          GSTItemOrderByWithRelationInput,
+          GSTItemOrderByWithRelationInputBuilder
+        > {
+  _$GSTItemOrderByWithRelationInput? _$v;
+
+  GItemScalarFieldEnum? _field;
+  GItemScalarFieldEnum? get field => _$this._field;
+  set field(GItemScalarFieldEnum? field) => _$this._field = field;
+
+  GSortOrder? _direction;
+  GSortOrder? get direction => _$this._direction;
+  set direction(GSortOrder? direction) => _$this._direction = direction;
+
+  GSTItemOrderByWithRelationInputBuilder();
+
+  GSTItemOrderByWithRelationInputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _field = $v.field;
+      _direction = $v.direction;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GSTItemOrderByWithRelationInput other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GSTItemOrderByWithRelationInput;
+  }
+
+  @override
+  void update(void Function(GSTItemOrderByWithRelationInputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GSTItemOrderByWithRelationInput build() => _build();
+
+  _$GSTItemOrderByWithRelationInput _build() {
+    final _$result =
+        _$v ??
+        new _$GSTItemOrderByWithRelationInput._(
+          field: BuiltValueNullFieldError.checkNotNull(
+            field,
+            r'GSTItemOrderByWithRelationInput',
+            'field',
+          ),
+          direction: direction,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GSTProductOrderByWithRelationInput
+    extends GSTProductOrderByWithRelationInput {
+  @override
+  final GProductScalarFieldEnum field;
+  @override
+  final GSortOrder? direction;
+
+  factory _$GSTProductOrderByWithRelationInput([
+    void Function(GSTProductOrderByWithRelationInputBuilder)? updates,
+  ]) =>
+      (new GSTProductOrderByWithRelationInputBuilder()..update(updates))
+          ._build();
+
+  _$GSTProductOrderByWithRelationInput._({required this.field, this.direction})
+    : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+      field,
+      r'GSTProductOrderByWithRelationInput',
+      'field',
+    );
+  }
+
+  @override
+  GSTProductOrderByWithRelationInput rebuild(
+    void Function(GSTProductOrderByWithRelationInputBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
+
+  @override
+  GSTProductOrderByWithRelationInputBuilder toBuilder() =>
+      new GSTProductOrderByWithRelationInputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GSTProductOrderByWithRelationInput &&
+        field == other.field &&
+        direction == other.direction;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, field.hashCode);
+    _$hash = $jc(_$hash, direction.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GSTProductOrderByWithRelationInput')
+          ..add('field', field)
+          ..add('direction', direction))
+        .toString();
+  }
+}
+
+class GSTProductOrderByWithRelationInputBuilder
+    implements
+        Builder<
+          GSTProductOrderByWithRelationInput,
+          GSTProductOrderByWithRelationInputBuilder
+        > {
+  _$GSTProductOrderByWithRelationInput? _$v;
+
+  GProductScalarFieldEnum? _field;
+  GProductScalarFieldEnum? get field => _$this._field;
+  set field(GProductScalarFieldEnum? field) => _$this._field = field;
+
+  GSortOrder? _direction;
+  GSortOrder? get direction => _$this._direction;
+  set direction(GSortOrder? direction) => _$this._direction = direction;
+
+  GSTProductOrderByWithRelationInputBuilder();
+
+  GSTProductOrderByWithRelationInputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _field = $v.field;
+      _direction = $v.direction;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GSTProductOrderByWithRelationInput other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GSTProductOrderByWithRelationInput;
+  }
+
+  @override
+  void update(
+    void Function(GSTProductOrderByWithRelationInputBuilder)? updates,
+  ) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GSTProductOrderByWithRelationInput build() => _build();
+
+  _$GSTProductOrderByWithRelationInput _build() {
+    final _$result =
+        _$v ??
+        new _$GSTProductOrderByWithRelationInput._(
+          field: BuiltValueNullFieldError.checkNotNull(
+            field,
+            r'GSTProductOrderByWithRelationInput',
+            'field',
+          ),
+          direction: direction,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GSTPurchaseOrderOrderByWithRelationInput
+    extends GSTPurchaseOrderOrderByWithRelationInput {
+  @override
+  final GPurchaseOrderScalarFieldEnum field;
+  @override
+  final GSortOrder? direction;
+
+  factory _$GSTPurchaseOrderOrderByWithRelationInput([
+    void Function(GSTPurchaseOrderOrderByWithRelationInputBuilder)? updates,
+  ]) =>
+      (new GSTPurchaseOrderOrderByWithRelationInputBuilder()..update(updates))
+          ._build();
+
+  _$GSTPurchaseOrderOrderByWithRelationInput._({
+    required this.field,
+    this.direction,
+  }) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+      field,
+      r'GSTPurchaseOrderOrderByWithRelationInput',
+      'field',
+    );
+  }
+
+  @override
+  GSTPurchaseOrderOrderByWithRelationInput rebuild(
+    void Function(GSTPurchaseOrderOrderByWithRelationInputBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
+
+  @override
+  GSTPurchaseOrderOrderByWithRelationInputBuilder toBuilder() =>
+      new GSTPurchaseOrderOrderByWithRelationInputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GSTPurchaseOrderOrderByWithRelationInput &&
+        field == other.field &&
+        direction == other.direction;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, field.hashCode);
+    _$hash = $jc(_$hash, direction.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GSTPurchaseOrderOrderByWithRelationInput',
+          )
+          ..add('field', field)
+          ..add('direction', direction))
+        .toString();
+  }
+}
+
+class GSTPurchaseOrderOrderByWithRelationInputBuilder
+    implements
+        Builder<
+          GSTPurchaseOrderOrderByWithRelationInput,
+          GSTPurchaseOrderOrderByWithRelationInputBuilder
+        > {
+  _$GSTPurchaseOrderOrderByWithRelationInput? _$v;
+
+  GPurchaseOrderScalarFieldEnum? _field;
+  GPurchaseOrderScalarFieldEnum? get field => _$this._field;
+  set field(GPurchaseOrderScalarFieldEnum? field) => _$this._field = field;
+
+  GSortOrder? _direction;
+  GSortOrder? get direction => _$this._direction;
+  set direction(GSortOrder? direction) => _$this._direction = direction;
+
+  GSTPurchaseOrderOrderByWithRelationInputBuilder();
+
+  GSTPurchaseOrderOrderByWithRelationInputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _field = $v.field;
+      _direction = $v.direction;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GSTPurchaseOrderOrderByWithRelationInput other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GSTPurchaseOrderOrderByWithRelationInput;
+  }
+
+  @override
+  void update(
+    void Function(GSTPurchaseOrderOrderByWithRelationInputBuilder)? updates,
+  ) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GSTPurchaseOrderOrderByWithRelationInput build() => _build();
+
+  _$GSTPurchaseOrderOrderByWithRelationInput _build() {
+    final _$result =
+        _$v ??
+        new _$GSTPurchaseOrderOrderByWithRelationInput._(
+          field: BuiltValueNullFieldError.checkNotNull(
+            field,
+            r'GSTPurchaseOrderOrderByWithRelationInput',
+            'field',
+          ),
+          direction: direction,
         );
     replace(_$result);
     return _$result;

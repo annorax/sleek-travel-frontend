@@ -119,16 +119,19 @@ Serializers _$serializers =
           ..add(GItemWhereInput.serializer)
           ..add(GItemWhereUniqueInput.serializer)
           ..add(GListAllProductsData.serializer)
-          ..add(GListAllProductsData_products.serializer)
+          ..add(GListAllProductsData_listAllProducts.serializer)
           ..add(GListAllProductsReq.serializer)
           ..add(GListAllProductsVars.serializer)
           ..add(GListUserItemsData.serializer)
-          ..add(GListUserItemsData_items.serializer)
+          ..add(GListUserItemsData_listAllItems.serializer)
           ..add(GListUserItemsReq.serializer)
           ..add(GListUserItemsVars.serializer)
           ..add(GListUserPurchaseOrdersData.serializer)
-          ..add(GListUserPurchaseOrdersData_purchaseOrders.serializer)
-          ..add(GListUserPurchaseOrdersData_purchaseOrders_entries.serializer)
+          ..add(GListUserPurchaseOrdersData_listAllPurchaseOrders.serializer)
+          ..add(
+            GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
+                .serializer,
+          )
           ..add(GListUserPurchaseOrdersReq.serializer)
           ..add(GListUserPurchaseOrdersVars.serializer)
           ..add(GLogInUserData.serializer)
@@ -329,6 +332,9 @@ Serializers _$serializers =
           ..add(GPurchaseOrderWhereUniqueInput.serializer)
           ..add(GQueryMode.serializer)
           ..add(GRole.serializer)
+          ..add(GSTItemOrderByWithRelationInput.serializer)
+          ..add(GSTProductOrderByWithRelationInput.serializer)
+          ..add(GSTPurchaseOrderOrderByWithRelationInput.serializer)
           ..add(GSortOrder.serializer)
           ..add(GSortOrderInput.serializer)
           ..add(GStringFieldUpdateOperationsInput.serializer)
@@ -878,31 +884,34 @@ Serializers _$serializers =
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
-              const FullType(GListAllProductsData_products),
+              const FullType(GListAllProductsData_listAllProducts),
             ]),
-            () => new ListBuilder<GListAllProductsData_products>(),
+            () => new ListBuilder<GListAllProductsData_listAllProducts>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
-              const FullType(GListUserItemsData_items),
+              const FullType(GListUserItemsData_listAllItems),
             ]),
-            () => new ListBuilder<GListUserItemsData_items>(),
+            () => new ListBuilder<GListUserItemsData_listAllItems>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
-              const FullType(GListUserPurchaseOrdersData_purchaseOrders),
+              const FullType(GListUserPurchaseOrdersData_listAllPurchaseOrders),
             ]),
-            () => new ListBuilder<GListUserPurchaseOrdersData_purchaseOrders>(),
+            () =>
+                new ListBuilder<
+                  GListUserPurchaseOrdersData_listAllPurchaseOrders
+                >(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(
-                GListUserPurchaseOrdersData_purchaseOrders_entries,
+                GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
               ),
             ]),
             () =>
                 new ListBuilder<
-                  GListUserPurchaseOrdersData_purchaseOrders_entries
+                  GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
                 >(),
           )
           ..addBuilderFactory(

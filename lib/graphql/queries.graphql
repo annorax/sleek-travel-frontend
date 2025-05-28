@@ -1,5 +1,5 @@
-query ListUserItems($sortOption: String!, $sortDirection: String!, $userId: Int!) {
-  items(
+query ListUserItems($sortOption: ItemScalarFieldEnum!, $sortDirection: SortOrder!, $userId: Int!) {
+  listAllItems(
     orderBy: [
       {field: $sortOption, direction: $sortDirection}
     ],
@@ -10,8 +10,8 @@ query ListUserItems($sortOption: String!, $sortDirection: String!, $userId: Int!
   }
 }
 
-query ListUserPurchaseOrders($sortOption: String!, $sortDirection: String!, $userId: Int!) {
-  purchaseOrders(
+query ListUserPurchaseOrders($sortOption: PurchaseOrderScalarFieldEnum!, $sortDirection: SortOrder!, $userId: Int!) {
+  listAllPurchaseOrders(
     orderBy: [
       {field: $sortOption, direction: $sortDirection}
     ],
@@ -24,8 +24,8 @@ query ListUserPurchaseOrders($sortOption: String!, $sortDirection: String!, $use
   }
 }
 
-query ListAllProducts($sortOption: String!, $sortDirection: String!) {
-  products(
+query ListAllProducts($sortOption: ProductScalarFieldEnum!, $sortDirection: SortOrder!) {
+  listAllProducts(
     orderBy: [
       {field: $sortOption, direction: $sortDirection}
     ]

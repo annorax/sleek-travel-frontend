@@ -31,12 +31,12 @@ class _$GListUserItemsVarsSerializer
       'sortOption',
       serializers.serialize(
         object.sortOption,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(_i1.GItemScalarFieldEnum),
       ),
       'sortDirection',
       serializers.serialize(
         object.sortDirection,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(_i1.GSortOrder),
       ),
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(int)),
@@ -63,17 +63,17 @@ class _$GListUserItemsVarsSerializer
           result.sortOption =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
+                    specifiedType: const FullType(_i1.GItemScalarFieldEnum),
                   )!
-                  as String;
+                  as _i1.GItemScalarFieldEnum;
           break;
         case 'sortDirection':
           result.sortDirection =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
+                    specifiedType: const FullType(_i1.GSortOrder),
                   )!
-                  as String;
+                  as _i1.GSortOrder;
           break;
         case 'userId':
           result.userId =
@@ -110,12 +110,12 @@ class _$GListUserPurchaseOrdersVarsSerializer
       'sortOption',
       serializers.serialize(
         object.sortOption,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(_i1.GPurchaseOrderScalarFieldEnum),
       ),
       'sortDirection',
       serializers.serialize(
         object.sortDirection,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(_i1.GSortOrder),
       ),
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(int)),
@@ -142,17 +142,19 @@ class _$GListUserPurchaseOrdersVarsSerializer
           result.sortOption =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
+                    specifiedType: const FullType(
+                      _i1.GPurchaseOrderScalarFieldEnum,
+                    ),
                   )!
-                  as String;
+                  as _i1.GPurchaseOrderScalarFieldEnum;
           break;
         case 'sortDirection':
           result.sortDirection =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
+                    specifiedType: const FullType(_i1.GSortOrder),
                   )!
-                  as String;
+                  as _i1.GSortOrder;
           break;
         case 'userId':
           result.userId =
@@ -189,12 +191,12 @@ class _$GListAllProductsVarsSerializer
       'sortOption',
       serializers.serialize(
         object.sortOption,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(_i1.GProductScalarFieldEnum),
       ),
       'sortDirection',
       serializers.serialize(
         object.sortDirection,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(_i1.GSortOrder),
       ),
     ];
 
@@ -219,17 +221,17 @@ class _$GListAllProductsVarsSerializer
           result.sortOption =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
+                    specifiedType: const FullType(_i1.GProductScalarFieldEnum),
                   )!
-                  as String;
+                  as _i1.GProductScalarFieldEnum;
           break;
         case 'sortDirection':
           result.sortDirection =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
+                    specifiedType: const FullType(_i1.GSortOrder),
                   )!
-                  as String;
+                  as _i1.GSortOrder;
           break;
       }
     }
@@ -240,9 +242,9 @@ class _$GListAllProductsVarsSerializer
 
 class _$GListUserItemsVars extends GListUserItemsVars {
   @override
-  final String sortOption;
+  final _i1.GItemScalarFieldEnum sortOption;
   @override
-  final String sortDirection;
+  final _i1.GSortOrder sortDirection;
   @override
   final int userId;
 
@@ -314,13 +316,14 @@ class GListUserItemsVarsBuilder
     implements Builder<GListUserItemsVars, GListUserItemsVarsBuilder> {
   _$GListUserItemsVars? _$v;
 
-  String? _sortOption;
-  String? get sortOption => _$this._sortOption;
-  set sortOption(String? sortOption) => _$this._sortOption = sortOption;
+  _i1.GItemScalarFieldEnum? _sortOption;
+  _i1.GItemScalarFieldEnum? get sortOption => _$this._sortOption;
+  set sortOption(_i1.GItemScalarFieldEnum? sortOption) =>
+      _$this._sortOption = sortOption;
 
-  String? _sortDirection;
-  String? get sortDirection => _$this._sortDirection;
-  set sortDirection(String? sortDirection) =>
+  _i1.GSortOrder? _sortDirection;
+  _i1.GSortOrder? get sortDirection => _$this._sortDirection;
+  set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
   int? _userId;
@@ -381,9 +384,9 @@ class GListUserItemsVarsBuilder
 
 class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
   @override
-  final String sortOption;
+  final _i1.GPurchaseOrderScalarFieldEnum sortOption;
   @override
-  final String sortDirection;
+  final _i1.GSortOrder sortDirection;
   @override
   final int userId;
 
@@ -459,13 +462,14 @@ class GListUserPurchaseOrdersVarsBuilder
         > {
   _$GListUserPurchaseOrdersVars? _$v;
 
-  String? _sortOption;
-  String? get sortOption => _$this._sortOption;
-  set sortOption(String? sortOption) => _$this._sortOption = sortOption;
+  _i1.GPurchaseOrderScalarFieldEnum? _sortOption;
+  _i1.GPurchaseOrderScalarFieldEnum? get sortOption => _$this._sortOption;
+  set sortOption(_i1.GPurchaseOrderScalarFieldEnum? sortOption) =>
+      _$this._sortOption = sortOption;
 
-  String? _sortDirection;
-  String? get sortDirection => _$this._sortDirection;
-  set sortDirection(String? sortDirection) =>
+  _i1.GSortOrder? _sortDirection;
+  _i1.GSortOrder? get sortDirection => _$this._sortDirection;
+  set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
   int? _userId;
@@ -526,9 +530,9 @@ class GListUserPurchaseOrdersVarsBuilder
 
 class _$GListAllProductsVars extends GListAllProductsVars {
   @override
-  final String sortOption;
+  final _i1.GProductScalarFieldEnum sortOption;
   @override
-  final String sortDirection;
+  final _i1.GSortOrder sortDirection;
 
   factory _$GListAllProductsVars([
     void Function(GListAllProductsVarsBuilder)? updates,
@@ -589,13 +593,14 @@ class GListAllProductsVarsBuilder
     implements Builder<GListAllProductsVars, GListAllProductsVarsBuilder> {
   _$GListAllProductsVars? _$v;
 
-  String? _sortOption;
-  String? get sortOption => _$this._sortOption;
-  set sortOption(String? sortOption) => _$this._sortOption = sortOption;
+  _i1.GProductScalarFieldEnum? _sortOption;
+  _i1.GProductScalarFieldEnum? get sortOption => _$this._sortOption;
+  set sortOption(_i1.GProductScalarFieldEnum? sortOption) =>
+      _$this._sortOption = sortOption;
 
-  String? _sortDirection;
-  String? get sortDirection => _$this._sortDirection;
-  set sortDirection(String? sortDirection) =>
+  _i1.GSortOrder? _sortDirection;
+  _i1.GSortOrder? get sortDirection => _$this._sortDirection;
+  set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
   GListAllProductsVarsBuilder();

@@ -8013,6 +8013,89 @@ abstract class GSortOrderInput
       );
 }
 
+abstract class GSTItemOrderByWithRelationInput
+    implements
+        Built<GSTItemOrderByWithRelationInput,
+            GSTItemOrderByWithRelationInputBuilder> {
+  GSTItemOrderByWithRelationInput._();
+
+  factory GSTItemOrderByWithRelationInput(
+          [void Function(GSTItemOrderByWithRelationInputBuilder b) updates]) =
+      _$GSTItemOrderByWithRelationInput;
+
+  GItemScalarFieldEnum get field;
+  GSortOrder? get direction;
+  static Serializer<GSTItemOrderByWithRelationInput> get serializer =>
+      _$gSTItemOrderByWithRelationInputSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GSTItemOrderByWithRelationInput.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GSTItemOrderByWithRelationInput? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GSTItemOrderByWithRelationInput.serializer,
+        json,
+      );
+}
+
+abstract class GSTProductOrderByWithRelationInput
+    implements
+        Built<GSTProductOrderByWithRelationInput,
+            GSTProductOrderByWithRelationInputBuilder> {
+  GSTProductOrderByWithRelationInput._();
+
+  factory GSTProductOrderByWithRelationInput(
+      [void Function(GSTProductOrderByWithRelationInputBuilder b)
+          updates]) = _$GSTProductOrderByWithRelationInput;
+
+  GProductScalarFieldEnum get field;
+  GSortOrder? get direction;
+  static Serializer<GSTProductOrderByWithRelationInput> get serializer =>
+      _$gSTProductOrderByWithRelationInputSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GSTProductOrderByWithRelationInput.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GSTProductOrderByWithRelationInput? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GSTProductOrderByWithRelationInput.serializer,
+        json,
+      );
+}
+
+abstract class GSTPurchaseOrderOrderByWithRelationInput
+    implements
+        Built<GSTPurchaseOrderOrderByWithRelationInput,
+            GSTPurchaseOrderOrderByWithRelationInputBuilder> {
+  GSTPurchaseOrderOrderByWithRelationInput._();
+
+  factory GSTPurchaseOrderOrderByWithRelationInput(
+      [void Function(GSTPurchaseOrderOrderByWithRelationInputBuilder b)
+          updates]) = _$GSTPurchaseOrderOrderByWithRelationInput;
+
+  GPurchaseOrderScalarFieldEnum get field;
+  GSortOrder? get direction;
+  static Serializer<GSTPurchaseOrderOrderByWithRelationInput> get serializer =>
+      _$gSTPurchaseOrderOrderByWithRelationInputSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GSTPurchaseOrderOrderByWithRelationInput.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GSTPurchaseOrderOrderByWithRelationInput? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GSTPurchaseOrderOrderByWithRelationInput.serializer,
+        json,
+      );
+}
+
 abstract class GStringFieldUpdateOperationsInput
     implements
         Built<GStringFieldUpdateOperationsInput,

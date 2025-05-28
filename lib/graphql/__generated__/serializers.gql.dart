@@ -49,12 +49,12 @@ import 'package:slick_travel_frontend/graphql/__generated__/mutations.var.gql.da
 import 'package:slick_travel_frontend/graphql/__generated__/queries.data.gql.dart'
     show
         GListAllProductsData,
-        GListAllProductsData_products,
+        GListAllProductsData_listAllProducts,
         GListUserItemsData,
-        GListUserItemsData_items,
+        GListUserItemsData_listAllItems,
         GListUserPurchaseOrdersData,
-        GListUserPurchaseOrdersData_purchaseOrders,
-        GListUserPurchaseOrdersData_purchaseOrders_entries;
+        GListUserPurchaseOrdersData_listAllPurchaseOrders,
+        GListUserPurchaseOrdersData_listAllPurchaseOrders_entries;
 import 'package:slick_travel_frontend/graphql/__generated__/queries.req.gql.dart'
     show GListAllProductsReq, GListUserItemsReq, GListUserPurchaseOrdersReq;
 import 'package:slick_travel_frontend/graphql/__generated__/queries.var.gql.dart'
@@ -305,6 +305,9 @@ import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.da
         GPurchaseOrderWhereUniqueInput,
         GQueryMode,
         GRole,
+        GSTItemOrderByWithRelationInput,
+        GSTProductOrderByWithRelationInput,
+        GSTPurchaseOrderOrderByWithRelationInput,
         GSortOrder,
         GSortOrderInput,
         GStringFieldUpdateOperationsInput,
@@ -460,16 +463,16 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GItemWhereInput,
   GItemWhereUniqueInput,
   GListAllProductsData,
-  GListAllProductsData_products,
+  GListAllProductsData_listAllProducts,
   GListAllProductsReq,
   GListAllProductsVars,
   GListUserItemsData,
-  GListUserItemsData_items,
+  GListUserItemsData_listAllItems,
   GListUserItemsReq,
   GListUserItemsVars,
   GListUserPurchaseOrdersData,
-  GListUserPurchaseOrdersData_purchaseOrders,
-  GListUserPurchaseOrdersData_purchaseOrders_entries,
+  GListUserPurchaseOrdersData_listAllPurchaseOrders,
+  GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
   GListUserPurchaseOrdersReq,
   GListUserPurchaseOrdersVars,
   GLogInUserData,
@@ -633,6 +636,9 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GPurchaseOrderWhereUniqueInput,
   GQueryMode,
   GRole,
+  GSTItemOrderByWithRelationInput,
+  GSTProductOrderByWithRelationInput,
+  GSTPurchaseOrderOrderByWithRelationInput,
   GSortOrder,
   GSortOrderInput,
   GStringFieldUpdateOperationsInput,

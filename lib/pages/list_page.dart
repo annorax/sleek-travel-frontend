@@ -150,19 +150,19 @@ class ListPageState extends State<ListPage> {
       operationRequest: switch (widget.entityType) {
         ListableEntityType.product => GListAllProductsReq(
           (b) => b.vars
-            ..sortOption = GProductScalarFieldEnum.valueOf(widget.sortOptionParam!)
+            ..sortOption = GProductScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.item => GListUserItemsReq(
           (b) => b.vars
             ..userId = user!.id
-            ..sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam!)
+            ..sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
           (b) => b.vars
             ..userId = user!.id
-            ..sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam!)
+            ..sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
       },
@@ -177,8 +177,6 @@ class ListPageState extends State<ListPage> {
         if (response?.loading == true) {
           return const Text('Loading');
         }
-        // TODO: correctly obtain items from response
-        //_items = response.data?[widget.entityType.namePlural];
         switch (widget.entityType) {
           case ListableEntityType.item:
             _items = (response?.data as GListUserItemsData).listAllItems.asList();

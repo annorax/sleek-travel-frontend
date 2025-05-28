@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/forms/product_form.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/queries.data.gql.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/pages/list_page.dart';
@@ -32,7 +33,7 @@ class ProductsPage extends ListPage {
   List<Enum> get sortOptions => ProductSortOption.values;
 
   @override
-  String createItemDescription(item) => item[ProductsField.name.name];
+  String createItemDescription(item) => (item as GListAllProductsData_listAllProducts).name;
   
   @override
   Widget? get createForm => ProductForm();

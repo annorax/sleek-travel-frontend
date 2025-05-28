@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/queries.data.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/queries.req.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
 import 'package:slick_travel_frontend/listable_entity_type.dart';
@@ -178,6 +179,14 @@ class ListPageState extends State<ListPage> {
         }
         // TODO: correctly obtain items from response
         //_items = response.data?[widget.entityType.namePlural];
+        switch (widget.entityType) {
+          case ListableEntityType.item:
+            _items = (response?.data as GListUserItemsData).listAllItems.asList();
+          case ListableEntityType.product:
+            _items = (response?.data as GListAllProductsData).listAllProducts.asList();
+          case ListableEntityType.purchaseOrder:
+            _items = (response?.data as GListUserPurchaseOrdersData).listAllPurchaseOrders.asList();
+        }
         if (_items == null) {
           return Text('No ${widget.entityType.displayNamePlural}');
         }

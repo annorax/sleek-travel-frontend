@@ -7,6 +7,7 @@ import 'package:json_theme/json_theme.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/globals.dart';
+import 'package:slick_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
@@ -62,7 +63,7 @@ Future<void> main() async {
 }
 
 Future<User?> validateToken(String tokenValue) async {
-  Map<String, dynamic>? validateToken;
+  GValidateTokenData_validateToken? validateToken;
   try {
     final OperationResponse result = await client.request(
       GValidateTokenReq(
@@ -70,8 +71,7 @@ Future<User?> validateToken(String tokenValue) async {
           ..vars.tokenValue = tokenValue
       )
     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-    // TODO: verify that validateToken is successfully retrieved
-    validateToken = result.data?['validateToken'] as Map<String, dynamic>?;
+    validateToken = result.data?.validateToken;
   } catch (e) {
     validateToken = null;
   }
@@ -79,10 +79,10 @@ Future<User?> validateToken(String tokenValue) async {
     await userState.removeValue();
     return null;
   }
-  final token = validateToken['token'];
-  final Map<String, dynamic> safeUserMap = validateToken['user'];
-  final Map<String, dynamic> userMap = {...safeUserMap, "token": token};
-  final user = User.fromJson(userMap);
+  final token = validateToken.token;
+  final GValidateTokenData_validateToken_user safeUser = validateToken.user;
+  final Map<String, dynamic> userJson = {...safeUser.toJson(), "token": token};
+  final user = User.fromJson(userJson);
   await userState.setValue(user);
   return user;
 }

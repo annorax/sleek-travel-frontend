@@ -199,8 +199,10 @@ class DashboardPageState extends State<DashboardPage> {
                     GLogOutUserReq()
                   ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                   if (result.hasErrors) {
-                    showError("Logout failed", context);
                     print(result.graphqlErrors);
+                    if (context.mounted) {
+                      showError("Logout failed", context);
+                    }
                   }
                   userState.removeValue();
                 },

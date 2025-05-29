@@ -77,11 +77,15 @@ class _LoginPageState extends State<LoginPage> {
                       ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                       if (result.hasErrors) {
                         print(result.graphqlErrors);
-                        showError("Login failed", context);
+                        if (context.mounted) {
+                          showError("Login failed", context);
+                        }
                       }
                       dynamic logInUser = result.data.logInUser;
                       if (logInUser == null) {
-                        showError("Login failed", context);
+                        if (context.mounted) {
+                          showError("Login failed", context);
+                        }
                         return;
                       }
                       final token = logInUser.token;

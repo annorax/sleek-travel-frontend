@@ -149,7 +149,9 @@ class _ProductFormState extends State<ProductForm> {
                         ..product.price.set.value = priceString
                         ..product.currency.set = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
                   ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                  // TODO: inspect result
+                  if (context.mounted) {
+                    Navigator.pop(context, result.data.createOneProduct.id != null);
+                  }
                 }
               },
               child: Text('Save'),

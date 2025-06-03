@@ -22,11 +22,13 @@ enum PurchaseOrdersField {
 class PurchaseOrdersPage extends ListPage {
   static const path = basePath;
 
-  const PurchaseOrdersPage(
-      {super.key,
-      super.updateDashboardState,
-      super.sortOptionParam,
-      super.sortDirectionParam});
+  const PurchaseOrdersPage({
+    super.key,
+    super.updateDashboardState,
+    super.sortOptionParam,
+    super.sortDirectionParam,
+    super.refreshParam
+  });
 
   @override
   ListableEntityType get entityType => ListableEntityType.purchaseOrder;

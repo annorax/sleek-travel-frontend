@@ -1,5 +1,4 @@
 import 'package:ferry/ferry.dart';
-import 'package:ferry_flutter/ferry_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:slick_travel_frontend/constants.dart';
@@ -48,6 +47,7 @@ abstract class ListPage extends StatefulWidget {
 
   final String? sortOptionParam;
   final String? sortDirectionParam;
+  final bool? refreshParam;
   final Function(
       {String? title,
       List? sortOptions,
@@ -59,6 +59,7 @@ abstract class ListPage extends StatefulWidget {
       {super.key,
       this.sortOptionParam,
       this.sortDirectionParam,
+      this.refreshParam,
       this.updateDashboardState});
 
   List<Enum> get sortOptions;
@@ -148,20 +149,20 @@ class ListPageState extends State<ListPage> {
     final OperationRequest<dynamic, dynamic> request = switch (widget.entityType) {
         ListableEntityType.product => GListAllProductsReq(
           (b) => b
-            ..fetchPolicy = FetchPolicy.NetworkOnly
+            ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
             ..vars.sortOption = GProductScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.item => GListUserItemsReq(
           (b) => b
-            ..fetchPolicy = FetchPolicy.NetworkOnly
+            ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
             ..vars.userId = user!.id
             ..vars.sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
           (b) => b
-            ..fetchPolicy = FetchPolicy.NetworkOnly
+            ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
             ..vars.userId = user!.id
             ..vars.sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)

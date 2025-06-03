@@ -132,6 +132,7 @@ class DashboardPageState extends State<DashboardPage> {
                 updateDashboardState: updateDashboardState,
                 sortOptionParam: routeData.queryParameters[QueryParam.sortOption.name] ?? 'updatedAt',
                 sortDirectionParam: routeData.queryParameters[QueryParam.sortDirection.name] ?? 'desc',
+                refreshParam: routeData.queryParameters[QueryParam.refresh.name]?.toLowerCase() == 'true',
               ),
           ),
           NavigationData(
@@ -139,11 +140,12 @@ class DashboardPageState extends State<DashboardPage> {
             url: '/${DashboardTab.products.name}',
             builder: (context, routeData, globalData) =>
               ProductsPage(
-              key: ValueKey(DashboardTab.products.name),
-              updateDashboardState: updateDashboardState,
-              sortOptionParam: routeData.queryParameters[QueryParam.sortOption.name] ?? 'updatedAt',
-              sortDirectionParam: routeData.queryParameters[QueryParam.sortDirection.name] ?? 'desc',
-            ),
+                key: ValueKey(DashboardTab.products.name),
+                updateDashboardState: updateDashboardState,
+                sortOptionParam: routeData.queryParameters[QueryParam.sortOption.name] ?? 'updatedAt',
+                sortDirectionParam: routeData.queryParameters[QueryParam.sortDirection.name] ?? 'desc',
+                refreshParam: routeData.queryParameters[QueryParam.refresh.name]?.toLowerCase() == 'true',
+              ),
           ),
           NavigationData(
             label: DashboardTab.orders.name,
@@ -154,6 +156,7 @@ class DashboardPageState extends State<DashboardPage> {
                 updateDashboardState: updateDashboardState,
                 sortOptionParam: routeData.queryParameters[QueryParam.sortOption.name] ?? 'updatedAt',
                 sortDirectionParam: routeData.queryParameters[QueryParam.sortDirection.name] ?? 'desc',
+                refreshParam: routeData.queryParameters[QueryParam.refresh.name]?.toLowerCase() == 'true',
               ),
           ),
         ];
@@ -266,7 +269,9 @@ class DashboardPageState extends State<DashboardPage> {
             useSafeArea: true
           );
           if (saved == true) {
-            NavigationManager.instance.pushReplacementRoute(NavigationManager.instance.currentRoute!);
+            final route = NavigationManager.instance.currentRoute!;
+            route.queryParameters[QueryParam.refresh.name] = "true";
+            NavigationManager.instance.pushReplacementRoute(route);
           }
         },
         tooltip: 'Create',

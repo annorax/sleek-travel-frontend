@@ -18,11 +18,13 @@ enum ItemsField { id, name }
 class ItemsPage extends ListPage {
   static const path = basePath;
 
-  const ItemsPage(
-    {super.key,
+  const ItemsPage({
+    super.key,
     super.updateDashboardState,
     super.sortOptionParam,
-    super.sortDirectionParam});
+    super.sortDirectionParam,
+    super.refreshParam
+  });
 
   @override
   ListableEntityType get entityType => ListableEntityType.item;

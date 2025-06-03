@@ -145,47 +145,57 @@ class ListPageState extends State<ListPage> {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
-    return Operation(
-      client: client,
-      operationRequest: switch (widget.entityType) {
+    final OperationRequest<dynamic, dynamic> request = switch (widget.entityType) {
         ListableEntityType.product => GListAllProductsReq(
-          (b) => b.vars
-            ..sortOption = GProductScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
-            ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
+          (b) => b
+            ..fetchPolicy = FetchPolicy.NetworkOnly
+            ..vars.sortOption = GProductScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
+            ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.item => GListUserItemsReq(
-          (b) => b.vars
-            ..userId = user!.id
-            ..sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
-            ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
+          (b) => b
+            ..fetchPolicy = FetchPolicy.NetworkOnly
+            ..vars.userId = user!.id
+            ..vars.sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
+            ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
-          (b) => b.vars
-            ..userId = user!.id
-            ..sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
-            ..sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
+          (b) => b
+            ..fetchPolicy = FetchPolicy.NetworkOnly
+            ..vars.userId = user!.id
+            ..vars.sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
+            ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
-      },
-      builder: (
-        BuildContext context,
-        OperationResponse? response,
-        Object? error,
-      ) {
-        if (response?.hasErrors == true) {
-          return Text(response?.graphqlErrors.toString() ?? 'Error encountered');
+    };
+    return StreamBuilder<OperationResponse>(
+      stream: client.request(request), // a Future<String> or null
+      builder: (BuildContext context, AsyncSnapshot<OperationResponse> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Error encountered (1)');
         }
-        if (response?.loading == true) {
+        if (snapshot.data == null) {
+          return Text('No ${widget.entityType.displayNamePlural}');
+        }
+        OperationResponse response = snapshot.data!;
+        if (response.data == null) {
+          return Text('No ${widget.entityType.displayNamePlural}');
+        }
+        if (response.hasErrors == true) {
+          print(response.graphqlErrors.toString());
+          return Text('Error encountered (2)');
+        }
+        if (response.loading == true) {
           return const Text('Loading');
         }
-        switch (widget.entityType) {
-          case ListableEntityType.item:
-            _items = (response?.data as GListUserItemsData).listAllItems.asList();
-          case ListableEntityType.product:
-            _items = (response?.data as GListAllProductsData).listAllProducts.asList();
-          case ListableEntityType.purchaseOrder:
-            _items = (response?.data as GListUserPurchaseOrdersData).listAllPurchaseOrders.asList();
-        }
-        if (_items == null) {
+        _items = switch (widget.entityType) {
+          ListableEntityType.item =>
+            (response.data as GListUserItemsData).listAllItems.asList(),
+          ListableEntityType.product =>
+            (response.data as GListAllProductsData).listAllProducts.asList(),
+          ListableEntityType.purchaseOrder =>
+            (response.data as GListUserPurchaseOrdersData).listAllPurchaseOrders.asList()
+        };
+        if (_items == null || _items!.isEmpty) {
           return Text('No ${widget.entityType.displayNamePlural}');
         }
         return ListView.builder(
@@ -252,7 +262,7 @@ class ListPageState extends State<ListPage> {
             );
           }
         );
-      }
+      },
     );
   }
 }

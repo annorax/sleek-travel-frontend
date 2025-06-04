@@ -102,7 +102,7 @@ const LogInUser = _i1.OperationDefinitionNode(
       arguments: [
         _i1.ArgumentNode(
           name: _i1.NameNode(value: 'emailOrPhone'),
-          value: _i1.VariableNode(name: _i1.NameNode(value: 'email')),
+          value: _i1.VariableNode(name: _i1.NameNode(value: 'emailOrPhone')),
         ),
         _i1.ArgumentNode(
           name: _i1.NameNode(value: 'password'),

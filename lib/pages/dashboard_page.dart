@@ -208,7 +208,7 @@ class DashboardPageState extends State<DashboardPage> {
                       showError("Logout failed", context);
                     }
                   } else {
-                    userState.removeValue();
+                    await userState.removeValue();
                     NavigationManager.instance.pushReplacement(LoginPage.name);
                   }
                 },

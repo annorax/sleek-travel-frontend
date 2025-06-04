@@ -96,7 +96,31 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: const Text('Login'),
                   )
-                )
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        //thickness: 0.5,
+                        //color: Colors.grey[400],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 10.0),
+                      child: Text(
+                        'Or',
+                        //style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        //thickness: 0.5,
+                        //color: Colors.grey[400],
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

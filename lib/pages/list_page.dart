@@ -146,6 +146,9 @@ class ListPageState extends State<ListPage> {
       return const Text("Loading");
     }
     User? user = userState.getValueSyncNoInit();
+    if (user == null) {
+      return CircularProgressIndicator();
+    }
     final OperationRequest<dynamic, dynamic> request = switch (widget.entityType) {
         ListableEntityType.product => GListAllProductsReq(
           (b) => b

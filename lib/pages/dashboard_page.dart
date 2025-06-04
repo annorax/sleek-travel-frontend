@@ -209,7 +209,6 @@ class DashboardPageState extends State<DashboardPage> {
                     }
                   } else {
                     await userState.removeValue();
-                    NavigationManager.instance.pushReplacement(LoginPage.name);
                   }
                 },
                 child: Text("Sign out"),

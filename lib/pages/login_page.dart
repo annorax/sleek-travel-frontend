@@ -23,7 +23,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
-  extractValue(GlobalKey<State<StatefulWidget>> key) => (key.currentState as FormFieldState).value;
+  dynamic extractValue(GlobalKey<State<StatefulWidget>> key) => (key.currentState as FormFieldState).value;
 
   @override
   Widget build(BuildContext context) {

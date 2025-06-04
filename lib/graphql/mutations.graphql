@@ -10,7 +10,7 @@ mutation ValidateToken($tokenValue: String!) {
 }
 
 mutation LogInUser($emailOrPhone: String!, $password: String!) {
-  logInUser(emailOrPhone: $email, password: $password) {
+  logInUser(emailOrPhone: $emailOrPhone, password: $password) {
     token,
     user {
       id,

@@ -55,51 +55,50 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: MaterialButton(
-                      color: Theme.of(context).colorScheme.secondary,
-                      onPressed: () async {
-                        if (!_formKey.currentState!.validate()) {
-                          return;
+                  const SizedBox(height: 16),
+                  MaterialButton(
+                    color: Theme.of(context).colorScheme.secondary,
+                    onPressed: () async {
+                      if (!_formKey.currentState!.validate()) {
+                        return;
+                      }
+                      final OperationResponse result = await client.request(
+                        GLogInUserReq(
+                          (builder) =>
+                            builder.vars
+                              ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
+                              ..password = extractValue(passwordFieldKey)
+                        )
+                      ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                      if (result.hasErrors) {
+                        print(result.graphqlErrors);
+                        if (context.mounted) {
+                          showError("Login failed", context);
                         }
-                        final OperationResponse result = await client.request(
-                          GLogInUserReq(
-                            (builder) =>
-                              builder.vars
-                                ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
-                                ..password = extractValue(passwordFieldKey)
-                          )
-                        ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                        if (result.hasErrors) {
-                          print(result.graphqlErrors);
-                          if (context.mounted) {
-                            showError("Login failed", context);
-                          }
+                      }
+                      dynamic logInUser = result.data.logInUser;
+                      if (logInUser == null) {
+                        if (context.mounted) {
+                          showError("Login failed", context);
                         }
-                        dynamic logInUser = result.data.logInUser;
-                        if (logInUser == null) {
-                          if (context.mounted) {
-                            showError("Login failed", context);
-                          }
-                          return;
-                        }
-                        final token = logInUser.token;
-                        final dynamic safeUser = logInUser.user;
-                        final User user = User(
-                          id: safeUser.id,
-                          name: safeUser.name,
-                          email: extractValue(emailOrPhoneFieldKey),
-                          token: token
-                        );
-                        await userState.setValue(user);
-                        NavigationManager.instance.pushReplacement(DashboardTab.items.name);
-                      },
-                      child: const Text('Login'),
-                    )
+                        return;
+                      }
+                      final token = logInUser.token;
+                      final dynamic safeUser = logInUser.user;
+                      final User user = User(
+                        id: safeUser.id,
+                        name: safeUser.name,
+                        email: extractValue(emailOrPhoneFieldKey),
+                        token: token
+                      );
+                      await userState.setValue(user);
+                      NavigationManager.instance.pushReplacement(DashboardTab.items.name);
+                    },
+                    child: const Text('Login'),
                   ),
                   const SizedBox(height: 16),
-                  Row(
+                  // This is for when we add buttons for signing in with Google / Apple
+                  /*Row(
                     children: [
                       Expanded(
                         child: Divider(),
@@ -112,7 +111,10 @@ class _LoginPageState extends State<LoginPage> {
                         child: Divider(),
                       ),
                     ],
-                  ),
+                  ),*/
+                  Text("Don't have an account? Sign Up"),
+                  SizedBox(height: 16),
+                  const Text('Forgot Password?'),
                 ],
               ),
             ),

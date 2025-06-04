@@ -9,6 +9,7 @@ import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/items_page.dart';
+import 'package:slick_travel_frontend/pages/login_page.dart';
 import 'package:slick_travel_frontend/pages/products_page.dart';
 import 'package:slick_travel_frontend/pages/purchase_orders_page.dart';
 import 'package:slick_travel_frontend/util.dart';
@@ -206,8 +207,10 @@ class DashboardPageState extends State<DashboardPage> {
                     if (context.mounted) {
                       showError("Logout failed", context);
                     }
+                  } else {
+                    userState.removeValue();
+                    NavigationManager.instance.pushReplacement(LoginPage.name);
                   }
-                  userState.removeValue();
                 },
                 child: Text("Sign out"),
               )

@@ -1259,7 +1259,7 @@ type Mutation {
   resendPhoneNumberVerificationRequest(phoneNumber: String!): Void
   verifyPhoneNumber(userId: Float!, otp: String!): Void
   verifyEmailAddress(token: String!): Void
-  logInUser(email: String!, password: String!): LogInPayload
+  logInUser(emailOrPhone: String!, password: String!): LogInPayload
   logOutUser: Void
   validateToken(tokenValue: String!): ValidateTokenPayload
 }

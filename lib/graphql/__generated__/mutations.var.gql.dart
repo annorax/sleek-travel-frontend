@@ -42,7 +42,7 @@ abstract class GLogInUserVars
   factory GLogInUserVars([void Function(GLogInUserVarsBuilder b) updates]) =
       _$GLogInUserVars;
 
-  String get email;
+  String get emailOrPhone;
   String get password;
   static Serializer<GLogInUserVars> get serializer =>
       _$gLogInUserVarsSerializer;

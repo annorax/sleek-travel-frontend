@@ -7,12 +7,12 @@ part of 'queries.var.gql.dart';
 // **************************************************************************
 
 Serializer<GListUserItemsVars> _$gListUserItemsVarsSerializer =
-    new _$GListUserItemsVarsSerializer();
+    _$GListUserItemsVarsSerializer();
 Serializer<GListUserPurchaseOrdersVars>
-_$gListUserPurchaseOrdersVarsSerializer =
-    new _$GListUserPurchaseOrdersVarsSerializer();
+    _$gListUserPurchaseOrdersVarsSerializer =
+    _$GListUserPurchaseOrdersVarsSerializer();
 Serializer<GListAllProductsVars> _$gListAllProductsVarsSerializer =
-    new _$GListAllProductsVarsSerializer();
+    _$GListAllProductsVarsSerializer();
 
 class _$GListUserItemsVarsSerializer
     implements StructuredSerializer<GListUserItemsVars> {
@@ -23,21 +23,15 @@ class _$GListUserItemsVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserItemsVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListUserItemsVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'sortOption',
-      serializers.serialize(
-        object.sortOption,
-        specifiedType: const FullType(_i1.GItemScalarFieldEnum),
-      ),
+      serializers.serialize(object.sortOption,
+          specifiedType: const FullType(_i1.GItemScalarFieldEnum)),
       'sortDirection',
-      serializers.serialize(
-        object.sortDirection,
-        specifiedType: const FullType(_i1.GSortOrder),
-      ),
+      serializers.serialize(object.sortDirection,
+          specifiedType: const FullType(_i1.GSortOrder)),
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(int)),
     ];
@@ -47,11 +41,9 @@ class _$GListUserItemsVarsSerializer
 
   @override
   GListUserItemsVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListUserItemsVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserItemsVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -60,28 +52,17 @@ class _$GListUserItemsVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'sortOption':
-          result.sortOption =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.GItemScalarFieldEnum),
-                  )!
-                  as _i1.GItemScalarFieldEnum;
+          result.sortOption = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.GItemScalarFieldEnum))!
+              as _i1.GItemScalarFieldEnum;
           break;
         case 'sortDirection':
-          result.sortDirection =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.GSortOrder),
-                  )!
-                  as _i1.GSortOrder;
+          result.sortDirection = serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GSortOrder))! as _i1.GSortOrder;
           break;
         case 'userId':
-          result.userId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.userId = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -95,28 +76,22 @@ class _$GListUserPurchaseOrdersVarsSerializer
   @override
   final Iterable<Type> types = const [
     GListUserPurchaseOrdersVars,
-    _$GListUserPurchaseOrdersVars,
+    _$GListUserPurchaseOrdersVars
   ];
   @override
   final String wireName = 'GListUserPurchaseOrdersVars';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserPurchaseOrdersVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListUserPurchaseOrdersVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'sortOption',
-      serializers.serialize(
-        object.sortOption,
-        specifiedType: const FullType(_i1.GPurchaseOrderScalarFieldEnum),
-      ),
+      serializers.serialize(object.sortOption,
+          specifiedType: const FullType(_i1.GPurchaseOrderScalarFieldEnum)),
       'sortDirection',
-      serializers.serialize(
-        object.sortDirection,
-        specifiedType: const FullType(_i1.GSortOrder),
-      ),
+      serializers.serialize(object.sortDirection,
+          specifiedType: const FullType(_i1.GSortOrder)),
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(int)),
     ];
@@ -126,11 +101,9 @@ class _$GListUserPurchaseOrdersVarsSerializer
 
   @override
   GListUserPurchaseOrdersVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListUserPurchaseOrdersVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserPurchaseOrdersVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -139,30 +112,18 @@ class _$GListUserPurchaseOrdersVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'sortOption':
-          result.sortOption =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(
-                      _i1.GPurchaseOrderScalarFieldEnum,
-                    ),
-                  )!
-                  as _i1.GPurchaseOrderScalarFieldEnum;
+          result.sortOption = serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(_i1.GPurchaseOrderScalarFieldEnum))!
+              as _i1.GPurchaseOrderScalarFieldEnum;
           break;
         case 'sortDirection':
-          result.sortDirection =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.GSortOrder),
-                  )!
-                  as _i1.GSortOrder;
+          result.sortDirection = serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GSortOrder))! as _i1.GSortOrder;
           break;
         case 'userId':
-          result.userId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.userId = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -176,28 +137,22 @@ class _$GListAllProductsVarsSerializer
   @override
   final Iterable<Type> types = const [
     GListAllProductsVars,
-    _$GListAllProductsVars,
+    _$GListAllProductsVars
   ];
   @override
   final String wireName = 'GListAllProductsVars';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListAllProductsVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListAllProductsVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'sortOption',
-      serializers.serialize(
-        object.sortOption,
-        specifiedType: const FullType(_i1.GProductScalarFieldEnum),
-      ),
+      serializers.serialize(object.sortOption,
+          specifiedType: const FullType(_i1.GProductScalarFieldEnum)),
       'sortDirection',
-      serializers.serialize(
-        object.sortDirection,
-        specifiedType: const FullType(_i1.GSortOrder),
-      ),
+      serializers.serialize(object.sortDirection,
+          specifiedType: const FullType(_i1.GSortOrder)),
     ];
 
     return result;
@@ -205,11 +160,9 @@ class _$GListAllProductsVarsSerializer
 
   @override
   GListAllProductsVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListAllProductsVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListAllProductsVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -218,20 +171,13 @@ class _$GListAllProductsVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'sortOption':
-          result.sortOption =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.GProductScalarFieldEnum),
-                  )!
-                  as _i1.GProductScalarFieldEnum;
+          result.sortOption = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.GProductScalarFieldEnum))!
+              as _i1.GProductScalarFieldEnum;
           break;
         case 'sortDirection':
-          result.sortDirection =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.GSortOrder),
-                  )!
-                  as _i1.GSortOrder;
+          result.sortDirection = serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GSortOrder))! as _i1.GSortOrder;
           break;
       }
     }
@@ -248,40 +194,23 @@ class _$GListUserItemsVars extends GListUserItemsVars {
   @override
   final int userId;
 
-  factory _$GListUserItemsVars([
-    void Function(GListUserItemsVarsBuilder)? updates,
-  ]) => (new GListUserItemsVarsBuilder()..update(updates))._build();
+  factory _$GListUserItemsVars(
+          [void Function(GListUserItemsVarsBuilder)? updates]) =>
+      (GListUserItemsVarsBuilder()..update(updates))._build();
 
-  _$GListUserItemsVars._({
-    required this.sortOption,
-    required this.sortDirection,
-    required this.userId,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      sortOption,
-      r'GListUserItemsVars',
-      'sortOption',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      sortDirection,
-      r'GListUserItemsVars',
-      'sortDirection',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      userId,
-      r'GListUserItemsVars',
-      'userId',
-    );
-  }
-
+  _$GListUserItemsVars._(
+      {required this.sortOption,
+      required this.sortDirection,
+      required this.userId})
+      : super._();
   @override
   GListUserItemsVars rebuild(
-    void Function(GListUserItemsVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListUserItemsVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserItemsVarsBuilder toBuilder() =>
-      new GListUserItemsVarsBuilder()..replace(this);
+      GListUserItemsVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -345,7 +274,6 @@ class GListUserItemsVarsBuilder
 
   @override
   void replace(GListUserItemsVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserItemsVars;
   }
 
@@ -358,24 +286,14 @@ class GListUserItemsVarsBuilder
   GListUserItemsVars build() => _build();
 
   _$GListUserItemsVars _build() {
-    final _$result =
-        _$v ??
-        new _$GListUserItemsVars._(
+    final _$result = _$v ??
+        _$GListUserItemsVars._(
           sortOption: BuiltValueNullFieldError.checkNotNull(
-            sortOption,
-            r'GListUserItemsVars',
-            'sortOption',
-          ),
+              sortOption, r'GListUserItemsVars', 'sortOption'),
           sortDirection: BuiltValueNullFieldError.checkNotNull(
-            sortDirection,
-            r'GListUserItemsVars',
-            'sortDirection',
-          ),
+              sortDirection, r'GListUserItemsVars', 'sortDirection'),
           userId: BuiltValueNullFieldError.checkNotNull(
-            userId,
-            r'GListUserItemsVars',
-            'userId',
-          ),
+              userId, r'GListUserItemsVars', 'userId'),
         );
     replace(_$result);
     return _$result;
@@ -390,40 +308,23 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
   @override
   final int userId;
 
-  factory _$GListUserPurchaseOrdersVars([
-    void Function(GListUserPurchaseOrdersVarsBuilder)? updates,
-  ]) => (new GListUserPurchaseOrdersVarsBuilder()..update(updates))._build();
+  factory _$GListUserPurchaseOrdersVars(
+          [void Function(GListUserPurchaseOrdersVarsBuilder)? updates]) =>
+      (GListUserPurchaseOrdersVarsBuilder()..update(updates))._build();
 
-  _$GListUserPurchaseOrdersVars._({
-    required this.sortOption,
-    required this.sortDirection,
-    required this.userId,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      sortOption,
-      r'GListUserPurchaseOrdersVars',
-      'sortOption',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      sortDirection,
-      r'GListUserPurchaseOrdersVars',
-      'sortDirection',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      userId,
-      r'GListUserPurchaseOrdersVars',
-      'userId',
-    );
-  }
-
+  _$GListUserPurchaseOrdersVars._(
+      {required this.sortOption,
+      required this.sortDirection,
+      required this.userId})
+      : super._();
   @override
   GListUserPurchaseOrdersVars rebuild(
-    void Function(GListUserPurchaseOrdersVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListUserPurchaseOrdersVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserPurchaseOrdersVarsBuilder toBuilder() =>
-      new GListUserPurchaseOrdersVarsBuilder()..replace(this);
+      GListUserPurchaseOrdersVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -456,10 +357,8 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
 
 class GListUserPurchaseOrdersVarsBuilder
     implements
-        Builder<
-          GListUserPurchaseOrdersVars,
-          GListUserPurchaseOrdersVarsBuilder
-        > {
+        Builder<GListUserPurchaseOrdersVars,
+            GListUserPurchaseOrdersVarsBuilder> {
   _$GListUserPurchaseOrdersVars? _$v;
 
   _i1.GPurchaseOrderScalarFieldEnum? _sortOption;
@@ -491,7 +390,6 @@ class GListUserPurchaseOrdersVarsBuilder
 
   @override
   void replace(GListUserPurchaseOrdersVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserPurchaseOrdersVars;
   }
 
@@ -504,24 +402,14 @@ class GListUserPurchaseOrdersVarsBuilder
   GListUserPurchaseOrdersVars build() => _build();
 
   _$GListUserPurchaseOrdersVars _build() {
-    final _$result =
-        _$v ??
-        new _$GListUserPurchaseOrdersVars._(
+    final _$result = _$v ??
+        _$GListUserPurchaseOrdersVars._(
           sortOption: BuiltValueNullFieldError.checkNotNull(
-            sortOption,
-            r'GListUserPurchaseOrdersVars',
-            'sortOption',
-          ),
+              sortOption, r'GListUserPurchaseOrdersVars', 'sortOption'),
           sortDirection: BuiltValueNullFieldError.checkNotNull(
-            sortDirection,
-            r'GListUserPurchaseOrdersVars',
-            'sortDirection',
-          ),
+              sortDirection, r'GListUserPurchaseOrdersVars', 'sortDirection'),
           userId: BuiltValueNullFieldError.checkNotNull(
-            userId,
-            r'GListUserPurchaseOrdersVars',
-            'userId',
-          ),
+              userId, r'GListUserPurchaseOrdersVars', 'userId'),
         );
     replace(_$result);
     return _$result;
@@ -534,34 +422,21 @@ class _$GListAllProductsVars extends GListAllProductsVars {
   @override
   final _i1.GSortOrder sortDirection;
 
-  factory _$GListAllProductsVars([
-    void Function(GListAllProductsVarsBuilder)? updates,
-  ]) => (new GListAllProductsVarsBuilder()..update(updates))._build();
+  factory _$GListAllProductsVars(
+          [void Function(GListAllProductsVarsBuilder)? updates]) =>
+      (GListAllProductsVarsBuilder()..update(updates))._build();
 
-  _$GListAllProductsVars._({
-    required this.sortOption,
-    required this.sortDirection,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      sortOption,
-      r'GListAllProductsVars',
-      'sortOption',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      sortDirection,
-      r'GListAllProductsVars',
-      'sortDirection',
-    );
-  }
-
+  _$GListAllProductsVars._(
+      {required this.sortOption, required this.sortDirection})
+      : super._();
   @override
   GListAllProductsVars rebuild(
-    void Function(GListAllProductsVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListAllProductsVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListAllProductsVarsBuilder toBuilder() =>
-      new GListAllProductsVarsBuilder()..replace(this);
+      GListAllProductsVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -617,7 +492,6 @@ class GListAllProductsVarsBuilder
 
   @override
   void replace(GListAllProductsVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListAllProductsVars;
   }
 
@@ -630,19 +504,12 @@ class GListAllProductsVarsBuilder
   GListAllProductsVars build() => _build();
 
   _$GListAllProductsVars _build() {
-    final _$result =
-        _$v ??
-        new _$GListAllProductsVars._(
+    final _$result = _$v ??
+        _$GListAllProductsVars._(
           sortOption: BuiltValueNullFieldError.checkNotNull(
-            sortOption,
-            r'GListAllProductsVars',
-            'sortOption',
-          ),
+              sortOption, r'GListAllProductsVars', 'sortOption'),
           sortDirection: BuiltValueNullFieldError.checkNotNull(
-            sortDirection,
-            r'GListAllProductsVars',
-            'sortDirection',
-          ),
+              sortDirection, r'GListAllProductsVars', 'sortDirection'),
         );
     replace(_$result);
     return _$result;

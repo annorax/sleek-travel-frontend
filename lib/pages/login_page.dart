@@ -1,5 +1,6 @@
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
+import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
@@ -8,7 +9,6 @@ import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/util.dart';
-import 'package:string_validator/string_validator.dart';
 
 class LoginPage extends StatefulWidget {
   static const path = '$basePath$loginPagePath';
@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey emailFieldKey = GlobalKey<FormFieldState>();
+    final GlobalKey emailOrPhoneFieldKey = GlobalKey<FormFieldState>();
     final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
 
     return Scaffold(
@@ -40,17 +40,12 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 SizedBox(height: 16),
                 TextFormField(
-                  key: emailFieldKey,
-                  decoration: const InputDecoration(labelText: 'Email'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Required';
-                    }
-                    if (!isEmail(value)) {
-                      return 'Invalid email address';
-                    }
-                    return null;
-                  }
+                  key: emailOrPhoneFieldKey,
+                  decoration: const InputDecoration(labelText: 'Email / phone number'),
+                  validator: ValidationBuilder().or(
+                    (builder) => builder.email(),
+                    (builder) => builder.regExp(RegExp(r'\+\d+'), 'Invalid email address / phone number'),
+                  ).required('Required').build()
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
@@ -71,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                         GLogInUserReq(
                           (builder) =>
                             builder.vars
-                              ..email = extractValue(emailFieldKey)
+                              ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
                               ..password = extractValue(passwordFieldKey)
                         )
                       ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
@@ -93,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                       final User user = User(
                         id: safeUser.id,
                         name: safeUser.name,
-                        email: extractValue(emailFieldKey),
+                        email: extractValue(emailOrPhoneFieldKey),
                         token: token
                       );
                       await userState.setValue(user);

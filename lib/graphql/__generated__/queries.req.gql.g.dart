@@ -7,11 +7,11 @@ part of 'queries.req.gql.dart';
 // **************************************************************************
 
 Serializer<GListUserItemsReq> _$gListUserItemsReqSerializer =
-    new _$GListUserItemsReqSerializer();
+    _$GListUserItemsReqSerializer();
 Serializer<GListUserPurchaseOrdersReq> _$gListUserPurchaseOrdersReqSerializer =
-    new _$GListUserPurchaseOrdersReqSerializer();
+    _$GListUserPurchaseOrdersReqSerializer();
 Serializer<GListAllProductsReq> _$gListAllProductsReqSerializer =
-    new _$GListAllProductsReqSerializer();
+    _$GListAllProductsReqSerializer();
 
 class _$GListUserItemsReqSerializer
     implements StructuredSerializer<GListUserItemsReq> {
@@ -21,91 +21,64 @@ class _$GListUserItemsReqSerializer
   final String wireName = 'GListUserItemsReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserItemsReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GListUserItemsReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GListUserItemsVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GListUserItemsVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GListUserItemsData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GListUserItemsData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GListUserItemsReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListUserItemsReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserItemsReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -114,73 +87,42 @@ class _$GListUserItemsReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GListUserItemsVars),
-                )!
-                as _i3.GListUserItemsVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GListUserItemsVars))!
+              as _i3.GListUserItemsVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GListUserItemsData),
-                )!
-                as _i2.GListUserItemsData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GListUserItemsData))!
+              as _i2.GListUserItemsData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -194,97 +136,71 @@ class _$GListUserPurchaseOrdersReqSerializer
   @override
   final Iterable<Type> types = const [
     GListUserPurchaseOrdersReq,
-    _$GListUserPurchaseOrdersReq,
+    _$GListUserPurchaseOrdersReq
   ];
   @override
   final String wireName = 'GListUserPurchaseOrdersReq';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserPurchaseOrdersReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListUserPurchaseOrdersReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GListUserPurchaseOrdersVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GListUserPurchaseOrdersVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GListUserPurchaseOrdersData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GListUserPurchaseOrdersData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GListUserPurchaseOrdersReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListUserPurchaseOrdersReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserPurchaseOrdersReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -293,77 +209,44 @@ class _$GListUserPurchaseOrdersReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(
-                    _i3.GListUserPurchaseOrdersVars,
-                  ),
-                )!
-                as _i3.GListUserPurchaseOrdersVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(_i3.GListUserPurchaseOrdersVars))!
+              as _i3.GListUserPurchaseOrdersVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(
-                    _i2.GListUserPurchaseOrdersData,
-                  ),
-                )!
-                as _i2.GListUserPurchaseOrdersData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(_i2.GListUserPurchaseOrdersData))!
+              as _i2.GListUserPurchaseOrdersData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -377,97 +260,71 @@ class _$GListAllProductsReqSerializer
   @override
   final Iterable<Type> types = const [
     GListAllProductsReq,
-    _$GListAllProductsReq,
+    _$GListAllProductsReq
   ];
   @override
   final String wireName = 'GListAllProductsReq';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListAllProductsReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListAllProductsReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GListAllProductsVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GListAllProductsVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GListAllProductsData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GListAllProductsData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GListAllProductsReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListAllProductsReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListAllProductsReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -476,73 +333,42 @@ class _$GListAllProductsReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GListAllProductsVars),
-                )!
-                as _i3.GListAllProductsVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GListAllProductsVars))!
+              as _i3.GListAllProductsVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GListAllProductsData),
-                )!
-                as _i2.GListAllProductsData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GListAllProductsData))!
+              as _i2.GListAllProductsData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -560,10 +386,7 @@ class _$GListUserItemsReq extends GListUserItemsReq {
   final String? requestId;
   @override
   final _i2.GListUserItemsData? Function(
-    _i2.GListUserItemsData?,
-    _i2.GListUserItemsData?,
-  )?
-  updateResult;
+      _i2.GListUserItemsData?, _i2.GListUserItemsData?)? updateResult;
   @override
   final _i2.GListUserItemsData? optimisticResponse;
   @override
@@ -577,42 +400,29 @@ class _$GListUserItemsReq extends GListUserItemsReq {
   @override
   final _i4.Context? context;
 
-  factory _$GListUserItemsReq([
-    void Function(GListUserItemsReqBuilder)? updates,
-  ]) => (new GListUserItemsReqBuilder()..update(updates))._build();
+  factory _$GListUserItemsReq(
+          [void Function(GListUserItemsReqBuilder)? updates]) =>
+      (GListUserItemsReqBuilder()..update(updates))._build();
 
-  _$GListUserItemsReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GListUserItemsReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GListUserItemsReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GListUserItemsReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GListUserItemsReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GListUserItemsReq rebuild(void Function(GListUserItemsReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   GListUserItemsReqBuilder toBuilder() =>
-      new GListUserItemsReqBuilder()..replace(this);
+      GListUserItemsReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -671,7 +481,7 @@ class GListUserItemsReqBuilder
 
   _i3.GListUserItemsVarsBuilder? _vars;
   _i3.GListUserItemsVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GListUserItemsVarsBuilder();
+      _$this._vars ??= _i3.GListUserItemsVarsBuilder();
   set vars(_i3.GListUserItemsVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -683,26 +493,19 @@ class GListUserItemsReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GListUserItemsData? Function(
-    _i2.GListUserItemsData?,
-    _i2.GListUserItemsData?,
-  )?
-  _updateResult;
+      _i2.GListUserItemsData?, _i2.GListUserItemsData?)? _updateResult;
   _i2.GListUserItemsData? Function(
-    _i2.GListUserItemsData?,
-    _i2.GListUserItemsData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GListUserItemsData?, _i2.GListUserItemsData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GListUserItemsData? Function(
-      _i2.GListUserItemsData?,
-      _i2.GListUserItemsData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GListUserItemsData? Function(
+                  _i2.GListUserItemsData?, _i2.GListUserItemsData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GListUserItemsDataBuilder? _optimisticResponse;
   _i2.GListUserItemsDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GListUserItemsDataBuilder();
+      _$this._optimisticResponse ??= _i2.GListUserItemsDataBuilder();
   set optimisticResponse(_i2.GListUserItemsDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -715,8 +518,8 @@ class GListUserItemsReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -756,7 +559,6 @@ class GListUserItemsReqBuilder
 
   @override
   void replace(GListUserItemsReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserItemsReq;
   }
 
@@ -771,15 +573,11 @@ class GListUserItemsReqBuilder
   _$GListUserItemsReq _build() {
     _$GListUserItemsReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GListUserItemsReq._(
+      _$result = _$v ??
+          _$GListUserItemsReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GListUserItemsReq',
-              'operation',
-            ),
+                operation, r'GListUserItemsReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -787,10 +585,7 @@ class GListUserItemsReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GListUserItemsReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GListUserItemsReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -802,11 +597,8 @@ class GListUserItemsReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GListUserItemsReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GListUserItemsReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -824,10 +616,8 @@ class _$GListUserPurchaseOrdersReq extends GListUserPurchaseOrdersReq {
   final String? requestId;
   @override
   final _i2.GListUserPurchaseOrdersData? Function(
-    _i2.GListUserPurchaseOrdersData?,
-    _i2.GListUserPurchaseOrdersData?,
-  )?
-  updateResult;
+          _i2.GListUserPurchaseOrdersData?, _i2.GListUserPurchaseOrdersData?)?
+      updateResult;
   @override
   final _i2.GListUserPurchaseOrdersData? optimisticResponse;
   @override
@@ -841,47 +631,30 @@ class _$GListUserPurchaseOrdersReq extends GListUserPurchaseOrdersReq {
   @override
   final _i4.Context? context;
 
-  factory _$GListUserPurchaseOrdersReq([
-    void Function(GListUserPurchaseOrdersReqBuilder)? updates,
-  ]) => (new GListUserPurchaseOrdersReqBuilder()..update(updates))._build();
+  factory _$GListUserPurchaseOrdersReq(
+          [void Function(GListUserPurchaseOrdersReqBuilder)? updates]) =>
+      (GListUserPurchaseOrdersReqBuilder()..update(updates))._build();
 
-  _$GListUserPurchaseOrdersReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      vars,
-      r'GListUserPurchaseOrdersReq',
-      'vars',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GListUserPurchaseOrdersReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GListUserPurchaseOrdersReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GListUserPurchaseOrdersReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GListUserPurchaseOrdersReq rebuild(
-    void Function(GListUserPurchaseOrdersReqBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListUserPurchaseOrdersReqBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserPurchaseOrdersReqBuilder toBuilder() =>
-      new GListUserPurchaseOrdersReqBuilder()..replace(this);
+      GListUserPurchaseOrdersReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -941,7 +714,7 @@ class GListUserPurchaseOrdersReqBuilder
 
   _i3.GListUserPurchaseOrdersVarsBuilder? _vars;
   _i3.GListUserPurchaseOrdersVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GListUserPurchaseOrdersVarsBuilder();
+      _$this._vars ??= _i3.GListUserPurchaseOrdersVarsBuilder();
   set vars(_i3.GListUserPurchaseOrdersVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -953,30 +726,24 @@ class GListUserPurchaseOrdersReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GListUserPurchaseOrdersData? Function(
-    _i2.GListUserPurchaseOrdersData?,
-    _i2.GListUserPurchaseOrdersData?,
-  )?
-  _updateResult;
+          _i2.GListUserPurchaseOrdersData?, _i2.GListUserPurchaseOrdersData?)?
+      _updateResult;
   _i2.GListUserPurchaseOrdersData? Function(
-    _i2.GListUserPurchaseOrdersData?,
-    _i2.GListUserPurchaseOrdersData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GListUserPurchaseOrdersData?, _i2.GListUserPurchaseOrdersData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GListUserPurchaseOrdersData? Function(
-      _i2.GListUserPurchaseOrdersData?,
-      _i2.GListUserPurchaseOrdersData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GListUserPurchaseOrdersData? Function(
+                  _i2.GListUserPurchaseOrdersData?,
+                  _i2.GListUserPurchaseOrdersData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GListUserPurchaseOrdersDataBuilder? _optimisticResponse;
   _i2.GListUserPurchaseOrdersDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??=
-          new _i2.GListUserPurchaseOrdersDataBuilder();
+      _$this._optimisticResponse ??= _i2.GListUserPurchaseOrdersDataBuilder();
   set optimisticResponse(
-    _i2.GListUserPurchaseOrdersDataBuilder? optimisticResponse,
-  ) => _$this._optimisticResponse = optimisticResponse;
+          _i2.GListUserPurchaseOrdersDataBuilder? optimisticResponse) =>
+      _$this._optimisticResponse = optimisticResponse;
 
   String? _updateCacheHandlerKey;
   String? get updateCacheHandlerKey => _$this._updateCacheHandlerKey;
@@ -987,8 +754,8 @@ class GListUserPurchaseOrdersReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -1028,7 +795,6 @@ class GListUserPurchaseOrdersReqBuilder
 
   @override
   void replace(GListUserPurchaseOrdersReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserPurchaseOrdersReq;
   }
 
@@ -1043,15 +809,11 @@ class GListUserPurchaseOrdersReqBuilder
   _$GListUserPurchaseOrdersReq _build() {
     _$GListUserPurchaseOrdersReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GListUserPurchaseOrdersReq._(
+      _$result = _$v ??
+          _$GListUserPurchaseOrdersReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GListUserPurchaseOrdersReq',
-              'operation',
-            ),
+                operation, r'GListUserPurchaseOrdersReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -1059,10 +821,9 @@ class GListUserPurchaseOrdersReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GListUserPurchaseOrdersReq',
-              'executeOnListen',
-            ),
+                executeOnListen,
+                r'GListUserPurchaseOrdersReq',
+                'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -1074,11 +835,8 @@ class GListUserPurchaseOrdersReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GListUserPurchaseOrdersReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GListUserPurchaseOrdersReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1096,10 +854,7 @@ class _$GListAllProductsReq extends GListAllProductsReq {
   final String? requestId;
   @override
   final _i2.GListAllProductsData? Function(
-    _i2.GListAllProductsData?,
-    _i2.GListAllProductsData?,
-  )?
-  updateResult;
+      _i2.GListAllProductsData?, _i2.GListAllProductsData?)? updateResult;
   @override
   final _i2.GListAllProductsData? optimisticResponse;
   @override
@@ -1113,43 +868,30 @@ class _$GListAllProductsReq extends GListAllProductsReq {
   @override
   final _i4.Context? context;
 
-  factory _$GListAllProductsReq([
-    void Function(GListAllProductsReqBuilder)? updates,
-  ]) => (new GListAllProductsReqBuilder()..update(updates))._build();
+  factory _$GListAllProductsReq(
+          [void Function(GListAllProductsReqBuilder)? updates]) =>
+      (GListAllProductsReqBuilder()..update(updates))._build();
 
-  _$GListAllProductsReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GListAllProductsReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GListAllProductsReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GListAllProductsReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GListAllProductsReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GListAllProductsReq rebuild(
-    void Function(GListAllProductsReqBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListAllProductsReqBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListAllProductsReqBuilder toBuilder() =>
-      new GListAllProductsReqBuilder()..replace(this);
+      GListAllProductsReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1208,7 +950,7 @@ class GListAllProductsReqBuilder
 
   _i3.GListAllProductsVarsBuilder? _vars;
   _i3.GListAllProductsVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GListAllProductsVarsBuilder();
+      _$this._vars ??= _i3.GListAllProductsVarsBuilder();
   set vars(_i3.GListAllProductsVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -1220,26 +962,19 @@ class GListAllProductsReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GListAllProductsData? Function(
-    _i2.GListAllProductsData?,
-    _i2.GListAllProductsData?,
-  )?
-  _updateResult;
+      _i2.GListAllProductsData?, _i2.GListAllProductsData?)? _updateResult;
   _i2.GListAllProductsData? Function(
-    _i2.GListAllProductsData?,
-    _i2.GListAllProductsData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GListAllProductsData?, _i2.GListAllProductsData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GListAllProductsData? Function(
-      _i2.GListAllProductsData?,
-      _i2.GListAllProductsData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GListAllProductsData? Function(
+                  _i2.GListAllProductsData?, _i2.GListAllProductsData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GListAllProductsDataBuilder? _optimisticResponse;
   _i2.GListAllProductsDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GListAllProductsDataBuilder();
+      _$this._optimisticResponse ??= _i2.GListAllProductsDataBuilder();
   set optimisticResponse(_i2.GListAllProductsDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -1252,8 +987,8 @@ class GListAllProductsReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -1293,7 +1028,6 @@ class GListAllProductsReqBuilder
 
   @override
   void replace(GListAllProductsReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListAllProductsReq;
   }
 
@@ -1308,15 +1042,11 @@ class GListAllProductsReqBuilder
   _$GListAllProductsReq _build() {
     _$GListAllProductsReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GListAllProductsReq._(
+      _$result = _$v ??
+          _$GListAllProductsReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GListAllProductsReq',
-              'operation',
-            ),
+                operation, r'GListAllProductsReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -1324,10 +1054,7 @@ class GListAllProductsReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GListAllProductsReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GListAllProductsReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -1339,11 +1066,8 @@ class GListAllProductsReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GListAllProductsReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GListAllProductsReq', _$failedField, e.toString());
       }
       rethrow;
     }

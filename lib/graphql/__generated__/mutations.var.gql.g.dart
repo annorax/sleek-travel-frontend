@@ -7,21 +7,21 @@ part of 'mutations.var.gql.dart';
 // **************************************************************************
 
 Serializer<GValidateTokenVars> _$gValidateTokenVarsSerializer =
-    new _$GValidateTokenVarsSerializer();
+    _$GValidateTokenVarsSerializer();
 Serializer<GLogInUserVars> _$gLogInUserVarsSerializer =
-    new _$GLogInUserVarsSerializer();
+    _$GLogInUserVarsSerializer();
 Serializer<GLogOutUserVars> _$gLogOutUserVarsSerializer =
-    new _$GLogOutUserVarsSerializer();
+    _$GLogOutUserVarsSerializer();
 Serializer<GCreateProductVars> _$gCreateProductVarsSerializer =
-    new _$GCreateProductVarsSerializer();
+    _$GCreateProductVarsSerializer();
 Serializer<GUpdateProductVars> _$gUpdateProductVarsSerializer =
-    new _$GUpdateProductVarsSerializer();
+    _$GUpdateProductVarsSerializer();
 Serializer<GDeleteProductVars> _$gDeleteProductVarsSerializer =
-    new _$GDeleteProductVarsSerializer();
+    _$GDeleteProductVarsSerializer();
 Serializer<GDeleteItemVars> _$gDeleteItemVarsSerializer =
-    new _$GDeleteItemVarsSerializer();
+    _$GDeleteItemVarsSerializer();
 Serializer<GDeletePurchaseOrderVars> _$gDeletePurchaseOrderVarsSerializer =
-    new _$GDeletePurchaseOrderVarsSerializer();
+    _$GDeletePurchaseOrderVarsSerializer();
 
 class _$GValidateTokenVarsSerializer
     implements StructuredSerializer<GValidateTokenVars> {
@@ -32,16 +32,12 @@ class _$GValidateTokenVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GValidateTokenVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GValidateTokenVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'tokenValue',
-      serializers.serialize(
-        object.tokenValue,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.tokenValue,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -49,11 +45,9 @@ class _$GValidateTokenVarsSerializer
 
   @override
   GValidateTokenVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GValidateTokenVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GValidateTokenVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -62,12 +56,8 @@ class _$GValidateTokenVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'tokenValue':
-          result.tokenValue =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.tokenValue = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -84,22 +74,15 @@ class _$GLogInUserVarsSerializer
   final String wireName = 'GLogInUserVars';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GLogInUserVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GLogInUserVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'email',
-      serializers.serialize(
-        object.email,
-        specifiedType: const FullType(String),
-      ),
+      'emailOrPhone',
+      serializers.serialize(object.emailOrPhone,
+          specifiedType: const FullType(String)),
       'password',
-      serializers.serialize(
-        object.password,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.password,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -107,11 +90,9 @@ class _$GLogInUserVarsSerializer
 
   @override
   GLogInUserVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GLogInUserVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GLogInUserVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -119,21 +100,13 @@ class _$GLogInUserVarsSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'email':
-          result.email =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+        case 'emailOrPhone':
+          result.emailOrPhone = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'password':
-          result.password =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.password = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -150,21 +123,16 @@ class _$GLogOutUserVarsSerializer
   final String wireName = 'GLogOutUserVars';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GLogOutUserVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GLogOutUserVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     return <Object?>[];
   }
 
   @override
   GLogOutUserVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return new GLogOutUserVarsBuilder().build();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    return GLogOutUserVarsBuilder().build();
   }
 }
 
@@ -177,16 +145,12 @@ class _$GCreateProductVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GCreateProductVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GCreateProductVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'product',
-      serializers.serialize(
-        object.product,
-        specifiedType: const FullType(_i2.GProductCreateInput),
-      ),
+      serializers.serialize(object.product,
+          specifiedType: const FullType(_i2.GProductCreateInput)),
     ];
 
     return result;
@@ -194,11 +158,9 @@ class _$GCreateProductVarsSerializer
 
   @override
   GCreateProductVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GCreateProductVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GCreateProductVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -207,13 +169,9 @@ class _$GCreateProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'product':
-          result.product.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GProductCreateInput),
-                )!
-                as _i2.GProductCreateInput,
-          );
+          result.product.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GProductCreateInput))!
+              as _i2.GProductCreateInput);
           break;
       }
     }
@@ -231,18 +189,14 @@ class _$GUpdateProductVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GUpdateProductVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GUpdateProductVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'product',
-      serializers.serialize(
-        object.product,
-        specifiedType: const FullType(_i2.GProductUpdateInput),
-      ),
+      serializers.serialize(object.product,
+          specifiedType: const FullType(_i2.GProductUpdateInput)),
     ];
 
     return result;
@@ -250,11 +204,9 @@ class _$GUpdateProductVarsSerializer
 
   @override
   GUpdateProductVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GUpdateProductVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GUpdateProductVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -263,21 +215,13 @@ class _$GUpdateProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'product':
-          result.product.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GProductUpdateInput),
-                )!
-                as _i2.GProductUpdateInput,
-          );
+          result.product.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GProductUpdateInput))!
+              as _i2.GProductUpdateInput);
           break;
       }
     }
@@ -295,10 +239,8 @@ class _$GDeleteProductVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeleteProductVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GDeleteProductVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -309,11 +251,9 @@ class _$GDeleteProductVarsSerializer
 
   @override
   GDeleteProductVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GDeleteProductVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GDeleteProductVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -322,12 +262,8 @@ class _$GDeleteProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -344,11 +280,8 @@ class _$GDeleteItemVarsSerializer
   final String wireName = 'GDeleteItemVars';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeleteItemVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GDeleteItemVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -359,11 +292,9 @@ class _$GDeleteItemVarsSerializer
 
   @override
   GDeleteItemVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GDeleteItemVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GDeleteItemVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -372,12 +303,8 @@ class _$GDeleteItemVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -391,17 +318,15 @@ class _$GDeletePurchaseOrderVarsSerializer
   @override
   final Iterable<Type> types = const [
     GDeletePurchaseOrderVars,
-    _$GDeletePurchaseOrderVars,
+    _$GDeletePurchaseOrderVars
   ];
   @override
   final String wireName = 'GDeletePurchaseOrderVars';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeletePurchaseOrderVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GDeletePurchaseOrderVars object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -412,11 +337,9 @@ class _$GDeletePurchaseOrderVarsSerializer
 
   @override
   GDeletePurchaseOrderVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GDeletePurchaseOrderVarsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GDeletePurchaseOrderVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -425,12 +348,8 @@ class _$GDeletePurchaseOrderVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -443,26 +362,19 @@ class _$GValidateTokenVars extends GValidateTokenVars {
   @override
   final String tokenValue;
 
-  factory _$GValidateTokenVars([
-    void Function(GValidateTokenVarsBuilder)? updates,
-  ]) => (new GValidateTokenVarsBuilder()..update(updates))._build();
+  factory _$GValidateTokenVars(
+          [void Function(GValidateTokenVarsBuilder)? updates]) =>
+      (GValidateTokenVarsBuilder()..update(updates))._build();
 
-  _$GValidateTokenVars._({required this.tokenValue}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      tokenValue,
-      r'GValidateTokenVars',
-      'tokenValue',
-    );
-  }
-
+  _$GValidateTokenVars._({required this.tokenValue}) : super._();
   @override
   GValidateTokenVars rebuild(
-    void Function(GValidateTokenVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GValidateTokenVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GValidateTokenVarsBuilder toBuilder() =>
-      new GValidateTokenVarsBuilder()..replace(this);
+      GValidateTokenVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -481,7 +393,8 @@ class _$GValidateTokenVars extends GValidateTokenVars {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GValidateTokenVars')
-      ..add('tokenValue', tokenValue)).toString();
+          ..add('tokenValue', tokenValue))
+        .toString();
   }
 }
 
@@ -506,7 +419,6 @@ class GValidateTokenVarsBuilder
 
   @override
   void replace(GValidateTokenVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GValidateTokenVars;
   }
 
@@ -519,14 +431,10 @@ class GValidateTokenVarsBuilder
   GValidateTokenVars build() => _build();
 
   _$GValidateTokenVars _build() {
-    final _$result =
-        _$v ??
-        new _$GValidateTokenVars._(
+    final _$result = _$v ??
+        _$GValidateTokenVars._(
           tokenValue: BuiltValueNullFieldError.checkNotNull(
-            tokenValue,
-            r'GValidateTokenVars',
-            'tokenValue',
-          ),
+              tokenValue, r'GValidateTokenVars', 'tokenValue'),
         );
     replace(_$result);
     return _$result;
@@ -535,43 +443,34 @@ class GValidateTokenVarsBuilder
 
 class _$GLogInUserVars extends GLogInUserVars {
   @override
-  final String email;
+  final String emailOrPhone;
   @override
   final String password;
 
   factory _$GLogInUserVars([void Function(GLogInUserVarsBuilder)? updates]) =>
-      (new GLogInUserVarsBuilder()..update(updates))._build();
+      (GLogInUserVarsBuilder()..update(updates))._build();
 
-  _$GLogInUserVars._({required this.email, required this.password})
-    : super._() {
-    BuiltValueNullFieldError.checkNotNull(email, r'GLogInUserVars', 'email');
-    BuiltValueNullFieldError.checkNotNull(
-      password,
-      r'GLogInUserVars',
-      'password',
-    );
-  }
-
+  _$GLogInUserVars._({required this.emailOrPhone, required this.password})
+      : super._();
   @override
   GLogInUserVars rebuild(void Function(GLogInUserVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GLogInUserVarsBuilder toBuilder() =>
-      new GLogInUserVarsBuilder()..replace(this);
+  GLogInUserVarsBuilder toBuilder() => GLogInUserVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GLogInUserVars &&
-        email == other.email &&
+        emailOrPhone == other.emailOrPhone &&
         password == other.password;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, email.hashCode);
+    _$hash = $jc(_$hash, emailOrPhone.hashCode);
     _$hash = $jc(_$hash, password.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -580,7 +479,7 @@ class _$GLogInUserVars extends GLogInUserVars {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GLogInUserVars')
-          ..add('email', email)
+          ..add('emailOrPhone', emailOrPhone)
           ..add('password', password))
         .toString();
   }
@@ -590,9 +489,9 @@ class GLogInUserVarsBuilder
     implements Builder<GLogInUserVars, GLogInUserVarsBuilder> {
   _$GLogInUserVars? _$v;
 
-  String? _email;
-  String? get email => _$this._email;
-  set email(String? email) => _$this._email = email;
+  String? _emailOrPhone;
+  String? get emailOrPhone => _$this._emailOrPhone;
+  set emailOrPhone(String? emailOrPhone) => _$this._emailOrPhone = emailOrPhone;
 
   String? _password;
   String? get password => _$this._password;
@@ -603,7 +502,7 @@ class GLogInUserVarsBuilder
   GLogInUserVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _email = $v.email;
+      _emailOrPhone = $v.emailOrPhone;
       _password = $v.password;
       _$v = null;
     }
@@ -612,7 +511,6 @@ class GLogInUserVarsBuilder
 
   @override
   void replace(GLogInUserVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GLogInUserVars;
   }
 
@@ -625,19 +523,12 @@ class GLogInUserVarsBuilder
   GLogInUserVars build() => _build();
 
   _$GLogInUserVars _build() {
-    final _$result =
-        _$v ??
-        new _$GLogInUserVars._(
-          email: BuiltValueNullFieldError.checkNotNull(
-            email,
-            r'GLogInUserVars',
-            'email',
-          ),
+    final _$result = _$v ??
+        _$GLogInUserVars._(
+          emailOrPhone: BuiltValueNullFieldError.checkNotNull(
+              emailOrPhone, r'GLogInUserVars', 'emailOrPhone'),
           password: BuiltValueNullFieldError.checkNotNull(
-            password,
-            r'GLogInUserVars',
-            'password',
-          ),
+              password, r'GLogInUserVars', 'password'),
         );
     replace(_$result);
     return _$result;
@@ -646,17 +537,15 @@ class GLogInUserVarsBuilder
 
 class _$GLogOutUserVars extends GLogOutUserVars {
   factory _$GLogOutUserVars([void Function(GLogOutUserVarsBuilder)? updates]) =>
-      (new GLogOutUserVarsBuilder()..update(updates))._build();
+      (GLogOutUserVarsBuilder()..update(updates))._build();
 
   _$GLogOutUserVars._() : super._();
-
   @override
   GLogOutUserVars rebuild(void Function(GLogOutUserVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GLogOutUserVarsBuilder toBuilder() =>
-      new GLogOutUserVarsBuilder()..replace(this);
+  GLogOutUserVarsBuilder toBuilder() => GLogOutUserVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -683,7 +572,6 @@ class GLogOutUserVarsBuilder
 
   @override
   void replace(GLogOutUserVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GLogOutUserVars;
   }
 
@@ -696,7 +584,7 @@ class GLogOutUserVarsBuilder
   GLogOutUserVars build() => _build();
 
   _$GLogOutUserVars _build() {
-    final _$result = _$v ?? new _$GLogOutUserVars._();
+    final _$result = _$v ?? _$GLogOutUserVars._();
     replace(_$result);
     return _$result;
   }
@@ -706,26 +594,19 @@ class _$GCreateProductVars extends GCreateProductVars {
   @override
   final _i2.GProductCreateInput product;
 
-  factory _$GCreateProductVars([
-    void Function(GCreateProductVarsBuilder)? updates,
-  ]) => (new GCreateProductVarsBuilder()..update(updates))._build();
+  factory _$GCreateProductVars(
+          [void Function(GCreateProductVarsBuilder)? updates]) =>
+      (GCreateProductVarsBuilder()..update(updates))._build();
 
-  _$GCreateProductVars._({required this.product}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      product,
-      r'GCreateProductVars',
-      'product',
-    );
-  }
-
+  _$GCreateProductVars._({required this.product}) : super._();
   @override
   GCreateProductVars rebuild(
-    void Function(GCreateProductVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GCreateProductVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GCreateProductVarsBuilder toBuilder() =>
-      new GCreateProductVarsBuilder()..replace(this);
+      GCreateProductVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -744,7 +625,8 @@ class _$GCreateProductVars extends GCreateProductVars {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GCreateProductVars')
-      ..add('product', product)).toString();
+          ..add('product', product))
+        .toString();
   }
 }
 
@@ -754,7 +636,7 @@ class GCreateProductVarsBuilder
 
   _i2.GProductCreateInputBuilder? _product;
   _i2.GProductCreateInputBuilder get product =>
-      _$this._product ??= new _i2.GProductCreateInputBuilder();
+      _$this._product ??= _i2.GProductCreateInputBuilder();
   set product(_i2.GProductCreateInputBuilder? product) =>
       _$this._product = product;
 
@@ -771,7 +653,6 @@ class GCreateProductVarsBuilder
 
   @override
   void replace(GCreateProductVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GCreateProductVars;
   }
 
@@ -786,18 +667,18 @@ class GCreateProductVarsBuilder
   _$GCreateProductVars _build() {
     _$GCreateProductVars _$result;
     try {
-      _$result = _$v ?? new _$GCreateProductVars._(product: product.build());
+      _$result = _$v ??
+          _$GCreateProductVars._(
+            product: product.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'product';
         product.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GCreateProductVars',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GCreateProductVars', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -812,28 +693,19 @@ class _$GUpdateProductVars extends GUpdateProductVars {
   @override
   final _i2.GProductUpdateInput product;
 
-  factory _$GUpdateProductVars([
-    void Function(GUpdateProductVarsBuilder)? updates,
-  ]) => (new GUpdateProductVarsBuilder()..update(updates))._build();
+  factory _$GUpdateProductVars(
+          [void Function(GUpdateProductVarsBuilder)? updates]) =>
+      (GUpdateProductVarsBuilder()..update(updates))._build();
 
-  _$GUpdateProductVars._({required this.id, required this.product})
-    : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'GUpdateProductVars', 'id');
-    BuiltValueNullFieldError.checkNotNull(
-      product,
-      r'GUpdateProductVars',
-      'product',
-    );
-  }
-
+  _$GUpdateProductVars._({required this.id, required this.product}) : super._();
   @override
   GUpdateProductVars rebuild(
-    void Function(GUpdateProductVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GUpdateProductVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GUpdateProductVarsBuilder toBuilder() =>
-      new GUpdateProductVarsBuilder()..replace(this);
+      GUpdateProductVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -871,7 +743,7 @@ class GUpdateProductVarsBuilder
 
   _i2.GProductUpdateInputBuilder? _product;
   _i2.GProductUpdateInputBuilder get product =>
-      _$this._product ??= new _i2.GProductUpdateInputBuilder();
+      _$this._product ??= _i2.GProductUpdateInputBuilder();
   set product(_i2.GProductUpdateInputBuilder? product) =>
       _$this._product = product;
 
@@ -889,7 +761,6 @@ class GUpdateProductVarsBuilder
 
   @override
   void replace(GUpdateProductVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GUpdateProductVars;
   }
 
@@ -904,14 +775,10 @@ class GUpdateProductVarsBuilder
   _$GUpdateProductVars _build() {
     _$GUpdateProductVars _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GUpdateProductVars._(
+      _$result = _$v ??
+          _$GUpdateProductVars._(
             id: BuiltValueNullFieldError.checkNotNull(
-              id,
-              r'GUpdateProductVars',
-              'id',
-            ),
+                id, r'GUpdateProductVars', 'id'),
             product: product.build(),
           );
     } catch (_) {
@@ -920,11 +787,8 @@ class GUpdateProductVarsBuilder
         _$failedField = 'product';
         product.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GUpdateProductVars',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GUpdateProductVars', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -937,22 +801,19 @@ class _$GDeleteProductVars extends GDeleteProductVars {
   @override
   final int id;
 
-  factory _$GDeleteProductVars([
-    void Function(GDeleteProductVarsBuilder)? updates,
-  ]) => (new GDeleteProductVarsBuilder()..update(updates))._build();
+  factory _$GDeleteProductVars(
+          [void Function(GDeleteProductVarsBuilder)? updates]) =>
+      (GDeleteProductVarsBuilder()..update(updates))._build();
 
-  _$GDeleteProductVars._({required this.id}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'GDeleteProductVars', 'id');
-  }
-
+  _$GDeleteProductVars._({required this.id}) : super._();
   @override
   GDeleteProductVars rebuild(
-    void Function(GDeleteProductVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GDeleteProductVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GDeleteProductVarsBuilder toBuilder() =>
-      new GDeleteProductVarsBuilder()..replace(this);
+      GDeleteProductVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -970,8 +831,8 @@ class _$GDeleteProductVars extends GDeleteProductVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GDeleteProductVars')
-      ..add('id', id)).toString();
+    return (newBuiltValueToStringHelper(r'GDeleteProductVars')..add('id', id))
+        .toString();
   }
 }
 
@@ -996,7 +857,6 @@ class GDeleteProductVarsBuilder
 
   @override
   void replace(GDeleteProductVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GDeleteProductVars;
   }
 
@@ -1009,14 +869,10 @@ class GDeleteProductVarsBuilder
   GDeleteProductVars build() => _build();
 
   _$GDeleteProductVars _build() {
-    final _$result =
-        _$v ??
-        new _$GDeleteProductVars._(
+    final _$result = _$v ??
+        _$GDeleteProductVars._(
           id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GDeleteProductVars',
-            'id',
-          ),
+              id, r'GDeleteProductVars', 'id'),
         );
     replace(_$result);
     return _$result;
@@ -1028,19 +884,15 @@ class _$GDeleteItemVars extends GDeleteItemVars {
   final int id;
 
   factory _$GDeleteItemVars([void Function(GDeleteItemVarsBuilder)? updates]) =>
-      (new GDeleteItemVarsBuilder()..update(updates))._build();
+      (GDeleteItemVarsBuilder()..update(updates))._build();
 
-  _$GDeleteItemVars._({required this.id}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'GDeleteItemVars', 'id');
-  }
-
+  _$GDeleteItemVars._({required this.id}) : super._();
   @override
   GDeleteItemVars rebuild(void Function(GDeleteItemVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GDeleteItemVarsBuilder toBuilder() =>
-      new GDeleteItemVarsBuilder()..replace(this);
+  GDeleteItemVarsBuilder toBuilder() => GDeleteItemVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1058,8 +910,8 @@ class _$GDeleteItemVars extends GDeleteItemVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GDeleteItemVars')
-      ..add('id', id)).toString();
+    return (newBuiltValueToStringHelper(r'GDeleteItemVars')..add('id', id))
+        .toString();
   }
 }
 
@@ -1084,7 +936,6 @@ class GDeleteItemVarsBuilder
 
   @override
   void replace(GDeleteItemVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GDeleteItemVars;
   }
 
@@ -1097,14 +948,10 @@ class GDeleteItemVarsBuilder
   GDeleteItemVars build() => _build();
 
   _$GDeleteItemVars _build() {
-    final _$result =
-        _$v ??
-        new _$GDeleteItemVars._(
+    final _$result = _$v ??
+        _$GDeleteItemVars._(
           id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GDeleteItemVars',
-            'id',
-          ),
+              id, r'GDeleteItemVars', 'id'),
         );
     replace(_$result);
     return _$result;
@@ -1115,26 +962,19 @@ class _$GDeletePurchaseOrderVars extends GDeletePurchaseOrderVars {
   @override
   final int id;
 
-  factory _$GDeletePurchaseOrderVars([
-    void Function(GDeletePurchaseOrderVarsBuilder)? updates,
-  ]) => (new GDeletePurchaseOrderVarsBuilder()..update(updates))._build();
+  factory _$GDeletePurchaseOrderVars(
+          [void Function(GDeletePurchaseOrderVarsBuilder)? updates]) =>
+      (GDeletePurchaseOrderVarsBuilder()..update(updates))._build();
 
-  _$GDeletePurchaseOrderVars._({required this.id}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      id,
-      r'GDeletePurchaseOrderVars',
-      'id',
-    );
-  }
-
+  _$GDeletePurchaseOrderVars._({required this.id}) : super._();
   @override
   GDeletePurchaseOrderVars rebuild(
-    void Function(GDeletePurchaseOrderVarsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GDeletePurchaseOrderVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GDeletePurchaseOrderVarsBuilder toBuilder() =>
-      new GDeletePurchaseOrderVarsBuilder()..replace(this);
+      GDeletePurchaseOrderVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1153,7 +993,8 @@ class _$GDeletePurchaseOrderVars extends GDeletePurchaseOrderVars {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GDeletePurchaseOrderVars')
-      ..add('id', id)).toString();
+          ..add('id', id))
+        .toString();
   }
 }
 
@@ -1179,7 +1020,6 @@ class GDeletePurchaseOrderVarsBuilder
 
   @override
   void replace(GDeletePurchaseOrderVars other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GDeletePurchaseOrderVars;
   }
 
@@ -1192,14 +1032,10 @@ class GDeletePurchaseOrderVarsBuilder
   GDeletePurchaseOrderVars build() => _build();
 
   _$GDeletePurchaseOrderVars _build() {
-    final _$result =
-        _$v ??
-        new _$GDeletePurchaseOrderVars._(
+    final _$result = _$v ??
+        _$GDeletePurchaseOrderVars._(
           id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GDeletePurchaseOrderVars',
-            'id',
-          ),
+              id, r'GDeletePurchaseOrderVars', 'id'),
         );
     replace(_$result);
     return _$result;

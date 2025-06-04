@@ -76,7 +76,7 @@ const LogInUser = _i1.OperationDefinitionNode(
   name: _i1.NameNode(value: 'LogInUser'),
   variableDefinitions: [
     _i1.VariableDefinitionNode(
-      variable: _i1.VariableNode(name: _i1.NameNode(value: 'email')),
+      variable: _i1.VariableNode(name: _i1.NameNode(value: 'emailOrPhone')),
       type: _i1.NamedTypeNode(
         name: _i1.NameNode(value: 'String'),
         isNonNull: true,
@@ -101,7 +101,7 @@ const LogInUser = _i1.OperationDefinitionNode(
       alias: null,
       arguments: [
         _i1.ArgumentNode(
-          name: _i1.NameNode(value: 'email'),
+          name: _i1.NameNode(value: 'emailOrPhone'),
           value: _i1.VariableNode(name: _i1.NameNode(value: 'email')),
         ),
         _i1.ArgumentNode(

@@ -7,24 +7,24 @@ part of 'queries.data.gql.dart';
 // **************************************************************************
 
 Serializer<GListUserItemsData> _$gListUserItemsDataSerializer =
-    new _$GListUserItemsDataSerializer();
+    _$GListUserItemsDataSerializer();
 Serializer<GListUserItemsData_listAllItems>
-_$gListUserItemsDataListAllItemsSerializer =
-    new _$GListUserItemsData_listAllItemsSerializer();
+    _$gListUserItemsDataListAllItemsSerializer =
+    _$GListUserItemsData_listAllItemsSerializer();
 Serializer<GListUserPurchaseOrdersData>
-_$gListUserPurchaseOrdersDataSerializer =
-    new _$GListUserPurchaseOrdersDataSerializer();
+    _$gListUserPurchaseOrdersDataSerializer =
+    _$GListUserPurchaseOrdersDataSerializer();
 Serializer<GListUserPurchaseOrdersData_listAllPurchaseOrders>
-_$gListUserPurchaseOrdersDataListAllPurchaseOrdersSerializer =
-    new _$GListUserPurchaseOrdersData_listAllPurchaseOrdersSerializer();
+    _$gListUserPurchaseOrdersDataListAllPurchaseOrdersSerializer =
+    _$GListUserPurchaseOrdersData_listAllPurchaseOrdersSerializer();
 Serializer<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
-_$gListUserPurchaseOrdersDataListAllPurchaseOrdersEntriesSerializer =
-    new _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesSerializer();
+    _$gListUserPurchaseOrdersDataListAllPurchaseOrdersEntriesSerializer =
+    _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesSerializer();
 Serializer<GListAllProductsData> _$gListAllProductsDataSerializer =
-    new _$GListAllProductsDataSerializer();
+    _$GListAllProductsDataSerializer();
 Serializer<GListAllProductsData_listAllProducts>
-_$gListAllProductsDataListAllProductsSerializer =
-    new _$GListAllProductsData_listAllProductsSerializer();
+    _$gListAllProductsDataListAllProductsSerializer =
+    _$GListAllProductsData_listAllProductsSerializer();
 
 class _$GListUserItemsDataSerializer
     implements StructuredSerializer<GListUserItemsData> {
@@ -35,23 +35,16 @@ class _$GListUserItemsDataSerializer
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserItemsData object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListUserItemsData object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'listAllItems',
-      serializers.serialize(
-        object.listAllItems,
-        specifiedType: const FullType(BuiltList, const [
-          const FullType(GListUserItemsData_listAllItems),
-        ]),
-      ),
+      serializers.serialize(object.listAllItems,
+          specifiedType: const FullType(BuiltList,
+              const [const FullType(GListUserItemsData_listAllItems)])),
     ];
 
     return result;
@@ -59,11 +52,9 @@ class _$GListUserItemsDataSerializer
 
   @override
   GListUserItemsData deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListUserItemsDataBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserItemsDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -72,23 +63,14 @@ class _$GListUserItemsDataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case '__typename':
-          result.G__typename =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'listAllItems':
-          result.listAllItems.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltList, const [
-                    const FullType(GListUserItemsData_listAllItems),
-                  ]),
-                )!
-                as BuiltList<Object?>,
-          );
+          result.listAllItems.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(GListUserItemsData_listAllItems)
+              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -102,23 +84,19 @@ class _$GListUserItemsData_listAllItemsSerializer
   @override
   final Iterable<Type> types = const [
     GListUserItemsData_listAllItems,
-    _$GListUserItemsData_listAllItems,
+    _$GListUserItemsData_listAllItems
   ];
   @override
   final String wireName = 'GListUserItemsData_listAllItems';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserItemsData_listAllItems object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListUserItemsData_listAllItems object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'name',
@@ -130,11 +108,9 @@ class _$GListUserItemsData_listAllItemsSerializer
 
   @override
   GListUserItemsData_listAllItems deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListUserItemsData_listAllItemsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserItemsData_listAllItemsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -143,28 +119,16 @@ class _$GListUserItemsData_listAllItemsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case '__typename':
-          result.G__typename =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'name':
-          result.name =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -178,30 +142,24 @@ class _$GListUserPurchaseOrdersDataSerializer
   @override
   final Iterable<Type> types = const [
     GListUserPurchaseOrdersData,
-    _$GListUserPurchaseOrdersData,
+    _$GListUserPurchaseOrdersData
   ];
   @override
   final String wireName = 'GListUserPurchaseOrdersData';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserPurchaseOrdersData object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListUserPurchaseOrdersData object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'listAllPurchaseOrders',
-      serializers.serialize(
-        object.listAllPurchaseOrders,
-        specifiedType: const FullType(BuiltList, const [
-          const FullType(GListUserPurchaseOrdersData_listAllPurchaseOrders),
-        ]),
-      ),
+      serializers.serialize(object.listAllPurchaseOrders,
+          specifiedType: const FullType(BuiltList, const [
+            const FullType(GListUserPurchaseOrdersData_listAllPurchaseOrders)
+          ])),
     ];
 
     return result;
@@ -209,11 +167,9 @@ class _$GListUserPurchaseOrdersDataSerializer
 
   @override
   GListUserPurchaseOrdersData deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListUserPurchaseOrdersDataBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserPurchaseOrdersDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -222,25 +178,15 @@ class _$GListUserPurchaseOrdersDataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case '__typename':
-          result.G__typename =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'listAllPurchaseOrders':
-          result.listAllPurchaseOrders.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltList, const [
-                    const FullType(
-                      GListUserPurchaseOrdersData_listAllPurchaseOrders,
-                    ),
-                  ]),
-                )!
-                as BuiltList<Object?>,
-          );
+          result.listAllPurchaseOrders.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    GListUserPurchaseOrdersData_listAllPurchaseOrders)
+              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -252,39 +198,31 @@ class _$GListUserPurchaseOrdersDataSerializer
 class _$GListUserPurchaseOrdersData_listAllPurchaseOrdersSerializer
     implements
         StructuredSerializer<
-          GListUserPurchaseOrdersData_listAllPurchaseOrders
-        > {
+            GListUserPurchaseOrdersData_listAllPurchaseOrders> {
   @override
   final Iterable<Type> types = const [
     GListUserPurchaseOrdersData_listAllPurchaseOrders,
-    _$GListUserPurchaseOrdersData_listAllPurchaseOrders,
+    _$GListUserPurchaseOrdersData_listAllPurchaseOrders
   ];
   @override
   final String wireName = 'GListUserPurchaseOrdersData_listAllPurchaseOrders';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserPurchaseOrdersData_listAllPurchaseOrders object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers,
+      GListUserPurchaseOrdersData_listAllPurchaseOrders object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'entries',
-      serializers.serialize(
-        object.entries,
-        specifiedType: const FullType(BuiltList, const [
-          const FullType(
-            GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
-          ),
-        ]),
-      ),
+      serializers.serialize(object.entries,
+          specifiedType: const FullType(BuiltList, const [
+            const FullType(
+                GListUserPurchaseOrdersData_listAllPurchaseOrders_entries)
+          ])),
     ];
 
     return result;
@@ -292,12 +230,9 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrdersSerializer
 
   @override
   GListUserPurchaseOrdersData_listAllPurchaseOrders deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result =
-        new GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -306,33 +241,19 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrdersSerializer
       final Object? value = iterator.current;
       switch (key) {
         case '__typename':
-          result.G__typename =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'entries':
-          result.entries.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltList, const [
-                    const FullType(
-                      GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
-                    ),
-                  ]),
-                )!
-                as BuiltList<Object?>,
-          );
+          result.entries.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    GListUserPurchaseOrdersData_listAllPurchaseOrders_entries)
+              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -344,34 +265,27 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrdersSerializer
 class _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesSerializer
     implements
         StructuredSerializer<
-          GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
-        > {
+            GListUserPurchaseOrdersData_listAllPurchaseOrders_entries> {
   @override
   final Iterable<Type> types = const [
     GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
-    _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
+    _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
   ];
   @override
   final String wireName =
       'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GListUserPurchaseOrdersData_listAllPurchaseOrders_entries object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers,
+      GListUserPurchaseOrdersData_listAllPurchaseOrders_entries object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'quantity',
-      serializers.serialize(
-        object.quantity,
-        specifiedType: const FullType(int),
-      ),
+      serializers.serialize(object.quantity,
+          specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -379,12 +293,10 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesSerializer
 
   @override
   GListUserPurchaseOrdersData_listAllPurchaseOrders_entries deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
     final result =
-        new GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder();
+        GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -393,20 +305,12 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesSerializer
       final Object? value = iterator.current;
       switch (key) {
         case '__typename':
-          result.G__typename =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'quantity':
-          result.quantity =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.quantity = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -420,30 +324,23 @@ class _$GListAllProductsDataSerializer
   @override
   final Iterable<Type> types = const [
     GListAllProductsData,
-    _$GListAllProductsData,
+    _$GListAllProductsData
   ];
   @override
   final String wireName = 'GListAllProductsData';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListAllProductsData object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListAllProductsData object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'listAllProducts',
-      serializers.serialize(
-        object.listAllProducts,
-        specifiedType: const FullType(BuiltList, const [
-          const FullType(GListAllProductsData_listAllProducts),
-        ]),
-      ),
+      serializers.serialize(object.listAllProducts,
+          specifiedType: const FullType(BuiltList,
+              const [const FullType(GListAllProductsData_listAllProducts)])),
     ];
 
     return result;
@@ -451,11 +348,9 @@ class _$GListAllProductsDataSerializer
 
   @override
   GListAllProductsData deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListAllProductsDataBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListAllProductsDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -464,23 +359,14 @@ class _$GListAllProductsDataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case '__typename':
-          result.G__typename =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'listAllProducts':
-          result.listAllProducts.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(BuiltList, const [
-                    const FullType(GListAllProductsData_listAllProducts),
-                  ]),
-                )!
-                as BuiltList<Object?>,
-          );
+          result.listAllProducts.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(GListAllProductsData_listAllProducts)
+              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -494,23 +380,19 @@ class _$GListAllProductsData_listAllProductsSerializer
   @override
   final Iterable<Type> types = const [
     GListAllProductsData_listAllProducts,
-    _$GListAllProductsData_listAllProducts,
+    _$GListAllProductsData_listAllProducts
   ];
   @override
   final String wireName = 'GListAllProductsData_listAllProducts';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GListAllProductsData_listAllProducts object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GListAllProductsData_listAllProducts object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'name',
@@ -522,11 +404,9 @@ class _$GListAllProductsData_listAllProductsSerializer
 
   @override
   GListAllProductsData_listAllProducts deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GListAllProductsData_listAllProductsBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GListAllProductsData_listAllProductsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -535,28 +415,16 @@ class _$GListAllProductsData_listAllProductsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case '__typename':
-          result.G__typename =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
           break;
         case 'name':
-          result.name =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -571,34 +439,21 @@ class _$GListUserItemsData extends GListUserItemsData {
   @override
   final BuiltList<GListUserItemsData_listAllItems> listAllItems;
 
-  factory _$GListUserItemsData([
-    void Function(GListUserItemsDataBuilder)? updates,
-  ]) => (new GListUserItemsDataBuilder()..update(updates))._build();
+  factory _$GListUserItemsData(
+          [void Function(GListUserItemsDataBuilder)? updates]) =>
+      (GListUserItemsDataBuilder()..update(updates))._build();
 
-  _$GListUserItemsData._({
-    required this.G__typename,
-    required this.listAllItems,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      G__typename,
-      r'GListUserItemsData',
-      'G__typename',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      listAllItems,
-      r'GListUserItemsData',
-      'listAllItems',
-    );
-  }
-
+  _$GListUserItemsData._(
+      {required this.G__typename, required this.listAllItems})
+      : super._();
   @override
   GListUserItemsData rebuild(
-    void Function(GListUserItemsDataBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListUserItemsDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserItemsDataBuilder toBuilder() =>
-      new GListUserItemsDataBuilder()..replace(this);
+      GListUserItemsDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -636,11 +491,10 @@ class GListUserItemsDataBuilder
 
   ListBuilder<GListUserItemsData_listAllItems>? _listAllItems;
   ListBuilder<GListUserItemsData_listAllItems> get listAllItems =>
-      _$this._listAllItems ??=
-          new ListBuilder<GListUserItemsData_listAllItems>();
+      _$this._listAllItems ??= ListBuilder<GListUserItemsData_listAllItems>();
   set listAllItems(
-    ListBuilder<GListUserItemsData_listAllItems>? listAllItems,
-  ) => _$this._listAllItems = listAllItems;
+          ListBuilder<GListUserItemsData_listAllItems>? listAllItems) =>
+      _$this._listAllItems = listAllItems;
 
   GListUserItemsDataBuilder() {
     GListUserItemsData._initializeBuilder(this);
@@ -658,7 +512,6 @@ class GListUserItemsDataBuilder
 
   @override
   void replace(GListUserItemsData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserItemsData;
   }
 
@@ -673,14 +526,10 @@ class GListUserItemsDataBuilder
   _$GListUserItemsData _build() {
     _$GListUserItemsData _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GListUserItemsData._(
+      _$result = _$v ??
+          _$GListUserItemsData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GListUserItemsData',
-              'G__typename',
-            ),
+                G__typename, r'GListUserItemsData', 'G__typename'),
             listAllItems: listAllItems.build(),
           );
     } catch (_) {
@@ -689,11 +538,8 @@ class GListUserItemsDataBuilder
         _$failedField = 'listAllItems';
         listAllItems.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GListUserItemsData',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GListUserItemsData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -711,41 +557,21 @@ class _$GListUserItemsData_listAllItems
   @override
   final String name;
 
-  factory _$GListUserItemsData_listAllItems([
-    void Function(GListUserItemsData_listAllItemsBuilder)? updates,
-  ]) =>
-      (new GListUserItemsData_listAllItemsBuilder()..update(updates))._build();
+  factory _$GListUserItemsData_listAllItems(
+          [void Function(GListUserItemsData_listAllItemsBuilder)? updates]) =>
+      (GListUserItemsData_listAllItemsBuilder()..update(updates))._build();
 
-  _$GListUserItemsData_listAllItems._({
-    required this.G__typename,
-    required this.id,
-    required this.name,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      G__typename,
-      r'GListUserItemsData_listAllItems',
-      'G__typename',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      id,
-      r'GListUserItemsData_listAllItems',
-      'id',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      name,
-      r'GListUserItemsData_listAllItems',
-      'name',
-    );
-  }
-
+  _$GListUserItemsData_listAllItems._(
+      {required this.G__typename, required this.id, required this.name})
+      : super._();
   @override
   GListUserItemsData_listAllItems rebuild(
-    void Function(GListUserItemsData_listAllItemsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListUserItemsData_listAllItemsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserItemsData_listAllItemsBuilder toBuilder() =>
-      new GListUserItemsData_listAllItemsBuilder()..replace(this);
+      GListUserItemsData_listAllItemsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -778,10 +604,8 @@ class _$GListUserItemsData_listAllItems
 
 class GListUserItemsData_listAllItemsBuilder
     implements
-        Builder<
-          GListUserItemsData_listAllItems,
-          GListUserItemsData_listAllItemsBuilder
-        > {
+        Builder<GListUserItemsData_listAllItems,
+            GListUserItemsData_listAllItemsBuilder> {
   _$GListUserItemsData_listAllItems? _$v;
 
   String? _G__typename;
@@ -813,7 +637,6 @@ class GListUserItemsData_listAllItemsBuilder
 
   @override
   void replace(GListUserItemsData_listAllItems other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserItemsData_listAllItems;
   }
 
@@ -826,24 +649,14 @@ class GListUserItemsData_listAllItemsBuilder
   GListUserItemsData_listAllItems build() => _build();
 
   _$GListUserItemsData_listAllItems _build() {
-    final _$result =
-        _$v ??
-        new _$GListUserItemsData_listAllItems._(
+    final _$result = _$v ??
+        _$GListUserItemsData_listAllItems._(
           G__typename: BuiltValueNullFieldError.checkNotNull(
-            G__typename,
-            r'GListUserItemsData_listAllItems',
-            'G__typename',
-          ),
+              G__typename, r'GListUserItemsData_listAllItems', 'G__typename'),
           id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GListUserItemsData_listAllItems',
-            'id',
-          ),
+              id, r'GListUserItemsData_listAllItems', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(
-            name,
-            r'GListUserItemsData_listAllItems',
-            'name',
-          ),
+              name, r'GListUserItemsData_listAllItems', 'name'),
         );
     replace(_$result);
     return _$result;
@@ -855,36 +668,23 @@ class _$GListUserPurchaseOrdersData extends GListUserPurchaseOrdersData {
   final String G__typename;
   @override
   final BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders>
-  listAllPurchaseOrders;
+      listAllPurchaseOrders;
 
-  factory _$GListUserPurchaseOrdersData([
-    void Function(GListUserPurchaseOrdersDataBuilder)? updates,
-  ]) => (new GListUserPurchaseOrdersDataBuilder()..update(updates))._build();
+  factory _$GListUserPurchaseOrdersData(
+          [void Function(GListUserPurchaseOrdersDataBuilder)? updates]) =>
+      (GListUserPurchaseOrdersDataBuilder()..update(updates))._build();
 
-  _$GListUserPurchaseOrdersData._({
-    required this.G__typename,
-    required this.listAllPurchaseOrders,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      G__typename,
-      r'GListUserPurchaseOrdersData',
-      'G__typename',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      listAllPurchaseOrders,
-      r'GListUserPurchaseOrdersData',
-      'listAllPurchaseOrders',
-    );
-  }
-
+  _$GListUserPurchaseOrdersData._(
+      {required this.G__typename, required this.listAllPurchaseOrders})
+      : super._();
   @override
   GListUserPurchaseOrdersData rebuild(
-    void Function(GListUserPurchaseOrdersDataBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListUserPurchaseOrdersDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserPurchaseOrdersDataBuilder toBuilder() =>
-      new GListUserPurchaseOrdersDataBuilder()..replace(this);
+      GListUserPurchaseOrdersDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -914,10 +714,8 @@ class _$GListUserPurchaseOrdersData extends GListUserPurchaseOrdersData {
 
 class GListUserPurchaseOrdersDataBuilder
     implements
-        Builder<
-          GListUserPurchaseOrdersData,
-          GListUserPurchaseOrdersDataBuilder
-        > {
+        Builder<GListUserPurchaseOrdersData,
+            GListUserPurchaseOrdersDataBuilder> {
   _$GListUserPurchaseOrdersData? _$v;
 
   String? _G__typename;
@@ -925,15 +723,14 @@ class GListUserPurchaseOrdersDataBuilder
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
   ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders>?
-  _listAllPurchaseOrders;
+      _listAllPurchaseOrders;
   ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders>
-  get listAllPurchaseOrders =>
-      _$this._listAllPurchaseOrders ??=
-          new ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders>();
+      get listAllPurchaseOrders => _$this._listAllPurchaseOrders ??=
+          ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders>();
   set listAllPurchaseOrders(
-    ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders>?
-    listAllPurchaseOrders,
-  ) => _$this._listAllPurchaseOrders = listAllPurchaseOrders;
+          ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders>?
+              listAllPurchaseOrders) =>
+      _$this._listAllPurchaseOrders = listAllPurchaseOrders;
 
   GListUserPurchaseOrdersDataBuilder() {
     GListUserPurchaseOrdersData._initializeBuilder(this);
@@ -951,7 +748,6 @@ class GListUserPurchaseOrdersDataBuilder
 
   @override
   void replace(GListUserPurchaseOrdersData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserPurchaseOrdersData;
   }
 
@@ -966,14 +762,10 @@ class GListUserPurchaseOrdersDataBuilder
   _$GListUserPurchaseOrdersData _build() {
     _$GListUserPurchaseOrdersData _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GListUserPurchaseOrdersData._(
+      _$result = _$v ??
+          _$GListUserPurchaseOrdersData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GListUserPurchaseOrdersData',
-              'G__typename',
-            ),
+                G__typename, r'GListUserPurchaseOrdersData', 'G__typename'),
             listAllPurchaseOrders: listAllPurchaseOrders.build(),
           );
     } catch (_) {
@@ -982,11 +774,8 @@ class GListUserPurchaseOrdersDataBuilder
         _$failedField = 'listAllPurchaseOrders';
         listAllPurchaseOrders.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GListUserPurchaseOrdersData',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GListUserPurchaseOrdersData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1003,48 +792,29 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders
   final int id;
   @override
   final BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
-  entries;
+      entries;
 
-  factory _$GListUserPurchaseOrdersData_listAllPurchaseOrders([
-    void Function(GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder)?
-    updates,
-  ]) =>
-      (new GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder()
+  factory _$GListUserPurchaseOrdersData_listAllPurchaseOrders(
+          [void Function(
+                  GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder)?
+              updates]) =>
+      (GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder()
             ..update(updates))
           ._build();
 
-  _$GListUserPurchaseOrdersData_listAllPurchaseOrders._({
-    required this.G__typename,
-    required this.id,
-    required this.entries,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      G__typename,
-      r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
-      'G__typename',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      id,
-      r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
-      'id',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      entries,
-      r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
-      'entries',
-    );
-  }
-
+  _$GListUserPurchaseOrdersData_listAllPurchaseOrders._(
+      {required this.G__typename, required this.id, required this.entries})
+      : super._();
   @override
   GListUserPurchaseOrdersData_listAllPurchaseOrders rebuild(
-    void Function(GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder)
-    updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(
+                  GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder toBuilder() =>
-      new GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder()
-        ..replace(this);
+      GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1068,8 +838,7 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
-          )
+            r'GListUserPurchaseOrdersData_listAllPurchaseOrders')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('entries', entries))
@@ -1079,10 +848,8 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders
 
 class GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder
     implements
-        Builder<
-          GListUserPurchaseOrdersData_listAllPurchaseOrders,
-          GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder
-        > {
+        Builder<GListUserPurchaseOrdersData_listAllPurchaseOrders,
+            GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder> {
   _$GListUserPurchaseOrdersData_listAllPurchaseOrders? _$v;
 
   String? _G__typename;
@@ -1094,17 +861,15 @@ class GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder
   set id(int? id) => _$this._id = id;
 
   ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>?
-  _entries;
+      _entries;
   ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
-  get entries =>
-      _$this._entries ??=
-          new ListBuilder<
-            GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
-          >();
+      get entries => _$this._entries ??= ListBuilder<
+          GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>();
   set entries(
-    ListBuilder<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>?
-    entries,
-  ) => _$this._entries = entries;
+          ListBuilder<
+                  GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>?
+              entries) =>
+      _$this._entries = entries;
 
   GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder() {
     GListUserPurchaseOrdersData_listAllPurchaseOrders._initializeBuilder(this);
@@ -1123,15 +888,13 @@ class GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder
 
   @override
   void replace(GListUserPurchaseOrdersData_listAllPurchaseOrders other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListUserPurchaseOrdersData_listAllPurchaseOrders;
   }
 
   @override
   void update(
-    void Function(GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder)?
-    updates,
-  ) {
+      void Function(GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1141,19 +904,14 @@ class GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder
   _$GListUserPurchaseOrdersData_listAllPurchaseOrders _build() {
     _$GListUserPurchaseOrdersData_listAllPurchaseOrders _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GListUserPurchaseOrdersData_listAllPurchaseOrders._(
+      _$result = _$v ??
+          _$GListUserPurchaseOrdersData_listAllPurchaseOrders._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
-              'G__typename',
-            ),
+                G__typename,
+                r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
+                'G__typename'),
             id: BuiltValueNullFieldError.checkNotNull(
-              id,
-              r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
-              'id',
-            ),
+                id, r'GListUserPurchaseOrdersData_listAllPurchaseOrders', 'id'),
             entries: entries.build(),
           );
     } catch (_) {
@@ -1162,11 +920,10 @@ class GListUserPurchaseOrdersData_listAllPurchaseOrdersBuilder
         _$failedField = 'entries';
         entries.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GListUserPurchaseOrdersData_listAllPurchaseOrders',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1182,45 +939,29 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
   @override
   final int quantity;
 
-  factory _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries([
-    void Function(
-      GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder,
-    )?
-    updates,
-  ]) =>
-      (new GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder()
+  factory _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries(
+          [void Function(
+                  GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder)?
+              updates]) =>
+      (GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder()
             ..update(updates))
           ._build();
 
-  _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries._({
-    required this.G__typename,
-    required this.quantity,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      G__typename,
-      r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries',
-      'G__typename',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      quantity,
-      r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries',
-      'quantity',
-    );
-  }
-
+  _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries._(
+      {required this.G__typename, required this.quantity})
+      : super._();
   @override
   GListUserPurchaseOrdersData_listAllPurchaseOrders_entries rebuild(
-    void Function(
-      GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder,
-    )
-    updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(
+                  GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder
-  toBuilder() =>
-      new GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder()
-        ..replace(this);
+      toBuilder() =>
+          GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder()
+            ..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1242,8 +983,7 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries',
-          )
+            r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries')
           ..add('G__typename', G__typename)
           ..add('quantity', quantity))
         .toString();
@@ -1252,10 +992,8 @@ class _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
 
 class GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder
     implements
-        Builder<
-          GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
-          GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder
-        > {
+        Builder<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries,
+            GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder> {
   _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries? _$v;
 
   String? _G__typename;
@@ -1267,9 +1005,8 @@ class GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder
   set quantity(int? quantity) => _$this._quantity = quantity;
 
   GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder() {
-    GListUserPurchaseOrdersData_listAllPurchaseOrders_entries._initializeBuilder(
-      this,
-    );
+    GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
+        ._initializeBuilder(this);
   }
 
   GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder get _$this {
@@ -1284,19 +1021,15 @@ class GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder
 
   @override
   void replace(
-    GListUserPurchaseOrdersData_listAllPurchaseOrders_entries other,
-  ) {
-    ArgumentError.checkNotNull(other, 'other');
+      GListUserPurchaseOrdersData_listAllPurchaseOrders_entries other) {
     _$v = other as _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries;
   }
 
   @override
   void update(
-    void Function(
-      GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder,
-    )?
-    updates,
-  ) {
+      void Function(
+              GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder)?
+          updates) {
     if (updates != null) updates(this);
   }
 
@@ -1304,19 +1037,16 @@ class GListUserPurchaseOrdersData_listAllPurchaseOrders_entriesBuilder
   GListUserPurchaseOrdersData_listAllPurchaseOrders_entries build() => _build();
 
   _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries _build() {
-    final _$result =
-        _$v ??
-        new _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries._(
+    final _$result = _$v ??
+        _$GListUserPurchaseOrdersData_listAllPurchaseOrders_entries._(
           G__typename: BuiltValueNullFieldError.checkNotNull(
-            G__typename,
-            r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries',
-            'G__typename',
-          ),
+              G__typename,
+              r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries',
+              'G__typename'),
           quantity: BuiltValueNullFieldError.checkNotNull(
-            quantity,
-            r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries',
-            'quantity',
-          ),
+              quantity,
+              r'GListUserPurchaseOrdersData_listAllPurchaseOrders_entries',
+              'quantity'),
         );
     replace(_$result);
     return _$result;
@@ -1329,34 +1059,21 @@ class _$GListAllProductsData extends GListAllProductsData {
   @override
   final BuiltList<GListAllProductsData_listAllProducts> listAllProducts;
 
-  factory _$GListAllProductsData([
-    void Function(GListAllProductsDataBuilder)? updates,
-  ]) => (new GListAllProductsDataBuilder()..update(updates))._build();
+  factory _$GListAllProductsData(
+          [void Function(GListAllProductsDataBuilder)? updates]) =>
+      (GListAllProductsDataBuilder()..update(updates))._build();
 
-  _$GListAllProductsData._({
-    required this.G__typename,
-    required this.listAllProducts,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      G__typename,
-      r'GListAllProductsData',
-      'G__typename',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      listAllProducts,
-      r'GListAllProductsData',
-      'listAllProducts',
-    );
-  }
-
+  _$GListAllProductsData._(
+      {required this.G__typename, required this.listAllProducts})
+      : super._();
   @override
   GListAllProductsData rebuild(
-    void Function(GListAllProductsDataBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListAllProductsDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListAllProductsDataBuilder toBuilder() =>
-      new GListAllProductsDataBuilder()..replace(this);
+      GListAllProductsDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1395,10 +1112,10 @@ class GListAllProductsDataBuilder
   ListBuilder<GListAllProductsData_listAllProducts>? _listAllProducts;
   ListBuilder<GListAllProductsData_listAllProducts> get listAllProducts =>
       _$this._listAllProducts ??=
-          new ListBuilder<GListAllProductsData_listAllProducts>();
+          ListBuilder<GListAllProductsData_listAllProducts>();
   set listAllProducts(
-    ListBuilder<GListAllProductsData_listAllProducts>? listAllProducts,
-  ) => _$this._listAllProducts = listAllProducts;
+          ListBuilder<GListAllProductsData_listAllProducts>? listAllProducts) =>
+      _$this._listAllProducts = listAllProducts;
 
   GListAllProductsDataBuilder() {
     GListAllProductsData._initializeBuilder(this);
@@ -1416,7 +1133,6 @@ class GListAllProductsDataBuilder
 
   @override
   void replace(GListAllProductsData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListAllProductsData;
   }
 
@@ -1431,14 +1147,10 @@ class GListAllProductsDataBuilder
   _$GListAllProductsData _build() {
     _$GListAllProductsData _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GListAllProductsData._(
+      _$result = _$v ??
+          _$GListAllProductsData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GListAllProductsData',
-              'G__typename',
-            ),
+                G__typename, r'GListAllProductsData', 'G__typename'),
             listAllProducts: listAllProducts.build(),
           );
     } catch (_) {
@@ -1447,11 +1159,8 @@ class GListAllProductsDataBuilder
         _$failedField = 'listAllProducts';
         listAllProducts.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GListAllProductsData',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GListAllProductsData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1469,42 +1178,22 @@ class _$GListAllProductsData_listAllProducts
   @override
   final String name;
 
-  factory _$GListAllProductsData_listAllProducts([
-    void Function(GListAllProductsData_listAllProductsBuilder)? updates,
-  ]) =>
-      (new GListAllProductsData_listAllProductsBuilder()..update(updates))
-          ._build();
+  factory _$GListAllProductsData_listAllProducts(
+          [void Function(GListAllProductsData_listAllProductsBuilder)?
+              updates]) =>
+      (GListAllProductsData_listAllProductsBuilder()..update(updates))._build();
 
-  _$GListAllProductsData_listAllProducts._({
-    required this.G__typename,
-    required this.id,
-    required this.name,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      G__typename,
-      r'GListAllProductsData_listAllProducts',
-      'G__typename',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      id,
-      r'GListAllProductsData_listAllProducts',
-      'id',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      name,
-      r'GListAllProductsData_listAllProducts',
-      'name',
-    );
-  }
-
+  _$GListAllProductsData_listAllProducts._(
+      {required this.G__typename, required this.id, required this.name})
+      : super._();
   @override
   GListAllProductsData_listAllProducts rebuild(
-    void Function(GListAllProductsData_listAllProductsBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GListAllProductsData_listAllProductsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GListAllProductsData_listAllProductsBuilder toBuilder() =>
-      new GListAllProductsData_listAllProductsBuilder()..replace(this);
+      GListAllProductsData_listAllProductsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1537,10 +1226,8 @@ class _$GListAllProductsData_listAllProducts
 
 class GListAllProductsData_listAllProductsBuilder
     implements
-        Builder<
-          GListAllProductsData_listAllProducts,
-          GListAllProductsData_listAllProductsBuilder
-        > {
+        Builder<GListAllProductsData_listAllProducts,
+            GListAllProductsData_listAllProductsBuilder> {
   _$GListAllProductsData_listAllProducts? _$v;
 
   String? _G__typename;
@@ -1572,14 +1259,12 @@ class GListAllProductsData_listAllProductsBuilder
 
   @override
   void replace(GListAllProductsData_listAllProducts other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GListAllProductsData_listAllProducts;
   }
 
   @override
   void update(
-    void Function(GListAllProductsData_listAllProductsBuilder)? updates,
-  ) {
+      void Function(GListAllProductsData_listAllProductsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -1587,24 +1272,14 @@ class GListAllProductsData_listAllProductsBuilder
   GListAllProductsData_listAllProducts build() => _build();
 
   _$GListAllProductsData_listAllProducts _build() {
-    final _$result =
-        _$v ??
-        new _$GListAllProductsData_listAllProducts._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(
-            G__typename,
-            r'GListAllProductsData_listAllProducts',
-            'G__typename',
-          ),
+    final _$result = _$v ??
+        _$GListAllProductsData_listAllProducts._(
+          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+              r'GListAllProductsData_listAllProducts', 'G__typename'),
           id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GListAllProductsData_listAllProducts',
-            'id',
-          ),
+              id, r'GListAllProductsData_listAllProducts', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(
-            name,
-            r'GListAllProductsData_listAllProducts',
-            'name',
-          ),
+              name, r'GListAllProductsData_listAllProducts', 'name'),
         );
     replace(_$result);
     return _$result;

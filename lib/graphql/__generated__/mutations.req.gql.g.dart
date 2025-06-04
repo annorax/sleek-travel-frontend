@@ -7,21 +7,21 @@ part of 'mutations.req.gql.dart';
 // **************************************************************************
 
 Serializer<GValidateTokenReq> _$gValidateTokenReqSerializer =
-    new _$GValidateTokenReqSerializer();
+    _$GValidateTokenReqSerializer();
 Serializer<GLogInUserReq> _$gLogInUserReqSerializer =
-    new _$GLogInUserReqSerializer();
+    _$GLogInUserReqSerializer();
 Serializer<GLogOutUserReq> _$gLogOutUserReqSerializer =
-    new _$GLogOutUserReqSerializer();
+    _$GLogOutUserReqSerializer();
 Serializer<GCreateProductReq> _$gCreateProductReqSerializer =
-    new _$GCreateProductReqSerializer();
+    _$GCreateProductReqSerializer();
 Serializer<GUpdateProductReq> _$gUpdateProductReqSerializer =
-    new _$GUpdateProductReqSerializer();
+    _$GUpdateProductReqSerializer();
 Serializer<GDeleteProductReq> _$gDeleteProductReqSerializer =
-    new _$GDeleteProductReqSerializer();
+    _$GDeleteProductReqSerializer();
 Serializer<GDeleteItemReq> _$gDeleteItemReqSerializer =
-    new _$GDeleteItemReqSerializer();
+    _$GDeleteItemReqSerializer();
 Serializer<GDeletePurchaseOrderReq> _$gDeletePurchaseOrderReqSerializer =
-    new _$GDeletePurchaseOrderReqSerializer();
+    _$GDeletePurchaseOrderReqSerializer();
 
 class _$GValidateTokenReqSerializer
     implements StructuredSerializer<GValidateTokenReq> {
@@ -31,91 +31,64 @@ class _$GValidateTokenReqSerializer
   final String wireName = 'GValidateTokenReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GValidateTokenReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GValidateTokenReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GValidateTokenVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GValidateTokenVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GValidateTokenData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GValidateTokenData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GValidateTokenReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GValidateTokenReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GValidateTokenReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -124,73 +97,42 @@ class _$GValidateTokenReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GValidateTokenVars),
-                )!
-                as _i3.GValidateTokenVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GValidateTokenVars))!
+              as _i3.GValidateTokenVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GValidateTokenData),
-                )!
-                as _i2.GValidateTokenData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GValidateTokenData))!
+              as _i2.GValidateTokenData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -206,91 +148,64 @@ class _$GLogInUserReqSerializer implements StructuredSerializer<GLogInUserReq> {
   final String wireName = 'GLogInUserReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GLogInUserReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GLogInUserReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GLogInUserVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GLogInUserVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GLogInUserData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GLogInUserData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GLogInUserReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GLogInUserReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GLogInUserReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -299,73 +214,42 @@ class _$GLogInUserReqSerializer implements StructuredSerializer<GLogInUserReq> {
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GLogInUserVars),
-                )!
-                as _i3.GLogInUserVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GLogInUserVars))!
+              as _i3.GLogInUserVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GLogInUserData),
-                )!
-                as _i2.GLogInUserData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GLogInUserData))!
+              as _i2.GLogInUserData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -382,91 +266,64 @@ class _$GLogOutUserReqSerializer
   final String wireName = 'GLogOutUserReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GLogOutUserReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GLogOutUserReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GLogOutUserVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GLogOutUserVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GLogOutUserData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GLogOutUserData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GLogOutUserReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GLogOutUserReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GLogOutUserReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -475,73 +332,42 @@ class _$GLogOutUserReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GLogOutUserVars),
-                )!
-                as _i3.GLogOutUserVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GLogOutUserVars))!
+              as _i3.GLogOutUserVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GLogOutUserData),
-                )!
-                as _i2.GLogOutUserData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GLogOutUserData))!
+              as _i2.GLogOutUserData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -558,91 +384,64 @@ class _$GCreateProductReqSerializer
   final String wireName = 'GCreateProductReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GCreateProductReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GCreateProductReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GCreateProductVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GCreateProductVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GCreateProductData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GCreateProductData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GCreateProductReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GCreateProductReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GCreateProductReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -651,73 +450,42 @@ class _$GCreateProductReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GCreateProductVars),
-                )!
-                as _i3.GCreateProductVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GCreateProductVars))!
+              as _i3.GCreateProductVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GCreateProductData),
-                )!
-                as _i2.GCreateProductData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GCreateProductData))!
+              as _i2.GCreateProductData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -734,91 +502,64 @@ class _$GUpdateProductReqSerializer
   final String wireName = 'GUpdateProductReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GUpdateProductReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GUpdateProductReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GUpdateProductVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GUpdateProductVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GUpdateProductData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GUpdateProductData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GUpdateProductReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GUpdateProductReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GUpdateProductReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -827,73 +568,42 @@ class _$GUpdateProductReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GUpdateProductVars),
-                )!
-                as _i3.GUpdateProductVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GUpdateProductVars))!
+              as _i3.GUpdateProductVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GUpdateProductData),
-                )!
-                as _i2.GUpdateProductData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GUpdateProductData))!
+              as _i2.GUpdateProductData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -910,91 +620,64 @@ class _$GDeleteProductReqSerializer
   final String wireName = 'GDeleteProductReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeleteProductReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GDeleteProductReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GDeleteProductVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GDeleteProductVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GDeleteProductData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GDeleteProductData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GDeleteProductReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GDeleteProductReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GDeleteProductReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1003,73 +686,42 @@ class _$GDeleteProductReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GDeleteProductVars),
-                )!
-                as _i3.GDeleteProductVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GDeleteProductVars))!
+              as _i3.GDeleteProductVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GDeleteProductData),
-                )!
-                as _i2.GDeleteProductData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GDeleteProductData))!
+              as _i2.GDeleteProductData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -1086,91 +738,64 @@ class _$GDeleteItemReqSerializer
   final String wireName = 'GDeleteItemReq';
 
   @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeleteItemReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Iterable<Object?> serialize(Serializers serializers, GDeleteItemReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GDeleteItemVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GDeleteItemVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GDeleteItemData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GDeleteItemData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GDeleteItemReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GDeleteItemReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GDeleteItemReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1179,73 +804,42 @@ class _$GDeleteItemReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GDeleteItemVars),
-                )!
-                as _i3.GDeleteItemVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GDeleteItemVars))!
+              as _i3.GDeleteItemVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GDeleteItemData),
-                )!
-                as _i2.GDeleteItemData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GDeleteItemData))!
+              as _i2.GDeleteItemData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -1259,97 +853,71 @@ class _$GDeletePurchaseOrderReqSerializer
   @override
   final Iterable<Type> types = const [
     GDeletePurchaseOrderReq,
-    _$GDeletePurchaseOrderReq,
+    _$GDeletePurchaseOrderReq
   ];
   @override
   final String wireName = 'GDeletePurchaseOrderReq';
 
   @override
   Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeletePurchaseOrderReq object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+      Serializers serializers, GDeletePurchaseOrderReq object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
-      serializers.serialize(
-        object.vars,
-        specifiedType: const FullType(_i3.GDeletePurchaseOrderVars),
-      ),
+      serializers.serialize(object.vars,
+          specifiedType: const FullType(_i3.GDeletePurchaseOrderVars)),
       'operation',
-      serializers.serialize(
-        object.operation,
-        specifiedType: const FullType(_i4.Operation),
-      ),
+      serializers.serialize(object.operation,
+          specifiedType: const FullType(_i4.Operation)),
       'executeOnListen',
-      serializers.serialize(
-        object.executeOnListen,
-        specifiedType: const FullType(bool),
-      ),
+      serializers.serialize(object.executeOnListen,
+          specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.requestId;
     if (value != null) {
       result
         ..add('requestId')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.optimisticResponse;
     if (value != null) {
       result
         ..add('optimisticResponse')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i2.GDeletePurchaseOrderData),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GDeletePurchaseOrderData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
       result
         ..add('updateCacheHandlerKey')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.updateCacheHandlerContext;
     if (value != null) {
       result
         ..add('updateCacheHandlerContext')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(Map, const [
-              const FullType(String),
-              const FullType(dynamic),
-            ]),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                Map, const [const FullType(String), const FullType(dynamic)])));
     }
     value = object.fetchPolicy;
     if (value != null) {
       result
         ..add('fetchPolicy')
-        ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.FetchPolicy),
-          ),
-        );
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.FetchPolicy)));
     }
     return result;
   }
 
   @override
   GDeletePurchaseOrderReq deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = new GDeletePurchaseOrderReqBuilder();
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GDeletePurchaseOrderReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1358,73 +926,42 @@ class _$GDeletePurchaseOrderReqSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'vars':
-          result.vars.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i3.GDeletePurchaseOrderVars),
-                )!
-                as _i3.GDeletePurchaseOrderVars,
-          );
+          result.vars.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i3.GDeletePurchaseOrderVars))!
+              as _i3.GDeletePurchaseOrderVars);
           break;
         case 'operation':
-          result.operation =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i4.Operation),
-                  )!
-                  as _i4.Operation;
+          result.operation = serializers.deserialize(value,
+              specifiedType: const FullType(_i4.Operation))! as _i4.Operation;
           break;
         case 'requestId':
-          result.requestId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.requestId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'optimisticResponse':
-          result.optimisticResponse.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i2.GDeletePurchaseOrderData),
-                )!
-                as _i2.GDeletePurchaseOrderData,
-          );
+          result.optimisticResponse.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GDeletePurchaseOrderData))!
+              as _i2.GDeletePurchaseOrderData);
           break;
         case 'updateCacheHandlerKey':
-          result.updateCacheHandlerKey =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(String),
-                  )
-                  as String?;
+          result.updateCacheHandlerKey = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'updateCacheHandlerContext':
-          result.updateCacheHandlerContext =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(Map, const [
-                      const FullType(String),
-                      const FullType(dynamic),
-                    ]),
-                  )
-                  as Map<String, dynamic>?;
+          result.updateCacheHandlerContext = serializers.deserialize(value,
+              specifiedType: const FullType(Map, const [
+                const FullType(String),
+                const FullType(dynamic)
+              ])) as Map<String, dynamic>?;
           break;
         case 'fetchPolicy':
-          result.fetchPolicy =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(_i1.FetchPolicy),
-                  )
-                  as _i1.FetchPolicy?;
+          result.fetchPolicy = serializers.deserialize(value,
+                  specifiedType: const FullType(_i1.FetchPolicy))
+              as _i1.FetchPolicy?;
           break;
         case 'executeOnListen':
-          result.executeOnListen =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(bool),
-                  )!
-                  as bool;
+          result.executeOnListen = serializers.deserialize(value,
+              specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -1442,10 +979,7 @@ class _$GValidateTokenReq extends GValidateTokenReq {
   final String? requestId;
   @override
   final _i2.GValidateTokenData? Function(
-    _i2.GValidateTokenData?,
-    _i2.GValidateTokenData?,
-  )?
-  updateResult;
+      _i2.GValidateTokenData?, _i2.GValidateTokenData?)? updateResult;
   @override
   final _i2.GValidateTokenData? optimisticResponse;
   @override
@@ -1459,42 +993,29 @@ class _$GValidateTokenReq extends GValidateTokenReq {
   @override
   final _i4.Context? context;
 
-  factory _$GValidateTokenReq([
-    void Function(GValidateTokenReqBuilder)? updates,
-  ]) => (new GValidateTokenReqBuilder()..update(updates))._build();
+  factory _$GValidateTokenReq(
+          [void Function(GValidateTokenReqBuilder)? updates]) =>
+      (GValidateTokenReqBuilder()..update(updates))._build();
 
-  _$GValidateTokenReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GValidateTokenReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GValidateTokenReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GValidateTokenReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GValidateTokenReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GValidateTokenReq rebuild(void Function(GValidateTokenReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   GValidateTokenReqBuilder toBuilder() =>
-      new GValidateTokenReqBuilder()..replace(this);
+      GValidateTokenReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1553,7 +1074,7 @@ class GValidateTokenReqBuilder
 
   _i3.GValidateTokenVarsBuilder? _vars;
   _i3.GValidateTokenVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GValidateTokenVarsBuilder();
+      _$this._vars ??= _i3.GValidateTokenVarsBuilder();
   set vars(_i3.GValidateTokenVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -1565,26 +1086,19 @@ class GValidateTokenReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GValidateTokenData? Function(
-    _i2.GValidateTokenData?,
-    _i2.GValidateTokenData?,
-  )?
-  _updateResult;
+      _i2.GValidateTokenData?, _i2.GValidateTokenData?)? _updateResult;
   _i2.GValidateTokenData? Function(
-    _i2.GValidateTokenData?,
-    _i2.GValidateTokenData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GValidateTokenData?, _i2.GValidateTokenData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GValidateTokenData? Function(
-      _i2.GValidateTokenData?,
-      _i2.GValidateTokenData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GValidateTokenData? Function(
+                  _i2.GValidateTokenData?, _i2.GValidateTokenData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GValidateTokenDataBuilder? _optimisticResponse;
   _i2.GValidateTokenDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GValidateTokenDataBuilder();
+      _$this._optimisticResponse ??= _i2.GValidateTokenDataBuilder();
   set optimisticResponse(_i2.GValidateTokenDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -1597,8 +1111,8 @@ class GValidateTokenReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -1638,7 +1152,6 @@ class GValidateTokenReqBuilder
 
   @override
   void replace(GValidateTokenReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GValidateTokenReq;
   }
 
@@ -1653,15 +1166,11 @@ class GValidateTokenReqBuilder
   _$GValidateTokenReq _build() {
     _$GValidateTokenReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GValidateTokenReq._(
+      _$result = _$v ??
+          _$GValidateTokenReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GValidateTokenReq',
-              'operation',
-            ),
+                operation, r'GValidateTokenReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -1669,10 +1178,7 @@ class GValidateTokenReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GValidateTokenReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GValidateTokenReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -1684,11 +1190,8 @@ class GValidateTokenReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GValidateTokenReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GValidateTokenReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1706,7 +1209,7 @@ class _$GLogInUserReq extends GLogInUserReq {
   final String? requestId;
   @override
   final _i2.GLogInUserData? Function(_i2.GLogInUserData?, _i2.GLogInUserData?)?
-  updateResult;
+      updateResult;
   @override
   final _i2.GLogInUserData? optimisticResponse;
   @override
@@ -1721,39 +1224,26 @@ class _$GLogInUserReq extends GLogInUserReq {
   final _i4.Context? context;
 
   factory _$GLogInUserReq([void Function(GLogInUserReqBuilder)? updates]) =>
-      (new GLogInUserReqBuilder()..update(updates))._build();
+      (GLogInUserReqBuilder()..update(updates))._build();
 
-  _$GLogInUserReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GLogInUserReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GLogInUserReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GLogInUserReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GLogInUserReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GLogInUserReq rebuild(void Function(GLogInUserReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GLogInUserReqBuilder toBuilder() => new GLogInUserReqBuilder()..replace(this);
+  GLogInUserReqBuilder toBuilder() => GLogInUserReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1812,7 +1302,7 @@ class GLogInUserReqBuilder
 
   _i3.GLogInUserVarsBuilder? _vars;
   _i3.GLogInUserVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GLogInUserVarsBuilder();
+      _$this._vars ??= _i3.GLogInUserVarsBuilder();
   set vars(_i3.GLogInUserVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -1824,17 +1314,18 @@ class GLogInUserReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GLogInUserData? Function(_i2.GLogInUserData?, _i2.GLogInUserData?)?
-  _updateResult;
+      _updateResult;
   _i2.GLogInUserData? Function(_i2.GLogInUserData?, _i2.GLogInUserData?)?
-  get updateResult => _$this._updateResult;
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GLogInUserData? Function(_i2.GLogInUserData?, _i2.GLogInUserData?)?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GLogInUserData? Function(
+                  _i2.GLogInUserData?, _i2.GLogInUserData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GLogInUserDataBuilder? _optimisticResponse;
   _i2.GLogInUserDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GLogInUserDataBuilder();
+      _$this._optimisticResponse ??= _i2.GLogInUserDataBuilder();
   set optimisticResponse(_i2.GLogInUserDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -1847,8 +1338,8 @@ class GLogInUserReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -1888,7 +1379,6 @@ class GLogInUserReqBuilder
 
   @override
   void replace(GLogInUserReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GLogInUserReq;
   }
 
@@ -1903,15 +1393,11 @@ class GLogInUserReqBuilder
   _$GLogInUserReq _build() {
     _$GLogInUserReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GLogInUserReq._(
+      _$result = _$v ??
+          _$GLogInUserReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GLogInUserReq',
-              'operation',
-            ),
+                operation, r'GLogInUserReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -1919,10 +1405,7 @@ class GLogInUserReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GLogInUserReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GLogInUserReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -1934,11 +1417,8 @@ class GLogInUserReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GLogInUserReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GLogInUserReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -1956,10 +1436,7 @@ class _$GLogOutUserReq extends GLogOutUserReq {
   final String? requestId;
   @override
   final _i2.GLogOutUserData? Function(
-    _i2.GLogOutUserData?,
-    _i2.GLogOutUserData?,
-  )?
-  updateResult;
+      _i2.GLogOutUserData?, _i2.GLogOutUserData?)? updateResult;
   @override
   final _i2.GLogOutUserData? optimisticResponse;
   @override
@@ -1974,40 +1451,26 @@ class _$GLogOutUserReq extends GLogOutUserReq {
   final _i4.Context? context;
 
   factory _$GLogOutUserReq([void Function(GLogOutUserReqBuilder)? updates]) =>
-      (new GLogOutUserReqBuilder()..update(updates))._build();
+      (GLogOutUserReqBuilder()..update(updates))._build();
 
-  _$GLogOutUserReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GLogOutUserReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GLogOutUserReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GLogOutUserReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GLogOutUserReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GLogOutUserReq rebuild(void Function(GLogOutUserReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GLogOutUserReqBuilder toBuilder() =>
-      new GLogOutUserReqBuilder()..replace(this);
+  GLogOutUserReqBuilder toBuilder() => GLogOutUserReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2066,7 +1529,7 @@ class GLogOutUserReqBuilder
 
   _i3.GLogOutUserVarsBuilder? _vars;
   _i3.GLogOutUserVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GLogOutUserVarsBuilder();
+      _$this._vars ??= _i3.GLogOutUserVarsBuilder();
   set vars(_i3.GLogOutUserVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -2078,17 +1541,18 @@ class GLogOutUserReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GLogOutUserData? Function(_i2.GLogOutUserData?, _i2.GLogOutUserData?)?
-  _updateResult;
+      _updateResult;
   _i2.GLogOutUserData? Function(_i2.GLogOutUserData?, _i2.GLogOutUserData?)?
-  get updateResult => _$this._updateResult;
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GLogOutUserData? Function(_i2.GLogOutUserData?, _i2.GLogOutUserData?)?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GLogOutUserData? Function(
+                  _i2.GLogOutUserData?, _i2.GLogOutUserData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GLogOutUserDataBuilder? _optimisticResponse;
   _i2.GLogOutUserDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GLogOutUserDataBuilder();
+      _$this._optimisticResponse ??= _i2.GLogOutUserDataBuilder();
   set optimisticResponse(_i2.GLogOutUserDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -2101,8 +1565,8 @@ class GLogOutUserReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -2142,7 +1606,6 @@ class GLogOutUserReqBuilder
 
   @override
   void replace(GLogOutUserReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GLogOutUserReq;
   }
 
@@ -2157,15 +1620,11 @@ class GLogOutUserReqBuilder
   _$GLogOutUserReq _build() {
     _$GLogOutUserReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GLogOutUserReq._(
+      _$result = _$v ??
+          _$GLogOutUserReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GLogOutUserReq',
-              'operation',
-            ),
+                operation, r'GLogOutUserReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -2173,10 +1632,7 @@ class GLogOutUserReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GLogOutUserReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GLogOutUserReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -2188,11 +1644,8 @@ class GLogOutUserReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GLogOutUserReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GLogOutUserReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2210,10 +1663,7 @@ class _$GCreateProductReq extends GCreateProductReq {
   final String? requestId;
   @override
   final _i2.GCreateProductData? Function(
-    _i2.GCreateProductData?,
-    _i2.GCreateProductData?,
-  )?
-  updateResult;
+      _i2.GCreateProductData?, _i2.GCreateProductData?)? updateResult;
   @override
   final _i2.GCreateProductData? optimisticResponse;
   @override
@@ -2227,42 +1677,29 @@ class _$GCreateProductReq extends GCreateProductReq {
   @override
   final _i4.Context? context;
 
-  factory _$GCreateProductReq([
-    void Function(GCreateProductReqBuilder)? updates,
-  ]) => (new GCreateProductReqBuilder()..update(updates))._build();
+  factory _$GCreateProductReq(
+          [void Function(GCreateProductReqBuilder)? updates]) =>
+      (GCreateProductReqBuilder()..update(updates))._build();
 
-  _$GCreateProductReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GCreateProductReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GCreateProductReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GCreateProductReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GCreateProductReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GCreateProductReq rebuild(void Function(GCreateProductReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   GCreateProductReqBuilder toBuilder() =>
-      new GCreateProductReqBuilder()..replace(this);
+      GCreateProductReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2321,7 +1758,7 @@ class GCreateProductReqBuilder
 
   _i3.GCreateProductVarsBuilder? _vars;
   _i3.GCreateProductVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GCreateProductVarsBuilder();
+      _$this._vars ??= _i3.GCreateProductVarsBuilder();
   set vars(_i3.GCreateProductVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -2333,26 +1770,19 @@ class GCreateProductReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GCreateProductData? Function(
-    _i2.GCreateProductData?,
-    _i2.GCreateProductData?,
-  )?
-  _updateResult;
+      _i2.GCreateProductData?, _i2.GCreateProductData?)? _updateResult;
   _i2.GCreateProductData? Function(
-    _i2.GCreateProductData?,
-    _i2.GCreateProductData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GCreateProductData?, _i2.GCreateProductData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GCreateProductData? Function(
-      _i2.GCreateProductData?,
-      _i2.GCreateProductData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GCreateProductData? Function(
+                  _i2.GCreateProductData?, _i2.GCreateProductData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GCreateProductDataBuilder? _optimisticResponse;
   _i2.GCreateProductDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GCreateProductDataBuilder();
+      _$this._optimisticResponse ??= _i2.GCreateProductDataBuilder();
   set optimisticResponse(_i2.GCreateProductDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -2365,8 +1795,8 @@ class GCreateProductReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -2406,7 +1836,6 @@ class GCreateProductReqBuilder
 
   @override
   void replace(GCreateProductReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GCreateProductReq;
   }
 
@@ -2421,15 +1850,11 @@ class GCreateProductReqBuilder
   _$GCreateProductReq _build() {
     _$GCreateProductReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GCreateProductReq._(
+      _$result = _$v ??
+          _$GCreateProductReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GCreateProductReq',
-              'operation',
-            ),
+                operation, r'GCreateProductReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -2437,10 +1862,7 @@ class GCreateProductReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GCreateProductReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GCreateProductReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -2452,11 +1874,8 @@ class GCreateProductReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GCreateProductReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GCreateProductReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2474,10 +1893,7 @@ class _$GUpdateProductReq extends GUpdateProductReq {
   final String? requestId;
   @override
   final _i2.GUpdateProductData? Function(
-    _i2.GUpdateProductData?,
-    _i2.GUpdateProductData?,
-  )?
-  updateResult;
+      _i2.GUpdateProductData?, _i2.GUpdateProductData?)? updateResult;
   @override
   final _i2.GUpdateProductData? optimisticResponse;
   @override
@@ -2491,42 +1907,29 @@ class _$GUpdateProductReq extends GUpdateProductReq {
   @override
   final _i4.Context? context;
 
-  factory _$GUpdateProductReq([
-    void Function(GUpdateProductReqBuilder)? updates,
-  ]) => (new GUpdateProductReqBuilder()..update(updates))._build();
+  factory _$GUpdateProductReq(
+          [void Function(GUpdateProductReqBuilder)? updates]) =>
+      (GUpdateProductReqBuilder()..update(updates))._build();
 
-  _$GUpdateProductReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GUpdateProductReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GUpdateProductReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GUpdateProductReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GUpdateProductReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GUpdateProductReq rebuild(void Function(GUpdateProductReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   GUpdateProductReqBuilder toBuilder() =>
-      new GUpdateProductReqBuilder()..replace(this);
+      GUpdateProductReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2585,7 +1988,7 @@ class GUpdateProductReqBuilder
 
   _i3.GUpdateProductVarsBuilder? _vars;
   _i3.GUpdateProductVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GUpdateProductVarsBuilder();
+      _$this._vars ??= _i3.GUpdateProductVarsBuilder();
   set vars(_i3.GUpdateProductVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -2597,26 +2000,19 @@ class GUpdateProductReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GUpdateProductData? Function(
-    _i2.GUpdateProductData?,
-    _i2.GUpdateProductData?,
-  )?
-  _updateResult;
+      _i2.GUpdateProductData?, _i2.GUpdateProductData?)? _updateResult;
   _i2.GUpdateProductData? Function(
-    _i2.GUpdateProductData?,
-    _i2.GUpdateProductData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GUpdateProductData?, _i2.GUpdateProductData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GUpdateProductData? Function(
-      _i2.GUpdateProductData?,
-      _i2.GUpdateProductData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GUpdateProductData? Function(
+                  _i2.GUpdateProductData?, _i2.GUpdateProductData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GUpdateProductDataBuilder? _optimisticResponse;
   _i2.GUpdateProductDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GUpdateProductDataBuilder();
+      _$this._optimisticResponse ??= _i2.GUpdateProductDataBuilder();
   set optimisticResponse(_i2.GUpdateProductDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -2629,8 +2025,8 @@ class GUpdateProductReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -2670,7 +2066,6 @@ class GUpdateProductReqBuilder
 
   @override
   void replace(GUpdateProductReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GUpdateProductReq;
   }
 
@@ -2685,15 +2080,11 @@ class GUpdateProductReqBuilder
   _$GUpdateProductReq _build() {
     _$GUpdateProductReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GUpdateProductReq._(
+      _$result = _$v ??
+          _$GUpdateProductReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GUpdateProductReq',
-              'operation',
-            ),
+                operation, r'GUpdateProductReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -2701,10 +2092,7 @@ class GUpdateProductReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GUpdateProductReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GUpdateProductReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -2716,11 +2104,8 @@ class GUpdateProductReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GUpdateProductReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GUpdateProductReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2738,10 +2123,7 @@ class _$GDeleteProductReq extends GDeleteProductReq {
   final String? requestId;
   @override
   final _i2.GDeleteProductData? Function(
-    _i2.GDeleteProductData?,
-    _i2.GDeleteProductData?,
-  )?
-  updateResult;
+      _i2.GDeleteProductData?, _i2.GDeleteProductData?)? updateResult;
   @override
   final _i2.GDeleteProductData? optimisticResponse;
   @override
@@ -2755,42 +2137,29 @@ class _$GDeleteProductReq extends GDeleteProductReq {
   @override
   final _i4.Context? context;
 
-  factory _$GDeleteProductReq([
-    void Function(GDeleteProductReqBuilder)? updates,
-  ]) => (new GDeleteProductReqBuilder()..update(updates))._build();
+  factory _$GDeleteProductReq(
+          [void Function(GDeleteProductReqBuilder)? updates]) =>
+      (GDeleteProductReqBuilder()..update(updates))._build();
 
-  _$GDeleteProductReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GDeleteProductReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GDeleteProductReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GDeleteProductReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GDeleteProductReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GDeleteProductReq rebuild(void Function(GDeleteProductReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   GDeleteProductReqBuilder toBuilder() =>
-      new GDeleteProductReqBuilder()..replace(this);
+      GDeleteProductReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -2849,7 +2218,7 @@ class GDeleteProductReqBuilder
 
   _i3.GDeleteProductVarsBuilder? _vars;
   _i3.GDeleteProductVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GDeleteProductVarsBuilder();
+      _$this._vars ??= _i3.GDeleteProductVarsBuilder();
   set vars(_i3.GDeleteProductVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -2861,26 +2230,19 @@ class GDeleteProductReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GDeleteProductData? Function(
-    _i2.GDeleteProductData?,
-    _i2.GDeleteProductData?,
-  )?
-  _updateResult;
+      _i2.GDeleteProductData?, _i2.GDeleteProductData?)? _updateResult;
   _i2.GDeleteProductData? Function(
-    _i2.GDeleteProductData?,
-    _i2.GDeleteProductData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GDeleteProductData?, _i2.GDeleteProductData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GDeleteProductData? Function(
-      _i2.GDeleteProductData?,
-      _i2.GDeleteProductData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GDeleteProductData? Function(
+                  _i2.GDeleteProductData?, _i2.GDeleteProductData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GDeleteProductDataBuilder? _optimisticResponse;
   _i2.GDeleteProductDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GDeleteProductDataBuilder();
+      _$this._optimisticResponse ??= _i2.GDeleteProductDataBuilder();
   set optimisticResponse(_i2.GDeleteProductDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -2893,8 +2255,8 @@ class GDeleteProductReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -2934,7 +2296,6 @@ class GDeleteProductReqBuilder
 
   @override
   void replace(GDeleteProductReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GDeleteProductReq;
   }
 
@@ -2949,15 +2310,11 @@ class GDeleteProductReqBuilder
   _$GDeleteProductReq _build() {
     _$GDeleteProductReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GDeleteProductReq._(
+      _$result = _$v ??
+          _$GDeleteProductReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GDeleteProductReq',
-              'operation',
-            ),
+                operation, r'GDeleteProductReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -2965,10 +2322,7 @@ class GDeleteProductReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GDeleteProductReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GDeleteProductReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -2980,11 +2334,8 @@ class GDeleteProductReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GDeleteProductReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GDeleteProductReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3002,10 +2353,7 @@ class _$GDeleteItemReq extends GDeleteItemReq {
   final String? requestId;
   @override
   final _i2.GDeleteItemData? Function(
-    _i2.GDeleteItemData?,
-    _i2.GDeleteItemData?,
-  )?
-  updateResult;
+      _i2.GDeleteItemData?, _i2.GDeleteItemData?)? updateResult;
   @override
   final _i2.GDeleteItemData? optimisticResponse;
   @override
@@ -3020,40 +2368,26 @@ class _$GDeleteItemReq extends GDeleteItemReq {
   final _i4.Context? context;
 
   factory _$GDeleteItemReq([void Function(GDeleteItemReqBuilder)? updates]) =>
-      (new GDeleteItemReqBuilder()..update(updates))._build();
+      (GDeleteItemReqBuilder()..update(updates))._build();
 
-  _$GDeleteItemReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GDeleteItemReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GDeleteItemReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GDeleteItemReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GDeleteItemReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GDeleteItemReq rebuild(void Function(GDeleteItemReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GDeleteItemReqBuilder toBuilder() =>
-      new GDeleteItemReqBuilder()..replace(this);
+  GDeleteItemReqBuilder toBuilder() => GDeleteItemReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3112,7 +2446,7 @@ class GDeleteItemReqBuilder
 
   _i3.GDeleteItemVarsBuilder? _vars;
   _i3.GDeleteItemVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GDeleteItemVarsBuilder();
+      _$this._vars ??= _i3.GDeleteItemVarsBuilder();
   set vars(_i3.GDeleteItemVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -3124,17 +2458,18 @@ class GDeleteItemReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GDeleteItemData? Function(_i2.GDeleteItemData?, _i2.GDeleteItemData?)?
-  _updateResult;
+      _updateResult;
   _i2.GDeleteItemData? Function(_i2.GDeleteItemData?, _i2.GDeleteItemData?)?
-  get updateResult => _$this._updateResult;
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GDeleteItemData? Function(_i2.GDeleteItemData?, _i2.GDeleteItemData?)?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GDeleteItemData? Function(
+                  _i2.GDeleteItemData?, _i2.GDeleteItemData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GDeleteItemDataBuilder? _optimisticResponse;
   _i2.GDeleteItemDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GDeleteItemDataBuilder();
+      _$this._optimisticResponse ??= _i2.GDeleteItemDataBuilder();
   set optimisticResponse(_i2.GDeleteItemDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
@@ -3147,8 +2482,8 @@ class GDeleteItemReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -3188,7 +2523,6 @@ class GDeleteItemReqBuilder
 
   @override
   void replace(GDeleteItemReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GDeleteItemReq;
   }
 
@@ -3203,15 +2537,11 @@ class GDeleteItemReqBuilder
   _$GDeleteItemReq _build() {
     _$GDeleteItemReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GDeleteItemReq._(
+      _$result = _$v ??
+          _$GDeleteItemReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GDeleteItemReq',
-              'operation',
-            ),
+                operation, r'GDeleteItemReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -3219,10 +2549,7 @@ class GDeleteItemReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GDeleteItemReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GDeleteItemReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -3234,11 +2561,8 @@ class GDeleteItemReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GDeleteItemReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GDeleteItemReq', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3256,10 +2580,8 @@ class _$GDeletePurchaseOrderReq extends GDeletePurchaseOrderReq {
   final String? requestId;
   @override
   final _i2.GDeletePurchaseOrderData? Function(
-    _i2.GDeletePurchaseOrderData?,
-    _i2.GDeletePurchaseOrderData?,
-  )?
-  updateResult;
+          _i2.GDeletePurchaseOrderData?, _i2.GDeletePurchaseOrderData?)?
+      updateResult;
   @override
   final _i2.GDeletePurchaseOrderData? optimisticResponse;
   @override
@@ -3273,47 +2595,30 @@ class _$GDeletePurchaseOrderReq extends GDeletePurchaseOrderReq {
   @override
   final _i4.Context? context;
 
-  factory _$GDeletePurchaseOrderReq([
-    void Function(GDeletePurchaseOrderReqBuilder)? updates,
-  ]) => (new GDeletePurchaseOrderReqBuilder()..update(updates))._build();
+  factory _$GDeletePurchaseOrderReq(
+          [void Function(GDeletePurchaseOrderReqBuilder)? updates]) =>
+      (GDeletePurchaseOrderReqBuilder()..update(updates))._build();
 
-  _$GDeletePurchaseOrderReq._({
-    required this.vars,
-    required this.operation,
-    this.requestId,
-    this.updateResult,
-    this.optimisticResponse,
-    this.updateCacheHandlerKey,
-    this.updateCacheHandlerContext,
-    this.fetchPolicy,
-    required this.executeOnListen,
-    this.context,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      vars,
-      r'GDeletePurchaseOrderReq',
-      'vars',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      operation,
-      r'GDeletePurchaseOrderReq',
-      'operation',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      executeOnListen,
-      r'GDeletePurchaseOrderReq',
-      'executeOnListen',
-    );
-  }
-
+  _$GDeletePurchaseOrderReq._(
+      {required this.vars,
+      required this.operation,
+      this.requestId,
+      this.updateResult,
+      this.optimisticResponse,
+      this.updateCacheHandlerKey,
+      this.updateCacheHandlerContext,
+      this.fetchPolicy,
+      required this.executeOnListen,
+      this.context})
+      : super._();
   @override
   GDeletePurchaseOrderReq rebuild(
-    void Function(GDeletePurchaseOrderReqBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
+          void Function(GDeletePurchaseOrderReqBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   GDeletePurchaseOrderReqBuilder toBuilder() =>
-      new GDeletePurchaseOrderReqBuilder()..replace(this);
+      GDeletePurchaseOrderReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -3373,7 +2678,7 @@ class GDeletePurchaseOrderReqBuilder
 
   _i3.GDeletePurchaseOrderVarsBuilder? _vars;
   _i3.GDeletePurchaseOrderVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GDeletePurchaseOrderVarsBuilder();
+      _$this._vars ??= _i3.GDeletePurchaseOrderVarsBuilder();
   set vars(_i3.GDeletePurchaseOrderVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
@@ -3385,29 +2690,23 @@ class GDeletePurchaseOrderReqBuilder
   set requestId(String? requestId) => _$this._requestId = requestId;
 
   _i2.GDeletePurchaseOrderData? Function(
-    _i2.GDeletePurchaseOrderData?,
-    _i2.GDeletePurchaseOrderData?,
-  )?
-  _updateResult;
+          _i2.GDeletePurchaseOrderData?, _i2.GDeletePurchaseOrderData?)?
+      _updateResult;
   _i2.GDeletePurchaseOrderData? Function(
-    _i2.GDeletePurchaseOrderData?,
-    _i2.GDeletePurchaseOrderData?,
-  )?
-  get updateResult => _$this._updateResult;
+          _i2.GDeletePurchaseOrderData?, _i2.GDeletePurchaseOrderData?)?
+      get updateResult => _$this._updateResult;
   set updateResult(
-    _i2.GDeletePurchaseOrderData? Function(
-      _i2.GDeletePurchaseOrderData?,
-      _i2.GDeletePurchaseOrderData?,
-    )?
-    updateResult,
-  ) => _$this._updateResult = updateResult;
+          _i2.GDeletePurchaseOrderData? Function(
+                  _i2.GDeletePurchaseOrderData?, _i2.GDeletePurchaseOrderData?)?
+              updateResult) =>
+      _$this._updateResult = updateResult;
 
   _i2.GDeletePurchaseOrderDataBuilder? _optimisticResponse;
   _i2.GDeletePurchaseOrderDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GDeletePurchaseOrderDataBuilder();
+      _$this._optimisticResponse ??= _i2.GDeletePurchaseOrderDataBuilder();
   set optimisticResponse(
-    _i2.GDeletePurchaseOrderDataBuilder? optimisticResponse,
-  ) => _$this._optimisticResponse = optimisticResponse;
+          _i2.GDeletePurchaseOrderDataBuilder? optimisticResponse) =>
+      _$this._optimisticResponse = optimisticResponse;
 
   String? _updateCacheHandlerKey;
   String? get updateCacheHandlerKey => _$this._updateCacheHandlerKey;
@@ -3418,8 +2717,8 @@ class GDeletePurchaseOrderReqBuilder
   Map<String, dynamic>? get updateCacheHandlerContext =>
       _$this._updateCacheHandlerContext;
   set updateCacheHandlerContext(
-    Map<String, dynamic>? updateCacheHandlerContext,
-  ) => _$this._updateCacheHandlerContext = updateCacheHandlerContext;
+          Map<String, dynamic>? updateCacheHandlerContext) =>
+      _$this._updateCacheHandlerContext = updateCacheHandlerContext;
 
   _i1.FetchPolicy? _fetchPolicy;
   _i1.FetchPolicy? get fetchPolicy => _$this._fetchPolicy;
@@ -3459,7 +2758,6 @@ class GDeletePurchaseOrderReqBuilder
 
   @override
   void replace(GDeletePurchaseOrderReq other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GDeletePurchaseOrderReq;
   }
 
@@ -3474,15 +2772,11 @@ class GDeletePurchaseOrderReqBuilder
   _$GDeletePurchaseOrderReq _build() {
     _$GDeletePurchaseOrderReq _$result;
     try {
-      _$result =
-          _$v ??
-          new _$GDeletePurchaseOrderReq._(
+      _$result = _$v ??
+          _$GDeletePurchaseOrderReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-              operation,
-              r'GDeletePurchaseOrderReq',
-              'operation',
-            ),
+                operation, r'GDeletePurchaseOrderReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -3490,10 +2784,7 @@ class GDeletePurchaseOrderReqBuilder
             updateCacheHandlerContext: updateCacheHandlerContext,
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
-              executeOnListen,
-              r'GDeletePurchaseOrderReq',
-              'executeOnListen',
-            ),
+                executeOnListen, r'GDeletePurchaseOrderReq', 'executeOnListen'),
             context: context,
           );
     } catch (_) {
@@ -3505,11 +2796,8 @@ class GDeletePurchaseOrderReqBuilder
         _$failedField = 'optimisticResponse';
         _optimisticResponse?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-          r'GDeletePurchaseOrderReq',
-          _$failedField,
-          e.toString(),
-        );
+        throw BuiltValueNestedFieldError(
+            r'GDeletePurchaseOrderReq', _$failedField, e.toString());
       }
       rethrow;
     }

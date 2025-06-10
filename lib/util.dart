@@ -86,3 +86,5 @@ Future<bool> showConfirmationDialog(BuildContext context,
   );
   return result ?? false;
 }
+
+dynamic extractValue(GlobalKey<State<StatefulWidget>> key) => (key.currentState as FormFieldState).value;

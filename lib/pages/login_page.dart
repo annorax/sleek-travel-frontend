@@ -2,7 +2,6 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:slick_travel_frontend/constants.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
@@ -11,7 +10,6 @@ import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/util.dart';
 
 class LoginPage extends StatefulWidget {
-  static const path = '$basePath$loginPagePath';
   static const String name = 'login';
 
   const LoginPage({super.key});
@@ -22,8 +20,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-
-  dynamic extractValue(GlobalKey<State<StatefulWidget>> key) => (key.currentState as FormFieldState).value;
 
   @override
   Widget build(BuildContext context) {

@@ -159,14 +159,14 @@ class ListPageState extends State<ListPage> {
         ListableEntityType.item => GListUserItemsReq(
           (b) => b
             ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.userId = user!.id
+            ..vars.userId = user.id
             ..vars.sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
           (b) => b
             ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.userId = user!.id
+            ..vars.userId = user.id
             ..vars.sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),

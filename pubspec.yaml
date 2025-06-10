@@ -20,7 +20,7 @@ dependencies:
   gql_http_link: ^1.1.0
   image_picker: ^1.1.2
   intl: ^0.20.2
-  json_theme: ^9.0.0+1
+  json_theme: ^9.0.0+2
   mobile_scanner: ^7.0.1
   navigation_utils: ^0.9.3
   rxdart: ^0.28.0

@@ -130,10 +130,10 @@ packages:
     dependency: transitive
     description:
       name: checked_yaml
-      sha256: feb6bed21949061731a7a75fc5d2aa727cf160b91af9a3e464c5e3a32e28b5ff
+      sha256: "959525d3162f249993882720d52b7e0c833978df229be20702b33d48d91de70f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.4"
   clock:
     dependency: transitive
     description:
@@ -609,18 +609,18 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "72beede2f65da013fb05ef15a498e6df186e46fdefa9515912fc681449abb335"
+      sha256: "9fc135672351d8977d9490d8dfe66e131cdbf829f109947c88b85f75f5e04c12"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0+1"
+    version: "9.0.0+2"
   json_theme_annotation:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "1cb7b495179bbb9bc76e9a2feab3240db6da474b6d55e94c2fc87a98484c5f60"
+      sha256: "38432c9ffed562851ef142dbeb34f9ac85d73b9b91cfbbcafaa4d5c03c99fc4a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+17"
+    version: "1.0.3+18"
   leak_tracker:
     dependency: transitive
     description:

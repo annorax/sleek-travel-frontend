@@ -7,22 +7,20 @@ import 'package:slick_travel_frontend/main.dart';
 import 'package:slick_travel_frontend/model/user.model.dart';
 import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
-import 'package:slick_travel_frontend/pages/forgot_password_page.dart';
 import 'package:slick_travel_frontend/util.dart';
 
-class LoginPage extends StatefulWidget {
-  static const String name = 'login';
+class ForgotPasswordPage extends StatefulWidget {
+  static const String name = 'forgot-password';
 
-  const LoginPage({super.key});
+  const ForgotPasswordPage({super.key});
 
   @override
-  createState() => _LoginPageState();
+  createState() => _ForgotPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _formKey = GlobalKey<FormState>();
   final GlobalKey emailOrPhoneFieldKey = GlobalKey<FormFieldState>();
-  final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) =>
@@ -45,13 +43,6 @@ class _LoginPageState extends State<LoginPage> {
                   ).required('Required').build()
                 ),
                 const SizedBox(height: 16),
-                TextFormField(
-                  key: passwordFieldKey,
-                  decoration: const InputDecoration(labelText: 'Password'),
-                  obscureText: true,
-                  validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
-                ),
-                const SizedBox(height: 16),
                 MaterialButton(
                   color: Theme.of(context).colorScheme.secondary,
                   onPressed: () async {
@@ -63,7 +54,6 @@ class _LoginPageState extends State<LoginPage> {
                         (builder) =>
                           builder.vars
                             ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
-                            ..password = extractValue(passwordFieldKey)
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
@@ -93,27 +83,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text('Login'),
                 ),
                 const SizedBox(height: 16),
-                // This is for when we add buttons for signing in with Google / Apple
-                /*Row(
-                  children: [
-                    Expanded(
-                      child: Divider(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text('Or'),
-                    ),
-                    Expanded(
-                      child: Divider(),
-                    ),
-                  ],
-                ),*/
-                Text("Don't have an account? Sign Up"),
-                SizedBox(height: 16),
-                InkWell(
-                  onTap: () => NavigationManager.instance.pushReplacement(ForgotPasswordPage.name),
-                  child: Text('Forgot Password?'),
-                )
               ],
             ),
           ),

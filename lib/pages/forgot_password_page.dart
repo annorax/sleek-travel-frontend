@@ -4,8 +4,6 @@ import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:slick_travel_frontend/main.dart';
-import 'package:slick_travel_frontend/model/user.model.dart';
-import 'package:slick_travel_frontend/model/user.state.dart';
 import 'package:slick_travel_frontend/pages/dashboard_page.dart';
 import 'package:slick_travel_frontend/util.dart';
 
@@ -50,10 +48,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       return;
                     }
                     final OperationResponse result = await client.request(
-                      GLogInUserReq(
+                      GResendPasswordResetLinkReq(
                         (builder) =>
                           builder.vars
-                            ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
+                            ..email = extractValue(emailOrPhoneFieldKey)
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
@@ -62,22 +60,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         showError("Login failed", context);
                       }
                     }
-                    dynamic logInUser = result.data.logInUser;
-                    if (logInUser == null) {
-                      if (context.mounted) {
-                        showError("Login failed", context);
-                      }
-                      return;
-                    }
-                    final token = logInUser.token;
-                    final dynamic safeUser = logInUser.user;
-                    final User user = User(
-                      id: safeUser.id,
-                      name: safeUser.name,
-                      email: extractValue(emailOrPhoneFieldKey),
-                      token: token
-                    );
-                    await userState.setValue(user);
                     NavigationManager.instance.pushReplacement(DashboardTab.items.name);
                   },
                   child: const Text('Login'),

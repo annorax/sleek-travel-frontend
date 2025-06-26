@@ -21,6 +21,7 @@ import 'package:slick_travel_frontend/graphql/__generated__/mutations.data.gql.d
         GLogInUserData_logInUser,
         GLogInUserData_logInUser_user,
         GLogOutUserData,
+        GResendPasswordResetLinkData,
         GUpdateProductData,
         GUpdateProductData_updateOneProduct,
         GValidateTokenData,
@@ -34,6 +35,7 @@ import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.da
         GDeletePurchaseOrderReq,
         GLogInUserReq,
         GLogOutUserReq,
+        GResendPasswordResetLinkReq,
         GUpdateProductReq,
         GValidateTokenReq;
 import 'package:slick_travel_frontend/graphql/__generated__/mutations.var.gql.dart'
@@ -44,6 +46,7 @@ import 'package:slick_travel_frontend/graphql/__generated__/mutations.var.gql.da
         GDeletePurchaseOrderVars,
         GLogInUserVars,
         GLogOutUserVars,
+        GResendPasswordResetLinkVars,
         GUpdateProductVars,
         GValidateTokenVars;
 import 'package:slick_travel_frontend/graphql/__generated__/queries.data.gql.dart'
@@ -635,6 +638,9 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GPurchaseOrderWhereInput,
   GPurchaseOrderWhereUniqueInput,
   GQueryMode,
+  GResendPasswordResetLinkData,
+  GResendPasswordResetLinkReq,
+  GResendPasswordResetLinkVars,
   GRole,
   GSTItemOrderByWithRelationInput,
   GSTProductOrderByWithRelationInput,

@@ -647,3 +647,85 @@ abstract class GDeletePurchaseOrderReq
         json,
       );
 }
+
+abstract class GResendPasswordResetLinkReq
+    implements
+        Built<GResendPasswordResetLinkReq, GResendPasswordResetLinkReqBuilder>,
+        _i1.OperationRequest<_i2.GResendPasswordResetLinkData,
+            _i3.GResendPasswordResetLinkVars> {
+  GResendPasswordResetLinkReq._();
+
+  factory GResendPasswordResetLinkReq(
+          [void Function(GResendPasswordResetLinkReqBuilder b) updates]) =
+      _$GResendPasswordResetLinkReq;
+
+  static void _initializeBuilder(GResendPasswordResetLinkReqBuilder b) => b
+    ..operation = _i4.Operation(
+      document: _i5.document,
+      operationName: 'ResendPasswordResetLink',
+    )
+    ..executeOnListen = true;
+
+  @override
+  _i3.GResendPasswordResetLinkVars get vars;
+  @override
+  _i4.Operation get operation;
+  @override
+  _i4.Request get execRequest => _i4.Request(
+        operation: operation,
+        variables: vars.toJson(),
+        context: context ?? const _i4.Context(),
+      );
+
+  @override
+  String? get requestId;
+  @override
+  @BuiltValueField(serialize: false)
+  _i2.GResendPasswordResetLinkData? Function(
+    _i2.GResendPasswordResetLinkData?,
+    _i2.GResendPasswordResetLinkData?,
+  )? get updateResult;
+  @override
+  _i2.GResendPasswordResetLinkData? get optimisticResponse;
+  @override
+  String? get updateCacheHandlerKey;
+  @override
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  @override
+  _i1.FetchPolicy? get fetchPolicy;
+  @override
+  bool get executeOnListen;
+  @override
+  @BuiltValueField(serialize: false)
+  _i4.Context? get context;
+  @override
+  _i2.GResendPasswordResetLinkData? parseData(Map<String, dynamic> json) =>
+      _i2.GResendPasswordResetLinkData.fromJson(json);
+
+  @override
+  Map<String, dynamic> varsToJson() => vars.toJson();
+
+  @override
+  Map<String, dynamic> dataToJson(_i2.GResendPasswordResetLinkData data) =>
+      data.toJson();
+
+  @override
+  _i1.OperationRequest<_i2.GResendPasswordResetLinkData,
+      _i3.GResendPasswordResetLinkVars> transformOperation(
+          _i4.Operation Function(_i4.Operation) transform) =>
+      this.rebuild((b) => b..operation = transform(operation));
+
+  static Serializer<GResendPasswordResetLinkReq> get serializer =>
+      _$gResendPasswordResetLinkReqSerializer;
+
+  Map<String, dynamic> toJson() => (_i6.serializers.serializeWith(
+        GResendPasswordResetLinkReq.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendPasswordResetLinkReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(
+        GResendPasswordResetLinkReq.serializer,
+        json,
+      );
+}

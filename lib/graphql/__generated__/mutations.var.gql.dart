@@ -201,3 +201,29 @@ abstract class GDeletePurchaseOrderVars
         json,
       );
 }
+
+abstract class GResendPasswordResetLinkVars
+    implements
+        Built<GResendPasswordResetLinkVars,
+            GResendPasswordResetLinkVarsBuilder> {
+  GResendPasswordResetLinkVars._();
+
+  factory GResendPasswordResetLinkVars(
+          [void Function(GResendPasswordResetLinkVarsBuilder b) updates]) =
+      _$GResendPasswordResetLinkVars;
+
+  String get email;
+  static Serializer<GResendPasswordResetLinkVars> get serializer =>
+      _$gResendPasswordResetLinkVarsSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GResendPasswordResetLinkVars.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendPasswordResetLinkVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GResendPasswordResetLinkVars.serializer,
+        json,
+      );
+}

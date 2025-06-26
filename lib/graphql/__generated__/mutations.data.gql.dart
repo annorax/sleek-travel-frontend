@@ -534,3 +534,34 @@ abstract class GDeletePurchaseOrderData_deleteOnePurchaseOrder
         json,
       );
 }
+
+abstract class GResendPasswordResetLinkData
+    implements
+        Built<GResendPasswordResetLinkData,
+            GResendPasswordResetLinkDataBuilder> {
+  GResendPasswordResetLinkData._();
+
+  factory GResendPasswordResetLinkData(
+          [void Function(GResendPasswordResetLinkDataBuilder b) updates]) =
+      _$GResendPasswordResetLinkData;
+
+  static void _initializeBuilder(GResendPasswordResetLinkDataBuilder b) =>
+      b..G__typename = 'Mutation';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  _i2.GVoid? get resendPasswordResetLink;
+  static Serializer<GResendPasswordResetLinkData> get serializer =>
+      _$gResendPasswordResetLinkDataSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GResendPasswordResetLinkData.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendPasswordResetLinkData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GResendPasswordResetLinkData.serializer,
+        json,
+      );
+}

@@ -212,7 +212,7 @@ abstract class GResendPasswordResetLinkVars
           [void Function(GResendPasswordResetLinkVarsBuilder b) updates]) =
       _$GResendPasswordResetLinkVars;
 
-  String get email;
+  String get emailOrPhone;
   static Serializer<GResendPasswordResetLinkVars> get serializer =>
       _$gResendPasswordResetLinkVarsSerializer;
 

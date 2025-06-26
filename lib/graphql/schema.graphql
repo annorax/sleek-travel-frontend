@@ -1256,7 +1256,7 @@ type Mutation {
   upsertOnePurchaseOrder(where: PurchaseOrderWhereUniqueInput!, create: PurchaseOrderCreateInput!, update: PurchaseOrderUpdateInput!): PurchaseOrder!
   registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): LogInPayload!
   resendEmailVerificationRequest(email: String!): Void
-  resendPasswordResetLink(email: String!): Void
+  resendPasswordResetLink(emailOrPhone: String!): Void
   resendPhoneNumberVerificationRequest(phoneNumber: String!): Void
   verifyPhoneNumber(userId: Float!, otp: String!): Void
   verifyEmailAddress(token: String!): Void

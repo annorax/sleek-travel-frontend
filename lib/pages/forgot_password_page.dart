@@ -51,7 +51,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       GResendPasswordResetLinkReq(
                         (builder) =>
                           builder.vars
-                            ..email = extractValue(emailOrPhoneFieldKey)
+                            ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {

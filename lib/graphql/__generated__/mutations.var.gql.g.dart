@@ -376,8 +376,8 @@ class _$GResendPasswordResetLinkVarsSerializer
       Serializers serializers, GResendPasswordResetLinkVars object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'email',
-      serializers.serialize(object.email,
+      'emailOrPhone',
+      serializers.serialize(object.emailOrPhone,
           specifiedType: const FullType(String)),
     ];
 
@@ -396,8 +396,8 @@ class _$GResendPasswordResetLinkVarsSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'email':
-          result.email = serializers.deserialize(value,
+        case 'emailOrPhone':
+          result.emailOrPhone = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
       }
@@ -1093,13 +1093,13 @@ class GDeletePurchaseOrderVarsBuilder
 
 class _$GResendPasswordResetLinkVars extends GResendPasswordResetLinkVars {
   @override
-  final String email;
+  final String emailOrPhone;
 
   factory _$GResendPasswordResetLinkVars(
           [void Function(GResendPasswordResetLinkVarsBuilder)? updates]) =>
       (GResendPasswordResetLinkVarsBuilder()..update(updates))._build();
 
-  _$GResendPasswordResetLinkVars._({required this.email}) : super._();
+  _$GResendPasswordResetLinkVars._({required this.emailOrPhone}) : super._();
   @override
   GResendPasswordResetLinkVars rebuild(
           void Function(GResendPasswordResetLinkVarsBuilder) updates) =>
@@ -1112,13 +1112,14 @@ class _$GResendPasswordResetLinkVars extends GResendPasswordResetLinkVars {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GResendPasswordResetLinkVars && email == other.email;
+    return other is GResendPasswordResetLinkVars &&
+        emailOrPhone == other.emailOrPhone;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, email.hashCode);
+    _$hash = $jc(_$hash, emailOrPhone.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1126,7 +1127,7 @@ class _$GResendPasswordResetLinkVars extends GResendPasswordResetLinkVars {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GResendPasswordResetLinkVars')
-          ..add('email', email))
+          ..add('emailOrPhone', emailOrPhone))
         .toString();
   }
 }
@@ -1137,16 +1138,16 @@ class GResendPasswordResetLinkVarsBuilder
             GResendPasswordResetLinkVarsBuilder> {
   _$GResendPasswordResetLinkVars? _$v;
 
-  String? _email;
-  String? get email => _$this._email;
-  set email(String? email) => _$this._email = email;
+  String? _emailOrPhone;
+  String? get emailOrPhone => _$this._emailOrPhone;
+  set emailOrPhone(String? emailOrPhone) => _$this._emailOrPhone = emailOrPhone;
 
   GResendPasswordResetLinkVarsBuilder();
 
   GResendPasswordResetLinkVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _email = $v.email;
+      _emailOrPhone = $v.emailOrPhone;
       _$v = null;
     }
     return this;
@@ -1168,8 +1169,8 @@ class GResendPasswordResetLinkVarsBuilder
   _$GResendPasswordResetLinkVars _build() {
     final _$result = _$v ??
         _$GResendPasswordResetLinkVars._(
-          email: BuiltValueNullFieldError.checkNotNull(
-              email, r'GResendPasswordResetLinkVars', 'email'),
+          emailOrPhone: BuiltValueNullFieldError.checkNotNull(
+              emailOrPhone, r'GResendPasswordResetLinkVars', 'emailOrPhone'),
         );
     replace(_$result);
     return _$result;

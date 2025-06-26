@@ -51,6 +51,6 @@ mutation DeletePurchaseOrder($id: Int!) {
   }
 }
 
-mutation ResendPasswordResetLink($email: String!) {
-  resendPasswordResetLink(email: $email)
+mutation ResendPasswordResetLink($emailOrPhone: String!) {
+  resendPasswordResetLink(emailOrPhone: $emailOrPhone)
 }

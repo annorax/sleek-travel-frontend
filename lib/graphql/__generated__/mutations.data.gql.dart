@@ -535,33 +535,32 @@ abstract class GDeletePurchaseOrderData_deleteOnePurchaseOrder
       );
 }
 
-abstract class GResendPasswordResetLinkData
+abstract class GSendPasswordResetLinkData
     implements
-        Built<GResendPasswordResetLinkData,
-            GResendPasswordResetLinkDataBuilder> {
-  GResendPasswordResetLinkData._();
+        Built<GSendPasswordResetLinkData, GSendPasswordResetLinkDataBuilder> {
+  GSendPasswordResetLinkData._();
 
-  factory GResendPasswordResetLinkData(
-          [void Function(GResendPasswordResetLinkDataBuilder b) updates]) =
-      _$GResendPasswordResetLinkData;
+  factory GSendPasswordResetLinkData(
+          [void Function(GSendPasswordResetLinkDataBuilder b) updates]) =
+      _$GSendPasswordResetLinkData;
 
-  static void _initializeBuilder(GResendPasswordResetLinkDataBuilder b) =>
+  static void _initializeBuilder(GSendPasswordResetLinkDataBuilder b) =>
       b..G__typename = 'Mutation';
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GVoid? get resendPasswordResetLink;
-  static Serializer<GResendPasswordResetLinkData> get serializer =>
-      _$gResendPasswordResetLinkDataSerializer;
+  _i2.GVoid? get sendPasswordResetLink;
+  static Serializer<GSendPasswordResetLinkData> get serializer =>
+      _$gSendPasswordResetLinkDataSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GResendPasswordResetLinkData.serializer,
+        GSendPasswordResetLinkData.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GResendPasswordResetLinkData? fromJson(Map<String, dynamic> json) =>
+  static GSendPasswordResetLinkData? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-        GResendPasswordResetLinkData.serializer,
+        GSendPasswordResetLinkData.serializer,
         json,
       );
 }

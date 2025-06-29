@@ -9299,7 +9299,7 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
       ),
     ),
     _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'resendPasswordResetLink'),
+      name: _i1.NameNode(value: 'sendPasswordResetLink'),
       directives: [],
       args: [
         _i1.InputValueDefinitionNode(

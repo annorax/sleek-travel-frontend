@@ -22,9 +22,8 @@ Serializer<GDeleteItemReq> _$gDeleteItemReqSerializer =
     _$GDeleteItemReqSerializer();
 Serializer<GDeletePurchaseOrderReq> _$gDeletePurchaseOrderReqSerializer =
     _$GDeletePurchaseOrderReqSerializer();
-Serializer<GResendPasswordResetLinkReq>
-    _$gResendPasswordResetLinkReqSerializer =
-    _$GResendPasswordResetLinkReqSerializer();
+Serializer<GSendPasswordResetLinkReq> _$gSendPasswordResetLinkReqSerializer =
+    _$GSendPasswordResetLinkReqSerializer();
 
 class _$GValidateTokenReqSerializer
     implements StructuredSerializer<GValidateTokenReq> {
@@ -973,24 +972,24 @@ class _$GDeletePurchaseOrderReqSerializer
   }
 }
 
-class _$GResendPasswordResetLinkReqSerializer
-    implements StructuredSerializer<GResendPasswordResetLinkReq> {
+class _$GSendPasswordResetLinkReqSerializer
+    implements StructuredSerializer<GSendPasswordResetLinkReq> {
   @override
   final Iterable<Type> types = const [
-    GResendPasswordResetLinkReq,
-    _$GResendPasswordResetLinkReq
+    GSendPasswordResetLinkReq,
+    _$GSendPasswordResetLinkReq
   ];
   @override
-  final String wireName = 'GResendPasswordResetLinkReq';
+  final String wireName = 'GSendPasswordResetLinkReq';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GResendPasswordResetLinkReq object,
+      Serializers serializers, GSendPasswordResetLinkReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GResendPasswordResetLinkVars)),
+          specifiedType: const FullType(_i3.GSendPasswordResetLinkVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -1011,7 +1010,7 @@ class _$GResendPasswordResetLinkReqSerializer
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GResendPasswordResetLinkData)));
+            specifiedType: const FullType(_i2.GSendPasswordResetLinkData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
@@ -1039,10 +1038,10 @@ class _$GResendPasswordResetLinkReqSerializer
   }
 
   @override
-  GResendPasswordResetLinkReq deserialize(
+  GSendPasswordResetLinkReq deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = GResendPasswordResetLinkReqBuilder();
+    final result = GSendPasswordResetLinkReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1053,8 +1052,8 @@ class _$GResendPasswordResetLinkReqSerializer
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(_i3.GResendPasswordResetLinkVars))!
-              as _i3.GResendPasswordResetLinkVars);
+                      const FullType(_i3.GSendPasswordResetLinkVars))!
+              as _i3.GSendPasswordResetLinkVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -1067,8 +1066,8 @@ class _$GResendPasswordResetLinkReqSerializer
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(_i2.GResendPasswordResetLinkData))!
-              as _i2.GResendPasswordResetLinkData);
+                      const FullType(_i2.GSendPasswordResetLinkData))!
+              as _i2.GSendPasswordResetLinkData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -2933,19 +2932,19 @@ class GDeletePurchaseOrderReqBuilder
   }
 }
 
-class _$GResendPasswordResetLinkReq extends GResendPasswordResetLinkReq {
+class _$GSendPasswordResetLinkReq extends GSendPasswordResetLinkReq {
   @override
-  final _i3.GResendPasswordResetLinkVars vars;
+  final _i3.GSendPasswordResetLinkVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String? requestId;
   @override
-  final _i2.GResendPasswordResetLinkData? Function(
-          _i2.GResendPasswordResetLinkData?, _i2.GResendPasswordResetLinkData?)?
+  final _i2.GSendPasswordResetLinkData? Function(
+          _i2.GSendPasswordResetLinkData?, _i2.GSendPasswordResetLinkData?)?
       updateResult;
   @override
-  final _i2.GResendPasswordResetLinkData? optimisticResponse;
+  final _i2.GSendPasswordResetLinkData? optimisticResponse;
   @override
   final String? updateCacheHandlerKey;
   @override
@@ -2957,11 +2956,11 @@ class _$GResendPasswordResetLinkReq extends GResendPasswordResetLinkReq {
   @override
   final _i4.Context? context;
 
-  factory _$GResendPasswordResetLinkReq(
-          [void Function(GResendPasswordResetLinkReqBuilder)? updates]) =>
-      (GResendPasswordResetLinkReqBuilder()..update(updates))._build();
+  factory _$GSendPasswordResetLinkReq(
+          [void Function(GSendPasswordResetLinkReqBuilder)? updates]) =>
+      (GSendPasswordResetLinkReqBuilder()..update(updates))._build();
 
-  _$GResendPasswordResetLinkReq._(
+  _$GSendPasswordResetLinkReq._(
       {required this.vars,
       required this.operation,
       this.requestId,
@@ -2974,19 +2973,19 @@ class _$GResendPasswordResetLinkReq extends GResendPasswordResetLinkReq {
       this.context})
       : super._();
   @override
-  GResendPasswordResetLinkReq rebuild(
-          void Function(GResendPasswordResetLinkReqBuilder) updates) =>
+  GSendPasswordResetLinkReq rebuild(
+          void Function(GSendPasswordResetLinkReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GResendPasswordResetLinkReqBuilder toBuilder() =>
-      GResendPasswordResetLinkReqBuilder()..replace(this);
+  GSendPasswordResetLinkReqBuilder toBuilder() =>
+      GSendPasswordResetLinkReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GResendPasswordResetLinkReq &&
+    return other is GSendPasswordResetLinkReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -3018,7 +3017,7 @@ class _$GResendPasswordResetLinkReq extends GResendPasswordResetLinkReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GResendPasswordResetLinkReq')
+    return (newBuiltValueToStringHelper(r'GSendPasswordResetLinkReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -3033,17 +3032,15 @@ class _$GResendPasswordResetLinkReq extends GResendPasswordResetLinkReq {
   }
 }
 
-class GResendPasswordResetLinkReqBuilder
+class GSendPasswordResetLinkReqBuilder
     implements
-        Builder<GResendPasswordResetLinkReq,
-            GResendPasswordResetLinkReqBuilder> {
-  _$GResendPasswordResetLinkReq? _$v;
+        Builder<GSendPasswordResetLinkReq, GSendPasswordResetLinkReqBuilder> {
+  _$GSendPasswordResetLinkReq? _$v;
 
-  _i3.GResendPasswordResetLinkVarsBuilder? _vars;
-  _i3.GResendPasswordResetLinkVarsBuilder get vars =>
-      _$this._vars ??= _i3.GResendPasswordResetLinkVarsBuilder();
-  set vars(_i3.GResendPasswordResetLinkVarsBuilder? vars) =>
-      _$this._vars = vars;
+  _i3.GSendPasswordResetLinkVarsBuilder? _vars;
+  _i3.GSendPasswordResetLinkVarsBuilder get vars =>
+      _$this._vars ??= _i3.GSendPasswordResetLinkVarsBuilder();
+  set vars(_i3.GSendPasswordResetLinkVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
   _i4.Operation? get operation => _$this._operation;
@@ -3053,24 +3050,24 @@ class GResendPasswordResetLinkReqBuilder
   String? get requestId => _$this._requestId;
   set requestId(String? requestId) => _$this._requestId = requestId;
 
-  _i2.GResendPasswordResetLinkData? Function(
-          _i2.GResendPasswordResetLinkData?, _i2.GResendPasswordResetLinkData?)?
+  _i2.GSendPasswordResetLinkData? Function(
+          _i2.GSendPasswordResetLinkData?, _i2.GSendPasswordResetLinkData?)?
       _updateResult;
-  _i2.GResendPasswordResetLinkData? Function(
-          _i2.GResendPasswordResetLinkData?, _i2.GResendPasswordResetLinkData?)?
+  _i2.GSendPasswordResetLinkData? Function(
+          _i2.GSendPasswordResetLinkData?, _i2.GSendPasswordResetLinkData?)?
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GResendPasswordResetLinkData? Function(
-                  _i2.GResendPasswordResetLinkData?,
-                  _i2.GResendPasswordResetLinkData?)?
+          _i2.GSendPasswordResetLinkData? Function(
+                  _i2.GSendPasswordResetLinkData?,
+                  _i2.GSendPasswordResetLinkData?)?
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GResendPasswordResetLinkDataBuilder? _optimisticResponse;
-  _i2.GResendPasswordResetLinkDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= _i2.GResendPasswordResetLinkDataBuilder();
+  _i2.GSendPasswordResetLinkDataBuilder? _optimisticResponse;
+  _i2.GSendPasswordResetLinkDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= _i2.GSendPasswordResetLinkDataBuilder();
   set optimisticResponse(
-          _i2.GResendPasswordResetLinkDataBuilder? optimisticResponse) =>
+          _i2.GSendPasswordResetLinkDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String? _updateCacheHandlerKey;
@@ -3099,11 +3096,11 @@ class GResendPasswordResetLinkReqBuilder
   _i4.Context? get context => _$this._context;
   set context(_i4.Context? context) => _$this._context = context;
 
-  GResendPasswordResetLinkReqBuilder() {
-    GResendPasswordResetLinkReq._initializeBuilder(this);
+  GSendPasswordResetLinkReqBuilder() {
+    GSendPasswordResetLinkReq._initializeBuilder(this);
   }
 
-  GResendPasswordResetLinkReqBuilder get _$this {
+  GSendPasswordResetLinkReqBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _vars = $v.vars.toBuilder();
@@ -3122,26 +3119,26 @@ class GResendPasswordResetLinkReqBuilder
   }
 
   @override
-  void replace(GResendPasswordResetLinkReq other) {
-    _$v = other as _$GResendPasswordResetLinkReq;
+  void replace(GSendPasswordResetLinkReq other) {
+    _$v = other as _$GSendPasswordResetLinkReq;
   }
 
   @override
-  void update(void Function(GResendPasswordResetLinkReqBuilder)? updates) {
+  void update(void Function(GSendPasswordResetLinkReqBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GResendPasswordResetLinkReq build() => _build();
+  GSendPasswordResetLinkReq build() => _build();
 
-  _$GResendPasswordResetLinkReq _build() {
-    _$GResendPasswordResetLinkReq _$result;
+  _$GSendPasswordResetLinkReq _build() {
+    _$GSendPasswordResetLinkReq _$result;
     try {
       _$result = _$v ??
-          _$GResendPasswordResetLinkReq._(
+          _$GSendPasswordResetLinkReq._(
             vars: vars.build(),
             operation: BuiltValueNullFieldError.checkNotNull(
-                operation, r'GResendPasswordResetLinkReq', 'operation'),
+                operation, r'GSendPasswordResetLinkReq', 'operation'),
             requestId: requestId,
             updateResult: updateResult,
             optimisticResponse: _optimisticResponse?.build(),
@@ -3150,7 +3147,7 @@ class GResendPasswordResetLinkReqBuilder
             fetchPolicy: fetchPolicy,
             executeOnListen: BuiltValueNullFieldError.checkNotNull(
                 executeOnListen,
-                r'GResendPasswordResetLinkReq',
+                r'GSendPasswordResetLinkReq',
                 'executeOnListen'),
             context: context,
           );
@@ -3164,7 +3161,7 @@ class GResendPasswordResetLinkReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'GResendPasswordResetLinkReq', _$failedField, e.toString());
+            r'GSendPasswordResetLinkReq', _$failedField, e.toString());
       }
       rethrow;
     }

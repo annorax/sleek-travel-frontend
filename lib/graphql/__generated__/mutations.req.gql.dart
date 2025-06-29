@@ -648,26 +648,26 @@ abstract class GDeletePurchaseOrderReq
       );
 }
 
-abstract class GResendPasswordResetLinkReq
+abstract class GSendPasswordResetLinkReq
     implements
-        Built<GResendPasswordResetLinkReq, GResendPasswordResetLinkReqBuilder>,
-        _i1.OperationRequest<_i2.GResendPasswordResetLinkData,
-            _i3.GResendPasswordResetLinkVars> {
-  GResendPasswordResetLinkReq._();
+        Built<GSendPasswordResetLinkReq, GSendPasswordResetLinkReqBuilder>,
+        _i1.OperationRequest<_i2.GSendPasswordResetLinkData,
+            _i3.GSendPasswordResetLinkVars> {
+  GSendPasswordResetLinkReq._();
 
-  factory GResendPasswordResetLinkReq(
-          [void Function(GResendPasswordResetLinkReqBuilder b) updates]) =
-      _$GResendPasswordResetLinkReq;
+  factory GSendPasswordResetLinkReq(
+          [void Function(GSendPasswordResetLinkReqBuilder b) updates]) =
+      _$GSendPasswordResetLinkReq;
 
-  static void _initializeBuilder(GResendPasswordResetLinkReqBuilder b) => b
+  static void _initializeBuilder(GSendPasswordResetLinkReqBuilder b) => b
     ..operation = _i4.Operation(
       document: _i5.document,
-      operationName: 'ResendPasswordResetLink',
+      operationName: 'SendPasswordResetLink',
     )
     ..executeOnListen = true;
 
   @override
-  _i3.GResendPasswordResetLinkVars get vars;
+  _i3.GSendPasswordResetLinkVars get vars;
   @override
   _i4.Operation get operation;
   @override
@@ -681,12 +681,12 @@ abstract class GResendPasswordResetLinkReq
   String? get requestId;
   @override
   @BuiltValueField(serialize: false)
-  _i2.GResendPasswordResetLinkData? Function(
-    _i2.GResendPasswordResetLinkData?,
-    _i2.GResendPasswordResetLinkData?,
+  _i2.GSendPasswordResetLinkData? Function(
+    _i2.GSendPasswordResetLinkData?,
+    _i2.GSendPasswordResetLinkData?,
   )? get updateResult;
   @override
-  _i2.GResendPasswordResetLinkData? get optimisticResponse;
+  _i2.GSendPasswordResetLinkData? get optimisticResponse;
   @override
   String? get updateCacheHandlerKey;
   @override
@@ -699,33 +699,33 @@ abstract class GResendPasswordResetLinkReq
   @BuiltValueField(serialize: false)
   _i4.Context? get context;
   @override
-  _i2.GResendPasswordResetLinkData? parseData(Map<String, dynamic> json) =>
-      _i2.GResendPasswordResetLinkData.fromJson(json);
+  _i2.GSendPasswordResetLinkData? parseData(Map<String, dynamic> json) =>
+      _i2.GSendPasswordResetLinkData.fromJson(json);
 
   @override
   Map<String, dynamic> varsToJson() => vars.toJson();
 
   @override
-  Map<String, dynamic> dataToJson(_i2.GResendPasswordResetLinkData data) =>
+  Map<String, dynamic> dataToJson(_i2.GSendPasswordResetLinkData data) =>
       data.toJson();
 
   @override
-  _i1.OperationRequest<_i2.GResendPasswordResetLinkData,
-      _i3.GResendPasswordResetLinkVars> transformOperation(
+  _i1.OperationRequest<_i2.GSendPasswordResetLinkData,
+      _i3.GSendPasswordResetLinkVars> transformOperation(
           _i4.Operation Function(_i4.Operation) transform) =>
       this.rebuild((b) => b..operation = transform(operation));
 
-  static Serializer<GResendPasswordResetLinkReq> get serializer =>
-      _$gResendPasswordResetLinkReqSerializer;
+  static Serializer<GSendPasswordResetLinkReq> get serializer =>
+      _$gSendPasswordResetLinkReqSerializer;
 
   Map<String, dynamic> toJson() => (_i6.serializers.serializeWith(
-        GResendPasswordResetLinkReq.serializer,
+        GSendPasswordResetLinkReq.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GResendPasswordResetLinkReq? fromJson(Map<String, dynamic> json) =>
+  static GSendPasswordResetLinkReq? fromJson(Map<String, dynamic> json) =>
       _i6.serializers.deserializeWith(
-        GResendPasswordResetLinkReq.serializer,
+        GSendPasswordResetLinkReq.serializer,
         json,
       );
 }

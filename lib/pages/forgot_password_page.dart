@@ -4,7 +4,7 @@ import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/main.dart';
-import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
+import 'package:sleek_travel_frontend/pages/login_page.dart';
 import 'package:sleek_travel_frontend/util.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
@@ -23,7 +23,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) =>
     Scaffold(
-      appBar: AppBar(title: Text("Log in")),
+      appBar: AppBar(title: Text("Forgot Password")),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -48,7 +48,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       return;
                     }
                     final OperationResponse result = await client.request(
-                      GResendPasswordResetLinkReq(
+                      GSendPasswordResetLinkReq(
                         (builder) =>
                           builder.vars
                             ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
@@ -57,12 +57,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     if (result.hasErrors) {
                       print(result.graphqlErrors);
                       if (context.mounted) {
-                        showError("Login failed", context);
+                        showError("Sending failed", context);
                       }
                     }
-                    NavigationManager.instance.pushReplacement(DashboardTab.items.name);
+                    NavigationManager.instance.pushReplacement(LoginPage.name);
                   },
-                  child: const Text('Login'),
+                  child: const Text('Send'),
                 ),
                 const SizedBox(height: 16),
               ],

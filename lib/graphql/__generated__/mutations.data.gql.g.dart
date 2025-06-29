@@ -48,9 +48,8 @@ Serializer<GDeletePurchaseOrderData> _$gDeletePurchaseOrderDataSerializer =
 Serializer<GDeletePurchaseOrderData_deleteOnePurchaseOrder>
     _$gDeletePurchaseOrderDataDeleteOnePurchaseOrderSerializer =
     _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer();
-Serializer<GResendPasswordResetLinkData>
-    _$gResendPasswordResetLinkDataSerializer =
-    _$GResendPasswordResetLinkDataSerializer();
+Serializer<GSendPasswordResetLinkData> _$gSendPasswordResetLinkDataSerializer =
+    _$GSendPasswordResetLinkDataSerializer();
 
 class _$GValidateTokenDataSerializer
     implements StructuredSerializer<GValidateTokenData> {
@@ -996,19 +995,19 @@ class _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer
   }
 }
 
-class _$GResendPasswordResetLinkDataSerializer
-    implements StructuredSerializer<GResendPasswordResetLinkData> {
+class _$GSendPasswordResetLinkDataSerializer
+    implements StructuredSerializer<GSendPasswordResetLinkData> {
   @override
   final Iterable<Type> types = const [
-    GResendPasswordResetLinkData,
-    _$GResendPasswordResetLinkData
+    GSendPasswordResetLinkData,
+    _$GSendPasswordResetLinkData
   ];
   @override
-  final String wireName = 'GResendPasswordResetLinkData';
+  final String wireName = 'GSendPasswordResetLinkData';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GResendPasswordResetLinkData object,
+      Serializers serializers, GSendPasswordResetLinkData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -1016,10 +1015,10 @@ class _$GResendPasswordResetLinkDataSerializer
           specifiedType: const FullType(String)),
     ];
     Object? value;
-    value = object.resendPasswordResetLink;
+    value = object.sendPasswordResetLink;
     if (value != null) {
       result
-        ..add('resendPasswordResetLink')
+        ..add('sendPasswordResetLink')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(_i2.GVoid)));
     }
@@ -1027,10 +1026,10 @@ class _$GResendPasswordResetLinkDataSerializer
   }
 
   @override
-  GResendPasswordResetLinkData deserialize(
+  GSendPasswordResetLinkData deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = GResendPasswordResetLinkDataBuilder();
+    final result = GSendPasswordResetLinkDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1042,8 +1041,8 @@ class _$GResendPasswordResetLinkDataSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
-        case 'resendPasswordResetLink':
-          result.resendPasswordResetLink.replace(serializers.deserialize(value,
+        case 'sendPasswordResetLink':
+          result.sendPasswordResetLink.replace(serializers.deserialize(value,
               specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
           break;
       }
@@ -2976,114 +2975,113 @@ class GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
   }
 }
 
-class _$GResendPasswordResetLinkData extends GResendPasswordResetLinkData {
+class _$GSendPasswordResetLinkData extends GSendPasswordResetLinkData {
   @override
   final String G__typename;
   @override
-  final _i2.GVoid? resendPasswordResetLink;
+  final _i2.GVoid? sendPasswordResetLink;
 
-  factory _$GResendPasswordResetLinkData(
-          [void Function(GResendPasswordResetLinkDataBuilder)? updates]) =>
-      (GResendPasswordResetLinkDataBuilder()..update(updates))._build();
+  factory _$GSendPasswordResetLinkData(
+          [void Function(GSendPasswordResetLinkDataBuilder)? updates]) =>
+      (GSendPasswordResetLinkDataBuilder()..update(updates))._build();
 
-  _$GResendPasswordResetLinkData._(
-      {required this.G__typename, this.resendPasswordResetLink})
+  _$GSendPasswordResetLinkData._(
+      {required this.G__typename, this.sendPasswordResetLink})
       : super._();
   @override
-  GResendPasswordResetLinkData rebuild(
-          void Function(GResendPasswordResetLinkDataBuilder) updates) =>
+  GSendPasswordResetLinkData rebuild(
+          void Function(GSendPasswordResetLinkDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GResendPasswordResetLinkDataBuilder toBuilder() =>
-      GResendPasswordResetLinkDataBuilder()..replace(this);
+  GSendPasswordResetLinkDataBuilder toBuilder() =>
+      GSendPasswordResetLinkDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GResendPasswordResetLinkData &&
+    return other is GSendPasswordResetLinkData &&
         G__typename == other.G__typename &&
-        resendPasswordResetLink == other.resendPasswordResetLink;
+        sendPasswordResetLink == other.sendPasswordResetLink;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, resendPasswordResetLink.hashCode);
+    _$hash = $jc(_$hash, sendPasswordResetLink.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GResendPasswordResetLinkData')
+    return (newBuiltValueToStringHelper(r'GSendPasswordResetLinkData')
           ..add('G__typename', G__typename)
-          ..add('resendPasswordResetLink', resendPasswordResetLink))
+          ..add('sendPasswordResetLink', sendPasswordResetLink))
         .toString();
   }
 }
 
-class GResendPasswordResetLinkDataBuilder
+class GSendPasswordResetLinkDataBuilder
     implements
-        Builder<GResendPasswordResetLinkData,
-            GResendPasswordResetLinkDataBuilder> {
-  _$GResendPasswordResetLinkData? _$v;
+        Builder<GSendPasswordResetLinkData, GSendPasswordResetLinkDataBuilder> {
+  _$GSendPasswordResetLinkData? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GVoidBuilder? _resendPasswordResetLink;
-  _i2.GVoidBuilder get resendPasswordResetLink =>
-      _$this._resendPasswordResetLink ??= _i2.GVoidBuilder();
-  set resendPasswordResetLink(_i2.GVoidBuilder? resendPasswordResetLink) =>
-      _$this._resendPasswordResetLink = resendPasswordResetLink;
+  _i2.GVoidBuilder? _sendPasswordResetLink;
+  _i2.GVoidBuilder get sendPasswordResetLink =>
+      _$this._sendPasswordResetLink ??= _i2.GVoidBuilder();
+  set sendPasswordResetLink(_i2.GVoidBuilder? sendPasswordResetLink) =>
+      _$this._sendPasswordResetLink = sendPasswordResetLink;
 
-  GResendPasswordResetLinkDataBuilder() {
-    GResendPasswordResetLinkData._initializeBuilder(this);
+  GSendPasswordResetLinkDataBuilder() {
+    GSendPasswordResetLinkData._initializeBuilder(this);
   }
 
-  GResendPasswordResetLinkDataBuilder get _$this {
+  GSendPasswordResetLinkDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _resendPasswordResetLink = $v.resendPasswordResetLink?.toBuilder();
+      _sendPasswordResetLink = $v.sendPasswordResetLink?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GResendPasswordResetLinkData other) {
-    _$v = other as _$GResendPasswordResetLinkData;
+  void replace(GSendPasswordResetLinkData other) {
+    _$v = other as _$GSendPasswordResetLinkData;
   }
 
   @override
-  void update(void Function(GResendPasswordResetLinkDataBuilder)? updates) {
+  void update(void Function(GSendPasswordResetLinkDataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GResendPasswordResetLinkData build() => _build();
+  GSendPasswordResetLinkData build() => _build();
 
-  _$GResendPasswordResetLinkData _build() {
-    _$GResendPasswordResetLinkData _$result;
+  _$GSendPasswordResetLinkData _build() {
+    _$GSendPasswordResetLinkData _$result;
     try {
       _$result = _$v ??
-          _$GResendPasswordResetLinkData._(
+          _$GSendPasswordResetLinkData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GResendPasswordResetLinkData', 'G__typename'),
-            resendPasswordResetLink: _resendPasswordResetLink?.build(),
+                G__typename, r'GSendPasswordResetLinkData', 'G__typename'),
+            sendPasswordResetLink: _sendPasswordResetLink?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'resendPasswordResetLink';
-        _resendPasswordResetLink?.build();
+        _$failedField = 'sendPasswordResetLink';
+        _sendPasswordResetLink?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'GResendPasswordResetLinkData', _$failedField, e.toString());
+            r'GSendPasswordResetLinkData', _$failedField, e.toString());
       }
       rethrow;
     }

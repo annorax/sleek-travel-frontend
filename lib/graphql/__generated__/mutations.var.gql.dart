@@ -202,28 +202,27 @@ abstract class GDeletePurchaseOrderVars
       );
 }
 
-abstract class GResendPasswordResetLinkVars
+abstract class GSendPasswordResetLinkVars
     implements
-        Built<GResendPasswordResetLinkVars,
-            GResendPasswordResetLinkVarsBuilder> {
-  GResendPasswordResetLinkVars._();
+        Built<GSendPasswordResetLinkVars, GSendPasswordResetLinkVarsBuilder> {
+  GSendPasswordResetLinkVars._();
 
-  factory GResendPasswordResetLinkVars(
-          [void Function(GResendPasswordResetLinkVarsBuilder b) updates]) =
-      _$GResendPasswordResetLinkVars;
+  factory GSendPasswordResetLinkVars(
+          [void Function(GSendPasswordResetLinkVarsBuilder b) updates]) =
+      _$GSendPasswordResetLinkVars;
 
   String get emailOrPhone;
-  static Serializer<GResendPasswordResetLinkVars> get serializer =>
-      _$gResendPasswordResetLinkVarsSerializer;
+  static Serializer<GSendPasswordResetLinkVars> get serializer =>
+      _$gSendPasswordResetLinkVarsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GResendPasswordResetLinkVars.serializer,
+        GSendPasswordResetLinkVars.serializer,
         this,
       ) as Map<String, dynamic>);
 
-  static GResendPasswordResetLinkVars? fromJson(Map<String, dynamic> json) =>
+  static GSendPasswordResetLinkVars? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
-        GResendPasswordResetLinkVars.serializer,
+        GSendPasswordResetLinkVars.serializer,
         json,
       );
 }

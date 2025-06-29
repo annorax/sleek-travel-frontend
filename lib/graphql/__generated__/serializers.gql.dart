@@ -21,7 +21,7 @@ import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.d
         GLogInUserData_logInUser,
         GLogInUserData_logInUser_user,
         GLogOutUserData,
-        GResendPasswordResetLinkData,
+        GSendPasswordResetLinkData,
         GUpdateProductData,
         GUpdateProductData_updateOneProduct,
         GValidateTokenData,
@@ -35,7 +35,7 @@ import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.da
         GDeletePurchaseOrderReq,
         GLogInUserReq,
         GLogOutUserReq,
-        GResendPasswordResetLinkReq,
+        GSendPasswordResetLinkReq,
         GUpdateProductReq,
         GValidateTokenReq;
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.var.gql.dart'
@@ -46,7 +46,7 @@ import 'package:sleek_travel_frontend/graphql/__generated__/mutations.var.gql.da
         GDeletePurchaseOrderVars,
         GLogInUserVars,
         GLogOutUserVars,
-        GResendPasswordResetLinkVars,
+        GSendPasswordResetLinkVars,
         GUpdateProductVars,
         GValidateTokenVars;
 import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart'
@@ -638,13 +638,13 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GPurchaseOrderWhereInput,
   GPurchaseOrderWhereUniqueInput,
   GQueryMode,
-  GResendPasswordResetLinkData,
-  GResendPasswordResetLinkReq,
-  GResendPasswordResetLinkVars,
   GRole,
   GSTItemOrderByWithRelationInput,
   GSTProductOrderByWithRelationInput,
   GSTPurchaseOrderOrderByWithRelationInput,
+  GSendPasswordResetLinkData,
+  GSendPasswordResetLinkReq,
+  GSendPasswordResetLinkVars,
   GSortOrder,
   GSortOrderInput,
   GStringFieldUpdateOperationsInput,

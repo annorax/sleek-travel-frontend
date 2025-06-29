@@ -374,9 +374,9 @@ const DeletePurchaseOrder = _i1.OperationDefinitionNode(
     )
   ]),
 );
-const ResendPasswordResetLink = _i1.OperationDefinitionNode(
+const SendPasswordResetLink = _i1.OperationDefinitionNode(
   type: _i1.OperationType.mutation,
-  name: _i1.NameNode(value: 'ResendPasswordResetLink'),
+  name: _i1.NameNode(value: 'SendPasswordResetLink'),
   variableDefinitions: [
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'emailOrPhone')),
@@ -391,7 +391,7 @@ const ResendPasswordResetLink = _i1.OperationDefinitionNode(
   directives: [],
   selectionSet: _i1.SelectionSetNode(selections: [
     _i1.FieldNode(
-      name: _i1.NameNode(value: 'resendPasswordResetLink'),
+      name: _i1.NameNode(value: 'sendPasswordResetLink'),
       alias: null,
       arguments: [
         _i1.ArgumentNode(
@@ -413,5 +413,5 @@ const document = _i1.DocumentNode(definitions: [
   DeleteProduct,
   DeleteItem,
   DeletePurchaseOrder,
-  ResendPasswordResetLink,
+  SendPasswordResetLink,
 ]);

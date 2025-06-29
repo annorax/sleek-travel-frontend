@@ -60,6 +60,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         showError("Sending failed", context);
                       }
                     }
+                    if (context.mounted) {
+                      showInfo("Password reset link sent via email and SMS", context);
+                    }
                     NavigationManager.instance.pushReplacement(LoginPage.name);
                   },
                   child: const Text('Send'),

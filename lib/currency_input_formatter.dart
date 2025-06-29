@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:slick_travel_frontend/constants.dart';
+import 'package:sleek_travel_frontend/constants.dart';
 
 class CurrencyInputFormatter extends FilteringTextInputFormatter {
   CurrencyInputFormatter() : super.allow(RegExp(r"^[\d,]+(\.\d{0,2})?"));

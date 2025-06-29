@@ -1,18 +1,18 @@
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/queries.data.gql.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/queries.req.gql.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
-import 'package:slick_travel_frontend/listable_entity_type.dart';
-import 'package:slick_travel_frontend/main.dart';
-import 'package:slick_travel_frontend/pages/dashboard_page.dart';
-import 'package:slick_travel_frontend/slidable/action_pane_motions.dart';
-import 'package:slick_travel_frontend/model/user.model.dart';
-import 'package:slick_travel_frontend/model/user.state.dart';
-import 'package:slick_travel_frontend/util.dart';
+import 'package:sleek_travel_frontend/constants.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/queries.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
+import 'package:sleek_travel_frontend/listable_entity_type.dart';
+import 'package:sleek_travel_frontend/main.dart';
+import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
+import 'package:sleek_travel_frontend/slidable/action_pane_motions.dart';
+import 'package:sleek_travel_frontend/model/user.model.dart';
+import 'package:sleek_travel_frontend/model/user.state.dart';
+import 'package:sleek_travel_frontend/util.dart';
 import 'package:collection/collection.dart';
 
 enum ItemAction {

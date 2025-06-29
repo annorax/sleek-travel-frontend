@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/currency_input_formatter.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
-import 'package:slick_travel_frontend/main.dart';
-import 'package:slick_travel_frontend/model/product.model.dart';
-import 'package:slick_travel_frontend/scanner.dart';
+import 'package:sleek_travel_frontend/constants.dart';
+import 'package:sleek_travel_frontend/currency_input_formatter.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
+import 'package:sleek_travel_frontend/main.dart';
+import 'package:sleek_travel_frontend/model/product.model.dart';
+import 'package:sleek_travel_frontend/scanner.dart';
 
 class ProductForm extends StatefulWidget {
   final Product? product;

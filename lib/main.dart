@@ -5,17 +5,17 @@ import 'package:flutter/services.dart';
 import 'package:gql_http_link/gql_http_link.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:slick_travel_frontend/constants.dart';
-import 'package:slick_travel_frontend/globals.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
-import 'package:slick_travel_frontend/model/user.model.dart';
-import 'package:slick_travel_frontend/model/user.state.dart';
-import 'package:slick_travel_frontend/pages/dashboard_page.dart';
-import 'package:slick_travel_frontend/pages/login_page.dart';
-import 'package:slick_travel_frontend/router/routes.dart';
-import 'package:slick_travel_frontend/router/routes.dart' as navigation_routes;
+import 'package:sleek_travel_frontend/constants.dart';
+import 'package:sleek_travel_frontend/globals.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
+import 'package:sleek_travel_frontend/model/user.model.dart';
+import 'package:sleek_travel_frontend/model/user.state.dart';
+import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
+import 'package:sleek_travel_frontend/pages/login_page.dart';
+import 'package:sleek_travel_frontend/router/routes.dart';
+import 'package:sleek_travel_frontend/router/routes.dart' as navigation_routes;
 
 late Client client;
 

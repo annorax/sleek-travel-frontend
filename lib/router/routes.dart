@@ -1,7 +1,7 @@
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:slick_travel_frontend/pages/dashboard_page.dart';
-import 'package:slick_travel_frontend/pages/forgot_password_page.dart';
-import 'package:slick_travel_frontend/pages/login_page.dart';
+import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
+import 'package:sleek_travel_frontend/pages/forgot_password_page.dart';
+import 'package:sleek_travel_frontend/pages/login_page.dart';
 
 final List<NavigationData> routes = [
   NavigationData(

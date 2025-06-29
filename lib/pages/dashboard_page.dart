@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:slick_travel_frontend/globals.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:slick_travel_frontend/main.dart';
-import 'package:slick_travel_frontend/model/user.model.dart';
-import 'package:slick_travel_frontend/model/user.state.dart';
-import 'package:slick_travel_frontend/pages/items_page.dart';
-import 'package:slick_travel_frontend/pages/products_page.dart';
-import 'package:slick_travel_frontend/pages/purchase_orders_page.dart';
-import 'package:slick_travel_frontend/util.dart';
+import 'package:sleek_travel_frontend/globals.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/main.dart';
+import 'package:sleek_travel_frontend/model/user.model.dart';
+import 'package:sleek_travel_frontend/model/user.state.dart';
+import 'package:sleek_travel_frontend/pages/items_page.dart';
+import 'package:sleek_travel_frontend/pages/products_page.dart';
+import 'package:sleek_travel_frontend/pages/purchase_orders_page.dart';
+import 'package:sleek_travel_frontend/util.dart';
 
 enum SortDirection { asc, desc }
 

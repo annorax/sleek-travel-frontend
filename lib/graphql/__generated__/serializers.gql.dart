@@ -7,7 +7,7 @@ import 'package:built_value/standard_json_plugin.dart' show StandardJsonPlugin;
 import 'package:ferry_exec/ferry_exec.dart';
 import 'package:gql_code_builder_serializers/gql_code_builder_serializers.dart'
     show OperationSerializer;
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.data.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart'
     show
         GCreateProductData,
         GCreateProductData_createOneProduct,
@@ -27,7 +27,7 @@ import 'package:slick_travel_frontend/graphql/__generated__/mutations.data.gql.d
         GValidateTokenData,
         GValidateTokenData_validateToken,
         GValidateTokenData_validateToken_user;
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart'
     show
         GCreateProductReq,
         GDeleteItemReq,
@@ -38,7 +38,7 @@ import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.da
         GResendPasswordResetLinkReq,
         GUpdateProductReq,
         GValidateTokenReq;
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.var.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.var.gql.dart'
     show
         GCreateProductVars,
         GDeleteItemVars,
@@ -49,7 +49,7 @@ import 'package:slick_travel_frontend/graphql/__generated__/mutations.var.gql.da
         GResendPasswordResetLinkVars,
         GUpdateProductVars,
         GValidateTokenVars;
-import 'package:slick_travel_frontend/graphql/__generated__/queries.data.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart'
     show
         GListAllProductsData,
         GListAllProductsData_listAllProducts,
@@ -58,11 +58,11 @@ import 'package:slick_travel_frontend/graphql/__generated__/queries.data.gql.dar
         GListUserPurchaseOrdersData,
         GListUserPurchaseOrdersData_listAllPurchaseOrders,
         GListUserPurchaseOrdersData_listAllPurchaseOrders_entries;
-import 'package:slick_travel_frontend/graphql/__generated__/queries.req.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/queries.req.gql.dart'
     show GListAllProductsReq, GListUserItemsReq, GListUserPurchaseOrdersReq;
-import 'package:slick_travel_frontend/graphql/__generated__/queries.var.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/queries.var.gql.dart'
     show GListAllProductsVars, GListUserItemsVars, GListUserPurchaseOrdersVars;
-import 'package:slick_travel_frontend/graphql/__generated__/schema.schema.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart'
     show
         GAccessTokenCreateManyUserInput,
         GAccessTokenCreateManyUserInputEnvelope,

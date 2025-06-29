@@ -4,9 +4,9 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:slick_travel_frontend/buttons/analyze_image_button.dart';
-import 'package:slick_travel_frontend/buttons/switch_camera_button.dart';
-import 'package:slick_travel_frontend/buttons/toggle_flashlight_button.dart';
+import 'package:sleek_travel_frontend/buttons/analyze_image_button.dart';
+import 'package:sleek_travel_frontend/buttons/switch_camera_button.dart';
+import 'package:sleek_travel_frontend/buttons/toggle_flashlight_button.dart';
 
 class Scanner extends StatefulWidget {
   const Scanner({super.key});

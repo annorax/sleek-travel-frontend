@@ -2,10 +2,10 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:slick_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:slick_travel_frontend/main.dart';
-import 'package:slick_travel_frontend/pages/dashboard_page.dart';
-import 'package:slick_travel_frontend/util.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/main.dart';
+import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
+import 'package:sleek_travel_frontend/util.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   static const String name = 'forgot-password';

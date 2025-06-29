@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:slick_travel_frontend/env/env.dart';
+import 'package:sleek_travel_frontend/env/env.dart';
 
 const String backendUrl = '${Env.backendBaseUrl}graphql';
 const String emailFieldName = 'email';

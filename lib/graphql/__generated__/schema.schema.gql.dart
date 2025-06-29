@@ -7,7 +7,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:gql_code_builder_serializers/gql_code_builder_serializers.dart'
     as _i2;
-import 'package:slick_travel_frontend/graphql/__generated__/serializers.gql.dart'
+import 'package:sleek_travel_frontend/graphql/__generated__/serializers.gql.dart'
     as _i1;
 
 part 'schema.schema.gql.g.dart';

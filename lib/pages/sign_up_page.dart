@@ -8,27 +8,29 @@ import 'package:sleek_travel_frontend/model/user.model.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/forgot_password_page.dart';
-import 'package:sleek_travel_frontend/pages/sign_up_page.dart';
+import 'package:sleek_travel_frontend/pages/login_page.dart';
 import 'package:sleek_travel_frontend/util.dart';
 
-class LoginPage extends StatefulWidget {
-  static const String name = 'login';
+class SignUpPage extends StatefulWidget {
+  static const String name = 'sign-up';
 
-  const LoginPage({super.key});
+  const SignUpPage({super.key});
 
   @override
-  createState() => _LoginPageState();
+  createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   final GlobalKey emailOrPhoneFieldKey = GlobalKey<FormFieldState>();
   final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
+  final GlobalKey repeatPasswordFieldKey = GlobalKey<FormFieldState>();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) =>
     Scaffold(
-      appBar: AppBar(title: Text("Log In")),
+      appBar: AppBar(title: Text("Sign Up")),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -48,9 +50,17 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16),
                 TextFormField(
                   key: passwordFieldKey,
+                  controller: passwordController,
                   decoration: const InputDecoration(labelText: 'Password'),
                   obscureText: true,
                   validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  key: repeatPasswordFieldKey,
+                  decoration: const InputDecoration(labelText: 'Repeat password'),
+                  obscureText: true,
+                  validator:  (value) => (value != passwordController.text) ? 'Does not match' : null
                 ),
                 const SizedBox(height: 16),
                 MaterialButton(
@@ -94,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text('Login'),
                 ),
                 const SizedBox(height: 16),
-                // This is for when we add buttons for signing in with Google / Apple
+                // This is for when we add buttons for signing up with Google / Apple
                 /*Row(
                   children: [
                     Expanded(
@@ -110,8 +120,8 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),*/
                 InkWell(
-                  onTap: () => NavigationManager.instance.pushReplacement(SignUpPage.name),
-                  child: Text("Don't have an account? Sign up here."),
+                  onTap: () => NavigationManager.instance.pushReplacement(LoginPage.name),
+                  child: Text("Already have an account? Log in here."),
                 ),
                 SizedBox(height: 16),
                 InkWell(

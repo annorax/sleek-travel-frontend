@@ -22,7 +22,9 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
-  final GlobalKey emailOrPhoneFieldKey = GlobalKey<FormFieldState>();
+  final GlobalKey nameFieldKey = GlobalKey<FormFieldState>();
+  final GlobalKey emailFieldKey = GlobalKey<FormFieldState>();
+  final GlobalKey phoneNumberFieldKey = GlobalKey<FormFieldState>();
   final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
   final GlobalKey repeatPasswordFieldKey = GlobalKey<FormFieldState>();
   final TextEditingController passwordController = TextEditingController();
@@ -40,12 +42,21 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Column(
               children: [
                 TextFormField(
-                  key: emailOrPhoneFieldKey,
-                  decoration: const InputDecoration(labelText: 'Email / phone number'),
-                  validator: ValidationBuilder().or(
-                    (builder) => builder.email(),
-                    (builder) => builder.regExp(RegExp(r'\+\d+'), 'Invalid email address / phone number'),
-                  ).required('Required').build()
+                  key: nameFieldKey,
+                  decoration: const InputDecoration(labelText: 'Full name'),
+                  validator: ValidationBuilder().required('Required').build()
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  key: emailFieldKey,
+                  decoration: const InputDecoration(labelText: 'Email address'),
+                  validator: ValidationBuilder().email('Invalid email address').required('Required').build()
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  key: phoneNumberFieldKey,
+                  decoration: const InputDecoration(labelText: 'Phone number'),
+                  validator: ValidationBuilder().email('Invalid phone number').required('Required').build()
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
@@ -70,38 +81,34 @@ class _SignUpPageState extends State<SignUpPage> {
                       return;
                     }
                     final OperationResponse result = await client.request(
-                      GLogInUserReq(
+                      GRegisterUserReq(
                         (builder) =>
                           builder.vars
-                            ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
+                            ..name = extractValue(nameFieldKey)
+                            ..email = extractValue(emailFieldKey)
+                            ..phoneNumber = extractValue(phoneNumberFieldKey)
                             ..password = extractValue(passwordFieldKey)
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
                       print(result.graphqlErrors);
                       if (context.mounted) {
-                        showError("Login failed", context);
+                        showError("Sign up failed", context);
                       }
                     }
                     dynamic logInUser = result.data.logInUser;
                     if (logInUser == null) {
                       if (context.mounted) {
-                        showError("Login failed", context);
+                        showError("Sign up failed", context);
                       }
                       return;
                     }
-                    final token = logInUser.token;
-                    final dynamic safeUser = logInUser.user;
-                    final User user = User(
-                      id: safeUser.id,
-                      name: safeUser.name,
-                      email: extractValue(emailOrPhoneFieldKey),
-                      token: token
-                    );
-                    await userState.setValue(user);
-                    NavigationManager.instance.pushReplacement(DashboardTab.items.name);
+                    if (context.mounted) {
+                      showInfo("Sign up successful. Please check your email.", context);
+                    }
+                    NavigationManager.instance.pushReplacement(LoginPage.name);
                   },
-                  child: const Text('Login'),
+                  child: const Text('Create account'),
                 ),
                 const SizedBox(height: 16),
                 // This is for when we add buttons for signing up with Google / Apple

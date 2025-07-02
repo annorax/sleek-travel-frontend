@@ -50,6 +50,14 @@ Serializer<GDeletePurchaseOrderData_deleteOnePurchaseOrder>
     _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer();
 Serializer<GSendPasswordResetLinkData> _$gSendPasswordResetLinkDataSerializer =
     _$GSendPasswordResetLinkDataSerializer();
+Serializer<GRegisterUserData> _$gRegisterUserDataSerializer =
+    _$GRegisterUserDataSerializer();
+Serializer<GRegisterUserData_registerUser>
+    _$gRegisterUserDataRegisterUserSerializer =
+    _$GRegisterUserData_registerUserSerializer();
+Serializer<GRegisterUserData_registerUser_user>
+    _$gRegisterUserDataRegisterUserUserSerializer =
+    _$GRegisterUserData_registerUser_userSerializer();
 
 class _$GValidateTokenDataSerializer
     implements StructuredSerializer<GValidateTokenData> {
@@ -1044,6 +1052,177 @@ class _$GSendPasswordResetLinkDataSerializer
         case 'sendPasswordResetLink':
           result.sendPasswordResetLink.replace(serializers.deserialize(value,
               specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GRegisterUserDataSerializer
+    implements StructuredSerializer<GRegisterUserData> {
+  @override
+  final Iterable<Type> types = const [GRegisterUserData, _$GRegisterUserData];
+  @override
+  final String wireName = 'GRegisterUserData';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GRegisterUserData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'registerUser',
+      serializers.serialize(object.registerUser,
+          specifiedType: const FullType(GRegisterUserData_registerUser)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GRegisterUserData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GRegisterUserDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'registerUser':
+          result.registerUser.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GRegisterUserData_registerUser))!
+              as GRegisterUserData_registerUser);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GRegisterUserData_registerUserSerializer
+    implements StructuredSerializer<GRegisterUserData_registerUser> {
+  @override
+  final Iterable<Type> types = const [
+    GRegisterUserData_registerUser,
+    _$GRegisterUserData_registerUser
+  ];
+  @override
+  final String wireName = 'GRegisterUserData_registerUser';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GRegisterUserData_registerUser object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'token',
+      serializers.serialize(object.token,
+          specifiedType: const FullType(String)),
+      'user',
+      serializers.serialize(object.user,
+          specifiedType: const FullType(GRegisterUserData_registerUser_user)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GRegisterUserData_registerUser deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GRegisterUserData_registerUserBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'token':
+          result.token = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GRegisterUserData_registerUser_user))!
+              as GRegisterUserData_registerUser_user);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GRegisterUserData_registerUser_userSerializer
+    implements StructuredSerializer<GRegisterUserData_registerUser_user> {
+  @override
+  final Iterable<Type> types = const [
+    GRegisterUserData_registerUser_user,
+    _$GRegisterUserData_registerUser_user
+  ];
+  @override
+  final String wireName = 'GRegisterUserData_registerUser_user';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GRegisterUserData_registerUser_user object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GRegisterUserData_registerUser_user deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GRegisterUserData_registerUser_userBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -3085,6 +3264,363 @@ class GSendPasswordResetLinkDataBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GRegisterUserData extends GRegisterUserData {
+  @override
+  final String G__typename;
+  @override
+  final GRegisterUserData_registerUser registerUser;
+
+  factory _$GRegisterUserData(
+          [void Function(GRegisterUserDataBuilder)? updates]) =>
+      (GRegisterUserDataBuilder()..update(updates))._build();
+
+  _$GRegisterUserData._({required this.G__typename, required this.registerUser})
+      : super._();
+  @override
+  GRegisterUserData rebuild(void Function(GRegisterUserDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GRegisterUserDataBuilder toBuilder() =>
+      GRegisterUserDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GRegisterUserData &&
+        G__typename == other.G__typename &&
+        registerUser == other.registerUser;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, registerUser.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GRegisterUserData')
+          ..add('G__typename', G__typename)
+          ..add('registerUser', registerUser))
+        .toString();
+  }
+}
+
+class GRegisterUserDataBuilder
+    implements Builder<GRegisterUserData, GRegisterUserDataBuilder> {
+  _$GRegisterUserData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  GRegisterUserData_registerUserBuilder? _registerUser;
+  GRegisterUserData_registerUserBuilder get registerUser =>
+      _$this._registerUser ??= GRegisterUserData_registerUserBuilder();
+  set registerUser(GRegisterUserData_registerUserBuilder? registerUser) =>
+      _$this._registerUser = registerUser;
+
+  GRegisterUserDataBuilder() {
+    GRegisterUserData._initializeBuilder(this);
+  }
+
+  GRegisterUserDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _registerUser = $v.registerUser.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GRegisterUserData other) {
+    _$v = other as _$GRegisterUserData;
+  }
+
+  @override
+  void update(void Function(GRegisterUserDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GRegisterUserData build() => _build();
+
+  _$GRegisterUserData _build() {
+    _$GRegisterUserData _$result;
+    try {
+      _$result = _$v ??
+          _$GRegisterUserData._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GRegisterUserData', 'G__typename'),
+            registerUser: registerUser.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'registerUser';
+        registerUser.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GRegisterUserData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GRegisterUserData_registerUser extends GRegisterUserData_registerUser {
+  @override
+  final String G__typename;
+  @override
+  final String token;
+  @override
+  final GRegisterUserData_registerUser_user user;
+
+  factory _$GRegisterUserData_registerUser(
+          [void Function(GRegisterUserData_registerUserBuilder)? updates]) =>
+      (GRegisterUserData_registerUserBuilder()..update(updates))._build();
+
+  _$GRegisterUserData_registerUser._(
+      {required this.G__typename, required this.token, required this.user})
+      : super._();
+  @override
+  GRegisterUserData_registerUser rebuild(
+          void Function(GRegisterUserData_registerUserBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GRegisterUserData_registerUserBuilder toBuilder() =>
+      GRegisterUserData_registerUserBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GRegisterUserData_registerUser &&
+        G__typename == other.G__typename &&
+        token == other.token &&
+        user == other.user;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, token.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GRegisterUserData_registerUser')
+          ..add('G__typename', G__typename)
+          ..add('token', token)
+          ..add('user', user))
+        .toString();
+  }
+}
+
+class GRegisterUserData_registerUserBuilder
+    implements
+        Builder<GRegisterUserData_registerUser,
+            GRegisterUserData_registerUserBuilder> {
+  _$GRegisterUserData_registerUser? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _token;
+  String? get token => _$this._token;
+  set token(String? token) => _$this._token = token;
+
+  GRegisterUserData_registerUser_userBuilder? _user;
+  GRegisterUserData_registerUser_userBuilder get user =>
+      _$this._user ??= GRegisterUserData_registerUser_userBuilder();
+  set user(GRegisterUserData_registerUser_userBuilder? user) =>
+      _$this._user = user;
+
+  GRegisterUserData_registerUserBuilder() {
+    GRegisterUserData_registerUser._initializeBuilder(this);
+  }
+
+  GRegisterUserData_registerUserBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _token = $v.token;
+      _user = $v.user.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GRegisterUserData_registerUser other) {
+    _$v = other as _$GRegisterUserData_registerUser;
+  }
+
+  @override
+  void update(void Function(GRegisterUserData_registerUserBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GRegisterUserData_registerUser build() => _build();
+
+  _$GRegisterUserData_registerUser _build() {
+    _$GRegisterUserData_registerUser _$result;
+    try {
+      _$result = _$v ??
+          _$GRegisterUserData_registerUser._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GRegisterUserData_registerUser', 'G__typename'),
+            token: BuiltValueNullFieldError.checkNotNull(
+                token, r'GRegisterUserData_registerUser', 'token'),
+            user: user.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'user';
+        user.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GRegisterUserData_registerUser', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GRegisterUserData_registerUser_user
+    extends GRegisterUserData_registerUser_user {
+  @override
+  final String G__typename;
+  @override
+  final int id;
+  @override
+  final String name;
+
+  factory _$GRegisterUserData_registerUser_user(
+          [void Function(GRegisterUserData_registerUser_userBuilder)?
+              updates]) =>
+      (GRegisterUserData_registerUser_userBuilder()..update(updates))._build();
+
+  _$GRegisterUserData_registerUser_user._(
+      {required this.G__typename, required this.id, required this.name})
+      : super._();
+  @override
+  GRegisterUserData_registerUser_user rebuild(
+          void Function(GRegisterUserData_registerUser_userBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GRegisterUserData_registerUser_userBuilder toBuilder() =>
+      GRegisterUserData_registerUser_userBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GRegisterUserData_registerUser_user &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GRegisterUserData_registerUser_user')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name))
+        .toString();
+  }
+}
+
+class GRegisterUserData_registerUser_userBuilder
+    implements
+        Builder<GRegisterUserData_registerUser_user,
+            GRegisterUserData_registerUser_userBuilder> {
+  _$GRegisterUserData_registerUser_user? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  GRegisterUserData_registerUser_userBuilder() {
+    GRegisterUserData_registerUser_user._initializeBuilder(this);
+  }
+
+  GRegisterUserData_registerUser_userBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id;
+      _name = $v.name;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GRegisterUserData_registerUser_user other) {
+    _$v = other as _$GRegisterUserData_registerUser_user;
+  }
+
+  @override
+  void update(
+      void Function(GRegisterUserData_registerUser_userBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GRegisterUserData_registerUser_user build() => _build();
+
+  _$GRegisterUserData_registerUser_user _build() {
+    final _$result = _$v ??
+        _$GRegisterUserData_registerUser_user._(
+          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+              r'GRegisterUserData_registerUser_user', 'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GRegisterUserData_registerUser_user', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'GRegisterUserData_registerUser_user', 'name'),
+        );
     replace(_$result);
     return _$result;
   }

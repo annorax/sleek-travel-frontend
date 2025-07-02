@@ -24,6 +24,8 @@ Serializer<GDeletePurchaseOrderVars> _$gDeletePurchaseOrderVarsSerializer =
     _$GDeletePurchaseOrderVarsSerializer();
 Serializer<GSendPasswordResetLinkVars> _$gSendPasswordResetLinkVarsSerializer =
     _$GSendPasswordResetLinkVarsSerializer();
+Serializer<GRegisterUserVars> _$gRegisterUserVarsSerializer =
+    _$GRegisterUserVarsSerializer();
 
 class _$GValidateTokenVarsSerializer
     implements StructuredSerializer<GValidateTokenVars> {
@@ -397,6 +399,68 @@ class _$GSendPasswordResetLinkVarsSerializer
       switch (key) {
         case 'emailOrPhone':
           result.emailOrPhone = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GRegisterUserVarsSerializer
+    implements StructuredSerializer<GRegisterUserVars> {
+  @override
+  final Iterable<Type> types = const [GRegisterUserVars, _$GRegisterUserVars];
+  @override
+  final String wireName = 'GRegisterUserVars';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GRegisterUserVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'phoneNumber',
+      serializers.serialize(object.phoneNumber,
+          specifiedType: const FullType(String)),
+      'email',
+      serializers.serialize(object.email,
+          specifiedType: const FullType(String)),
+      'password',
+      serializers.serialize(object.password,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GRegisterUserVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GRegisterUserVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'phoneNumber':
+          result.phoneNumber = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'password':
+          result.password = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
       }
@@ -1169,6 +1233,130 @@ class GSendPasswordResetLinkVarsBuilder
         _$GSendPasswordResetLinkVars._(
           emailOrPhone: BuiltValueNullFieldError.checkNotNull(
               emailOrPhone, r'GSendPasswordResetLinkVars', 'emailOrPhone'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GRegisterUserVars extends GRegisterUserVars {
+  @override
+  final String name;
+  @override
+  final String phoneNumber;
+  @override
+  final String email;
+  @override
+  final String password;
+
+  factory _$GRegisterUserVars(
+          [void Function(GRegisterUserVarsBuilder)? updates]) =>
+      (GRegisterUserVarsBuilder()..update(updates))._build();
+
+  _$GRegisterUserVars._(
+      {required this.name,
+      required this.phoneNumber,
+      required this.email,
+      required this.password})
+      : super._();
+  @override
+  GRegisterUserVars rebuild(void Function(GRegisterUserVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GRegisterUserVarsBuilder toBuilder() =>
+      GRegisterUserVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GRegisterUserVars &&
+        name == other.name &&
+        phoneNumber == other.phoneNumber &&
+        email == other.email &&
+        password == other.password;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, phoneNumber.hashCode);
+    _$hash = $jc(_$hash, email.hashCode);
+    _$hash = $jc(_$hash, password.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GRegisterUserVars')
+          ..add('name', name)
+          ..add('phoneNumber', phoneNumber)
+          ..add('email', email)
+          ..add('password', password))
+        .toString();
+  }
+}
+
+class GRegisterUserVarsBuilder
+    implements Builder<GRegisterUserVars, GRegisterUserVarsBuilder> {
+  _$GRegisterUserVars? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  String? _phoneNumber;
+  String? get phoneNumber => _$this._phoneNumber;
+  set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
+
+  String? _email;
+  String? get email => _$this._email;
+  set email(String? email) => _$this._email = email;
+
+  String? _password;
+  String? get password => _$this._password;
+  set password(String? password) => _$this._password = password;
+
+  GRegisterUserVarsBuilder();
+
+  GRegisterUserVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _phoneNumber = $v.phoneNumber;
+      _email = $v.email;
+      _password = $v.password;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GRegisterUserVars other) {
+    _$v = other as _$GRegisterUserVars;
+  }
+
+  @override
+  void update(void Function(GRegisterUserVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GRegisterUserVars build() => _build();
+
+  _$GRegisterUserVars _build() {
+    final _$result = _$v ??
+        _$GRegisterUserVars._(
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'GRegisterUserVars', 'name'),
+          phoneNumber: BuiltValueNullFieldError.checkNotNull(
+              phoneNumber, r'GRegisterUserVars', 'phoneNumber'),
+          email: BuiltValueNullFieldError.checkNotNull(
+              email, r'GRegisterUserVars', 'email'),
+          password: BuiltValueNullFieldError.checkNotNull(
+              password, r'GRegisterUserVars', 'password'),
         );
     replace(_$result);
     return _$result;

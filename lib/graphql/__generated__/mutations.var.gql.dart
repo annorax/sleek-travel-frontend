@@ -226,3 +226,30 @@ abstract class GSendPasswordResetLinkVars
         json,
       );
 }
+
+abstract class GRegisterUserVars
+    implements Built<GRegisterUserVars, GRegisterUserVarsBuilder> {
+  GRegisterUserVars._();
+
+  factory GRegisterUserVars(
+          [void Function(GRegisterUserVarsBuilder b) updates]) =
+      _$GRegisterUserVars;
+
+  String get name;
+  String get phoneNumber;
+  String get email;
+  String get password;
+  static Serializer<GRegisterUserVars> get serializer =>
+      _$gRegisterUserVarsSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GRegisterUserVars.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GRegisterUserVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GRegisterUserVars.serializer,
+        json,
+      );
+}

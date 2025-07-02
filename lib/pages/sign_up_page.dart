@@ -122,11 +122,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 InkWell(
                   onTap: () => NavigationManager.instance.pushReplacement(LoginPage.name),
                   child: Text("Already have an account? Log in here."),
-                ),
-                SizedBox(height: 16),
-                InkWell(
-                  onTap: () => NavigationManager.instance.pushReplacement(ForgotPasswordPage.name),
-                  child: Text('Forgot Password?'),
                 )
               ],
             ),

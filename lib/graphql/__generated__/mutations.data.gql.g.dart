@@ -52,6 +52,8 @@ Serializer<GSendPasswordResetLinkData> _$gSendPasswordResetLinkDataSerializer =
     _$GSendPasswordResetLinkDataSerializer();
 Serializer<GRegisterUserData> _$gRegisterUserDataSerializer =
     _$GRegisterUserDataSerializer();
+Serializer<GVerifyPhoneNumberData> _$gVerifyPhoneNumberDataSerializer =
+    _$GVerifyPhoneNumberDataSerializer();
 
 class _$GValidateTokenDataSerializer
     implements StructuredSerializer<GValidateTokenData> {
@@ -1107,6 +1109,63 @@ class _$GRegisterUserDataSerializer
           break;
         case 'registerUser':
           result.registerUser.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GVerifyPhoneNumberDataSerializer
+    implements StructuredSerializer<GVerifyPhoneNumberData> {
+  @override
+  final Iterable<Type> types = const [
+    GVerifyPhoneNumberData,
+    _$GVerifyPhoneNumberData
+  ];
+  @override
+  final String wireName = 'GVerifyPhoneNumberData';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GVerifyPhoneNumberData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.verifyPhoneNumber;
+    if (value != null) {
+      result
+        ..add('verifyPhoneNumber')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GVoid)));
+    }
+    return result;
+  }
+
+  @override
+  GVerifyPhoneNumberData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GVerifyPhoneNumberDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'verifyPhoneNumber':
+          result.verifyPhoneNumber.replace(serializers.deserialize(value,
               specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
           break;
       }
@@ -3350,6 +3409,120 @@ class GRegisterUserDataBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'GRegisterUserData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GVerifyPhoneNumberData extends GVerifyPhoneNumberData {
+  @override
+  final String G__typename;
+  @override
+  final _i2.GVoid? verifyPhoneNumber;
+
+  factory _$GVerifyPhoneNumberData(
+          [void Function(GVerifyPhoneNumberDataBuilder)? updates]) =>
+      (GVerifyPhoneNumberDataBuilder()..update(updates))._build();
+
+  _$GVerifyPhoneNumberData._(
+      {required this.G__typename, this.verifyPhoneNumber})
+      : super._();
+  @override
+  GVerifyPhoneNumberData rebuild(
+          void Function(GVerifyPhoneNumberDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GVerifyPhoneNumberDataBuilder toBuilder() =>
+      GVerifyPhoneNumberDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GVerifyPhoneNumberData &&
+        G__typename == other.G__typename &&
+        verifyPhoneNumber == other.verifyPhoneNumber;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, verifyPhoneNumber.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GVerifyPhoneNumberData')
+          ..add('G__typename', G__typename)
+          ..add('verifyPhoneNumber', verifyPhoneNumber))
+        .toString();
+  }
+}
+
+class GVerifyPhoneNumberDataBuilder
+    implements Builder<GVerifyPhoneNumberData, GVerifyPhoneNumberDataBuilder> {
+  _$GVerifyPhoneNumberData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  _i2.GVoidBuilder? _verifyPhoneNumber;
+  _i2.GVoidBuilder get verifyPhoneNumber =>
+      _$this._verifyPhoneNumber ??= _i2.GVoidBuilder();
+  set verifyPhoneNumber(_i2.GVoidBuilder? verifyPhoneNumber) =>
+      _$this._verifyPhoneNumber = verifyPhoneNumber;
+
+  GVerifyPhoneNumberDataBuilder() {
+    GVerifyPhoneNumberData._initializeBuilder(this);
+  }
+
+  GVerifyPhoneNumberDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _verifyPhoneNumber = $v.verifyPhoneNumber?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GVerifyPhoneNumberData other) {
+    _$v = other as _$GVerifyPhoneNumberData;
+  }
+
+  @override
+  void update(void Function(GVerifyPhoneNumberDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GVerifyPhoneNumberData build() => _build();
+
+  _$GVerifyPhoneNumberData _build() {
+    _$GVerifyPhoneNumberData _$result;
+    try {
+      _$result = _$v ??
+          _$GVerifyPhoneNumberData._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GVerifyPhoneNumberData', 'G__typename'),
+            verifyPhoneNumber: _verifyPhoneNumber?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'verifyPhoneNumber';
+        _verifyPhoneNumber?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GVerifyPhoneNumberData', _$failedField, e.toString());
       }
       rethrow;
     }

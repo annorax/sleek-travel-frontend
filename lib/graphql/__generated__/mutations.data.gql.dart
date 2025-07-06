@@ -594,3 +594,32 @@ abstract class GRegisterUserData
         json,
       );
 }
+
+abstract class GVerifyPhoneNumberData
+    implements Built<GVerifyPhoneNumberData, GVerifyPhoneNumberDataBuilder> {
+  GVerifyPhoneNumberData._();
+
+  factory GVerifyPhoneNumberData(
+          [void Function(GVerifyPhoneNumberDataBuilder b) updates]) =
+      _$GVerifyPhoneNumberData;
+
+  static void _initializeBuilder(GVerifyPhoneNumberDataBuilder b) =>
+      b..G__typename = 'Mutation';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  _i2.GVoid? get verifyPhoneNumber;
+  static Serializer<GVerifyPhoneNumberData> get serializer =>
+      _$gVerifyPhoneNumberDataSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GVerifyPhoneNumberData.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GVerifyPhoneNumberData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GVerifyPhoneNumberData.serializer,
+        json,
+      );
+}

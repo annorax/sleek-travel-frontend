@@ -26,6 +26,8 @@ Serializer<GSendPasswordResetLinkVars> _$gSendPasswordResetLinkVarsSerializer =
     _$GSendPasswordResetLinkVarsSerializer();
 Serializer<GRegisterUserVars> _$gRegisterUserVarsSerializer =
     _$GRegisterUserVarsSerializer();
+Serializer<GVerifyPhoneNumberVars> _$gVerifyPhoneNumberVarsSerializer =
+    _$GVerifyPhoneNumberVarsSerializer();
 
 class _$GValidateTokenVarsSerializer
     implements StructuredSerializer<GValidateTokenVars> {
@@ -465,6 +467,58 @@ class _$GRegisterUserVarsSerializer
           break;
         case 'password':
           result.password = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GVerifyPhoneNumberVarsSerializer
+    implements StructuredSerializer<GVerifyPhoneNumberVars> {
+  @override
+  final Iterable<Type> types = const [
+    GVerifyPhoneNumberVars,
+    _$GVerifyPhoneNumberVars
+  ];
+  @override
+  final String wireName = 'GVerifyPhoneNumberVars';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GVerifyPhoneNumberVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'userId',
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(_i2.GBigInt)),
+      'otp',
+      serializers.serialize(object.otp, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GVerifyPhoneNumberVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GVerifyPhoneNumberVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'userId':
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+          break;
+        case 'otp':
+          result.otp = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
       }
@@ -1399,6 +1453,115 @@ class GRegisterUserVarsBuilder
           password: BuiltValueNullFieldError.checkNotNull(
               password, r'GRegisterUserVars', 'password'),
         );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GVerifyPhoneNumberVars extends GVerifyPhoneNumberVars {
+  @override
+  final _i2.GBigInt userId;
+  @override
+  final String otp;
+
+  factory _$GVerifyPhoneNumberVars(
+          [void Function(GVerifyPhoneNumberVarsBuilder)? updates]) =>
+      (GVerifyPhoneNumberVarsBuilder()..update(updates))._build();
+
+  _$GVerifyPhoneNumberVars._({required this.userId, required this.otp})
+      : super._();
+  @override
+  GVerifyPhoneNumberVars rebuild(
+          void Function(GVerifyPhoneNumberVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GVerifyPhoneNumberVarsBuilder toBuilder() =>
+      GVerifyPhoneNumberVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GVerifyPhoneNumberVars &&
+        userId == other.userId &&
+        otp == other.otp;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, otp.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GVerifyPhoneNumberVars')
+          ..add('userId', userId)
+          ..add('otp', otp))
+        .toString();
+  }
+}
+
+class GVerifyPhoneNumberVarsBuilder
+    implements Builder<GVerifyPhoneNumberVars, GVerifyPhoneNumberVarsBuilder> {
+  _$GVerifyPhoneNumberVars? _$v;
+
+  _i2.GBigIntBuilder? _userId;
+  _i2.GBigIntBuilder get userId => _$this._userId ??= _i2.GBigIntBuilder();
+  set userId(_i2.GBigIntBuilder? userId) => _$this._userId = userId;
+
+  String? _otp;
+  String? get otp => _$this._otp;
+  set otp(String? otp) => _$this._otp = otp;
+
+  GVerifyPhoneNumberVarsBuilder();
+
+  GVerifyPhoneNumberVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userId = $v.userId.toBuilder();
+      _otp = $v.otp;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GVerifyPhoneNumberVars other) {
+    _$v = other as _$GVerifyPhoneNumberVars;
+  }
+
+  @override
+  void update(void Function(GVerifyPhoneNumberVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GVerifyPhoneNumberVars build() => _build();
+
+  _$GVerifyPhoneNumberVars _build() {
+    _$GVerifyPhoneNumberVars _$result;
+    try {
+      _$result = _$v ??
+          _$GVerifyPhoneNumberVars._(
+            userId: userId.build(),
+            otp: BuiltValueNullFieldError.checkNotNull(
+                otp, r'GVerifyPhoneNumberVars', 'otp'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userId';
+        userId.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GVerifyPhoneNumberVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

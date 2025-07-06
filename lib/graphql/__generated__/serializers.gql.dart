@@ -27,7 +27,8 @@ import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.d
         GUpdateProductData_updateOneProduct,
         GValidateTokenData,
         GValidateTokenData_validateToken,
-        GValidateTokenData_validateToken_user;
+        GValidateTokenData_validateToken_user,
+        GVerifyPhoneNumberData;
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart'
     show
         GCreateProductReq,
@@ -39,7 +40,8 @@ import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.da
         GRegisterUserReq,
         GSendPasswordResetLinkReq,
         GUpdateProductReq,
-        GValidateTokenReq;
+        GValidateTokenReq,
+        GVerifyPhoneNumberReq;
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.var.gql.dart'
     show
         GCreateProductVars,
@@ -51,7 +53,8 @@ import 'package:sleek_travel_frontend/graphql/__generated__/mutations.var.gql.da
         GRegisterUserVars,
         GSendPasswordResetLinkVars,
         GUpdateProductVars,
-        GValidateTokenVars;
+        GValidateTokenVars,
+        GVerifyPhoneNumberVars;
 import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart'
     show
         GListAllProductsData,
@@ -709,6 +712,9 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GValidateTokenData_validateToken_user,
   GValidateTokenReq,
   GValidateTokenVars,
+  GVerifyPhoneNumberData,
+  GVerifyPhoneNumberReq,
+  GVerifyPhoneNumberVars,
   GVoid,
 ])
 final Serializers serializers = _serializersBuilder.build();

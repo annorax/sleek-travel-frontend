@@ -2,6 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
+import 'package:sleek_travel_frontend/forms/pinput_form.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/main.dart';
 import 'package:sleek_travel_frontend/pages/login_page.dart';
@@ -76,14 +77,18 @@ class _SignUpPageState extends State<SignUpPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
+                    final name = extractValue(nameFieldKey);
+                    final email = extractValue(emailFieldKey);
+                    final phoneNumber = extractValue(phoneNumberFieldKey);
+                    final password = extractValue(passwordFieldKey);
                     final OperationResponse result = await client.request(
                       GRegisterUserReq(
                         (builder) =>
                           builder.vars
-                            ..name = extractValue(nameFieldKey)
-                            ..email = extractValue(emailFieldKey)
-                            ..phoneNumber = extractValue(phoneNumberFieldKey)
-                            ..password = extractValue(passwordFieldKey)
+                            ..name = name
+                            ..email = email
+                            ..phoneNumber = phoneNumber
+                            ..password = password
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
@@ -94,6 +99,16 @@ class _SignUpPageState extends State<SignUpPage> {
                     } else {
                       if (context.mounted) {
                         showInfo("Sign up successful. Please check your email.", context);
+                        int code = await showModalBottomSheet(
+                          isScrollControlled: true,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          builder: (BuildContext context) => PinputForm(phoneNumber: phoneNumber),
+                          context: context,
+                          useSafeArea: true
+                        );
+                        print(code);
                       }
                       NavigationManager.instance.pushReplacement(LoginPage.name);
                     }

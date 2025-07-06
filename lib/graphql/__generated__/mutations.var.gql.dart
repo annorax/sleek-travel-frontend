@@ -253,3 +253,28 @@ abstract class GRegisterUserVars
         json,
       );
 }
+
+abstract class GVerifyPhoneNumberVars
+    implements Built<GVerifyPhoneNumberVars, GVerifyPhoneNumberVarsBuilder> {
+  GVerifyPhoneNumberVars._();
+
+  factory GVerifyPhoneNumberVars(
+          [void Function(GVerifyPhoneNumberVarsBuilder b) updates]) =
+      _$GVerifyPhoneNumberVars;
+
+  _i2.GBigInt get userId;
+  String get otp;
+  static Serializer<GVerifyPhoneNumberVars> get serializer =>
+      _$gVerifyPhoneNumberVarsSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GVerifyPhoneNumberVars.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GVerifyPhoneNumberVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GVerifyPhoneNumberVars.serializer,
+        json,
+      );
+}

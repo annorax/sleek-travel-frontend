@@ -359,6 +359,9 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(GValidateTokenData_validateToken_user.serializer)
       ..add(GValidateTokenReq.serializer)
       ..add(GValidateTokenVars.serializer)
+      ..add(GVerifyPhoneNumberData.serializer)
+      ..add(GVerifyPhoneNumberReq.serializer)
+      ..add(GVerifyPhoneNumberVars.serializer)
       ..add(GVoid.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList,

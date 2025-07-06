@@ -59,3 +59,7 @@ mutation SendPasswordResetLink($emailOrPhone: String!) {
 mutation RegisterUser($name: String!, $phoneNumber: String!, $email: String!, $password: String!) {
   registerUser(name: $name, phoneNumber: $phoneNumber, email: $email, password: $password)
 }
+
+mutation VerifyPhoneNumber($userId: BigInt!, $otp: String!) {
+  verifyPhoneNumber(userId: $userId, otp: $otp)
+}

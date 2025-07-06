@@ -97,8 +97,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         showError("Sign up failed", context);
                       }
                     } else {
+                      dynamic userId = result.data;
+                      print("UserId is $userId");
                       if (context.mounted) {
-                        String code = await showModalBottomSheet(
+                        String otp = await showModalBottomSheet(
                           isScrollControlled: true,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -107,7 +109,20 @@ class _SignUpPageState extends State<SignUpPage> {
                           context: context,
                           useSafeArea: true
                         );
-                        print(code);
+                        final OperationResponse result = await client.request(
+                          GVerifyPhoneNumberReq(
+                            (builder) =>
+                              builder.vars
+                                ..userId = userId
+                                ..otp = otp
+                          )
+                        ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                        if (result.hasErrors) {
+                          print(result.graphqlErrors);
+                          if (context.mounted) {
+                            showError("Phone number verification failed", context);
+                          }
+                        }
                       }
                       if (context.mounted) {
                         showInfo("Sign up successful. Please check your email.", context);

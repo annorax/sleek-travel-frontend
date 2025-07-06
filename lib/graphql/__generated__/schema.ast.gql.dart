@@ -9531,7 +9531,7 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
         ),
       ],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'Void'),
+        name: _i1.NameNode(value: 'BigInt'),
         isNonNull: false,
       ),
     ),
@@ -9600,7 +9600,7 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
           name: _i1.NameNode(value: 'userId'),
           directives: [],
           type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'Float'),
+            name: _i1.NameNode(value: 'BigInt'),
             isNonNull: true,
           ),
           defaultValue: null,

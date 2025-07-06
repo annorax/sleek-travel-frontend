@@ -1086,7 +1086,7 @@ class _$GRegisterUserDataSerializer
       result
         ..add('registerUser')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GVoid)));
+            specifiedType: const FullType(_i2.GBigInt)));
     }
     return result;
   }
@@ -1109,7 +1109,7 @@ class _$GRegisterUserDataSerializer
           break;
         case 'registerUser':
           result.registerUser.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -3309,7 +3309,7 @@ class _$GRegisterUserData extends GRegisterUserData {
   @override
   final String G__typename;
   @override
-  final _i2.GVoid? registerUser;
+  final _i2.GBigInt? registerUser;
 
   factory _$GRegisterUserData(
           [void Function(GRegisterUserDataBuilder)? updates]) =>
@@ -3359,10 +3359,10 @@ class GRegisterUserDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GVoidBuilder? _registerUser;
-  _i2.GVoidBuilder get registerUser =>
-      _$this._registerUser ??= _i2.GVoidBuilder();
-  set registerUser(_i2.GVoidBuilder? registerUser) =>
+  _i2.GBigIntBuilder? _registerUser;
+  _i2.GBigIntBuilder get registerUser =>
+      _$this._registerUser ??= _i2.GBigIntBuilder();
+  set registerUser(_i2.GBigIntBuilder? registerUser) =>
       _$this._registerUser = registerUser;
 
   GRegisterUserDataBuilder() {

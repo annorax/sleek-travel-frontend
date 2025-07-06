@@ -579,7 +579,7 @@ abstract class GRegisterUserData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GVoid? get registerUser;
+  _i2.GBigInt? get registerUser;
   static Serializer<GRegisterUserData> get serializer =>
       _$gRegisterUserDataSerializer;
 

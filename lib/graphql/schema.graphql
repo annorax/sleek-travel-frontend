@@ -1291,7 +1291,7 @@ type Mutation {
   updateManyPurchaseOrder(data: PurchaseOrderUpdateManyMutationInput!, where: PurchaseOrderWhereInput): AffectedRowsOutput!
   updateOnePurchaseOrder(data: PurchaseOrderUpdateInput!, where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
   upsertOnePurchaseOrder(where: PurchaseOrderWhereUniqueInput!, create: PurchaseOrderCreateInput!, update: PurchaseOrderUpdateInput!): PurchaseOrder!
-  registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): Void
+  registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): BigInt
   resendEmailVerificationRequest(email: String!): Void
   sendPasswordResetLink(emailOrPhone: String!): Void
   resendPhoneNumberVerificationRequest(phoneNumber: String!): Void

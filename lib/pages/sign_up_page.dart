@@ -4,10 +4,6 @@ import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/main.dart';
-import 'package:sleek_travel_frontend/model/user.model.dart';
-import 'package:sleek_travel_frontend/model/user.state.dart';
-import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
-import 'package:sleek_travel_frontend/pages/forgot_password_page.dart';
 import 'package:sleek_travel_frontend/pages/login_page.dart';
 import 'package:sleek_travel_frontend/util.dart';
 
@@ -56,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 TextFormField(
                   key: phoneNumberFieldKey,
                   decoration: const InputDecoration(labelText: 'Phone number'),
-                  validator: ValidationBuilder().email('Invalid phone number').required('Required').build()
+                  validator: ValidationBuilder().regExp(RegExp(r'\+\d+'), 'Invalid phone number').required('Required').build()
                 ),
                 const SizedBox(height: 16),
                 TextFormField(

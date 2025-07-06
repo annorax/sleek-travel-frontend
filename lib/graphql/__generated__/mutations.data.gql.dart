@@ -120,7 +120,7 @@ abstract class GLogInUserData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  GLogInUserData_logInUser? get logInUser;
+  GLogInUserData_logInUser get logInUser;
   static Serializer<GLogInUserData> get serializer =>
       _$gLogInUserDataSerializer;
 
@@ -150,6 +150,7 @@ abstract class GLogInUserData_logInUser
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
+  String get error;
   String get token;
   GLogInUserData_logInUser_user get user;
   static Serializer<GLogInUserData_logInUser> get serializer =>
@@ -578,7 +579,7 @@ abstract class GRegisterUserData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GVoid get registerUser;
+  _i2.GVoid? get registerUser;
   static Serializer<GRegisterUserData> get serializer =>
       _$gRegisterUserDataSerializer;
 

@@ -251,15 +251,11 @@ class _$GLogInUserDataSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
+      'logInUser',
+      serializers.serialize(object.logInUser,
+          specifiedType: const FullType(GLogInUserData_logInUser)),
     ];
-    Object? value;
-    value = object.logInUser;
-    if (value != null) {
-      result
-        ..add('logInUser')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GLogInUserData_logInUser)));
-    }
+
     return result;
   }
 
@@ -309,6 +305,9 @@ class _$GLogInUserData_logInUserSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
+      'error',
+      serializers.serialize(object.error,
+          specifiedType: const FullType(String)),
       'token',
       serializers.serialize(object.token,
           specifiedType: const FullType(String)),
@@ -334,6 +333,10 @@ class _$GLogInUserData_logInUserSerializer
       switch (key) {
         case '__typename':
           result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'error':
+          result.error = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
         case 'token':
@@ -1074,11 +1077,15 @@ class _$GRegisterUserDataSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
-      'registerUser',
-      serializers.serialize(object.registerUser,
-          specifiedType: const FullType(_i2.GVoid)),
     ];
-
+    Object? value;
+    value = object.registerUser;
+    if (value != null) {
+      result
+        ..add('registerUser')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.GVoid)));
+    }
     return result;
   }
 
@@ -1504,12 +1511,13 @@ class _$GLogInUserData extends GLogInUserData {
   @override
   final String G__typename;
   @override
-  final GLogInUserData_logInUser? logInUser;
+  final GLogInUserData_logInUser logInUser;
 
   factory _$GLogInUserData([void Function(GLogInUserDataBuilder)? updates]) =>
       (GLogInUserDataBuilder()..update(updates))._build();
 
-  _$GLogInUserData._({required this.G__typename, this.logInUser}) : super._();
+  _$GLogInUserData._({required this.G__typename, required this.logInUser})
+      : super._();
   @override
   GLogInUserData rebuild(void Function(GLogInUserDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1565,7 +1573,7 @@ class GLogInUserDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _logInUser = $v.logInUser?.toBuilder();
+      _logInUser = $v.logInUser.toBuilder();
       _$v = null;
     }
     return this;
@@ -1591,13 +1599,13 @@ class GLogInUserDataBuilder
           _$GLogInUserData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
                 G__typename, r'GLogInUserData', 'G__typename'),
-            logInUser: _logInUser?.build(),
+            logInUser: logInUser.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'logInUser';
-        _logInUser?.build();
+        logInUser.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'GLogInUserData', _$failedField, e.toString());
@@ -1613,6 +1621,8 @@ class _$GLogInUserData_logInUser extends GLogInUserData_logInUser {
   @override
   final String G__typename;
   @override
+  final String error;
+  @override
   final String token;
   @override
   final GLogInUserData_logInUser_user user;
@@ -1622,7 +1632,10 @@ class _$GLogInUserData_logInUser extends GLogInUserData_logInUser {
       (GLogInUserData_logInUserBuilder()..update(updates))._build();
 
   _$GLogInUserData_logInUser._(
-      {required this.G__typename, required this.token, required this.user})
+      {required this.G__typename,
+      required this.error,
+      required this.token,
+      required this.user})
       : super._();
   @override
   GLogInUserData_logInUser rebuild(
@@ -1638,6 +1651,7 @@ class _$GLogInUserData_logInUser extends GLogInUserData_logInUser {
     if (identical(other, this)) return true;
     return other is GLogInUserData_logInUser &&
         G__typename == other.G__typename &&
+        error == other.error &&
         token == other.token &&
         user == other.user;
   }
@@ -1646,6 +1660,7 @@ class _$GLogInUserData_logInUser extends GLogInUserData_logInUser {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, error.hashCode);
     _$hash = $jc(_$hash, token.hashCode);
     _$hash = $jc(_$hash, user.hashCode);
     _$hash = $jf(_$hash);
@@ -1656,6 +1671,7 @@ class _$GLogInUserData_logInUser extends GLogInUserData_logInUser {
   String toString() {
     return (newBuiltValueToStringHelper(r'GLogInUserData_logInUser')
           ..add('G__typename', G__typename)
+          ..add('error', error)
           ..add('token', token)
           ..add('user', user))
         .toString();
@@ -1670,6 +1686,10 @@ class GLogInUserData_logInUserBuilder
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _error;
+  String? get error => _$this._error;
+  set error(String? error) => _$this._error = error;
 
   String? _token;
   String? get token => _$this._token;
@@ -1688,6 +1708,7 @@ class GLogInUserData_logInUserBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
+      _error = $v.error;
       _token = $v.token;
       _user = $v.user.toBuilder();
       _$v = null;
@@ -1715,6 +1736,8 @@ class GLogInUserData_logInUserBuilder
           _$GLogInUserData_logInUser._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
                 G__typename, r'GLogInUserData_logInUser', 'G__typename'),
+            error: BuiltValueNullFieldError.checkNotNull(
+                error, r'GLogInUserData_logInUser', 'error'),
             token: BuiltValueNullFieldError.checkNotNull(
                 token, r'GLogInUserData_logInUser', 'token'),
             user: user.build(),
@@ -3227,13 +3250,13 @@ class _$GRegisterUserData extends GRegisterUserData {
   @override
   final String G__typename;
   @override
-  final _i2.GVoid registerUser;
+  final _i2.GVoid? registerUser;
 
   factory _$GRegisterUserData(
           [void Function(GRegisterUserDataBuilder)? updates]) =>
       (GRegisterUserDataBuilder()..update(updates))._build();
 
-  _$GRegisterUserData._({required this.G__typename, required this.registerUser})
+  _$GRegisterUserData._({required this.G__typename, this.registerUser})
       : super._();
   @override
   GRegisterUserData rebuild(void Function(GRegisterUserDataBuilder) updates) =>
@@ -3291,7 +3314,7 @@ class GRegisterUserDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _registerUser = $v.registerUser.toBuilder();
+      _registerUser = $v.registerUser?.toBuilder();
       _$v = null;
     }
     return this;
@@ -3317,13 +3340,13 @@ class GRegisterUserDataBuilder
           _$GRegisterUserData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
                 G__typename, r'GRegisterUserData', 'G__typename'),
-            registerUser: registerUser.build(),
+            registerUser: _registerUser?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'registerUser';
-        registerUser.build();
+        _registerUser?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'GRegisterUserData', _$failedField, e.toString());

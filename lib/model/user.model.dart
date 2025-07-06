@@ -1,5 +1,5 @@
 class User {
-  final int id;
+  final BigInt id;
   final String name;
   final String email;
   final String token;

@@ -142,7 +142,7 @@ class _ProductFormState extends State<ProductForm> {
                         ..price.value = priceString
                         ..currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
                       : GUpdateProductReq((builder) => builder.vars
-                        ..id = widget.product?.id
+                        ..id.value = widget.product?.id?.toString()
                         ..product.description.set = description.isEmpty ? null : description
                         ..product.upc.set = upc.isEmpty ? null : upc
                         ..product.upcScanned.set = upcScanned

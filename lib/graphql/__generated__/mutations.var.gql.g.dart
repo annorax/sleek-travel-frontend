@@ -197,7 +197,8 @@ class _$GUpdateProductVarsSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
       'product',
       serializers.serialize(object.product,
           specifiedType: const FullType(_i2.GProductUpdateInput)),
@@ -219,8 +220,8 @@ class _$GUpdateProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
         case 'product':
           result.product.replace(serializers.deserialize(value,
@@ -247,7 +248,8 @@ class _$GDeleteProductVarsSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
     ];
 
     return result;
@@ -266,8 +268,8 @@ class _$GDeleteProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -288,7 +290,8 @@ class _$GDeleteItemVarsSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
     ];
 
     return result;
@@ -307,8 +310,8 @@ class _$GDeleteItemVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -333,7 +336,8 @@ class _$GDeletePurchaseOrderVarsSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
     ];
 
     return result;
@@ -352,8 +356,8 @@ class _$GDeletePurchaseOrderVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -801,7 +805,7 @@ class GCreateProductVarsBuilder
 
 class _$GUpdateProductVars extends GUpdateProductVars {
   @override
-  final int id;
+  final _i2.GBigInt id;
   @override
   final _i2.GProductUpdateInput product;
 
@@ -849,9 +853,9 @@ class GUpdateProductVarsBuilder
     implements Builder<GUpdateProductVars, GUpdateProductVarsBuilder> {
   _$GUpdateProductVars? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   _i2.GProductUpdateInputBuilder? _product;
   _i2.GProductUpdateInputBuilder get product =>
@@ -864,7 +868,7 @@ class GUpdateProductVarsBuilder
   GUpdateProductVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _product = $v.product.toBuilder();
       _$v = null;
     }
@@ -889,13 +893,14 @@ class GUpdateProductVarsBuilder
     try {
       _$result = _$v ??
           _$GUpdateProductVars._(
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GUpdateProductVars', 'id'),
+            id: id.build(),
             product: product.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        id.build();
         _$failedField = 'product';
         product.build();
       } catch (e) {
@@ -911,7 +916,7 @@ class GUpdateProductVarsBuilder
 
 class _$GDeleteProductVars extends GDeleteProductVars {
   @override
-  final int id;
+  final _i2.GBigInt id;
 
   factory _$GDeleteProductVars(
           [void Function(GDeleteProductVarsBuilder)? updates]) =>
@@ -952,16 +957,16 @@ class GDeleteProductVarsBuilder
     implements Builder<GDeleteProductVars, GDeleteProductVarsBuilder> {
   _$GDeleteProductVars? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   GDeleteProductVarsBuilder();
 
   GDeleteProductVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _$v = null;
     }
     return this;
@@ -981,11 +986,23 @@ class GDeleteProductVarsBuilder
   GDeleteProductVars build() => _build();
 
   _$GDeleteProductVars _build() {
-    final _$result = _$v ??
-        _$GDeleteProductVars._(
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GDeleteProductVars', 'id'),
-        );
+    _$GDeleteProductVars _$result;
+    try {
+      _$result = _$v ??
+          _$GDeleteProductVars._(
+            id: id.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GDeleteProductVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -993,7 +1010,7 @@ class GDeleteProductVarsBuilder
 
 class _$GDeleteItemVars extends GDeleteItemVars {
   @override
-  final int id;
+  final _i2.GBigInt id;
 
   factory _$GDeleteItemVars([void Function(GDeleteItemVarsBuilder)? updates]) =>
       (GDeleteItemVarsBuilder()..update(updates))._build();
@@ -1031,16 +1048,16 @@ class GDeleteItemVarsBuilder
     implements Builder<GDeleteItemVars, GDeleteItemVarsBuilder> {
   _$GDeleteItemVars? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   GDeleteItemVarsBuilder();
 
   GDeleteItemVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _$v = null;
     }
     return this;
@@ -1060,11 +1077,23 @@ class GDeleteItemVarsBuilder
   GDeleteItemVars build() => _build();
 
   _$GDeleteItemVars _build() {
-    final _$result = _$v ??
-        _$GDeleteItemVars._(
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GDeleteItemVars', 'id'),
-        );
+    _$GDeleteItemVars _$result;
+    try {
+      _$result = _$v ??
+          _$GDeleteItemVars._(
+            id: id.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GDeleteItemVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -1072,7 +1101,7 @@ class GDeleteItemVarsBuilder
 
 class _$GDeletePurchaseOrderVars extends GDeletePurchaseOrderVars {
   @override
-  final int id;
+  final _i2.GBigInt id;
 
   factory _$GDeletePurchaseOrderVars(
           [void Function(GDeletePurchaseOrderVarsBuilder)? updates]) =>
@@ -1115,16 +1144,16 @@ class GDeletePurchaseOrderVarsBuilder
         Builder<GDeletePurchaseOrderVars, GDeletePurchaseOrderVarsBuilder> {
   _$GDeletePurchaseOrderVars? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   GDeletePurchaseOrderVarsBuilder();
 
   GDeletePurchaseOrderVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _$v = null;
     }
     return this;
@@ -1144,11 +1173,23 @@ class GDeletePurchaseOrderVarsBuilder
   GDeletePurchaseOrderVars build() => _build();
 
   _$GDeletePurchaseOrderVars _build() {
-    final _$result = _$v ??
-        _$GDeletePurchaseOrderVars._(
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GDeletePurchaseOrderVars', 'id'),
-        );
+    _$GDeletePurchaseOrderVars _$result;
+    try {
+      _$result = _$v ??
+          _$GDeletePurchaseOrderVars._(
+            id: id.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GDeletePurchaseOrderVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

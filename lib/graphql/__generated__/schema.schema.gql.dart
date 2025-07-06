@@ -340,7 +340,7 @@ abstract class GAccessTokenScalarWhereInput
   BuiltList<GAccessTokenScalarWhereInput>? get OR;
   BuiltList<GAccessTokenScalarWhereInput>? get NOT;
   GStringFilter? get value;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GBoolFilter? get expired;
   static Serializer<GAccessTokenScalarWhereInput> get serializer =>
       _$gAccessTokenScalarWhereInputSerializer;
@@ -677,7 +677,7 @@ abstract class GAccessTokenWhereInput
   BuiltList<GAccessTokenWhereInput>? get OR;
   BuiltList<GAccessTokenWhereInput>? get NOT;
   GStringFilter? get value;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GBoolFilter? get expired;
   GUserRelationFilter? get user;
   GLoginListRelationFilter? get logins;
@@ -710,7 +710,7 @@ abstract class GAccessTokenWhereUniqueInput
   BuiltList<GAccessTokenWhereInput>? get AND;
   BuiltList<GAccessTokenWhereInput>? get OR;
   BuiltList<GAccessTokenWhereInput>? get NOT;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GBoolFilter? get expired;
   GUserRelationFilter? get user;
   GLoginListRelationFilter? get logins;
@@ -725,6 +725,200 @@ abstract class GAccessTokenWhereUniqueInput
   static GAccessTokenWhereUniqueInput? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
         GAccessTokenWhereUniqueInput.serializer,
+        json,
+      );
+}
+
+abstract class GBigInt implements Built<GBigInt, GBigIntBuilder> {
+  GBigInt._();
+
+  factory GBigInt([String? value]) =>
+      _$GBigInt((b) => value != null ? (b..value = value) : b);
+
+  String get value;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GBigInt> get serializer =>
+      _i2.DefaultScalarSerializer<GBigInt>(
+          (Object serialized) => GBigInt((serialized as String?)));
+}
+
+abstract class GBigIntFieldUpdateOperationsInput
+    implements
+        Built<GBigIntFieldUpdateOperationsInput,
+            GBigIntFieldUpdateOperationsInputBuilder> {
+  GBigIntFieldUpdateOperationsInput._();
+
+  factory GBigIntFieldUpdateOperationsInput(
+          [void Function(GBigIntFieldUpdateOperationsInputBuilder b) updates]) =
+      _$GBigIntFieldUpdateOperationsInput;
+
+  GBigInt? get set;
+  GBigInt? get increment;
+  GBigInt? get decrement;
+  GBigInt? get multiply;
+  GBigInt? get divide;
+  static Serializer<GBigIntFieldUpdateOperationsInput> get serializer =>
+      _$gBigIntFieldUpdateOperationsInputSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GBigIntFieldUpdateOperationsInput.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GBigIntFieldUpdateOperationsInput? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GBigIntFieldUpdateOperationsInput.serializer,
+        json,
+      );
+}
+
+abstract class GBigIntFilter
+    implements Built<GBigIntFilter, GBigIntFilterBuilder> {
+  GBigIntFilter._();
+
+  factory GBigIntFilter([void Function(GBigIntFilterBuilder b) updates]) =
+      _$GBigIntFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntFilter? get not;
+  static Serializer<GBigIntFilter> get serializer => _$gBigIntFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GBigIntFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GBigIntFilter? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GBigIntFilter.serializer,
+        json,
+      );
+}
+
+abstract class GBigIntNullableFilter
+    implements Built<GBigIntNullableFilter, GBigIntNullableFilterBuilder> {
+  GBigIntNullableFilter._();
+
+  factory GBigIntNullableFilter(
+          [void Function(GBigIntNullableFilterBuilder b) updates]) =
+      _$GBigIntNullableFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntNullableFilter? get not;
+  static Serializer<GBigIntNullableFilter> get serializer =>
+      _$gBigIntNullableFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GBigIntNullableFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GBigIntNullableFilter? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GBigIntNullableFilter.serializer,
+        json,
+      );
+}
+
+abstract class GBigIntNullableWithAggregatesFilter
+    implements
+        Built<GBigIntNullableWithAggregatesFilter,
+            GBigIntNullableWithAggregatesFilterBuilder> {
+  GBigIntNullableWithAggregatesFilter._();
+
+  factory GBigIntNullableWithAggregatesFilter(
+      [void Function(GBigIntNullableWithAggregatesFilterBuilder b)
+          updates]) = _$GBigIntNullableWithAggregatesFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntNullableWithAggregatesFilter? get not;
+  @BuiltValueField(wireName: '_count')
+  GNestedIntNullableFilter? get G_count;
+  @BuiltValueField(wireName: '_avg')
+  GNestedFloatNullableFilter? get G_avg;
+  @BuiltValueField(wireName: '_sum')
+  GNestedBigIntNullableFilter? get G_sum;
+  @BuiltValueField(wireName: '_min')
+  GNestedBigIntNullableFilter? get G_min;
+  @BuiltValueField(wireName: '_max')
+  GNestedBigIntNullableFilter? get G_max;
+  static Serializer<GBigIntNullableWithAggregatesFilter> get serializer =>
+      _$gBigIntNullableWithAggregatesFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GBigIntNullableWithAggregatesFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GBigIntNullableWithAggregatesFilter? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GBigIntNullableWithAggregatesFilter.serializer,
+        json,
+      );
+}
+
+abstract class GBigIntWithAggregatesFilter
+    implements
+        Built<GBigIntWithAggregatesFilter, GBigIntWithAggregatesFilterBuilder> {
+  GBigIntWithAggregatesFilter._();
+
+  factory GBigIntWithAggregatesFilter(
+          [void Function(GBigIntWithAggregatesFilterBuilder b) updates]) =
+      _$GBigIntWithAggregatesFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntWithAggregatesFilter? get not;
+  @BuiltValueField(wireName: '_count')
+  GNestedIntFilter? get G_count;
+  @BuiltValueField(wireName: '_avg')
+  GNestedFloatFilter? get G_avg;
+  @BuiltValueField(wireName: '_sum')
+  GNestedBigIntFilter? get G_sum;
+  @BuiltValueField(wireName: '_min')
+  GNestedBigIntFilter? get G_min;
+  @BuiltValueField(wireName: '_max')
+  GNestedBigIntFilter? get G_max;
+  static Serializer<GBigIntWithAggregatesFilter> get serializer =>
+      _$gBigIntWithAggregatesFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GBigIntWithAggregatesFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GBigIntWithAggregatesFilter? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GBigIntWithAggregatesFilter.serializer,
         json,
       );
 }
@@ -1490,126 +1684,6 @@ abstract class GIntFilter implements Built<GIntFilter, GIntFilterBuilder> {
       );
 }
 
-abstract class GIntNullableFilter
-    implements Built<GIntNullableFilter, GIntNullableFilterBuilder> {
-  GIntNullableFilter._();
-
-  factory GIntNullableFilter(
-          [void Function(GIntNullableFilterBuilder b) updates]) =
-      _$GIntNullableFilter;
-
-  int? get equals;
-  @BuiltValueField(wireName: 'in')
-  BuiltList<int>? get Gin;
-  BuiltList<int>? get notIn;
-  int? get lt;
-  int? get lte;
-  int? get gt;
-  int? get gte;
-  GNestedIntNullableFilter? get not;
-  static Serializer<GIntNullableFilter> get serializer =>
-      _$gIntNullableFilterSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GIntNullableFilter.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GIntNullableFilter? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GIntNullableFilter.serializer,
-        json,
-      );
-}
-
-abstract class GIntNullableWithAggregatesFilter
-    implements
-        Built<GIntNullableWithAggregatesFilter,
-            GIntNullableWithAggregatesFilterBuilder> {
-  GIntNullableWithAggregatesFilter._();
-
-  factory GIntNullableWithAggregatesFilter(
-          [void Function(GIntNullableWithAggregatesFilterBuilder b) updates]) =
-      _$GIntNullableWithAggregatesFilter;
-
-  int? get equals;
-  @BuiltValueField(wireName: 'in')
-  BuiltList<int>? get Gin;
-  BuiltList<int>? get notIn;
-  int? get lt;
-  int? get lte;
-  int? get gt;
-  int? get gte;
-  GNestedIntNullableWithAggregatesFilter? get not;
-  @BuiltValueField(wireName: '_count')
-  GNestedIntNullableFilter? get G_count;
-  @BuiltValueField(wireName: '_avg')
-  GNestedFloatNullableFilter? get G_avg;
-  @BuiltValueField(wireName: '_sum')
-  GNestedIntNullableFilter? get G_sum;
-  @BuiltValueField(wireName: '_min')
-  GNestedIntNullableFilter? get G_min;
-  @BuiltValueField(wireName: '_max')
-  GNestedIntNullableFilter? get G_max;
-  static Serializer<GIntNullableWithAggregatesFilter> get serializer =>
-      _$gIntNullableWithAggregatesFilterSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GIntNullableWithAggregatesFilter.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GIntNullableWithAggregatesFilter? fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GIntNullableWithAggregatesFilter.serializer,
-        json,
-      );
-}
-
-abstract class GIntWithAggregatesFilter
-    implements
-        Built<GIntWithAggregatesFilter, GIntWithAggregatesFilterBuilder> {
-  GIntWithAggregatesFilter._();
-
-  factory GIntWithAggregatesFilter(
-          [void Function(GIntWithAggregatesFilterBuilder b) updates]) =
-      _$GIntWithAggregatesFilter;
-
-  int? get equals;
-  @BuiltValueField(wireName: 'in')
-  BuiltList<int>? get Gin;
-  BuiltList<int>? get notIn;
-  int? get lt;
-  int? get lte;
-  int? get gt;
-  int? get gte;
-  GNestedIntWithAggregatesFilter? get not;
-  @BuiltValueField(wireName: '_count')
-  GNestedIntFilter? get G_count;
-  @BuiltValueField(wireName: '_avg')
-  GNestedFloatFilter? get G_avg;
-  @BuiltValueField(wireName: '_sum')
-  GNestedIntFilter? get G_sum;
-  @BuiltValueField(wireName: '_min')
-  GNestedIntFilter? get G_min;
-  @BuiltValueField(wireName: '_max')
-  GNestedIntFilter? get G_max;
-  static Serializer<GIntWithAggregatesFilter> get serializer =>
-      _$gIntWithAggregatesFilterSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GIntWithAggregatesFilter.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GIntWithAggregatesFilter? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GIntWithAggregatesFilter.serializer,
-        json,
-      );
-}
-
 abstract class GItemAvgOrderByAggregateInput
     implements
         Built<GItemAvgOrderByAggregateInput,
@@ -1686,6 +1760,7 @@ abstract class GItemCreateInput
   factory GItemCreateInput([void Function(GItemCreateInputBuilder b) updates]) =
       _$GItemCreateInput;
 
+  GBigInt? get id;
   String get code;
   String get name;
   String? get description;
@@ -1720,12 +1795,12 @@ abstract class GItemCreateManyInput
           [void Function(GItemCreateManyInputBuilder b) updates]) =
       _$GItemCreateManyInput;
 
-  int? get id;
-  int get userId;
+  GBigInt? get id;
+  GBigInt get userId;
   String get code;
   String get name;
   String? get description;
-  int? get productId;
+  GBigInt? get productId;
   double? get weightInKgs;
   double? get widthInCms;
   double? get heightInCms;
@@ -1756,8 +1831,8 @@ abstract class GItemCreateManyProductInput
           [void Function(GItemCreateManyProductInputBuilder b) updates]) =
       _$GItemCreateManyProductInput;
 
-  int? get id;
-  int get userId;
+  GBigInt? get id;
+  GBigInt get userId;
   String get code;
   String get name;
   String? get description;
@@ -1819,11 +1894,11 @@ abstract class GItemCreateManyUserInput
           [void Function(GItemCreateManyUserInputBuilder b) updates]) =
       _$GItemCreateManyUserInput;
 
-  int? get id;
+  GBigInt? get id;
   String get code;
   String get name;
   String? get description;
-  int? get productId;
+  GBigInt? get productId;
   double? get weightInKgs;
   double? get widthInCms;
   double? get heightInCms;
@@ -1999,6 +2074,7 @@ abstract class GItemCreateWithoutProductInput
           [void Function(GItemCreateWithoutProductInputBuilder b) updates]) =
       _$GItemCreateWithoutProductInput;
 
+  GBigInt? get id;
   String get code;
   String get name;
   String? get description;
@@ -2033,6 +2109,7 @@ abstract class GItemCreateWithoutUserInput
           [void Function(GItemCreateWithoutUserInputBuilder b) updates]) =
       _$GItemCreateWithoutUserInput;
 
+  GBigInt? get id;
   String get code;
   String get name;
   String? get description;
@@ -2327,12 +2404,12 @@ abstract class GItemScalarWhereInput
   BuiltList<GItemScalarWhereInput>? get AND;
   BuiltList<GItemScalarWhereInput>? get OR;
   BuiltList<GItemScalarWhereInput>? get NOT;
-  GIntFilter? get id;
-  GIntFilter? get userId;
+  GBigIntFilter? get id;
+  GBigIntFilter? get userId;
   GStringFilter? get code;
   GStringFilter? get name;
   GStringNullableFilter? get description;
-  GIntNullableFilter? get productId;
+  GBigIntNullableFilter? get productId;
   GFloatNullableFilter? get weightInKgs;
   GFloatNullableFilter? get widthInCms;
   GFloatNullableFilter? get heightInCms;
@@ -2367,12 +2444,12 @@ abstract class GItemScalarWhereWithAggregatesInput
   BuiltList<GItemScalarWhereWithAggregatesInput>? get AND;
   BuiltList<GItemScalarWhereWithAggregatesInput>? get OR;
   BuiltList<GItemScalarWhereWithAggregatesInput>? get NOT;
-  GIntWithAggregatesFilter? get id;
-  GIntWithAggregatesFilter? get userId;
+  GBigIntWithAggregatesFilter? get id;
+  GBigIntWithAggregatesFilter? get userId;
   GStringWithAggregatesFilter? get code;
   GStringWithAggregatesFilter? get name;
   GStringNullableWithAggregatesFilter? get description;
-  GIntNullableWithAggregatesFilter? get productId;
+  GBigIntNullableWithAggregatesFilter? get productId;
   GFloatNullableWithAggregatesFilter? get weightInKgs;
   GFloatNullableWithAggregatesFilter? get widthInCms;
   GFloatNullableWithAggregatesFilter? get heightInCms;
@@ -2434,6 +2511,7 @@ abstract class GItemUpdateInput
   factory GItemUpdateInput([void Function(GItemUpdateInputBuilder b) updates]) =
       _$GItemUpdateInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get code;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get description;
@@ -2470,6 +2548,7 @@ abstract class GItemUpdateManyMutationInput
           [void Function(GItemUpdateManyMutationInputBuilder b) updates]) =
       _$GItemUpdateManyMutationInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get code;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get description;
@@ -2636,6 +2715,7 @@ abstract class GItemUpdateWithoutProductInput
           [void Function(GItemUpdateWithoutProductInputBuilder b) updates]) =
       _$GItemUpdateWithoutProductInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get code;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get description;
@@ -2670,6 +2750,7 @@ abstract class GItemUpdateWithoutUserInput
           [void Function(GItemUpdateWithoutUserInputBuilder b) updates]) =
       _$GItemUpdateWithoutUserInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get code;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get description;
@@ -2823,12 +2904,12 @@ abstract class GItemWhereInput
   BuiltList<GItemWhereInput>? get AND;
   BuiltList<GItemWhereInput>? get OR;
   BuiltList<GItemWhereInput>? get NOT;
-  GIntFilter? get id;
-  GIntFilter? get userId;
+  GBigIntFilter? get id;
+  GBigIntFilter? get userId;
   GStringFilter? get code;
   GStringFilter? get name;
   GStringNullableFilter? get description;
-  GIntNullableFilter? get productId;
+  GBigIntNullableFilter? get productId;
   GFloatNullableFilter? get weightInKgs;
   GFloatNullableFilter? get widthInCms;
   GFloatNullableFilter? get heightInCms;
@@ -2860,15 +2941,15 @@ abstract class GItemWhereUniqueInput
           [void Function(GItemWhereUniqueInputBuilder b) updates]) =
       _$GItemWhereUniqueInput;
 
-  int? get id;
+  GBigInt? get id;
   String? get code;
   BuiltList<GItemWhereInput>? get AND;
   BuiltList<GItemWhereInput>? get OR;
   BuiltList<GItemWhereInput>? get NOT;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GStringFilter? get name;
   GStringNullableFilter? get description;
-  GIntNullableFilter? get productId;
+  GBigIntNullableFilter? get productId;
   GFloatNullableFilter? get weightInKgs;
   GFloatNullableFilter? get widthInCms;
   GFloatNullableFilter? get heightInCms;
@@ -2902,9 +2983,9 @@ abstract class GLoginCreateManyAccessTokenInput
           [void Function(GLoginCreateManyAccessTokenInputBuilder b) updates]) =
       _$GLoginCreateManyAccessTokenInput;
 
-  int? get id;
+  GBigInt? get id;
   String? get ipAddress;
-  int get userId;
+  GBigInt get userId;
   bool get explicit;
   GDateTimeISO? get createdAt;
   static Serializer<GLoginCreateManyAccessTokenInput> get serializer =>
@@ -2960,7 +3041,7 @@ abstract class GLoginCreateManyUserInput
           [void Function(GLoginCreateManyUserInputBuilder b) updates]) =
       _$GLoginCreateManyUserInput;
 
-  int? get id;
+  GBigInt? get id;
   String? get ipAddress;
   String get tokenValue;
   bool get explicit;
@@ -3136,6 +3217,7 @@ abstract class GLoginCreateWithoutAccessTokenInput
       [void Function(GLoginCreateWithoutAccessTokenInputBuilder b)
           updates]) = _$GLoginCreateWithoutAccessTokenInput;
 
+  GBigInt? get id;
   String? get ipAddress;
   bool get explicit;
   GDateTimeISO? get createdAt;
@@ -3166,6 +3248,7 @@ abstract class GLoginCreateWithoutUserInput
           [void Function(GLoginCreateWithoutUserInputBuilder b) updates]) =
       _$GLoginCreateWithoutUserInput;
 
+  GBigInt? get id;
   String? get ipAddress;
   bool get explicit;
   GDateTimeISO? get createdAt;
@@ -3251,9 +3334,9 @@ abstract class GLoginScalarWhereInput
   BuiltList<GLoginScalarWhereInput>? get AND;
   BuiltList<GLoginScalarWhereInput>? get OR;
   BuiltList<GLoginScalarWhereInput>? get NOT;
-  GIntFilter? get id;
+  GBigIntFilter? get id;
   GStringNullableFilter? get ipAddress;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GStringFilter? get tokenValue;
   GBoolFilter? get explicit;
   GDateTimeFilter? get createdAt;
@@ -3282,6 +3365,7 @@ abstract class GLoginUpdateManyMutationInput
           [void Function(GLoginUpdateManyMutationInputBuilder b) updates]) =
       _$GLoginUpdateManyMutationInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GNullableStringFieldUpdateOperationsInput? get ipAddress;
   GBoolFieldUpdateOperationsInput? get explicit;
   GDateTimeFieldUpdateOperationsInput? get createdAt;
@@ -3444,6 +3528,7 @@ abstract class GLoginUpdateWithoutAccessTokenInput
       [void Function(GLoginUpdateWithoutAccessTokenInputBuilder b)
           updates]) = _$GLoginUpdateWithoutAccessTokenInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GNullableStringFieldUpdateOperationsInput? get ipAddress;
   GBoolFieldUpdateOperationsInput? get explicit;
   GDateTimeFieldUpdateOperationsInput? get createdAt;
@@ -3474,6 +3559,7 @@ abstract class GLoginUpdateWithoutUserInput
           [void Function(GLoginUpdateWithoutUserInputBuilder b) updates]) =
       _$GLoginUpdateWithoutUserInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GNullableStringFieldUpdateOperationsInput? get ipAddress;
   GBoolFieldUpdateOperationsInput? get explicit;
   GDateTimeFieldUpdateOperationsInput? get createdAt;
@@ -3623,9 +3709,9 @@ abstract class GLoginWhereInput
   BuiltList<GLoginWhereInput>? get AND;
   BuiltList<GLoginWhereInput>? get OR;
   BuiltList<GLoginWhereInput>? get NOT;
-  GIntFilter? get id;
+  GBigIntFilter? get id;
   GStringNullableFilter? get ipAddress;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GStringFilter? get tokenValue;
   GBoolFilter? get explicit;
   GDateTimeFilter? get createdAt;
@@ -3654,12 +3740,12 @@ abstract class GLoginWhereUniqueInput
           [void Function(GLoginWhereUniqueInputBuilder b) updates]) =
       _$GLoginWhereUniqueInput;
 
-  int? get id;
+  GBigInt? get id;
   BuiltList<GLoginWhereInput>? get AND;
   BuiltList<GLoginWhereInput>? get OR;
   BuiltList<GLoginWhereInput>? get NOT;
   GStringNullableFilter? get ipAddress;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GStringFilter? get tokenValue;
   GBoolFilter? get explicit;
   GDateTimeFilter? get createdAt;
@@ -3676,6 +3762,161 @@ abstract class GLoginWhereUniqueInput
   static GLoginWhereUniqueInput? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
         GLoginWhereUniqueInput.serializer,
+        json,
+      );
+}
+
+abstract class GNestedBigIntFilter
+    implements Built<GNestedBigIntFilter, GNestedBigIntFilterBuilder> {
+  GNestedBigIntFilter._();
+
+  factory GNestedBigIntFilter(
+          [void Function(GNestedBigIntFilterBuilder b) updates]) =
+      _$GNestedBigIntFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntFilter? get not;
+  static Serializer<GNestedBigIntFilter> get serializer =>
+      _$gNestedBigIntFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GNestedBigIntFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GNestedBigIntFilter? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GNestedBigIntFilter.serializer,
+        json,
+      );
+}
+
+abstract class GNestedBigIntNullableFilter
+    implements
+        Built<GNestedBigIntNullableFilter, GNestedBigIntNullableFilterBuilder> {
+  GNestedBigIntNullableFilter._();
+
+  factory GNestedBigIntNullableFilter(
+          [void Function(GNestedBigIntNullableFilterBuilder b) updates]) =
+      _$GNestedBigIntNullableFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntNullableFilter? get not;
+  static Serializer<GNestedBigIntNullableFilter> get serializer =>
+      _$gNestedBigIntNullableFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GNestedBigIntNullableFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GNestedBigIntNullableFilter? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GNestedBigIntNullableFilter.serializer,
+        json,
+      );
+}
+
+abstract class GNestedBigIntNullableWithAggregatesFilter
+    implements
+        Built<GNestedBigIntNullableWithAggregatesFilter,
+            GNestedBigIntNullableWithAggregatesFilterBuilder> {
+  GNestedBigIntNullableWithAggregatesFilter._();
+
+  factory GNestedBigIntNullableWithAggregatesFilter(
+      [void Function(GNestedBigIntNullableWithAggregatesFilterBuilder b)
+          updates]) = _$GNestedBigIntNullableWithAggregatesFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntNullableWithAggregatesFilter? get not;
+  @BuiltValueField(wireName: '_count')
+  GNestedIntNullableFilter? get G_count;
+  @BuiltValueField(wireName: '_avg')
+  GNestedFloatNullableFilter? get G_avg;
+  @BuiltValueField(wireName: '_sum')
+  GNestedBigIntNullableFilter? get G_sum;
+  @BuiltValueField(wireName: '_min')
+  GNestedBigIntNullableFilter? get G_min;
+  @BuiltValueField(wireName: '_max')
+  GNestedBigIntNullableFilter? get G_max;
+  static Serializer<GNestedBigIntNullableWithAggregatesFilter> get serializer =>
+      _$gNestedBigIntNullableWithAggregatesFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GNestedBigIntNullableWithAggregatesFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GNestedBigIntNullableWithAggregatesFilter? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GNestedBigIntNullableWithAggregatesFilter.serializer,
+        json,
+      );
+}
+
+abstract class GNestedBigIntWithAggregatesFilter
+    implements
+        Built<GNestedBigIntWithAggregatesFilter,
+            GNestedBigIntWithAggregatesFilterBuilder> {
+  GNestedBigIntWithAggregatesFilter._();
+
+  factory GNestedBigIntWithAggregatesFilter(
+          [void Function(GNestedBigIntWithAggregatesFilterBuilder b) updates]) =
+      _$GNestedBigIntWithAggregatesFilter;
+
+  GBigInt? get equals;
+  @BuiltValueField(wireName: 'in')
+  BuiltList<GBigInt>? get Gin;
+  BuiltList<GBigInt>? get notIn;
+  GBigInt? get lt;
+  GBigInt? get lte;
+  GBigInt? get gt;
+  GBigInt? get gte;
+  GNestedBigIntWithAggregatesFilter? get not;
+  @BuiltValueField(wireName: '_count')
+  GNestedIntFilter? get G_count;
+  @BuiltValueField(wireName: '_avg')
+  GNestedFloatFilter? get G_avg;
+  @BuiltValueField(wireName: '_sum')
+  GNestedBigIntFilter? get G_sum;
+  @BuiltValueField(wireName: '_min')
+  GNestedBigIntFilter? get G_min;
+  @BuiltValueField(wireName: '_max')
+  GNestedBigIntFilter? get G_max;
+  static Serializer<GNestedBigIntWithAggregatesFilter> get serializer =>
+      _$gNestedBigIntWithAggregatesFilterSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GNestedBigIntWithAggregatesFilter.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GNestedBigIntWithAggregatesFilter? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GNestedBigIntWithAggregatesFilter.serializer,
         json,
       );
 }
@@ -4287,95 +4528,6 @@ abstract class GNestedIntNullableFilter
       );
 }
 
-abstract class GNestedIntNullableWithAggregatesFilter
-    implements
-        Built<GNestedIntNullableWithAggregatesFilter,
-            GNestedIntNullableWithAggregatesFilterBuilder> {
-  GNestedIntNullableWithAggregatesFilter._();
-
-  factory GNestedIntNullableWithAggregatesFilter(
-      [void Function(GNestedIntNullableWithAggregatesFilterBuilder b)
-          updates]) = _$GNestedIntNullableWithAggregatesFilter;
-
-  int? get equals;
-  @BuiltValueField(wireName: 'in')
-  BuiltList<int>? get Gin;
-  BuiltList<int>? get notIn;
-  int? get lt;
-  int? get lte;
-  int? get gt;
-  int? get gte;
-  GNestedIntNullableWithAggregatesFilter? get not;
-  @BuiltValueField(wireName: '_count')
-  GNestedIntNullableFilter? get G_count;
-  @BuiltValueField(wireName: '_avg')
-  GNestedFloatNullableFilter? get G_avg;
-  @BuiltValueField(wireName: '_sum')
-  GNestedIntNullableFilter? get G_sum;
-  @BuiltValueField(wireName: '_min')
-  GNestedIntNullableFilter? get G_min;
-  @BuiltValueField(wireName: '_max')
-  GNestedIntNullableFilter? get G_max;
-  static Serializer<GNestedIntNullableWithAggregatesFilter> get serializer =>
-      _$gNestedIntNullableWithAggregatesFilterSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GNestedIntNullableWithAggregatesFilter.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GNestedIntNullableWithAggregatesFilter? fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GNestedIntNullableWithAggregatesFilter.serializer,
-        json,
-      );
-}
-
-abstract class GNestedIntWithAggregatesFilter
-    implements
-        Built<GNestedIntWithAggregatesFilter,
-            GNestedIntWithAggregatesFilterBuilder> {
-  GNestedIntWithAggregatesFilter._();
-
-  factory GNestedIntWithAggregatesFilter(
-          [void Function(GNestedIntWithAggregatesFilterBuilder b) updates]) =
-      _$GNestedIntWithAggregatesFilter;
-
-  int? get equals;
-  @BuiltValueField(wireName: 'in')
-  BuiltList<int>? get Gin;
-  BuiltList<int>? get notIn;
-  int? get lt;
-  int? get lte;
-  int? get gt;
-  int? get gte;
-  GNestedIntWithAggregatesFilter? get not;
-  @BuiltValueField(wireName: '_count')
-  GNestedIntFilter? get G_count;
-  @BuiltValueField(wireName: '_avg')
-  GNestedFloatFilter? get G_avg;
-  @BuiltValueField(wireName: '_sum')
-  GNestedIntFilter? get G_sum;
-  @BuiltValueField(wireName: '_min')
-  GNestedIntFilter? get G_min;
-  @BuiltValueField(wireName: '_max')
-  GNestedIntFilter? get G_max;
-  static Serializer<GNestedIntWithAggregatesFilter> get serializer =>
-      _$gNestedIntWithAggregatesFilterSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GNestedIntWithAggregatesFilter.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GNestedIntWithAggregatesFilter? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GNestedIntWithAggregatesFilter.serializer,
-        json,
-      );
-}
-
 abstract class GNestedStringFilter
     implements Built<GNestedStringFilter, GNestedStringFilterBuilder> {
   GNestedStringFilter._();
@@ -4745,6 +4897,7 @@ abstract class GProductCreateInput
           [void Function(GProductCreateInputBuilder b) updates]) =
       _$GProductCreateInput;
 
+  GBigInt? get id;
   String get name;
   String? get upc;
   bool? get upcScanned;
@@ -4788,7 +4941,7 @@ abstract class GProductCreateManyInput
           [void Function(GProductCreateManyInputBuilder b) updates]) =
       _$GProductCreateManyInput;
 
-  int? get id;
+  GBigInt? get id;
   String get name;
   String? get upc;
   bool? get upcScanned;
@@ -4949,6 +5102,7 @@ abstract class GProductCreateWithoutItemsInput
           [void Function(GProductCreateWithoutItemsInputBuilder b) updates]) =
       _$GProductCreateWithoutItemsInput;
 
+  GBigInt? get id;
   String get name;
   String? get upc;
   bool? get upcScanned;
@@ -4993,6 +5147,7 @@ abstract class GProductCreateWithoutPurchaseOrderEntriesInput
       [void Function(GProductCreateWithoutPurchaseOrderEntriesInputBuilder b)
           updates]) = _$GProductCreateWithoutPurchaseOrderEntriesInput;
 
+  GBigInt? get id;
   String get name;
   String? get upc;
   bool? get upcScanned;
@@ -5344,7 +5499,7 @@ abstract class GProductScalarWhereWithAggregatesInput
   BuiltList<GProductScalarWhereWithAggregatesInput>? get AND;
   BuiltList<GProductScalarWhereWithAggregatesInput>? get OR;
   BuiltList<GProductScalarWhereWithAggregatesInput>? get NOT;
-  GIntWithAggregatesFilter? get id;
+  GBigIntWithAggregatesFilter? get id;
   GStringWithAggregatesFilter? get name;
   GStringNullableWithAggregatesFilter? get upc;
   GBoolNullableWithAggregatesFilter? get upcScanned;
@@ -5418,6 +5573,7 @@ abstract class GProductUpdateInput
           [void Function(GProductUpdateInputBuilder b) updates]) =
       _$GProductUpdateInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get upc;
   GNullableBoolFieldUpdateOperationsInput? get upcScanned;
@@ -5463,6 +5619,7 @@ abstract class GProductUpdateManyMutationInput
           [void Function(GProductUpdateManyMutationInputBuilder b) updates]) =
       _$GProductUpdateManyMutationInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get upc;
   GNullableBoolFieldUpdateOperationsInput? get upcScanned;
@@ -5639,6 +5796,7 @@ abstract class GProductUpdateWithoutItemsInput
           [void Function(GProductUpdateWithoutItemsInputBuilder b) updates]) =
       _$GProductUpdateWithoutItemsInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get upc;
   GNullableBoolFieldUpdateOperationsInput? get upcScanned;
@@ -5683,6 +5841,7 @@ abstract class GProductUpdateWithoutPurchaseOrderEntriesInput
       [void Function(GProductUpdateWithoutPurchaseOrderEntriesInputBuilder b)
           updates]) = _$GProductUpdateWithoutPurchaseOrderEntriesInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GNullableStringFieldUpdateOperationsInput? get upc;
   GNullableBoolFieldUpdateOperationsInput? get upcScanned;
@@ -5789,7 +5948,7 @@ abstract class GProductWhereInput
   BuiltList<GProductWhereInput>? get AND;
   BuiltList<GProductWhereInput>? get OR;
   BuiltList<GProductWhereInput>? get NOT;
-  GIntFilter? get id;
+  GBigIntFilter? get id;
   GStringFilter? get name;
   GStringNullableFilter? get upc;
   GBoolNullableFilter? get upcScanned;
@@ -5833,7 +5992,7 @@ abstract class GProductWhereUniqueInput
           [void Function(GProductWhereUniqueInputBuilder b) updates]) =
       _$GProductWhereUniqueInput;
 
-  int? get id;
+  GBigInt? get id;
   BuiltList<GProductWhereInput>? get AND;
   BuiltList<GProductWhereInput>? get OR;
   BuiltList<GProductWhereInput>? get NOT;
@@ -5941,6 +6100,7 @@ abstract class GPurchaseOrderCreateInput
           [void Function(GPurchaseOrderCreateInputBuilder b) updates]) =
       _$GPurchaseOrderCreateInput;
 
+  GBigInt? get id;
   GDecimal get price;
   GPurchaseOrderStatus get status;
   GDateTimeISO? get createdAt;
@@ -5972,8 +6132,8 @@ abstract class GPurchaseOrderCreateManyInput
           [void Function(GPurchaseOrderCreateManyInputBuilder b) updates]) =
       _$GPurchaseOrderCreateManyInput;
 
-  int? get id;
-  int get userId;
+  GBigInt? get id;
+  GBigInt get userId;
   GDecimal get price;
   GPurchaseOrderStatus get status;
   GDateTimeISO? get createdAt;
@@ -6003,7 +6163,7 @@ abstract class GPurchaseOrderCreateManyUserInput
           [void Function(GPurchaseOrderCreateManyUserInputBuilder b) updates]) =
       _$GPurchaseOrderCreateManyUserInput;
 
-  int? get id;
+  GBigInt? get id;
   GDecimal get price;
   GPurchaseOrderStatus get status;
   GDateTimeISO? get createdAt;
@@ -6181,6 +6341,7 @@ abstract class GPurchaseOrderCreateWithoutEntriesInput
       [void Function(GPurchaseOrderCreateWithoutEntriesInputBuilder b)
           updates]) = _$GPurchaseOrderCreateWithoutEntriesInput;
 
+  GBigInt? get id;
   GDecimal get price;
   GPurchaseOrderStatus get status;
   GDateTimeISO? get createdAt;
@@ -6212,6 +6373,7 @@ abstract class GPurchaseOrderCreateWithoutUserInput
       [void Function(GPurchaseOrderCreateWithoutUserInputBuilder b)
           updates]) = _$GPurchaseOrderCreateWithoutUserInput;
 
+  GBigInt? get id;
   GDecimal get price;
   GPurchaseOrderStatus get status;
   GDateTimeISO? get createdAt;
@@ -6243,9 +6405,9 @@ abstract class GPurchaseOrderEntryCreateManyOrderInput
       [void Function(GPurchaseOrderEntryCreateManyOrderInputBuilder b)
           updates]) = _$GPurchaseOrderEntryCreateManyOrderInput;
 
-  int? get id;
+  GBigInt? get id;
   int get quantity;
-  int get productId;
+  GBigInt get productId;
   GCurrency get currency;
   GDecimal get unitPrice;
   GDateTimeISO? get createdAt;
@@ -6304,8 +6466,8 @@ abstract class GPurchaseOrderEntryCreateManyProductInput
       [void Function(GPurchaseOrderEntryCreateManyProductInputBuilder b)
           updates]) = _$GPurchaseOrderEntryCreateManyProductInput;
 
-  int? get id;
-  int get orderId;
+  GBigInt? get id;
+  GBigInt get orderId;
   int get quantity;
   GCurrency get currency;
   GDecimal get unitPrice;
@@ -6491,6 +6653,7 @@ abstract class GPurchaseOrderEntryCreateWithoutOrderInput
       [void Function(GPurchaseOrderEntryCreateWithoutOrderInputBuilder b)
           updates]) = _$GPurchaseOrderEntryCreateWithoutOrderInput;
 
+  GBigInt? get id;
   int get quantity;
   GCurrency get currency;
   GDecimal get unitPrice;
@@ -6522,6 +6685,7 @@ abstract class GPurchaseOrderEntryCreateWithoutProductInput
       [void Function(GPurchaseOrderEntryCreateWithoutProductInputBuilder b)
           updates]) = _$GPurchaseOrderEntryCreateWithoutProductInput;
 
+  GBigInt? get id;
   int get quantity;
   GCurrency get currency;
   GDecimal get unitPrice;
@@ -6684,10 +6848,10 @@ abstract class GPurchaseOrderEntryScalarWhereInput
   BuiltList<GPurchaseOrderEntryScalarWhereInput>? get AND;
   BuiltList<GPurchaseOrderEntryScalarWhereInput>? get OR;
   BuiltList<GPurchaseOrderEntryScalarWhereInput>? get NOT;
-  GIntFilter? get id;
-  GIntFilter? get orderId;
+  GBigIntFilter? get id;
+  GBigIntFilter? get orderId;
   GIntFilter? get quantity;
-  GIntFilter? get productId;
+  GBigIntFilter? get productId;
   GEnumCurrencyFilter? get currency;
   GDecimalFilter? get unitPrice;
   GDateTimeFilter? get createdAt;
@@ -6717,6 +6881,7 @@ abstract class GPurchaseOrderEntryUpdateManyMutationInput
       [void Function(GPurchaseOrderEntryUpdateManyMutationInputBuilder b)
           updates]) = _$GPurchaseOrderEntryUpdateManyMutationInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GIntFieldUpdateOperationsInput? get quantity;
   GEnumCurrencyFieldUpdateOperationsInput? get currency;
   GDecimalFieldUpdateOperationsInput? get unitPrice;
@@ -6896,6 +7061,7 @@ abstract class GPurchaseOrderEntryUpdateWithoutOrderInput
       [void Function(GPurchaseOrderEntryUpdateWithoutOrderInputBuilder b)
           updates]) = _$GPurchaseOrderEntryUpdateWithoutOrderInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GIntFieldUpdateOperationsInput? get quantity;
   GEnumCurrencyFieldUpdateOperationsInput? get currency;
   GDecimalFieldUpdateOperationsInput? get unitPrice;
@@ -6927,6 +7093,7 @@ abstract class GPurchaseOrderEntryUpdateWithoutProductInput
       [void Function(GPurchaseOrderEntryUpdateWithoutProductInputBuilder b)
           updates]) = _$GPurchaseOrderEntryUpdateWithoutProductInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GIntFieldUpdateOperationsInput? get quantity;
   GEnumCurrencyFieldUpdateOperationsInput? get currency;
   GDecimalFieldUpdateOperationsInput? get unitPrice;
@@ -7090,10 +7257,10 @@ abstract class GPurchaseOrderEntryWhereInput
   BuiltList<GPurchaseOrderEntryWhereInput>? get AND;
   BuiltList<GPurchaseOrderEntryWhereInput>? get OR;
   BuiltList<GPurchaseOrderEntryWhereInput>? get NOT;
-  GIntFilter? get id;
-  GIntFilter? get orderId;
+  GBigIntFilter? get id;
+  GBigIntFilter? get orderId;
   GIntFilter? get quantity;
-  GIntFilter? get productId;
+  GBigIntFilter? get productId;
   GEnumCurrencyFilter? get currency;
   GDecimalFilter? get unitPrice;
   GDateTimeFilter? get createdAt;
@@ -7124,13 +7291,13 @@ abstract class GPurchaseOrderEntryWhereUniqueInput
       [void Function(GPurchaseOrderEntryWhereUniqueInputBuilder b)
           updates]) = _$GPurchaseOrderEntryWhereUniqueInput;
 
-  int? get id;
+  GBigInt? get id;
   BuiltList<GPurchaseOrderEntryWhereInput>? get AND;
   BuiltList<GPurchaseOrderEntryWhereInput>? get OR;
   BuiltList<GPurchaseOrderEntryWhereInput>? get NOT;
-  GIntFilter? get orderId;
+  GBigIntFilter? get orderId;
   GIntFilter? get quantity;
-  GIntFilter? get productId;
+  GBigIntFilter? get productId;
   GEnumCurrencyFilter? get currency;
   GDecimalFilter? get unitPrice;
   GDateTimeFilter? get createdAt;
@@ -7421,8 +7588,8 @@ abstract class GPurchaseOrderScalarWhereInput
   BuiltList<GPurchaseOrderScalarWhereInput>? get AND;
   BuiltList<GPurchaseOrderScalarWhereInput>? get OR;
   BuiltList<GPurchaseOrderScalarWhereInput>? get NOT;
-  GIntFilter? get id;
-  GIntFilter? get userId;
+  GBigIntFilter? get id;
+  GBigIntFilter? get userId;
   GDecimalFilter? get price;
   GEnumPurchaseOrderStatusFilter? get status;
   GDateTimeFilter? get createdAt;
@@ -7455,8 +7622,8 @@ abstract class GPurchaseOrderScalarWhereWithAggregatesInput
   BuiltList<GPurchaseOrderScalarWhereWithAggregatesInput>? get AND;
   BuiltList<GPurchaseOrderScalarWhereWithAggregatesInput>? get OR;
   BuiltList<GPurchaseOrderScalarWhereWithAggregatesInput>? get NOT;
-  GIntWithAggregatesFilter? get id;
-  GIntWithAggregatesFilter? get userId;
+  GBigIntWithAggregatesFilter? get id;
+  GBigIntWithAggregatesFilter? get userId;
   GDecimalWithAggregatesFilter? get price;
   GEnumPurchaseOrderStatusWithAggregatesFilter? get status;
   GDateTimeWithAggregatesFilter? get createdAt;
@@ -7538,6 +7705,7 @@ abstract class GPurchaseOrderUpdateInput
           [void Function(GPurchaseOrderUpdateInputBuilder b) updates]) =
       _$GPurchaseOrderUpdateInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GDecimalFieldUpdateOperationsInput? get price;
   GEnumPurchaseOrderStatusFieldUpdateOperationsInput? get status;
   GDateTimeFieldUpdateOperationsInput? get createdAt;
@@ -7569,6 +7737,7 @@ abstract class GPurchaseOrderUpdateManyMutationInput
       [void Function(GPurchaseOrderUpdateManyMutationInputBuilder b)
           updates]) = _$GPurchaseOrderUpdateManyMutationInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GDecimalFieldUpdateOperationsInput? get price;
   GEnumPurchaseOrderStatusFieldUpdateOperationsInput? get status;
   GDateTimeFieldUpdateOperationsInput? get createdAt;
@@ -7731,6 +7900,7 @@ abstract class GPurchaseOrderUpdateWithoutEntriesInput
       [void Function(GPurchaseOrderUpdateWithoutEntriesInputBuilder b)
           updates]) = _$GPurchaseOrderUpdateWithoutEntriesInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GDecimalFieldUpdateOperationsInput? get price;
   GEnumPurchaseOrderStatusFieldUpdateOperationsInput? get status;
   GDateTimeFieldUpdateOperationsInput? get createdAt;
@@ -7762,6 +7932,7 @@ abstract class GPurchaseOrderUpdateWithoutUserInput
       [void Function(GPurchaseOrderUpdateWithoutUserInputBuilder b)
           updates]) = _$GPurchaseOrderUpdateWithoutUserInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GDecimalFieldUpdateOperationsInput? get price;
   GEnumPurchaseOrderStatusFieldUpdateOperationsInput? get status;
   GDateTimeFieldUpdateOperationsInput? get createdAt;
@@ -7887,8 +8058,8 @@ abstract class GPurchaseOrderWhereInput
   BuiltList<GPurchaseOrderWhereInput>? get AND;
   BuiltList<GPurchaseOrderWhereInput>? get OR;
   BuiltList<GPurchaseOrderWhereInput>? get NOT;
-  GIntFilter? get id;
-  GIntFilter? get userId;
+  GBigIntFilter? get id;
+  GBigIntFilter? get userId;
   GDecimalFilter? get price;
   GEnumPurchaseOrderStatusFilter? get status;
   GDateTimeFilter? get createdAt;
@@ -7920,11 +8091,11 @@ abstract class GPurchaseOrderWhereUniqueInput
           [void Function(GPurchaseOrderWhereUniqueInputBuilder b) updates]) =
       _$GPurchaseOrderWhereUniqueInput;
 
-  int? get id;
+  GBigInt? get id;
   BuiltList<GPurchaseOrderWhereInput>? get AND;
   BuiltList<GPurchaseOrderWhereInput>? get OR;
   BuiltList<GPurchaseOrderWhereInput>? get NOT;
-  GIntFilter? get userId;
+  GBigIntFilter? get userId;
   GDecimalFilter? get price;
   GEnumPurchaseOrderStatusFilter? get status;
   GDateTimeFilter? get createdAt;
@@ -8523,6 +8694,7 @@ abstract class GUserCreateWithoutAccessTokensInput
       [void Function(GUserCreateWithoutAccessTokensInputBuilder b)
           updates]) = _$GUserCreateWithoutAccessTokensInput;
 
+  GBigInt? get id;
   String get name;
   String get phoneNumber;
   int get otp;
@@ -8563,6 +8735,7 @@ abstract class GUserCreateWithoutItemsInput
           [void Function(GUserCreateWithoutItemsInputBuilder b) updates]) =
       _$GUserCreateWithoutItemsInput;
 
+  GBigInt? get id;
   String get name;
   String get phoneNumber;
   int get otp;
@@ -8602,6 +8775,7 @@ abstract class GUserCreateWithoutLoginsInput
           [void Function(GUserCreateWithoutLoginsInputBuilder b) updates]) =
       _$GUserCreateWithoutLoginsInput;
 
+  GBigInt? get id;
   String get name;
   String get phoneNumber;
   int get otp;
@@ -8641,6 +8815,7 @@ abstract class GUserCreateWithoutPurchaseOrdersInput
       [void Function(GUserCreateWithoutPurchaseOrdersInputBuilder b)
           updates]) = _$GUserCreateWithoutPurchaseOrdersInput;
 
+  GBigInt? get id;
   String get name;
   String get phoneNumber;
   int get otp;
@@ -8997,6 +9172,7 @@ abstract class GUserUpdateWithoutAccessTokensInput
       [void Function(GUserUpdateWithoutAccessTokensInputBuilder b)
           updates]) = _$GUserUpdateWithoutAccessTokensInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GStringFieldUpdateOperationsInput? get phoneNumber;
   GIntFieldUpdateOperationsInput? get otp;
@@ -9037,6 +9213,7 @@ abstract class GUserUpdateWithoutItemsInput
           [void Function(GUserUpdateWithoutItemsInputBuilder b) updates]) =
       _$GUserUpdateWithoutItemsInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GStringFieldUpdateOperationsInput? get phoneNumber;
   GIntFieldUpdateOperationsInput? get otp;
@@ -9076,6 +9253,7 @@ abstract class GUserUpdateWithoutLoginsInput
           [void Function(GUserUpdateWithoutLoginsInputBuilder b) updates]) =
       _$GUserUpdateWithoutLoginsInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GStringFieldUpdateOperationsInput? get phoneNumber;
   GIntFieldUpdateOperationsInput? get otp;
@@ -9115,6 +9293,7 @@ abstract class GUserUpdateWithoutPurchaseOrdersInput
       [void Function(GUserUpdateWithoutPurchaseOrdersInputBuilder b)
           updates]) = _$GUserUpdateWithoutPurchaseOrdersInput;
 
+  GBigIntFieldUpdateOperationsInput? get id;
   GStringFieldUpdateOperationsInput? get name;
   GStringFieldUpdateOperationsInput? get phoneNumber;
   GIntFieldUpdateOperationsInput? get otp;
@@ -9273,7 +9452,7 @@ abstract class GUserWhereInput
   BuiltList<GUserWhereInput>? get AND;
   BuiltList<GUserWhereInput>? get OR;
   BuiltList<GUserWhereInput>? get NOT;
-  GIntFilter? get id;
+  GBigIntFilter? get id;
   GStringFilter? get name;
   GStringFilter? get phoneNumber;
   GIntFilter? get otp;
@@ -9312,7 +9491,7 @@ abstract class GUserWhereUniqueInput
           [void Function(GUserWhereUniqueInputBuilder b) updates]) =
       _$GUserWhereUniqueInput;
 
-  int? get id;
+  GBigInt? get id;
   String? get phoneNumber;
   String? get email;
   BuiltList<GUserWhereInput>? get AND;

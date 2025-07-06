@@ -52,12 +52,6 @@ Serializer<GSendPasswordResetLinkData> _$gSendPasswordResetLinkDataSerializer =
     _$GSendPasswordResetLinkDataSerializer();
 Serializer<GRegisterUserData> _$gRegisterUserDataSerializer =
     _$GRegisterUserDataSerializer();
-Serializer<GRegisterUserData_registerUser>
-    _$gRegisterUserDataRegisterUserSerializer =
-    _$GRegisterUserData_registerUserSerializer();
-Serializer<GRegisterUserData_registerUser_user>
-    _$gRegisterUserDataRegisterUserUserSerializer =
-    _$GRegisterUserData_registerUser_userSerializer();
 
 class _$GValidateTokenDataSerializer
     implements StructuredSerializer<GValidateTokenData> {
@@ -196,7 +190,8 @@ class _$GValidateTokenData_validateToken_userSerializer
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'email',
@@ -224,8 +219,8 @@ class _$GValidateTokenData_validateToken_userSerializer
               specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
         case 'name':
           result.name = serializers.deserialize(value,
@@ -376,7 +371,8 @@ class _$GLogInUserData_logInUser_userSerializer
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
@@ -401,8 +397,8 @@ class _$GLogInUserData_logInUser_userSerializer
               specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
         case 'name':
           result.name = serializers.deserialize(value,
@@ -539,7 +535,8 @@ class _$GCreateProductData_createOneProductSerializer
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
     ];
 
     return result;
@@ -562,8 +559,8 @@ class _$GCreateProductData_createOneProductSerializer
               specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -751,7 +748,8 @@ class _$GDeleteProductData_deleteOneProductSerializer
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
     ];
 
     return result;
@@ -774,8 +772,8 @@ class _$GDeleteProductData_deleteOneProductSerializer
               specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -857,7 +855,8 @@ class _$GDeleteItemData_deleteOneItemSerializer
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
     ];
 
     return result;
@@ -880,8 +879,8 @@ class _$GDeleteItemData_deleteOneItemSerializer
               specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -970,7 +969,8 @@ class _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i2.GBigInt)),
     ];
 
     return result;
@@ -993,8 +993,8 @@ class _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer
               specifiedType: const FullType(String))! as String;
           break;
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
           break;
       }
     }
@@ -1076,7 +1076,7 @@ class _$GRegisterUserDataSerializer
           specifiedType: const FullType(String)),
       'registerUser',
       serializers.serialize(object.registerUser,
-          specifiedType: const FullType(GRegisterUserData_registerUser)),
+          specifiedType: const FullType(_i2.GVoid)),
     ];
 
     return result;
@@ -1100,129 +1100,7 @@ class _$GRegisterUserDataSerializer
           break;
         case 'registerUser':
           result.registerUser.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GRegisterUserData_registerUser))!
-              as GRegisterUserData_registerUser);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GRegisterUserData_registerUserSerializer
-    implements StructuredSerializer<GRegisterUserData_registerUser> {
-  @override
-  final Iterable<Type> types = const [
-    GRegisterUserData_registerUser,
-    _$GRegisterUserData_registerUser
-  ];
-  @override
-  final String wireName = 'GRegisterUserData_registerUser';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GRegisterUserData_registerUser object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'token',
-      serializers.serialize(object.token,
-          specifiedType: const FullType(String)),
-      'user',
-      serializers.serialize(object.user,
-          specifiedType: const FullType(GRegisterUserData_registerUser_user)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GRegisterUserData_registerUser deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GRegisterUserData_registerUserBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'token':
-          result.token = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'user':
-          result.user.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GRegisterUserData_registerUser_user))!
-              as GRegisterUserData_registerUser_user);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GRegisterUserData_registerUser_userSerializer
-    implements StructuredSerializer<GRegisterUserData_registerUser_user> {
-  @override
-  final Iterable<Type> types = const [
-    GRegisterUserData_registerUser_user,
-    _$GRegisterUserData_registerUser_user
-  ];
-  @override
-  final String wireName = 'GRegisterUserData_registerUser_user';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GRegisterUserData_registerUser_user object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GRegisterUserData_registerUser_user deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GRegisterUserData_registerUser_userBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
-          break;
-        case 'name':
-          result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+              specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
           break;
       }
     }
@@ -1478,7 +1356,7 @@ class _$GValidateTokenData_validateToken_user
   @override
   final String G__typename;
   @override
-  final int id;
+  final _i2.GBigInt id;
   @override
   final String name;
   @override
@@ -1549,9 +1427,9 @@ class GValidateTokenData_validateToken_userBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -1569,7 +1447,7 @@ class GValidateTokenData_validateToken_userBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _name = $v.name;
       _email = $v.email;
       _$v = null;
@@ -1592,17 +1470,31 @@ class GValidateTokenData_validateToken_userBuilder
   GValidateTokenData_validateToken_user build() => _build();
 
   _$GValidateTokenData_validateToken_user _build() {
-    final _$result = _$v ??
-        _$GValidateTokenData_validateToken_user._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-              r'GValidateTokenData_validateToken_user', 'G__typename'),
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GValidateTokenData_validateToken_user', 'id'),
-          name: BuiltValueNullFieldError.checkNotNull(
-              name, r'GValidateTokenData_validateToken_user', 'name'),
-          email: BuiltValueNullFieldError.checkNotNull(
-              email, r'GValidateTokenData_validateToken_user', 'email'),
-        );
+    _$GValidateTokenData_validateToken_user _$result;
+    try {
+      _$result = _$v ??
+          _$GValidateTokenData_validateToken_user._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GValidateTokenData_validateToken_user', 'G__typename'),
+            id: id.build(),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'GValidateTokenData_validateToken_user', 'name'),
+            email: BuiltValueNullFieldError.checkNotNull(
+                email, r'GValidateTokenData_validateToken_user', 'email'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GValidateTokenData_validateToken_user',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -1847,7 +1739,7 @@ class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
   @override
   final String G__typename;
   @override
-  final int id;
+  final _i2.GBigInt id;
   @override
   final String name;
 
@@ -1906,9 +1798,9 @@ class GLogInUserData_logInUser_userBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -1922,7 +1814,7 @@ class GLogInUserData_logInUser_userBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _name = $v.name;
       _$v = null;
     }
@@ -1943,15 +1835,27 @@ class GLogInUserData_logInUser_userBuilder
   GLogInUserData_logInUser_user build() => _build();
 
   _$GLogInUserData_logInUser_user _build() {
-    final _$result = _$v ??
-        _$GLogInUserData_logInUser_user._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename, r'GLogInUserData_logInUser_user', 'G__typename'),
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GLogInUserData_logInUser_user', 'id'),
-          name: BuiltValueNullFieldError.checkNotNull(
-              name, r'GLogInUserData_logInUser_user', 'name'),
-        );
+    _$GLogInUserData_logInUser_user _$result;
+    try {
+      _$result = _$v ??
+          _$GLogInUserData_logInUser_user._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GLogInUserData_logInUser_user', 'G__typename'),
+            id: id.build(),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'GLogInUserData_logInUser_user', 'name'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GLogInUserData_logInUser_user', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -2185,7 +2089,7 @@ class _$GCreateProductData_createOneProduct
   @override
   final String G__typename;
   @override
-  final int id;
+  final _i2.GBigInt id;
 
   factory _$GCreateProductData_createOneProduct(
           [void Function(GCreateProductData_createOneProductBuilder)?
@@ -2240,9 +2144,9 @@ class GCreateProductData_createOneProductBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   GCreateProductData_createOneProductBuilder() {
     GCreateProductData_createOneProduct._initializeBuilder(this);
@@ -2252,7 +2156,7 @@ class GCreateProductData_createOneProductBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _$v = null;
     }
     return this;
@@ -2273,13 +2177,25 @@ class GCreateProductData_createOneProductBuilder
   GCreateProductData_createOneProduct build() => _build();
 
   _$GCreateProductData_createOneProduct _build() {
-    final _$result = _$v ??
-        _$GCreateProductData_createOneProduct._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-              r'GCreateProductData_createOneProduct', 'G__typename'),
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GCreateProductData_createOneProduct', 'id'),
-        );
+    _$GCreateProductData_createOneProduct _$result;
+    try {
+      _$result = _$v ??
+          _$GCreateProductData_createOneProduct._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GCreateProductData_createOneProduct', 'G__typename'),
+            id: id.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'GCreateProductData_createOneProduct',
+            _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -2610,7 +2526,7 @@ class _$GDeleteProductData_deleteOneProduct
   @override
   final String G__typename;
   @override
-  final int id;
+  final _i2.GBigInt id;
 
   factory _$GDeleteProductData_deleteOneProduct(
           [void Function(GDeleteProductData_deleteOneProductBuilder)?
@@ -2665,9 +2581,9 @@ class GDeleteProductData_deleteOneProductBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   GDeleteProductData_deleteOneProductBuilder() {
     GDeleteProductData_deleteOneProduct._initializeBuilder(this);
@@ -2677,7 +2593,7 @@ class GDeleteProductData_deleteOneProductBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _$v = null;
     }
     return this;
@@ -2698,13 +2614,25 @@ class GDeleteProductData_deleteOneProductBuilder
   GDeleteProductData_deleteOneProduct build() => _build();
 
   _$GDeleteProductData_deleteOneProduct _build() {
-    final _$result = _$v ??
-        _$GDeleteProductData_deleteOneProduct._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-              r'GDeleteProductData_deleteOneProduct', 'G__typename'),
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GDeleteProductData_deleteOneProduct', 'id'),
-        );
+    _$GDeleteProductData_deleteOneProduct _$result;
+    try {
+      _$result = _$v ??
+          _$GDeleteProductData_deleteOneProduct._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GDeleteProductData_deleteOneProduct', 'G__typename'),
+            id: id.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'GDeleteProductData_deleteOneProduct',
+            _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -2824,7 +2752,7 @@ class _$GDeleteItemData_deleteOneItem extends GDeleteItemData_deleteOneItem {
   @override
   final String G__typename;
   @override
-  final int id;
+  final _i2.GBigInt id;
 
   factory _$GDeleteItemData_deleteOneItem(
           [void Function(GDeleteItemData_deleteOneItemBuilder)? updates]) =>
@@ -2878,9 +2806,9 @@ class GDeleteItemData_deleteOneItemBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   GDeleteItemData_deleteOneItemBuilder() {
     GDeleteItemData_deleteOneItem._initializeBuilder(this);
@@ -2890,7 +2818,7 @@ class GDeleteItemData_deleteOneItemBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _$v = null;
     }
     return this;
@@ -2910,13 +2838,25 @@ class GDeleteItemData_deleteOneItemBuilder
   GDeleteItemData_deleteOneItem build() => _build();
 
   _$GDeleteItemData_deleteOneItem _build() {
-    final _$result = _$v ??
-        _$GDeleteItemData_deleteOneItem._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename, r'GDeleteItemData_deleteOneItem', 'G__typename'),
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GDeleteItemData_deleteOneItem', 'id'),
-        );
+    _$GDeleteItemData_deleteOneItem _$result;
+    try {
+      _$result = _$v ??
+          _$GDeleteItemData_deleteOneItem._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GDeleteItemData_deleteOneItem', 'G__typename'),
+            id: id.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GDeleteItemData_deleteOneItem', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -3046,7 +2986,7 @@ class _$GDeletePurchaseOrderData_deleteOnePurchaseOrder
   @override
   final String G__typename;
   @override
-  final int id;
+  final _i2.GBigInt id;
 
   factory _$GDeletePurchaseOrderData_deleteOnePurchaseOrder(
           [void Function(
@@ -3106,9 +3046,9 @@ class GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  _i2.GBigIntBuilder? _id;
+  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
+  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
 
   GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder() {
     GDeletePurchaseOrderData_deleteOnePurchaseOrder._initializeBuilder(this);
@@ -3118,7 +3058,7 @@ class GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _id = $v.id;
+      _id = $v.id.toBuilder();
       _$v = null;
     }
     return this;
@@ -3140,15 +3080,29 @@ class GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
   GDeletePurchaseOrderData_deleteOnePurchaseOrder build() => _build();
 
   _$GDeletePurchaseOrderData_deleteOnePurchaseOrder _build() {
-    final _$result = _$v ??
-        _$GDeletePurchaseOrderData_deleteOnePurchaseOrder._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GDeletePurchaseOrderData_deleteOnePurchaseOrder',
-              'G__typename'),
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GDeletePurchaseOrderData_deleteOnePurchaseOrder', 'id'),
-        );
+    _$GDeletePurchaseOrderData_deleteOnePurchaseOrder _$result;
+    try {
+      _$result = _$v ??
+          _$GDeletePurchaseOrderData_deleteOnePurchaseOrder._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename,
+                r'GDeletePurchaseOrderData_deleteOnePurchaseOrder',
+                'G__typename'),
+            id: id.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GDeletePurchaseOrderData_deleteOnePurchaseOrder',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -3273,7 +3227,7 @@ class _$GRegisterUserData extends GRegisterUserData {
   @override
   final String G__typename;
   @override
-  final GRegisterUserData_registerUser registerUser;
+  final _i2.GVoid registerUser;
 
   factory _$GRegisterUserData(
           [void Function(GRegisterUserDataBuilder)? updates]) =>
@@ -3323,10 +3277,10 @@ class GRegisterUserDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GRegisterUserData_registerUserBuilder? _registerUser;
-  GRegisterUserData_registerUserBuilder get registerUser =>
-      _$this._registerUser ??= GRegisterUserData_registerUserBuilder();
-  set registerUser(GRegisterUserData_registerUserBuilder? registerUser) =>
+  _i2.GVoidBuilder? _registerUser;
+  _i2.GVoidBuilder get registerUser =>
+      _$this._registerUser ??= _i2.GVoidBuilder();
+  set registerUser(_i2.GVoidBuilder? registerUser) =>
       _$this._registerUser = registerUser;
 
   GRegisterUserDataBuilder() {
@@ -3376,251 +3330,6 @@ class GRegisterUserDataBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GRegisterUserData_registerUser extends GRegisterUserData_registerUser {
-  @override
-  final String G__typename;
-  @override
-  final String token;
-  @override
-  final GRegisterUserData_registerUser_user user;
-
-  factory _$GRegisterUserData_registerUser(
-          [void Function(GRegisterUserData_registerUserBuilder)? updates]) =>
-      (GRegisterUserData_registerUserBuilder()..update(updates))._build();
-
-  _$GRegisterUserData_registerUser._(
-      {required this.G__typename, required this.token, required this.user})
-      : super._();
-  @override
-  GRegisterUserData_registerUser rebuild(
-          void Function(GRegisterUserData_registerUserBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GRegisterUserData_registerUserBuilder toBuilder() =>
-      GRegisterUserData_registerUserBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GRegisterUserData_registerUser &&
-        G__typename == other.G__typename &&
-        token == other.token &&
-        user == other.user;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, token.hashCode);
-    _$hash = $jc(_$hash, user.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GRegisterUserData_registerUser')
-          ..add('G__typename', G__typename)
-          ..add('token', token)
-          ..add('user', user))
-        .toString();
-  }
-}
-
-class GRegisterUserData_registerUserBuilder
-    implements
-        Builder<GRegisterUserData_registerUser,
-            GRegisterUserData_registerUserBuilder> {
-  _$GRegisterUserData_registerUser? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  String? _token;
-  String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
-
-  GRegisterUserData_registerUser_userBuilder? _user;
-  GRegisterUserData_registerUser_userBuilder get user =>
-      _$this._user ??= GRegisterUserData_registerUser_userBuilder();
-  set user(GRegisterUserData_registerUser_userBuilder? user) =>
-      _$this._user = user;
-
-  GRegisterUserData_registerUserBuilder() {
-    GRegisterUserData_registerUser._initializeBuilder(this);
-  }
-
-  GRegisterUserData_registerUserBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _token = $v.token;
-      _user = $v.user.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GRegisterUserData_registerUser other) {
-    _$v = other as _$GRegisterUserData_registerUser;
-  }
-
-  @override
-  void update(void Function(GRegisterUserData_registerUserBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GRegisterUserData_registerUser build() => _build();
-
-  _$GRegisterUserData_registerUser _build() {
-    _$GRegisterUserData_registerUser _$result;
-    try {
-      _$result = _$v ??
-          _$GRegisterUserData_registerUser._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GRegisterUserData_registerUser', 'G__typename'),
-            token: BuiltValueNullFieldError.checkNotNull(
-                token, r'GRegisterUserData_registerUser', 'token'),
-            user: user.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'user';
-        user.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GRegisterUserData_registerUser', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GRegisterUserData_registerUser_user
-    extends GRegisterUserData_registerUser_user {
-  @override
-  final String G__typename;
-  @override
-  final int id;
-  @override
-  final String name;
-
-  factory _$GRegisterUserData_registerUser_user(
-          [void Function(GRegisterUserData_registerUser_userBuilder)?
-              updates]) =>
-      (GRegisterUserData_registerUser_userBuilder()..update(updates))._build();
-
-  _$GRegisterUserData_registerUser_user._(
-      {required this.G__typename, required this.id, required this.name})
-      : super._();
-  @override
-  GRegisterUserData_registerUser_user rebuild(
-          void Function(GRegisterUserData_registerUser_userBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GRegisterUserData_registerUser_userBuilder toBuilder() =>
-      GRegisterUserData_registerUser_userBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GRegisterUserData_registerUser_user &&
-        G__typename == other.G__typename &&
-        id == other.id &&
-        name == other.name;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GRegisterUserData_registerUser_user')
-          ..add('G__typename', G__typename)
-          ..add('id', id)
-          ..add('name', name))
-        .toString();
-  }
-}
-
-class GRegisterUserData_registerUser_userBuilder
-    implements
-        Builder<GRegisterUserData_registerUser_user,
-            GRegisterUserData_registerUser_userBuilder> {
-  _$GRegisterUserData_registerUser_user? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
-
-  String? _name;
-  String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
-
-  GRegisterUserData_registerUser_userBuilder() {
-    GRegisterUserData_registerUser_user._initializeBuilder(this);
-  }
-
-  GRegisterUserData_registerUser_userBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _id = $v.id;
-      _name = $v.name;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GRegisterUserData_registerUser_user other) {
-    _$v = other as _$GRegisterUserData_registerUser_user;
-  }
-
-  @override
-  void update(
-      void Function(GRegisterUserData_registerUser_userBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GRegisterUserData_registerUser_user build() => _build();
-
-  _$GRegisterUserData_registerUser_user _build() {
-    final _$result = _$v ??
-        _$GRegisterUserData_registerUser_user._(
-          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-              r'GRegisterUserData_registerUser_user', 'G__typename'),
-          id: BuiltValueNullFieldError.checkNotNull(
-              id, r'GRegisterUserData_registerUser_user', 'id'),
-          name: BuiltValueNullFieldError.checkNotNull(
-              name, r'GRegisterUserData_registerUser_user', 'name'),
-        );
     replace(_$result);
     return _$result;
   }

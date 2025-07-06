@@ -33,7 +33,8 @@ class _$GListUserItemsVarsSerializer
       serializers.serialize(object.sortDirection,
           specifiedType: const FullType(_i1.GSortOrder)),
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(_i1.GBigInt)),
     ];
 
     return result;
@@ -61,8 +62,8 @@ class _$GListUserItemsVarsSerializer
               specifiedType: const FullType(_i1.GSortOrder))! as _i1.GSortOrder;
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
           break;
       }
     }
@@ -93,7 +94,8 @@ class _$GListUserPurchaseOrdersVarsSerializer
       serializers.serialize(object.sortDirection,
           specifiedType: const FullType(_i1.GSortOrder)),
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(_i1.GBigInt)),
     ];
 
     return result;
@@ -122,8 +124,8 @@ class _$GListUserPurchaseOrdersVarsSerializer
               specifiedType: const FullType(_i1.GSortOrder))! as _i1.GSortOrder;
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
           break;
       }
     }
@@ -192,7 +194,7 @@ class _$GListUserItemsVars extends GListUserItemsVars {
   @override
   final _i1.GSortOrder sortDirection;
   @override
-  final int userId;
+  final _i1.GBigInt userId;
 
   factory _$GListUserItemsVars(
           [void Function(GListUserItemsVarsBuilder)? updates]) =>
@@ -255,9 +257,9 @@ class GListUserItemsVarsBuilder
   set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
+  _i1.GBigIntBuilder? _userId;
+  _i1.GBigIntBuilder get userId => _$this._userId ??= _i1.GBigIntBuilder();
+  set userId(_i1.GBigIntBuilder? userId) => _$this._userId = userId;
 
   GListUserItemsVarsBuilder();
 
@@ -266,7 +268,7 @@ class GListUserItemsVarsBuilder
     if ($v != null) {
       _sortOption = $v.sortOption;
       _sortDirection = $v.sortDirection;
-      _userId = $v.userId;
+      _userId = $v.userId.toBuilder();
       _$v = null;
     }
     return this;
@@ -286,15 +288,27 @@ class GListUserItemsVarsBuilder
   GListUserItemsVars build() => _build();
 
   _$GListUserItemsVars _build() {
-    final _$result = _$v ??
-        _$GListUserItemsVars._(
-          sortOption: BuiltValueNullFieldError.checkNotNull(
-              sortOption, r'GListUserItemsVars', 'sortOption'),
-          sortDirection: BuiltValueNullFieldError.checkNotNull(
-              sortDirection, r'GListUserItemsVars', 'sortDirection'),
-          userId: BuiltValueNullFieldError.checkNotNull(
-              userId, r'GListUserItemsVars', 'userId'),
-        );
+    _$GListUserItemsVars _$result;
+    try {
+      _$result = _$v ??
+          _$GListUserItemsVars._(
+            sortOption: BuiltValueNullFieldError.checkNotNull(
+                sortOption, r'GListUserItemsVars', 'sortOption'),
+            sortDirection: BuiltValueNullFieldError.checkNotNull(
+                sortDirection, r'GListUserItemsVars', 'sortDirection'),
+            userId: userId.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userId';
+        userId.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GListUserItemsVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -306,7 +320,7 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
   @override
   final _i1.GSortOrder sortDirection;
   @override
-  final int userId;
+  final _i1.GBigInt userId;
 
   factory _$GListUserPurchaseOrdersVars(
           [void Function(GListUserPurchaseOrdersVarsBuilder)? updates]) =>
@@ -371,9 +385,9 @@ class GListUserPurchaseOrdersVarsBuilder
   set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
+  _i1.GBigIntBuilder? _userId;
+  _i1.GBigIntBuilder get userId => _$this._userId ??= _i1.GBigIntBuilder();
+  set userId(_i1.GBigIntBuilder? userId) => _$this._userId = userId;
 
   GListUserPurchaseOrdersVarsBuilder();
 
@@ -382,7 +396,7 @@ class GListUserPurchaseOrdersVarsBuilder
     if ($v != null) {
       _sortOption = $v.sortOption;
       _sortDirection = $v.sortDirection;
-      _userId = $v.userId;
+      _userId = $v.userId.toBuilder();
       _$v = null;
     }
     return this;
@@ -402,15 +416,27 @@ class GListUserPurchaseOrdersVarsBuilder
   GListUserPurchaseOrdersVars build() => _build();
 
   _$GListUserPurchaseOrdersVars _build() {
-    final _$result = _$v ??
-        _$GListUserPurchaseOrdersVars._(
-          sortOption: BuiltValueNullFieldError.checkNotNull(
-              sortOption, r'GListUserPurchaseOrdersVars', 'sortOption'),
-          sortDirection: BuiltValueNullFieldError.checkNotNull(
-              sortDirection, r'GListUserPurchaseOrdersVars', 'sortDirection'),
-          userId: BuiltValueNullFieldError.checkNotNull(
-              userId, r'GListUserPurchaseOrdersVars', 'userId'),
-        );
+    _$GListUserPurchaseOrdersVars _$result;
+    try {
+      _$result = _$v ??
+          _$GListUserPurchaseOrdersVars._(
+            sortOption: BuiltValueNullFieldError.checkNotNull(
+                sortOption, r'GListUserPurchaseOrdersVars', 'sortOption'),
+            sortDirection: BuiltValueNullFieldError.checkNotNull(
+                sortDirection, r'GListUserPurchaseOrdersVars', 'sortDirection'),
+            userId: userId.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userId';
+        userId.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GListUserPurchaseOrdersVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

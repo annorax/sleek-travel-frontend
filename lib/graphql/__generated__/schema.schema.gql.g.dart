@@ -477,6 +477,19 @@ Serializer<GAccessTokenWhereInput> _$gAccessTokenWhereInputSerializer =
 Serializer<GAccessTokenWhereUniqueInput>
     _$gAccessTokenWhereUniqueInputSerializer =
     _$GAccessTokenWhereUniqueInputSerializer();
+Serializer<GBigIntFieldUpdateOperationsInput>
+    _$gBigIntFieldUpdateOperationsInputSerializer =
+    _$GBigIntFieldUpdateOperationsInputSerializer();
+Serializer<GBigIntFilter> _$gBigIntFilterSerializer =
+    _$GBigIntFilterSerializer();
+Serializer<GBigIntNullableFilter> _$gBigIntNullableFilterSerializer =
+    _$GBigIntNullableFilterSerializer();
+Serializer<GBigIntNullableWithAggregatesFilter>
+    _$gBigIntNullableWithAggregatesFilterSerializer =
+    _$GBigIntNullableWithAggregatesFilterSerializer();
+Serializer<GBigIntWithAggregatesFilter>
+    _$gBigIntWithAggregatesFilterSerializer =
+    _$GBigIntWithAggregatesFilterSerializer();
 Serializer<GBoolFieldUpdateOperationsInput>
     _$gBoolFieldUpdateOperationsInputSerializer =
     _$GBoolFieldUpdateOperationsInputSerializer();
@@ -536,13 +549,6 @@ Serializer<GIntFieldUpdateOperationsInput>
     _$gIntFieldUpdateOperationsInputSerializer =
     _$GIntFieldUpdateOperationsInputSerializer();
 Serializer<GIntFilter> _$gIntFilterSerializer = _$GIntFilterSerializer();
-Serializer<GIntNullableFilter> _$gIntNullableFilterSerializer =
-    _$GIntNullableFilterSerializer();
-Serializer<GIntNullableWithAggregatesFilter>
-    _$gIntNullableWithAggregatesFilterSerializer =
-    _$GIntNullableWithAggregatesFilterSerializer();
-Serializer<GIntWithAggregatesFilter> _$gIntWithAggregatesFilterSerializer =
-    _$GIntWithAggregatesFilterSerializer();
 Serializer<GItemAvgOrderByAggregateInput>
     _$gItemAvgOrderByAggregateInputSerializer =
     _$GItemAvgOrderByAggregateInputSerializer();
@@ -721,6 +727,17 @@ Serializer<GLoginWhereInput> _$gLoginWhereInputSerializer =
     _$GLoginWhereInputSerializer();
 Serializer<GLoginWhereUniqueInput> _$gLoginWhereUniqueInputSerializer =
     _$GLoginWhereUniqueInputSerializer();
+Serializer<GNestedBigIntFilter> _$gNestedBigIntFilterSerializer =
+    _$GNestedBigIntFilterSerializer();
+Serializer<GNestedBigIntNullableFilter>
+    _$gNestedBigIntNullableFilterSerializer =
+    _$GNestedBigIntNullableFilterSerializer();
+Serializer<GNestedBigIntNullableWithAggregatesFilter>
+    _$gNestedBigIntNullableWithAggregatesFilterSerializer =
+    _$GNestedBigIntNullableWithAggregatesFilterSerializer();
+Serializer<GNestedBigIntWithAggregatesFilter>
+    _$gNestedBigIntWithAggregatesFilterSerializer =
+    _$GNestedBigIntWithAggregatesFilterSerializer();
 Serializer<GNestedBoolFilter> _$gNestedBoolFilterSerializer =
     _$GNestedBoolFilterSerializer();
 Serializer<GNestedBoolNullableFilter> _$gNestedBoolNullableFilterSerializer =
@@ -765,12 +782,6 @@ Serializer<GNestedIntFilter> _$gNestedIntFilterSerializer =
     _$GNestedIntFilterSerializer();
 Serializer<GNestedIntNullableFilter> _$gNestedIntNullableFilterSerializer =
     _$GNestedIntNullableFilterSerializer();
-Serializer<GNestedIntNullableWithAggregatesFilter>
-    _$gNestedIntNullableWithAggregatesFilterSerializer =
-    _$GNestedIntNullableWithAggregatesFilterSerializer();
-Serializer<GNestedIntWithAggregatesFilter>
-    _$gNestedIntWithAggregatesFilterSerializer =
-    _$GNestedIntWithAggregatesFilterSerializer();
 Serializer<GNestedStringFilter> _$gNestedStringFilterSerializer =
     _$GNestedStringFilterSerializer();
 Serializer<GNestedStringNullableFilter>
@@ -1974,7 +1985,7 @@ class _$GAccessTokenScalarWhereInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.expired;
     if (value != null) {
@@ -2022,7 +2033,7 @@ class _$GAccessTokenScalarWhereInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'expired':
           result.expired.replace(serializers.deserialize(value,
@@ -2929,7 +2940,7 @@ class _$GAccessTokenWhereInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.expired;
     if (value != null) {
@@ -2991,7 +3002,7 @@ class _$GAccessTokenWhereInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'expired':
           result.expired.replace(serializers.deserialize(value,
@@ -3066,7 +3077,7 @@ class _$GAccessTokenWhereUniqueInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.expired;
     if (value != null) {
@@ -3128,7 +3139,7 @@ class _$GAccessTokenWhereUniqueInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'expired':
           result.expired.replace(serializers.deserialize(value,
@@ -3143,6 +3154,749 @@ class _$GAccessTokenWhereUniqueInputSerializer
           result.logins.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GLoginListRelationFilter))!
               as GLoginListRelationFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GBigIntFieldUpdateOperationsInputSerializer
+    implements StructuredSerializer<GBigIntFieldUpdateOperationsInput> {
+  @override
+  final Iterable<Type> types = const [
+    GBigIntFieldUpdateOperationsInput,
+    _$GBigIntFieldUpdateOperationsInput
+  ];
+  @override
+  final String wireName = 'GBigIntFieldUpdateOperationsInput';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GBigIntFieldUpdateOperationsInput object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.set;
+    if (value != null) {
+      result
+        ..add('set')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.increment;
+    if (value != null) {
+      result
+        ..add('increment')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.decrement;
+    if (value != null) {
+      result
+        ..add('decrement')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.multiply;
+    if (value != null) {
+      result
+        ..add('multiply')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.divide;
+    if (value != null) {
+      result
+        ..add('divide')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    return result;
+  }
+
+  @override
+  GBigIntFieldUpdateOperationsInput deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GBigIntFieldUpdateOperationsInputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'set':
+          result.set.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'increment':
+          result.increment.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'decrement':
+          result.decrement.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'multiply':
+          result.multiply.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'divide':
+          result.divide.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GBigIntFilterSerializer implements StructuredSerializer<GBigIntFilter> {
+  @override
+  final Iterable<Type> types = const [GBigIntFilter, _$GBigIntFilter];
+  @override
+  final String wireName = 'GBigIntFilter';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GBigIntFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GBigIntFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GBigIntFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GBigIntNullableFilterSerializer
+    implements StructuredSerializer<GBigIntNullableFilter> {
+  @override
+  final Iterable<Type> types = const [
+    GBigIntNullableFilter,
+    _$GBigIntNullableFilter
+  ];
+  @override
+  final String wireName = 'GBigIntNullableFilter';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GBigIntNullableFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GBigIntNullableFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GBigIntNullableFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GBigIntNullableWithAggregatesFilterSerializer
+    implements StructuredSerializer<GBigIntNullableWithAggregatesFilter> {
+  @override
+  final Iterable<Type> types = const [
+    GBigIntNullableWithAggregatesFilter,
+    _$GBigIntNullableWithAggregatesFilter
+  ];
+  @override
+  final String wireName = 'GBigIntNullableWithAggregatesFilter';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GBigIntNullableWithAggregatesFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(GNestedBigIntNullableWithAggregatesFilter)));
+    }
+    value = object.G_count;
+    if (value != null) {
+      result
+        ..add('_count')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedIntNullableFilter)));
+    }
+    value = object.G_avg;
+    if (value != null) {
+      result
+        ..add('_avg')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedFloatNullableFilter)));
+    }
+    value = object.G_sum;
+    if (value != null) {
+      result
+        ..add('_sum')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    value = object.G_min;
+    if (value != null) {
+      result
+        ..add('_min')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    value = object.G_max;
+    if (value != null) {
+      result
+        ..add('_max')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GBigIntNullableWithAggregatesFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GBigIntNullableWithAggregatesFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GNestedBigIntNullableWithAggregatesFilter))!
+              as GNestedBigIntNullableWithAggregatesFilter);
+          break;
+        case '_count':
+          result.G_count.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedIntNullableFilter))!
+              as GNestedIntNullableFilter);
+          break;
+        case '_avg':
+          result.G_avg.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedFloatNullableFilter))!
+              as GNestedFloatNullableFilter);
+          break;
+        case '_sum':
+          result.G_sum.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+        case '_min':
+          result.G_min.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+        case '_max':
+          result.G_max.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GBigIntWithAggregatesFilterSerializer
+    implements StructuredSerializer<GBigIntWithAggregatesFilter> {
+  @override
+  final Iterable<Type> types = const [
+    GBigIntWithAggregatesFilter,
+    _$GBigIntWithAggregatesFilter
+  ];
+  @override
+  final String wireName = 'GBigIntWithAggregatesFilter';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GBigIntWithAggregatesFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntWithAggregatesFilter)));
+    }
+    value = object.G_count;
+    if (value != null) {
+      result
+        ..add('_count')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedIntFilter)));
+    }
+    value = object.G_avg;
+    if (value != null) {
+      result
+        ..add('_avg')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedFloatFilter)));
+    }
+    value = object.G_sum;
+    if (value != null) {
+      result
+        ..add('_sum')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    value = object.G_min;
+    if (value != null) {
+      result
+        ..add('_min')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    value = object.G_max;
+    if (value != null) {
+      result
+        ..add('_max')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GBigIntWithAggregatesFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GBigIntWithAggregatesFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GNestedBigIntWithAggregatesFilter))!
+              as GNestedBigIntWithAggregatesFilter);
+          break;
+        case '_count':
+          result.G_count.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedIntFilter))!
+              as GNestedIntFilter);
+          break;
+        case '_avg':
+          result.G_avg.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedFloatFilter))!
+              as GNestedFloatFilter);
+          break;
+        case '_sum':
+          result.G_sum.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
+          break;
+        case '_min':
+          result.G_min.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
+          break;
+        case '_max':
+          result.G_max.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
           break;
       }
     }
@@ -5544,510 +6298,6 @@ class _$GIntFilterSerializer implements StructuredSerializer<GIntFilter> {
   }
 }
 
-class _$GIntNullableFilterSerializer
-    implements StructuredSerializer<GIntNullableFilter> {
-  @override
-  final Iterable<Type> types = const [GIntNullableFilter, _$GIntNullableFilter];
-  @override
-  final String wireName = 'GIntNullableFilter';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GIntNullableFilter object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.equals;
-    if (value != null) {
-      result
-        ..add('equals')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.Gin;
-    if (value != null) {
-      result
-        ..add('in')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.notIn;
-    if (value != null) {
-      result
-        ..add('notIn')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.lt;
-    if (value != null) {
-      result
-        ..add('lt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.lte;
-    if (value != null) {
-      result
-        ..add('lte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gt;
-    if (value != null) {
-      result
-        ..add('gt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gte;
-    if (value != null) {
-      result
-        ..add('gte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.not;
-    if (value != null) {
-      result
-        ..add('not')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    return result;
-  }
-
-  @override
-  GIntNullableFilter deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GIntNullableFilterBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'equals':
-          result.equals = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'in':
-          result.Gin.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'notIn':
-          result.notIn.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'lt':
-          result.lt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'lte':
-          result.lte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gt':
-          result.gt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gte':
-          result.gte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'not':
-          result.not.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GIntNullableWithAggregatesFilterSerializer
-    implements StructuredSerializer<GIntNullableWithAggregatesFilter> {
-  @override
-  final Iterable<Type> types = const [
-    GIntNullableWithAggregatesFilter,
-    _$GIntNullableWithAggregatesFilter
-  ];
-  @override
-  final String wireName = 'GIntNullableWithAggregatesFilter';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GIntNullableWithAggregatesFilter object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.equals;
-    if (value != null) {
-      result
-        ..add('equals')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.Gin;
-    if (value != null) {
-      result
-        ..add('in')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.notIn;
-    if (value != null) {
-      result
-        ..add('notIn')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.lt;
-    if (value != null) {
-      result
-        ..add('lt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.lte;
-    if (value != null) {
-      result
-        ..add('lte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gt;
-    if (value != null) {
-      result
-        ..add('gt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gte;
-    if (value != null) {
-      result
-        ..add('gte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.not;
-    if (value != null) {
-      result
-        ..add('not')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(GNestedIntNullableWithAggregatesFilter)));
-    }
-    value = object.G_count;
-    if (value != null) {
-      result
-        ..add('_count')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    value = object.G_avg;
-    if (value != null) {
-      result
-        ..add('_avg')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedFloatNullableFilter)));
-    }
-    value = object.G_sum;
-    if (value != null) {
-      result
-        ..add('_sum')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    value = object.G_min;
-    if (value != null) {
-      result
-        ..add('_min')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    value = object.G_max;
-    if (value != null) {
-      result
-        ..add('_max')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    return result;
-  }
-
-  @override
-  GIntNullableWithAggregatesFilter deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GIntNullableWithAggregatesFilterBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'equals':
-          result.equals = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'in':
-          result.Gin.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'notIn':
-          result.notIn.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'lt':
-          result.lt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'lte':
-          result.lte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gt':
-          result.gt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gte':
-          result.gte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'not':
-          result.not.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GNestedIntNullableWithAggregatesFilter))!
-              as GNestedIntNullableWithAggregatesFilter);
-          break;
-        case '_count':
-          result.G_count.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-        case '_avg':
-          result.G_avg.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedFloatNullableFilter))!
-              as GNestedFloatNullableFilter);
-          break;
-        case '_sum':
-          result.G_sum.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-        case '_min':
-          result.G_min.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-        case '_max':
-          result.G_max.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GIntWithAggregatesFilterSerializer
-    implements StructuredSerializer<GIntWithAggregatesFilter> {
-  @override
-  final Iterable<Type> types = const [
-    GIntWithAggregatesFilter,
-    _$GIntWithAggregatesFilter
-  ];
-  @override
-  final String wireName = 'GIntWithAggregatesFilter';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GIntWithAggregatesFilter object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.equals;
-    if (value != null) {
-      result
-        ..add('equals')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.Gin;
-    if (value != null) {
-      result
-        ..add('in')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.notIn;
-    if (value != null) {
-      result
-        ..add('notIn')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.lt;
-    if (value != null) {
-      result
-        ..add('lt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.lte;
-    if (value != null) {
-      result
-        ..add('lte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gt;
-    if (value != null) {
-      result
-        ..add('gt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gte;
-    if (value != null) {
-      result
-        ..add('gte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.not;
-    if (value != null) {
-      result
-        ..add('not')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntWithAggregatesFilter)));
-    }
-    value = object.G_count;
-    if (value != null) {
-      result
-        ..add('_count')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    value = object.G_avg;
-    if (value != null) {
-      result
-        ..add('_avg')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedFloatFilter)));
-    }
-    value = object.G_sum;
-    if (value != null) {
-      result
-        ..add('_sum')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    value = object.G_min;
-    if (value != null) {
-      result
-        ..add('_min')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    value = object.G_max;
-    if (value != null) {
-      result
-        ..add('_max')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    return result;
-  }
-
-  @override
-  GIntWithAggregatesFilter deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GIntWithAggregatesFilterBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'equals':
-          result.equals = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'in':
-          result.Gin.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'notIn':
-          result.notIn.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'lt':
-          result.lt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'lte':
-          result.lte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gt':
-          result.gt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gte':
-          result.gte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'not':
-          result.not.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GNestedIntWithAggregatesFilter))!
-              as GNestedIntWithAggregatesFilter);
-          break;
-        case '_count':
-          result.G_count.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-        case '_avg':
-          result.G_avg.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedFloatFilter))!
-              as GNestedFloatFilter);
-          break;
-        case '_sum':
-          result.G_sum.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-        case '_min':
-          result.G_min.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-        case '_max':
-          result.G_max.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$GItemAvgOrderByAggregateInputSerializer
     implements StructuredSerializer<GItemAvgOrderByAggregateInput> {
   @override
@@ -6353,6 +6603,13 @@ class _$GItemCreateInputSerializer
           specifiedType: const FullType(GUserCreateNestedOneWithoutItemsInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.description;
     if (value != null) {
       result
@@ -6425,6 +6682,10 @@ class _$GItemCreateInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'code':
           result.code = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -6496,7 +6757,8 @@ class _$GItemCreateManyInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(GBigInt)),
       'code',
       serializers.serialize(object.code, specifiedType: const FullType(String)),
       'name',
@@ -6507,7 +6769,8 @@ class _$GItemCreateManyInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.description;
     if (value != null) {
@@ -6520,7 +6783,8 @@ class _$GItemCreateManyInputSerializer
     if (value != null) {
       result
         ..add('productId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.weightInKgs;
     if (value != null) {
@@ -6580,12 +6844,12 @@ class _$GItemCreateManyInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'code':
           result.code = serializers.deserialize(value,
@@ -6600,8 +6864,8 @@ class _$GItemCreateManyInputSerializer
               specifiedType: const FullType(String)) as String?;
           break;
         case 'productId':
-          result.productId = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.productId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'weightInKgs':
           result.weightInKgs = serializers.deserialize(value,
@@ -6650,7 +6914,8 @@ class _$GItemCreateManyProductInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(GBigInt)),
       'code',
       serializers.serialize(object.code, specifiedType: const FullType(String)),
       'name',
@@ -6661,7 +6926,8 @@ class _$GItemCreateManyProductInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.description;
     if (value != null) {
@@ -6728,12 +6994,12 @@ class _$GItemCreateManyProductInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'code':
           result.code = serializers.deserialize(value,
@@ -6863,7 +7129,8 @@ class _$GItemCreateManyUserInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.description;
     if (value != null) {
@@ -6876,7 +7143,8 @@ class _$GItemCreateManyUserInputSerializer
     if (value != null) {
       result
         ..add('productId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.weightInKgs;
     if (value != null) {
@@ -6936,8 +7204,8 @@ class _$GItemCreateManyUserInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'code':
           result.code = serializers.deserialize(value,
@@ -6952,8 +7220,8 @@ class _$GItemCreateManyUserInputSerializer
               specifiedType: const FullType(String)) as String?;
           break;
         case 'productId':
-          result.productId = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.productId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'weightInKgs':
           result.weightInKgs = serializers.deserialize(value,
@@ -7369,6 +7637,13 @@ class _$GItemCreateWithoutProductInputSerializer
           specifiedType: const FullType(GUserCreateNestedOneWithoutItemsInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.description;
     if (value != null) {
       result
@@ -7433,6 +7708,10 @@ class _$GItemCreateWithoutProductInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'code':
           result.code = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -7503,6 +7782,13 @@ class _$GItemCreateWithoutUserInputSerializer
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.description;
     if (value != null) {
       result
@@ -7575,6 +7861,10 @@ class _$GItemCreateWithoutUserInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'code':
           result.code = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -8596,14 +8886,14 @@ class _$GItemScalarWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.userId;
     if (value != null) {
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.code;
     if (value != null) {
@@ -8631,7 +8921,7 @@ class _$GItemScalarWhereInputSerializer
       result
         ..add('productId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntNullableFilter)));
+            specifiedType: const FullType(GBigIntNullableFilter)));
     }
     value = object.weightInKgs;
     if (value != null) {
@@ -8710,11 +9000,11 @@ class _$GItemScalarWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'code':
           result.code.replace(serializers.deserialize(value,
@@ -8731,8 +9021,8 @@ class _$GItemScalarWhereInputSerializer
           break;
         case 'productId':
           result.productId.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntNullableFilter))!
-              as GIntNullableFilter);
+                  specifiedType: const FullType(GBigIntNullableFilter))!
+              as GBigIntNullableFilter);
           break;
         case 'weightInKgs':
           result.weightInKgs.replace(serializers.deserialize(value,
@@ -8816,14 +9106,14 @@ class _$GItemScalarWhereWithAggregatesInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntWithAggregatesFilter)));
+            specifiedType: const FullType(GBigIntWithAggregatesFilter)));
     }
     value = object.userId;
     if (value != null) {
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntWithAggregatesFilter)));
+            specifiedType: const FullType(GBigIntWithAggregatesFilter)));
     }
     value = object.code;
     if (value != null) {
@@ -8852,7 +9142,8 @@ class _$GItemScalarWhereWithAggregatesInputSerializer
       result
         ..add('productId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntNullableWithAggregatesFilter)));
+            specifiedType:
+                const FullType(GBigIntNullableWithAggregatesFilter)));
     }
     value = object.weightInKgs;
     if (value != null) {
@@ -8931,13 +9222,13 @@ class _$GItemScalarWhereWithAggregatesInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntWithAggregatesFilter))!
-              as GIntWithAggregatesFilter);
+                  specifiedType: const FullType(GBigIntWithAggregatesFilter))!
+              as GBigIntWithAggregatesFilter);
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntWithAggregatesFilter))!
-              as GIntWithAggregatesFilter);
+                  specifiedType: const FullType(GBigIntWithAggregatesFilter))!
+              as GBigIntWithAggregatesFilter);
           break;
         case 'code':
           result.code.replace(serializers.deserialize(value,
@@ -8958,8 +9249,8 @@ class _$GItemScalarWhereWithAggregatesInputSerializer
         case 'productId':
           result.productId.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(GIntNullableWithAggregatesFilter))!
-              as GIntNullableWithAggregatesFilter);
+                      const FullType(GBigIntNullableWithAggregatesFilter))!
+              as GBigIntNullableWithAggregatesFilter);
           break;
         case 'weightInKgs':
           result.weightInKgs.replace(serializers.deserialize(value,
@@ -9129,6 +9420,13 @@ class _$GItemUpdateInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.code;
     if (value != null) {
       result
@@ -9230,6 +9528,12 @@ class _$GItemUpdateInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'code':
           result.code.replace(serializers.deserialize(value,
                   specifiedType:
@@ -9319,6 +9623,13 @@ class _$GItemUpdateManyMutationInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.code;
     if (value != null) {
       result
@@ -9404,6 +9715,12 @@ class _$GItemUpdateManyMutationInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'code':
           result.code.replace(serializers.deserialize(value,
                   specifiedType:
@@ -9982,6 +10299,13 @@ class _$GItemUpdateWithoutProductInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.code;
     if (value != null) {
       result
@@ -10075,6 +10399,12 @@ class _$GItemUpdateWithoutProductInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'code':
           result.code.replace(serializers.deserialize(value,
                   specifiedType:
@@ -10158,6 +10488,13 @@ class _$GItemUpdateWithoutUserInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.code;
     if (value != null) {
       result
@@ -10251,6 +10588,12 @@ class _$GItemUpdateWithoutUserInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'code':
           result.code.replace(serializers.deserialize(value,
                   specifiedType:
@@ -10602,14 +10945,14 @@ class _$GItemWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.userId;
     if (value != null) {
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.code;
     if (value != null) {
@@ -10637,7 +10980,7 @@ class _$GItemWhereInputSerializer
       result
         ..add('productId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntNullableFilter)));
+            specifiedType: const FullType(GBigIntNullableFilter)));
     }
     value = object.weightInKgs;
     if (value != null) {
@@ -10730,11 +11073,11 @@ class _$GItemWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'code':
           result.code.replace(serializers.deserialize(value,
@@ -10751,8 +11094,8 @@ class _$GItemWhereInputSerializer
           break;
         case 'productId':
           result.productId.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntNullableFilter))!
-              as GIntNullableFilter);
+                  specifiedType: const FullType(GBigIntNullableFilter))!
+              as GBigIntNullableFilter);
           break;
         case 'weightInKgs':
           result.weightInKgs.replace(serializers.deserialize(value,
@@ -10822,7 +11165,8 @@ class _$GItemWhereUniqueInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.code;
     if (value != null) {
@@ -10860,7 +11204,7 @@ class _$GItemWhereUniqueInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.name;
     if (value != null) {
@@ -10881,7 +11225,7 @@ class _$GItemWhereUniqueInputSerializer
       result
         ..add('productId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntNullableFilter)));
+            specifiedType: const FullType(GBigIntNullableFilter)));
     }
     value = object.weightInKgs;
     if (value != null) {
@@ -10955,8 +11299,8 @@ class _$GItemWhereUniqueInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'code':
           result.code = serializers.deserialize(value,
@@ -10982,7 +11326,7 @@ class _$GItemWhereUniqueInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
@@ -10995,8 +11339,8 @@ class _$GItemWhereUniqueInputSerializer
           break;
         case 'productId':
           result.productId.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntNullableFilter))!
-              as GIntNullableFilter);
+                  specifiedType: const FullType(GBigIntNullableFilter))!
+              as GBigIntNullableFilter);
           break;
         case 'weightInKgs':
           result.weightInKgs.replace(serializers.deserialize(value,
@@ -11062,7 +11406,8 @@ class _$GLoginCreateManyAccessTokenInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(GBigInt)),
       'explicit',
       serializers.serialize(object.explicit,
           specifiedType: const FullType(bool)),
@@ -11072,7 +11417,8 @@ class _$GLoginCreateManyAccessTokenInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.ipAddress;
     if (value != null) {
@@ -11104,16 +11450,16 @@ class _$GLoginCreateManyAccessTokenInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'ipAddress':
           result.ipAddress = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'explicit':
           result.explicit = serializers.deserialize(value,
@@ -11217,7 +11563,8 @@ class _$GLoginCreateManyUserInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.ipAddress;
     if (value != null) {
@@ -11249,8 +11596,8 @@ class _$GLoginCreateManyUserInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'ipAddress':
           result.ipAddress = serializers.deserialize(value,
@@ -11661,6 +12008,13 @@ class _$GLoginCreateWithoutAccessTokenInputSerializer
               const FullType(GUserCreateNestedOneWithoutLoginsInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.ipAddress;
     if (value != null) {
       result
@@ -11690,6 +12044,10 @@ class _$GLoginCreateWithoutAccessTokenInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'ipAddress':
           result.ipAddress = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -11739,6 +12097,13 @@ class _$GLoginCreateWithoutUserInputSerializer
               const FullType(GAccessTokenCreateNestedOneWithoutLoginsInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.ipAddress;
     if (value != null) {
       result
@@ -11768,6 +12133,10 @@ class _$GLoginCreateWithoutUserInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'ipAddress':
           result.ipAddress = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -11961,7 +12330,7 @@ class _$GLoginScalarWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.ipAddress;
     if (value != null) {
@@ -11975,7 +12344,7 @@ class _$GLoginScalarWhereInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.tokenValue;
     if (value != null) {
@@ -12033,7 +12402,7 @@ class _$GLoginScalarWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'ipAddress':
           result.ipAddress.replace(serializers.deserialize(value,
@@ -12042,7 +12411,7 @@ class _$GLoginScalarWhereInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'tokenValue':
           result.tokenValue.replace(serializers.deserialize(value,
@@ -12080,6 +12449,13 @@ class _$GLoginUpdateManyMutationInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.ipAddress;
     if (value != null) {
       result
@@ -12118,6 +12494,12 @@ class _$GLoginUpdateManyMutationInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'ipAddress':
           result.ipAddress.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
@@ -12664,6 +13046,13 @@ class _$GLoginUpdateWithoutAccessTokenInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.ipAddress;
     if (value != null) {
       result
@@ -12710,6 +13099,12 @@ class _$GLoginUpdateWithoutAccessTokenInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'ipAddress':
           result.ipAddress.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
@@ -12757,6 +13152,13 @@ class _$GLoginUpdateWithoutUserInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.ipAddress;
     if (value != null) {
       result
@@ -12803,6 +13205,12 @@ class _$GLoginUpdateWithoutUserInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'ipAddress':
           result.ipAddress.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
@@ -13120,7 +13528,7 @@ class _$GLoginWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.ipAddress;
     if (value != null) {
@@ -13134,7 +13542,7 @@ class _$GLoginWhereInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.tokenValue;
     if (value != null) {
@@ -13206,7 +13614,7 @@ class _$GLoginWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'ipAddress':
           result.ipAddress.replace(serializers.deserialize(value,
@@ -13215,7 +13623,7 @@ class _$GLoginWhereInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'tokenValue':
           result.tokenValue.replace(serializers.deserialize(value,
@@ -13267,7 +13675,8 @@ class _$GLoginWhereUniqueInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.AND;
     if (value != null) {
@@ -13305,7 +13714,7 @@ class _$GLoginWhereUniqueInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.tokenValue;
     if (value != null) {
@@ -13358,8 +13767,8 @@ class _$GLoginWhereUniqueInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'AND':
           result.AND.replace(serializers.deserialize(value,
@@ -13386,7 +13795,7 @@ class _$GLoginWhereUniqueInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'tokenValue':
           result.tokenValue.replace(serializers.deserialize(value,
@@ -13410,6 +13819,661 @@ class _$GLoginWhereUniqueInputSerializer
           result.accessToken.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GAccessTokenRelationFilter))!
               as GAccessTokenRelationFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GNestedBigIntFilterSerializer
+    implements StructuredSerializer<GNestedBigIntFilter> {
+  @override
+  final Iterable<Type> types = const [
+    GNestedBigIntFilter,
+    _$GNestedBigIntFilter
+  ];
+  @override
+  final String wireName = 'GNestedBigIntFilter';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GNestedBigIntFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GNestedBigIntFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GNestedBigIntFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GNestedBigIntNullableFilterSerializer
+    implements StructuredSerializer<GNestedBigIntNullableFilter> {
+  @override
+  final Iterable<Type> types = const [
+    GNestedBigIntNullableFilter,
+    _$GNestedBigIntNullableFilter
+  ];
+  @override
+  final String wireName = 'GNestedBigIntNullableFilter';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GNestedBigIntNullableFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GNestedBigIntNullableFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GNestedBigIntNullableFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GNestedBigIntNullableWithAggregatesFilterSerializer
+    implements StructuredSerializer<GNestedBigIntNullableWithAggregatesFilter> {
+  @override
+  final Iterable<Type> types = const [
+    GNestedBigIntNullableWithAggregatesFilter,
+    _$GNestedBigIntNullableWithAggregatesFilter
+  ];
+  @override
+  final String wireName = 'GNestedBigIntNullableWithAggregatesFilter';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GNestedBigIntNullableWithAggregatesFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(GNestedBigIntNullableWithAggregatesFilter)));
+    }
+    value = object.G_count;
+    if (value != null) {
+      result
+        ..add('_count')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedIntNullableFilter)));
+    }
+    value = object.G_avg;
+    if (value != null) {
+      result
+        ..add('_avg')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedFloatNullableFilter)));
+    }
+    value = object.G_sum;
+    if (value != null) {
+      result
+        ..add('_sum')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    value = object.G_min;
+    if (value != null) {
+      result
+        ..add('_min')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    value = object.G_max;
+    if (value != null) {
+      result
+        ..add('_max')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntNullableFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GNestedBigIntNullableWithAggregatesFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GNestedBigIntNullableWithAggregatesFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      GNestedBigIntNullableWithAggregatesFilter))!
+              as GNestedBigIntNullableWithAggregatesFilter);
+          break;
+        case '_count':
+          result.G_count.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedIntNullableFilter))!
+              as GNestedIntNullableFilter);
+          break;
+        case '_avg':
+          result.G_avg.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedFloatNullableFilter))!
+              as GNestedFloatNullableFilter);
+          break;
+        case '_sum':
+          result.G_sum.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+        case '_min':
+          result.G_min.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+        case '_max':
+          result.G_max.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntNullableFilter))!
+              as GNestedBigIntNullableFilter);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GNestedBigIntWithAggregatesFilterSerializer
+    implements StructuredSerializer<GNestedBigIntWithAggregatesFilter> {
+  @override
+  final Iterable<Type> types = const [
+    GNestedBigIntWithAggregatesFilter,
+    _$GNestedBigIntWithAggregatesFilter
+  ];
+  @override
+  final String wireName = 'GNestedBigIntWithAggregatesFilter';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GNestedBigIntWithAggregatesFilter object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.equals;
+    if (value != null) {
+      result
+        ..add('equals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.Gin;
+    if (value != null) {
+      result
+        ..add('in')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.notIn;
+    if (value != null) {
+      result
+        ..add('notIn')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(GBigInt)])));
+    }
+    value = object.lt;
+    if (value != null) {
+      result
+        ..add('lt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.lte;
+    if (value != null) {
+      result
+        ..add('lte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gt;
+    if (value != null) {
+      result
+        ..add('gt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.gte;
+    if (value != null) {
+      result
+        ..add('gte')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
+    value = object.not;
+    if (value != null) {
+      result
+        ..add('not')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntWithAggregatesFilter)));
+    }
+    value = object.G_count;
+    if (value != null) {
+      result
+        ..add('_count')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedIntFilter)));
+    }
+    value = object.G_avg;
+    if (value != null) {
+      result
+        ..add('_avg')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedFloatFilter)));
+    }
+    value = object.G_sum;
+    if (value != null) {
+      result
+        ..add('_sum')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    value = object.G_min;
+    if (value != null) {
+      result
+        ..add('_min')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    value = object.G_max;
+    if (value != null) {
+      result
+        ..add('_max')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GNestedBigIntFilter)));
+    }
+    return result;
+  }
+
+  @override
+  GNestedBigIntWithAggregatesFilter deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GNestedBigIntWithAggregatesFilterBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'equals':
+          result.equals.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'in':
+          result.Gin.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'notIn':
+          result.notIn.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GBigInt)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'lt':
+          result.lt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'lte':
+          result.lte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gt':
+          result.gt.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'gte':
+          result.gte.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
+        case 'not':
+          result.not.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GNestedBigIntWithAggregatesFilter))!
+              as GNestedBigIntWithAggregatesFilter);
+          break;
+        case '_count':
+          result.G_count.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedIntFilter))!
+              as GNestedIntFilter);
+          break;
+        case '_avg':
+          result.G_avg.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedFloatFilter))!
+              as GNestedFloatFilter);
+          break;
+        case '_sum':
+          result.G_sum.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
+          break;
+        case '_min':
+          result.G_min.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
+          break;
+        case '_max':
+          result.G_max.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GNestedBigIntFilter))!
+              as GNestedBigIntFilter);
           break;
       }
     }
@@ -15640,385 +16704,6 @@ class _$GNestedIntNullableFilterSerializer
   }
 }
 
-class _$GNestedIntNullableWithAggregatesFilterSerializer
-    implements StructuredSerializer<GNestedIntNullableWithAggregatesFilter> {
-  @override
-  final Iterable<Type> types = const [
-    GNestedIntNullableWithAggregatesFilter,
-    _$GNestedIntNullableWithAggregatesFilter
-  ];
-  @override
-  final String wireName = 'GNestedIntNullableWithAggregatesFilter';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GNestedIntNullableWithAggregatesFilter object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.equals;
-    if (value != null) {
-      result
-        ..add('equals')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.Gin;
-    if (value != null) {
-      result
-        ..add('in')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.notIn;
-    if (value != null) {
-      result
-        ..add('notIn')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.lt;
-    if (value != null) {
-      result
-        ..add('lt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.lte;
-    if (value != null) {
-      result
-        ..add('lte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gt;
-    if (value != null) {
-      result
-        ..add('gt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gte;
-    if (value != null) {
-      result
-        ..add('gte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.not;
-    if (value != null) {
-      result
-        ..add('not')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(GNestedIntNullableWithAggregatesFilter)));
-    }
-    value = object.G_count;
-    if (value != null) {
-      result
-        ..add('_count')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    value = object.G_avg;
-    if (value != null) {
-      result
-        ..add('_avg')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedFloatNullableFilter)));
-    }
-    value = object.G_sum;
-    if (value != null) {
-      result
-        ..add('_sum')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    value = object.G_min;
-    if (value != null) {
-      result
-        ..add('_min')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    value = object.G_max;
-    if (value != null) {
-      result
-        ..add('_max')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntNullableFilter)));
-    }
-    return result;
-  }
-
-  @override
-  GNestedIntNullableWithAggregatesFilter deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GNestedIntNullableWithAggregatesFilterBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'equals':
-          result.equals = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'in':
-          result.Gin.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'notIn':
-          result.notIn.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'lt':
-          result.lt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'lte':
-          result.lte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gt':
-          result.gt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gte':
-          result.gte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'not':
-          result.not.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GNestedIntNullableWithAggregatesFilter))!
-              as GNestedIntNullableWithAggregatesFilter);
-          break;
-        case '_count':
-          result.G_count.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-        case '_avg':
-          result.G_avg.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedFloatNullableFilter))!
-              as GNestedFloatNullableFilter);
-          break;
-        case '_sum':
-          result.G_sum.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-        case '_min':
-          result.G_min.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-        case '_max':
-          result.G_max.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntNullableFilter))!
-              as GNestedIntNullableFilter);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GNestedIntWithAggregatesFilterSerializer
-    implements StructuredSerializer<GNestedIntWithAggregatesFilter> {
-  @override
-  final Iterable<Type> types = const [
-    GNestedIntWithAggregatesFilter,
-    _$GNestedIntWithAggregatesFilter
-  ];
-  @override
-  final String wireName = 'GNestedIntWithAggregatesFilter';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GNestedIntWithAggregatesFilter object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.equals;
-    if (value != null) {
-      result
-        ..add('equals')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.Gin;
-    if (value != null) {
-      result
-        ..add('in')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.notIn;
-    if (value != null) {
-      result
-        ..add('notIn')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
-    }
-    value = object.lt;
-    if (value != null) {
-      result
-        ..add('lt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.lte;
-    if (value != null) {
-      result
-        ..add('lte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gt;
-    if (value != null) {
-      result
-        ..add('gt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.gte;
-    if (value != null) {
-      result
-        ..add('gte')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.not;
-    if (value != null) {
-      result
-        ..add('not')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntWithAggregatesFilter)));
-    }
-    value = object.G_count;
-    if (value != null) {
-      result
-        ..add('_count')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    value = object.G_avg;
-    if (value != null) {
-      result
-        ..add('_avg')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedFloatFilter)));
-    }
-    value = object.G_sum;
-    if (value != null) {
-      result
-        ..add('_sum')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    value = object.G_min;
-    if (value != null) {
-      result
-        ..add('_min')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    value = object.G_max;
-    if (value != null) {
-      result
-        ..add('_max')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GNestedIntFilter)));
-    }
-    return result;
-  }
-
-  @override
-  GNestedIntWithAggregatesFilter deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GNestedIntWithAggregatesFilterBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'equals':
-          result.equals = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'in':
-          result.Gin.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'notIn':
-          result.notIn.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'lt':
-          result.lt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'lte':
-          result.lte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gt':
-          result.gt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'gte':
-          result.gte = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'not':
-          result.not.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GNestedIntWithAggregatesFilter))!
-              as GNestedIntWithAggregatesFilter);
-          break;
-        case '_count':
-          result.G_count.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-        case '_avg':
-          result.G_avg.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedFloatFilter))!
-              as GNestedFloatFilter);
-          break;
-        case '_sum':
-          result.G_sum.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-        case '_min':
-          result.G_min.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-        case '_max':
-          result.G_max.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GNestedIntFilter))!
-              as GNestedIntFilter);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$GNestedStringFilterSerializer
     implements StructuredSerializer<GNestedStringFilter> {
   @override
@@ -17381,6 +18066,13 @@ class _$GProductCreateInputSerializer
           specifiedType: const FullType(GDecimal)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.upc;
     if (value != null) {
       result
@@ -17510,6 +18202,10 @@ class _$GProductCreateInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -17626,7 +18322,8 @@ class _$GProductCreateManyInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.upc;
     if (value != null) {
@@ -17742,8 +18439,8 @@ class _$GProductCreateManyInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'name':
           result.name = serializers.deserialize(value,
@@ -18121,6 +18818,13 @@ class _$GProductCreateWithoutItemsInputSerializer
           specifiedType: const FullType(GDecimal)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.upc;
     if (value != null) {
       result
@@ -18242,6 +18946,10 @@ class _$GProductCreateWithoutItemsInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -18349,6 +19057,13 @@ class _$GProductCreateWithoutPurchaseOrderEntriesInputSerializer
           specifiedType: const FullType(GDecimal)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.upc;
     if (value != null) {
       result
@@ -18470,6 +19185,10 @@ class _$GProductCreateWithoutPurchaseOrderEntriesInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -19810,7 +20529,7 @@ class _$GProductScalarWhereWithAggregatesInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntWithAggregatesFilter)));
+            specifiedType: const FullType(GBigIntWithAggregatesFilter)));
     }
     value = object.name;
     if (value != null) {
@@ -19973,8 +20692,8 @@ class _$GProductScalarWhereWithAggregatesInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntWithAggregatesFilter))!
-              as GIntWithAggregatesFilter);
+                  specifiedType: const FullType(GBigIntWithAggregatesFilter))!
+              as GBigIntWithAggregatesFilter);
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
@@ -20201,6 +20920,13 @@ class _$GProductUpdateInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -20366,6 +21092,12 @@ class _$GProductUpdateInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -20503,6 +21235,13 @@ class _$GProductUpdateManyMutationInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -20652,6 +21391,12 @@ class _$GProductUpdateManyMutationInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -21141,6 +21886,13 @@ class _$GProductUpdateWithoutItemsInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -21298,6 +22050,12 @@ class _$GProductUpdateWithoutItemsInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -21430,6 +22188,13 @@ class _$GProductUpdateWithoutPurchaseOrderEntriesInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -21587,6 +22352,12 @@ class _$GProductUpdateWithoutPurchaseOrderEntriesInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -21885,7 +22656,7 @@ class _$GProductWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.name;
     if (value != null) {
@@ -22056,7 +22827,7 @@ class _$GProductWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
@@ -22180,7 +22951,8 @@ class _$GProductWhereUniqueInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.AND;
     if (value != null) {
@@ -22356,8 +23128,8 @@ class _$GProductWhereUniqueInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'AND':
           result.AND.replace(serializers.deserialize(value,
@@ -22681,6 +23453,13 @@ class _$GPurchaseOrderCreateInputSerializer
               const FullType(GUserCreateNestedOneWithoutPurchaseOrdersInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.createdAt;
     if (value != null) {
       result
@@ -22718,6 +23497,10 @@ class _$GPurchaseOrderCreateInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
               specifiedType: const FullType(GDecimal))! as GDecimal);
@@ -22770,7 +23553,8 @@ class _$GPurchaseOrderCreateManyInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(GBigInt)),
       'price',
       serializers.serialize(object.price,
           specifiedType: const FullType(GDecimal)),
@@ -22783,7 +23567,8 @@ class _$GPurchaseOrderCreateManyInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.createdAt;
     if (value != null) {
@@ -22815,12 +23600,12 @@ class _$GPurchaseOrderCreateManyInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'userId':
-          result.userId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
@@ -22873,7 +23658,8 @@ class _$GPurchaseOrderCreateManyUserInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.createdAt;
     if (value != null) {
@@ -22905,8 +23691,8 @@ class _$GPurchaseOrderCreateManyUserInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
@@ -23312,6 +24098,13 @@ class _$GPurchaseOrderCreateWithoutEntriesInputSerializer
               const FullType(GUserCreateNestedOneWithoutPurchaseOrdersInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.createdAt;
     if (value != null) {
       result
@@ -23341,6 +24134,10 @@ class _$GPurchaseOrderCreateWithoutEntriesInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
               specifiedType: const FullType(GDecimal))! as GDecimal);
@@ -23394,6 +24191,13 @@ class _$GPurchaseOrderCreateWithoutUserInputSerializer
           specifiedType: const FullType(GPurchaseOrderStatus)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.createdAt;
     if (value != null) {
       result
@@ -23431,6 +24235,10 @@ class _$GPurchaseOrderCreateWithoutUserInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
               specifiedType: const FullType(GDecimal))! as GDecimal);
@@ -23481,7 +24289,7 @@ class _$GPurchaseOrderEntryCreateManyOrderInputSerializer
           specifiedType: const FullType(int)),
       'productId',
       serializers.serialize(object.productId,
-          specifiedType: const FullType(int)),
+          specifiedType: const FullType(GBigInt)),
       'currency',
       serializers.serialize(object.currency,
           specifiedType: const FullType(GCurrency)),
@@ -23494,7 +24302,8 @@ class _$GPurchaseOrderEntryCreateManyOrderInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.createdAt;
     if (value != null) {
@@ -23519,16 +24328,16 @@ class _$GPurchaseOrderEntryCreateManyOrderInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'quantity':
           result.quantity = serializers.deserialize(value,
               specifiedType: const FullType(int))! as int;
           break;
         case 'productId':
-          result.productId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.productId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'currency':
           result.currency = serializers.deserialize(value,
@@ -23626,7 +24435,8 @@ class _$GPurchaseOrderEntryCreateManyProductInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'orderId',
-      serializers.serialize(object.orderId, specifiedType: const FullType(int)),
+      serializers.serialize(object.orderId,
+          specifiedType: const FullType(GBigInt)),
       'quantity',
       serializers.serialize(object.quantity,
           specifiedType: const FullType(int)),
@@ -23642,7 +24452,8 @@ class _$GPurchaseOrderEntryCreateManyProductInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.createdAt;
     if (value != null) {
@@ -23667,12 +24478,12 @@ class _$GPurchaseOrderEntryCreateManyProductInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'orderId':
-          result.orderId = serializers.deserialize(value,
-              specifiedType: const FullType(int))! as int;
+          result.orderId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'quantity':
           result.quantity = serializers.deserialize(value,
@@ -24117,6 +24928,13 @@ class _$GPurchaseOrderEntryCreateWithoutOrderInputSerializer
               GProductCreateNestedOneWithoutPurchaseOrderEntriesInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.createdAt;
     if (value != null) {
       result
@@ -24139,6 +24957,10 @@ class _$GPurchaseOrderEntryCreateWithoutOrderInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'quantity':
           result.quantity = serializers.deserialize(value,
               specifiedType: const FullType(int))! as int;
@@ -24199,6 +25021,13 @@ class _$GPurchaseOrderEntryCreateWithoutProductInputSerializer
               const FullType(GPurchaseOrderCreateNestedOneWithoutEntriesInput)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.createdAt;
     if (value != null) {
       result
@@ -24221,6 +25050,10 @@ class _$GPurchaseOrderEntryCreateWithoutProductInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'quantity':
           result.quantity = serializers.deserialize(value,
               specifiedType: const FullType(int))! as int;
@@ -24582,14 +25415,14 @@ class _$GPurchaseOrderEntryScalarWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.orderId;
     if (value != null) {
       result
         ..add('orderId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.quantity;
     if (value != null) {
@@ -24603,7 +25436,7 @@ class _$GPurchaseOrderEntryScalarWhereInputSerializer
       result
         ..add('productId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.currency;
     if (value != null) {
@@ -24661,11 +25494,11 @@ class _$GPurchaseOrderEntryScalarWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'orderId':
           result.orderId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'quantity':
           result.quantity.replace(serializers.deserialize(value,
@@ -24673,7 +25506,7 @@ class _$GPurchaseOrderEntryScalarWhereInputSerializer
           break;
         case 'productId':
           result.productId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'currency':
           result.currency.replace(serializers.deserialize(value,
@@ -24714,6 +25547,13 @@ class _$GPurchaseOrderEntryUpdateManyMutationInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.quantity;
     if (value != null) {
       result
@@ -24759,6 +25599,12 @@ class _$GPurchaseOrderEntryUpdateManyMutationInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'quantity':
           result.quantity.replace(serializers.deserialize(value,
                   specifiedType:
@@ -25349,6 +26195,13 @@ class _$GPurchaseOrderEntryUpdateWithoutOrderInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.quantity;
     if (value != null) {
       result
@@ -25402,6 +26255,12 @@ class _$GPurchaseOrderEntryUpdateWithoutOrderInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'quantity':
           result.quantity.replace(serializers.deserialize(value,
                   specifiedType:
@@ -25456,6 +26315,13 @@ class _$GPurchaseOrderEntryUpdateWithoutProductInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.quantity;
     if (value != null) {
       result
@@ -25509,6 +26375,12 @@ class _$GPurchaseOrderEntryUpdateWithoutProductInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'quantity':
           result.quantity.replace(serializers.deserialize(value,
                   specifiedType:
@@ -25859,14 +26731,14 @@ class _$GPurchaseOrderEntryWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.orderId;
     if (value != null) {
       result
         ..add('orderId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.quantity;
     if (value != null) {
@@ -25880,7 +26752,7 @@ class _$GPurchaseOrderEntryWhereInputSerializer
       result
         ..add('productId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.currency;
     if (value != null) {
@@ -25952,11 +26824,11 @@ class _$GPurchaseOrderEntryWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'orderId':
           result.orderId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'quantity':
           result.quantity.replace(serializers.deserialize(value,
@@ -25964,7 +26836,7 @@ class _$GPurchaseOrderEntryWhereInputSerializer
           break;
         case 'productId':
           result.productId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'currency':
           result.currency.replace(serializers.deserialize(value,
@@ -26018,7 +26890,8 @@ class _$GPurchaseOrderEntryWhereUniqueInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.AND;
     if (value != null) {
@@ -26049,7 +26922,7 @@ class _$GPurchaseOrderEntryWhereUniqueInputSerializer
       result
         ..add('orderId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.quantity;
     if (value != null) {
@@ -26063,7 +26936,7 @@ class _$GPurchaseOrderEntryWhereUniqueInputSerializer
       result
         ..add('productId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.currency;
     if (value != null) {
@@ -26116,8 +26989,8 @@ class _$GPurchaseOrderEntryWhereUniqueInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'AND':
           result.AND.replace(serializers.deserialize(value,
@@ -26139,7 +27012,7 @@ class _$GPurchaseOrderEntryWhereUniqueInputSerializer
           break;
         case 'orderId':
           result.orderId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'quantity':
           result.quantity.replace(serializers.deserialize(value,
@@ -26147,7 +27020,7 @@ class _$GPurchaseOrderEntryWhereUniqueInputSerializer
           break;
         case 'productId':
           result.productId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'currency':
           result.currency.replace(serializers.deserialize(value,
@@ -26944,14 +27817,14 @@ class _$GPurchaseOrderScalarWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.userId;
     if (value != null) {
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.price;
     if (value != null) {
@@ -27016,11 +27889,11 @@ class _$GPurchaseOrderScalarWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
@@ -27099,14 +27972,14 @@ class _$GPurchaseOrderScalarWhereWithAggregatesInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntWithAggregatesFilter)));
+            specifiedType: const FullType(GBigIntWithAggregatesFilter)));
     }
     value = object.userId;
     if (value != null) {
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntWithAggregatesFilter)));
+            specifiedType: const FullType(GBigIntWithAggregatesFilter)));
     }
     value = object.price;
     if (value != null) {
@@ -27172,13 +28045,13 @@ class _$GPurchaseOrderScalarWhereWithAggregatesInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntWithAggregatesFilter))!
-              as GIntWithAggregatesFilter);
+                  specifiedType: const FullType(GBigIntWithAggregatesFilter))!
+              as GBigIntWithAggregatesFilter);
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GIntWithAggregatesFilter))!
-              as GIntWithAggregatesFilter);
+                  specifiedType: const FullType(GBigIntWithAggregatesFilter))!
+              as GBigIntWithAggregatesFilter);
           break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
@@ -27313,6 +28186,13 @@ class _$GPurchaseOrderUpdateInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.price;
     if (value != null) {
       result
@@ -27375,6 +28255,12 @@ class _$GPurchaseOrderUpdateInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
                   specifiedType:
@@ -27434,6 +28320,13 @@ class _$GPurchaseOrderUpdateManyMutationInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.price;
     if (value != null) {
       result
@@ -27480,6 +28373,12 @@ class _$GPurchaseOrderUpdateManyMutationInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
                   specifiedType:
@@ -27964,6 +28863,13 @@ class _$GPurchaseOrderUpdateWithoutEntriesInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.price;
     if (value != null) {
       result
@@ -28018,6 +28924,12 @@ class _$GPurchaseOrderUpdateWithoutEntriesInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
                   specifiedType:
@@ -28071,6 +28983,13 @@ class _$GPurchaseOrderUpdateWithoutUserInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.price;
     if (value != null) {
       result
@@ -28125,6 +29044,12 @@ class _$GPurchaseOrderUpdateWithoutUserInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
                   specifiedType:
@@ -28405,14 +29330,14 @@ class _$GPurchaseOrderWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.userId;
     if (value != null) {
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.price;
     if (value != null) {
@@ -28492,11 +29417,11 @@ class _$GPurchaseOrderWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
@@ -28557,7 +29482,8 @@ class _$GPurchaseOrderWhereUniqueInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.AND;
     if (value != null) {
@@ -28588,7 +29514,7 @@ class _$GPurchaseOrderWhereUniqueInputSerializer
       result
         ..add('userId')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.price;
     if (value != null) {
@@ -28649,8 +29575,8 @@ class _$GPurchaseOrderWhereUniqueInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'AND':
           result.AND.replace(serializers.deserialize(value,
@@ -28672,7 +29598,7 @@ class _$GPurchaseOrderWhereUniqueInputSerializer
           break;
         case 'userId':
           result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'price':
           result.price.replace(serializers.deserialize(value,
@@ -30395,6 +31321,13 @@ class _$GUserCreateWithoutAccessTokensInputSerializer
       serializers.serialize(object.role, specifiedType: const FullType(GRole)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.phoneNumberVerified;
     if (value != null) {
       result
@@ -30462,6 +31395,10 @@ class _$GUserCreateWithoutAccessTokensInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -30566,6 +31503,13 @@ class _$GUserCreateWithoutItemsInputSerializer
       serializers.serialize(object.role, specifiedType: const FullType(GRole)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.phoneNumberVerified;
     if (value != null) {
       result
@@ -30633,6 +31577,10 @@ class _$GUserCreateWithoutItemsInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -30737,6 +31685,13 @@ class _$GUserCreateWithoutLoginsInputSerializer
       serializers.serialize(object.role, specifiedType: const FullType(GRole)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.phoneNumberVerified;
     if (value != null) {
       result
@@ -30804,6 +31759,10 @@ class _$GUserCreateWithoutLoginsInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -30908,6 +31867,13 @@ class _$GUserCreateWithoutPurchaseOrdersInputSerializer
       serializers.serialize(object.role, specifiedType: const FullType(GRole)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
+    }
     value = object.phoneNumberVerified;
     if (value != null) {
       result
@@ -30975,6 +31941,10 @@ class _$GUserCreateWithoutPurchaseOrdersInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
+          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
@@ -32019,6 +32989,13 @@ class _$GUserUpdateWithoutAccessTokensInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -32141,6 +33118,12 @@ class _$GUserUpdateWithoutAccessTokensInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -32248,6 +33231,13 @@ class _$GUserUpdateWithoutItemsInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -32370,6 +33360,12 @@ class _$GUserUpdateWithoutItemsInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -32477,6 +33473,13 @@ class _$GUserUpdateWithoutLoginsInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -32599,6 +33602,12 @@ class _$GUserUpdateWithoutLoginsInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -32706,6 +33715,13 @@ class _$GUserUpdateWithoutPurchaseOrdersInputSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigIntFieldUpdateOperationsInput)));
+    }
     value = object.name;
     if (value != null) {
       result
@@ -32828,6 +33844,12 @@ class _$GUserUpdateWithoutPurchaseOrdersInputSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GBigIntFieldUpdateOperationsInput))!
+              as GBigIntFieldUpdateOperationsInput);
+          break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
                   specifiedType:
@@ -33232,7 +34254,7 @@ class _$GUserWhereInputSerializer
       result
         ..add('id')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GIntFilter)));
+            specifiedType: const FullType(GBigIntFilter)));
     }
     value = object.name;
     if (value != null) {
@@ -33374,7 +34396,7 @@ class _$GUserWhereInputSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GIntFilter))! as GIntFilter);
+              specifiedType: const FullType(GBigIntFilter))! as GBigIntFilter);
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
@@ -33475,7 +34497,8 @@ class _$GUserWhereUniqueInputSerializer
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GBigInt)));
     }
     value = object.phoneNumber;
     if (value != null) {
@@ -33622,8 +34645,8 @@ class _$GUserWhereUniqueInputSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(GBigInt))! as GBigInt);
           break;
         case 'phoneNumber':
           result.phoneNumber = serializers.deserialize(value,
@@ -35098,7 +36121,7 @@ class _$GAccessTokenScalarWhereInput extends GAccessTokenScalarWhereInput {
   @override
   final GStringFilter? value;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GBoolFilter? expired;
 
@@ -35181,9 +36204,9 @@ class GAccessTokenScalarWhereInputBuilder
   GStringFilterBuilder get value => _$this._value ??= GStringFilterBuilder();
   set value(GStringFilterBuilder? value) => _$this._value = value;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GBoolFilterBuilder? _expired;
   GBoolFilterBuilder get expired => _$this._expired ??= GBoolFilterBuilder();
@@ -36791,7 +37814,7 @@ class _$GAccessTokenWhereInput extends GAccessTokenWhereInput {
   @override
   final GStringFilter? value;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GBoolFilter? expired;
   @override
@@ -36889,9 +37912,9 @@ class GAccessTokenWhereInputBuilder
   GStringFilterBuilder get value => _$this._value ??= GStringFilterBuilder();
   set value(GStringFilterBuilder? value) => _$this._value = value;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GBoolFilterBuilder? _expired;
   GBoolFilterBuilder get expired => _$this._expired ??= GBoolFilterBuilder();
@@ -36993,7 +38016,7 @@ class _$GAccessTokenWhereUniqueInput extends GAccessTokenWhereUniqueInput {
   @override
   final BuiltList<GAccessTokenWhereInput>? NOT;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GBoolFilter? expired;
   @override
@@ -37093,9 +38116,9 @@ class GAccessTokenWhereUniqueInputBuilder
       _$this._NOT ??= ListBuilder<GAccessTokenWhereInput>();
   set NOT(ListBuilder<GAccessTokenWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GBoolFilterBuilder? _expired;
   GBoolFilterBuilder get expired => _$this._expired ??= GBoolFilterBuilder();
@@ -37177,6 +38200,1182 @@ class GAccessTokenWhereUniqueInputBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'GAccessTokenWhereUniqueInput', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GBigInt extends GBigInt {
+  @override
+  final String value;
+
+  factory _$GBigInt([void Function(GBigIntBuilder)? updates]) =>
+      (GBigIntBuilder()..update(updates))._build();
+
+  _$GBigInt._({required this.value}) : super._();
+  @override
+  GBigInt rebuild(void Function(GBigIntBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GBigIntBuilder toBuilder() => GBigIntBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GBigInt && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GBigInt')..add('value', value))
+        .toString();
+  }
+}
+
+class GBigIntBuilder implements Builder<GBigInt, GBigIntBuilder> {
+  _$GBigInt? _$v;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(String? value) => _$this._value = value;
+
+  GBigIntBuilder();
+
+  GBigIntBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GBigInt other) {
+    _$v = other as _$GBigInt;
+  }
+
+  @override
+  void update(void Function(GBigIntBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GBigInt build() => _build();
+
+  _$GBigInt _build() {
+    final _$result = _$v ??
+        _$GBigInt._(
+          value:
+              BuiltValueNullFieldError.checkNotNull(value, r'GBigInt', 'value'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GBigIntFieldUpdateOperationsInput
+    extends GBigIntFieldUpdateOperationsInput {
+  @override
+  final GBigInt? set;
+  @override
+  final GBigInt? increment;
+  @override
+  final GBigInt? decrement;
+  @override
+  final GBigInt? multiply;
+  @override
+  final GBigInt? divide;
+
+  factory _$GBigIntFieldUpdateOperationsInput(
+          [void Function(GBigIntFieldUpdateOperationsInputBuilder)? updates]) =>
+      (GBigIntFieldUpdateOperationsInputBuilder()..update(updates))._build();
+
+  _$GBigIntFieldUpdateOperationsInput._(
+      {this.set, this.increment, this.decrement, this.multiply, this.divide})
+      : super._();
+  @override
+  GBigIntFieldUpdateOperationsInput rebuild(
+          void Function(GBigIntFieldUpdateOperationsInputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GBigIntFieldUpdateOperationsInputBuilder toBuilder() =>
+      GBigIntFieldUpdateOperationsInputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GBigIntFieldUpdateOperationsInput &&
+        set == other.set &&
+        increment == other.increment &&
+        decrement == other.decrement &&
+        multiply == other.multiply &&
+        divide == other.divide;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, set.hashCode);
+    _$hash = $jc(_$hash, increment.hashCode);
+    _$hash = $jc(_$hash, decrement.hashCode);
+    _$hash = $jc(_$hash, multiply.hashCode);
+    _$hash = $jc(_$hash, divide.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GBigIntFieldUpdateOperationsInput')
+          ..add('set', set)
+          ..add('increment', increment)
+          ..add('decrement', decrement)
+          ..add('multiply', multiply)
+          ..add('divide', divide))
+        .toString();
+  }
+}
+
+class GBigIntFieldUpdateOperationsInputBuilder
+    implements
+        Builder<GBigIntFieldUpdateOperationsInput,
+            GBigIntFieldUpdateOperationsInputBuilder> {
+  _$GBigIntFieldUpdateOperationsInput? _$v;
+
+  GBigIntBuilder? _set;
+  GBigIntBuilder get set => _$this._set ??= GBigIntBuilder();
+  set set(GBigIntBuilder? set) => _$this._set = set;
+
+  GBigIntBuilder? _increment;
+  GBigIntBuilder get increment => _$this._increment ??= GBigIntBuilder();
+  set increment(GBigIntBuilder? increment) => _$this._increment = increment;
+
+  GBigIntBuilder? _decrement;
+  GBigIntBuilder get decrement => _$this._decrement ??= GBigIntBuilder();
+  set decrement(GBigIntBuilder? decrement) => _$this._decrement = decrement;
+
+  GBigIntBuilder? _multiply;
+  GBigIntBuilder get multiply => _$this._multiply ??= GBigIntBuilder();
+  set multiply(GBigIntBuilder? multiply) => _$this._multiply = multiply;
+
+  GBigIntBuilder? _divide;
+  GBigIntBuilder get divide => _$this._divide ??= GBigIntBuilder();
+  set divide(GBigIntBuilder? divide) => _$this._divide = divide;
+
+  GBigIntFieldUpdateOperationsInputBuilder();
+
+  GBigIntFieldUpdateOperationsInputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _set = $v.set?.toBuilder();
+      _increment = $v.increment?.toBuilder();
+      _decrement = $v.decrement?.toBuilder();
+      _multiply = $v.multiply?.toBuilder();
+      _divide = $v.divide?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GBigIntFieldUpdateOperationsInput other) {
+    _$v = other as _$GBigIntFieldUpdateOperationsInput;
+  }
+
+  @override
+  void update(
+      void Function(GBigIntFieldUpdateOperationsInputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GBigIntFieldUpdateOperationsInput build() => _build();
+
+  _$GBigIntFieldUpdateOperationsInput _build() {
+    _$GBigIntFieldUpdateOperationsInput _$result;
+    try {
+      _$result = _$v ??
+          _$GBigIntFieldUpdateOperationsInput._(
+            set: _set?.build(),
+            increment: _increment?.build(),
+            decrement: _decrement?.build(),
+            multiply: _multiply?.build(),
+            divide: _divide?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'set';
+        _set?.build();
+        _$failedField = 'increment';
+        _increment?.build();
+        _$failedField = 'decrement';
+        _decrement?.build();
+        _$failedField = 'multiply';
+        _multiply?.build();
+        _$failedField = 'divide';
+        _divide?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GBigIntFieldUpdateOperationsInput', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GBigIntFilter extends GBigIntFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntFilter? not;
+
+  factory _$GBigIntFilter([void Function(GBigIntFilterBuilder)? updates]) =>
+      (GBigIntFilterBuilder()..update(updates))._build();
+
+  _$GBigIntFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not})
+      : super._();
+  @override
+  GBigIntFilter rebuild(void Function(GBigIntFilterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GBigIntFilterBuilder toBuilder() => GBigIntFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GBigIntFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GBigIntFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not))
+        .toString();
+  }
+}
+
+class GBigIntFilterBuilder
+    implements Builder<GBigIntFilter, GBigIntFilterBuilder> {
+  _$GBigIntFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntFilterBuilder? _not;
+  GNestedBigIntFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntFilterBuilder();
+  set not(GNestedBigIntFilterBuilder? not) => _$this._not = not;
+
+  GBigIntFilterBuilder();
+
+  GBigIntFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GBigIntFilter other) {
+    _$v = other as _$GBigIntFilter;
+  }
+
+  @override
+  void update(void Function(GBigIntFilterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GBigIntFilter build() => _build();
+
+  _$GBigIntFilter _build() {
+    _$GBigIntFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GBigIntFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GBigIntFilter', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GBigIntNullableFilter extends GBigIntNullableFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntNullableFilter? not;
+
+  factory _$GBigIntNullableFilter(
+          [void Function(GBigIntNullableFilterBuilder)? updates]) =>
+      (GBigIntNullableFilterBuilder()..update(updates))._build();
+
+  _$GBigIntNullableFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not})
+      : super._();
+  @override
+  GBigIntNullableFilter rebuild(
+          void Function(GBigIntNullableFilterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GBigIntNullableFilterBuilder toBuilder() =>
+      GBigIntNullableFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GBigIntNullableFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GBigIntNullableFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not))
+        .toString();
+  }
+}
+
+class GBigIntNullableFilterBuilder
+    implements Builder<GBigIntNullableFilter, GBigIntNullableFilterBuilder> {
+  _$GBigIntNullableFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntNullableFilterBuilder? _not;
+  GNestedBigIntNullableFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntNullableFilterBuilder();
+  set not(GNestedBigIntNullableFilterBuilder? not) => _$this._not = not;
+
+  GBigIntNullableFilterBuilder();
+
+  GBigIntNullableFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GBigIntNullableFilter other) {
+    _$v = other as _$GBigIntNullableFilter;
+  }
+
+  @override
+  void update(void Function(GBigIntNullableFilterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GBigIntNullableFilter build() => _build();
+
+  _$GBigIntNullableFilter _build() {
+    _$GBigIntNullableFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GBigIntNullableFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GBigIntNullableFilter', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GBigIntNullableWithAggregatesFilter
+    extends GBigIntNullableWithAggregatesFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntNullableWithAggregatesFilter? not;
+  @override
+  final GNestedIntNullableFilter? G_count;
+  @override
+  final GNestedFloatNullableFilter? G_avg;
+  @override
+  final GNestedBigIntNullableFilter? G_sum;
+  @override
+  final GNestedBigIntNullableFilter? G_min;
+  @override
+  final GNestedBigIntNullableFilter? G_max;
+
+  factory _$GBigIntNullableWithAggregatesFilter(
+          [void Function(GBigIntNullableWithAggregatesFilterBuilder)?
+              updates]) =>
+      (GBigIntNullableWithAggregatesFilterBuilder()..update(updates))._build();
+
+  _$GBigIntNullableWithAggregatesFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not,
+      this.G_count,
+      this.G_avg,
+      this.G_sum,
+      this.G_min,
+      this.G_max})
+      : super._();
+  @override
+  GBigIntNullableWithAggregatesFilter rebuild(
+          void Function(GBigIntNullableWithAggregatesFilterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GBigIntNullableWithAggregatesFilterBuilder toBuilder() =>
+      GBigIntNullableWithAggregatesFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GBigIntNullableWithAggregatesFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not &&
+        G_count == other.G_count &&
+        G_avg == other.G_avg &&
+        G_sum == other.G_sum &&
+        G_min == other.G_min &&
+        G_max == other.G_max;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jc(_$hash, G_count.hashCode);
+    _$hash = $jc(_$hash, G_avg.hashCode);
+    _$hash = $jc(_$hash, G_sum.hashCode);
+    _$hash = $jc(_$hash, G_min.hashCode);
+    _$hash = $jc(_$hash, G_max.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GBigIntNullableWithAggregatesFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not)
+          ..add('G_count', G_count)
+          ..add('G_avg', G_avg)
+          ..add('G_sum', G_sum)
+          ..add('G_min', G_min)
+          ..add('G_max', G_max))
+        .toString();
+  }
+}
+
+class GBigIntNullableWithAggregatesFilterBuilder
+    implements
+        Builder<GBigIntNullableWithAggregatesFilter,
+            GBigIntNullableWithAggregatesFilterBuilder> {
+  _$GBigIntNullableWithAggregatesFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntNullableWithAggregatesFilterBuilder? _not;
+  GNestedBigIntNullableWithAggregatesFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntNullableWithAggregatesFilterBuilder();
+  set not(GNestedBigIntNullableWithAggregatesFilterBuilder? not) =>
+      _$this._not = not;
+
+  GNestedIntNullableFilterBuilder? _G_count;
+  GNestedIntNullableFilterBuilder get G_count =>
+      _$this._G_count ??= GNestedIntNullableFilterBuilder();
+  set G_count(GNestedIntNullableFilterBuilder? G_count) =>
+      _$this._G_count = G_count;
+
+  GNestedFloatNullableFilterBuilder? _G_avg;
+  GNestedFloatNullableFilterBuilder get G_avg =>
+      _$this._G_avg ??= GNestedFloatNullableFilterBuilder();
+  set G_avg(GNestedFloatNullableFilterBuilder? G_avg) => _$this._G_avg = G_avg;
+
+  GNestedBigIntNullableFilterBuilder? _G_sum;
+  GNestedBigIntNullableFilterBuilder get G_sum =>
+      _$this._G_sum ??= GNestedBigIntNullableFilterBuilder();
+  set G_sum(GNestedBigIntNullableFilterBuilder? G_sum) => _$this._G_sum = G_sum;
+
+  GNestedBigIntNullableFilterBuilder? _G_min;
+  GNestedBigIntNullableFilterBuilder get G_min =>
+      _$this._G_min ??= GNestedBigIntNullableFilterBuilder();
+  set G_min(GNestedBigIntNullableFilterBuilder? G_min) => _$this._G_min = G_min;
+
+  GNestedBigIntNullableFilterBuilder? _G_max;
+  GNestedBigIntNullableFilterBuilder get G_max =>
+      _$this._G_max ??= GNestedBigIntNullableFilterBuilder();
+  set G_max(GNestedBigIntNullableFilterBuilder? G_max) => _$this._G_max = G_max;
+
+  GBigIntNullableWithAggregatesFilterBuilder();
+
+  GBigIntNullableWithAggregatesFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _G_count = $v.G_count?.toBuilder();
+      _G_avg = $v.G_avg?.toBuilder();
+      _G_sum = $v.G_sum?.toBuilder();
+      _G_min = $v.G_min?.toBuilder();
+      _G_max = $v.G_max?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GBigIntNullableWithAggregatesFilter other) {
+    _$v = other as _$GBigIntNullableWithAggregatesFilter;
+  }
+
+  @override
+  void update(
+      void Function(GBigIntNullableWithAggregatesFilterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GBigIntNullableWithAggregatesFilter build() => _build();
+
+  _$GBigIntNullableWithAggregatesFilter _build() {
+    _$GBigIntNullableWithAggregatesFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GBigIntNullableWithAggregatesFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+            G_count: _G_count?.build(),
+            G_avg: _G_avg?.build(),
+            G_sum: _G_sum?.build(),
+            G_min: _G_min?.build(),
+            G_max: _G_max?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+        _$failedField = 'G_count';
+        _G_count?.build();
+        _$failedField = 'G_avg';
+        _G_avg?.build();
+        _$failedField = 'G_sum';
+        _G_sum?.build();
+        _$failedField = 'G_min';
+        _G_min?.build();
+        _$failedField = 'G_max';
+        _G_max?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'GBigIntNullableWithAggregatesFilter',
+            _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GBigIntWithAggregatesFilter extends GBigIntWithAggregatesFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntWithAggregatesFilter? not;
+  @override
+  final GNestedIntFilter? G_count;
+  @override
+  final GNestedFloatFilter? G_avg;
+  @override
+  final GNestedBigIntFilter? G_sum;
+  @override
+  final GNestedBigIntFilter? G_min;
+  @override
+  final GNestedBigIntFilter? G_max;
+
+  factory _$GBigIntWithAggregatesFilter(
+          [void Function(GBigIntWithAggregatesFilterBuilder)? updates]) =>
+      (GBigIntWithAggregatesFilterBuilder()..update(updates))._build();
+
+  _$GBigIntWithAggregatesFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not,
+      this.G_count,
+      this.G_avg,
+      this.G_sum,
+      this.G_min,
+      this.G_max})
+      : super._();
+  @override
+  GBigIntWithAggregatesFilter rebuild(
+          void Function(GBigIntWithAggregatesFilterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GBigIntWithAggregatesFilterBuilder toBuilder() =>
+      GBigIntWithAggregatesFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GBigIntWithAggregatesFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not &&
+        G_count == other.G_count &&
+        G_avg == other.G_avg &&
+        G_sum == other.G_sum &&
+        G_min == other.G_min &&
+        G_max == other.G_max;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jc(_$hash, G_count.hashCode);
+    _$hash = $jc(_$hash, G_avg.hashCode);
+    _$hash = $jc(_$hash, G_sum.hashCode);
+    _$hash = $jc(_$hash, G_min.hashCode);
+    _$hash = $jc(_$hash, G_max.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GBigIntWithAggregatesFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not)
+          ..add('G_count', G_count)
+          ..add('G_avg', G_avg)
+          ..add('G_sum', G_sum)
+          ..add('G_min', G_min)
+          ..add('G_max', G_max))
+        .toString();
+  }
+}
+
+class GBigIntWithAggregatesFilterBuilder
+    implements
+        Builder<GBigIntWithAggregatesFilter,
+            GBigIntWithAggregatesFilterBuilder> {
+  _$GBigIntWithAggregatesFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntWithAggregatesFilterBuilder? _not;
+  GNestedBigIntWithAggregatesFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntWithAggregatesFilterBuilder();
+  set not(GNestedBigIntWithAggregatesFilterBuilder? not) => _$this._not = not;
+
+  GNestedIntFilterBuilder? _G_count;
+  GNestedIntFilterBuilder get G_count =>
+      _$this._G_count ??= GNestedIntFilterBuilder();
+  set G_count(GNestedIntFilterBuilder? G_count) => _$this._G_count = G_count;
+
+  GNestedFloatFilterBuilder? _G_avg;
+  GNestedFloatFilterBuilder get G_avg =>
+      _$this._G_avg ??= GNestedFloatFilterBuilder();
+  set G_avg(GNestedFloatFilterBuilder? G_avg) => _$this._G_avg = G_avg;
+
+  GNestedBigIntFilterBuilder? _G_sum;
+  GNestedBigIntFilterBuilder get G_sum =>
+      _$this._G_sum ??= GNestedBigIntFilterBuilder();
+  set G_sum(GNestedBigIntFilterBuilder? G_sum) => _$this._G_sum = G_sum;
+
+  GNestedBigIntFilterBuilder? _G_min;
+  GNestedBigIntFilterBuilder get G_min =>
+      _$this._G_min ??= GNestedBigIntFilterBuilder();
+  set G_min(GNestedBigIntFilterBuilder? G_min) => _$this._G_min = G_min;
+
+  GNestedBigIntFilterBuilder? _G_max;
+  GNestedBigIntFilterBuilder get G_max =>
+      _$this._G_max ??= GNestedBigIntFilterBuilder();
+  set G_max(GNestedBigIntFilterBuilder? G_max) => _$this._G_max = G_max;
+
+  GBigIntWithAggregatesFilterBuilder();
+
+  GBigIntWithAggregatesFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _G_count = $v.G_count?.toBuilder();
+      _G_avg = $v.G_avg?.toBuilder();
+      _G_sum = $v.G_sum?.toBuilder();
+      _G_min = $v.G_min?.toBuilder();
+      _G_max = $v.G_max?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GBigIntWithAggregatesFilter other) {
+    _$v = other as _$GBigIntWithAggregatesFilter;
+  }
+
+  @override
+  void update(void Function(GBigIntWithAggregatesFilterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GBigIntWithAggregatesFilter build() => _build();
+
+  _$GBigIntWithAggregatesFilter _build() {
+    _$GBigIntWithAggregatesFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GBigIntWithAggregatesFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+            G_count: _G_count?.build(),
+            G_avg: _G_avg?.build(),
+            G_sum: _G_sum?.build(),
+            G_min: _G_min?.build(),
+            G_max: _G_max?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+        _$failedField = 'G_count';
+        _G_count?.build();
+        _$failedField = 'G_avg';
+        _G_avg?.build();
+        _$failedField = 'G_sum';
+        _G_sum?.build();
+        _$failedField = 'G_min';
+        _G_min?.build();
+        _$failedField = 'G_max';
+        _G_max?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GBigIntWithAggregatesFilter', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -41006,726 +43205,6 @@ class GIntFilterBuilder implements Builder<GIntFilter, GIntFilterBuilder> {
   }
 }
 
-class _$GIntNullableFilter extends GIntNullableFilter {
-  @override
-  final int? equals;
-  @override
-  final BuiltList<int>? Gin;
-  @override
-  final BuiltList<int>? notIn;
-  @override
-  final int? lt;
-  @override
-  final int? lte;
-  @override
-  final int? gt;
-  @override
-  final int? gte;
-  @override
-  final GNestedIntNullableFilter? not;
-
-  factory _$GIntNullableFilter(
-          [void Function(GIntNullableFilterBuilder)? updates]) =>
-      (GIntNullableFilterBuilder()..update(updates))._build();
-
-  _$GIntNullableFilter._(
-      {this.equals,
-      this.Gin,
-      this.notIn,
-      this.lt,
-      this.lte,
-      this.gt,
-      this.gte,
-      this.not})
-      : super._();
-  @override
-  GIntNullableFilter rebuild(
-          void Function(GIntNullableFilterBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GIntNullableFilterBuilder toBuilder() =>
-      GIntNullableFilterBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GIntNullableFilter &&
-        equals == other.equals &&
-        Gin == other.Gin &&
-        notIn == other.notIn &&
-        lt == other.lt &&
-        lte == other.lte &&
-        gt == other.gt &&
-        gte == other.gte &&
-        not == other.not;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, equals.hashCode);
-    _$hash = $jc(_$hash, Gin.hashCode);
-    _$hash = $jc(_$hash, notIn.hashCode);
-    _$hash = $jc(_$hash, lt.hashCode);
-    _$hash = $jc(_$hash, lte.hashCode);
-    _$hash = $jc(_$hash, gt.hashCode);
-    _$hash = $jc(_$hash, gte.hashCode);
-    _$hash = $jc(_$hash, not.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GIntNullableFilter')
-          ..add('equals', equals)
-          ..add('Gin', Gin)
-          ..add('notIn', notIn)
-          ..add('lt', lt)
-          ..add('lte', lte)
-          ..add('gt', gt)
-          ..add('gte', gte)
-          ..add('not', not))
-        .toString();
-  }
-}
-
-class GIntNullableFilterBuilder
-    implements Builder<GIntNullableFilter, GIntNullableFilterBuilder> {
-  _$GIntNullableFilter? _$v;
-
-  int? _equals;
-  int? get equals => _$this._equals;
-  set equals(int? equals) => _$this._equals = equals;
-
-  ListBuilder<int>? _Gin;
-  ListBuilder<int> get Gin => _$this._Gin ??= ListBuilder<int>();
-  set Gin(ListBuilder<int>? Gin) => _$this._Gin = Gin;
-
-  ListBuilder<int>? _notIn;
-  ListBuilder<int> get notIn => _$this._notIn ??= ListBuilder<int>();
-  set notIn(ListBuilder<int>? notIn) => _$this._notIn = notIn;
-
-  int? _lt;
-  int? get lt => _$this._lt;
-  set lt(int? lt) => _$this._lt = lt;
-
-  int? _lte;
-  int? get lte => _$this._lte;
-  set lte(int? lte) => _$this._lte = lte;
-
-  int? _gt;
-  int? get gt => _$this._gt;
-  set gt(int? gt) => _$this._gt = gt;
-
-  int? _gte;
-  int? get gte => _$this._gte;
-  set gte(int? gte) => _$this._gte = gte;
-
-  GNestedIntNullableFilterBuilder? _not;
-  GNestedIntNullableFilterBuilder get not =>
-      _$this._not ??= GNestedIntNullableFilterBuilder();
-  set not(GNestedIntNullableFilterBuilder? not) => _$this._not = not;
-
-  GIntNullableFilterBuilder();
-
-  GIntNullableFilterBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _equals = $v.equals;
-      _Gin = $v.Gin?.toBuilder();
-      _notIn = $v.notIn?.toBuilder();
-      _lt = $v.lt;
-      _lte = $v.lte;
-      _gt = $v.gt;
-      _gte = $v.gte;
-      _not = $v.not?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GIntNullableFilter other) {
-    _$v = other as _$GIntNullableFilter;
-  }
-
-  @override
-  void update(void Function(GIntNullableFilterBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GIntNullableFilter build() => _build();
-
-  _$GIntNullableFilter _build() {
-    _$GIntNullableFilter _$result;
-    try {
-      _$result = _$v ??
-          _$GIntNullableFilter._(
-            equals: equals,
-            Gin: _Gin?.build(),
-            notIn: _notIn?.build(),
-            lt: lt,
-            lte: lte,
-            gt: gt,
-            gte: gte,
-            not: _not?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'Gin';
-        _Gin?.build();
-        _$failedField = 'notIn';
-        _notIn?.build();
-
-        _$failedField = 'not';
-        _not?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GIntNullableFilter', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GIntNullableWithAggregatesFilter
-    extends GIntNullableWithAggregatesFilter {
-  @override
-  final int? equals;
-  @override
-  final BuiltList<int>? Gin;
-  @override
-  final BuiltList<int>? notIn;
-  @override
-  final int? lt;
-  @override
-  final int? lte;
-  @override
-  final int? gt;
-  @override
-  final int? gte;
-  @override
-  final GNestedIntNullableWithAggregatesFilter? not;
-  @override
-  final GNestedIntNullableFilter? G_count;
-  @override
-  final GNestedFloatNullableFilter? G_avg;
-  @override
-  final GNestedIntNullableFilter? G_sum;
-  @override
-  final GNestedIntNullableFilter? G_min;
-  @override
-  final GNestedIntNullableFilter? G_max;
-
-  factory _$GIntNullableWithAggregatesFilter(
-          [void Function(GIntNullableWithAggregatesFilterBuilder)? updates]) =>
-      (GIntNullableWithAggregatesFilterBuilder()..update(updates))._build();
-
-  _$GIntNullableWithAggregatesFilter._(
-      {this.equals,
-      this.Gin,
-      this.notIn,
-      this.lt,
-      this.lte,
-      this.gt,
-      this.gte,
-      this.not,
-      this.G_count,
-      this.G_avg,
-      this.G_sum,
-      this.G_min,
-      this.G_max})
-      : super._();
-  @override
-  GIntNullableWithAggregatesFilter rebuild(
-          void Function(GIntNullableWithAggregatesFilterBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GIntNullableWithAggregatesFilterBuilder toBuilder() =>
-      GIntNullableWithAggregatesFilterBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GIntNullableWithAggregatesFilter &&
-        equals == other.equals &&
-        Gin == other.Gin &&
-        notIn == other.notIn &&
-        lt == other.lt &&
-        lte == other.lte &&
-        gt == other.gt &&
-        gte == other.gte &&
-        not == other.not &&
-        G_count == other.G_count &&
-        G_avg == other.G_avg &&
-        G_sum == other.G_sum &&
-        G_min == other.G_min &&
-        G_max == other.G_max;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, equals.hashCode);
-    _$hash = $jc(_$hash, Gin.hashCode);
-    _$hash = $jc(_$hash, notIn.hashCode);
-    _$hash = $jc(_$hash, lt.hashCode);
-    _$hash = $jc(_$hash, lte.hashCode);
-    _$hash = $jc(_$hash, gt.hashCode);
-    _$hash = $jc(_$hash, gte.hashCode);
-    _$hash = $jc(_$hash, not.hashCode);
-    _$hash = $jc(_$hash, G_count.hashCode);
-    _$hash = $jc(_$hash, G_avg.hashCode);
-    _$hash = $jc(_$hash, G_sum.hashCode);
-    _$hash = $jc(_$hash, G_min.hashCode);
-    _$hash = $jc(_$hash, G_max.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GIntNullableWithAggregatesFilter')
-          ..add('equals', equals)
-          ..add('Gin', Gin)
-          ..add('notIn', notIn)
-          ..add('lt', lt)
-          ..add('lte', lte)
-          ..add('gt', gt)
-          ..add('gte', gte)
-          ..add('not', not)
-          ..add('G_count', G_count)
-          ..add('G_avg', G_avg)
-          ..add('G_sum', G_sum)
-          ..add('G_min', G_min)
-          ..add('G_max', G_max))
-        .toString();
-  }
-}
-
-class GIntNullableWithAggregatesFilterBuilder
-    implements
-        Builder<GIntNullableWithAggregatesFilter,
-            GIntNullableWithAggregatesFilterBuilder> {
-  _$GIntNullableWithAggregatesFilter? _$v;
-
-  int? _equals;
-  int? get equals => _$this._equals;
-  set equals(int? equals) => _$this._equals = equals;
-
-  ListBuilder<int>? _Gin;
-  ListBuilder<int> get Gin => _$this._Gin ??= ListBuilder<int>();
-  set Gin(ListBuilder<int>? Gin) => _$this._Gin = Gin;
-
-  ListBuilder<int>? _notIn;
-  ListBuilder<int> get notIn => _$this._notIn ??= ListBuilder<int>();
-  set notIn(ListBuilder<int>? notIn) => _$this._notIn = notIn;
-
-  int? _lt;
-  int? get lt => _$this._lt;
-  set lt(int? lt) => _$this._lt = lt;
-
-  int? _lte;
-  int? get lte => _$this._lte;
-  set lte(int? lte) => _$this._lte = lte;
-
-  int? _gt;
-  int? get gt => _$this._gt;
-  set gt(int? gt) => _$this._gt = gt;
-
-  int? _gte;
-  int? get gte => _$this._gte;
-  set gte(int? gte) => _$this._gte = gte;
-
-  GNestedIntNullableWithAggregatesFilterBuilder? _not;
-  GNestedIntNullableWithAggregatesFilterBuilder get not =>
-      _$this._not ??= GNestedIntNullableWithAggregatesFilterBuilder();
-  set not(GNestedIntNullableWithAggregatesFilterBuilder? not) =>
-      _$this._not = not;
-
-  GNestedIntNullableFilterBuilder? _G_count;
-  GNestedIntNullableFilterBuilder get G_count =>
-      _$this._G_count ??= GNestedIntNullableFilterBuilder();
-  set G_count(GNestedIntNullableFilterBuilder? G_count) =>
-      _$this._G_count = G_count;
-
-  GNestedFloatNullableFilterBuilder? _G_avg;
-  GNestedFloatNullableFilterBuilder get G_avg =>
-      _$this._G_avg ??= GNestedFloatNullableFilterBuilder();
-  set G_avg(GNestedFloatNullableFilterBuilder? G_avg) => _$this._G_avg = G_avg;
-
-  GNestedIntNullableFilterBuilder? _G_sum;
-  GNestedIntNullableFilterBuilder get G_sum =>
-      _$this._G_sum ??= GNestedIntNullableFilterBuilder();
-  set G_sum(GNestedIntNullableFilterBuilder? G_sum) => _$this._G_sum = G_sum;
-
-  GNestedIntNullableFilterBuilder? _G_min;
-  GNestedIntNullableFilterBuilder get G_min =>
-      _$this._G_min ??= GNestedIntNullableFilterBuilder();
-  set G_min(GNestedIntNullableFilterBuilder? G_min) => _$this._G_min = G_min;
-
-  GNestedIntNullableFilterBuilder? _G_max;
-  GNestedIntNullableFilterBuilder get G_max =>
-      _$this._G_max ??= GNestedIntNullableFilterBuilder();
-  set G_max(GNestedIntNullableFilterBuilder? G_max) => _$this._G_max = G_max;
-
-  GIntNullableWithAggregatesFilterBuilder();
-
-  GIntNullableWithAggregatesFilterBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _equals = $v.equals;
-      _Gin = $v.Gin?.toBuilder();
-      _notIn = $v.notIn?.toBuilder();
-      _lt = $v.lt;
-      _lte = $v.lte;
-      _gt = $v.gt;
-      _gte = $v.gte;
-      _not = $v.not?.toBuilder();
-      _G_count = $v.G_count?.toBuilder();
-      _G_avg = $v.G_avg?.toBuilder();
-      _G_sum = $v.G_sum?.toBuilder();
-      _G_min = $v.G_min?.toBuilder();
-      _G_max = $v.G_max?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GIntNullableWithAggregatesFilter other) {
-    _$v = other as _$GIntNullableWithAggregatesFilter;
-  }
-
-  @override
-  void update(void Function(GIntNullableWithAggregatesFilterBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GIntNullableWithAggregatesFilter build() => _build();
-
-  _$GIntNullableWithAggregatesFilter _build() {
-    _$GIntNullableWithAggregatesFilter _$result;
-    try {
-      _$result = _$v ??
-          _$GIntNullableWithAggregatesFilter._(
-            equals: equals,
-            Gin: _Gin?.build(),
-            notIn: _notIn?.build(),
-            lt: lt,
-            lte: lte,
-            gt: gt,
-            gte: gte,
-            not: _not?.build(),
-            G_count: _G_count?.build(),
-            G_avg: _G_avg?.build(),
-            G_sum: _G_sum?.build(),
-            G_min: _G_min?.build(),
-            G_max: _G_max?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'Gin';
-        _Gin?.build();
-        _$failedField = 'notIn';
-        _notIn?.build();
-
-        _$failedField = 'not';
-        _not?.build();
-        _$failedField = 'G_count';
-        _G_count?.build();
-        _$failedField = 'G_avg';
-        _G_avg?.build();
-        _$failedField = 'G_sum';
-        _G_sum?.build();
-        _$failedField = 'G_min';
-        _G_min?.build();
-        _$failedField = 'G_max';
-        _G_max?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GIntNullableWithAggregatesFilter', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GIntWithAggregatesFilter extends GIntWithAggregatesFilter {
-  @override
-  final int? equals;
-  @override
-  final BuiltList<int>? Gin;
-  @override
-  final BuiltList<int>? notIn;
-  @override
-  final int? lt;
-  @override
-  final int? lte;
-  @override
-  final int? gt;
-  @override
-  final int? gte;
-  @override
-  final GNestedIntWithAggregatesFilter? not;
-  @override
-  final GNestedIntFilter? G_count;
-  @override
-  final GNestedFloatFilter? G_avg;
-  @override
-  final GNestedIntFilter? G_sum;
-  @override
-  final GNestedIntFilter? G_min;
-  @override
-  final GNestedIntFilter? G_max;
-
-  factory _$GIntWithAggregatesFilter(
-          [void Function(GIntWithAggregatesFilterBuilder)? updates]) =>
-      (GIntWithAggregatesFilterBuilder()..update(updates))._build();
-
-  _$GIntWithAggregatesFilter._(
-      {this.equals,
-      this.Gin,
-      this.notIn,
-      this.lt,
-      this.lte,
-      this.gt,
-      this.gte,
-      this.not,
-      this.G_count,
-      this.G_avg,
-      this.G_sum,
-      this.G_min,
-      this.G_max})
-      : super._();
-  @override
-  GIntWithAggregatesFilter rebuild(
-          void Function(GIntWithAggregatesFilterBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GIntWithAggregatesFilterBuilder toBuilder() =>
-      GIntWithAggregatesFilterBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GIntWithAggregatesFilter &&
-        equals == other.equals &&
-        Gin == other.Gin &&
-        notIn == other.notIn &&
-        lt == other.lt &&
-        lte == other.lte &&
-        gt == other.gt &&
-        gte == other.gte &&
-        not == other.not &&
-        G_count == other.G_count &&
-        G_avg == other.G_avg &&
-        G_sum == other.G_sum &&
-        G_min == other.G_min &&
-        G_max == other.G_max;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, equals.hashCode);
-    _$hash = $jc(_$hash, Gin.hashCode);
-    _$hash = $jc(_$hash, notIn.hashCode);
-    _$hash = $jc(_$hash, lt.hashCode);
-    _$hash = $jc(_$hash, lte.hashCode);
-    _$hash = $jc(_$hash, gt.hashCode);
-    _$hash = $jc(_$hash, gte.hashCode);
-    _$hash = $jc(_$hash, not.hashCode);
-    _$hash = $jc(_$hash, G_count.hashCode);
-    _$hash = $jc(_$hash, G_avg.hashCode);
-    _$hash = $jc(_$hash, G_sum.hashCode);
-    _$hash = $jc(_$hash, G_min.hashCode);
-    _$hash = $jc(_$hash, G_max.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GIntWithAggregatesFilter')
-          ..add('equals', equals)
-          ..add('Gin', Gin)
-          ..add('notIn', notIn)
-          ..add('lt', lt)
-          ..add('lte', lte)
-          ..add('gt', gt)
-          ..add('gte', gte)
-          ..add('not', not)
-          ..add('G_count', G_count)
-          ..add('G_avg', G_avg)
-          ..add('G_sum', G_sum)
-          ..add('G_min', G_min)
-          ..add('G_max', G_max))
-        .toString();
-  }
-}
-
-class GIntWithAggregatesFilterBuilder
-    implements
-        Builder<GIntWithAggregatesFilter, GIntWithAggregatesFilterBuilder> {
-  _$GIntWithAggregatesFilter? _$v;
-
-  int? _equals;
-  int? get equals => _$this._equals;
-  set equals(int? equals) => _$this._equals = equals;
-
-  ListBuilder<int>? _Gin;
-  ListBuilder<int> get Gin => _$this._Gin ??= ListBuilder<int>();
-  set Gin(ListBuilder<int>? Gin) => _$this._Gin = Gin;
-
-  ListBuilder<int>? _notIn;
-  ListBuilder<int> get notIn => _$this._notIn ??= ListBuilder<int>();
-  set notIn(ListBuilder<int>? notIn) => _$this._notIn = notIn;
-
-  int? _lt;
-  int? get lt => _$this._lt;
-  set lt(int? lt) => _$this._lt = lt;
-
-  int? _lte;
-  int? get lte => _$this._lte;
-  set lte(int? lte) => _$this._lte = lte;
-
-  int? _gt;
-  int? get gt => _$this._gt;
-  set gt(int? gt) => _$this._gt = gt;
-
-  int? _gte;
-  int? get gte => _$this._gte;
-  set gte(int? gte) => _$this._gte = gte;
-
-  GNestedIntWithAggregatesFilterBuilder? _not;
-  GNestedIntWithAggregatesFilterBuilder get not =>
-      _$this._not ??= GNestedIntWithAggregatesFilterBuilder();
-  set not(GNestedIntWithAggregatesFilterBuilder? not) => _$this._not = not;
-
-  GNestedIntFilterBuilder? _G_count;
-  GNestedIntFilterBuilder get G_count =>
-      _$this._G_count ??= GNestedIntFilterBuilder();
-  set G_count(GNestedIntFilterBuilder? G_count) => _$this._G_count = G_count;
-
-  GNestedFloatFilterBuilder? _G_avg;
-  GNestedFloatFilterBuilder get G_avg =>
-      _$this._G_avg ??= GNestedFloatFilterBuilder();
-  set G_avg(GNestedFloatFilterBuilder? G_avg) => _$this._G_avg = G_avg;
-
-  GNestedIntFilterBuilder? _G_sum;
-  GNestedIntFilterBuilder get G_sum =>
-      _$this._G_sum ??= GNestedIntFilterBuilder();
-  set G_sum(GNestedIntFilterBuilder? G_sum) => _$this._G_sum = G_sum;
-
-  GNestedIntFilterBuilder? _G_min;
-  GNestedIntFilterBuilder get G_min =>
-      _$this._G_min ??= GNestedIntFilterBuilder();
-  set G_min(GNestedIntFilterBuilder? G_min) => _$this._G_min = G_min;
-
-  GNestedIntFilterBuilder? _G_max;
-  GNestedIntFilterBuilder get G_max =>
-      _$this._G_max ??= GNestedIntFilterBuilder();
-  set G_max(GNestedIntFilterBuilder? G_max) => _$this._G_max = G_max;
-
-  GIntWithAggregatesFilterBuilder();
-
-  GIntWithAggregatesFilterBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _equals = $v.equals;
-      _Gin = $v.Gin?.toBuilder();
-      _notIn = $v.notIn?.toBuilder();
-      _lt = $v.lt;
-      _lte = $v.lte;
-      _gt = $v.gt;
-      _gte = $v.gte;
-      _not = $v.not?.toBuilder();
-      _G_count = $v.G_count?.toBuilder();
-      _G_avg = $v.G_avg?.toBuilder();
-      _G_sum = $v.G_sum?.toBuilder();
-      _G_min = $v.G_min?.toBuilder();
-      _G_max = $v.G_max?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GIntWithAggregatesFilter other) {
-    _$v = other as _$GIntWithAggregatesFilter;
-  }
-
-  @override
-  void update(void Function(GIntWithAggregatesFilterBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GIntWithAggregatesFilter build() => _build();
-
-  _$GIntWithAggregatesFilter _build() {
-    _$GIntWithAggregatesFilter _$result;
-    try {
-      _$result = _$v ??
-          _$GIntWithAggregatesFilter._(
-            equals: equals,
-            Gin: _Gin?.build(),
-            notIn: _notIn?.build(),
-            lt: lt,
-            lte: lte,
-            gt: gt,
-            gte: gte,
-            not: _not?.build(),
-            G_count: _G_count?.build(),
-            G_avg: _G_avg?.build(),
-            G_sum: _G_sum?.build(),
-            G_min: _G_min?.build(),
-            G_max: _G_max?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'Gin';
-        _Gin?.build();
-        _$failedField = 'notIn';
-        _notIn?.build();
-
-        _$failedField = 'not';
-        _not?.build();
-        _$failedField = 'G_count';
-        _G_count?.build();
-        _$failedField = 'G_avg';
-        _G_avg?.build();
-        _$failedField = 'G_sum';
-        _G_sum?.build();
-        _$failedField = 'G_min';
-        _G_min?.build();
-        _$failedField = 'G_max';
-        _G_max?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GIntWithAggregatesFilter', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 class _$GItemAvgOrderByAggregateInput extends GItemAvgOrderByAggregateInput {
   @override
   final GSortOrder? id;
@@ -42107,6 +43586,8 @@ class GItemCountOrderByAggregateInputBuilder
 
 class _$GItemCreateInput extends GItemCreateInput {
   @override
+  final GBigInt? id;
+  @override
   final String code;
   @override
   final String name;
@@ -42134,7 +43615,8 @@ class _$GItemCreateInput extends GItemCreateInput {
       (GItemCreateInputBuilder()..update(updates))._build();
 
   _$GItemCreateInput._(
-      {required this.code,
+      {this.id,
+      required this.code,
       required this.name,
       this.description,
       this.weightInKgs,
@@ -42158,6 +43640,7 @@ class _$GItemCreateInput extends GItemCreateInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GItemCreateInput &&
+        id == other.id &&
         code == other.code &&
         name == other.name &&
         description == other.description &&
@@ -42174,6 +43657,7 @@ class _$GItemCreateInput extends GItemCreateInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, code.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -42192,6 +43676,7 @@ class _$GItemCreateInput extends GItemCreateInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GItemCreateInput')
+          ..add('id', id)
           ..add('code', code)
           ..add('name', name)
           ..add('description', description)
@@ -42210,6 +43695,10 @@ class _$GItemCreateInput extends GItemCreateInput {
 class GItemCreateInputBuilder
     implements Builder<GItemCreateInput, GItemCreateInputBuilder> {
   _$GItemCreateInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _code;
   String? get code => _$this._code;
@@ -42268,6 +43757,7 @@ class GItemCreateInputBuilder
   GItemCreateInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _code = $v.code;
       _name = $v.name;
       _description = $v.description;
@@ -42302,6 +43792,7 @@ class GItemCreateInputBuilder
     try {
       _$result = _$v ??
           _$GItemCreateInput._(
+            id: _id?.build(),
             code: BuiltValueNullFieldError.checkNotNull(
                 code, r'GItemCreateInput', 'code'),
             name: BuiltValueNullFieldError.checkNotNull(
@@ -42319,6 +43810,9 @@ class GItemCreateInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'updatedAt';
@@ -42340,9 +43834,9 @@ class GItemCreateInputBuilder
 
 class _$GItemCreateManyInput extends GItemCreateManyInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
-  final int userId;
+  final GBigInt userId;
   @override
   final String code;
   @override
@@ -42350,7 +43844,7 @@ class _$GItemCreateManyInput extends GItemCreateManyInput {
   @override
   final String? description;
   @override
-  final int? productId;
+  final GBigInt? productId;
   @override
   final double? weightInKgs;
   @override
@@ -42451,13 +43945,13 @@ class GItemCreateManyInputBuilder
     implements Builder<GItemCreateManyInput, GItemCreateManyInputBuilder> {
   _$GItemCreateManyInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
+  GBigIntBuilder? _userId;
+  GBigIntBuilder get userId => _$this._userId ??= GBigIntBuilder();
+  set userId(GBigIntBuilder? userId) => _$this._userId = userId;
 
   String? _code;
   String? get code => _$this._code;
@@ -42471,9 +43965,9 @@ class GItemCreateManyInputBuilder
   String? get description => _$this._description;
   set description(String? description) => _$this._description = description;
 
-  int? _productId;
-  int? get productId => _$this._productId;
-  set productId(int? productId) => _$this._productId = productId;
+  GBigIntBuilder? _productId;
+  GBigIntBuilder get productId => _$this._productId ??= GBigIntBuilder();
+  set productId(GBigIntBuilder? productId) => _$this._productId = productId;
 
   double? _weightInKgs;
   double? get weightInKgs => _$this._weightInKgs;
@@ -42508,12 +44002,12 @@ class GItemCreateManyInputBuilder
   GItemCreateManyInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
-      _userId = $v.userId;
+      _id = $v.id?.toBuilder();
+      _userId = $v.userId.toBuilder();
       _code = $v.code;
       _name = $v.name;
       _description = $v.description;
-      _productId = $v.productId;
+      _productId = $v.productId?.toBuilder();
       _weightInKgs = $v.weightInKgs;
       _widthInCms = $v.widthInCms;
       _heightInCms = $v.heightInCms;
@@ -42543,15 +44037,14 @@ class GItemCreateManyInputBuilder
     try {
       _$result = _$v ??
           _$GItemCreateManyInput._(
-            id: id,
-            userId: BuiltValueNullFieldError.checkNotNull(
-                userId, r'GItemCreateManyInput', 'userId'),
+            id: _id?.build(),
+            userId: userId.build(),
             code: BuiltValueNullFieldError.checkNotNull(
                 code, r'GItemCreateManyInput', 'code'),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GItemCreateManyInput', 'name'),
             description: description,
-            productId: productId,
+            productId: _productId?.build(),
             weightInKgs: weightInKgs,
             widthInCms: widthInCms,
             heightInCms: heightInCms,
@@ -42562,6 +44055,14 @@ class GItemCreateManyInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+        _$failedField = 'userId';
+        userId.build();
+
+        _$failedField = 'productId';
+        _productId?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'updatedAt';
@@ -42579,9 +44080,9 @@ class GItemCreateManyInputBuilder
 
 class _$GItemCreateManyProductInput extends GItemCreateManyProductInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
-  final int userId;
+  final GBigInt userId;
   @override
   final String code;
   @override
@@ -42686,13 +44187,13 @@ class GItemCreateManyProductInputBuilder
             GItemCreateManyProductInputBuilder> {
   _$GItemCreateManyProductInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
+  GBigIntBuilder? _userId;
+  GBigIntBuilder get userId => _$this._userId ??= GBigIntBuilder();
+  set userId(GBigIntBuilder? userId) => _$this._userId = userId;
 
   String? _code;
   String? get code => _$this._code;
@@ -42739,8 +44240,8 @@ class GItemCreateManyProductInputBuilder
   GItemCreateManyProductInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
-      _userId = $v.userId;
+      _id = $v.id?.toBuilder();
+      _userId = $v.userId.toBuilder();
       _code = $v.code;
       _name = $v.name;
       _description = $v.description;
@@ -42773,9 +44274,8 @@ class GItemCreateManyProductInputBuilder
     try {
       _$result = _$v ??
           _$GItemCreateManyProductInput._(
-            id: id,
-            userId: BuiltValueNullFieldError.checkNotNull(
-                userId, r'GItemCreateManyProductInput', 'userId'),
+            id: _id?.build(),
+            userId: userId.build(),
             code: BuiltValueNullFieldError.checkNotNull(
                 code, r'GItemCreateManyProductInput', 'code'),
             name: BuiltValueNullFieldError.checkNotNull(
@@ -42791,6 +44291,11 @@ class GItemCreateManyProductInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+        _$failedField = 'userId';
+        userId.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'updatedAt';
@@ -42925,7 +44430,7 @@ class GItemCreateManyProductInputEnvelopeBuilder
 
 class _$GItemCreateManyUserInput extends GItemCreateManyUserInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final String code;
   @override
@@ -42933,7 +44438,7 @@ class _$GItemCreateManyUserInput extends GItemCreateManyUserInput {
   @override
   final String? description;
   @override
-  final int? productId;
+  final GBigInt? productId;
   @override
   final double? weightInKgs;
   @override
@@ -43031,9 +44536,9 @@ class GItemCreateManyUserInputBuilder
         Builder<GItemCreateManyUserInput, GItemCreateManyUserInputBuilder> {
   _$GItemCreateManyUserInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _code;
   String? get code => _$this._code;
@@ -43047,9 +44552,9 @@ class GItemCreateManyUserInputBuilder
   String? get description => _$this._description;
   set description(String? description) => _$this._description = description;
 
-  int? _productId;
-  int? get productId => _$this._productId;
-  set productId(int? productId) => _$this._productId = productId;
+  GBigIntBuilder? _productId;
+  GBigIntBuilder get productId => _$this._productId ??= GBigIntBuilder();
+  set productId(GBigIntBuilder? productId) => _$this._productId = productId;
 
   double? _weightInKgs;
   double? get weightInKgs => _$this._weightInKgs;
@@ -43084,11 +44589,11 @@ class GItemCreateManyUserInputBuilder
   GItemCreateManyUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _code = $v.code;
       _name = $v.name;
       _description = $v.description;
-      _productId = $v.productId;
+      _productId = $v.productId?.toBuilder();
       _weightInKgs = $v.weightInKgs;
       _widthInCms = $v.widthInCms;
       _heightInCms = $v.heightInCms;
@@ -43118,13 +44623,13 @@ class GItemCreateManyUserInputBuilder
     try {
       _$result = _$v ??
           _$GItemCreateManyUserInput._(
-            id: id,
+            id: _id?.build(),
             code: BuiltValueNullFieldError.checkNotNull(
                 code, r'GItemCreateManyUserInput', 'code'),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GItemCreateManyUserInput', 'name'),
             description: description,
-            productId: productId,
+            productId: _productId?.build(),
             weightInKgs: weightInKgs,
             widthInCms: widthInCms,
             heightInCms: heightInCms,
@@ -43135,6 +44640,12 @@ class GItemCreateManyUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
+        _$failedField = 'productId';
+        _productId?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'updatedAt';
@@ -43826,6 +45337,8 @@ class GItemCreateOrConnectWithoutUserInputBuilder
 
 class _$GItemCreateWithoutProductInput extends GItemCreateWithoutProductInput {
   @override
+  final GBigInt? id;
+  @override
   final String code;
   @override
   final String name;
@@ -43851,7 +45364,8 @@ class _$GItemCreateWithoutProductInput extends GItemCreateWithoutProductInput {
       (GItemCreateWithoutProductInputBuilder()..update(updates))._build();
 
   _$GItemCreateWithoutProductInput._(
-      {required this.code,
+      {this.id,
+      required this.code,
       required this.name,
       this.description,
       this.weightInKgs,
@@ -43875,6 +45389,7 @@ class _$GItemCreateWithoutProductInput extends GItemCreateWithoutProductInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GItemCreateWithoutProductInput &&
+        id == other.id &&
         code == other.code &&
         name == other.name &&
         description == other.description &&
@@ -43890,6 +45405,7 @@ class _$GItemCreateWithoutProductInput extends GItemCreateWithoutProductInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, code.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -43907,6 +45423,7 @@ class _$GItemCreateWithoutProductInput extends GItemCreateWithoutProductInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GItemCreateWithoutProductInput')
+          ..add('id', id)
           ..add('code', code)
           ..add('name', name)
           ..add('description', description)
@@ -43926,6 +45443,10 @@ class GItemCreateWithoutProductInputBuilder
         Builder<GItemCreateWithoutProductInput,
             GItemCreateWithoutProductInputBuilder> {
   _$GItemCreateWithoutProductInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _code;
   String? get code => _$this._code;
@@ -43978,6 +45499,7 @@ class GItemCreateWithoutProductInputBuilder
   GItemCreateWithoutProductInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _code = $v.code;
       _name = $v.name;
       _description = $v.description;
@@ -44011,6 +45533,7 @@ class GItemCreateWithoutProductInputBuilder
     try {
       _$result = _$v ??
           _$GItemCreateWithoutProductInput._(
+            id: _id?.build(),
             code: BuiltValueNullFieldError.checkNotNull(
                 code, r'GItemCreateWithoutProductInput', 'code'),
             name: BuiltValueNullFieldError.checkNotNull(
@@ -44027,6 +45550,9 @@ class GItemCreateWithoutProductInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'updatedAt';
@@ -44045,6 +45571,8 @@ class GItemCreateWithoutProductInputBuilder
 }
 
 class _$GItemCreateWithoutUserInput extends GItemCreateWithoutUserInput {
+  @override
+  final GBigInt? id;
   @override
   final String code;
   @override
@@ -44071,7 +45599,8 @@ class _$GItemCreateWithoutUserInput extends GItemCreateWithoutUserInput {
       (GItemCreateWithoutUserInputBuilder()..update(updates))._build();
 
   _$GItemCreateWithoutUserInput._(
-      {required this.code,
+      {this.id,
+      required this.code,
       required this.name,
       this.description,
       this.weightInKgs,
@@ -44095,6 +45624,7 @@ class _$GItemCreateWithoutUserInput extends GItemCreateWithoutUserInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GItemCreateWithoutUserInput &&
+        id == other.id &&
         code == other.code &&
         name == other.name &&
         description == other.description &&
@@ -44110,6 +45640,7 @@ class _$GItemCreateWithoutUserInput extends GItemCreateWithoutUserInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, code.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -44127,6 +45658,7 @@ class _$GItemCreateWithoutUserInput extends GItemCreateWithoutUserInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GItemCreateWithoutUserInput')
+          ..add('id', id)
           ..add('code', code)
           ..add('name', name)
           ..add('description', description)
@@ -44146,6 +45678,10 @@ class GItemCreateWithoutUserInputBuilder
         Builder<GItemCreateWithoutUserInput,
             GItemCreateWithoutUserInputBuilder> {
   _$GItemCreateWithoutUserInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _code;
   String? get code => _$this._code;
@@ -44198,6 +45734,7 @@ class GItemCreateWithoutUserInputBuilder
   GItemCreateWithoutUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _code = $v.code;
       _name = $v.name;
       _description = $v.description;
@@ -44231,6 +45768,7 @@ class GItemCreateWithoutUserInputBuilder
     try {
       _$result = _$v ??
           _$GItemCreateWithoutUserInput._(
+            id: _id?.build(),
             code: BuiltValueNullFieldError.checkNotNull(
                 code, r'GItemCreateWithoutUserInput', 'code'),
             name: BuiltValueNullFieldError.checkNotNull(
@@ -44247,6 +45785,9 @@ class GItemCreateWithoutUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'updatedAt';
@@ -45544,9 +47085,9 @@ class _$GItemScalarWhereInput extends GItemScalarWhereInput {
   @override
   final BuiltList<GItemScalarWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GStringFilter? code;
   @override
@@ -45554,7 +47095,7 @@ class _$GItemScalarWhereInput extends GItemScalarWhereInput {
   @override
   final GStringNullableFilter? description;
   @override
-  final GIntNullableFilter? productId;
+  final GBigIntNullableFilter? productId;
   @override
   final GFloatNullableFilter? weightInKgs;
   @override
@@ -45682,13 +47223,13 @@ class GItemScalarWhereInputBuilder
       _$this._NOT ??= ListBuilder<GItemScalarWhereInput>();
   set NOT(ListBuilder<GItemScalarWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GStringFilterBuilder? _code;
   GStringFilterBuilder get code => _$this._code ??= GStringFilterBuilder();
@@ -45704,10 +47245,10 @@ class GItemScalarWhereInputBuilder
   set description(GStringNullableFilterBuilder? description) =>
       _$this._description = description;
 
-  GIntNullableFilterBuilder? _productId;
-  GIntNullableFilterBuilder get productId =>
-      _$this._productId ??= GIntNullableFilterBuilder();
-  set productId(GIntNullableFilterBuilder? productId) =>
+  GBigIntNullableFilterBuilder? _productId;
+  GBigIntNullableFilterBuilder get productId =>
+      _$this._productId ??= GBigIntNullableFilterBuilder();
+  set productId(GBigIntNullableFilterBuilder? productId) =>
       _$this._productId = productId;
 
   GFloatNullableFilterBuilder? _weightInKgs;
@@ -45858,9 +47399,9 @@ class _$GItemScalarWhereWithAggregatesInput
   @override
   final BuiltList<GItemScalarWhereWithAggregatesInput>? NOT;
   @override
-  final GIntWithAggregatesFilter? id;
+  final GBigIntWithAggregatesFilter? id;
   @override
-  final GIntWithAggregatesFilter? userId;
+  final GBigIntWithAggregatesFilter? userId;
   @override
   final GStringWithAggregatesFilter? code;
   @override
@@ -45868,7 +47409,7 @@ class _$GItemScalarWhereWithAggregatesInput
   @override
   final GStringNullableWithAggregatesFilter? description;
   @override
-  final GIntNullableWithAggregatesFilter? productId;
+  final GBigIntNullableWithAggregatesFilter? productId;
   @override
   final GFloatNullableWithAggregatesFilter? weightInKgs;
   @override
@@ -46002,15 +47543,15 @@ class GItemScalarWhereWithAggregatesInputBuilder
   set NOT(ListBuilder<GItemScalarWhereWithAggregatesInput>? NOT) =>
       _$this._NOT = NOT;
 
-  GIntWithAggregatesFilterBuilder? _id;
-  GIntWithAggregatesFilterBuilder get id =>
-      _$this._id ??= GIntWithAggregatesFilterBuilder();
-  set id(GIntWithAggregatesFilterBuilder? id) => _$this._id = id;
+  GBigIntWithAggregatesFilterBuilder? _id;
+  GBigIntWithAggregatesFilterBuilder get id =>
+      _$this._id ??= GBigIntWithAggregatesFilterBuilder();
+  set id(GBigIntWithAggregatesFilterBuilder? id) => _$this._id = id;
 
-  GIntWithAggregatesFilterBuilder? _userId;
-  GIntWithAggregatesFilterBuilder get userId =>
-      _$this._userId ??= GIntWithAggregatesFilterBuilder();
-  set userId(GIntWithAggregatesFilterBuilder? userId) =>
+  GBigIntWithAggregatesFilterBuilder? _userId;
+  GBigIntWithAggregatesFilterBuilder get userId =>
+      _$this._userId ??= GBigIntWithAggregatesFilterBuilder();
+  set userId(GBigIntWithAggregatesFilterBuilder? userId) =>
       _$this._userId = userId;
 
   GStringWithAggregatesFilterBuilder? _code;
@@ -46029,10 +47570,10 @@ class GItemScalarWhereWithAggregatesInputBuilder
   set description(GStringNullableWithAggregatesFilterBuilder? description) =>
       _$this._description = description;
 
-  GIntNullableWithAggregatesFilterBuilder? _productId;
-  GIntNullableWithAggregatesFilterBuilder get productId =>
-      _$this._productId ??= GIntNullableWithAggregatesFilterBuilder();
-  set productId(GIntNullableWithAggregatesFilterBuilder? productId) =>
+  GBigIntNullableWithAggregatesFilterBuilder? _productId;
+  GBigIntNullableWithAggregatesFilterBuilder get productId =>
+      _$this._productId ??= GBigIntNullableWithAggregatesFilterBuilder();
+  set productId(GBigIntNullableWithAggregatesFilterBuilder? productId) =>
       _$this._productId = productId;
 
   GFloatNullableWithAggregatesFilterBuilder? _weightInKgs;
@@ -46336,6 +47877,8 @@ class GItemSumOrderByAggregateInputBuilder
 
 class _$GItemUpdateInput extends GItemUpdateInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? code;
   @override
   final GStringFieldUpdateOperationsInput? name;
@@ -46363,7 +47906,8 @@ class _$GItemUpdateInput extends GItemUpdateInput {
       (GItemUpdateInputBuilder()..update(updates))._build();
 
   _$GItemUpdateInput._(
-      {this.code,
+      {this.id,
+      this.code,
       this.name,
       this.description,
       this.weightInKgs,
@@ -46387,6 +47931,7 @@ class _$GItemUpdateInput extends GItemUpdateInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GItemUpdateInput &&
+        id == other.id &&
         code == other.code &&
         name == other.name &&
         description == other.description &&
@@ -46403,6 +47948,7 @@ class _$GItemUpdateInput extends GItemUpdateInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, code.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -46421,6 +47967,7 @@ class _$GItemUpdateInput extends GItemUpdateInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GItemUpdateInput')
+          ..add('id', id)
           ..add('code', code)
           ..add('name', name)
           ..add('description', description)
@@ -46439,6 +47986,11 @@ class _$GItemUpdateInput extends GItemUpdateInput {
 class GItemUpdateInputBuilder
     implements Builder<GItemUpdateInput, GItemUpdateInputBuilder> {
   _$GItemUpdateInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _code;
   GStringFieldUpdateOperationsInputBuilder get code =>
@@ -46515,6 +48067,7 @@ class GItemUpdateInputBuilder
   GItemUpdateInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _code = $v.code?.toBuilder();
       _name = $v.name?.toBuilder();
       _description = $v.description?.toBuilder();
@@ -46549,6 +48102,7 @@ class GItemUpdateInputBuilder
     try {
       _$result = _$v ??
           _$GItemUpdateInput._(
+            id: _id?.build(),
             code: _code?.build(),
             name: _name?.build(),
             description: _description?.build(),
@@ -46564,6 +48118,8 @@ class GItemUpdateInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'code';
         _code?.build();
         _$failedField = 'name';
@@ -46599,6 +48155,8 @@ class GItemUpdateInputBuilder
 
 class _$GItemUpdateManyMutationInput extends GItemUpdateManyMutationInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? code;
   @override
   final GStringFieldUpdateOperationsInput? name;
@@ -46622,7 +48180,8 @@ class _$GItemUpdateManyMutationInput extends GItemUpdateManyMutationInput {
       (GItemUpdateManyMutationInputBuilder()..update(updates))._build();
 
   _$GItemUpdateManyMutationInput._(
-      {this.code,
+      {this.id,
+      this.code,
       this.name,
       this.description,
       this.weightInKgs,
@@ -46645,6 +48204,7 @@ class _$GItemUpdateManyMutationInput extends GItemUpdateManyMutationInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GItemUpdateManyMutationInput &&
+        id == other.id &&
         code == other.code &&
         name == other.name &&
         description == other.description &&
@@ -46659,6 +48219,7 @@ class _$GItemUpdateManyMutationInput extends GItemUpdateManyMutationInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, code.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -46675,6 +48236,7 @@ class _$GItemUpdateManyMutationInput extends GItemUpdateManyMutationInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GItemUpdateManyMutationInput')
+          ..add('id', id)
           ..add('code', code)
           ..add('name', name)
           ..add('description', description)
@@ -46693,6 +48255,11 @@ class GItemUpdateManyMutationInputBuilder
         Builder<GItemUpdateManyMutationInput,
             GItemUpdateManyMutationInputBuilder> {
   _$GItemUpdateManyMutationInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _code;
   GStringFieldUpdateOperationsInputBuilder get code =>
@@ -46757,6 +48324,7 @@ class GItemUpdateManyMutationInputBuilder
   GItemUpdateManyMutationInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _code = $v.code?.toBuilder();
       _name = $v.name?.toBuilder();
       _description = $v.description?.toBuilder();
@@ -46789,6 +48357,7 @@ class GItemUpdateManyMutationInputBuilder
     try {
       _$result = _$v ??
           _$GItemUpdateManyMutationInput._(
+            id: _id?.build(),
             code: _code?.build(),
             name: _name?.build(),
             description: _description?.build(),
@@ -46802,6 +48371,8 @@ class GItemUpdateManyMutationInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'code';
         _code?.build();
         _$failedField = 'name';
@@ -47636,6 +49207,8 @@ class GItemUpdateManyWithWhereWithoutUserInputBuilder
 
 class _$GItemUpdateWithoutProductInput extends GItemUpdateWithoutProductInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? code;
   @override
   final GStringFieldUpdateOperationsInput? name;
@@ -47661,7 +49234,8 @@ class _$GItemUpdateWithoutProductInput extends GItemUpdateWithoutProductInput {
       (GItemUpdateWithoutProductInputBuilder()..update(updates))._build();
 
   _$GItemUpdateWithoutProductInput._(
-      {this.code,
+      {this.id,
+      this.code,
       this.name,
       this.description,
       this.weightInKgs,
@@ -47685,6 +49259,7 @@ class _$GItemUpdateWithoutProductInput extends GItemUpdateWithoutProductInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GItemUpdateWithoutProductInput &&
+        id == other.id &&
         code == other.code &&
         name == other.name &&
         description == other.description &&
@@ -47700,6 +49275,7 @@ class _$GItemUpdateWithoutProductInput extends GItemUpdateWithoutProductInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, code.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -47717,6 +49293,7 @@ class _$GItemUpdateWithoutProductInput extends GItemUpdateWithoutProductInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GItemUpdateWithoutProductInput')
+          ..add('id', id)
           ..add('code', code)
           ..add('name', name)
           ..add('description', description)
@@ -47736,6 +49313,11 @@ class GItemUpdateWithoutProductInputBuilder
         Builder<GItemUpdateWithoutProductInput,
             GItemUpdateWithoutProductInputBuilder> {
   _$GItemUpdateWithoutProductInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _code;
   GStringFieldUpdateOperationsInputBuilder get code =>
@@ -47806,6 +49388,7 @@ class GItemUpdateWithoutProductInputBuilder
   GItemUpdateWithoutProductInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _code = $v.code?.toBuilder();
       _name = $v.name?.toBuilder();
       _description = $v.description?.toBuilder();
@@ -47839,6 +49422,7 @@ class GItemUpdateWithoutProductInputBuilder
     try {
       _$result = _$v ??
           _$GItemUpdateWithoutProductInput._(
+            id: _id?.build(),
             code: _code?.build(),
             name: _name?.build(),
             description: _description?.build(),
@@ -47853,6 +49437,8 @@ class GItemUpdateWithoutProductInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'code';
         _code?.build();
         _$failedField = 'name';
@@ -47886,6 +49472,8 @@ class GItemUpdateWithoutProductInputBuilder
 
 class _$GItemUpdateWithoutUserInput extends GItemUpdateWithoutUserInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? code;
   @override
   final GStringFieldUpdateOperationsInput? name;
@@ -47911,7 +49499,8 @@ class _$GItemUpdateWithoutUserInput extends GItemUpdateWithoutUserInput {
       (GItemUpdateWithoutUserInputBuilder()..update(updates))._build();
 
   _$GItemUpdateWithoutUserInput._(
-      {this.code,
+      {this.id,
+      this.code,
       this.name,
       this.description,
       this.weightInKgs,
@@ -47935,6 +49524,7 @@ class _$GItemUpdateWithoutUserInput extends GItemUpdateWithoutUserInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GItemUpdateWithoutUserInput &&
+        id == other.id &&
         code == other.code &&
         name == other.name &&
         description == other.description &&
@@ -47950,6 +49540,7 @@ class _$GItemUpdateWithoutUserInput extends GItemUpdateWithoutUserInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, code.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
@@ -47967,6 +49558,7 @@ class _$GItemUpdateWithoutUserInput extends GItemUpdateWithoutUserInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GItemUpdateWithoutUserInput')
+          ..add('id', id)
           ..add('code', code)
           ..add('name', name)
           ..add('description', description)
@@ -47986,6 +49578,11 @@ class GItemUpdateWithoutUserInputBuilder
         Builder<GItemUpdateWithoutUserInput,
             GItemUpdateWithoutUserInputBuilder> {
   _$GItemUpdateWithoutUserInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _code;
   GStringFieldUpdateOperationsInputBuilder get code =>
@@ -48056,6 +49653,7 @@ class GItemUpdateWithoutUserInputBuilder
   GItemUpdateWithoutUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _code = $v.code?.toBuilder();
       _name = $v.name?.toBuilder();
       _description = $v.description?.toBuilder();
@@ -48089,6 +49687,7 @@ class GItemUpdateWithoutUserInputBuilder
     try {
       _$result = _$v ??
           _$GItemUpdateWithoutUserInput._(
+            id: _id?.build(),
             code: _code?.build(),
             name: _name?.build(),
             description: _description?.build(),
@@ -48103,6 +49702,8 @@ class GItemUpdateWithoutUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'code';
         _code?.build();
         _$failedField = 'name';
@@ -48670,9 +50271,9 @@ class _$GItemWhereInput extends GItemWhereInput {
   @override
   final BuiltList<GItemWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GStringFilter? code;
   @override
@@ -48680,7 +50281,7 @@ class _$GItemWhereInput extends GItemWhereInput {
   @override
   final GStringNullableFilter? description;
   @override
-  final GIntNullableFilter? productId;
+  final GBigIntNullableFilter? productId;
   @override
   final GFloatNullableFilter? weightInKgs;
   @override
@@ -48817,13 +50418,13 @@ class GItemWhereInputBuilder
       _$this._NOT ??= ListBuilder<GItemWhereInput>();
   set NOT(ListBuilder<GItemWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GStringFilterBuilder? _code;
   GStringFilterBuilder get code => _$this._code ??= GStringFilterBuilder();
@@ -48839,10 +50440,10 @@ class GItemWhereInputBuilder
   set description(GStringNullableFilterBuilder? description) =>
       _$this._description = description;
 
-  GIntNullableFilterBuilder? _productId;
-  GIntNullableFilterBuilder get productId =>
-      _$this._productId ??= GIntNullableFilterBuilder();
-  set productId(GIntNullableFilterBuilder? productId) =>
+  GBigIntNullableFilterBuilder? _productId;
+  GBigIntNullableFilterBuilder get productId =>
+      _$this._productId ??= GBigIntNullableFilterBuilder();
+  set productId(GBigIntNullableFilterBuilder? productId) =>
       _$this._productId = productId;
 
   GFloatNullableFilterBuilder? _weightInKgs;
@@ -49005,7 +50606,7 @@ class GItemWhereInputBuilder
 
 class _$GItemWhereUniqueInput extends GItemWhereUniqueInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final String? code;
   @override
@@ -49015,13 +50616,13 @@ class _$GItemWhereUniqueInput extends GItemWhereUniqueInput {
   @override
   final BuiltList<GItemWhereInput>? NOT;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GStringFilter? name;
   @override
   final GStringNullableFilter? description;
   @override
-  final GIntNullableFilter? productId;
+  final GBigIntNullableFilter? productId;
   @override
   final GFloatNullableFilter? weightInKgs;
   @override
@@ -49146,9 +50747,9 @@ class GItemWhereUniqueInputBuilder
     implements Builder<GItemWhereUniqueInput, GItemWhereUniqueInputBuilder> {
   _$GItemWhereUniqueInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _code;
   String? get code => _$this._code;
@@ -49169,9 +50770,9 @@ class GItemWhereUniqueInputBuilder
       _$this._NOT ??= ListBuilder<GItemWhereInput>();
   set NOT(ListBuilder<GItemWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GStringFilterBuilder? _name;
   GStringFilterBuilder get name => _$this._name ??= GStringFilterBuilder();
@@ -49183,10 +50784,10 @@ class GItemWhereUniqueInputBuilder
   set description(GStringNullableFilterBuilder? description) =>
       _$this._description = description;
 
-  GIntNullableFilterBuilder? _productId;
-  GIntNullableFilterBuilder get productId =>
-      _$this._productId ??= GIntNullableFilterBuilder();
-  set productId(GIntNullableFilterBuilder? productId) =>
+  GBigIntNullableFilterBuilder? _productId;
+  GBigIntNullableFilterBuilder get productId =>
+      _$this._productId ??= GBigIntNullableFilterBuilder();
+  set productId(GBigIntNullableFilterBuilder? productId) =>
       _$this._productId = productId;
 
   GFloatNullableFilterBuilder? _weightInKgs;
@@ -49241,7 +50842,7 @@ class GItemWhereUniqueInputBuilder
   GItemWhereUniqueInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _code = $v.code;
       _AND = $v.AND?.toBuilder();
       _OR = $v.OR?.toBuilder();
@@ -49281,7 +50882,7 @@ class GItemWhereUniqueInputBuilder
     try {
       _$result = _$v ??
           _$GItemWhereUniqueInput._(
-            id: id,
+            id: _id?.build(),
             code: code,
             AND: _AND?.build(),
             OR: _OR?.build(),
@@ -49302,6 +50903,9 @@ class GItemWhereUniqueInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'AND';
         _AND?.build();
         _$failedField = 'OR';
@@ -49346,11 +50950,11 @@ class GItemWhereUniqueInputBuilder
 class _$GLoginCreateManyAccessTokenInput
     extends GLoginCreateManyAccessTokenInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final String? ipAddress;
   @override
-  final int userId;
+  final GBigInt userId;
   @override
   final bool explicit;
   @override
@@ -49417,17 +51021,17 @@ class GLoginCreateManyAccessTokenInputBuilder
             GLoginCreateManyAccessTokenInputBuilder> {
   _$GLoginCreateManyAccessTokenInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _ipAddress;
   String? get ipAddress => _$this._ipAddress;
   set ipAddress(String? ipAddress) => _$this._ipAddress = ipAddress;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
+  GBigIntBuilder? _userId;
+  GBigIntBuilder get userId => _$this._userId ??= GBigIntBuilder();
+  set userId(GBigIntBuilder? userId) => _$this._userId = userId;
 
   bool? _explicit;
   bool? get explicit => _$this._explicit;
@@ -49444,9 +51048,9 @@ class GLoginCreateManyAccessTokenInputBuilder
   GLoginCreateManyAccessTokenInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _ipAddress = $v.ipAddress;
-      _userId = $v.userId;
+      _userId = $v.userId.toBuilder();
       _explicit = $v.explicit;
       _createdAt = $v.createdAt?.toBuilder();
       _$v = null;
@@ -49472,10 +51076,9 @@ class GLoginCreateManyAccessTokenInputBuilder
     try {
       _$result = _$v ??
           _$GLoginCreateManyAccessTokenInput._(
-            id: id,
+            id: _id?.build(),
             ipAddress: ipAddress,
-            userId: BuiltValueNullFieldError.checkNotNull(
-                userId, r'GLoginCreateManyAccessTokenInput', 'userId'),
+            userId: userId.build(),
             explicit: BuiltValueNullFieldError.checkNotNull(
                 explicit, r'GLoginCreateManyAccessTokenInput', 'explicit'),
             createdAt: _createdAt?.build(),
@@ -49483,6 +51086,12 @@ class GLoginCreateManyAccessTokenInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
+        _$failedField = 'userId';
+        userId.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
       } catch (e) {
@@ -49620,7 +51229,7 @@ class GLoginCreateManyAccessTokenInputEnvelopeBuilder
 
 class _$GLoginCreateManyUserInput extends GLoginCreateManyUserInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final String? ipAddress;
   @override
@@ -49690,9 +51299,9 @@ class GLoginCreateManyUserInputBuilder
         Builder<GLoginCreateManyUserInput, GLoginCreateManyUserInputBuilder> {
   _$GLoginCreateManyUserInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _ipAddress;
   String? get ipAddress => _$this._ipAddress;
@@ -49717,7 +51326,7 @@ class GLoginCreateManyUserInputBuilder
   GLoginCreateManyUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _ipAddress = $v.ipAddress;
       _tokenValue = $v.tokenValue;
       _explicit = $v.explicit;
@@ -49745,7 +51354,7 @@ class GLoginCreateManyUserInputBuilder
     try {
       _$result = _$v ??
           _$GLoginCreateManyUserInput._(
-            id: id,
+            id: _id?.build(),
             ipAddress: ipAddress,
             tokenValue: BuiltValueNullFieldError.checkNotNull(
                 tokenValue, r'GLoginCreateManyUserInput', 'tokenValue'),
@@ -49756,6 +51365,9 @@ class GLoginCreateManyUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
       } catch (e) {
@@ -50454,6 +52066,8 @@ class GLoginCreateOrConnectWithoutUserInputBuilder
 class _$GLoginCreateWithoutAccessTokenInput
     extends GLoginCreateWithoutAccessTokenInput {
   @override
+  final GBigInt? id;
+  @override
   final String? ipAddress;
   @override
   final bool explicit;
@@ -50468,7 +52082,8 @@ class _$GLoginCreateWithoutAccessTokenInput
       (GLoginCreateWithoutAccessTokenInputBuilder()..update(updates))._build();
 
   _$GLoginCreateWithoutAccessTokenInput._(
-      {this.ipAddress,
+      {this.id,
+      this.ipAddress,
       required this.explicit,
       this.createdAt,
       required this.user})
@@ -50486,6 +52101,7 @@ class _$GLoginCreateWithoutAccessTokenInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GLoginCreateWithoutAccessTokenInput &&
+        id == other.id &&
         ipAddress == other.ipAddress &&
         explicit == other.explicit &&
         createdAt == other.createdAt &&
@@ -50495,6 +52111,7 @@ class _$GLoginCreateWithoutAccessTokenInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, ipAddress.hashCode);
     _$hash = $jc(_$hash, explicit.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -50506,6 +52123,7 @@ class _$GLoginCreateWithoutAccessTokenInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GLoginCreateWithoutAccessTokenInput')
+          ..add('id', id)
           ..add('ipAddress', ipAddress)
           ..add('explicit', explicit)
           ..add('createdAt', createdAt)
@@ -50519,6 +52137,10 @@ class GLoginCreateWithoutAccessTokenInputBuilder
         Builder<GLoginCreateWithoutAccessTokenInput,
             GLoginCreateWithoutAccessTokenInputBuilder> {
   _$GLoginCreateWithoutAccessTokenInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _ipAddress;
   String? get ipAddress => _$this._ipAddress;
@@ -50545,6 +52167,7 @@ class GLoginCreateWithoutAccessTokenInputBuilder
   GLoginCreateWithoutAccessTokenInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _ipAddress = $v.ipAddress;
       _explicit = $v.explicit;
       _createdAt = $v.createdAt?.toBuilder();
@@ -50573,6 +52196,7 @@ class GLoginCreateWithoutAccessTokenInputBuilder
     try {
       _$result = _$v ??
           _$GLoginCreateWithoutAccessTokenInput._(
+            id: _id?.build(),
             ipAddress: ipAddress,
             explicit: BuiltValueNullFieldError.checkNotNull(
                 explicit, r'GLoginCreateWithoutAccessTokenInput', 'explicit'),
@@ -50582,6 +52206,9 @@ class GLoginCreateWithoutAccessTokenInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'user';
@@ -50599,6 +52226,8 @@ class GLoginCreateWithoutAccessTokenInputBuilder
 
 class _$GLoginCreateWithoutUserInput extends GLoginCreateWithoutUserInput {
   @override
+  final GBigInt? id;
+  @override
   final String? ipAddress;
   @override
   final bool explicit;
@@ -50612,7 +52241,8 @@ class _$GLoginCreateWithoutUserInput extends GLoginCreateWithoutUserInput {
       (GLoginCreateWithoutUserInputBuilder()..update(updates))._build();
 
   _$GLoginCreateWithoutUserInput._(
-      {this.ipAddress,
+      {this.id,
+      this.ipAddress,
       required this.explicit,
       this.createdAt,
       required this.accessToken})
@@ -50630,6 +52260,7 @@ class _$GLoginCreateWithoutUserInput extends GLoginCreateWithoutUserInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GLoginCreateWithoutUserInput &&
+        id == other.id &&
         ipAddress == other.ipAddress &&
         explicit == other.explicit &&
         createdAt == other.createdAt &&
@@ -50639,6 +52270,7 @@ class _$GLoginCreateWithoutUserInput extends GLoginCreateWithoutUserInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, ipAddress.hashCode);
     _$hash = $jc(_$hash, explicit.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -50650,6 +52282,7 @@ class _$GLoginCreateWithoutUserInput extends GLoginCreateWithoutUserInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GLoginCreateWithoutUserInput')
+          ..add('id', id)
           ..add('ipAddress', ipAddress)
           ..add('explicit', explicit)
           ..add('createdAt', createdAt)
@@ -50663,6 +52296,10 @@ class GLoginCreateWithoutUserInputBuilder
         Builder<GLoginCreateWithoutUserInput,
             GLoginCreateWithoutUserInputBuilder> {
   _$GLoginCreateWithoutUserInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _ipAddress;
   String? get ipAddress => _$this._ipAddress;
@@ -50691,6 +52328,7 @@ class GLoginCreateWithoutUserInputBuilder
   GLoginCreateWithoutUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _ipAddress = $v.ipAddress;
       _explicit = $v.explicit;
       _createdAt = $v.createdAt?.toBuilder();
@@ -50718,6 +52356,7 @@ class GLoginCreateWithoutUserInputBuilder
     try {
       _$result = _$v ??
           _$GLoginCreateWithoutUserInput._(
+            id: _id?.build(),
             ipAddress: ipAddress,
             explicit: BuiltValueNullFieldError.checkNotNull(
                 explicit, r'GLoginCreateWithoutUserInput', 'explicit'),
@@ -50727,6 +52366,9 @@ class GLoginCreateWithoutUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'createdAt';
         _createdAt?.build();
         _$failedField = 'accessToken';
@@ -50964,11 +52606,11 @@ class _$GLoginScalarWhereInput extends GLoginScalarWhereInput {
   @override
   final BuiltList<GLoginScalarWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
   final GStringNullableFilter? ipAddress;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GStringFilter? tokenValue;
   @override
@@ -51066,9 +52708,9 @@ class GLoginScalarWhereInputBuilder
       _$this._NOT ??= ListBuilder<GLoginScalarWhereInput>();
   set NOT(ListBuilder<GLoginScalarWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
   GStringNullableFilterBuilder? _ipAddress;
   GStringNullableFilterBuilder get ipAddress =>
@@ -51076,9 +52718,9 @@ class GLoginScalarWhereInputBuilder
   set ipAddress(GStringNullableFilterBuilder? ipAddress) =>
       _$this._ipAddress = ipAddress;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GStringFilterBuilder? _tokenValue;
   GStringFilterBuilder get tokenValue =>
@@ -51177,6 +52819,8 @@ class GLoginScalarWhereInputBuilder
 
 class _$GLoginUpdateManyMutationInput extends GLoginUpdateManyMutationInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GNullableStringFieldUpdateOperationsInput? ipAddress;
   @override
   final GBoolFieldUpdateOperationsInput? explicit;
@@ -51188,7 +52832,7 @@ class _$GLoginUpdateManyMutationInput extends GLoginUpdateManyMutationInput {
       (GLoginUpdateManyMutationInputBuilder()..update(updates))._build();
 
   _$GLoginUpdateManyMutationInput._(
-      {this.ipAddress, this.explicit, this.createdAt})
+      {this.id, this.ipAddress, this.explicit, this.createdAt})
       : super._();
   @override
   GLoginUpdateManyMutationInput rebuild(
@@ -51203,6 +52847,7 @@ class _$GLoginUpdateManyMutationInput extends GLoginUpdateManyMutationInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GLoginUpdateManyMutationInput &&
+        id == other.id &&
         ipAddress == other.ipAddress &&
         explicit == other.explicit &&
         createdAt == other.createdAt;
@@ -51211,6 +52856,7 @@ class _$GLoginUpdateManyMutationInput extends GLoginUpdateManyMutationInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, ipAddress.hashCode);
     _$hash = $jc(_$hash, explicit.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -51221,6 +52867,7 @@ class _$GLoginUpdateManyMutationInput extends GLoginUpdateManyMutationInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GLoginUpdateManyMutationInput')
+          ..add('id', id)
           ..add('ipAddress', ipAddress)
           ..add('explicit', explicit)
           ..add('createdAt', createdAt))
@@ -51233,6 +52880,11 @@ class GLoginUpdateManyMutationInputBuilder
         Builder<GLoginUpdateManyMutationInput,
             GLoginUpdateManyMutationInputBuilder> {
   _$GLoginUpdateManyMutationInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GNullableStringFieldUpdateOperationsInputBuilder? _ipAddress;
   GNullableStringFieldUpdateOperationsInputBuilder get ipAddress =>
@@ -51257,6 +52909,7 @@ class GLoginUpdateManyMutationInputBuilder
   GLoginUpdateManyMutationInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _ipAddress = $v.ipAddress?.toBuilder();
       _explicit = $v.explicit?.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -51283,6 +52936,7 @@ class GLoginUpdateManyMutationInputBuilder
     try {
       _$result = _$v ??
           _$GLoginUpdateManyMutationInput._(
+            id: _id?.build(),
             ipAddress: _ipAddress?.build(),
             explicit: _explicit?.build(),
             createdAt: _createdAt?.build(),
@@ -51290,6 +52944,8 @@ class GLoginUpdateManyMutationInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'ipAddress';
         _ipAddress?.build();
         _$failedField = 'explicit';
@@ -52121,6 +53777,8 @@ class GLoginUpdateManyWithWhereWithoutUserInputBuilder
 class _$GLoginUpdateWithoutAccessTokenInput
     extends GLoginUpdateWithoutAccessTokenInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GNullableStringFieldUpdateOperationsInput? ipAddress;
   @override
   final GBoolFieldUpdateOperationsInput? explicit;
@@ -52135,7 +53793,7 @@ class _$GLoginUpdateWithoutAccessTokenInput
       (GLoginUpdateWithoutAccessTokenInputBuilder()..update(updates))._build();
 
   _$GLoginUpdateWithoutAccessTokenInput._(
-      {this.ipAddress, this.explicit, this.createdAt, this.user})
+      {this.id, this.ipAddress, this.explicit, this.createdAt, this.user})
       : super._();
   @override
   GLoginUpdateWithoutAccessTokenInput rebuild(
@@ -52150,6 +53808,7 @@ class _$GLoginUpdateWithoutAccessTokenInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GLoginUpdateWithoutAccessTokenInput &&
+        id == other.id &&
         ipAddress == other.ipAddress &&
         explicit == other.explicit &&
         createdAt == other.createdAt &&
@@ -52159,6 +53818,7 @@ class _$GLoginUpdateWithoutAccessTokenInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, ipAddress.hashCode);
     _$hash = $jc(_$hash, explicit.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -52170,6 +53830,7 @@ class _$GLoginUpdateWithoutAccessTokenInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GLoginUpdateWithoutAccessTokenInput')
+          ..add('id', id)
           ..add('ipAddress', ipAddress)
           ..add('explicit', explicit)
           ..add('createdAt', createdAt)
@@ -52183,6 +53844,11 @@ class GLoginUpdateWithoutAccessTokenInputBuilder
         Builder<GLoginUpdateWithoutAccessTokenInput,
             GLoginUpdateWithoutAccessTokenInputBuilder> {
   _$GLoginUpdateWithoutAccessTokenInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GNullableStringFieldUpdateOperationsInputBuilder? _ipAddress;
   GNullableStringFieldUpdateOperationsInputBuilder get ipAddress =>
@@ -52213,6 +53879,7 @@ class GLoginUpdateWithoutAccessTokenInputBuilder
   GLoginUpdateWithoutAccessTokenInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _ipAddress = $v.ipAddress?.toBuilder();
       _explicit = $v.explicit?.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -52241,6 +53908,7 @@ class GLoginUpdateWithoutAccessTokenInputBuilder
     try {
       _$result = _$v ??
           _$GLoginUpdateWithoutAccessTokenInput._(
+            id: _id?.build(),
             ipAddress: _ipAddress?.build(),
             explicit: _explicit?.build(),
             createdAt: _createdAt?.build(),
@@ -52249,6 +53917,8 @@ class GLoginUpdateWithoutAccessTokenInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'ipAddress';
         _ipAddress?.build();
         _$failedField = 'explicit';
@@ -52270,6 +53940,8 @@ class GLoginUpdateWithoutAccessTokenInputBuilder
 
 class _$GLoginUpdateWithoutUserInput extends GLoginUpdateWithoutUserInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GNullableStringFieldUpdateOperationsInput? ipAddress;
   @override
   final GBoolFieldUpdateOperationsInput? explicit;
@@ -52283,7 +53955,11 @@ class _$GLoginUpdateWithoutUserInput extends GLoginUpdateWithoutUserInput {
       (GLoginUpdateWithoutUserInputBuilder()..update(updates))._build();
 
   _$GLoginUpdateWithoutUserInput._(
-      {this.ipAddress, this.explicit, this.createdAt, this.accessToken})
+      {this.id,
+      this.ipAddress,
+      this.explicit,
+      this.createdAt,
+      this.accessToken})
       : super._();
   @override
   GLoginUpdateWithoutUserInput rebuild(
@@ -52298,6 +53974,7 @@ class _$GLoginUpdateWithoutUserInput extends GLoginUpdateWithoutUserInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GLoginUpdateWithoutUserInput &&
+        id == other.id &&
         ipAddress == other.ipAddress &&
         explicit == other.explicit &&
         createdAt == other.createdAt &&
@@ -52307,6 +53984,7 @@ class _$GLoginUpdateWithoutUserInput extends GLoginUpdateWithoutUserInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, ipAddress.hashCode);
     _$hash = $jc(_$hash, explicit.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -52318,6 +53996,7 @@ class _$GLoginUpdateWithoutUserInput extends GLoginUpdateWithoutUserInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GLoginUpdateWithoutUserInput')
+          ..add('id', id)
           ..add('ipAddress', ipAddress)
           ..add('explicit', explicit)
           ..add('createdAt', createdAt)
@@ -52331,6 +54010,11 @@ class GLoginUpdateWithoutUserInputBuilder
         Builder<GLoginUpdateWithoutUserInput,
             GLoginUpdateWithoutUserInputBuilder> {
   _$GLoginUpdateWithoutUserInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GNullableStringFieldUpdateOperationsInputBuilder? _ipAddress;
   GNullableStringFieldUpdateOperationsInputBuilder get ipAddress =>
@@ -52364,6 +54048,7 @@ class GLoginUpdateWithoutUserInputBuilder
   GLoginUpdateWithoutUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _ipAddress = $v.ipAddress?.toBuilder();
       _explicit = $v.explicit?.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -52391,6 +54076,7 @@ class GLoginUpdateWithoutUserInputBuilder
     try {
       _$result = _$v ??
           _$GLoginUpdateWithoutUserInput._(
+            id: _id?.build(),
             ipAddress: _ipAddress?.build(),
             explicit: _explicit?.build(),
             createdAt: _createdAt?.build(),
@@ -52399,6 +54085,8 @@ class GLoginUpdateWithoutUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'ipAddress';
         _ipAddress?.build();
         _$failedField = 'explicit';
@@ -52963,11 +54651,11 @@ class _$GLoginWhereInput extends GLoginWhereInput {
   @override
   final BuiltList<GLoginWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
   final GStringNullableFilter? ipAddress;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GStringFilter? tokenValue;
   @override
@@ -53076,9 +54764,9 @@ class GLoginWhereInputBuilder
       _$this._NOT ??= ListBuilder<GLoginWhereInput>();
   set NOT(ListBuilder<GLoginWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
   GStringNullableFilterBuilder? _ipAddress;
   GStringNullableFilterBuilder get ipAddress =>
@@ -53086,9 +54774,9 @@ class GLoginWhereInputBuilder
   set ipAddress(GStringNullableFilterBuilder? ipAddress) =>
       _$this._ipAddress = ipAddress;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GStringFilterBuilder? _tokenValue;
   GStringFilterBuilder get tokenValue =>
@@ -53206,7 +54894,7 @@ class GLoginWhereInputBuilder
 
 class _$GLoginWhereUniqueInput extends GLoginWhereUniqueInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final BuiltList<GLoginWhereInput>? AND;
   @override
@@ -53216,7 +54904,7 @@ class _$GLoginWhereUniqueInput extends GLoginWhereUniqueInput {
   @override
   final GStringNullableFilter? ipAddress;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GStringFilter? tokenValue;
   @override
@@ -53311,9 +54999,9 @@ class GLoginWhereUniqueInputBuilder
     implements Builder<GLoginWhereUniqueInput, GLoginWhereUniqueInputBuilder> {
   _$GLoginWhereUniqueInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   ListBuilder<GLoginWhereInput>? _AND;
   ListBuilder<GLoginWhereInput> get AND =>
@@ -53336,9 +55024,9 @@ class GLoginWhereUniqueInputBuilder
   set ipAddress(GStringNullableFilterBuilder? ipAddress) =>
       _$this._ipAddress = ipAddress;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GStringFilterBuilder? _tokenValue;
   GStringFilterBuilder get tokenValue =>
@@ -53372,7 +55060,7 @@ class GLoginWhereUniqueInputBuilder
   GLoginWhereUniqueInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _AND = $v.AND?.toBuilder();
       _OR = $v.OR?.toBuilder();
       _NOT = $v.NOT?.toBuilder();
@@ -53406,7 +55094,7 @@ class GLoginWhereUniqueInputBuilder
     try {
       _$result = _$v ??
           _$GLoginWhereUniqueInput._(
-            id: id,
+            id: _id?.build(),
             AND: _AND?.build(),
             OR: _OR?.build(),
             NOT: _NOT?.build(),
@@ -53421,6 +55109,8 @@ class GLoginWhereUniqueInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'AND';
         _AND?.build();
         _$failedField = 'OR';
@@ -53444,6 +55134,963 @@ class GLoginWhereUniqueInputBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'GLoginWhereUniqueInput', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GNestedBigIntFilter extends GNestedBigIntFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntFilter? not;
+
+  factory _$GNestedBigIntFilter(
+          [void Function(GNestedBigIntFilterBuilder)? updates]) =>
+      (GNestedBigIntFilterBuilder()..update(updates))._build();
+
+  _$GNestedBigIntFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not})
+      : super._();
+  @override
+  GNestedBigIntFilter rebuild(
+          void Function(GNestedBigIntFilterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GNestedBigIntFilterBuilder toBuilder() =>
+      GNestedBigIntFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GNestedBigIntFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GNestedBigIntFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not))
+        .toString();
+  }
+}
+
+class GNestedBigIntFilterBuilder
+    implements Builder<GNestedBigIntFilter, GNestedBigIntFilterBuilder> {
+  _$GNestedBigIntFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntFilterBuilder? _not;
+  GNestedBigIntFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntFilterBuilder();
+  set not(GNestedBigIntFilterBuilder? not) => _$this._not = not;
+
+  GNestedBigIntFilterBuilder();
+
+  GNestedBigIntFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GNestedBigIntFilter other) {
+    _$v = other as _$GNestedBigIntFilter;
+  }
+
+  @override
+  void update(void Function(GNestedBigIntFilterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GNestedBigIntFilter build() => _build();
+
+  _$GNestedBigIntFilter _build() {
+    _$GNestedBigIntFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GNestedBigIntFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GNestedBigIntFilter', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GNestedBigIntNullableFilter extends GNestedBigIntNullableFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntNullableFilter? not;
+
+  factory _$GNestedBigIntNullableFilter(
+          [void Function(GNestedBigIntNullableFilterBuilder)? updates]) =>
+      (GNestedBigIntNullableFilterBuilder()..update(updates))._build();
+
+  _$GNestedBigIntNullableFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not})
+      : super._();
+  @override
+  GNestedBigIntNullableFilter rebuild(
+          void Function(GNestedBigIntNullableFilterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GNestedBigIntNullableFilterBuilder toBuilder() =>
+      GNestedBigIntNullableFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GNestedBigIntNullableFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GNestedBigIntNullableFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not))
+        .toString();
+  }
+}
+
+class GNestedBigIntNullableFilterBuilder
+    implements
+        Builder<GNestedBigIntNullableFilter,
+            GNestedBigIntNullableFilterBuilder> {
+  _$GNestedBigIntNullableFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntNullableFilterBuilder? _not;
+  GNestedBigIntNullableFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntNullableFilterBuilder();
+  set not(GNestedBigIntNullableFilterBuilder? not) => _$this._not = not;
+
+  GNestedBigIntNullableFilterBuilder();
+
+  GNestedBigIntNullableFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GNestedBigIntNullableFilter other) {
+    _$v = other as _$GNestedBigIntNullableFilter;
+  }
+
+  @override
+  void update(void Function(GNestedBigIntNullableFilterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GNestedBigIntNullableFilter build() => _build();
+
+  _$GNestedBigIntNullableFilter _build() {
+    _$GNestedBigIntNullableFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GNestedBigIntNullableFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GNestedBigIntNullableFilter', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GNestedBigIntNullableWithAggregatesFilter
+    extends GNestedBigIntNullableWithAggregatesFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntNullableWithAggregatesFilter? not;
+  @override
+  final GNestedIntNullableFilter? G_count;
+  @override
+  final GNestedFloatNullableFilter? G_avg;
+  @override
+  final GNestedBigIntNullableFilter? G_sum;
+  @override
+  final GNestedBigIntNullableFilter? G_min;
+  @override
+  final GNestedBigIntNullableFilter? G_max;
+
+  factory _$GNestedBigIntNullableWithAggregatesFilter(
+          [void Function(GNestedBigIntNullableWithAggregatesFilterBuilder)?
+              updates]) =>
+      (GNestedBigIntNullableWithAggregatesFilterBuilder()..update(updates))
+          ._build();
+
+  _$GNestedBigIntNullableWithAggregatesFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not,
+      this.G_count,
+      this.G_avg,
+      this.G_sum,
+      this.G_min,
+      this.G_max})
+      : super._();
+  @override
+  GNestedBigIntNullableWithAggregatesFilter rebuild(
+          void Function(GNestedBigIntNullableWithAggregatesFilterBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GNestedBigIntNullableWithAggregatesFilterBuilder toBuilder() =>
+      GNestedBigIntNullableWithAggregatesFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GNestedBigIntNullableWithAggregatesFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not &&
+        G_count == other.G_count &&
+        G_avg == other.G_avg &&
+        G_sum == other.G_sum &&
+        G_min == other.G_min &&
+        G_max == other.G_max;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jc(_$hash, G_count.hashCode);
+    _$hash = $jc(_$hash, G_avg.hashCode);
+    _$hash = $jc(_$hash, G_sum.hashCode);
+    _$hash = $jc(_$hash, G_min.hashCode);
+    _$hash = $jc(_$hash, G_max.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GNestedBigIntNullableWithAggregatesFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not)
+          ..add('G_count', G_count)
+          ..add('G_avg', G_avg)
+          ..add('G_sum', G_sum)
+          ..add('G_min', G_min)
+          ..add('G_max', G_max))
+        .toString();
+  }
+}
+
+class GNestedBigIntNullableWithAggregatesFilterBuilder
+    implements
+        Builder<GNestedBigIntNullableWithAggregatesFilter,
+            GNestedBigIntNullableWithAggregatesFilterBuilder> {
+  _$GNestedBigIntNullableWithAggregatesFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntNullableWithAggregatesFilterBuilder? _not;
+  GNestedBigIntNullableWithAggregatesFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntNullableWithAggregatesFilterBuilder();
+  set not(GNestedBigIntNullableWithAggregatesFilterBuilder? not) =>
+      _$this._not = not;
+
+  GNestedIntNullableFilterBuilder? _G_count;
+  GNestedIntNullableFilterBuilder get G_count =>
+      _$this._G_count ??= GNestedIntNullableFilterBuilder();
+  set G_count(GNestedIntNullableFilterBuilder? G_count) =>
+      _$this._G_count = G_count;
+
+  GNestedFloatNullableFilterBuilder? _G_avg;
+  GNestedFloatNullableFilterBuilder get G_avg =>
+      _$this._G_avg ??= GNestedFloatNullableFilterBuilder();
+  set G_avg(GNestedFloatNullableFilterBuilder? G_avg) => _$this._G_avg = G_avg;
+
+  GNestedBigIntNullableFilterBuilder? _G_sum;
+  GNestedBigIntNullableFilterBuilder get G_sum =>
+      _$this._G_sum ??= GNestedBigIntNullableFilterBuilder();
+  set G_sum(GNestedBigIntNullableFilterBuilder? G_sum) => _$this._G_sum = G_sum;
+
+  GNestedBigIntNullableFilterBuilder? _G_min;
+  GNestedBigIntNullableFilterBuilder get G_min =>
+      _$this._G_min ??= GNestedBigIntNullableFilterBuilder();
+  set G_min(GNestedBigIntNullableFilterBuilder? G_min) => _$this._G_min = G_min;
+
+  GNestedBigIntNullableFilterBuilder? _G_max;
+  GNestedBigIntNullableFilterBuilder get G_max =>
+      _$this._G_max ??= GNestedBigIntNullableFilterBuilder();
+  set G_max(GNestedBigIntNullableFilterBuilder? G_max) => _$this._G_max = G_max;
+
+  GNestedBigIntNullableWithAggregatesFilterBuilder();
+
+  GNestedBigIntNullableWithAggregatesFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _G_count = $v.G_count?.toBuilder();
+      _G_avg = $v.G_avg?.toBuilder();
+      _G_sum = $v.G_sum?.toBuilder();
+      _G_min = $v.G_min?.toBuilder();
+      _G_max = $v.G_max?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GNestedBigIntNullableWithAggregatesFilter other) {
+    _$v = other as _$GNestedBigIntNullableWithAggregatesFilter;
+  }
+
+  @override
+  void update(
+      void Function(GNestedBigIntNullableWithAggregatesFilterBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GNestedBigIntNullableWithAggregatesFilter build() => _build();
+
+  _$GNestedBigIntNullableWithAggregatesFilter _build() {
+    _$GNestedBigIntNullableWithAggregatesFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GNestedBigIntNullableWithAggregatesFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+            G_count: _G_count?.build(),
+            G_avg: _G_avg?.build(),
+            G_sum: _G_sum?.build(),
+            G_min: _G_min?.build(),
+            G_max: _G_max?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+        _$failedField = 'G_count';
+        _G_count?.build();
+        _$failedField = 'G_avg';
+        _G_avg?.build();
+        _$failedField = 'G_sum';
+        _G_sum?.build();
+        _$failedField = 'G_min';
+        _G_min?.build();
+        _$failedField = 'G_max';
+        _G_max?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GNestedBigIntNullableWithAggregatesFilter',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GNestedBigIntWithAggregatesFilter
+    extends GNestedBigIntWithAggregatesFilter {
+  @override
+  final GBigInt? equals;
+  @override
+  final BuiltList<GBigInt>? Gin;
+  @override
+  final BuiltList<GBigInt>? notIn;
+  @override
+  final GBigInt? lt;
+  @override
+  final GBigInt? lte;
+  @override
+  final GBigInt? gt;
+  @override
+  final GBigInt? gte;
+  @override
+  final GNestedBigIntWithAggregatesFilter? not;
+  @override
+  final GNestedIntFilter? G_count;
+  @override
+  final GNestedFloatFilter? G_avg;
+  @override
+  final GNestedBigIntFilter? G_sum;
+  @override
+  final GNestedBigIntFilter? G_min;
+  @override
+  final GNestedBigIntFilter? G_max;
+
+  factory _$GNestedBigIntWithAggregatesFilter(
+          [void Function(GNestedBigIntWithAggregatesFilterBuilder)? updates]) =>
+      (GNestedBigIntWithAggregatesFilterBuilder()..update(updates))._build();
+
+  _$GNestedBigIntWithAggregatesFilter._(
+      {this.equals,
+      this.Gin,
+      this.notIn,
+      this.lt,
+      this.lte,
+      this.gt,
+      this.gte,
+      this.not,
+      this.G_count,
+      this.G_avg,
+      this.G_sum,
+      this.G_min,
+      this.G_max})
+      : super._();
+  @override
+  GNestedBigIntWithAggregatesFilter rebuild(
+          void Function(GNestedBigIntWithAggregatesFilterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GNestedBigIntWithAggregatesFilterBuilder toBuilder() =>
+      GNestedBigIntWithAggregatesFilterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GNestedBigIntWithAggregatesFilter &&
+        equals == other.equals &&
+        Gin == other.Gin &&
+        notIn == other.notIn &&
+        lt == other.lt &&
+        lte == other.lte &&
+        gt == other.gt &&
+        gte == other.gte &&
+        not == other.not &&
+        G_count == other.G_count &&
+        G_avg == other.G_avg &&
+        G_sum == other.G_sum &&
+        G_min == other.G_min &&
+        G_max == other.G_max;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, equals.hashCode);
+    _$hash = $jc(_$hash, Gin.hashCode);
+    _$hash = $jc(_$hash, notIn.hashCode);
+    _$hash = $jc(_$hash, lt.hashCode);
+    _$hash = $jc(_$hash, lte.hashCode);
+    _$hash = $jc(_$hash, gt.hashCode);
+    _$hash = $jc(_$hash, gte.hashCode);
+    _$hash = $jc(_$hash, not.hashCode);
+    _$hash = $jc(_$hash, G_count.hashCode);
+    _$hash = $jc(_$hash, G_avg.hashCode);
+    _$hash = $jc(_$hash, G_sum.hashCode);
+    _$hash = $jc(_$hash, G_min.hashCode);
+    _$hash = $jc(_$hash, G_max.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GNestedBigIntWithAggregatesFilter')
+          ..add('equals', equals)
+          ..add('Gin', Gin)
+          ..add('notIn', notIn)
+          ..add('lt', lt)
+          ..add('lte', lte)
+          ..add('gt', gt)
+          ..add('gte', gte)
+          ..add('not', not)
+          ..add('G_count', G_count)
+          ..add('G_avg', G_avg)
+          ..add('G_sum', G_sum)
+          ..add('G_min', G_min)
+          ..add('G_max', G_max))
+        .toString();
+  }
+}
+
+class GNestedBigIntWithAggregatesFilterBuilder
+    implements
+        Builder<GNestedBigIntWithAggregatesFilter,
+            GNestedBigIntWithAggregatesFilterBuilder> {
+  _$GNestedBigIntWithAggregatesFilter? _$v;
+
+  GBigIntBuilder? _equals;
+  GBigIntBuilder get equals => _$this._equals ??= GBigIntBuilder();
+  set equals(GBigIntBuilder? equals) => _$this._equals = equals;
+
+  ListBuilder<GBigInt>? _Gin;
+  ListBuilder<GBigInt> get Gin => _$this._Gin ??= ListBuilder<GBigInt>();
+  set Gin(ListBuilder<GBigInt>? Gin) => _$this._Gin = Gin;
+
+  ListBuilder<GBigInt>? _notIn;
+  ListBuilder<GBigInt> get notIn => _$this._notIn ??= ListBuilder<GBigInt>();
+  set notIn(ListBuilder<GBigInt>? notIn) => _$this._notIn = notIn;
+
+  GBigIntBuilder? _lt;
+  GBigIntBuilder get lt => _$this._lt ??= GBigIntBuilder();
+  set lt(GBigIntBuilder? lt) => _$this._lt = lt;
+
+  GBigIntBuilder? _lte;
+  GBigIntBuilder get lte => _$this._lte ??= GBigIntBuilder();
+  set lte(GBigIntBuilder? lte) => _$this._lte = lte;
+
+  GBigIntBuilder? _gt;
+  GBigIntBuilder get gt => _$this._gt ??= GBigIntBuilder();
+  set gt(GBigIntBuilder? gt) => _$this._gt = gt;
+
+  GBigIntBuilder? _gte;
+  GBigIntBuilder get gte => _$this._gte ??= GBigIntBuilder();
+  set gte(GBigIntBuilder? gte) => _$this._gte = gte;
+
+  GNestedBigIntWithAggregatesFilterBuilder? _not;
+  GNestedBigIntWithAggregatesFilterBuilder get not =>
+      _$this._not ??= GNestedBigIntWithAggregatesFilterBuilder();
+  set not(GNestedBigIntWithAggregatesFilterBuilder? not) => _$this._not = not;
+
+  GNestedIntFilterBuilder? _G_count;
+  GNestedIntFilterBuilder get G_count =>
+      _$this._G_count ??= GNestedIntFilterBuilder();
+  set G_count(GNestedIntFilterBuilder? G_count) => _$this._G_count = G_count;
+
+  GNestedFloatFilterBuilder? _G_avg;
+  GNestedFloatFilterBuilder get G_avg =>
+      _$this._G_avg ??= GNestedFloatFilterBuilder();
+  set G_avg(GNestedFloatFilterBuilder? G_avg) => _$this._G_avg = G_avg;
+
+  GNestedBigIntFilterBuilder? _G_sum;
+  GNestedBigIntFilterBuilder get G_sum =>
+      _$this._G_sum ??= GNestedBigIntFilterBuilder();
+  set G_sum(GNestedBigIntFilterBuilder? G_sum) => _$this._G_sum = G_sum;
+
+  GNestedBigIntFilterBuilder? _G_min;
+  GNestedBigIntFilterBuilder get G_min =>
+      _$this._G_min ??= GNestedBigIntFilterBuilder();
+  set G_min(GNestedBigIntFilterBuilder? G_min) => _$this._G_min = G_min;
+
+  GNestedBigIntFilterBuilder? _G_max;
+  GNestedBigIntFilterBuilder get G_max =>
+      _$this._G_max ??= GNestedBigIntFilterBuilder();
+  set G_max(GNestedBigIntFilterBuilder? G_max) => _$this._G_max = G_max;
+
+  GNestedBigIntWithAggregatesFilterBuilder();
+
+  GNestedBigIntWithAggregatesFilterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _equals = $v.equals?.toBuilder();
+      _Gin = $v.Gin?.toBuilder();
+      _notIn = $v.notIn?.toBuilder();
+      _lt = $v.lt?.toBuilder();
+      _lte = $v.lte?.toBuilder();
+      _gt = $v.gt?.toBuilder();
+      _gte = $v.gte?.toBuilder();
+      _not = $v.not?.toBuilder();
+      _G_count = $v.G_count?.toBuilder();
+      _G_avg = $v.G_avg?.toBuilder();
+      _G_sum = $v.G_sum?.toBuilder();
+      _G_min = $v.G_min?.toBuilder();
+      _G_max = $v.G_max?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GNestedBigIntWithAggregatesFilter other) {
+    _$v = other as _$GNestedBigIntWithAggregatesFilter;
+  }
+
+  @override
+  void update(
+      void Function(GNestedBigIntWithAggregatesFilterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GNestedBigIntWithAggregatesFilter build() => _build();
+
+  _$GNestedBigIntWithAggregatesFilter _build() {
+    _$GNestedBigIntWithAggregatesFilter _$result;
+    try {
+      _$result = _$v ??
+          _$GNestedBigIntWithAggregatesFilter._(
+            equals: _equals?.build(),
+            Gin: _Gin?.build(),
+            notIn: _notIn?.build(),
+            lt: _lt?.build(),
+            lte: _lte?.build(),
+            gt: _gt?.build(),
+            gte: _gte?.build(),
+            not: _not?.build(),
+            G_count: _G_count?.build(),
+            G_avg: _G_avg?.build(),
+            G_sum: _G_sum?.build(),
+            G_min: _G_min?.build(),
+            G_max: _G_max?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'equals';
+        _equals?.build();
+        _$failedField = 'Gin';
+        _Gin?.build();
+        _$failedField = 'notIn';
+        _notIn?.build();
+        _$failedField = 'lt';
+        _lt?.build();
+        _$failedField = 'lte';
+        _lte?.build();
+        _$failedField = 'gt';
+        _gt?.build();
+        _$failedField = 'gte';
+        _gte?.build();
+        _$failedField = 'not';
+        _not?.build();
+        _$failedField = 'G_count';
+        _G_count?.build();
+        _$failedField = 'G_avg';
+        _G_avg?.build();
+        _$failedField = 'G_sum';
+        _G_sum?.build();
+        _$failedField = 'G_min';
+        _G_min?.build();
+        _$failedField = 'G_max';
+        _G_max?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GNestedBigIntWithAggregatesFilter', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -56801,546 +59448,6 @@ class GNestedIntNullableFilterBuilder
   }
 }
 
-class _$GNestedIntNullableWithAggregatesFilter
-    extends GNestedIntNullableWithAggregatesFilter {
-  @override
-  final int? equals;
-  @override
-  final BuiltList<int>? Gin;
-  @override
-  final BuiltList<int>? notIn;
-  @override
-  final int? lt;
-  @override
-  final int? lte;
-  @override
-  final int? gt;
-  @override
-  final int? gte;
-  @override
-  final GNestedIntNullableWithAggregatesFilter? not;
-  @override
-  final GNestedIntNullableFilter? G_count;
-  @override
-  final GNestedFloatNullableFilter? G_avg;
-  @override
-  final GNestedIntNullableFilter? G_sum;
-  @override
-  final GNestedIntNullableFilter? G_min;
-  @override
-  final GNestedIntNullableFilter? G_max;
-
-  factory _$GNestedIntNullableWithAggregatesFilter(
-          [void Function(GNestedIntNullableWithAggregatesFilterBuilder)?
-              updates]) =>
-      (GNestedIntNullableWithAggregatesFilterBuilder()..update(updates))
-          ._build();
-
-  _$GNestedIntNullableWithAggregatesFilter._(
-      {this.equals,
-      this.Gin,
-      this.notIn,
-      this.lt,
-      this.lte,
-      this.gt,
-      this.gte,
-      this.not,
-      this.G_count,
-      this.G_avg,
-      this.G_sum,
-      this.G_min,
-      this.G_max})
-      : super._();
-  @override
-  GNestedIntNullableWithAggregatesFilter rebuild(
-          void Function(GNestedIntNullableWithAggregatesFilterBuilder)
-              updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GNestedIntNullableWithAggregatesFilterBuilder toBuilder() =>
-      GNestedIntNullableWithAggregatesFilterBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GNestedIntNullableWithAggregatesFilter &&
-        equals == other.equals &&
-        Gin == other.Gin &&
-        notIn == other.notIn &&
-        lt == other.lt &&
-        lte == other.lte &&
-        gt == other.gt &&
-        gte == other.gte &&
-        not == other.not &&
-        G_count == other.G_count &&
-        G_avg == other.G_avg &&
-        G_sum == other.G_sum &&
-        G_min == other.G_min &&
-        G_max == other.G_max;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, equals.hashCode);
-    _$hash = $jc(_$hash, Gin.hashCode);
-    _$hash = $jc(_$hash, notIn.hashCode);
-    _$hash = $jc(_$hash, lt.hashCode);
-    _$hash = $jc(_$hash, lte.hashCode);
-    _$hash = $jc(_$hash, gt.hashCode);
-    _$hash = $jc(_$hash, gte.hashCode);
-    _$hash = $jc(_$hash, not.hashCode);
-    _$hash = $jc(_$hash, G_count.hashCode);
-    _$hash = $jc(_$hash, G_avg.hashCode);
-    _$hash = $jc(_$hash, G_sum.hashCode);
-    _$hash = $jc(_$hash, G_min.hashCode);
-    _$hash = $jc(_$hash, G_max.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            r'GNestedIntNullableWithAggregatesFilter')
-          ..add('equals', equals)
-          ..add('Gin', Gin)
-          ..add('notIn', notIn)
-          ..add('lt', lt)
-          ..add('lte', lte)
-          ..add('gt', gt)
-          ..add('gte', gte)
-          ..add('not', not)
-          ..add('G_count', G_count)
-          ..add('G_avg', G_avg)
-          ..add('G_sum', G_sum)
-          ..add('G_min', G_min)
-          ..add('G_max', G_max))
-        .toString();
-  }
-}
-
-class GNestedIntNullableWithAggregatesFilterBuilder
-    implements
-        Builder<GNestedIntNullableWithAggregatesFilter,
-            GNestedIntNullableWithAggregatesFilterBuilder> {
-  _$GNestedIntNullableWithAggregatesFilter? _$v;
-
-  int? _equals;
-  int? get equals => _$this._equals;
-  set equals(int? equals) => _$this._equals = equals;
-
-  ListBuilder<int>? _Gin;
-  ListBuilder<int> get Gin => _$this._Gin ??= ListBuilder<int>();
-  set Gin(ListBuilder<int>? Gin) => _$this._Gin = Gin;
-
-  ListBuilder<int>? _notIn;
-  ListBuilder<int> get notIn => _$this._notIn ??= ListBuilder<int>();
-  set notIn(ListBuilder<int>? notIn) => _$this._notIn = notIn;
-
-  int? _lt;
-  int? get lt => _$this._lt;
-  set lt(int? lt) => _$this._lt = lt;
-
-  int? _lte;
-  int? get lte => _$this._lte;
-  set lte(int? lte) => _$this._lte = lte;
-
-  int? _gt;
-  int? get gt => _$this._gt;
-  set gt(int? gt) => _$this._gt = gt;
-
-  int? _gte;
-  int? get gte => _$this._gte;
-  set gte(int? gte) => _$this._gte = gte;
-
-  GNestedIntNullableWithAggregatesFilterBuilder? _not;
-  GNestedIntNullableWithAggregatesFilterBuilder get not =>
-      _$this._not ??= GNestedIntNullableWithAggregatesFilterBuilder();
-  set not(GNestedIntNullableWithAggregatesFilterBuilder? not) =>
-      _$this._not = not;
-
-  GNestedIntNullableFilterBuilder? _G_count;
-  GNestedIntNullableFilterBuilder get G_count =>
-      _$this._G_count ??= GNestedIntNullableFilterBuilder();
-  set G_count(GNestedIntNullableFilterBuilder? G_count) =>
-      _$this._G_count = G_count;
-
-  GNestedFloatNullableFilterBuilder? _G_avg;
-  GNestedFloatNullableFilterBuilder get G_avg =>
-      _$this._G_avg ??= GNestedFloatNullableFilterBuilder();
-  set G_avg(GNestedFloatNullableFilterBuilder? G_avg) => _$this._G_avg = G_avg;
-
-  GNestedIntNullableFilterBuilder? _G_sum;
-  GNestedIntNullableFilterBuilder get G_sum =>
-      _$this._G_sum ??= GNestedIntNullableFilterBuilder();
-  set G_sum(GNestedIntNullableFilterBuilder? G_sum) => _$this._G_sum = G_sum;
-
-  GNestedIntNullableFilterBuilder? _G_min;
-  GNestedIntNullableFilterBuilder get G_min =>
-      _$this._G_min ??= GNestedIntNullableFilterBuilder();
-  set G_min(GNestedIntNullableFilterBuilder? G_min) => _$this._G_min = G_min;
-
-  GNestedIntNullableFilterBuilder? _G_max;
-  GNestedIntNullableFilterBuilder get G_max =>
-      _$this._G_max ??= GNestedIntNullableFilterBuilder();
-  set G_max(GNestedIntNullableFilterBuilder? G_max) => _$this._G_max = G_max;
-
-  GNestedIntNullableWithAggregatesFilterBuilder();
-
-  GNestedIntNullableWithAggregatesFilterBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _equals = $v.equals;
-      _Gin = $v.Gin?.toBuilder();
-      _notIn = $v.notIn?.toBuilder();
-      _lt = $v.lt;
-      _lte = $v.lte;
-      _gt = $v.gt;
-      _gte = $v.gte;
-      _not = $v.not?.toBuilder();
-      _G_count = $v.G_count?.toBuilder();
-      _G_avg = $v.G_avg?.toBuilder();
-      _G_sum = $v.G_sum?.toBuilder();
-      _G_min = $v.G_min?.toBuilder();
-      _G_max = $v.G_max?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GNestedIntNullableWithAggregatesFilter other) {
-    _$v = other as _$GNestedIntNullableWithAggregatesFilter;
-  }
-
-  @override
-  void update(
-      void Function(GNestedIntNullableWithAggregatesFilterBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GNestedIntNullableWithAggregatesFilter build() => _build();
-
-  _$GNestedIntNullableWithAggregatesFilter _build() {
-    _$GNestedIntNullableWithAggregatesFilter _$result;
-    try {
-      _$result = _$v ??
-          _$GNestedIntNullableWithAggregatesFilter._(
-            equals: equals,
-            Gin: _Gin?.build(),
-            notIn: _notIn?.build(),
-            lt: lt,
-            lte: lte,
-            gt: gt,
-            gte: gte,
-            not: _not?.build(),
-            G_count: _G_count?.build(),
-            G_avg: _G_avg?.build(),
-            G_sum: _G_sum?.build(),
-            G_min: _G_min?.build(),
-            G_max: _G_max?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'Gin';
-        _Gin?.build();
-        _$failedField = 'notIn';
-        _notIn?.build();
-
-        _$failedField = 'not';
-        _not?.build();
-        _$failedField = 'G_count';
-        _G_count?.build();
-        _$failedField = 'G_avg';
-        _G_avg?.build();
-        _$failedField = 'G_sum';
-        _G_sum?.build();
-        _$failedField = 'G_min';
-        _G_min?.build();
-        _$failedField = 'G_max';
-        _G_max?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GNestedIntNullableWithAggregatesFilter',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GNestedIntWithAggregatesFilter extends GNestedIntWithAggregatesFilter {
-  @override
-  final int? equals;
-  @override
-  final BuiltList<int>? Gin;
-  @override
-  final BuiltList<int>? notIn;
-  @override
-  final int? lt;
-  @override
-  final int? lte;
-  @override
-  final int? gt;
-  @override
-  final int? gte;
-  @override
-  final GNestedIntWithAggregatesFilter? not;
-  @override
-  final GNestedIntFilter? G_count;
-  @override
-  final GNestedFloatFilter? G_avg;
-  @override
-  final GNestedIntFilter? G_sum;
-  @override
-  final GNestedIntFilter? G_min;
-  @override
-  final GNestedIntFilter? G_max;
-
-  factory _$GNestedIntWithAggregatesFilter(
-          [void Function(GNestedIntWithAggregatesFilterBuilder)? updates]) =>
-      (GNestedIntWithAggregatesFilterBuilder()..update(updates))._build();
-
-  _$GNestedIntWithAggregatesFilter._(
-      {this.equals,
-      this.Gin,
-      this.notIn,
-      this.lt,
-      this.lte,
-      this.gt,
-      this.gte,
-      this.not,
-      this.G_count,
-      this.G_avg,
-      this.G_sum,
-      this.G_min,
-      this.G_max})
-      : super._();
-  @override
-  GNestedIntWithAggregatesFilter rebuild(
-          void Function(GNestedIntWithAggregatesFilterBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GNestedIntWithAggregatesFilterBuilder toBuilder() =>
-      GNestedIntWithAggregatesFilterBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GNestedIntWithAggregatesFilter &&
-        equals == other.equals &&
-        Gin == other.Gin &&
-        notIn == other.notIn &&
-        lt == other.lt &&
-        lte == other.lte &&
-        gt == other.gt &&
-        gte == other.gte &&
-        not == other.not &&
-        G_count == other.G_count &&
-        G_avg == other.G_avg &&
-        G_sum == other.G_sum &&
-        G_min == other.G_min &&
-        G_max == other.G_max;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, equals.hashCode);
-    _$hash = $jc(_$hash, Gin.hashCode);
-    _$hash = $jc(_$hash, notIn.hashCode);
-    _$hash = $jc(_$hash, lt.hashCode);
-    _$hash = $jc(_$hash, lte.hashCode);
-    _$hash = $jc(_$hash, gt.hashCode);
-    _$hash = $jc(_$hash, gte.hashCode);
-    _$hash = $jc(_$hash, not.hashCode);
-    _$hash = $jc(_$hash, G_count.hashCode);
-    _$hash = $jc(_$hash, G_avg.hashCode);
-    _$hash = $jc(_$hash, G_sum.hashCode);
-    _$hash = $jc(_$hash, G_min.hashCode);
-    _$hash = $jc(_$hash, G_max.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GNestedIntWithAggregatesFilter')
-          ..add('equals', equals)
-          ..add('Gin', Gin)
-          ..add('notIn', notIn)
-          ..add('lt', lt)
-          ..add('lte', lte)
-          ..add('gt', gt)
-          ..add('gte', gte)
-          ..add('not', not)
-          ..add('G_count', G_count)
-          ..add('G_avg', G_avg)
-          ..add('G_sum', G_sum)
-          ..add('G_min', G_min)
-          ..add('G_max', G_max))
-        .toString();
-  }
-}
-
-class GNestedIntWithAggregatesFilterBuilder
-    implements
-        Builder<GNestedIntWithAggregatesFilter,
-            GNestedIntWithAggregatesFilterBuilder> {
-  _$GNestedIntWithAggregatesFilter? _$v;
-
-  int? _equals;
-  int? get equals => _$this._equals;
-  set equals(int? equals) => _$this._equals = equals;
-
-  ListBuilder<int>? _Gin;
-  ListBuilder<int> get Gin => _$this._Gin ??= ListBuilder<int>();
-  set Gin(ListBuilder<int>? Gin) => _$this._Gin = Gin;
-
-  ListBuilder<int>? _notIn;
-  ListBuilder<int> get notIn => _$this._notIn ??= ListBuilder<int>();
-  set notIn(ListBuilder<int>? notIn) => _$this._notIn = notIn;
-
-  int? _lt;
-  int? get lt => _$this._lt;
-  set lt(int? lt) => _$this._lt = lt;
-
-  int? _lte;
-  int? get lte => _$this._lte;
-  set lte(int? lte) => _$this._lte = lte;
-
-  int? _gt;
-  int? get gt => _$this._gt;
-  set gt(int? gt) => _$this._gt = gt;
-
-  int? _gte;
-  int? get gte => _$this._gte;
-  set gte(int? gte) => _$this._gte = gte;
-
-  GNestedIntWithAggregatesFilterBuilder? _not;
-  GNestedIntWithAggregatesFilterBuilder get not =>
-      _$this._not ??= GNestedIntWithAggregatesFilterBuilder();
-  set not(GNestedIntWithAggregatesFilterBuilder? not) => _$this._not = not;
-
-  GNestedIntFilterBuilder? _G_count;
-  GNestedIntFilterBuilder get G_count =>
-      _$this._G_count ??= GNestedIntFilterBuilder();
-  set G_count(GNestedIntFilterBuilder? G_count) => _$this._G_count = G_count;
-
-  GNestedFloatFilterBuilder? _G_avg;
-  GNestedFloatFilterBuilder get G_avg =>
-      _$this._G_avg ??= GNestedFloatFilterBuilder();
-  set G_avg(GNestedFloatFilterBuilder? G_avg) => _$this._G_avg = G_avg;
-
-  GNestedIntFilterBuilder? _G_sum;
-  GNestedIntFilterBuilder get G_sum =>
-      _$this._G_sum ??= GNestedIntFilterBuilder();
-  set G_sum(GNestedIntFilterBuilder? G_sum) => _$this._G_sum = G_sum;
-
-  GNestedIntFilterBuilder? _G_min;
-  GNestedIntFilterBuilder get G_min =>
-      _$this._G_min ??= GNestedIntFilterBuilder();
-  set G_min(GNestedIntFilterBuilder? G_min) => _$this._G_min = G_min;
-
-  GNestedIntFilterBuilder? _G_max;
-  GNestedIntFilterBuilder get G_max =>
-      _$this._G_max ??= GNestedIntFilterBuilder();
-  set G_max(GNestedIntFilterBuilder? G_max) => _$this._G_max = G_max;
-
-  GNestedIntWithAggregatesFilterBuilder();
-
-  GNestedIntWithAggregatesFilterBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _equals = $v.equals;
-      _Gin = $v.Gin?.toBuilder();
-      _notIn = $v.notIn?.toBuilder();
-      _lt = $v.lt;
-      _lte = $v.lte;
-      _gt = $v.gt;
-      _gte = $v.gte;
-      _not = $v.not?.toBuilder();
-      _G_count = $v.G_count?.toBuilder();
-      _G_avg = $v.G_avg?.toBuilder();
-      _G_sum = $v.G_sum?.toBuilder();
-      _G_min = $v.G_min?.toBuilder();
-      _G_max = $v.G_max?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GNestedIntWithAggregatesFilter other) {
-    _$v = other as _$GNestedIntWithAggregatesFilter;
-  }
-
-  @override
-  void update(void Function(GNestedIntWithAggregatesFilterBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GNestedIntWithAggregatesFilter build() => _build();
-
-  _$GNestedIntWithAggregatesFilter _build() {
-    _$GNestedIntWithAggregatesFilter _$result;
-    try {
-      _$result = _$v ??
-          _$GNestedIntWithAggregatesFilter._(
-            equals: equals,
-            Gin: _Gin?.build(),
-            notIn: _notIn?.build(),
-            lt: lt,
-            lte: lte,
-            gt: gt,
-            gte: gte,
-            not: _not?.build(),
-            G_count: _G_count?.build(),
-            G_avg: _G_avg?.build(),
-            G_sum: _G_sum?.build(),
-            G_min: _G_min?.build(),
-            G_max: _G_max?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'Gin';
-        _Gin?.build();
-        _$failedField = 'notIn';
-        _notIn?.build();
-
-        _$failedField = 'not';
-        _not?.build();
-        _$failedField = 'G_count';
-        _G_count?.build();
-        _$failedField = 'G_avg';
-        _G_avg?.build();
-        _$failedField = 'G_sum';
-        _G_sum?.build();
-        _$failedField = 'G_min';
-        _G_min?.build();
-        _$failedField = 'G_max';
-        _G_max?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GNestedIntWithAggregatesFilter', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 class _$GNestedStringFilter extends GNestedStringFilter {
   @override
   final String? equals;
@@ -59216,6 +61323,8 @@ class GProductCountOrderByAggregateInputBuilder
 
 class _$GProductCreateInput extends GProductCreateInput {
   @override
+  final GBigInt? id;
+  @override
   final String name;
   @override
   final String? upc;
@@ -59260,7 +61369,8 @@ class _$GProductCreateInput extends GProductCreateInput {
       (GProductCreateInputBuilder()..update(updates))._build();
 
   _$GProductCreateInput._(
-      {required this.name,
+      {this.id,
+      required this.name,
       this.upc,
       this.upcScanned,
       this.description,
@@ -59293,6 +61403,7 @@ class _$GProductCreateInput extends GProductCreateInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProductCreateInput &&
+        id == other.id &&
         name == other.name &&
         upc == other.upc &&
         upcScanned == other.upcScanned &&
@@ -59317,6 +61428,7 @@ class _$GProductCreateInput extends GProductCreateInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jc(_$hash, upcScanned.hashCode);
@@ -59343,6 +61455,7 @@ class _$GProductCreateInput extends GProductCreateInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GProductCreateInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('upc', upc)
           ..add('upcScanned', upcScanned)
@@ -59369,6 +61482,10 @@ class _$GProductCreateInput extends GProductCreateInput {
 class GProductCreateInputBuilder
     implements Builder<GProductCreateInput, GProductCreateInputBuilder> {
   _$GProductCreateInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -59463,6 +61580,7 @@ class GProductCreateInputBuilder
   GProductCreateInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _upc = $v.upc;
       _upcScanned = $v.upcScanned;
@@ -59505,6 +61623,7 @@ class GProductCreateInputBuilder
     try {
       _$result = _$v ??
           _$GProductCreateInput._(
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GProductCreateInput', 'name'),
             upc: upc,
@@ -59530,6 +61649,9 @@ class GProductCreateInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'price';
         price.build();
         _$failedField = 'createdAt';
@@ -59553,7 +61675,7 @@ class GProductCreateInputBuilder
 
 class _$GProductCreateManyInput extends GProductCreateManyInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final String name;
   @override
@@ -59701,9 +61823,9 @@ class GProductCreateManyInputBuilder
         Builder<GProductCreateManyInput, GProductCreateManyInputBuilder> {
   _$GProductCreateManyInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -59782,7 +61904,7 @@ class GProductCreateManyInputBuilder
   GProductCreateManyInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _upc = $v.upc;
       _upcScanned = $v.upcScanned;
@@ -59823,7 +61945,7 @@ class GProductCreateManyInputBuilder
     try {
       _$result = _$v ??
           _$GProductCreateManyInput._(
-            id: id,
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GProductCreateManyInput', 'name'),
             upc: upc,
@@ -59847,6 +61969,9 @@ class GProductCreateManyInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'price';
         price.build();
         _$failedField = 'createdAt';
@@ -60416,6 +62541,8 @@ class GProductCreateOrConnectWithoutPurchaseOrderEntriesInputBuilder
 class _$GProductCreateWithoutItemsInput
     extends GProductCreateWithoutItemsInput {
   @override
+  final GBigInt? id;
+  @override
   final String name;
   @override
   final String? upc;
@@ -60458,7 +62585,8 @@ class _$GProductCreateWithoutItemsInput
       (GProductCreateWithoutItemsInputBuilder()..update(updates))._build();
 
   _$GProductCreateWithoutItemsInput._(
-      {required this.name,
+      {this.id,
+      required this.name,
       this.upc,
       this.upcScanned,
       this.description,
@@ -60490,6 +62618,7 @@ class _$GProductCreateWithoutItemsInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProductCreateWithoutItemsInput &&
+        id == other.id &&
         name == other.name &&
         upc == other.upc &&
         upcScanned == other.upcScanned &&
@@ -60513,6 +62642,7 @@ class _$GProductCreateWithoutItemsInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jc(_$hash, upcScanned.hashCode);
@@ -60538,6 +62668,7 @@ class _$GProductCreateWithoutItemsInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GProductCreateWithoutItemsInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('upc', upc)
           ..add('upcScanned', upcScanned)
@@ -60565,6 +62696,10 @@ class GProductCreateWithoutItemsInputBuilder
         Builder<GProductCreateWithoutItemsInput,
             GProductCreateWithoutItemsInputBuilder> {
   _$GProductCreateWithoutItemsInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -60653,6 +62788,7 @@ class GProductCreateWithoutItemsInputBuilder
   GProductCreateWithoutItemsInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _upc = $v.upc;
       _upcScanned = $v.upcScanned;
@@ -60694,6 +62830,7 @@ class GProductCreateWithoutItemsInputBuilder
     try {
       _$result = _$v ??
           _$GProductCreateWithoutItemsInput._(
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GProductCreateWithoutItemsInput', 'name'),
             upc: upc,
@@ -60718,6 +62855,9 @@ class GProductCreateWithoutItemsInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'price';
         price.build();
         _$failedField = 'createdAt';
@@ -60739,6 +62879,8 @@ class GProductCreateWithoutItemsInputBuilder
 
 class _$GProductCreateWithoutPurchaseOrderEntriesInput
     extends GProductCreateWithoutPurchaseOrderEntriesInput {
+  @override
+  final GBigInt? id;
   @override
   final String name;
   @override
@@ -60783,7 +62925,8 @@ class _$GProductCreateWithoutPurchaseOrderEntriesInput
           ._build();
 
   _$GProductCreateWithoutPurchaseOrderEntriesInput._(
-      {required this.name,
+      {this.id,
+      required this.name,
       this.upc,
       this.upcScanned,
       this.description,
@@ -60816,6 +62959,7 @@ class _$GProductCreateWithoutPurchaseOrderEntriesInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProductCreateWithoutPurchaseOrderEntriesInput &&
+        id == other.id &&
         name == other.name &&
         upc == other.upc &&
         upcScanned == other.upcScanned &&
@@ -60839,6 +62983,7 @@ class _$GProductCreateWithoutPurchaseOrderEntriesInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jc(_$hash, upcScanned.hashCode);
@@ -60865,6 +63010,7 @@ class _$GProductCreateWithoutPurchaseOrderEntriesInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GProductCreateWithoutPurchaseOrderEntriesInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('upc', upc)
           ..add('upcScanned', upcScanned)
@@ -60892,6 +63038,10 @@ class GProductCreateWithoutPurchaseOrderEntriesInputBuilder
         Builder<GProductCreateWithoutPurchaseOrderEntriesInput,
             GProductCreateWithoutPurchaseOrderEntriesInputBuilder> {
   _$GProductCreateWithoutPurchaseOrderEntriesInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -60976,6 +63126,7 @@ class GProductCreateWithoutPurchaseOrderEntriesInputBuilder
   GProductCreateWithoutPurchaseOrderEntriesInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _upc = $v.upc;
       _upcScanned = $v.upcScanned;
@@ -61019,6 +63170,7 @@ class GProductCreateWithoutPurchaseOrderEntriesInputBuilder
     try {
       _$result = _$v ??
           _$GProductCreateWithoutPurchaseOrderEntriesInput._(
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(name,
                 r'GProductCreateWithoutPurchaseOrderEntriesInput', 'name'),
             upc: upc,
@@ -61043,6 +63195,9 @@ class GProductCreateWithoutPurchaseOrderEntriesInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'price';
         price.build();
         _$failedField = 'createdAt';
@@ -62691,7 +64846,7 @@ class _$GProductScalarWhereWithAggregatesInput
   @override
   final BuiltList<GProductScalarWhereWithAggregatesInput>? NOT;
   @override
-  final GIntWithAggregatesFilter? id;
+  final GBigIntWithAggregatesFilter? id;
   @override
   final GStringWithAggregatesFilter? name;
   @override
@@ -62874,10 +65029,10 @@ class GProductScalarWhereWithAggregatesInputBuilder
   set NOT(ListBuilder<GProductScalarWhereWithAggregatesInput>? NOT) =>
       _$this._NOT = NOT;
 
-  GIntWithAggregatesFilterBuilder? _id;
-  GIntWithAggregatesFilterBuilder get id =>
-      _$this._id ??= GIntWithAggregatesFilterBuilder();
-  set id(GIntWithAggregatesFilterBuilder? id) => _$this._id = id;
+  GBigIntWithAggregatesFilterBuilder? _id;
+  GBigIntWithAggregatesFilterBuilder get id =>
+      _$this._id ??= GBigIntWithAggregatesFilterBuilder();
+  set id(GBigIntWithAggregatesFilterBuilder? id) => _$this._id = id;
 
   GStringWithAggregatesFilterBuilder? _name;
   GStringWithAggregatesFilterBuilder get name =>
@@ -63259,6 +65414,8 @@ class GProductSumOrderByAggregateInputBuilder
 
 class _$GProductUpdateInput extends GProductUpdateInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GNullableStringFieldUpdateOperationsInput? upc;
@@ -63303,7 +65460,8 @@ class _$GProductUpdateInput extends GProductUpdateInput {
       (GProductUpdateInputBuilder()..update(updates))._build();
 
   _$GProductUpdateInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.upc,
       this.upcScanned,
       this.description,
@@ -63336,6 +65494,7 @@ class _$GProductUpdateInput extends GProductUpdateInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProductUpdateInput &&
+        id == other.id &&
         name == other.name &&
         upc == other.upc &&
         upcScanned == other.upcScanned &&
@@ -63360,6 +65519,7 @@ class _$GProductUpdateInput extends GProductUpdateInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jc(_$hash, upcScanned.hashCode);
@@ -63386,6 +65546,7 @@ class _$GProductUpdateInput extends GProductUpdateInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GProductUpdateInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('upc', upc)
           ..add('upcScanned', upcScanned)
@@ -63412,6 +65573,11 @@ class _$GProductUpdateInput extends GProductUpdateInput {
 class GProductUpdateInputBuilder
     implements Builder<GProductUpdateInput, GProductUpdateInputBuilder> {
   _$GProductUpdateInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -63541,6 +65707,7 @@ class GProductUpdateInputBuilder
   GProductUpdateInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _upc = $v.upc?.toBuilder();
       _upcScanned = $v.upcScanned?.toBuilder();
@@ -63583,6 +65750,7 @@ class GProductUpdateInputBuilder
     try {
       _$result = _$v ??
           _$GProductUpdateInput._(
+            id: _id?.build(),
             name: _name?.build(),
             upc: _upc?.build(),
             upcScanned: _upcScanned?.build(),
@@ -63606,6 +65774,8 @@ class GProductUpdateInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'upc';
@@ -63658,6 +65828,8 @@ class GProductUpdateInputBuilder
 class _$GProductUpdateManyMutationInput
     extends GProductUpdateManyMutationInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GNullableStringFieldUpdateOperationsInput? upc;
@@ -63697,7 +65869,8 @@ class _$GProductUpdateManyMutationInput
       (GProductUpdateManyMutationInputBuilder()..update(updates))._build();
 
   _$GProductUpdateManyMutationInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.upc,
       this.upcScanned,
       this.description,
@@ -63728,6 +65901,7 @@ class _$GProductUpdateManyMutationInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProductUpdateManyMutationInput &&
+        id == other.id &&
         name == other.name &&
         upc == other.upc &&
         upcScanned == other.upcScanned &&
@@ -63750,6 +65924,7 @@ class _$GProductUpdateManyMutationInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jc(_$hash, upcScanned.hashCode);
@@ -63774,6 +65949,7 @@ class _$GProductUpdateManyMutationInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GProductUpdateManyMutationInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('upc', upc)
           ..add('upcScanned', upcScanned)
@@ -63800,6 +65976,11 @@ class GProductUpdateManyMutationInputBuilder
         Builder<GProductUpdateManyMutationInput,
             GProductUpdateManyMutationInputBuilder> {
   _$GProductUpdateManyMutationInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -63913,6 +66094,7 @@ class GProductUpdateManyMutationInputBuilder
   GProductUpdateManyMutationInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _upc = $v.upc?.toBuilder();
       _upcScanned = $v.upcScanned?.toBuilder();
@@ -63953,6 +66135,7 @@ class GProductUpdateManyMutationInputBuilder
     try {
       _$result = _$v ??
           _$GProductUpdateManyMutationInput._(
+            id: _id?.build(),
             name: _name?.build(),
             upc: _upc?.build(),
             upcScanned: _upcScanned?.build(),
@@ -63974,6 +66157,8 @@ class GProductUpdateManyMutationInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'upc';
@@ -64686,6 +66871,8 @@ class GProductUpdateToOneWithWhereWithoutPurchaseOrderEntriesInputBuilder
 class _$GProductUpdateWithoutItemsInput
     extends GProductUpdateWithoutItemsInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GNullableStringFieldUpdateOperationsInput? upc;
@@ -64728,7 +66915,8 @@ class _$GProductUpdateWithoutItemsInput
       (GProductUpdateWithoutItemsInputBuilder()..update(updates))._build();
 
   _$GProductUpdateWithoutItemsInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.upc,
       this.upcScanned,
       this.description,
@@ -64760,6 +66948,7 @@ class _$GProductUpdateWithoutItemsInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProductUpdateWithoutItemsInput &&
+        id == other.id &&
         name == other.name &&
         upc == other.upc &&
         upcScanned == other.upcScanned &&
@@ -64783,6 +66972,7 @@ class _$GProductUpdateWithoutItemsInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jc(_$hash, upcScanned.hashCode);
@@ -64808,6 +66998,7 @@ class _$GProductUpdateWithoutItemsInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GProductUpdateWithoutItemsInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('upc', upc)
           ..add('upcScanned', upcScanned)
@@ -64835,6 +67026,11 @@ class GProductUpdateWithoutItemsInputBuilder
         Builder<GProductUpdateWithoutItemsInput,
             GProductUpdateWithoutItemsInputBuilder> {
   _$GProductUpdateWithoutItemsInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -64958,6 +67154,7 @@ class GProductUpdateWithoutItemsInputBuilder
   GProductUpdateWithoutItemsInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _upc = $v.upc?.toBuilder();
       _upcScanned = $v.upcScanned?.toBuilder();
@@ -64999,6 +67196,7 @@ class GProductUpdateWithoutItemsInputBuilder
     try {
       _$result = _$v ??
           _$GProductUpdateWithoutItemsInput._(
+            id: _id?.build(),
             name: _name?.build(),
             upc: _upc?.build(),
             upcScanned: _upcScanned?.build(),
@@ -65021,6 +67219,8 @@ class GProductUpdateWithoutItemsInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'upc';
@@ -65071,6 +67271,8 @@ class GProductUpdateWithoutItemsInputBuilder
 class _$GProductUpdateWithoutPurchaseOrderEntriesInput
     extends GProductUpdateWithoutPurchaseOrderEntriesInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GNullableStringFieldUpdateOperationsInput? upc;
@@ -65114,7 +67316,8 @@ class _$GProductUpdateWithoutPurchaseOrderEntriesInput
           ._build();
 
   _$GProductUpdateWithoutPurchaseOrderEntriesInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.upc,
       this.upcScanned,
       this.description,
@@ -65147,6 +67350,7 @@ class _$GProductUpdateWithoutPurchaseOrderEntriesInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GProductUpdateWithoutPurchaseOrderEntriesInput &&
+        id == other.id &&
         name == other.name &&
         upc == other.upc &&
         upcScanned == other.upcScanned &&
@@ -65170,6 +67374,7 @@ class _$GProductUpdateWithoutPurchaseOrderEntriesInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jc(_$hash, upcScanned.hashCode);
@@ -65196,6 +67401,7 @@ class _$GProductUpdateWithoutPurchaseOrderEntriesInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GProductUpdateWithoutPurchaseOrderEntriesInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('upc', upc)
           ..add('upcScanned', upcScanned)
@@ -65223,6 +67429,11 @@ class GProductUpdateWithoutPurchaseOrderEntriesInputBuilder
         Builder<GProductUpdateWithoutPurchaseOrderEntriesInput,
             GProductUpdateWithoutPurchaseOrderEntriesInputBuilder> {
   _$GProductUpdateWithoutPurchaseOrderEntriesInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -65342,6 +67553,7 @@ class GProductUpdateWithoutPurchaseOrderEntriesInputBuilder
   GProductUpdateWithoutPurchaseOrderEntriesInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _upc = $v.upc?.toBuilder();
       _upcScanned = $v.upcScanned?.toBuilder();
@@ -65385,6 +67597,7 @@ class GProductUpdateWithoutPurchaseOrderEntriesInputBuilder
     try {
       _$result = _$v ??
           _$GProductUpdateWithoutPurchaseOrderEntriesInput._(
+            id: _id?.build(),
             name: _name?.build(),
             upc: _upc?.build(),
             upcScanned: _upcScanned?.build(),
@@ -65407,6 +67620,8 @@ class GProductUpdateWithoutPurchaseOrderEntriesInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'upc';
@@ -65738,7 +67953,7 @@ class _$GProductWhereInput extends GProductWhereInput {
   @override
   final BuiltList<GProductWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
   final GStringFilter? name;
   @override
@@ -65924,9 +68139,9 @@ class GProductWhereInputBuilder
       _$this._NOT ??= ListBuilder<GProductWhereInput>();
   set NOT(ListBuilder<GProductWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
   GStringFilterBuilder? _name;
   GStringFilterBuilder get name => _$this._name ??= GStringFilterBuilder();
@@ -66172,7 +68387,7 @@ class GProductWhereInputBuilder
 
 class _$GProductWhereUniqueInput extends GProductWhereUniqueInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final BuiltList<GProductWhereInput>? AND;
   @override
@@ -66350,9 +68565,9 @@ class GProductWhereUniqueInputBuilder
         Builder<GProductWhereUniqueInput, GProductWhereUniqueInputBuilder> {
   _$GProductWhereUniqueInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   ListBuilder<GProductWhereInput>? _AND;
   ListBuilder<GProductWhereInput> get AND =>
@@ -66481,7 +68696,7 @@ class GProductWhereUniqueInputBuilder
   GProductWhereUniqueInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _AND = $v.AND?.toBuilder();
       _OR = $v.OR?.toBuilder();
       _NOT = $v.NOT?.toBuilder();
@@ -66527,7 +68742,7 @@ class GProductWhereUniqueInputBuilder
     try {
       _$result = _$v ??
           _$GProductWhereUniqueInput._(
-            id: id,
+            id: _id?.build(),
             AND: _AND?.build(),
             OR: _OR?.build(),
             NOT: _NOT?.build(),
@@ -66554,6 +68769,8 @@ class GProductWhereUniqueInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'AND';
         _AND?.build();
         _$failedField = 'OR';
@@ -66878,6 +69095,8 @@ class GPurchaseOrderCountOrderByAggregateInputBuilder
 
 class _$GPurchaseOrderCreateInput extends GPurchaseOrderCreateInput {
   @override
+  final GBigInt? id;
+  @override
   final GDecimal price;
   @override
   final GPurchaseOrderStatus status;
@@ -66895,7 +69114,8 @@ class _$GPurchaseOrderCreateInput extends GPurchaseOrderCreateInput {
       (GPurchaseOrderCreateInputBuilder()..update(updates))._build();
 
   _$GPurchaseOrderCreateInput._(
-      {required this.price,
+      {this.id,
+      required this.price,
       required this.status,
       this.createdAt,
       this.updatedAt,
@@ -66915,6 +69135,7 @@ class _$GPurchaseOrderCreateInput extends GPurchaseOrderCreateInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderCreateInput &&
+        id == other.id &&
         price == other.price &&
         status == other.status &&
         createdAt == other.createdAt &&
@@ -66926,6 +69147,7 @@ class _$GPurchaseOrderCreateInput extends GPurchaseOrderCreateInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -66939,6 +69161,7 @@ class _$GPurchaseOrderCreateInput extends GPurchaseOrderCreateInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GPurchaseOrderCreateInput')
+          ..add('id', id)
           ..add('price', price)
           ..add('status', status)
           ..add('createdAt', createdAt)
@@ -66953,6 +69176,10 @@ class GPurchaseOrderCreateInputBuilder
     implements
         Builder<GPurchaseOrderCreateInput, GPurchaseOrderCreateInputBuilder> {
   _$GPurchaseOrderCreateInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   GDecimalBuilder? _price;
   GDecimalBuilder get price => _$this._price ??= GDecimalBuilder();
@@ -66994,6 +69221,7 @@ class GPurchaseOrderCreateInputBuilder
   GPurchaseOrderCreateInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _price = $v.price.toBuilder();
       _status = $v.status;
       _createdAt = $v.createdAt?.toBuilder();
@@ -67023,6 +69251,7 @@ class GPurchaseOrderCreateInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderCreateInput._(
+            id: _id?.build(),
             price: price.build(),
             status: BuiltValueNullFieldError.checkNotNull(
                 status, r'GPurchaseOrderCreateInput', 'status'),
@@ -67034,6 +69263,8 @@ class GPurchaseOrderCreateInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         price.build();
 
@@ -67058,9 +69289,9 @@ class GPurchaseOrderCreateInputBuilder
 
 class _$GPurchaseOrderCreateManyInput extends GPurchaseOrderCreateManyInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
-  final int userId;
+  final GBigInt userId;
   @override
   final GDecimal price;
   @override
@@ -67135,13 +69366,13 @@ class GPurchaseOrderCreateManyInputBuilder
             GPurchaseOrderCreateManyInputBuilder> {
   _$GPurchaseOrderCreateManyInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
+  GBigIntBuilder? _userId;
+  GBigIntBuilder get userId => _$this._userId ??= GBigIntBuilder();
+  set userId(GBigIntBuilder? userId) => _$this._userId = userId;
 
   GDecimalBuilder? _price;
   GDecimalBuilder get price => _$this._price ??= GDecimalBuilder();
@@ -67168,8 +69399,8 @@ class GPurchaseOrderCreateManyInputBuilder
   GPurchaseOrderCreateManyInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
-      _userId = $v.userId;
+      _id = $v.id?.toBuilder();
+      _userId = $v.userId.toBuilder();
       _price = $v.price.toBuilder();
       _status = $v.status;
       _createdAt = $v.createdAt?.toBuilder();
@@ -67197,9 +69428,8 @@ class GPurchaseOrderCreateManyInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderCreateManyInput._(
-            id: id,
-            userId: BuiltValueNullFieldError.checkNotNull(
-                userId, r'GPurchaseOrderCreateManyInput', 'userId'),
+            id: _id?.build(),
+            userId: userId.build(),
             price: price.build(),
             status: BuiltValueNullFieldError.checkNotNull(
                 status, r'GPurchaseOrderCreateManyInput', 'status'),
@@ -67209,6 +69439,10 @@ class GPurchaseOrderCreateManyInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+        _$failedField = 'userId';
+        userId.build();
         _$failedField = 'price';
         price.build();
 
@@ -67230,7 +69464,7 @@ class GPurchaseOrderCreateManyInputBuilder
 class _$GPurchaseOrderCreateManyUserInput
     extends GPurchaseOrderCreateManyUserInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final GDecimal price;
   @override
@@ -67301,9 +69535,9 @@ class GPurchaseOrderCreateManyUserInputBuilder
             GPurchaseOrderCreateManyUserInputBuilder> {
   _$GPurchaseOrderCreateManyUserInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   GDecimalBuilder? _price;
   GDecimalBuilder get price => _$this._price ??= GDecimalBuilder();
@@ -67330,7 +69564,7 @@ class GPurchaseOrderCreateManyUserInputBuilder
   GPurchaseOrderCreateManyUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _price = $v.price.toBuilder();
       _status = $v.status;
       _createdAt = $v.createdAt?.toBuilder();
@@ -67359,7 +69593,7 @@ class GPurchaseOrderCreateManyUserInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderCreateManyUserInput._(
-            id: id,
+            id: _id?.build(),
             price: price.build(),
             status: BuiltValueNullFieldError.checkNotNull(
                 status, r'GPurchaseOrderCreateManyUserInput', 'status'),
@@ -67369,6 +69603,8 @@ class GPurchaseOrderCreateManyUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         price.build();
 
@@ -68074,6 +70310,8 @@ class GPurchaseOrderCreateOrConnectWithoutUserInputBuilder
 class _$GPurchaseOrderCreateWithoutEntriesInput
     extends GPurchaseOrderCreateWithoutEntriesInput {
   @override
+  final GBigInt? id;
+  @override
   final GDecimal price;
   @override
   final GPurchaseOrderStatus status;
@@ -68091,7 +70329,8 @@ class _$GPurchaseOrderCreateWithoutEntriesInput
           ._build();
 
   _$GPurchaseOrderCreateWithoutEntriesInput._(
-      {required this.price,
+      {this.id,
+      required this.price,
       required this.status,
       this.createdAt,
       this.updatedAt,
@@ -68111,6 +70350,7 @@ class _$GPurchaseOrderCreateWithoutEntriesInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderCreateWithoutEntriesInput &&
+        id == other.id &&
         price == other.price &&
         status == other.status &&
         createdAt == other.createdAt &&
@@ -68121,6 +70361,7 @@ class _$GPurchaseOrderCreateWithoutEntriesInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -68134,6 +70375,7 @@ class _$GPurchaseOrderCreateWithoutEntriesInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderCreateWithoutEntriesInput')
+          ..add('id', id)
           ..add('price', price)
           ..add('status', status)
           ..add('createdAt', createdAt)
@@ -68148,6 +70390,10 @@ class GPurchaseOrderCreateWithoutEntriesInputBuilder
         Builder<GPurchaseOrderCreateWithoutEntriesInput,
             GPurchaseOrderCreateWithoutEntriesInputBuilder> {
   _$GPurchaseOrderCreateWithoutEntriesInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   GDecimalBuilder? _price;
   GDecimalBuilder get price => _$this._price ??= GDecimalBuilder();
@@ -68180,6 +70426,7 @@ class GPurchaseOrderCreateWithoutEntriesInputBuilder
   GPurchaseOrderCreateWithoutEntriesInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _price = $v.price.toBuilder();
       _status = $v.status;
       _createdAt = $v.createdAt?.toBuilder();
@@ -68209,6 +70456,7 @@ class GPurchaseOrderCreateWithoutEntriesInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderCreateWithoutEntriesInput._(
+            id: _id?.build(),
             price: price.build(),
             status: BuiltValueNullFieldError.checkNotNull(
                 status, r'GPurchaseOrderCreateWithoutEntriesInput', 'status'),
@@ -68219,6 +70467,8 @@ class GPurchaseOrderCreateWithoutEntriesInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         price.build();
 
@@ -68244,6 +70494,8 @@ class GPurchaseOrderCreateWithoutEntriesInputBuilder
 class _$GPurchaseOrderCreateWithoutUserInput
     extends GPurchaseOrderCreateWithoutUserInput {
   @override
+  final GBigInt? id;
+  @override
   final GDecimal price;
   @override
   final GPurchaseOrderStatus status;
@@ -68260,7 +70512,8 @@ class _$GPurchaseOrderCreateWithoutUserInput
       (GPurchaseOrderCreateWithoutUserInputBuilder()..update(updates))._build();
 
   _$GPurchaseOrderCreateWithoutUserInput._(
-      {required this.price,
+      {this.id,
+      required this.price,
       required this.status,
       this.createdAt,
       this.updatedAt,
@@ -68279,6 +70532,7 @@ class _$GPurchaseOrderCreateWithoutUserInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderCreateWithoutUserInput &&
+        id == other.id &&
         price == other.price &&
         status == other.status &&
         createdAt == other.createdAt &&
@@ -68289,6 +70543,7 @@ class _$GPurchaseOrderCreateWithoutUserInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -68301,6 +70556,7 @@ class _$GPurchaseOrderCreateWithoutUserInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GPurchaseOrderCreateWithoutUserInput')
+          ..add('id', id)
           ..add('price', price)
           ..add('status', status)
           ..add('createdAt', createdAt)
@@ -68315,6 +70571,10 @@ class GPurchaseOrderCreateWithoutUserInputBuilder
         Builder<GPurchaseOrderCreateWithoutUserInput,
             GPurchaseOrderCreateWithoutUserInputBuilder> {
   _$GPurchaseOrderCreateWithoutUserInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   GDecimalBuilder? _price;
   GDecimalBuilder get price => _$this._price ??= GDecimalBuilder();
@@ -68350,6 +70610,7 @@ class GPurchaseOrderCreateWithoutUserInputBuilder
   GPurchaseOrderCreateWithoutUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _price = $v.price.toBuilder();
       _status = $v.status;
       _createdAt = $v.createdAt?.toBuilder();
@@ -68379,6 +70640,7 @@ class GPurchaseOrderCreateWithoutUserInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderCreateWithoutUserInput._(
+            id: _id?.build(),
             price: price.build(),
             status: BuiltValueNullFieldError.checkNotNull(
                 status, r'GPurchaseOrderCreateWithoutUserInput', 'status'),
@@ -68389,6 +70651,8 @@ class GPurchaseOrderCreateWithoutUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         price.build();
 
@@ -68414,11 +70678,11 @@ class GPurchaseOrderCreateWithoutUserInputBuilder
 class _$GPurchaseOrderEntryCreateManyOrderInput
     extends GPurchaseOrderEntryCreateManyOrderInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final int quantity;
   @override
-  final int productId;
+  final GBigInt productId;
   @override
   final GCurrency currency;
   @override
@@ -68495,17 +70759,17 @@ class GPurchaseOrderEntryCreateManyOrderInputBuilder
             GPurchaseOrderEntryCreateManyOrderInputBuilder> {
   _$GPurchaseOrderEntryCreateManyOrderInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   int? _quantity;
   int? get quantity => _$this._quantity;
   set quantity(int? quantity) => _$this._quantity = quantity;
 
-  int? _productId;
-  int? get productId => _$this._productId;
-  set productId(int? productId) => _$this._productId = productId;
+  GBigIntBuilder? _productId;
+  GBigIntBuilder get productId => _$this._productId ??= GBigIntBuilder();
+  set productId(GBigIntBuilder? productId) => _$this._productId = productId;
 
   GCurrency? _currency;
   GCurrency? get currency => _$this._currency;
@@ -68526,9 +70790,9 @@ class GPurchaseOrderEntryCreateManyOrderInputBuilder
   GPurchaseOrderEntryCreateManyOrderInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _quantity = $v.quantity;
-      _productId = $v.productId;
+      _productId = $v.productId.toBuilder();
       _currency = $v.currency;
       _unitPrice = $v.unitPrice.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -68556,11 +70820,10 @@ class GPurchaseOrderEntryCreateManyOrderInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryCreateManyOrderInput._(
-            id: id,
+            id: _id?.build(),
             quantity: BuiltValueNullFieldError.checkNotNull(quantity,
                 r'GPurchaseOrderEntryCreateManyOrderInput', 'quantity'),
-            productId: BuiltValueNullFieldError.checkNotNull(productId,
-                r'GPurchaseOrderEntryCreateManyOrderInput', 'productId'),
+            productId: productId.build(),
             currency: BuiltValueNullFieldError.checkNotNull(currency,
                 r'GPurchaseOrderEntryCreateManyOrderInput', 'currency'),
             unitPrice: unitPrice.build(),
@@ -68569,6 +70832,12 @@ class GPurchaseOrderEntryCreateManyOrderInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
+        _$failedField = 'productId';
+        productId.build();
+
         _$failedField = 'unitPrice';
         unitPrice.build();
         _$failedField = 'createdAt';
@@ -68714,9 +70983,9 @@ class GPurchaseOrderEntryCreateManyOrderInputEnvelopeBuilder
 class _$GPurchaseOrderEntryCreateManyProductInput
     extends GPurchaseOrderEntryCreateManyProductInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
-  final int orderId;
+  final GBigInt orderId;
   @override
   final int quantity;
   @override
@@ -68795,13 +71064,13 @@ class GPurchaseOrderEntryCreateManyProductInputBuilder
             GPurchaseOrderEntryCreateManyProductInputBuilder> {
   _$GPurchaseOrderEntryCreateManyProductInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
-  int? _orderId;
-  int? get orderId => _$this._orderId;
-  set orderId(int? orderId) => _$this._orderId = orderId;
+  GBigIntBuilder? _orderId;
+  GBigIntBuilder get orderId => _$this._orderId ??= GBigIntBuilder();
+  set orderId(GBigIntBuilder? orderId) => _$this._orderId = orderId;
 
   int? _quantity;
   int? get quantity => _$this._quantity;
@@ -68826,8 +71095,8 @@ class GPurchaseOrderEntryCreateManyProductInputBuilder
   GPurchaseOrderEntryCreateManyProductInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
-      _orderId = $v.orderId;
+      _id = $v.id?.toBuilder();
+      _orderId = $v.orderId.toBuilder();
       _quantity = $v.quantity;
       _currency = $v.currency;
       _unitPrice = $v.unitPrice.toBuilder();
@@ -68857,9 +71126,8 @@ class GPurchaseOrderEntryCreateManyProductInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryCreateManyProductInput._(
-            id: id,
-            orderId: BuiltValueNullFieldError.checkNotNull(orderId,
-                r'GPurchaseOrderEntryCreateManyProductInput', 'orderId'),
+            id: _id?.build(),
+            orderId: orderId.build(),
             quantity: BuiltValueNullFieldError.checkNotNull(quantity,
                 r'GPurchaseOrderEntryCreateManyProductInput', 'quantity'),
             currency: BuiltValueNullFieldError.checkNotNull(currency,
@@ -68870,6 +71138,11 @@ class GPurchaseOrderEntryCreateManyProductInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+        _$failedField = 'orderId';
+        orderId.build();
+
         _$failedField = 'unitPrice';
         unitPrice.build();
         _$failedField = 'createdAt';
@@ -69617,6 +71890,8 @@ class GPurchaseOrderEntryCreateOrConnectWithoutProductInputBuilder
 class _$GPurchaseOrderEntryCreateWithoutOrderInput
     extends GPurchaseOrderEntryCreateWithoutOrderInput {
   @override
+  final GBigInt? id;
+  @override
   final int quantity;
   @override
   final GCurrency currency;
@@ -69634,7 +71909,8 @@ class _$GPurchaseOrderEntryCreateWithoutOrderInput
           ._build();
 
   _$GPurchaseOrderEntryCreateWithoutOrderInput._(
-      {required this.quantity,
+      {this.id,
+      required this.quantity,
       required this.currency,
       required this.unitPrice,
       this.createdAt,
@@ -69654,6 +71930,7 @@ class _$GPurchaseOrderEntryCreateWithoutOrderInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderEntryCreateWithoutOrderInput &&
+        id == other.id &&
         quantity == other.quantity &&
         currency == other.currency &&
         unitPrice == other.unitPrice &&
@@ -69664,6 +71941,7 @@ class _$GPurchaseOrderEntryCreateWithoutOrderInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, quantity.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, unitPrice.hashCode);
@@ -69677,6 +71955,7 @@ class _$GPurchaseOrderEntryCreateWithoutOrderInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderEntryCreateWithoutOrderInput')
+          ..add('id', id)
           ..add('quantity', quantity)
           ..add('currency', currency)
           ..add('unitPrice', unitPrice)
@@ -69691,6 +71970,10 @@ class GPurchaseOrderEntryCreateWithoutOrderInputBuilder
         Builder<GPurchaseOrderEntryCreateWithoutOrderInput,
             GPurchaseOrderEntryCreateWithoutOrderInputBuilder> {
   _$GPurchaseOrderEntryCreateWithoutOrderInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   int? _quantity;
   int? get quantity => _$this._quantity;
@@ -69724,6 +72007,7 @@ class GPurchaseOrderEntryCreateWithoutOrderInputBuilder
   GPurchaseOrderEntryCreateWithoutOrderInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _quantity = $v.quantity;
       _currency = $v.currency;
       _unitPrice = $v.unitPrice.toBuilder();
@@ -69754,6 +72038,7 @@ class GPurchaseOrderEntryCreateWithoutOrderInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryCreateWithoutOrderInput._(
+            id: _id?.build(),
             quantity: BuiltValueNullFieldError.checkNotNull(quantity,
                 r'GPurchaseOrderEntryCreateWithoutOrderInput', 'quantity'),
             currency: BuiltValueNullFieldError.checkNotNull(currency,
@@ -69765,6 +72050,9 @@ class GPurchaseOrderEntryCreateWithoutOrderInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'unitPrice';
         unitPrice.build();
         _$failedField = 'createdAt';
@@ -69787,6 +72075,8 @@ class GPurchaseOrderEntryCreateWithoutOrderInputBuilder
 class _$GPurchaseOrderEntryCreateWithoutProductInput
     extends GPurchaseOrderEntryCreateWithoutProductInput {
   @override
+  final GBigInt? id;
+  @override
   final int quantity;
   @override
   final GCurrency currency;
@@ -69804,7 +72094,8 @@ class _$GPurchaseOrderEntryCreateWithoutProductInput
           ._build();
 
   _$GPurchaseOrderEntryCreateWithoutProductInput._(
-      {required this.quantity,
+      {this.id,
+      required this.quantity,
       required this.currency,
       required this.unitPrice,
       this.createdAt,
@@ -69824,6 +72115,7 @@ class _$GPurchaseOrderEntryCreateWithoutProductInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderEntryCreateWithoutProductInput &&
+        id == other.id &&
         quantity == other.quantity &&
         currency == other.currency &&
         unitPrice == other.unitPrice &&
@@ -69834,6 +72126,7 @@ class _$GPurchaseOrderEntryCreateWithoutProductInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, quantity.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, unitPrice.hashCode);
@@ -69847,6 +72140,7 @@ class _$GPurchaseOrderEntryCreateWithoutProductInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderEntryCreateWithoutProductInput')
+          ..add('id', id)
           ..add('quantity', quantity)
           ..add('currency', currency)
           ..add('unitPrice', unitPrice)
@@ -69861,6 +72155,10 @@ class GPurchaseOrderEntryCreateWithoutProductInputBuilder
         Builder<GPurchaseOrderEntryCreateWithoutProductInput,
             GPurchaseOrderEntryCreateWithoutProductInputBuilder> {
   _$GPurchaseOrderEntryCreateWithoutProductInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   int? _quantity;
   int? get quantity => _$this._quantity;
@@ -69892,6 +72190,7 @@ class GPurchaseOrderEntryCreateWithoutProductInputBuilder
   GPurchaseOrderEntryCreateWithoutProductInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _quantity = $v.quantity;
       _currency = $v.currency;
       _unitPrice = $v.unitPrice.toBuilder();
@@ -69922,6 +72221,7 @@ class GPurchaseOrderEntryCreateWithoutProductInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryCreateWithoutProductInput._(
+            id: _id?.build(),
             quantity: BuiltValueNullFieldError.checkNotNull(quantity,
                 r'GPurchaseOrderEntryCreateWithoutProductInput', 'quantity'),
             currency: BuiltValueNullFieldError.checkNotNull(currency,
@@ -69933,6 +72233,9 @@ class GPurchaseOrderEntryCreateWithoutProductInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'unitPrice';
         unitPrice.build();
         _$failedField = 'createdAt';
@@ -70404,13 +72707,13 @@ class _$GPurchaseOrderEntryScalarWhereInput
   @override
   final BuiltList<GPurchaseOrderEntryScalarWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
-  final GIntFilter? orderId;
+  final GBigIntFilter? orderId;
   @override
   final GIntFilter? quantity;
   @override
-  final GIntFilter? productId;
+  final GBigIntFilter? productId;
   @override
   final GEnumCurrencyFilter? currency;
   @override
@@ -70518,21 +72821,24 @@ class GPurchaseOrderEntryScalarWhereInputBuilder
   set NOT(ListBuilder<GPurchaseOrderEntryScalarWhereInput>? NOT) =>
       _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
-  GIntFilterBuilder? _orderId;
-  GIntFilterBuilder get orderId => _$this._orderId ??= GIntFilterBuilder();
-  set orderId(GIntFilterBuilder? orderId) => _$this._orderId = orderId;
+  GBigIntFilterBuilder? _orderId;
+  GBigIntFilterBuilder get orderId =>
+      _$this._orderId ??= GBigIntFilterBuilder();
+  set orderId(GBigIntFilterBuilder? orderId) => _$this._orderId = orderId;
 
   GIntFilterBuilder? _quantity;
   GIntFilterBuilder get quantity => _$this._quantity ??= GIntFilterBuilder();
   set quantity(GIntFilterBuilder? quantity) => _$this._quantity = quantity;
 
-  GIntFilterBuilder? _productId;
-  GIntFilterBuilder get productId => _$this._productId ??= GIntFilterBuilder();
-  set productId(GIntFilterBuilder? productId) => _$this._productId = productId;
+  GBigIntFilterBuilder? _productId;
+  GBigIntFilterBuilder get productId =>
+      _$this._productId ??= GBigIntFilterBuilder();
+  set productId(GBigIntFilterBuilder? productId) =>
+      _$this._productId = productId;
 
   GEnumCurrencyFilterBuilder? _currency;
   GEnumCurrencyFilterBuilder get currency =>
@@ -70639,6 +72945,8 @@ class GPurchaseOrderEntryScalarWhereInputBuilder
 class _$GPurchaseOrderEntryUpdateManyMutationInput
     extends GPurchaseOrderEntryUpdateManyMutationInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GIntFieldUpdateOperationsInput? quantity;
   @override
   final GEnumCurrencyFieldUpdateOperationsInput? currency;
@@ -70654,7 +72962,7 @@ class _$GPurchaseOrderEntryUpdateManyMutationInput
           ._build();
 
   _$GPurchaseOrderEntryUpdateManyMutationInput._(
-      {this.quantity, this.currency, this.unitPrice, this.createdAt})
+      {this.id, this.quantity, this.currency, this.unitPrice, this.createdAt})
       : super._();
   @override
   GPurchaseOrderEntryUpdateManyMutationInput rebuild(
@@ -70670,6 +72978,7 @@ class _$GPurchaseOrderEntryUpdateManyMutationInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderEntryUpdateManyMutationInput &&
+        id == other.id &&
         quantity == other.quantity &&
         currency == other.currency &&
         unitPrice == other.unitPrice &&
@@ -70679,6 +72988,7 @@ class _$GPurchaseOrderEntryUpdateManyMutationInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, quantity.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, unitPrice.hashCode);
@@ -70691,6 +73001,7 @@ class _$GPurchaseOrderEntryUpdateManyMutationInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderEntryUpdateManyMutationInput')
+          ..add('id', id)
           ..add('quantity', quantity)
           ..add('currency', currency)
           ..add('unitPrice', unitPrice)
@@ -70704,6 +73015,11 @@ class GPurchaseOrderEntryUpdateManyMutationInputBuilder
         Builder<GPurchaseOrderEntryUpdateManyMutationInput,
             GPurchaseOrderEntryUpdateManyMutationInputBuilder> {
   _$GPurchaseOrderEntryUpdateManyMutationInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GIntFieldUpdateOperationsInputBuilder? _quantity;
   GIntFieldUpdateOperationsInputBuilder get quantity =>
@@ -70734,6 +73050,7 @@ class GPurchaseOrderEntryUpdateManyMutationInputBuilder
   GPurchaseOrderEntryUpdateManyMutationInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _quantity = $v.quantity?.toBuilder();
       _currency = $v.currency?.toBuilder();
       _unitPrice = $v.unitPrice?.toBuilder();
@@ -70763,6 +73080,7 @@ class GPurchaseOrderEntryUpdateManyMutationInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryUpdateManyMutationInput._(
+            id: _id?.build(),
             quantity: _quantity?.build(),
             currency: _currency?.build(),
             unitPrice: _unitPrice?.build(),
@@ -70771,6 +73089,8 @@ class GPurchaseOrderEntryUpdateManyMutationInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'quantity';
         _quantity?.build();
         _$failedField = 'currency';
@@ -71668,6 +73988,8 @@ class GPurchaseOrderEntryUpdateManyWithWhereWithoutProductInputBuilder
 class _$GPurchaseOrderEntryUpdateWithoutOrderInput
     extends GPurchaseOrderEntryUpdateWithoutOrderInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GIntFieldUpdateOperationsInput? quantity;
   @override
   final GEnumCurrencyFieldUpdateOperationsInput? currency;
@@ -71686,7 +74008,8 @@ class _$GPurchaseOrderEntryUpdateWithoutOrderInput
           ._build();
 
   _$GPurchaseOrderEntryUpdateWithoutOrderInput._(
-      {this.quantity,
+      {this.id,
+      this.quantity,
       this.currency,
       this.unitPrice,
       this.createdAt,
@@ -71706,6 +74029,7 @@ class _$GPurchaseOrderEntryUpdateWithoutOrderInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderEntryUpdateWithoutOrderInput &&
+        id == other.id &&
         quantity == other.quantity &&
         currency == other.currency &&
         unitPrice == other.unitPrice &&
@@ -71716,6 +74040,7 @@ class _$GPurchaseOrderEntryUpdateWithoutOrderInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, quantity.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, unitPrice.hashCode);
@@ -71729,6 +74054,7 @@ class _$GPurchaseOrderEntryUpdateWithoutOrderInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderEntryUpdateWithoutOrderInput')
+          ..add('id', id)
           ..add('quantity', quantity)
           ..add('currency', currency)
           ..add('unitPrice', unitPrice)
@@ -71743,6 +74069,11 @@ class GPurchaseOrderEntryUpdateWithoutOrderInputBuilder
         Builder<GPurchaseOrderEntryUpdateWithoutOrderInput,
             GPurchaseOrderEntryUpdateWithoutOrderInputBuilder> {
   _$GPurchaseOrderEntryUpdateWithoutOrderInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GIntFieldUpdateOperationsInputBuilder? _quantity;
   GIntFieldUpdateOperationsInputBuilder get quantity =>
@@ -71783,6 +74114,7 @@ class GPurchaseOrderEntryUpdateWithoutOrderInputBuilder
   GPurchaseOrderEntryUpdateWithoutOrderInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _quantity = $v.quantity?.toBuilder();
       _currency = $v.currency?.toBuilder();
       _unitPrice = $v.unitPrice?.toBuilder();
@@ -71813,6 +74145,7 @@ class GPurchaseOrderEntryUpdateWithoutOrderInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryUpdateWithoutOrderInput._(
+            id: _id?.build(),
             quantity: _quantity?.build(),
             currency: _currency?.build(),
             unitPrice: _unitPrice?.build(),
@@ -71822,6 +74155,8 @@ class GPurchaseOrderEntryUpdateWithoutOrderInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'quantity';
         _quantity?.build();
         _$failedField = 'currency';
@@ -71848,6 +74183,8 @@ class GPurchaseOrderEntryUpdateWithoutOrderInputBuilder
 class _$GPurchaseOrderEntryUpdateWithoutProductInput
     extends GPurchaseOrderEntryUpdateWithoutProductInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GIntFieldUpdateOperationsInput? quantity;
   @override
   final GEnumCurrencyFieldUpdateOperationsInput? currency;
@@ -71865,7 +74202,8 @@ class _$GPurchaseOrderEntryUpdateWithoutProductInput
           ._build();
 
   _$GPurchaseOrderEntryUpdateWithoutProductInput._(
-      {this.quantity,
+      {this.id,
+      this.quantity,
       this.currency,
       this.unitPrice,
       this.createdAt,
@@ -71885,6 +74223,7 @@ class _$GPurchaseOrderEntryUpdateWithoutProductInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderEntryUpdateWithoutProductInput &&
+        id == other.id &&
         quantity == other.quantity &&
         currency == other.currency &&
         unitPrice == other.unitPrice &&
@@ -71895,6 +74234,7 @@ class _$GPurchaseOrderEntryUpdateWithoutProductInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, quantity.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, unitPrice.hashCode);
@@ -71908,6 +74248,7 @@ class _$GPurchaseOrderEntryUpdateWithoutProductInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderEntryUpdateWithoutProductInput')
+          ..add('id', id)
           ..add('quantity', quantity)
           ..add('currency', currency)
           ..add('unitPrice', unitPrice)
@@ -71922,6 +74263,11 @@ class GPurchaseOrderEntryUpdateWithoutProductInputBuilder
         Builder<GPurchaseOrderEntryUpdateWithoutProductInput,
             GPurchaseOrderEntryUpdateWithoutProductInputBuilder> {
   _$GPurchaseOrderEntryUpdateWithoutProductInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GIntFieldUpdateOperationsInputBuilder? _quantity;
   GIntFieldUpdateOperationsInputBuilder get quantity =>
@@ -71961,6 +74307,7 @@ class GPurchaseOrderEntryUpdateWithoutProductInputBuilder
   GPurchaseOrderEntryUpdateWithoutProductInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _quantity = $v.quantity?.toBuilder();
       _currency = $v.currency?.toBuilder();
       _unitPrice = $v.unitPrice?.toBuilder();
@@ -71991,6 +74338,7 @@ class GPurchaseOrderEntryUpdateWithoutProductInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryUpdateWithoutProductInput._(
+            id: _id?.build(),
             quantity: _quantity?.build(),
             currency: _currency?.build(),
             unitPrice: _unitPrice?.build(),
@@ -72000,6 +74348,8 @@ class GPurchaseOrderEntryUpdateWithoutProductInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'quantity';
         _quantity?.build();
         _$failedField = 'currency';
@@ -72601,13 +74951,13 @@ class _$GPurchaseOrderEntryWhereInput extends GPurchaseOrderEntryWhereInput {
   @override
   final BuiltList<GPurchaseOrderEntryWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
-  final GIntFilter? orderId;
+  final GBigIntFilter? orderId;
   @override
   final GIntFilter? quantity;
   @override
-  final GIntFilter? productId;
+  final GBigIntFilter? productId;
   @override
   final GEnumCurrencyFilter? currency;
   @override
@@ -72723,21 +75073,24 @@ class GPurchaseOrderEntryWhereInputBuilder
       _$this._NOT ??= ListBuilder<GPurchaseOrderEntryWhereInput>();
   set NOT(ListBuilder<GPurchaseOrderEntryWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
-  GIntFilterBuilder? _orderId;
-  GIntFilterBuilder get orderId => _$this._orderId ??= GIntFilterBuilder();
-  set orderId(GIntFilterBuilder? orderId) => _$this._orderId = orderId;
+  GBigIntFilterBuilder? _orderId;
+  GBigIntFilterBuilder get orderId =>
+      _$this._orderId ??= GBigIntFilterBuilder();
+  set orderId(GBigIntFilterBuilder? orderId) => _$this._orderId = orderId;
 
   GIntFilterBuilder? _quantity;
   GIntFilterBuilder get quantity => _$this._quantity ??= GIntFilterBuilder();
   set quantity(GIntFilterBuilder? quantity) => _$this._quantity = quantity;
 
-  GIntFilterBuilder? _productId;
-  GIntFilterBuilder get productId => _$this._productId ??= GIntFilterBuilder();
-  set productId(GIntFilterBuilder? productId) => _$this._productId = productId;
+  GBigIntFilterBuilder? _productId;
+  GBigIntFilterBuilder get productId =>
+      _$this._productId ??= GBigIntFilterBuilder();
+  set productId(GBigIntFilterBuilder? productId) =>
+      _$this._productId = productId;
 
   GEnumCurrencyFilterBuilder? _currency;
   GEnumCurrencyFilterBuilder get currency =>
@@ -72863,7 +75216,7 @@ class GPurchaseOrderEntryWhereInputBuilder
 class _$GPurchaseOrderEntryWhereUniqueInput
     extends GPurchaseOrderEntryWhereUniqueInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final BuiltList<GPurchaseOrderEntryWhereInput>? AND;
   @override
@@ -72871,11 +75224,11 @@ class _$GPurchaseOrderEntryWhereUniqueInput
   @override
   final BuiltList<GPurchaseOrderEntryWhereInput>? NOT;
   @override
-  final GIntFilter? orderId;
+  final GBigIntFilter? orderId;
   @override
   final GIntFilter? quantity;
   @override
-  final GIntFilter? productId;
+  final GBigIntFilter? productId;
   @override
   final GEnumCurrencyFilter? currency;
   @override
@@ -72977,9 +75330,9 @@ class GPurchaseOrderEntryWhereUniqueInputBuilder
             GPurchaseOrderEntryWhereUniqueInputBuilder> {
   _$GPurchaseOrderEntryWhereUniqueInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   ListBuilder<GPurchaseOrderEntryWhereInput>? _AND;
   ListBuilder<GPurchaseOrderEntryWhereInput> get AND =>
@@ -72996,17 +75349,20 @@ class GPurchaseOrderEntryWhereUniqueInputBuilder
       _$this._NOT ??= ListBuilder<GPurchaseOrderEntryWhereInput>();
   set NOT(ListBuilder<GPurchaseOrderEntryWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _orderId;
-  GIntFilterBuilder get orderId => _$this._orderId ??= GIntFilterBuilder();
-  set orderId(GIntFilterBuilder? orderId) => _$this._orderId = orderId;
+  GBigIntFilterBuilder? _orderId;
+  GBigIntFilterBuilder get orderId =>
+      _$this._orderId ??= GBigIntFilterBuilder();
+  set orderId(GBigIntFilterBuilder? orderId) => _$this._orderId = orderId;
 
   GIntFilterBuilder? _quantity;
   GIntFilterBuilder get quantity => _$this._quantity ??= GIntFilterBuilder();
   set quantity(GIntFilterBuilder? quantity) => _$this._quantity = quantity;
 
-  GIntFilterBuilder? _productId;
-  GIntFilterBuilder get productId => _$this._productId ??= GIntFilterBuilder();
-  set productId(GIntFilterBuilder? productId) => _$this._productId = productId;
+  GBigIntFilterBuilder? _productId;
+  GBigIntFilterBuilder get productId =>
+      _$this._productId ??= GBigIntFilterBuilder();
+  set productId(GBigIntFilterBuilder? productId) =>
+      _$this._productId = productId;
 
   GEnumCurrencyFilterBuilder? _currency;
   GEnumCurrencyFilterBuilder get currency =>
@@ -73043,7 +75399,7 @@ class GPurchaseOrderEntryWhereUniqueInputBuilder
   GPurchaseOrderEntryWhereUniqueInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _AND = $v.AND?.toBuilder();
       _OR = $v.OR?.toBuilder();
       _NOT = $v.NOT?.toBuilder();
@@ -73079,7 +75435,7 @@ class GPurchaseOrderEntryWhereUniqueInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderEntryWhereUniqueInput._(
-            id: id,
+            id: _id?.build(),
             AND: _AND?.build(),
             OR: _OR?.build(),
             NOT: _NOT?.build(),
@@ -73095,6 +75451,8 @@ class GPurchaseOrderEntryWhereUniqueInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'AND';
         _AND?.build();
         _$failedField = 'OR';
@@ -74222,9 +76580,9 @@ class _$GPurchaseOrderScalarWhereInput extends GPurchaseOrderScalarWhereInput {
   @override
   final BuiltList<GPurchaseOrderScalarWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GDecimalFilter? price;
   @override
@@ -74328,13 +76686,13 @@ class GPurchaseOrderScalarWhereInputBuilder
   set NOT(ListBuilder<GPurchaseOrderScalarWhereInput>? NOT) =>
       _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GDecimalFilterBuilder? _price;
   GDecimalFilterBuilder get price => _$this._price ??= GDecimalFilterBuilder();
@@ -74446,9 +76804,9 @@ class _$GPurchaseOrderScalarWhereWithAggregatesInput
   @override
   final BuiltList<GPurchaseOrderScalarWhereWithAggregatesInput>? NOT;
   @override
-  final GIntWithAggregatesFilter? id;
+  final GBigIntWithAggregatesFilter? id;
   @override
-  final GIntWithAggregatesFilter? userId;
+  final GBigIntWithAggregatesFilter? userId;
   @override
   final GDecimalWithAggregatesFilter? price;
   @override
@@ -74560,15 +76918,15 @@ class GPurchaseOrderScalarWhereWithAggregatesInputBuilder
   set NOT(ListBuilder<GPurchaseOrderScalarWhereWithAggregatesInput>? NOT) =>
       _$this._NOT = NOT;
 
-  GIntWithAggregatesFilterBuilder? _id;
-  GIntWithAggregatesFilterBuilder get id =>
-      _$this._id ??= GIntWithAggregatesFilterBuilder();
-  set id(GIntWithAggregatesFilterBuilder? id) => _$this._id = id;
+  GBigIntWithAggregatesFilterBuilder? _id;
+  GBigIntWithAggregatesFilterBuilder get id =>
+      _$this._id ??= GBigIntWithAggregatesFilterBuilder();
+  set id(GBigIntWithAggregatesFilterBuilder? id) => _$this._id = id;
 
-  GIntWithAggregatesFilterBuilder? _userId;
-  GIntWithAggregatesFilterBuilder get userId =>
-      _$this._userId ??= GIntWithAggregatesFilterBuilder();
-  set userId(GIntWithAggregatesFilterBuilder? userId) =>
+  GBigIntWithAggregatesFilterBuilder? _userId;
+  GBigIntWithAggregatesFilterBuilder get userId =>
+      _$this._userId ??= GBigIntWithAggregatesFilterBuilder();
+  set userId(GBigIntWithAggregatesFilterBuilder? userId) =>
       _$this._userId = userId;
 
   GDecimalWithAggregatesFilterBuilder? _price;
@@ -74794,6 +77152,8 @@ class GPurchaseOrderSumOrderByAggregateInputBuilder
 
 class _$GPurchaseOrderUpdateInput extends GPurchaseOrderUpdateInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GDecimalFieldUpdateOperationsInput? price;
   @override
   final GEnumPurchaseOrderStatusFieldUpdateOperationsInput? status;
@@ -74811,7 +77171,8 @@ class _$GPurchaseOrderUpdateInput extends GPurchaseOrderUpdateInput {
       (GPurchaseOrderUpdateInputBuilder()..update(updates))._build();
 
   _$GPurchaseOrderUpdateInput._(
-      {this.price,
+      {this.id,
+      this.price,
       this.status,
       this.createdAt,
       this.updatedAt,
@@ -74831,6 +77192,7 @@ class _$GPurchaseOrderUpdateInput extends GPurchaseOrderUpdateInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderUpdateInput &&
+        id == other.id &&
         price == other.price &&
         status == other.status &&
         createdAt == other.createdAt &&
@@ -74842,6 +77204,7 @@ class _$GPurchaseOrderUpdateInput extends GPurchaseOrderUpdateInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -74855,6 +77218,7 @@ class _$GPurchaseOrderUpdateInput extends GPurchaseOrderUpdateInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GPurchaseOrderUpdateInput')
+          ..add('id', id)
           ..add('price', price)
           ..add('status', status)
           ..add('createdAt', createdAt)
@@ -74869,6 +77233,11 @@ class GPurchaseOrderUpdateInputBuilder
     implements
         Builder<GPurchaseOrderUpdateInput, GPurchaseOrderUpdateInputBuilder> {
   _$GPurchaseOrderUpdateInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GDecimalFieldUpdateOperationsInputBuilder? _price;
   GDecimalFieldUpdateOperationsInputBuilder get price =>
@@ -74919,6 +77288,7 @@ class GPurchaseOrderUpdateInputBuilder
   GPurchaseOrderUpdateInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _price = $v.price?.toBuilder();
       _status = $v.status?.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -74948,6 +77318,7 @@ class GPurchaseOrderUpdateInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderUpdateInput._(
+            id: _id?.build(),
             price: _price?.build(),
             status: _status?.build(),
             createdAt: _createdAt?.build(),
@@ -74958,6 +77329,8 @@ class GPurchaseOrderUpdateInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         _price?.build();
         _$failedField = 'status';
@@ -74984,6 +77357,8 @@ class GPurchaseOrderUpdateInputBuilder
 class _$GPurchaseOrderUpdateManyMutationInput
     extends GPurchaseOrderUpdateManyMutationInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GDecimalFieldUpdateOperationsInput? price;
   @override
   final GEnumPurchaseOrderStatusFieldUpdateOperationsInput? status;
@@ -74999,7 +77374,7 @@ class _$GPurchaseOrderUpdateManyMutationInput
           ._build();
 
   _$GPurchaseOrderUpdateManyMutationInput._(
-      {this.price, this.status, this.createdAt, this.updatedAt})
+      {this.id, this.price, this.status, this.createdAt, this.updatedAt})
       : super._();
   @override
   GPurchaseOrderUpdateManyMutationInput rebuild(
@@ -75015,6 +77390,7 @@ class _$GPurchaseOrderUpdateManyMutationInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderUpdateManyMutationInput &&
+        id == other.id &&
         price == other.price &&
         status == other.status &&
         createdAt == other.createdAt &&
@@ -75024,6 +77400,7 @@ class _$GPurchaseOrderUpdateManyMutationInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -75036,6 +77413,7 @@ class _$GPurchaseOrderUpdateManyMutationInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderUpdateManyMutationInput')
+          ..add('id', id)
           ..add('price', price)
           ..add('status', status)
           ..add('createdAt', createdAt)
@@ -75049,6 +77427,11 @@ class GPurchaseOrderUpdateManyMutationInputBuilder
         Builder<GPurchaseOrderUpdateManyMutationInput,
             GPurchaseOrderUpdateManyMutationInputBuilder> {
   _$GPurchaseOrderUpdateManyMutationInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GDecimalFieldUpdateOperationsInputBuilder? _price;
   GDecimalFieldUpdateOperationsInputBuilder get price =>
@@ -75081,6 +77464,7 @@ class GPurchaseOrderUpdateManyMutationInputBuilder
   GPurchaseOrderUpdateManyMutationInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _price = $v.price?.toBuilder();
       _status = $v.status?.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -75109,6 +77493,7 @@ class GPurchaseOrderUpdateManyMutationInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderUpdateManyMutationInput._(
+            id: _id?.build(),
             price: _price?.build(),
             status: _status?.build(),
             createdAt: _createdAt?.build(),
@@ -75117,6 +77502,8 @@ class GPurchaseOrderUpdateManyMutationInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         _price?.build();
         _$failedField = 'status';
@@ -75872,6 +78259,8 @@ class GPurchaseOrderUpdateToOneWithWhereWithoutEntriesInputBuilder
 class _$GPurchaseOrderUpdateWithoutEntriesInput
     extends GPurchaseOrderUpdateWithoutEntriesInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GDecimalFieldUpdateOperationsInput? price;
   @override
   final GEnumPurchaseOrderStatusFieldUpdateOperationsInput? status;
@@ -75889,7 +78278,12 @@ class _$GPurchaseOrderUpdateWithoutEntriesInput
           ._build();
 
   _$GPurchaseOrderUpdateWithoutEntriesInput._(
-      {this.price, this.status, this.createdAt, this.updatedAt, this.user})
+      {this.id,
+      this.price,
+      this.status,
+      this.createdAt,
+      this.updatedAt,
+      this.user})
       : super._();
   @override
   GPurchaseOrderUpdateWithoutEntriesInput rebuild(
@@ -75905,6 +78299,7 @@ class _$GPurchaseOrderUpdateWithoutEntriesInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderUpdateWithoutEntriesInput &&
+        id == other.id &&
         price == other.price &&
         status == other.status &&
         createdAt == other.createdAt &&
@@ -75915,6 +78310,7 @@ class _$GPurchaseOrderUpdateWithoutEntriesInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -75928,6 +78324,7 @@ class _$GPurchaseOrderUpdateWithoutEntriesInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GPurchaseOrderUpdateWithoutEntriesInput')
+          ..add('id', id)
           ..add('price', price)
           ..add('status', status)
           ..add('createdAt', createdAt)
@@ -75942,6 +78339,11 @@ class GPurchaseOrderUpdateWithoutEntriesInputBuilder
         Builder<GPurchaseOrderUpdateWithoutEntriesInput,
             GPurchaseOrderUpdateWithoutEntriesInputBuilder> {
   _$GPurchaseOrderUpdateWithoutEntriesInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GDecimalFieldUpdateOperationsInputBuilder? _price;
   GDecimalFieldUpdateOperationsInputBuilder get price =>
@@ -75983,6 +78385,7 @@ class GPurchaseOrderUpdateWithoutEntriesInputBuilder
   GPurchaseOrderUpdateWithoutEntriesInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _price = $v.price?.toBuilder();
       _status = $v.status?.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -76012,6 +78415,7 @@ class GPurchaseOrderUpdateWithoutEntriesInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderUpdateWithoutEntriesInput._(
+            id: _id?.build(),
             price: _price?.build(),
             status: _status?.build(),
             createdAt: _createdAt?.build(),
@@ -76021,6 +78425,8 @@ class GPurchaseOrderUpdateWithoutEntriesInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         _price?.build();
         _$failedField = 'status';
@@ -76047,6 +78453,8 @@ class GPurchaseOrderUpdateWithoutEntriesInputBuilder
 class _$GPurchaseOrderUpdateWithoutUserInput
     extends GPurchaseOrderUpdateWithoutUserInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GDecimalFieldUpdateOperationsInput? price;
   @override
   final GEnumPurchaseOrderStatusFieldUpdateOperationsInput? status;
@@ -76063,7 +78471,12 @@ class _$GPurchaseOrderUpdateWithoutUserInput
       (GPurchaseOrderUpdateWithoutUserInputBuilder()..update(updates))._build();
 
   _$GPurchaseOrderUpdateWithoutUserInput._(
-      {this.price, this.status, this.createdAt, this.updatedAt, this.entries})
+      {this.id,
+      this.price,
+      this.status,
+      this.createdAt,
+      this.updatedAt,
+      this.entries})
       : super._();
   @override
   GPurchaseOrderUpdateWithoutUserInput rebuild(
@@ -76078,6 +78491,7 @@ class _$GPurchaseOrderUpdateWithoutUserInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GPurchaseOrderUpdateWithoutUserInput &&
+        id == other.id &&
         price == other.price &&
         status == other.status &&
         createdAt == other.createdAt &&
@@ -76088,6 +78502,7 @@ class _$GPurchaseOrderUpdateWithoutUserInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, createdAt.hashCode);
@@ -76100,6 +78515,7 @@ class _$GPurchaseOrderUpdateWithoutUserInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GPurchaseOrderUpdateWithoutUserInput')
+          ..add('id', id)
           ..add('price', price)
           ..add('status', status)
           ..add('createdAt', createdAt)
@@ -76114,6 +78530,11 @@ class GPurchaseOrderUpdateWithoutUserInputBuilder
         Builder<GPurchaseOrderUpdateWithoutUserInput,
             GPurchaseOrderUpdateWithoutUserInputBuilder> {
   _$GPurchaseOrderUpdateWithoutUserInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GDecimalFieldUpdateOperationsInputBuilder? _price;
   GDecimalFieldUpdateOperationsInputBuilder get price =>
@@ -76155,6 +78576,7 @@ class GPurchaseOrderUpdateWithoutUserInputBuilder
   GPurchaseOrderUpdateWithoutUserInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _price = $v.price?.toBuilder();
       _status = $v.status?.toBuilder();
       _createdAt = $v.createdAt?.toBuilder();
@@ -76184,6 +78606,7 @@ class GPurchaseOrderUpdateWithoutUserInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderUpdateWithoutUserInput._(
+            id: _id?.build(),
             price: _price?.build(),
             status: _status?.build(),
             createdAt: _createdAt?.build(),
@@ -76193,6 +78616,8 @@ class GPurchaseOrderUpdateWithoutUserInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'price';
         _price?.build();
         _$failedField = 'status';
@@ -76638,9 +79063,9 @@ class _$GPurchaseOrderWhereInput extends GPurchaseOrderWhereInput {
   @override
   final BuiltList<GPurchaseOrderWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GDecimalFilter? price;
   @override
@@ -76753,13 +79178,13 @@ class GPurchaseOrderWhereInputBuilder
       _$this._NOT ??= ListBuilder<GPurchaseOrderWhereInput>();
   set NOT(ListBuilder<GPurchaseOrderWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GDecimalFilterBuilder? _price;
   GDecimalFilterBuilder get price => _$this._price ??= GDecimalFilterBuilder();
@@ -76883,7 +79308,7 @@ class GPurchaseOrderWhereInputBuilder
 
 class _$GPurchaseOrderWhereUniqueInput extends GPurchaseOrderWhereUniqueInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final BuiltList<GPurchaseOrderWhereInput>? AND;
   @override
@@ -76891,7 +79316,7 @@ class _$GPurchaseOrderWhereUniqueInput extends GPurchaseOrderWhereUniqueInput {
   @override
   final BuiltList<GPurchaseOrderWhereInput>? NOT;
   @override
-  final GIntFilter? userId;
+  final GBigIntFilter? userId;
   @override
   final GDecimalFilter? price;
   @override
@@ -76990,9 +79415,9 @@ class GPurchaseOrderWhereUniqueInputBuilder
             GPurchaseOrderWhereUniqueInputBuilder> {
   _$GPurchaseOrderWhereUniqueInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   ListBuilder<GPurchaseOrderWhereInput>? _AND;
   ListBuilder<GPurchaseOrderWhereInput> get AND =>
@@ -77009,9 +79434,9 @@ class GPurchaseOrderWhereUniqueInputBuilder
       _$this._NOT ??= ListBuilder<GPurchaseOrderWhereInput>();
   set NOT(ListBuilder<GPurchaseOrderWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _userId;
-  GIntFilterBuilder get userId => _$this._userId ??= GIntFilterBuilder();
-  set userId(GIntFilterBuilder? userId) => _$this._userId = userId;
+  GBigIntFilterBuilder? _userId;
+  GBigIntFilterBuilder get userId => _$this._userId ??= GBigIntFilterBuilder();
+  set userId(GBigIntFilterBuilder? userId) => _$this._userId = userId;
 
   GDecimalFilterBuilder? _price;
   GDecimalFilterBuilder get price => _$this._price ??= GDecimalFilterBuilder();
@@ -77051,7 +79476,7 @@ class GPurchaseOrderWhereUniqueInputBuilder
   GPurchaseOrderWhereUniqueInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _AND = $v.AND?.toBuilder();
       _OR = $v.OR?.toBuilder();
       _NOT = $v.NOT?.toBuilder();
@@ -77085,7 +79510,7 @@ class GPurchaseOrderWhereUniqueInputBuilder
     try {
       _$result = _$v ??
           _$GPurchaseOrderWhereUniqueInput._(
-            id: id,
+            id: _id?.build(),
             AND: _AND?.build(),
             OR: _OR?.build(),
             NOT: _NOT?.build(),
@@ -77100,6 +79525,8 @@ class GPurchaseOrderWhereUniqueInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'AND';
         _AND?.build();
         _$failedField = 'OR';
@@ -79727,6 +82154,8 @@ class GUserCreateOrConnectWithoutPurchaseOrdersInputBuilder
 class _$GUserCreateWithoutAccessTokensInput
     extends GUserCreateWithoutAccessTokensInput {
   @override
+  final GBigInt? id;
+  @override
   final String name;
   @override
   final String phoneNumber;
@@ -79761,7 +82190,8 @@ class _$GUserCreateWithoutAccessTokensInput
       (GUserCreateWithoutAccessTokensInputBuilder()..update(updates))._build();
 
   _$GUserCreateWithoutAccessTokensInput._(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.phoneNumber,
       required this.otp,
       required this.otpCreatedAt,
@@ -79789,6 +82219,7 @@ class _$GUserCreateWithoutAccessTokensInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserCreateWithoutAccessTokensInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -79808,6 +82239,7 @@ class _$GUserCreateWithoutAccessTokensInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -79829,6 +82261,7 @@ class _$GUserCreateWithoutAccessTokensInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GUserCreateWithoutAccessTokensInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -79852,6 +82285,10 @@ class GUserCreateWithoutAccessTokensInputBuilder
         Builder<GUserCreateWithoutAccessTokensInput,
             GUserCreateWithoutAccessTokensInputBuilder> {
   _$GUserCreateWithoutAccessTokensInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -79933,6 +82370,7 @@ class GUserCreateWithoutAccessTokensInputBuilder
   GUserCreateWithoutAccessTokensInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _phoneNumber = $v.phoneNumber;
       _otp = $v.otp;
@@ -79971,6 +82409,7 @@ class GUserCreateWithoutAccessTokensInputBuilder
     try {
       _$result = _$v ??
           _$GUserCreateWithoutAccessTokensInput._(
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GUserCreateWithoutAccessTokensInput', 'name'),
             phoneNumber: BuiltValueNullFieldError.checkNotNull(phoneNumber,
@@ -79995,6 +82434,9 @@ class GUserCreateWithoutAccessTokensInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'otpCreatedAt';
         otpCreatedAt.build();
 
@@ -80024,6 +82466,8 @@ class GUserCreateWithoutAccessTokensInputBuilder
 }
 
 class _$GUserCreateWithoutItemsInput extends GUserCreateWithoutItemsInput {
+  @override
+  final GBigInt? id;
   @override
   final String name;
   @override
@@ -80058,7 +82502,8 @@ class _$GUserCreateWithoutItemsInput extends GUserCreateWithoutItemsInput {
       (GUserCreateWithoutItemsInputBuilder()..update(updates))._build();
 
   _$GUserCreateWithoutItemsInput._(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.phoneNumber,
       required this.otp,
       required this.otpCreatedAt,
@@ -80086,6 +82531,7 @@ class _$GUserCreateWithoutItemsInput extends GUserCreateWithoutItemsInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserCreateWithoutItemsInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -80105,6 +82551,7 @@ class _$GUserCreateWithoutItemsInput extends GUserCreateWithoutItemsInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -80126,6 +82573,7 @@ class _$GUserCreateWithoutItemsInput extends GUserCreateWithoutItemsInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GUserCreateWithoutItemsInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -80149,6 +82597,10 @@ class GUserCreateWithoutItemsInputBuilder
         Builder<GUserCreateWithoutItemsInput,
             GUserCreateWithoutItemsInputBuilder> {
   _$GUserCreateWithoutItemsInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -80232,6 +82684,7 @@ class GUserCreateWithoutItemsInputBuilder
   GUserCreateWithoutItemsInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _phoneNumber = $v.phoneNumber;
       _otp = $v.otp;
@@ -80269,6 +82722,7 @@ class GUserCreateWithoutItemsInputBuilder
     try {
       _$result = _$v ??
           _$GUserCreateWithoutItemsInput._(
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GUserCreateWithoutItemsInput', 'name'),
             phoneNumber: BuiltValueNullFieldError.checkNotNull(
@@ -80293,6 +82747,9 @@ class GUserCreateWithoutItemsInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'otpCreatedAt';
         otpCreatedAt.build();
 
@@ -80322,6 +82779,8 @@ class GUserCreateWithoutItemsInputBuilder
 }
 
 class _$GUserCreateWithoutLoginsInput extends GUserCreateWithoutLoginsInput {
+  @override
+  final GBigInt? id;
   @override
   final String name;
   @override
@@ -80356,7 +82815,8 @@ class _$GUserCreateWithoutLoginsInput extends GUserCreateWithoutLoginsInput {
       (GUserCreateWithoutLoginsInputBuilder()..update(updates))._build();
 
   _$GUserCreateWithoutLoginsInput._(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.phoneNumber,
       required this.otp,
       required this.otpCreatedAt,
@@ -80384,6 +82844,7 @@ class _$GUserCreateWithoutLoginsInput extends GUserCreateWithoutLoginsInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserCreateWithoutLoginsInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -80403,6 +82864,7 @@ class _$GUserCreateWithoutLoginsInput extends GUserCreateWithoutLoginsInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -80424,6 +82886,7 @@ class _$GUserCreateWithoutLoginsInput extends GUserCreateWithoutLoginsInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GUserCreateWithoutLoginsInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -80447,6 +82910,10 @@ class GUserCreateWithoutLoginsInputBuilder
         Builder<GUserCreateWithoutLoginsInput,
             GUserCreateWithoutLoginsInputBuilder> {
   _$GUserCreateWithoutLoginsInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -80530,6 +82997,7 @@ class GUserCreateWithoutLoginsInputBuilder
   GUserCreateWithoutLoginsInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _phoneNumber = $v.phoneNumber;
       _otp = $v.otp;
@@ -80567,6 +83035,7 @@ class GUserCreateWithoutLoginsInputBuilder
     try {
       _$result = _$v ??
           _$GUserCreateWithoutLoginsInput._(
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GUserCreateWithoutLoginsInput', 'name'),
             phoneNumber: BuiltValueNullFieldError.checkNotNull(
@@ -80591,6 +83060,9 @@ class GUserCreateWithoutLoginsInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'otpCreatedAt';
         otpCreatedAt.build();
 
@@ -80621,6 +83093,8 @@ class GUserCreateWithoutLoginsInputBuilder
 
 class _$GUserCreateWithoutPurchaseOrdersInput
     extends GUserCreateWithoutPurchaseOrdersInput {
+  @override
+  final GBigInt? id;
   @override
   final String name;
   @override
@@ -80657,7 +83131,8 @@ class _$GUserCreateWithoutPurchaseOrdersInput
           ._build();
 
   _$GUserCreateWithoutPurchaseOrdersInput._(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.phoneNumber,
       required this.otp,
       required this.otpCreatedAt,
@@ -80686,6 +83161,7 @@ class _$GUserCreateWithoutPurchaseOrdersInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserCreateWithoutPurchaseOrdersInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -80705,6 +83181,7 @@ class _$GUserCreateWithoutPurchaseOrdersInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -80727,6 +83204,7 @@ class _$GUserCreateWithoutPurchaseOrdersInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GUserCreateWithoutPurchaseOrdersInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -80750,6 +83228,10 @@ class GUserCreateWithoutPurchaseOrdersInputBuilder
         Builder<GUserCreateWithoutPurchaseOrdersInput,
             GUserCreateWithoutPurchaseOrdersInputBuilder> {
   _$GUserCreateWithoutPurchaseOrdersInput? _$v;
+
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _name;
   String? get name => _$this._name;
@@ -80830,6 +83312,7 @@ class GUserCreateWithoutPurchaseOrdersInputBuilder
   GUserCreateWithoutPurchaseOrdersInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name;
       _phoneNumber = $v.phoneNumber;
       _otp = $v.otp;
@@ -80868,6 +83351,7 @@ class GUserCreateWithoutPurchaseOrdersInputBuilder
     try {
       _$result = _$v ??
           _$GUserCreateWithoutPurchaseOrdersInput._(
+            id: _id?.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GUserCreateWithoutPurchaseOrdersInput', 'name'),
             phoneNumber: BuiltValueNullFieldError.checkNotNull(phoneNumber,
@@ -80892,6 +83376,9 @@ class GUserCreateWithoutPurchaseOrdersInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'otpCreatedAt';
         otpCreatedAt.build();
 
@@ -82573,6 +85060,8 @@ class GUserUpdateToOneWithWhereWithoutPurchaseOrdersInputBuilder
 class _$GUserUpdateWithoutAccessTokensInput
     extends GUserUpdateWithoutAccessTokensInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GStringFieldUpdateOperationsInput? phoneNumber;
@@ -82607,7 +85096,8 @@ class _$GUserUpdateWithoutAccessTokensInput
       (GUserUpdateWithoutAccessTokensInputBuilder()..update(updates))._build();
 
   _$GUserUpdateWithoutAccessTokensInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.phoneNumber,
       this.otp,
       this.otpCreatedAt,
@@ -82635,6 +85125,7 @@ class _$GUserUpdateWithoutAccessTokensInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserUpdateWithoutAccessTokensInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -82654,6 +85145,7 @@ class _$GUserUpdateWithoutAccessTokensInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -82675,6 +85167,7 @@ class _$GUserUpdateWithoutAccessTokensInput
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GUserUpdateWithoutAccessTokensInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -82698,6 +85191,11 @@ class GUserUpdateWithoutAccessTokensInputBuilder
         Builder<GUserUpdateWithoutAccessTokensInput,
             GUserUpdateWithoutAccessTokensInputBuilder> {
   _$GUserUpdateWithoutAccessTokensInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -82795,6 +85293,7 @@ class GUserUpdateWithoutAccessTokensInputBuilder
   GUserUpdateWithoutAccessTokensInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _phoneNumber = $v.phoneNumber?.toBuilder();
       _otp = $v.otp?.toBuilder();
@@ -82833,6 +85332,7 @@ class GUserUpdateWithoutAccessTokensInputBuilder
     try {
       _$result = _$v ??
           _$GUserUpdateWithoutAccessTokensInput._(
+            id: _id?.build(),
             name: _name?.build(),
             phoneNumber: _phoneNumber?.build(),
             otp: _otp?.build(),
@@ -82851,6 +85351,8 @@ class GUserUpdateWithoutAccessTokensInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'phoneNumber';
@@ -82892,6 +85394,8 @@ class GUserUpdateWithoutAccessTokensInputBuilder
 
 class _$GUserUpdateWithoutItemsInput extends GUserUpdateWithoutItemsInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GStringFieldUpdateOperationsInput? phoneNumber;
@@ -82925,7 +85429,8 @@ class _$GUserUpdateWithoutItemsInput extends GUserUpdateWithoutItemsInput {
       (GUserUpdateWithoutItemsInputBuilder()..update(updates))._build();
 
   _$GUserUpdateWithoutItemsInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.phoneNumber,
       this.otp,
       this.otpCreatedAt,
@@ -82953,6 +85458,7 @@ class _$GUserUpdateWithoutItemsInput extends GUserUpdateWithoutItemsInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserUpdateWithoutItemsInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -82972,6 +85478,7 @@ class _$GUserUpdateWithoutItemsInput extends GUserUpdateWithoutItemsInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -82993,6 +85500,7 @@ class _$GUserUpdateWithoutItemsInput extends GUserUpdateWithoutItemsInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GUserUpdateWithoutItemsInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -83016,6 +85524,11 @@ class GUserUpdateWithoutItemsInputBuilder
         Builder<GUserUpdateWithoutItemsInput,
             GUserUpdateWithoutItemsInputBuilder> {
   _$GUserUpdateWithoutItemsInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -83115,6 +85628,7 @@ class GUserUpdateWithoutItemsInputBuilder
   GUserUpdateWithoutItemsInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _phoneNumber = $v.phoneNumber?.toBuilder();
       _otp = $v.otp?.toBuilder();
@@ -83152,6 +85666,7 @@ class GUserUpdateWithoutItemsInputBuilder
     try {
       _$result = _$v ??
           _$GUserUpdateWithoutItemsInput._(
+            id: _id?.build(),
             name: _name?.build(),
             phoneNumber: _phoneNumber?.build(),
             otp: _otp?.build(),
@@ -83170,6 +85685,8 @@ class GUserUpdateWithoutItemsInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'phoneNumber';
@@ -83211,6 +85728,8 @@ class GUserUpdateWithoutItemsInputBuilder
 
 class _$GUserUpdateWithoutLoginsInput extends GUserUpdateWithoutLoginsInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GStringFieldUpdateOperationsInput? phoneNumber;
@@ -83244,7 +85763,8 @@ class _$GUserUpdateWithoutLoginsInput extends GUserUpdateWithoutLoginsInput {
       (GUserUpdateWithoutLoginsInputBuilder()..update(updates))._build();
 
   _$GUserUpdateWithoutLoginsInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.phoneNumber,
       this.otp,
       this.otpCreatedAt,
@@ -83272,6 +85792,7 @@ class _$GUserUpdateWithoutLoginsInput extends GUserUpdateWithoutLoginsInput {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserUpdateWithoutLoginsInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -83291,6 +85812,7 @@ class _$GUserUpdateWithoutLoginsInput extends GUserUpdateWithoutLoginsInput {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -83312,6 +85834,7 @@ class _$GUserUpdateWithoutLoginsInput extends GUserUpdateWithoutLoginsInput {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GUserUpdateWithoutLoginsInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -83335,6 +85858,11 @@ class GUserUpdateWithoutLoginsInputBuilder
         Builder<GUserUpdateWithoutLoginsInput,
             GUserUpdateWithoutLoginsInputBuilder> {
   _$GUserUpdateWithoutLoginsInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -83434,6 +85962,7 @@ class GUserUpdateWithoutLoginsInputBuilder
   GUserUpdateWithoutLoginsInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _phoneNumber = $v.phoneNumber?.toBuilder();
       _otp = $v.otp?.toBuilder();
@@ -83471,6 +86000,7 @@ class GUserUpdateWithoutLoginsInputBuilder
     try {
       _$result = _$v ??
           _$GUserUpdateWithoutLoginsInput._(
+            id: _id?.build(),
             name: _name?.build(),
             phoneNumber: _phoneNumber?.build(),
             otp: _otp?.build(),
@@ -83489,6 +86019,8 @@ class GUserUpdateWithoutLoginsInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'phoneNumber';
@@ -83531,6 +86063,8 @@ class GUserUpdateWithoutLoginsInputBuilder
 class _$GUserUpdateWithoutPurchaseOrdersInput
     extends GUserUpdateWithoutPurchaseOrdersInput {
   @override
+  final GBigIntFieldUpdateOperationsInput? id;
+  @override
   final GStringFieldUpdateOperationsInput? name;
   @override
   final GStringFieldUpdateOperationsInput? phoneNumber;
@@ -83566,7 +86100,8 @@ class _$GUserUpdateWithoutPurchaseOrdersInput
           ._build();
 
   _$GUserUpdateWithoutPurchaseOrdersInput._(
-      {this.name,
+      {this.id,
+      this.name,
       this.phoneNumber,
       this.otp,
       this.otpCreatedAt,
@@ -83595,6 +86130,7 @@ class _$GUserUpdateWithoutPurchaseOrdersInput
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is GUserUpdateWithoutPurchaseOrdersInput &&
+        id == other.id &&
         name == other.name &&
         phoneNumber == other.phoneNumber &&
         otp == other.otp &&
@@ -83614,6 +86150,7 @@ class _$GUserUpdateWithoutPurchaseOrdersInput
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, otp.hashCode);
@@ -83636,6 +86173,7 @@ class _$GUserUpdateWithoutPurchaseOrdersInput
   String toString() {
     return (newBuiltValueToStringHelper(
             r'GUserUpdateWithoutPurchaseOrdersInput')
+          ..add('id', id)
           ..add('name', name)
           ..add('phoneNumber', phoneNumber)
           ..add('otp', otp)
@@ -83659,6 +86197,11 @@ class GUserUpdateWithoutPurchaseOrdersInputBuilder
         Builder<GUserUpdateWithoutPurchaseOrdersInput,
             GUserUpdateWithoutPurchaseOrdersInputBuilder> {
   _$GUserUpdateWithoutPurchaseOrdersInput? _$v;
+
+  GBigIntFieldUpdateOperationsInputBuilder? _id;
+  GBigIntFieldUpdateOperationsInputBuilder get id =>
+      _$this._id ??= GBigIntFieldUpdateOperationsInputBuilder();
+  set id(GBigIntFieldUpdateOperationsInputBuilder? id) => _$this._id = id;
 
   GStringFieldUpdateOperationsInputBuilder? _name;
   GStringFieldUpdateOperationsInputBuilder get name =>
@@ -83755,6 +86298,7 @@ class GUserUpdateWithoutPurchaseOrdersInputBuilder
   GUserUpdateWithoutPurchaseOrdersInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id?.toBuilder();
       _name = $v.name?.toBuilder();
       _phoneNumber = $v.phoneNumber?.toBuilder();
       _otp = $v.otp?.toBuilder();
@@ -83793,6 +86337,7 @@ class GUserUpdateWithoutPurchaseOrdersInputBuilder
     try {
       _$result = _$v ??
           _$GUserUpdateWithoutPurchaseOrdersInput._(
+            id: _id?.build(),
             name: _name?.build(),
             phoneNumber: _phoneNumber?.build(),
             otp: _otp?.build(),
@@ -83811,6 +86356,8 @@ class GUserUpdateWithoutPurchaseOrdersInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
         _$failedField = 'name';
         _name?.build();
         _$failedField = 'phoneNumber';
@@ -84395,7 +86942,7 @@ class _$GUserWhereInput extends GUserWhereInput {
   @override
   final BuiltList<GUserWhereInput>? NOT;
   @override
-  final GIntFilter? id;
+  final GBigIntFilter? id;
   @override
   final GStringFilter? name;
   @override
@@ -84554,9 +87101,9 @@ class GUserWhereInputBuilder
       _$this._NOT ??= ListBuilder<GUserWhereInput>();
   set NOT(ListBuilder<GUserWhereInput>? NOT) => _$this._NOT = NOT;
 
-  GIntFilterBuilder? _id;
-  GIntFilterBuilder get id => _$this._id ??= GIntFilterBuilder();
-  set id(GIntFilterBuilder? id) => _$this._id = id;
+  GBigIntFilterBuilder? _id;
+  GBigIntFilterBuilder get id => _$this._id ??= GBigIntFilterBuilder();
+  set id(GBigIntFilterBuilder? id) => _$this._id = id;
 
   GStringFilterBuilder? _name;
   GStringFilterBuilder get name => _$this._name ??= GStringFilterBuilder();
@@ -84760,7 +87307,7 @@ class GUserWhereInputBuilder
 
 class _$GUserWhereUniqueInput extends GUserWhereUniqueInput {
   @override
-  final int? id;
+  final GBigInt? id;
   @override
   final String? phoneNumber;
   @override
@@ -84913,9 +87460,9 @@ class GUserWhereUniqueInputBuilder
     implements Builder<GUserWhereUniqueInput, GUserWhereUniqueInputBuilder> {
   _$GUserWhereUniqueInput? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  GBigIntBuilder? _id;
+  GBigIntBuilder get id => _$this._id ??= GBigIntBuilder();
+  set id(GBigIntBuilder? id) => _$this._id = id;
 
   String? _phoneNumber;
   String? get phoneNumber => _$this._phoneNumber;
@@ -85016,7 +87563,7 @@ class GUserWhereUniqueInputBuilder
   GUserWhereUniqueInputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id;
+      _id = $v.id?.toBuilder();
       _phoneNumber = $v.phoneNumber;
       _email = $v.email;
       _AND = $v.AND?.toBuilder();
@@ -85058,7 +87605,7 @@ class GUserWhereUniqueInputBuilder
     try {
       _$result = _$v ??
           _$GUserWhereUniqueInput._(
-            id: id,
+            id: _id?.build(),
             phoneNumber: phoneNumber,
             email: email,
             AND: _AND?.build(),
@@ -85081,6 +87628,9 @@ class GUserWhereUniqueInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'id';
+        _id?.build();
+
         _$failedField = 'AND';
         _AND?.build();
         _$failedField = 'OR';

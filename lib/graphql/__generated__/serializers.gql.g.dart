@@ -32,6 +32,12 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(GAccessTokenUpsertWithoutLoginsInput.serializer)
       ..add(GAccessTokenWhereInput.serializer)
       ..add(GAccessTokenWhereUniqueInput.serializer)
+      ..add(GBigInt.serializer)
+      ..add(GBigIntFieldUpdateOperationsInput.serializer)
+      ..add(GBigIntFilter.serializer)
+      ..add(GBigIntNullableFilter.serializer)
+      ..add(GBigIntNullableWithAggregatesFilter.serializer)
+      ..add(GBigIntWithAggregatesFilter.serializer)
       ..add(GBoolFieldUpdateOperationsInput.serializer)
       ..add(GBoolFilter.serializer)
       ..add(GBoolNullableFilter.serializer)
@@ -74,9 +80,6 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(GFloatNullableWithAggregatesFilter.serializer)
       ..add(GIntFieldUpdateOperationsInput.serializer)
       ..add(GIntFilter.serializer)
-      ..add(GIntNullableFilter.serializer)
-      ..add(GIntNullableWithAggregatesFilter.serializer)
-      ..add(GIntWithAggregatesFilter.serializer)
       ..add(GItemAvgOrderByAggregateInput.serializer)
       ..add(GItemCountOrderByAggregateInput.serializer)
       ..add(GItemCreateInput.serializer)
@@ -163,6 +166,10 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(GLoginUpsertWithWhereUniqueWithoutUserInput.serializer)
       ..add(GLoginWhereInput.serializer)
       ..add(GLoginWhereUniqueInput.serializer)
+      ..add(GNestedBigIntFilter.serializer)
+      ..add(GNestedBigIntNullableFilter.serializer)
+      ..add(GNestedBigIntNullableWithAggregatesFilter.serializer)
+      ..add(GNestedBigIntWithAggregatesFilter.serializer)
       ..add(GNestedBoolFilter.serializer)
       ..add(GNestedBoolNullableFilter.serializer)
       ..add(GNestedBoolNullableWithAggregatesFilter.serializer)
@@ -181,8 +188,6 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(GNestedFloatNullableWithAggregatesFilter.serializer)
       ..add(GNestedIntFilter.serializer)
       ..add(GNestedIntNullableFilter.serializer)
-      ..add(GNestedIntNullableWithAggregatesFilter.serializer)
-      ..add(GNestedIntWithAggregatesFilter.serializer)
       ..add(GNestedStringFilter.serializer)
       ..add(GNestedStringNullableFilter.serializer)
       ..add(GNestedStringNullableWithAggregatesFilter.serializer)
@@ -297,8 +302,6 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(GPurchaseOrderWhereUniqueInput.serializer)
       ..add(GQueryMode.serializer)
       ..add(GRegisterUserData.serializer)
-      ..add(GRegisterUserData_registerUser.serializer)
-      ..add(GRegisterUserData_registerUser_user.serializer)
       ..add(GRegisterUserReq.serializer)
       ..add(GRegisterUserVars.serializer)
       ..add(GRole.serializer)
@@ -456,6 +459,54 @@ Serializers _$serializers = (Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(GAccessTokenWhereInput)]),
           () => ListBuilder<GAccessTokenWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GBigInt)]),
+          () => ListBuilder<GBigInt>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GCurrency)]),
           () => ListBuilder<GCurrency>())
@@ -1338,36 +1389,6 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(double)]),
           () => ListBuilder<double>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => ListBuilder<int>())

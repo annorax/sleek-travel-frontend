@@ -74,7 +74,7 @@ input AccessTokenScalarWhereInput {
   OR: [AccessTokenScalarWhereInput!]
   NOT: [AccessTokenScalarWhereInput!]
   value: StringFilter
-  userId: IntFilter
+  userId: BigIntFilter
   expired: BoolFilter
 }
 
@@ -149,7 +149,7 @@ input AccessTokenWhereInput {
   OR: [AccessTokenWhereInput!]
   NOT: [AccessTokenWhereInput!]
   value: StringFilter
-  userId: IntFilter
+  userId: BigIntFilter
   expired: BoolFilter
   user: UserRelationFilter
   logins: LoginListRelationFilter
@@ -160,7 +160,7 @@ input AccessTokenWhereUniqueInput {
   AND: [AccessTokenWhereInput!]
   OR: [AccessTokenWhereInput!]
   NOT: [AccessTokenWhereInput!]
-  userId: IntFilter
+  userId: BigIntFilter
   expired: BoolFilter
   user: UserRelationFilter
   logins: LoginListRelationFilter
@@ -194,6 +194,73 @@ type AggregatePurchaseOrder {
   _max: PurchaseOrderMaxAggregate
 }
 
+"""
+The `BigInt` scalar type represents non-fractional signed whole numeric values.
+"""
+scalar BigInt
+
+input BigIntFieldUpdateOperationsInput {
+  set: BigInt
+  increment: BigInt
+  decrement: BigInt
+  multiply: BigInt
+  divide: BigInt
+}
+
+input BigIntFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntFilter
+}
+
+input BigIntNullableFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntNullableFilter
+}
+
+input BigIntNullableWithAggregatesFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _sum: NestedBigIntNullableFilter
+  _min: NestedBigIntNullableFilter
+  _max: NestedBigIntNullableFilter
+}
+
+input BigIntWithAggregatesFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedBigIntFilter
+  _min: NestedBigIntFilter
+  _max: NestedBigIntFilter
+}
+
 input BoolFieldUpdateOperationsInput {
   set: Boolean
 }
@@ -217,12 +284,12 @@ input BoolNullableWithAggregatesFilter {
 }
 
 type CreateManyAndReturnItem {
-  id: Int!
-  userId: Int!
+  id: BigInt!
+  userId: BigInt!
   code: String!
   name: String!
   description: String
-  productId: Int
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -234,7 +301,7 @@ type CreateManyAndReturnItem {
 }
 
 type CreateManyAndReturnProduct {
-  id: Int!
+  id: BigInt!
   name: String!
   upc: String
   upcScanned: Boolean
@@ -255,8 +322,8 @@ type CreateManyAndReturnProduct {
 }
 
 type CreateManyAndReturnPurchaseOrder {
-  id: Int!
-  userId: Int!
+  id: BigInt!
+  userId: BigInt!
   price: Decimal!
   status: PurchaseOrderStatus!
   createdAt: DateTimeISO!
@@ -456,56 +523,13 @@ input IntFilter {
   not: NestedIntFilter
 }
 
-input IntNullableFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntNullableFilter
-}
-
-input IntNullableWithAggregatesFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntNullableWithAggregatesFilter
-  _count: NestedIntNullableFilter
-  _avg: NestedFloatNullableFilter
-  _sum: NestedIntNullableFilter
-  _min: NestedIntNullableFilter
-  _max: NestedIntNullableFilter
-}
-
-input IntWithAggregatesFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntWithAggregatesFilter
-  _count: NestedIntFilter
-  _avg: NestedFloatFilter
-  _sum: NestedIntFilter
-  _min: NestedIntFilter
-  _max: NestedIntFilter
-}
-
 type Item {
-  id: Int!
-  userId: Int!
+  id: BigInt!
+  userId: BigInt!
   code: String!
   name: String!
   description: String
-  productId: Int
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -564,6 +588,7 @@ input ItemCountOrderByAggregateInput {
 }
 
 input ItemCreateInput {
+  id: BigInt
   code: String!
   name: String!
   description: String
@@ -578,12 +603,12 @@ input ItemCreateInput {
 }
 
 input ItemCreateManyInput {
-  id: Int
-  userId: Int!
+  id: BigInt
+  userId: BigInt!
   code: String!
   name: String!
   description: String
-  productId: Int
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -593,8 +618,8 @@ input ItemCreateManyInput {
 }
 
 input ItemCreateManyProductInput {
-  id: Int
-  userId: Int!
+  id: BigInt
+  userId: BigInt!
   code: String!
   name: String!
   description: String
@@ -612,11 +637,11 @@ input ItemCreateManyProductInputEnvelope {
 }
 
 input ItemCreateManyUserInput {
-  id: Int
+  id: BigInt
   code: String!
   name: String!
   description: String
-  productId: Int
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -655,6 +680,7 @@ input ItemCreateOrConnectWithoutUserInput {
 }
 
 input ItemCreateWithoutProductInput {
+  id: BigInt
   code: String!
   name: String!
   description: String
@@ -668,6 +694,7 @@ input ItemCreateWithoutProductInput {
 }
 
 input ItemCreateWithoutUserInput {
+  id: BigInt
   code: String!
   name: String!
   description: String
@@ -681,12 +708,12 @@ input ItemCreateWithoutUserInput {
 }
 
 type ItemGroupBy {
-  id: Int!
-  userId: Int!
+  id: BigInt!
+  userId: BigInt!
   code: String!
   name: String!
   description: String
-  productId: Int
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -707,12 +734,12 @@ input ItemListRelationFilter {
 }
 
 type ItemMaxAggregate {
-  id: Int
-  userId: Int
+  id: BigInt
+  userId: BigInt
   code: String
   name: String
   description: String
-  productId: Int
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -737,12 +764,12 @@ input ItemMaxOrderByAggregateInput {
 }
 
 type ItemMinAggregate {
-  id: Int
-  userId: Int
+  id: BigInt
+  userId: BigInt
   code: String
   name: String
   description: String
-  productId: Int
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -826,12 +853,12 @@ input ItemScalarWhereInput {
   AND: [ItemScalarWhereInput!]
   OR: [ItemScalarWhereInput!]
   NOT: [ItemScalarWhereInput!]
-  id: IntFilter
-  userId: IntFilter
+  id: BigIntFilter
+  userId: BigIntFilter
   code: StringFilter
   name: StringFilter
   description: StringNullableFilter
-  productId: IntNullableFilter
+  productId: BigIntNullableFilter
   weightInKgs: FloatNullableFilter
   widthInCms: FloatNullableFilter
   heightInCms: FloatNullableFilter
@@ -844,12 +871,12 @@ input ItemScalarWhereWithAggregatesInput {
   AND: [ItemScalarWhereWithAggregatesInput!]
   OR: [ItemScalarWhereWithAggregatesInput!]
   NOT: [ItemScalarWhereWithAggregatesInput!]
-  id: IntWithAggregatesFilter
-  userId: IntWithAggregatesFilter
+  id: BigIntWithAggregatesFilter
+  userId: BigIntWithAggregatesFilter
   code: StringWithAggregatesFilter
   name: StringWithAggregatesFilter
   description: StringNullableWithAggregatesFilter
-  productId: IntNullableWithAggregatesFilter
+  productId: BigIntNullableWithAggregatesFilter
   weightInKgs: FloatNullableWithAggregatesFilter
   widthInCms: FloatNullableWithAggregatesFilter
   heightInCms: FloatNullableWithAggregatesFilter
@@ -859,9 +886,9 @@ input ItemScalarWhereWithAggregatesInput {
 }
 
 type ItemSumAggregate {
-  id: Int
-  userId: Int
-  productId: Int
+  id: BigInt
+  userId: BigInt
+  productId: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -879,6 +906,7 @@ input ItemSumOrderByAggregateInput {
 }
 
 input ItemUpdateInput {
+  id: BigIntFieldUpdateOperationsInput
   code: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
@@ -893,6 +921,7 @@ input ItemUpdateInput {
 }
 
 input ItemUpdateManyMutationInput {
+  id: BigIntFieldUpdateOperationsInput
   code: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
@@ -943,6 +972,7 @@ input ItemUpdateManyWithWhereWithoutUserInput {
 }
 
 input ItemUpdateWithoutProductInput {
+  id: BigIntFieldUpdateOperationsInput
   code: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
@@ -956,6 +986,7 @@ input ItemUpdateWithoutProductInput {
 }
 
 input ItemUpdateWithoutUserInput {
+  id: BigIntFieldUpdateOperationsInput
   code: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
@@ -994,12 +1025,12 @@ input ItemWhereInput {
   AND: [ItemWhereInput!]
   OR: [ItemWhereInput!]
   NOT: [ItemWhereInput!]
-  id: IntFilter
-  userId: IntFilter
+  id: BigIntFilter
+  userId: BigIntFilter
   code: StringFilter
   name: StringFilter
   description: StringNullableFilter
-  productId: IntNullableFilter
+  productId: BigIntNullableFilter
   weightInKgs: FloatNullableFilter
   widthInCms: FloatNullableFilter
   heightInCms: FloatNullableFilter
@@ -1011,15 +1042,15 @@ input ItemWhereInput {
 }
 
 input ItemWhereUniqueInput {
-  id: Int
+  id: BigInt
   code: String
   AND: [ItemWhereInput!]
   OR: [ItemWhereInput!]
   NOT: [ItemWhereInput!]
-  userId: IntFilter
+  userId: BigIntFilter
   name: StringFilter
   description: StringNullableFilter
-  productId: IntNullableFilter
+  productId: BigIntNullableFilter
   weightInKgs: FloatNullableFilter
   widthInCms: FloatNullableFilter
   heightInCms: FloatNullableFilter
@@ -1031,9 +1062,9 @@ input ItemWhereUniqueInput {
 }
 
 input LoginCreateManyAccessTokenInput {
-  id: Int
+  id: BigInt
   ipAddress: String
-  userId: Int!
+  userId: BigInt!
   explicit: Boolean!
   createdAt: DateTimeISO
 }
@@ -1044,7 +1075,7 @@ input LoginCreateManyAccessTokenInputEnvelope {
 }
 
 input LoginCreateManyUserInput {
-  id: Int
+  id: BigInt
   ipAddress: String
   tokenValue: String!
   explicit: Boolean!
@@ -1081,6 +1112,7 @@ input LoginCreateOrConnectWithoutUserInput {
 }
 
 input LoginCreateWithoutAccessTokenInput {
+  id: BigInt
   ipAddress: String
   explicit: Boolean!
   createdAt: DateTimeISO
@@ -1088,6 +1120,7 @@ input LoginCreateWithoutAccessTokenInput {
 }
 
 input LoginCreateWithoutUserInput {
+  id: BigInt
   ipAddress: String
   explicit: Boolean!
   createdAt: DateTimeISO
@@ -1113,15 +1146,16 @@ input LoginScalarWhereInput {
   AND: [LoginScalarWhereInput!]
   OR: [LoginScalarWhereInput!]
   NOT: [LoginScalarWhereInput!]
-  id: IntFilter
+  id: BigIntFilter
   ipAddress: StringNullableFilter
-  userId: IntFilter
+  userId: BigIntFilter
   tokenValue: StringFilter
   explicit: BoolFilter
   createdAt: DateTimeFilter
 }
 
 input LoginUpdateManyMutationInput {
+  id: BigIntFieldUpdateOperationsInput
   ipAddress: NullableStringFieldUpdateOperationsInput
   explicit: BoolFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -1166,6 +1200,7 @@ input LoginUpdateManyWithWhereWithoutUserInput {
 }
 
 input LoginUpdateWithoutAccessTokenInput {
+  id: BigIntFieldUpdateOperationsInput
   ipAddress: NullableStringFieldUpdateOperationsInput
   explicit: BoolFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -1173,6 +1208,7 @@ input LoginUpdateWithoutAccessTokenInput {
 }
 
 input LoginUpdateWithoutUserInput {
+  id: BigIntFieldUpdateOperationsInput
   ipAddress: NullableStringFieldUpdateOperationsInput
   explicit: BoolFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -1205,9 +1241,9 @@ input LoginWhereInput {
   AND: [LoginWhereInput!]
   OR: [LoginWhereInput!]
   NOT: [LoginWhereInput!]
-  id: IntFilter
+  id: BigIntFilter
   ipAddress: StringNullableFilter
-  userId: IntFilter
+  userId: BigIntFilter
   tokenValue: StringFilter
   explicit: BoolFilter
   createdAt: DateTimeFilter
@@ -1216,12 +1252,12 @@ input LoginWhereInput {
 }
 
 input LoginWhereUniqueInput {
-  id: Int
+  id: BigInt
   AND: [LoginWhereInput!]
   OR: [LoginWhereInput!]
   NOT: [LoginWhereInput!]
   ipAddress: StringNullableFilter
-  userId: IntFilter
+  userId: BigIntFilter
   tokenValue: StringFilter
   explicit: BoolFilter
   createdAt: DateTimeFilter
@@ -1254,7 +1290,7 @@ type Mutation {
   updateManyPurchaseOrder(data: PurchaseOrderUpdateManyMutationInput!, where: PurchaseOrderWhereInput): AffectedRowsOutput!
   updateOnePurchaseOrder(data: PurchaseOrderUpdateInput!, where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
   upsertOnePurchaseOrder(where: PurchaseOrderWhereUniqueInput!, create: PurchaseOrderCreateInput!, update: PurchaseOrderUpdateInput!): PurchaseOrder!
-  registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): LogInPayload!
+  registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): Void!
   resendEmailVerificationRequest(email: String!): Void
   sendPasswordResetLink(emailOrPhone: String!): Void
   resendPhoneNumberVerificationRequest(phoneNumber: String!): Void
@@ -1263,6 +1299,60 @@ type Mutation {
   logInUser(emailOrPhone: String!, password: String!): LogInPayload
   logOutUser: Void
   validateToken(tokenValue: String!): ValidateTokenPayload
+}
+
+input NestedBigIntFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntFilter
+}
+
+input NestedBigIntNullableFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntNullableFilter
+}
+
+input NestedBigIntNullableWithAggregatesFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _avg: NestedFloatNullableFilter
+  _sum: NestedBigIntNullableFilter
+  _min: NestedBigIntNullableFilter
+  _max: NestedBigIntNullableFilter
+}
+
+input NestedBigIntWithAggregatesFilter {
+  equals: BigInt
+  in: [BigInt!]
+  notIn: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: NestedBigIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedBigIntFilter
+  _min: NestedBigIntFilter
+  _max: NestedBigIntFilter
 }
 
 input NestedBoolFilter {
@@ -1447,38 +1537,6 @@ input NestedIntNullableFilter {
   not: NestedIntNullableFilter
 }
 
-input NestedIntNullableWithAggregatesFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntNullableWithAggregatesFilter
-  _count: NestedIntNullableFilter
-  _avg: NestedFloatNullableFilter
-  _sum: NestedIntNullableFilter
-  _min: NestedIntNullableFilter
-  _max: NestedIntNullableFilter
-}
-
-input NestedIntWithAggregatesFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntWithAggregatesFilter
-  _count: NestedIntFilter
-  _avg: NestedFloatFilter
-  _sum: NestedIntFilter
-  _min: NestedIntFilter
-  _max: NestedIntFilter
-}
-
 input NestedStringFilter {
   equals: String
   in: [String!]
@@ -1567,7 +1625,7 @@ enum NullsOrder {
 }
 
 type Product {
-  id: Int!
+  id: BigInt!
   name: String!
   upc: String
   upcScanned: Boolean
@@ -1653,6 +1711,7 @@ input ProductCountOrderByAggregateInput {
 }
 
 input ProductCreateInput {
+  id: BigInt
   name: String!
   upc: String
   upcScanned: Boolean
@@ -1675,7 +1734,7 @@ input ProductCreateInput {
 }
 
 input ProductCreateManyInput {
-  id: Int
+  id: BigInt
   name: String!
   upc: String
   upcScanned: Boolean
@@ -1718,6 +1777,7 @@ input ProductCreateOrConnectWithoutPurchaseOrderEntriesInput {
 }
 
 input ProductCreateWithoutItemsInput {
+  id: BigInt
   name: String!
   upc: String
   upcScanned: Boolean
@@ -1739,6 +1799,7 @@ input ProductCreateWithoutItemsInput {
 }
 
 input ProductCreateWithoutPurchaseOrderEntriesInput {
+  id: BigInt
   name: String!
   upc: String
   upcScanned: Boolean
@@ -1760,7 +1821,7 @@ input ProductCreateWithoutPurchaseOrderEntriesInput {
 }
 
 type ProductGroupBy {
-  id: Int!
+  id: BigInt!
   name: String!
   upc: String
   upcScanned: Boolean
@@ -1786,7 +1847,7 @@ type ProductGroupBy {
 }
 
 type ProductMaxAggregate {
-  id: Int
+  id: BigInt
   name: String
   upc: String
   upcScanned: Boolean
@@ -1828,7 +1889,7 @@ input ProductMaxOrderByAggregateInput {
 }
 
 type ProductMinAggregate {
-  id: Int
+  id: BigInt
   name: String
   upc: String
   upcScanned: Boolean
@@ -1953,7 +2014,7 @@ input ProductScalarWhereWithAggregatesInput {
   AND: [ProductScalarWhereWithAggregatesInput!]
   OR: [ProductScalarWhereWithAggregatesInput!]
   NOT: [ProductScalarWhereWithAggregatesInput!]
-  id: IntWithAggregatesFilter
+  id: BigIntWithAggregatesFilter
   name: StringWithAggregatesFilter
   upc: StringNullableWithAggregatesFilter
   upcScanned: BoolNullableWithAggregatesFilter
@@ -1974,7 +2035,7 @@ input ProductScalarWhereWithAggregatesInput {
 }
 
 type ProductSumAggregate {
-  id: Int
+  id: BigInt
   weightInKgs: Float
   widthInCms: Float
   heightInCms: Float
@@ -1992,6 +2053,7 @@ input ProductSumOrderByAggregateInput {
 }
 
 input ProductUpdateInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   upc: NullableStringFieldUpdateOperationsInput
   upcScanned: NullableBoolFieldUpdateOperationsInput
@@ -2014,6 +2076,7 @@ input ProductUpdateInput {
 }
 
 input ProductUpdateManyMutationInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   upc: NullableStringFieldUpdateOperationsInput
   upcScanned: NullableBoolFieldUpdateOperationsInput
@@ -2062,6 +2125,7 @@ input ProductUpdateToOneWithWhereWithoutPurchaseOrderEntriesInput {
 }
 
 input ProductUpdateWithoutItemsInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   upc: NullableStringFieldUpdateOperationsInput
   upcScanned: NullableBoolFieldUpdateOperationsInput
@@ -2083,6 +2147,7 @@ input ProductUpdateWithoutItemsInput {
 }
 
 input ProductUpdateWithoutPurchaseOrderEntriesInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   upc: NullableStringFieldUpdateOperationsInput
   upcScanned: NullableBoolFieldUpdateOperationsInput
@@ -2119,7 +2184,7 @@ input ProductWhereInput {
   AND: [ProductWhereInput!]
   OR: [ProductWhereInput!]
   NOT: [ProductWhereInput!]
-  id: IntFilter
+  id: BigIntFilter
   name: StringFilter
   upc: StringNullableFilter
   upcScanned: BoolNullableFilter
@@ -2142,7 +2207,7 @@ input ProductWhereInput {
 }
 
 input ProductWhereUniqueInput {
-  id: Int
+  id: BigInt
   AND: [ProductWhereInput!]
   OR: [ProductWhereInput!]
   NOT: [ProductWhereInput!]
@@ -2168,8 +2233,8 @@ input ProductWhereUniqueInput {
 }
 
 type PurchaseOrder {
-  id: Int!
-  userId: Int!
+  id: BigInt!
+  userId: BigInt!
   price: Decimal!
   status: PurchaseOrderStatus!
   _count: PurchaseOrderCount
@@ -2213,6 +2278,7 @@ input PurchaseOrderCountOrderByAggregateInput {
 }
 
 input PurchaseOrderCreateInput {
+  id: BigInt
   price: Decimal!
   status: PurchaseOrderStatus!
   createdAt: DateTimeISO
@@ -2222,8 +2288,8 @@ input PurchaseOrderCreateInput {
 }
 
 input PurchaseOrderCreateManyInput {
-  id: Int
-  userId: Int!
+  id: BigInt
+  userId: BigInt!
   price: Decimal!
   status: PurchaseOrderStatus!
   createdAt: DateTimeISO
@@ -2231,7 +2297,7 @@ input PurchaseOrderCreateManyInput {
 }
 
 input PurchaseOrderCreateManyUserInput {
-  id: Int
+  id: BigInt
   price: Decimal!
   status: PurchaseOrderStatus!
   createdAt: DateTimeISO
@@ -2267,6 +2333,7 @@ input PurchaseOrderCreateOrConnectWithoutUserInput {
 }
 
 input PurchaseOrderCreateWithoutEntriesInput {
+  id: BigInt
   price: Decimal!
   status: PurchaseOrderStatus!
   createdAt: DateTimeISO
@@ -2275,6 +2342,7 @@ input PurchaseOrderCreateWithoutEntriesInput {
 }
 
 input PurchaseOrderCreateWithoutUserInput {
+  id: BigInt
   price: Decimal!
   status: PurchaseOrderStatus!
   createdAt: DateTimeISO
@@ -2283,18 +2351,18 @@ input PurchaseOrderCreateWithoutUserInput {
 }
 
 type PurchaseOrderEntry {
-  id: Int!
-  orderId: Int!
+  id: BigInt!
+  orderId: BigInt!
   quantity: Int!
-  productId: Int!
+  productId: BigInt!
   currency: Currency!
   unitPrice: Decimal!
 }
 
 input PurchaseOrderEntryCreateManyOrderInput {
-  id: Int
+  id: BigInt
   quantity: Int!
-  productId: Int!
+  productId: BigInt!
   currency: Currency!
   unitPrice: Decimal!
   createdAt: DateTimeISO
@@ -2306,8 +2374,8 @@ input PurchaseOrderEntryCreateManyOrderInputEnvelope {
 }
 
 input PurchaseOrderEntryCreateManyProductInput {
-  id: Int
-  orderId: Int!
+  id: BigInt
+  orderId: BigInt!
   quantity: Int!
   currency: Currency!
   unitPrice: Decimal!
@@ -2344,6 +2412,7 @@ input PurchaseOrderEntryCreateOrConnectWithoutProductInput {
 }
 
 input PurchaseOrderEntryCreateWithoutOrderInput {
+  id: BigInt
   quantity: Int!
   currency: Currency!
   unitPrice: Decimal!
@@ -2352,6 +2421,7 @@ input PurchaseOrderEntryCreateWithoutOrderInput {
 }
 
 input PurchaseOrderEntryCreateWithoutProductInput {
+  id: BigInt
   quantity: Int!
   currency: Currency!
   unitPrice: Decimal!
@@ -2395,16 +2465,17 @@ input PurchaseOrderEntryScalarWhereInput {
   AND: [PurchaseOrderEntryScalarWhereInput!]
   OR: [PurchaseOrderEntryScalarWhereInput!]
   NOT: [PurchaseOrderEntryScalarWhereInput!]
-  id: IntFilter
-  orderId: IntFilter
+  id: BigIntFilter
+  orderId: BigIntFilter
   quantity: IntFilter
-  productId: IntFilter
+  productId: BigIntFilter
   currency: EnumCurrencyFilter
   unitPrice: DecimalFilter
   createdAt: DateTimeFilter
 }
 
 input PurchaseOrderEntryUpdateManyMutationInput {
+  id: BigIntFieldUpdateOperationsInput
   quantity: IntFieldUpdateOperationsInput
   currency: EnumCurrencyFieldUpdateOperationsInput
   unitPrice: DecimalFieldUpdateOperationsInput
@@ -2450,6 +2521,7 @@ input PurchaseOrderEntryUpdateManyWithWhereWithoutProductInput {
 }
 
 input PurchaseOrderEntryUpdateWithoutOrderInput {
+  id: BigIntFieldUpdateOperationsInput
   quantity: IntFieldUpdateOperationsInput
   currency: EnumCurrencyFieldUpdateOperationsInput
   unitPrice: DecimalFieldUpdateOperationsInput
@@ -2458,6 +2530,7 @@ input PurchaseOrderEntryUpdateWithoutOrderInput {
 }
 
 input PurchaseOrderEntryUpdateWithoutProductInput {
+  id: BigIntFieldUpdateOperationsInput
   quantity: IntFieldUpdateOperationsInput
   currency: EnumCurrencyFieldUpdateOperationsInput
   unitPrice: DecimalFieldUpdateOperationsInput
@@ -2491,10 +2564,10 @@ input PurchaseOrderEntryWhereInput {
   AND: [PurchaseOrderEntryWhereInput!]
   OR: [PurchaseOrderEntryWhereInput!]
   NOT: [PurchaseOrderEntryWhereInput!]
-  id: IntFilter
-  orderId: IntFilter
+  id: BigIntFilter
+  orderId: BigIntFilter
   quantity: IntFilter
-  productId: IntFilter
+  productId: BigIntFilter
   currency: EnumCurrencyFilter
   unitPrice: DecimalFilter
   createdAt: DateTimeFilter
@@ -2503,13 +2576,13 @@ input PurchaseOrderEntryWhereInput {
 }
 
 input PurchaseOrderEntryWhereUniqueInput {
-  id: Int
+  id: BigInt
   AND: [PurchaseOrderEntryWhereInput!]
   OR: [PurchaseOrderEntryWhereInput!]
   NOT: [PurchaseOrderEntryWhereInput!]
-  orderId: IntFilter
+  orderId: BigIntFilter
   quantity: IntFilter
-  productId: IntFilter
+  productId: BigIntFilter
   currency: EnumCurrencyFilter
   unitPrice: DecimalFilter
   createdAt: DateTimeFilter
@@ -2518,8 +2591,8 @@ input PurchaseOrderEntryWhereUniqueInput {
 }
 
 type PurchaseOrderGroupBy {
-  id: Int!
-  userId: Int!
+  id: BigInt!
+  userId: BigInt!
   price: Decimal!
   status: PurchaseOrderStatus!
   createdAt: DateTimeISO!
@@ -2538,8 +2611,8 @@ input PurchaseOrderListRelationFilter {
 }
 
 type PurchaseOrderMaxAggregate {
-  id: Int
-  userId: Int
+  id: BigInt
+  userId: BigInt
   price: Decimal
   status: PurchaseOrderStatus
   createdAt: DateTimeISO
@@ -2556,8 +2629,8 @@ input PurchaseOrderMaxOrderByAggregateInput {
 }
 
 type PurchaseOrderMinAggregate {
-  id: Int
-  userId: Int
+  id: BigInt
+  userId: BigInt
   price: Decimal
   status: PurchaseOrderStatus
   createdAt: DateTimeISO
@@ -2620,8 +2693,8 @@ input PurchaseOrderScalarWhereInput {
   AND: [PurchaseOrderScalarWhereInput!]
   OR: [PurchaseOrderScalarWhereInput!]
   NOT: [PurchaseOrderScalarWhereInput!]
-  id: IntFilter
-  userId: IntFilter
+  id: BigIntFilter
+  userId: BigIntFilter
   price: DecimalFilter
   status: EnumPurchaseOrderStatusFilter
   createdAt: DateTimeFilter
@@ -2632,8 +2705,8 @@ input PurchaseOrderScalarWhereWithAggregatesInput {
   AND: [PurchaseOrderScalarWhereWithAggregatesInput!]
   OR: [PurchaseOrderScalarWhereWithAggregatesInput!]
   NOT: [PurchaseOrderScalarWhereWithAggregatesInput!]
-  id: IntWithAggregatesFilter
-  userId: IntWithAggregatesFilter
+  id: BigIntWithAggregatesFilter
+  userId: BigIntWithAggregatesFilter
   price: DecimalWithAggregatesFilter
   status: EnumPurchaseOrderStatusWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
@@ -2648,8 +2721,8 @@ enum PurchaseOrderStatus {
 }
 
 type PurchaseOrderSumAggregate {
-  id: Int
-  userId: Int
+  id: BigInt
+  userId: BigInt
   price: Decimal
 }
 
@@ -2660,6 +2733,7 @@ input PurchaseOrderSumOrderByAggregateInput {
 }
 
 input PurchaseOrderUpdateInput {
+  id: BigIntFieldUpdateOperationsInput
   price: DecimalFieldUpdateOperationsInput
   status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2669,6 +2743,7 @@ input PurchaseOrderUpdateInput {
 }
 
 input PurchaseOrderUpdateManyMutationInput {
+  id: BigIntFieldUpdateOperationsInput
   price: DecimalFieldUpdateOperationsInput
   status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2708,6 +2783,7 @@ input PurchaseOrderUpdateToOneWithWhereWithoutEntriesInput {
 }
 
 input PurchaseOrderUpdateWithoutEntriesInput {
+  id: BigIntFieldUpdateOperationsInput
   price: DecimalFieldUpdateOperationsInput
   status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2716,6 +2792,7 @@ input PurchaseOrderUpdateWithoutEntriesInput {
 }
 
 input PurchaseOrderUpdateWithoutUserInput {
+  id: BigIntFieldUpdateOperationsInput
   price: DecimalFieldUpdateOperationsInput
   status: EnumPurchaseOrderStatusFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
@@ -2744,8 +2821,8 @@ input PurchaseOrderWhereInput {
   AND: [PurchaseOrderWhereInput!]
   OR: [PurchaseOrderWhereInput!]
   NOT: [PurchaseOrderWhereInput!]
-  id: IntFilter
-  userId: IntFilter
+  id: BigIntFilter
+  userId: BigIntFilter
   price: DecimalFilter
   status: EnumPurchaseOrderStatusFilter
   createdAt: DateTimeFilter
@@ -2755,11 +2832,11 @@ input PurchaseOrderWhereInput {
 }
 
 input PurchaseOrderWhereUniqueInput {
-  id: Int
+  id: BigInt
   AND: [PurchaseOrderWhereInput!]
   OR: [PurchaseOrderWhereInput!]
   NOT: [PurchaseOrderWhereInput!]
-  userId: IntFilter
+  userId: BigIntFilter
   price: DecimalFilter
   status: EnumPurchaseOrderStatusFilter
   createdAt: DateTimeFilter
@@ -2806,7 +2883,7 @@ enum Role {
 }
 
 type SafeUser {
-  id: Int!
+  id: BigInt!
   name: String!
   phoneNumber: String!
   otp: Int!
@@ -2915,7 +2992,7 @@ input StringWithAggregatesFilter {
 }
 
 type User {
-  id: Int!
+  id: BigInt!
   name: String!
   phoneNumber: String!
   otp: Int!
@@ -2980,6 +3057,7 @@ input UserCreateOrConnectWithoutPurchaseOrdersInput {
 }
 
 input UserCreateWithoutAccessTokensInput {
+  id: BigInt
   name: String!
   phoneNumber: String!
   otp: Int!
@@ -2997,6 +3075,7 @@ input UserCreateWithoutAccessTokensInput {
 }
 
 input UserCreateWithoutItemsInput {
+  id: BigInt
   name: String!
   phoneNumber: String!
   otp: Int!
@@ -3014,6 +3093,7 @@ input UserCreateWithoutItemsInput {
 }
 
 input UserCreateWithoutLoginsInput {
+  id: BigInt
   name: String!
   phoneNumber: String!
   otp: Int!
@@ -3031,6 +3111,7 @@ input UserCreateWithoutLoginsInput {
 }
 
 input UserCreateWithoutPurchaseOrdersInput {
+  id: BigInt
   name: String!
   phoneNumber: String!
   otp: Int!
@@ -3124,6 +3205,7 @@ input UserUpdateToOneWithWhereWithoutPurchaseOrdersInput {
 }
 
 input UserUpdateWithoutAccessTokensInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   phoneNumber: StringFieldUpdateOperationsInput
   otp: IntFieldUpdateOperationsInput
@@ -3141,6 +3223,7 @@ input UserUpdateWithoutAccessTokensInput {
 }
 
 input UserUpdateWithoutItemsInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   phoneNumber: StringFieldUpdateOperationsInput
   otp: IntFieldUpdateOperationsInput
@@ -3158,6 +3241,7 @@ input UserUpdateWithoutItemsInput {
 }
 
 input UserUpdateWithoutLoginsInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   phoneNumber: StringFieldUpdateOperationsInput
   otp: IntFieldUpdateOperationsInput
@@ -3175,6 +3259,7 @@ input UserUpdateWithoutLoginsInput {
 }
 
 input UserUpdateWithoutPurchaseOrdersInput {
+  id: BigIntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   phoneNumber: StringFieldUpdateOperationsInput
   otp: IntFieldUpdateOperationsInput
@@ -3219,7 +3304,7 @@ input UserWhereInput {
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
-  id: IntFilter
+  id: BigIntFilter
   name: StringFilter
   phoneNumber: StringFilter
   otp: IntFilter
@@ -3238,7 +3323,7 @@ input UserWhereInput {
 }
 
 input UserWhereUniqueInput {
-  id: Int
+  id: BigInt
   phoneNumber: String
   email: String
   AND: [UserWhereInput!]

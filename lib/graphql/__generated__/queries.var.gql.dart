@@ -21,7 +21,7 @@ abstract class GListUserItemsVars
 
   _i1.GItemScalarFieldEnum get sortOption;
   _i1.GSortOrder get sortDirection;
-  int get userId;
+  _i1.GBigInt get userId;
   static Serializer<GListUserItemsVars> get serializer =>
       _$gListUserItemsVarsSerializer;
 
@@ -48,7 +48,7 @@ abstract class GListUserPurchaseOrdersVars
 
   _i1.GPurchaseOrderScalarFieldEnum get sortOption;
   _i1.GSortOrder get sortDirection;
-  int get userId;
+  _i1.GBigInt get userId;
   static Serializer<GListUserPurchaseOrdersVars> get serializer =>
       _$gListUserPurchaseOrdersVarsSerializer;
 

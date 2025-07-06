@@ -91,18 +91,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (context.mounted) {
                         showError("Sign up failed", context);
                       }
-                    }
-                    dynamic logInUser = result.data.logInUser;
-                    if (logInUser == null) {
+                    } else {
                       if (context.mounted) {
-                        showError("Sign up failed", context);
+                        showInfo("Sign up successful. Please check your email.", context);
                       }
-                      return;
+                      NavigationManager.instance.pushReplacement(LoginPage.name);
                     }
-                    if (context.mounted) {
-                      showInfo("Sign up successful. Please check your email.", context);
-                    }
-                    NavigationManager.instance.pushReplacement(LoginPage.name);
                   },
                   child: const Text('Create account'),
                 ),

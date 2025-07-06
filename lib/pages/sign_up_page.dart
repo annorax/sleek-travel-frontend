@@ -98,8 +98,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       }
                     } else {
                       if (context.mounted) {
-                        showInfo("Sign up successful. Please check your email.", context);
-                        int code = await showModalBottomSheet(
+                        String code = await showModalBottomSheet(
                           isScrollControlled: true,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -109,6 +108,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           useSafeArea: true
                         );
                         print(code);
+                      }
+                      if (context.mounted) {
+                        showInfo("Sign up successful. Please check your email.", context);
                       }
                       NavigationManager.instance.pushReplacement(LoginPage.name);
                     }

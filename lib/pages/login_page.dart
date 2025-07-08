@@ -84,7 +84,9 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text('Resend verification email'),
                 ),
                 if (resendSMSLink != null) InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    // TODO: implement this
+                  },
                   child: Text('Resend verification sms'),
                 ),
                 const SizedBox(height: 16),
@@ -112,10 +114,10 @@ class _LoginPageState extends State<LoginPage> {
                     if (response.error != null) {
                       setState(() {
                         if (response.error!.toLowerCase().contains('email')) {
-                          showResendEmailLink = true;
+                          resendEmailLink = true;
                         }
                         if (response.error!.toLowerCase().contains('sms')) {
-                          showResendSMSLink = true;
+                          resendSMSLink = true;
                         }
                       });
                     }

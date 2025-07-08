@@ -278,3 +278,57 @@ abstract class GVerifyPhoneNumberVars
         json,
       );
 }
+
+abstract class GResendEmailVerificationRequestVars
+    implements
+        Built<GResendEmailVerificationRequestVars,
+            GResendEmailVerificationRequestVarsBuilder> {
+  GResendEmailVerificationRequestVars._();
+
+  factory GResendEmailVerificationRequestVars(
+      [void Function(GResendEmailVerificationRequestVarsBuilder b)
+          updates]) = _$GResendEmailVerificationRequestVars;
+
+  String get email;
+  static Serializer<GResendEmailVerificationRequestVars> get serializer =>
+      _$gResendEmailVerificationRequestVarsSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GResendEmailVerificationRequestVars.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendEmailVerificationRequestVars? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GResendEmailVerificationRequestVars.serializer,
+        json,
+      );
+}
+
+abstract class GResendPhoneNumberVerificationRequestVars
+    implements
+        Built<GResendPhoneNumberVerificationRequestVars,
+            GResendPhoneNumberVerificationRequestVarsBuilder> {
+  GResendPhoneNumberVerificationRequestVars._();
+
+  factory GResendPhoneNumberVerificationRequestVars(
+      [void Function(GResendPhoneNumberVerificationRequestVarsBuilder b)
+          updates]) = _$GResendPhoneNumberVerificationRequestVars;
+
+  String get phoneNumber;
+  static Serializer<GResendPhoneNumberVerificationRequestVars> get serializer =>
+      _$gResendPhoneNumberVerificationRequestVarsSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GResendPhoneNumberVerificationRequestVars.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendPhoneNumberVerificationRequestVars? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GResendPhoneNumberVerificationRequestVars.serializer,
+        json,
+      );
+}

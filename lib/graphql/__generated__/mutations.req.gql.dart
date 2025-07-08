@@ -888,3 +888,178 @@ abstract class GVerifyPhoneNumberReq
         json,
       );
 }
+
+abstract class GResendEmailVerificationRequestReq
+    implements
+        Built<GResendEmailVerificationRequestReq,
+            GResendEmailVerificationRequestReqBuilder>,
+        _i1.OperationRequest<_i2.GResendEmailVerificationRequestData,
+            _i3.GResendEmailVerificationRequestVars> {
+  GResendEmailVerificationRequestReq._();
+
+  factory GResendEmailVerificationRequestReq(
+      [void Function(GResendEmailVerificationRequestReqBuilder b)
+          updates]) = _$GResendEmailVerificationRequestReq;
+
+  static void _initializeBuilder(GResendEmailVerificationRequestReqBuilder b) =>
+      b
+        ..operation = _i4.Operation(
+          document: _i5.document,
+          operationName: 'ResendEmailVerificationRequest',
+        )
+        ..executeOnListen = true;
+
+  @override
+  _i3.GResendEmailVerificationRequestVars get vars;
+  @override
+  _i4.Operation get operation;
+  @override
+  _i4.Request get execRequest => _i4.Request(
+        operation: operation,
+        variables: vars.toJson(),
+        context: context ?? const _i4.Context(),
+      );
+
+  @override
+  String? get requestId;
+  @override
+  @BuiltValueField(serialize: false)
+  _i2.GResendEmailVerificationRequestData? Function(
+    _i2.GResendEmailVerificationRequestData?,
+    _i2.GResendEmailVerificationRequestData?,
+  )? get updateResult;
+  @override
+  _i2.GResendEmailVerificationRequestData? get optimisticResponse;
+  @override
+  String? get updateCacheHandlerKey;
+  @override
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  @override
+  _i1.FetchPolicy? get fetchPolicy;
+  @override
+  bool get executeOnListen;
+  @override
+  @BuiltValueField(serialize: false)
+  _i4.Context? get context;
+  @override
+  _i2.GResendEmailVerificationRequestData? parseData(
+          Map<String, dynamic> json) =>
+      _i2.GResendEmailVerificationRequestData.fromJson(json);
+
+  @override
+  Map<String, dynamic> varsToJson() => vars.toJson();
+
+  @override
+  Map<String, dynamic> dataToJson(
+          _i2.GResendEmailVerificationRequestData data) =>
+      data.toJson();
+
+  @override
+  _i1.OperationRequest<_i2.GResendEmailVerificationRequestData,
+      _i3.GResendEmailVerificationRequestVars> transformOperation(
+          _i4.Operation Function(_i4.Operation) transform) =>
+      this.rebuild((b) => b..operation = transform(operation));
+
+  static Serializer<GResendEmailVerificationRequestReq> get serializer =>
+      _$gResendEmailVerificationRequestReqSerializer;
+
+  Map<String, dynamic> toJson() => (_i6.serializers.serializeWith(
+        GResendEmailVerificationRequestReq.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendEmailVerificationRequestReq? fromJson(
+          Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(
+        GResendEmailVerificationRequestReq.serializer,
+        json,
+      );
+}
+
+abstract class GResendPhoneNumberVerificationRequestReq
+    implements
+        Built<GResendPhoneNumberVerificationRequestReq,
+            GResendPhoneNumberVerificationRequestReqBuilder>,
+        _i1.OperationRequest<_i2.GResendPhoneNumberVerificationRequestData,
+            _i3.GResendPhoneNumberVerificationRequestVars> {
+  GResendPhoneNumberVerificationRequestReq._();
+
+  factory GResendPhoneNumberVerificationRequestReq(
+      [void Function(GResendPhoneNumberVerificationRequestReqBuilder b)
+          updates]) = _$GResendPhoneNumberVerificationRequestReq;
+
+  static void _initializeBuilder(
+          GResendPhoneNumberVerificationRequestReqBuilder b) =>
+      b
+        ..operation = _i4.Operation(
+          document: _i5.document,
+          operationName: 'ResendPhoneNumberVerificationRequest',
+        )
+        ..executeOnListen = true;
+
+  @override
+  _i3.GResendPhoneNumberVerificationRequestVars get vars;
+  @override
+  _i4.Operation get operation;
+  @override
+  _i4.Request get execRequest => _i4.Request(
+        operation: operation,
+        variables: vars.toJson(),
+        context: context ?? const _i4.Context(),
+      );
+
+  @override
+  String? get requestId;
+  @override
+  @BuiltValueField(serialize: false)
+  _i2.GResendPhoneNumberVerificationRequestData? Function(
+    _i2.GResendPhoneNumberVerificationRequestData?,
+    _i2.GResendPhoneNumberVerificationRequestData?,
+  )? get updateResult;
+  @override
+  _i2.GResendPhoneNumberVerificationRequestData? get optimisticResponse;
+  @override
+  String? get updateCacheHandlerKey;
+  @override
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  @override
+  _i1.FetchPolicy? get fetchPolicy;
+  @override
+  bool get executeOnListen;
+  @override
+  @BuiltValueField(serialize: false)
+  _i4.Context? get context;
+  @override
+  _i2.GResendPhoneNumberVerificationRequestData? parseData(
+          Map<String, dynamic> json) =>
+      _i2.GResendPhoneNumberVerificationRequestData.fromJson(json);
+
+  @override
+  Map<String, dynamic> varsToJson() => vars.toJson();
+
+  @override
+  Map<String, dynamic> dataToJson(
+          _i2.GResendPhoneNumberVerificationRequestData data) =>
+      data.toJson();
+
+  @override
+  _i1.OperationRequest<_i2.GResendPhoneNumberVerificationRequestData,
+      _i3.GResendPhoneNumberVerificationRequestVars> transformOperation(
+          _i4.Operation Function(_i4.Operation) transform) =>
+      this.rebuild((b) => b..operation = transform(operation));
+
+  static Serializer<GResendPhoneNumberVerificationRequestReq> get serializer =>
+      _$gResendPhoneNumberVerificationRequestReqSerializer;
+
+  Map<String, dynamic> toJson() => (_i6.serializers.serializeWith(
+        GResendPhoneNumberVerificationRequestReq.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendPhoneNumberVerificationRequestReq? fromJson(
+          Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(
+        GResendPhoneNumberVerificationRequestReq.serializer,
+        json,
+      );
+}

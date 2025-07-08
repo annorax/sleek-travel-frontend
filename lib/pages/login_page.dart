@@ -2,6 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/main.dart';
 import 'package:sleek_travel_frontend/model/user.model.dart';
@@ -24,6 +25,8 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final GlobalKey emailOrPhoneFieldKey = GlobalKey<FormFieldState>();
   final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
+  bool showResendEmailLink = false;
+  bool showResendSMSLink = false;
 
   @override
   Widget build(BuildContext context) =>
@@ -53,6 +56,17 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
                 ),
                 const SizedBox(height: 16),
+                if (showResendEmailLink) InkWell(
+                  onTap: () {
+                    
+                  },
+                  child: Text('Resend verification email'),
+                ),
+                if (showResendSMSLink) InkWell(
+                  onTap: () {},
+                  child: Text('Resend verification sms'),
+                ),
+                const SizedBox(height: 16),
                 MaterialButton(
                   color: Theme.of(context).colorScheme.secondary,
                   onPressed: () async {
@@ -73,14 +87,23 @@ class _LoginPageState extends State<LoginPage> {
                         showError("Login failed", context);
                       }
                     }
-                    dynamic logInUser = result.data.logInUser;
-                    final token = logInUser.token;
-                    final dynamic safeUser = logInUser.user;
+                    GLogInUserData_logInUser response = result.data.logInUser;
+                    if (response.error != null) {
+                      setState(() {
+                        if (response.error!.toLowerCase().contains('email')) {
+                          showResendEmailLink = true;
+                        }
+                        if (response.error!.toLowerCase().contains('sms')) {
+                          showResendSMSLink = true;
+                        }
+                      });
+                    }
+                    final dynamic safeUser = response.user;
                     final User user = User(
                       id: safeUser.id,
                       name: safeUser.name,
                       email: extractValue(emailOrPhoneFieldKey),
-                      token: token
+                      token: response.token!
                     );
                     await userState.setValue(user);
                     NavigationManager.instance.pushReplacement(DashboardTab.items.name);
@@ -107,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: () => NavigationManager.instance.pushReplacement(SignUpPage.name),
                   child: Text("Don't have an account? Sign up here."),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 InkWell(
                   onTap: () => NavigationManager.instance.pushReplacement(ForgotPasswordPage.name),
                   child: Text('Forgot Password?'),

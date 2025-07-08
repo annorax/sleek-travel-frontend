@@ -656,3 +656,153 @@ abstract class GVerifyPhoneNumberData
         json,
       );
 }
+
+abstract class GResendEmailVerificationRequestData
+    implements
+        Built<GResendEmailVerificationRequestData,
+            GResendEmailVerificationRequestDataBuilder> {
+  GResendEmailVerificationRequestData._();
+
+  factory GResendEmailVerificationRequestData(
+      [void Function(GResendEmailVerificationRequestDataBuilder b)
+          updates]) = _$GResendEmailVerificationRequestData;
+
+  static void _initializeBuilder(
+          GResendEmailVerificationRequestDataBuilder b) =>
+      b..G__typename = 'Mutation';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GResendEmailVerificationRequestData_resendEmailVerificationRequest
+      get resendEmailVerificationRequest;
+  static Serializer<GResendEmailVerificationRequestData> get serializer =>
+      _$gResendEmailVerificationRequestDataSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GResendEmailVerificationRequestData.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendEmailVerificationRequestData? fromJson(
+          Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GResendEmailVerificationRequestData.serializer,
+        json,
+      );
+}
+
+abstract class GResendEmailVerificationRequestData_resendEmailVerificationRequest
+    implements
+        Built<
+            GResendEmailVerificationRequestData_resendEmailVerificationRequest,
+            GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder> {
+  GResendEmailVerificationRequestData_resendEmailVerificationRequest._();
+
+  factory GResendEmailVerificationRequestData_resendEmailVerificationRequest(
+          [void Function(
+                  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder
+                      b)
+              updates]) =
+      _$GResendEmailVerificationRequestData_resendEmailVerificationRequest;
+
+  static void _initializeBuilder(
+          GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder
+              b) =>
+      b..G__typename = 'ResendEmailVerificationResponse';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String? get error;
+  static Serializer<
+          GResendEmailVerificationRequestData_resendEmailVerificationRequest>
+      get serializer =>
+          _$gResendEmailVerificationRequestDataResendEmailVerificationRequestSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GResendEmailVerificationRequestData_resendEmailVerificationRequest
+            .serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendEmailVerificationRequestData_resendEmailVerificationRequest?
+      fromJson(Map<String, dynamic> json) => _i2.serializers.deserializeWith(
+            GResendEmailVerificationRequestData_resendEmailVerificationRequest
+                .serializer,
+            json,
+          );
+}
+
+abstract class GResendPhoneNumberVerificationRequestData
+    implements
+        Built<GResendPhoneNumberVerificationRequestData,
+            GResendPhoneNumberVerificationRequestDataBuilder> {
+  GResendPhoneNumberVerificationRequestData._();
+
+  factory GResendPhoneNumberVerificationRequestData(
+      [void Function(GResendPhoneNumberVerificationRequestDataBuilder b)
+          updates]) = _$GResendPhoneNumberVerificationRequestData;
+
+  static void _initializeBuilder(
+          GResendPhoneNumberVerificationRequestDataBuilder b) =>
+      b..G__typename = 'Mutation';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+      get resendPhoneNumberVerificationRequest;
+  static Serializer<GResendPhoneNumberVerificationRequestData> get serializer =>
+      _$gResendPhoneNumberVerificationRequestDataSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GResendPhoneNumberVerificationRequestData.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendPhoneNumberVerificationRequestData? fromJson(
+          Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GResendPhoneNumberVerificationRequestData.serializer,
+        json,
+      );
+}
+
+abstract class GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+    implements
+        Built<
+            GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest,
+            GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder> {
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest._();
+
+  factory GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest(
+          [void Function(
+                  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder
+                      b)
+              updates]) =
+      _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest;
+
+  static void _initializeBuilder(
+          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder
+              b) =>
+      b..G__typename = 'ResendPhoneNumberVerificationResponse';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String? get error;
+  static Serializer<
+          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest>
+      get serializer =>
+          _$gResendPhoneNumberVerificationRequestDataResendPhoneNumberVerificationRequestSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+            .serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest?
+      fromJson(Map<String, dynamic> json) => _i2.serializers.deserializeWith(
+            GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+                .serializer,
+            json,
+          );
+}

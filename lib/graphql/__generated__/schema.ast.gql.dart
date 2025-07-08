@@ -9536,25 +9536,6 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
       ),
     ),
     _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'resendEmailVerificationRequest'),
-      directives: [],
-      args: [
-        _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'email'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'String'),
-            isNonNull: true,
-          ),
-          defaultValue: null,
-        )
-      ],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'Void'),
-        isNonNull: false,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
       name: _i1.NameNode(value: 'sendPasswordResetLink'),
       directives: [],
       args: [
@@ -9574,6 +9555,25 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
       ),
     ),
     _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'resendEmailVerificationRequest'),
+      directives: [],
+      args: [
+        _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'email'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+            name: _i1.NameNode(value: 'String'),
+            isNonNull: true,
+          ),
+          defaultValue: null,
+        )
+      ],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'ResendEmailVerificationResponse'),
+        isNonNull: true,
+      ),
+    ),
+    _i1.FieldDefinitionNode(
       name: _i1.NameNode(value: 'resendPhoneNumberVerificationRequest'),
       directives: [],
       args: [
@@ -9588,8 +9588,8 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
         )
       ],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'Void'),
-        isNonNull: false,
+        name: _i1.NameNode(value: 'ResendPhoneNumberVerificationResponse'),
+        isNonNull: true,
       ),
     ),
     _i1.FieldDefinitionNode(
@@ -22417,6 +22417,38 @@ const RegisterUserResponse = _i1.ObjectTypeDefinitionNode(
     ),
   ],
 );
+const ResendEmailVerificationResponse = _i1.ObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'ResendEmailVerificationResponse'),
+  directives: [],
+  interfaces: [],
+  fields: [
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'error'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'String'),
+        isNonNull: false,
+      ),
+    )
+  ],
+);
+const ResendPhoneNumberVerificationResponse = _i1.ObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'ResendPhoneNumberVerificationResponse'),
+  directives: [],
+  interfaces: [],
+  fields: [
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'error'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'String'),
+        isNonNull: false,
+      ),
+    )
+  ],
+);
 const Role = _i1.EnumTypeDefinitionNode(
   name: _i1.NameNode(value: 'Role'),
   directives: [],
@@ -26077,6 +26109,8 @@ const document = _i1.DocumentNode(definitions: [
   Query,
   QueryMode,
   RegisterUserResponse,
+  ResendEmailVerificationResponse,
+  ResendPhoneNumberVerificationResponse,
   Role,
   SafeUser,
   SortOrder,

@@ -1292,9 +1292,9 @@ type Mutation {
   updateOnePurchaseOrder(data: PurchaseOrderUpdateInput!, where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
   upsertOnePurchaseOrder(where: PurchaseOrderWhereUniqueInput!, create: PurchaseOrderCreateInput!, update: PurchaseOrderUpdateInput!): PurchaseOrder!
   registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): RegisterUserResponse!
-  resendEmailVerificationRequest(email: String!): Void
   sendPasswordResetLink(emailOrPhone: String!): Void
-  resendPhoneNumberVerificationRequest(phoneNumber: String!): Void
+  resendEmailVerificationRequest(email: String!): ResendEmailVerificationResponse!
+  resendPhoneNumberVerificationRequest(phoneNumber: String!): ResendPhoneNumberVerificationResponse!
   verifyPhoneNumber(userId: BigInt!, otp: String!): Void
   verifyEmailAddress(token: String!): Void
   logInUser(emailOrPhone: String!, password: String!): LogInUserResponse!
@@ -2881,6 +2881,14 @@ enum QueryMode {
 type RegisterUserResponse {
   error: String
   userId: BigInt
+}
+
+type ResendEmailVerificationResponse {
+  error: String
+}
+
+type ResendPhoneNumberVerificationResponse {
+  error: String
 }
 
 enum Role {

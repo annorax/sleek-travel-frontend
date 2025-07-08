@@ -57,6 +57,19 @@ Serializer<GValidateTokenData_validateToken_user>
     _$GValidateTokenData_validateToken_userSerializer();
 Serializer<GVerifyPhoneNumberData> _$gVerifyPhoneNumberDataSerializer =
     _$GVerifyPhoneNumberDataSerializer();
+Serializer<GResendEmailVerificationRequestData>
+    _$gResendEmailVerificationRequestDataSerializer =
+    _$GResendEmailVerificationRequestDataSerializer();
+Serializer<GResendEmailVerificationRequestData_resendEmailVerificationRequest>
+    _$gResendEmailVerificationRequestDataResendEmailVerificationRequestSerializer =
+    _$GResendEmailVerificationRequestData_resendEmailVerificationRequestSerializer();
+Serializer<GResendPhoneNumberVerificationRequestData>
+    _$gResendPhoneNumberVerificationRequestDataSerializer =
+    _$GResendPhoneNumberVerificationRequestDataSerializer();
+Serializer<
+        GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest>
+    _$gResendPhoneNumberVerificationRequestDataResendPhoneNumberVerificationRequestSerializer =
+    _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestSerializer();
 
 class _$GLogOutUserDataSerializer
     implements StructuredSerializer<GLogOutUserData> {
@@ -1264,6 +1277,244 @@ class _$GVerifyPhoneNumberDataSerializer
         case 'verifyPhoneNumber':
           result.verifyPhoneNumber.replace(serializers.deserialize(value,
               specifiedType: const FullType(_i1.GVoid))! as _i1.GVoid);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GResendEmailVerificationRequestDataSerializer
+    implements StructuredSerializer<GResendEmailVerificationRequestData> {
+  @override
+  final Iterable<Type> types = const [
+    GResendEmailVerificationRequestData,
+    _$GResendEmailVerificationRequestData
+  ];
+  @override
+  final String wireName = 'GResendEmailVerificationRequestData';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GResendEmailVerificationRequestData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'resendEmailVerificationRequest',
+      serializers.serialize(object.resendEmailVerificationRequest,
+          specifiedType: const FullType(
+              GResendEmailVerificationRequestData_resendEmailVerificationRequest)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GResendEmailVerificationRequestData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GResendEmailVerificationRequestDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'resendEmailVerificationRequest':
+          result.resendEmailVerificationRequest.replace(serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(
+                      GResendEmailVerificationRequestData_resendEmailVerificationRequest))!
+              as GResendEmailVerificationRequestData_resendEmailVerificationRequest);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GResendEmailVerificationRequestData_resendEmailVerificationRequestSerializer
+    implements
+        StructuredSerializer<
+            GResendEmailVerificationRequestData_resendEmailVerificationRequest> {
+  @override
+  final Iterable<Type> types = const [
+    GResendEmailVerificationRequestData_resendEmailVerificationRequest,
+    _$GResendEmailVerificationRequestData_resendEmailVerificationRequest
+  ];
+  @override
+  final String wireName =
+      'GResendEmailVerificationRequestData_resendEmailVerificationRequest';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      GResendEmailVerificationRequestData_resendEmailVerificationRequest object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.error;
+    if (value != null) {
+      result
+        ..add('error')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GResendEmailVerificationRequestData_resendEmailVerificationRequest
+      deserialize(Serializers serializers, Iterable<Object?> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'error':
+          result.error = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GResendPhoneNumberVerificationRequestDataSerializer
+    implements StructuredSerializer<GResendPhoneNumberVerificationRequestData> {
+  @override
+  final Iterable<Type> types = const [
+    GResendPhoneNumberVerificationRequestData,
+    _$GResendPhoneNumberVerificationRequestData
+  ];
+  @override
+  final String wireName = 'GResendPhoneNumberVerificationRequestData';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GResendPhoneNumberVerificationRequestData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'resendPhoneNumberVerificationRequest',
+      serializers.serialize(object.resendPhoneNumberVerificationRequest,
+          specifiedType: const FullType(
+              GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GResendPhoneNumberVerificationRequestData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GResendPhoneNumberVerificationRequestDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'resendPhoneNumberVerificationRequest':
+          result.resendPhoneNumberVerificationRequest.replace(serializers
+                  .deserialize(value,
+                      specifiedType: const FullType(
+                          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest))!
+              as GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestSerializer
+    implements
+        StructuredSerializer<
+            GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest> {
+  @override
+  final Iterable<Type> types = const [
+    GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest,
+    _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+  ];
+  @override
+  final String wireName =
+      'GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers,
+      GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.error;
+    if (value != null) {
+      result
+        ..add('error')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+      deserialize(Serializers serializers, Iterable<Object?> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'error':
+          result.error = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -3754,6 +4005,524 @@ class GVerifyPhoneNumberDataBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GResendEmailVerificationRequestData
+    extends GResendEmailVerificationRequestData {
+  @override
+  final String G__typename;
+  @override
+  final GResendEmailVerificationRequestData_resendEmailVerificationRequest
+      resendEmailVerificationRequest;
+
+  factory _$GResendEmailVerificationRequestData(
+          [void Function(GResendEmailVerificationRequestDataBuilder)?
+              updates]) =>
+      (GResendEmailVerificationRequestDataBuilder()..update(updates))._build();
+
+  _$GResendEmailVerificationRequestData._(
+      {required this.G__typename, required this.resendEmailVerificationRequest})
+      : super._();
+  @override
+  GResendEmailVerificationRequestData rebuild(
+          void Function(GResendEmailVerificationRequestDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GResendEmailVerificationRequestDataBuilder toBuilder() =>
+      GResendEmailVerificationRequestDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GResendEmailVerificationRequestData &&
+        G__typename == other.G__typename &&
+        resendEmailVerificationRequest == other.resendEmailVerificationRequest;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, resendEmailVerificationRequest.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GResendEmailVerificationRequestData')
+          ..add('G__typename', G__typename)
+          ..add(
+              'resendEmailVerificationRequest', resendEmailVerificationRequest))
+        .toString();
+  }
+}
+
+class GResendEmailVerificationRequestDataBuilder
+    implements
+        Builder<GResendEmailVerificationRequestData,
+            GResendEmailVerificationRequestDataBuilder> {
+  _$GResendEmailVerificationRequestData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder?
+      _resendEmailVerificationRequest;
+  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder
+      get resendEmailVerificationRequest => _$this
+              ._resendEmailVerificationRequest ??=
+          GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder();
+  set resendEmailVerificationRequest(
+          GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder?
+              resendEmailVerificationRequest) =>
+      _$this._resendEmailVerificationRequest = resendEmailVerificationRequest;
+
+  GResendEmailVerificationRequestDataBuilder() {
+    GResendEmailVerificationRequestData._initializeBuilder(this);
+  }
+
+  GResendEmailVerificationRequestDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _resendEmailVerificationRequest =
+          $v.resendEmailVerificationRequest.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GResendEmailVerificationRequestData other) {
+    _$v = other as _$GResendEmailVerificationRequestData;
+  }
+
+  @override
+  void update(
+      void Function(GResendEmailVerificationRequestDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GResendEmailVerificationRequestData build() => _build();
+
+  _$GResendEmailVerificationRequestData _build() {
+    _$GResendEmailVerificationRequestData _$result;
+    try {
+      _$result = _$v ??
+          _$GResendEmailVerificationRequestData._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GResendEmailVerificationRequestData', 'G__typename'),
+            resendEmailVerificationRequest:
+                resendEmailVerificationRequest.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'resendEmailVerificationRequest';
+        resendEmailVerificationRequest.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'GResendEmailVerificationRequestData',
+            _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GResendEmailVerificationRequestData_resendEmailVerificationRequest
+    extends GResendEmailVerificationRequestData_resendEmailVerificationRequest {
+  @override
+  final String G__typename;
+  @override
+  final String? error;
+
+  factory _$GResendEmailVerificationRequestData_resendEmailVerificationRequest(
+          [void Function(
+                  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder)?
+              updates]) =>
+      (GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder()
+            ..update(updates))
+          ._build();
+
+  _$GResendEmailVerificationRequestData_resendEmailVerificationRequest._(
+      {required this.G__typename, this.error})
+      : super._();
+  @override
+  GResendEmailVerificationRequestData_resendEmailVerificationRequest rebuild(
+          void Function(
+                  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder
+      toBuilder() =>
+          GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is GResendEmailVerificationRequestData_resendEmailVerificationRequest &&
+        G__typename == other.G__typename &&
+        error == other.error;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, error.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GResendEmailVerificationRequestData_resendEmailVerificationRequest')
+          ..add('G__typename', G__typename)
+          ..add('error', error))
+        .toString();
+  }
+}
+
+class GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder
+    implements
+        Builder<
+            GResendEmailVerificationRequestData_resendEmailVerificationRequest,
+            GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder> {
+  _$GResendEmailVerificationRequestData_resendEmailVerificationRequest? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _error;
+  String? get error => _$this._error;
+  set error(String? error) => _$this._error = error;
+
+  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder() {
+    GResendEmailVerificationRequestData_resendEmailVerificationRequest
+        ._initializeBuilder(this);
+  }
+
+  GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _error = $v.error;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      GResendEmailVerificationRequestData_resendEmailVerificationRequest
+          other) {
+    _$v = other
+        as _$GResendEmailVerificationRequestData_resendEmailVerificationRequest;
+  }
+
+  @override
+  void update(
+      void Function(
+              GResendEmailVerificationRequestData_resendEmailVerificationRequestBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GResendEmailVerificationRequestData_resendEmailVerificationRequest build() =>
+      _build();
+
+  _$GResendEmailVerificationRequestData_resendEmailVerificationRequest
+      _build() {
+    final _$result = _$v ??
+        _$GResendEmailVerificationRequestData_resendEmailVerificationRequest._(
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+              G__typename,
+              r'GResendEmailVerificationRequestData_resendEmailVerificationRequest',
+              'G__typename'),
+          error: error,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GResendPhoneNumberVerificationRequestData
+    extends GResendPhoneNumberVerificationRequestData {
+  @override
+  final String G__typename;
+  @override
+  final GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+      resendPhoneNumberVerificationRequest;
+
+  factory _$GResendPhoneNumberVerificationRequestData(
+          [void Function(GResendPhoneNumberVerificationRequestDataBuilder)?
+              updates]) =>
+      (GResendPhoneNumberVerificationRequestDataBuilder()..update(updates))
+          ._build();
+
+  _$GResendPhoneNumberVerificationRequestData._(
+      {required this.G__typename,
+      required this.resendPhoneNumberVerificationRequest})
+      : super._();
+  @override
+  GResendPhoneNumberVerificationRequestData rebuild(
+          void Function(GResendPhoneNumberVerificationRequestDataBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GResendPhoneNumberVerificationRequestDataBuilder toBuilder() =>
+      GResendPhoneNumberVerificationRequestDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GResendPhoneNumberVerificationRequestData &&
+        G__typename == other.G__typename &&
+        resendPhoneNumberVerificationRequest ==
+            other.resendPhoneNumberVerificationRequest;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, resendPhoneNumberVerificationRequest.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GResendPhoneNumberVerificationRequestData')
+          ..add('G__typename', G__typename)
+          ..add('resendPhoneNumberVerificationRequest',
+              resendPhoneNumberVerificationRequest))
+        .toString();
+  }
+}
+
+class GResendPhoneNumberVerificationRequestDataBuilder
+    implements
+        Builder<GResendPhoneNumberVerificationRequestData,
+            GResendPhoneNumberVerificationRequestDataBuilder> {
+  _$GResendPhoneNumberVerificationRequestData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder?
+      _resendPhoneNumberVerificationRequest;
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder
+      get resendPhoneNumberVerificationRequest => _$this
+              ._resendPhoneNumberVerificationRequest ??=
+          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder();
+  set resendPhoneNumberVerificationRequest(
+          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder?
+              resendPhoneNumberVerificationRequest) =>
+      _$this._resendPhoneNumberVerificationRequest =
+          resendPhoneNumberVerificationRequest;
+
+  GResendPhoneNumberVerificationRequestDataBuilder() {
+    GResendPhoneNumberVerificationRequestData._initializeBuilder(this);
+  }
+
+  GResendPhoneNumberVerificationRequestDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _resendPhoneNumberVerificationRequest =
+          $v.resendPhoneNumberVerificationRequest.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GResendPhoneNumberVerificationRequestData other) {
+    _$v = other as _$GResendPhoneNumberVerificationRequestData;
+  }
+
+  @override
+  void update(
+      void Function(GResendPhoneNumberVerificationRequestDataBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GResendPhoneNumberVerificationRequestData build() => _build();
+
+  _$GResendPhoneNumberVerificationRequestData _build() {
+    _$GResendPhoneNumberVerificationRequestData _$result;
+    try {
+      _$result = _$v ??
+          _$GResendPhoneNumberVerificationRequestData._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GResendPhoneNumberVerificationRequestData', 'G__typename'),
+            resendPhoneNumberVerificationRequest:
+                resendPhoneNumberVerificationRequest.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'resendPhoneNumberVerificationRequest';
+        resendPhoneNumberVerificationRequest.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GResendPhoneNumberVerificationRequestData',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+    extends GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest {
+  @override
+  final String G__typename;
+  @override
+  final String? error;
+
+  factory _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest(
+          [void Function(
+                  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder)?
+              updates]) =>
+      (GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder()
+            ..update(updates))
+          ._build();
+
+  _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest._(
+      {required this.G__typename, this.error})
+      : super._();
+  @override
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+      rebuild(
+              void Function(
+                      GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder)
+                  updates) =>
+          (toBuilder()..update(updates)).build();
+
+  @override
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder
+      toBuilder() =>
+          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest &&
+        G__typename == other.G__typename &&
+        error == other.error;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, error.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest')
+          ..add('G__typename', G__typename)
+          ..add('error', error))
+        .toString();
+  }
+}
+
+class GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder
+    implements
+        Builder<
+            GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest,
+            GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder> {
+  _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest?
+      _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _error;
+  String? get error => _$this._error;
+  set error(String? error) => _$this._error = error;
+
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder() {
+    GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+        ._initializeBuilder(this);
+  }
+
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _error = $v.error;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+          other) {
+    _$v = other
+        as _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest;
+  }
+
+  @override
+  void update(
+      void Function(
+              GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequestBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+      build() => _build();
+
+  _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+      _build() {
+    final _$result = _$v ??
+        _$GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+            ._(
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+              G__typename,
+              r'GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest',
+              'G__typename'),
+          error: error,
+        );
     replace(_$result);
     return _$result;
   }

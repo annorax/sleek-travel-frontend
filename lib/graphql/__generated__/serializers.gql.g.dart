@@ -305,6 +305,17 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(GRegisterUserData_registerUser.serializer)
       ..add(GRegisterUserReq.serializer)
       ..add(GRegisterUserVars.serializer)
+      ..add(GResendEmailVerificationRequestData.serializer)
+      ..add(GResendEmailVerificationRequestData_resendEmailVerificationRequest
+          .serializer)
+      ..add(GResendEmailVerificationRequestReq.serializer)
+      ..add(GResendEmailVerificationRequestVars.serializer)
+      ..add(GResendPhoneNumberVerificationRequestData.serializer)
+      ..add(
+          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+              .serializer)
+      ..add(GResendPhoneNumberVerificationRequestReq.serializer)
+      ..add(GResendPhoneNumberVerificationRequestVars.serializer)
       ..add(GRole.serializer)
       ..add(GSTItemOrderByWithRelationInput.serializer)
       ..add(GSTProductOrderByWithRelationInput.serializer)

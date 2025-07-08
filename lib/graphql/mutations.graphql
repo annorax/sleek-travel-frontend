@@ -67,3 +67,15 @@ mutation ValidateToken($tokenValue: String!) {
 mutation VerifyPhoneNumber($userId: BigInt!, $otp: String!) {
   verifyPhoneNumber(userId: $userId, otp: $otp)
 }
+
+mutation ResendEmailVerificationRequest($email: String!) {
+  resendEmailVerificationRequest(email: $email) {
+    error
+  }
+}
+
+mutation ResendPhoneNumberVerificationRequest($phoneNumber: String!) {
+  resendPhoneNumberVerificationRequest(phoneNumber: $phoneNumber) {
+    error
+  }
+}

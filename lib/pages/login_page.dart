@@ -25,8 +25,8 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final GlobalKey emailOrPhoneFieldKey = GlobalKey<FormFieldState>();
   final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
-  bool showResendEmailLink = false;
-  bool showResendSMSLink = false;
+  String? resendEmailLink;
+  String? resendSMSLink;
 
   @override
   Widget build(BuildContext context) =>
@@ -56,13 +56,34 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
                 ),
                 const SizedBox(height: 16),
-                if (showResendEmailLink) InkWell(
-                  onTap: () {
-                    
+                if (resendEmailLink != null) InkWell(
+                  onTap: () async {
+                    final OperationResponse result = await client.request(
+                      GResendEmailVerificationRequestReq(
+                        (builder) =>
+                          builder.vars
+                            ..email = resendEmailLink
+                      )
+                    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                    if (result.hasErrors) {
+                      print(result.graphqlErrors);
+                      if (context.mounted) {
+                        showError("Failed to resend verification email.", context);
+                      }
+                    }
+                    GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data.resendEmailVerificationRequest;
+                    if (context.mounted) {
+                      if (response.error != null) {
+                        print(response.error);
+                        showError("Failed to resend verification email.", context);
+                      } else {
+                        showInfo("Resent verification email. Please check your inbox / spam and click the link.", context);
+                      }
+                    }
                   },
                   child: Text('Resend verification email'),
                 ),
-                if (showResendSMSLink) InkWell(
+                if (resendSMSLink != null) InkWell(
                   onTap: () {},
                   child: Text('Resend verification sms'),
                 ),

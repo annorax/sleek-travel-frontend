@@ -73,14 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                         showError("Login failed", context);
                       }
                     }
-                    print(result.data.logInUser.runtimeType);
                     dynamic logInUser = result.data.logInUser;
-                    if (logInUser == null) {
-                      if (context.mounted) {
-                        showError("Login failed", context);
-                      }
-                      return;
-                    }
                     final token = logInUser.token;
                     final dynamic safeUser = logInUser.user;
                     final User user = User(

@@ -97,8 +97,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         showError("Sign up failed", context);
                       }
                     } else {
-                      dynamic userId = result.data;
-                      print("UserId is $userId");
+                      print(result.data);
+                      print(result.data.runtimeType);
+                      //print("UserId is $userId");
                       if (context.mounted) {
                         String otp = await showModalBottomSheet(
                           isScrollControlled: true,
@@ -113,7 +114,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           GVerifyPhoneNumberReq(
                             (builder) =>
                               builder.vars
-                                ..userId = userId
+                                //..userId = userId
                                 ..otp = otp
                           )
                         ).firstWhere((response) => response.dataSource != DataSource.Optimistic);

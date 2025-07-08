@@ -7888,40 +7888,6 @@ const LoginOrderByRelationAggregateInput = _i1.InputObjectTypeDefinitionNode(
     )
   ],
 );
-const LogInPayload = _i1.ObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'LogInPayload'),
-  directives: [],
-  interfaces: [],
-  fields: [
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'error'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'String'),
-        isNonNull: true,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'token'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'String'),
-        isNonNull: true,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'user'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'SafeUser'),
-        isNonNull: true,
-      ),
-    ),
-  ],
-);
 const LoginScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'LoginScalarWhereInput'),
   directives: [],
@@ -8608,6 +8574,40 @@ const LoginUpsertWithWhereUniqueWithoutUserInput =
         isNonNull: true,
       ),
       defaultValue: null,
+    ),
+  ],
+);
+const LogInUserResponse = _i1.ObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'LogInUserResponse'),
+  directives: [],
+  interfaces: [],
+  fields: [
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'error'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'String'),
+        isNonNull: false,
+      ),
+    ),
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'token'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'String'),
+        isNonNull: false,
+      ),
+    ),
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'user'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'SafeUser'),
+        isNonNull: false,
+      ),
     ),
   ],
 );
@@ -9531,8 +9531,8 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
         ),
       ],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
+        name: _i1.NameNode(value: 'RegisterUserResponse'),
+        isNonNull: true,
       ),
     ),
     _i1.FieldDefinitionNode(
@@ -9663,7 +9663,7 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
         ),
       ],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'LogInPayload'),
+        name: _i1.NameNode(value: 'LogInUserResponse'),
         isNonNull: true,
       ),
     ),
@@ -9691,8 +9691,8 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
         )
       ],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'ValidateTokenPayload'),
-        isNonNull: false,
+        name: _i1.NameNode(value: 'ValidateTokenResponse'),
+        isNonNull: true,
       ),
     ),
   ],
@@ -22392,6 +22392,31 @@ const QueryMode = _i1.EnumTypeDefinitionNode(
     ),
   ],
 );
+const RegisterUserResponse = _i1.ObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'RegisterUserResponse'),
+  directives: [],
+  interfaces: [],
+  fields: [
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'error'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'String'),
+        isNonNull: false,
+      ),
+    ),
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'userId'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'BigInt'),
+        isNonNull: false,
+      ),
+    ),
+  ],
+);
 const Role = _i1.EnumTypeDefinitionNode(
   name: _i1.NameNode(value: 'Role'),
   directives: [],
@@ -25728,18 +25753,27 @@ const UserWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
     ),
   ],
 );
-const ValidateTokenPayload = _i1.ObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'ValidateTokenPayload'),
+const ValidateTokenResponse = _i1.ObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'ValidateTokenResponse'),
   directives: [],
   interfaces: [],
   fields: [
+    _i1.FieldDefinitionNode(
+      name: _i1.NameNode(value: 'error'),
+      directives: [],
+      args: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'String'),
+        isNonNull: false,
+      ),
+    ),
     _i1.FieldDefinitionNode(
       name: _i1.NameNode(value: 'token'),
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
         name: _i1.NameNode(value: 'String'),
-        isNonNull: true,
+        isNonNull: false,
       ),
     ),
     _i1.FieldDefinitionNode(
@@ -25748,7 +25782,7 @@ const ValidateTokenPayload = _i1.ObjectTypeDefinitionNode(
       args: [],
       type: _i1.NamedTypeNode(
         name: _i1.NameNode(value: 'SafeUser'),
-        isNonNull: true,
+        isNonNull: false,
       ),
     ),
   ],
@@ -25880,7 +25914,6 @@ const document = _i1.DocumentNode(definitions: [
   LoginCreateWithoutUserInput,
   LoginListRelationFilter,
   LoginOrderByRelationAggregateInput,
-  LogInPayload,
   LoginScalarWhereInput,
   LoginUpdateManyMutationInput,
   LoginUpdateManyWithoutAccessTokenNestedInput,
@@ -25893,6 +25926,7 @@ const document = _i1.DocumentNode(definitions: [
   LoginUpdateWithWhereUniqueWithoutUserInput,
   LoginUpsertWithWhereUniqueWithoutAccessTokenInput,
   LoginUpsertWithWhereUniqueWithoutUserInput,
+  LogInUserResponse,
   LoginWhereInput,
   LoginWhereUniqueInput,
   Mutation,
@@ -26042,6 +26076,7 @@ const document = _i1.DocumentNode(definitions: [
   PurchaseOrderWhereUniqueInput,
   Query,
   QueryMode,
+  RegisterUserResponse,
   Role,
   SafeUser,
   SortOrder,
@@ -26088,6 +26123,6 @@ const document = _i1.DocumentNode(definitions: [
   UserUpsertWithoutPurchaseOrdersInput,
   UserWhereInput,
   UserWhereUniqueInput,
-  ValidateTokenPayload,
+  ValidateTokenResponse,
   Void,
 ]);

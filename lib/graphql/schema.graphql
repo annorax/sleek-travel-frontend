@@ -1137,12 +1137,6 @@ input LoginOrderByRelationAggregateInput {
   _count: SortOrder
 }
 
-type LogInPayload {
-  error: String!
-  token: String!
-  user: SafeUser!
-}
-
 input LoginScalarWhereInput {
   AND: [LoginScalarWhereInput!]
   OR: [LoginScalarWhereInput!]
@@ -1238,6 +1232,12 @@ input LoginUpsertWithWhereUniqueWithoutUserInput {
   create: LoginCreateWithoutUserInput!
 }
 
+type LogInUserResponse {
+  error: String
+  token: String
+  user: SafeUser
+}
+
 input LoginWhereInput {
   AND: [LoginWhereInput!]
   OR: [LoginWhereInput!]
@@ -1291,15 +1291,15 @@ type Mutation {
   updateManyPurchaseOrder(data: PurchaseOrderUpdateManyMutationInput!, where: PurchaseOrderWhereInput): AffectedRowsOutput!
   updateOnePurchaseOrder(data: PurchaseOrderUpdateInput!, where: PurchaseOrderWhereUniqueInput!): PurchaseOrder
   upsertOnePurchaseOrder(where: PurchaseOrderWhereUniqueInput!, create: PurchaseOrderCreateInput!, update: PurchaseOrderUpdateInput!): PurchaseOrder!
-  registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): BigInt
+  registerUser(name: String!, phoneNumber: String!, email: String!, password: String!): RegisterUserResponse!
   resendEmailVerificationRequest(email: String!): Void
   sendPasswordResetLink(emailOrPhone: String!): Void
   resendPhoneNumberVerificationRequest(phoneNumber: String!): Void
   verifyPhoneNumber(userId: BigInt!, otp: String!): Void
   verifyEmailAddress(token: String!): Void
-  logInUser(emailOrPhone: String!, password: String!): LogInPayload!
+  logInUser(emailOrPhone: String!, password: String!): LogInUserResponse!
   logOutUser: Void
-  validateToken(tokenValue: String!): ValidateTokenPayload
+  validateToken(tokenValue: String!): ValidateTokenResponse!
 }
 
 input NestedBigIntFilter {
@@ -2878,6 +2878,11 @@ enum QueryMode {
   insensitive
 }
 
+type RegisterUserResponse {
+  error: String
+  userId: BigInt
+}
+
 enum Role {
   NORMAL
   ADMIN
@@ -3345,9 +3350,10 @@ input UserWhereUniqueInput {
   purchaseOrders: PurchaseOrderListRelationFilter
 }
 
-type ValidateTokenPayload {
-  token: String!
-  user: SafeUser!
+type ValidateTokenResponse {
+  error: String
+  token: String
+  user: SafeUser
 }
 
 """Represents NULL values"""

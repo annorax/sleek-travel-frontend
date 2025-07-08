@@ -11,54 +11,6 @@ import 'package:sleek_travel_frontend/graphql/__generated__/serializers.gql.dart
 
 part 'mutations.var.gql.g.dart';
 
-abstract class GValidateTokenVars
-    implements Built<GValidateTokenVars, GValidateTokenVarsBuilder> {
-  GValidateTokenVars._();
-
-  factory GValidateTokenVars(
-          [void Function(GValidateTokenVarsBuilder b) updates]) =
-      _$GValidateTokenVars;
-
-  String get tokenValue;
-  static Serializer<GValidateTokenVars> get serializer =>
-      _$gValidateTokenVarsSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GValidateTokenVars.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GValidateTokenVars? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GValidateTokenVars.serializer,
-        json,
-      );
-}
-
-abstract class GLogInUserVars
-    implements Built<GLogInUserVars, GLogInUserVarsBuilder> {
-  GLogInUserVars._();
-
-  factory GLogInUserVars([void Function(GLogInUserVarsBuilder b) updates]) =
-      _$GLogInUserVars;
-
-  String get emailOrPhone;
-  String get password;
-  static Serializer<GLogInUserVars> get serializer =>
-      _$gLogInUserVarsSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GLogInUserVars.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GLogInUserVars? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GLogInUserVars.serializer,
-        json,
-      );
-}
-
 abstract class GLogOutUserVars
     implements Built<GLogOutUserVars, GLogOutUserVarsBuilder> {
   GLogOutUserVars._();
@@ -250,6 +202,54 @@ abstract class GRegisterUserVars
   static GRegisterUserVars? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
         GRegisterUserVars.serializer,
+        json,
+      );
+}
+
+abstract class GLogInUserVars
+    implements Built<GLogInUserVars, GLogInUserVarsBuilder> {
+  GLogInUserVars._();
+
+  factory GLogInUserVars([void Function(GLogInUserVarsBuilder b) updates]) =
+      _$GLogInUserVars;
+
+  String get emailOrPhone;
+  String get password;
+  static Serializer<GLogInUserVars> get serializer =>
+      _$gLogInUserVarsSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GLogInUserVars.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GLogInUserVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GLogInUserVars.serializer,
+        json,
+      );
+}
+
+abstract class GValidateTokenVars
+    implements Built<GValidateTokenVars, GValidateTokenVarsBuilder> {
+  GValidateTokenVars._();
+
+  factory GValidateTokenVars(
+          [void Function(GValidateTokenVarsBuilder b) updates]) =
+      _$GValidateTokenVars;
+
+  String get tokenValue;
+  static Serializer<GValidateTokenVars> get serializer =>
+      _$gValidateTokenVarsSerializer;
+
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GValidateTokenVars.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GValidateTokenVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GValidateTokenVars.serializer,
         json,
       );
 }

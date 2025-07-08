@@ -71,7 +71,12 @@ Future<User?> validateToken(String tokenValue) async {
           ..vars.tokenValue = tokenValue
       )
     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-    validateToken = result.data?.validateToken;
+    if (result.hasErrors) {
+      print(result.graphqlErrors);
+    } else {
+      validateToken = result.data?.validateToken;
+    }
+    
   } catch (e) {
     validateToken = null;
   }
@@ -80,7 +85,7 @@ Future<User?> validateToken(String tokenValue) async {
     return null;
   }
   final token = validateToken.token;
-  final GValidateTokenData_validateToken_user safeUser = validateToken.user;
+  final GValidateTokenData_validateToken_user safeUser = validateToken.user!;
   final Map<String, dynamic> userJson = {...safeUser.toJson(), "token": token};
   final user = User.fromJson(userJson);
   await userState.setValue(user);

@@ -5,200 +5,11 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart'
-    as _i2;
-import 'package:sleek_travel_frontend/graphql/__generated__/serializers.gql.dart'
     as _i1;
+import 'package:sleek_travel_frontend/graphql/__generated__/serializers.gql.dart'
+    as _i2;
 
 part 'mutations.data.gql.g.dart';
-
-abstract class GValidateTokenData
-    implements Built<GValidateTokenData, GValidateTokenDataBuilder> {
-  GValidateTokenData._();
-
-  factory GValidateTokenData(
-          [void Function(GValidateTokenDataBuilder b) updates]) =
-      _$GValidateTokenData;
-
-  static void _initializeBuilder(GValidateTokenDataBuilder b) =>
-      b..G__typename = 'Mutation';
-
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GValidateTokenData_validateToken? get validateToken;
-  static Serializer<GValidateTokenData> get serializer =>
-      _$gValidateTokenDataSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GValidateTokenData.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GValidateTokenData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GValidateTokenData.serializer,
-        json,
-      );
-}
-
-abstract class GValidateTokenData_validateToken
-    implements
-        Built<GValidateTokenData_validateToken,
-            GValidateTokenData_validateTokenBuilder> {
-  GValidateTokenData_validateToken._();
-
-  factory GValidateTokenData_validateToken(
-          [void Function(GValidateTokenData_validateTokenBuilder b) updates]) =
-      _$GValidateTokenData_validateToken;
-
-  static void _initializeBuilder(GValidateTokenData_validateTokenBuilder b) =>
-      b..G__typename = 'ValidateTokenPayload';
-
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  String get token;
-  GValidateTokenData_validateToken_user get user;
-  static Serializer<GValidateTokenData_validateToken> get serializer =>
-      _$gValidateTokenDataValidateTokenSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GValidateTokenData_validateToken.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GValidateTokenData_validateToken? fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GValidateTokenData_validateToken.serializer,
-        json,
-      );
-}
-
-abstract class GValidateTokenData_validateToken_user
-    implements
-        Built<GValidateTokenData_validateToken_user,
-            GValidateTokenData_validateToken_userBuilder> {
-  GValidateTokenData_validateToken_user._();
-
-  factory GValidateTokenData_validateToken_user(
-      [void Function(GValidateTokenData_validateToken_userBuilder b)
-          updates]) = _$GValidateTokenData_validateToken_user;
-
-  static void _initializeBuilder(
-          GValidateTokenData_validateToken_userBuilder b) =>
-      b..G__typename = 'SafeUser';
-
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  _i2.GBigInt get id;
-  String get name;
-  String get email;
-  static Serializer<GValidateTokenData_validateToken_user> get serializer =>
-      _$gValidateTokenDataValidateTokenUserSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GValidateTokenData_validateToken_user.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GValidateTokenData_validateToken_user? fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GValidateTokenData_validateToken_user.serializer,
-        json,
-      );
-}
-
-abstract class GLogInUserData
-    implements Built<GLogInUserData, GLogInUserDataBuilder> {
-  GLogInUserData._();
-
-  factory GLogInUserData([void Function(GLogInUserDataBuilder b) updates]) =
-      _$GLogInUserData;
-
-  static void _initializeBuilder(GLogInUserDataBuilder b) =>
-      b..G__typename = 'Mutation';
-
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  GLogInUserData_logInUser get logInUser;
-  static Serializer<GLogInUserData> get serializer =>
-      _$gLogInUserDataSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GLogInUserData.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GLogInUserData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GLogInUserData.serializer,
-        json,
-      );
-}
-
-abstract class GLogInUserData_logInUser
-    implements
-        Built<GLogInUserData_logInUser, GLogInUserData_logInUserBuilder> {
-  GLogInUserData_logInUser._();
-
-  factory GLogInUserData_logInUser(
-          [void Function(GLogInUserData_logInUserBuilder b) updates]) =
-      _$GLogInUserData_logInUser;
-
-  static void _initializeBuilder(GLogInUserData_logInUserBuilder b) =>
-      b..G__typename = 'LogInPayload';
-
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  String get error;
-  String get token;
-  GLogInUserData_logInUser_user get user;
-  static Serializer<GLogInUserData_logInUser> get serializer =>
-      _$gLogInUserDataLogInUserSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GLogInUserData_logInUser.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GLogInUserData_logInUser? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GLogInUserData_logInUser.serializer,
-        json,
-      );
-}
-
-abstract class GLogInUserData_logInUser_user
-    implements
-        Built<GLogInUserData_logInUser_user,
-            GLogInUserData_logInUser_userBuilder> {
-  GLogInUserData_logInUser_user._();
-
-  factory GLogInUserData_logInUser_user(
-          [void Function(GLogInUserData_logInUser_userBuilder b) updates]) =
-      _$GLogInUserData_logInUser_user;
-
-  static void _initializeBuilder(GLogInUserData_logInUser_userBuilder b) =>
-      b..G__typename = 'SafeUser';
-
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  _i2.GBigInt get id;
-  String get name;
-  static Serializer<GLogInUserData_logInUser_user> get serializer =>
-      _$gLogInUserDataLogInUserUserSerializer;
-
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GLogInUserData_logInUser_user.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GLogInUserData_logInUser_user? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GLogInUserData_logInUser_user.serializer,
-        json,
-      );
-}
 
 abstract class GLogOutUserData
     implements Built<GLogOutUserData, GLogOutUserDataBuilder> {
@@ -212,17 +23,17 @@ abstract class GLogOutUserData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GVoid? get logOutUser;
+  _i1.GVoid? get logOutUser;
   static Serializer<GLogOutUserData> get serializer =>
       _$gLogOutUserDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GLogOutUserData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GLogOutUserData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GLogOutUserData.serializer,
         json,
       );
@@ -245,13 +56,13 @@ abstract class GCreateProductData
   static Serializer<GCreateProductData> get serializer =>
       _$gCreateProductDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GCreateProductData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GCreateProductData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GCreateProductData.serializer,
         json,
       );
@@ -273,18 +84,18 @@ abstract class GCreateProductData_createOneProduct
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt get id;
+  _i1.GBigInt get id;
   static Serializer<GCreateProductData_createOneProduct> get serializer =>
       _$gCreateProductDataCreateOneProductSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GCreateProductData_createOneProduct.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GCreateProductData_createOneProduct? fromJson(
           Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GCreateProductData_createOneProduct.serializer,
         json,
       );
@@ -307,13 +118,13 @@ abstract class GUpdateProductData
   static Serializer<GUpdateProductData> get serializer =>
       _$gUpdateProductDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GUpdateProductData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GUpdateProductData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GUpdateProductData.serializer,
         json,
       );
@@ -338,14 +149,14 @@ abstract class GUpdateProductData_updateOneProduct
   static Serializer<GUpdateProductData_updateOneProduct> get serializer =>
       _$gUpdateProductDataUpdateOneProductSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GUpdateProductData_updateOneProduct.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GUpdateProductData_updateOneProduct? fromJson(
           Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GUpdateProductData_updateOneProduct.serializer,
         json,
       );
@@ -368,13 +179,13 @@ abstract class GDeleteProductData
   static Serializer<GDeleteProductData> get serializer =>
       _$gDeleteProductDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GDeleteProductData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GDeleteProductData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GDeleteProductData.serializer,
         json,
       );
@@ -396,18 +207,18 @@ abstract class GDeleteProductData_deleteOneProduct
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt get id;
+  _i1.GBigInt get id;
   static Serializer<GDeleteProductData_deleteOneProduct> get serializer =>
       _$gDeleteProductDataDeleteOneProductSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GDeleteProductData_deleteOneProduct.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GDeleteProductData_deleteOneProduct? fromJson(
           Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GDeleteProductData_deleteOneProduct.serializer,
         json,
       );
@@ -429,13 +240,13 @@ abstract class GDeleteItemData
   static Serializer<GDeleteItemData> get serializer =>
       _$gDeleteItemDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GDeleteItemData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GDeleteItemData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GDeleteItemData.serializer,
         json,
       );
@@ -456,17 +267,17 @@ abstract class GDeleteItemData_deleteOneItem
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt get id;
+  _i1.GBigInt get id;
   static Serializer<GDeleteItemData_deleteOneItem> get serializer =>
       _$gDeleteItemDataDeleteOneItemSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GDeleteItemData_deleteOneItem.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GDeleteItemData_deleteOneItem? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GDeleteItemData_deleteOneItem.serializer,
         json,
       );
@@ -490,13 +301,13 @@ abstract class GDeletePurchaseOrderData
   static Serializer<GDeletePurchaseOrderData> get serializer =>
       _$gDeletePurchaseOrderDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GDeletePurchaseOrderData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GDeletePurchaseOrderData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GDeletePurchaseOrderData.serializer,
         json,
       );
@@ -518,19 +329,19 @@ abstract class GDeletePurchaseOrderData_deleteOnePurchaseOrder
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt get id;
+  _i1.GBigInt get id;
   static Serializer<GDeletePurchaseOrderData_deleteOnePurchaseOrder>
       get serializer =>
           _$gDeletePurchaseOrderDataDeleteOnePurchaseOrderSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GDeletePurchaseOrderData_deleteOnePurchaseOrder.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GDeletePurchaseOrderData_deleteOnePurchaseOrder? fromJson(
           Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GDeletePurchaseOrderData_deleteOnePurchaseOrder.serializer,
         json,
       );
@@ -550,17 +361,17 @@ abstract class GSendPasswordResetLinkData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GVoid? get sendPasswordResetLink;
+  _i1.GVoid? get sendPasswordResetLink;
   static Serializer<GSendPasswordResetLinkData> get serializer =>
       _$gSendPasswordResetLinkDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GSendPasswordResetLinkData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GSendPasswordResetLinkData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GSendPasswordResetLinkData.serializer,
         json,
       );
@@ -579,18 +390,240 @@ abstract class GRegisterUserData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt? get registerUser;
+  GRegisterUserData_registerUser get registerUser;
   static Serializer<GRegisterUserData> get serializer =>
       _$gRegisterUserDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GRegisterUserData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GRegisterUserData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GRegisterUserData.serializer,
+        json,
+      );
+}
+
+abstract class GRegisterUserData_registerUser
+    implements
+        Built<GRegisterUserData_registerUser,
+            GRegisterUserData_registerUserBuilder> {
+  GRegisterUserData_registerUser._();
+
+  factory GRegisterUserData_registerUser(
+          [void Function(GRegisterUserData_registerUserBuilder b) updates]) =
+      _$GRegisterUserData_registerUser;
+
+  static void _initializeBuilder(GRegisterUserData_registerUserBuilder b) =>
+      b..G__typename = 'RegisterUserResponse';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String? get error;
+  _i1.GBigInt? get userId;
+  static Serializer<GRegisterUserData_registerUser> get serializer =>
+      _$gRegisterUserDataRegisterUserSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GRegisterUserData_registerUser.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GRegisterUserData_registerUser? fromJson(Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GRegisterUserData_registerUser.serializer,
+        json,
+      );
+}
+
+abstract class GLogInUserData
+    implements Built<GLogInUserData, GLogInUserDataBuilder> {
+  GLogInUserData._();
+
+  factory GLogInUserData([void Function(GLogInUserDataBuilder b) updates]) =
+      _$GLogInUserData;
+
+  static void _initializeBuilder(GLogInUserDataBuilder b) =>
+      b..G__typename = 'Mutation';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GLogInUserData_logInUser get logInUser;
+  static Serializer<GLogInUserData> get serializer =>
+      _$gLogInUserDataSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GLogInUserData.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GLogInUserData? fromJson(Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GLogInUserData.serializer,
+        json,
+      );
+}
+
+abstract class GLogInUserData_logInUser
+    implements
+        Built<GLogInUserData_logInUser, GLogInUserData_logInUserBuilder> {
+  GLogInUserData_logInUser._();
+
+  factory GLogInUserData_logInUser(
+          [void Function(GLogInUserData_logInUserBuilder b) updates]) =
+      _$GLogInUserData_logInUser;
+
+  static void _initializeBuilder(GLogInUserData_logInUserBuilder b) =>
+      b..G__typename = 'LogInUserResponse';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String? get error;
+  String? get token;
+  GLogInUserData_logInUser_user? get user;
+  static Serializer<GLogInUserData_logInUser> get serializer =>
+      _$gLogInUserDataLogInUserSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GLogInUserData_logInUser.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GLogInUserData_logInUser? fromJson(Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GLogInUserData_logInUser.serializer,
+        json,
+      );
+}
+
+abstract class GLogInUserData_logInUser_user
+    implements
+        Built<GLogInUserData_logInUser_user,
+            GLogInUserData_logInUser_userBuilder> {
+  GLogInUserData_logInUser_user._();
+
+  factory GLogInUserData_logInUser_user(
+          [void Function(GLogInUserData_logInUser_userBuilder b) updates]) =
+      _$GLogInUserData_logInUser_user;
+
+  static void _initializeBuilder(GLogInUserData_logInUser_userBuilder b) =>
+      b..G__typename = 'SafeUser';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  _i1.GBigInt get id;
+  String get name;
+  static Serializer<GLogInUserData_logInUser_user> get serializer =>
+      _$gLogInUserDataLogInUserUserSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GLogInUserData_logInUser_user.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GLogInUserData_logInUser_user? fromJson(Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GLogInUserData_logInUser_user.serializer,
+        json,
+      );
+}
+
+abstract class GValidateTokenData
+    implements Built<GValidateTokenData, GValidateTokenDataBuilder> {
+  GValidateTokenData._();
+
+  factory GValidateTokenData(
+          [void Function(GValidateTokenDataBuilder b) updates]) =
+      _$GValidateTokenData;
+
+  static void _initializeBuilder(GValidateTokenDataBuilder b) =>
+      b..G__typename = 'Mutation';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GValidateTokenData_validateToken get validateToken;
+  static Serializer<GValidateTokenData> get serializer =>
+      _$gValidateTokenDataSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GValidateTokenData.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GValidateTokenData? fromJson(Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GValidateTokenData.serializer,
+        json,
+      );
+}
+
+abstract class GValidateTokenData_validateToken
+    implements
+        Built<GValidateTokenData_validateToken,
+            GValidateTokenData_validateTokenBuilder> {
+  GValidateTokenData_validateToken._();
+
+  factory GValidateTokenData_validateToken(
+          [void Function(GValidateTokenData_validateTokenBuilder b) updates]) =
+      _$GValidateTokenData_validateToken;
+
+  static void _initializeBuilder(GValidateTokenData_validateTokenBuilder b) =>
+      b..G__typename = 'ValidateTokenResponse';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  String? get error;
+  String? get token;
+  GValidateTokenData_validateToken_user? get user;
+  static Serializer<GValidateTokenData_validateToken> get serializer =>
+      _$gValidateTokenDataValidateTokenSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GValidateTokenData_validateToken.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GValidateTokenData_validateToken? fromJson(
+          Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GValidateTokenData_validateToken.serializer,
+        json,
+      );
+}
+
+abstract class GValidateTokenData_validateToken_user
+    implements
+        Built<GValidateTokenData_validateToken_user,
+            GValidateTokenData_validateToken_userBuilder> {
+  GValidateTokenData_validateToken_user._();
+
+  factory GValidateTokenData_validateToken_user(
+      [void Function(GValidateTokenData_validateToken_userBuilder b)
+          updates]) = _$GValidateTokenData_validateToken_user;
+
+  static void _initializeBuilder(
+          GValidateTokenData_validateToken_userBuilder b) =>
+      b..G__typename = 'SafeUser';
+
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  _i1.GBigInt get id;
+  String get name;
+  String get email;
+  static Serializer<GValidateTokenData_validateToken_user> get serializer =>
+      _$gValidateTokenDataValidateTokenUserSerializer;
+
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
+        GValidateTokenData_validateToken_user.serializer,
+        this,
+      ) as Map<String, dynamic>);
+
+  static GValidateTokenData_validateToken_user? fromJson(
+          Map<String, dynamic> json) =>
+      _i2.serializers.deserializeWith(
+        GValidateTokenData_validateToken_user.serializer,
         json,
       );
 }
@@ -608,17 +641,17 @@ abstract class GVerifyPhoneNumberData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GVoid? get verifyPhoneNumber;
+  _i1.GVoid? get verifyPhoneNumber;
   static Serializer<GVerifyPhoneNumberData> get serializer =>
       _$gVerifyPhoneNumberDataSerializer;
 
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+  Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GVerifyPhoneNumberData.serializer,
         this,
       ) as Map<String, dynamic>);
 
   static GVerifyPhoneNumberData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
+      _i2.serializers.deserializeWith(
         GVerifyPhoneNumberData.serializer,
         json,
       );

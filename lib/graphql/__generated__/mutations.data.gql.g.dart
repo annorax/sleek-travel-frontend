@@ -6,21 +6,6 @@ part of 'mutations.data.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GValidateTokenData> _$gValidateTokenDataSerializer =
-    _$GValidateTokenDataSerializer();
-Serializer<GValidateTokenData_validateToken>
-    _$gValidateTokenDataValidateTokenSerializer =
-    _$GValidateTokenData_validateTokenSerializer();
-Serializer<GValidateTokenData_validateToken_user>
-    _$gValidateTokenDataValidateTokenUserSerializer =
-    _$GValidateTokenData_validateToken_userSerializer();
-Serializer<GLogInUserData> _$gLogInUserDataSerializer =
-    _$GLogInUserDataSerializer();
-Serializer<GLogInUserData_logInUser> _$gLogInUserDataLogInUserSerializer =
-    _$GLogInUserData_logInUserSerializer();
-Serializer<GLogInUserData_logInUser_user>
-    _$gLogInUserDataLogInUserUserSerializer =
-    _$GLogInUserData_logInUser_userSerializer();
 Serializer<GLogOutUserData> _$gLogOutUserDataSerializer =
     _$GLogOutUserDataSerializer();
 Serializer<GCreateProductData> _$gCreateProductDataSerializer =
@@ -52,369 +37,26 @@ Serializer<GSendPasswordResetLinkData> _$gSendPasswordResetLinkDataSerializer =
     _$GSendPasswordResetLinkDataSerializer();
 Serializer<GRegisterUserData> _$gRegisterUserDataSerializer =
     _$GRegisterUserDataSerializer();
+Serializer<GRegisterUserData_registerUser>
+    _$gRegisterUserDataRegisterUserSerializer =
+    _$GRegisterUserData_registerUserSerializer();
+Serializer<GLogInUserData> _$gLogInUserDataSerializer =
+    _$GLogInUserDataSerializer();
+Serializer<GLogInUserData_logInUser> _$gLogInUserDataLogInUserSerializer =
+    _$GLogInUserData_logInUserSerializer();
+Serializer<GLogInUserData_logInUser_user>
+    _$gLogInUserDataLogInUserUserSerializer =
+    _$GLogInUserData_logInUser_userSerializer();
+Serializer<GValidateTokenData> _$gValidateTokenDataSerializer =
+    _$GValidateTokenDataSerializer();
+Serializer<GValidateTokenData_validateToken>
+    _$gValidateTokenDataValidateTokenSerializer =
+    _$GValidateTokenData_validateTokenSerializer();
+Serializer<GValidateTokenData_validateToken_user>
+    _$gValidateTokenDataValidateTokenUserSerializer =
+    _$GValidateTokenData_validateToken_userSerializer();
 Serializer<GVerifyPhoneNumberData> _$gVerifyPhoneNumberDataSerializer =
     _$GVerifyPhoneNumberDataSerializer();
-
-class _$GValidateTokenDataSerializer
-    implements StructuredSerializer<GValidateTokenData> {
-  @override
-  final Iterable<Type> types = const [GValidateTokenData, _$GValidateTokenData];
-  @override
-  final String wireName = 'GValidateTokenData';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GValidateTokenData object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-    ];
-    Object? value;
-    value = object.validateToken;
-    if (value != null) {
-      result
-        ..add('validateToken')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GValidateTokenData_validateToken)));
-    }
-    return result;
-  }
-
-  @override
-  GValidateTokenData deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GValidateTokenDataBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'validateToken':
-          result.validateToken.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GValidateTokenData_validateToken))!
-              as GValidateTokenData_validateToken);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GValidateTokenData_validateTokenSerializer
-    implements StructuredSerializer<GValidateTokenData_validateToken> {
-  @override
-  final Iterable<Type> types = const [
-    GValidateTokenData_validateToken,
-    _$GValidateTokenData_validateToken
-  ];
-  @override
-  final String wireName = 'GValidateTokenData_validateToken';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GValidateTokenData_validateToken object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'token',
-      serializers.serialize(object.token,
-          specifiedType: const FullType(String)),
-      'user',
-      serializers.serialize(object.user,
-          specifiedType: const FullType(GValidateTokenData_validateToken_user)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GValidateTokenData_validateToken deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GValidateTokenData_validateTokenBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'token':
-          result.token = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'user':
-          result.user.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GValidateTokenData_validateToken_user))!
-              as GValidateTokenData_validateToken_user);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GValidateTokenData_validateToken_userSerializer
-    implements StructuredSerializer<GValidateTokenData_validateToken_user> {
-  @override
-  final Iterable<Type> types = const [
-    GValidateTokenData_validateToken_user,
-    _$GValidateTokenData_validateToken_user
-  ];
-  @override
-  final String wireName = 'GValidateTokenData_validateToken_user';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GValidateTokenData_validateToken_user object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'id',
-      serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'email',
-      serializers.serialize(object.email,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GValidateTokenData_validateToken_user deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GValidateTokenData_validateToken_userBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'id':
-          result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
-          break;
-        case 'name':
-          result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'email':
-          result.email = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GLogInUserDataSerializer
-    implements StructuredSerializer<GLogInUserData> {
-  @override
-  final Iterable<Type> types = const [GLogInUserData, _$GLogInUserData];
-  @override
-  final String wireName = 'GLogInUserData';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, GLogInUserData object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'logInUser',
-      serializers.serialize(object.logInUser,
-          specifiedType: const FullType(GLogInUserData_logInUser)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GLogInUserData deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GLogInUserDataBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'logInUser':
-          result.logInUser.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GLogInUserData_logInUser))!
-              as GLogInUserData_logInUser);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GLogInUserData_logInUserSerializer
-    implements StructuredSerializer<GLogInUserData_logInUser> {
-  @override
-  final Iterable<Type> types = const [
-    GLogInUserData_logInUser,
-    _$GLogInUserData_logInUser
-  ];
-  @override
-  final String wireName = 'GLogInUserData_logInUser';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GLogInUserData_logInUser object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'error',
-      serializers.serialize(object.error,
-          specifiedType: const FullType(String)),
-      'token',
-      serializers.serialize(object.token,
-          specifiedType: const FullType(String)),
-      'user',
-      serializers.serialize(object.user,
-          specifiedType: const FullType(GLogInUserData_logInUser_user)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GLogInUserData_logInUser deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GLogInUserData_logInUserBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'error':
-          result.error = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'token':
-          result.token = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'user':
-          result.user.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GLogInUserData_logInUser_user))!
-              as GLogInUserData_logInUser_user);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GLogInUserData_logInUser_userSerializer
-    implements StructuredSerializer<GLogInUserData_logInUser_user> {
-  @override
-  final Iterable<Type> types = const [
-    GLogInUserData_logInUser_user,
-    _$GLogInUserData_logInUser_user
-  ];
-  @override
-  final String wireName = 'GLogInUserData_logInUser_user';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GLogInUserData_logInUser_user object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'id',
-      serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GLogInUserData_logInUser_user deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GLogInUserData_logInUser_userBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'id':
-          result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
-          break;
-        case 'name':
-          result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
 
 class _$GLogOutUserDataSerializer
     implements StructuredSerializer<GLogOutUserData> {
@@ -437,7 +79,7 @@ class _$GLogOutUserDataSerializer
       result
         ..add('logOutUser')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GVoid)));
+            specifiedType: const FullType(_i1.GVoid)));
     }
     return result;
   }
@@ -460,7 +102,7 @@ class _$GLogOutUserDataSerializer
           break;
         case 'logOutUser':
           result.logOutUser.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
+              specifiedType: const FullType(_i1.GVoid))! as _i1.GVoid);
           break;
       }
     }
@@ -541,7 +183,7 @@ class _$GCreateProductData_createOneProductSerializer
           specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+          specifiedType: const FullType(_i1.GBigInt)),
     ];
 
     return result;
@@ -565,7 +207,7 @@ class _$GCreateProductData_createOneProductSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
           break;
       }
     }
@@ -754,7 +396,7 @@ class _$GDeleteProductData_deleteOneProductSerializer
           specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+          specifiedType: const FullType(_i1.GBigInt)),
     ];
 
     return result;
@@ -778,7 +420,7 @@ class _$GDeleteProductData_deleteOneProductSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
           break;
       }
     }
@@ -861,7 +503,7 @@ class _$GDeleteItemData_deleteOneItemSerializer
           specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+          specifiedType: const FullType(_i1.GBigInt)),
     ];
 
     return result;
@@ -885,7 +527,7 @@ class _$GDeleteItemData_deleteOneItemSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
           break;
       }
     }
@@ -975,7 +617,7 @@ class _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer
           specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+          specifiedType: const FullType(_i1.GBigInt)),
     ];
 
     return result;
@@ -999,7 +641,7 @@ class _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer
           break;
         case 'id':
           result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
           break;
       }
     }
@@ -1033,7 +675,7 @@ class _$GSendPasswordResetLinkDataSerializer
       result
         ..add('sendPasswordResetLink')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GVoid)));
+            specifiedType: const FullType(_i1.GVoid)));
     }
     return result;
   }
@@ -1056,7 +698,7 @@ class _$GSendPasswordResetLinkDataSerializer
           break;
         case 'sendPasswordResetLink':
           result.sendPasswordResetLink.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
+              specifiedType: const FullType(_i1.GVoid))! as _i1.GVoid);
           break;
       }
     }
@@ -1079,15 +721,11 @@ class _$GRegisterUserDataSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
+      'registerUser',
+      serializers.serialize(object.registerUser,
+          specifiedType: const FullType(GRegisterUserData_registerUser)),
     ];
-    Object? value;
-    value = object.registerUser;
-    if (value != null) {
-      result
-        ..add('registerUser')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GBigInt)));
-    }
+
     return result;
   }
 
@@ -1109,7 +747,466 @@ class _$GRegisterUserDataSerializer
           break;
         case 'registerUser':
           result.registerUser.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+                  specifiedType:
+                      const FullType(GRegisterUserData_registerUser))!
+              as GRegisterUserData_registerUser);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GRegisterUserData_registerUserSerializer
+    implements StructuredSerializer<GRegisterUserData_registerUser> {
+  @override
+  final Iterable<Type> types = const [
+    GRegisterUserData_registerUser,
+    _$GRegisterUserData_registerUser
+  ];
+  @override
+  final String wireName = 'GRegisterUserData_registerUser';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GRegisterUserData_registerUser object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.error;
+    if (value != null) {
+      result
+        ..add('error')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.userId;
+    if (value != null) {
+      result
+        ..add('userId')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i1.GBigInt)));
+    }
+    return result;
+  }
+
+  @override
+  GRegisterUserData_registerUser deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GRegisterUserData_registerUserBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'error':
+          result.error = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'userId':
+          result.userId.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GLogInUserDataSerializer
+    implements StructuredSerializer<GLogInUserData> {
+  @override
+  final Iterable<Type> types = const [GLogInUserData, _$GLogInUserData];
+  @override
+  final String wireName = 'GLogInUserData';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GLogInUserData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'logInUser',
+      serializers.serialize(object.logInUser,
+          specifiedType: const FullType(GLogInUserData_logInUser)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GLogInUserData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GLogInUserDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'logInUser':
+          result.logInUser.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GLogInUserData_logInUser))!
+              as GLogInUserData_logInUser);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GLogInUserData_logInUserSerializer
+    implements StructuredSerializer<GLogInUserData_logInUser> {
+  @override
+  final Iterable<Type> types = const [
+    GLogInUserData_logInUser,
+    _$GLogInUserData_logInUser
+  ];
+  @override
+  final String wireName = 'GLogInUserData_logInUser';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GLogInUserData_logInUser object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.error;
+    if (value != null) {
+      result
+        ..add('error')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.token;
+    if (value != null) {
+      result
+        ..add('token')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.user;
+    if (value != null) {
+      result
+        ..add('user')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GLogInUserData_logInUser_user)));
+    }
+    return result;
+  }
+
+  @override
+  GLogInUserData_logInUser deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GLogInUserData_logInUserBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'error':
+          result.error = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'token':
+          result.token = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GLogInUserData_logInUser_user))!
+              as GLogInUserData_logInUser_user);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GLogInUserData_logInUser_userSerializer
+    implements StructuredSerializer<GLogInUserData_logInUser_user> {
+  @override
+  final Iterable<Type> types = const [
+    GLogInUserData_logInUser_user,
+    _$GLogInUserData_logInUser_user
+  ];
+  @override
+  final String wireName = 'GLogInUserData_logInUser_user';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GLogInUserData_logInUser_user object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i1.GBigInt)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GLogInUserData_logInUser_user deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GLogInUserData_logInUser_userBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GValidateTokenDataSerializer
+    implements StructuredSerializer<GValidateTokenData> {
+  @override
+  final Iterable<Type> types = const [GValidateTokenData, _$GValidateTokenData];
+  @override
+  final String wireName = 'GValidateTokenData';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GValidateTokenData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'validateToken',
+      serializers.serialize(object.validateToken,
+          specifiedType: const FullType(GValidateTokenData_validateToken)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GValidateTokenData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GValidateTokenDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'validateToken':
+          result.validateToken.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GValidateTokenData_validateToken))!
+              as GValidateTokenData_validateToken);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GValidateTokenData_validateTokenSerializer
+    implements StructuredSerializer<GValidateTokenData_validateToken> {
+  @override
+  final Iterable<Type> types = const [
+    GValidateTokenData_validateToken,
+    _$GValidateTokenData_validateToken
+  ];
+  @override
+  final String wireName = 'GValidateTokenData_validateToken';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GValidateTokenData_validateToken object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.error;
+    if (value != null) {
+      result
+        ..add('error')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.token;
+    if (value != null) {
+      result
+        ..add('token')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.user;
+    if (value != null) {
+      result
+        ..add('user')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(GValidateTokenData_validateToken_user)));
+    }
+    return result;
+  }
+
+  @override
+  GValidateTokenData_validateToken deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GValidateTokenData_validateTokenBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'error':
+          result.error = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'token':
+          result.token = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(GValidateTokenData_validateToken_user))!
+              as GValidateTokenData_validateToken_user);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GValidateTokenData_validateToken_userSerializer
+    implements StructuredSerializer<GValidateTokenData_validateToken_user> {
+  @override
+  final Iterable<Type> types = const [
+    GValidateTokenData_validateToken_user,
+    _$GValidateTokenData_validateToken_user
+  ];
+  @override
+  final String wireName = 'GValidateTokenData_validateToken_user';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GValidateTokenData_validateToken_user object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id,
+          specifiedType: const FullType(_i1.GBigInt)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'email',
+      serializers.serialize(object.email,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GValidateTokenData_validateToken_user deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GValidateTokenData_validateToken_userBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GBigInt))! as _i1.GBigInt);
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -1143,7 +1240,7 @@ class _$GVerifyPhoneNumberDataSerializer
       result
         ..add('verifyPhoneNumber')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GVoid)));
+            specifiedType: const FullType(_i1.GVoid)));
     }
     return result;
   }
@@ -1166,7 +1263,7 @@ class _$GVerifyPhoneNumberDataSerializer
           break;
         case 'verifyPhoneNumber':
           result.verifyPhoneNumber.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GVoid))! as _i2.GVoid);
+              specifiedType: const FullType(_i1.GVoid))! as _i1.GVoid);
           break;
       }
     }
@@ -1175,779 +1272,11 @@ class _$GVerifyPhoneNumberDataSerializer
   }
 }
 
-class _$GValidateTokenData extends GValidateTokenData {
-  @override
-  final String G__typename;
-  @override
-  final GValidateTokenData_validateToken? validateToken;
-
-  factory _$GValidateTokenData(
-          [void Function(GValidateTokenDataBuilder)? updates]) =>
-      (GValidateTokenDataBuilder()..update(updates))._build();
-
-  _$GValidateTokenData._({required this.G__typename, this.validateToken})
-      : super._();
-  @override
-  GValidateTokenData rebuild(
-          void Function(GValidateTokenDataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GValidateTokenDataBuilder toBuilder() =>
-      GValidateTokenDataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GValidateTokenData &&
-        G__typename == other.G__typename &&
-        validateToken == other.validateToken;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, validateToken.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GValidateTokenData')
-          ..add('G__typename', G__typename)
-          ..add('validateToken', validateToken))
-        .toString();
-  }
-}
-
-class GValidateTokenDataBuilder
-    implements Builder<GValidateTokenData, GValidateTokenDataBuilder> {
-  _$GValidateTokenData? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  GValidateTokenData_validateTokenBuilder? _validateToken;
-  GValidateTokenData_validateTokenBuilder get validateToken =>
-      _$this._validateToken ??= GValidateTokenData_validateTokenBuilder();
-  set validateToken(GValidateTokenData_validateTokenBuilder? validateToken) =>
-      _$this._validateToken = validateToken;
-
-  GValidateTokenDataBuilder() {
-    GValidateTokenData._initializeBuilder(this);
-  }
-
-  GValidateTokenDataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _validateToken = $v.validateToken?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GValidateTokenData other) {
-    _$v = other as _$GValidateTokenData;
-  }
-
-  @override
-  void update(void Function(GValidateTokenDataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GValidateTokenData build() => _build();
-
-  _$GValidateTokenData _build() {
-    _$GValidateTokenData _$result;
-    try {
-      _$result = _$v ??
-          _$GValidateTokenData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GValidateTokenData', 'G__typename'),
-            validateToken: _validateToken?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'validateToken';
-        _validateToken?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GValidateTokenData', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GValidateTokenData_validateToken
-    extends GValidateTokenData_validateToken {
-  @override
-  final String G__typename;
-  @override
-  final String token;
-  @override
-  final GValidateTokenData_validateToken_user user;
-
-  factory _$GValidateTokenData_validateToken(
-          [void Function(GValidateTokenData_validateTokenBuilder)? updates]) =>
-      (GValidateTokenData_validateTokenBuilder()..update(updates))._build();
-
-  _$GValidateTokenData_validateToken._(
-      {required this.G__typename, required this.token, required this.user})
-      : super._();
-  @override
-  GValidateTokenData_validateToken rebuild(
-          void Function(GValidateTokenData_validateTokenBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GValidateTokenData_validateTokenBuilder toBuilder() =>
-      GValidateTokenData_validateTokenBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GValidateTokenData_validateToken &&
-        G__typename == other.G__typename &&
-        token == other.token &&
-        user == other.user;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, token.hashCode);
-    _$hash = $jc(_$hash, user.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GValidateTokenData_validateToken')
-          ..add('G__typename', G__typename)
-          ..add('token', token)
-          ..add('user', user))
-        .toString();
-  }
-}
-
-class GValidateTokenData_validateTokenBuilder
-    implements
-        Builder<GValidateTokenData_validateToken,
-            GValidateTokenData_validateTokenBuilder> {
-  _$GValidateTokenData_validateToken? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  String? _token;
-  String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
-
-  GValidateTokenData_validateToken_userBuilder? _user;
-  GValidateTokenData_validateToken_userBuilder get user =>
-      _$this._user ??= GValidateTokenData_validateToken_userBuilder();
-  set user(GValidateTokenData_validateToken_userBuilder? user) =>
-      _$this._user = user;
-
-  GValidateTokenData_validateTokenBuilder() {
-    GValidateTokenData_validateToken._initializeBuilder(this);
-  }
-
-  GValidateTokenData_validateTokenBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _token = $v.token;
-      _user = $v.user.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GValidateTokenData_validateToken other) {
-    _$v = other as _$GValidateTokenData_validateToken;
-  }
-
-  @override
-  void update(void Function(GValidateTokenData_validateTokenBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GValidateTokenData_validateToken build() => _build();
-
-  _$GValidateTokenData_validateToken _build() {
-    _$GValidateTokenData_validateToken _$result;
-    try {
-      _$result = _$v ??
-          _$GValidateTokenData_validateToken._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GValidateTokenData_validateToken', 'G__typename'),
-            token: BuiltValueNullFieldError.checkNotNull(
-                token, r'GValidateTokenData_validateToken', 'token'),
-            user: user.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'user';
-        user.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GValidateTokenData_validateToken', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GValidateTokenData_validateToken_user
-    extends GValidateTokenData_validateToken_user {
-  @override
-  final String G__typename;
-  @override
-  final _i2.GBigInt id;
-  @override
-  final String name;
-  @override
-  final String email;
-
-  factory _$GValidateTokenData_validateToken_user(
-          [void Function(GValidateTokenData_validateToken_userBuilder)?
-              updates]) =>
-      (GValidateTokenData_validateToken_userBuilder()..update(updates))
-          ._build();
-
-  _$GValidateTokenData_validateToken_user._(
-      {required this.G__typename,
-      required this.id,
-      required this.name,
-      required this.email})
-      : super._();
-  @override
-  GValidateTokenData_validateToken_user rebuild(
-          void Function(GValidateTokenData_validateToken_userBuilder)
-              updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GValidateTokenData_validateToken_userBuilder toBuilder() =>
-      GValidateTokenData_validateToken_userBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GValidateTokenData_validateToken_user &&
-        G__typename == other.G__typename &&
-        id == other.id &&
-        name == other.name &&
-        email == other.email;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jc(_$hash, email.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            r'GValidateTokenData_validateToken_user')
-          ..add('G__typename', G__typename)
-          ..add('id', id)
-          ..add('name', name)
-          ..add('email', email))
-        .toString();
-  }
-}
-
-class GValidateTokenData_validateToken_userBuilder
-    implements
-        Builder<GValidateTokenData_validateToken_user,
-            GValidateTokenData_validateToken_userBuilder> {
-  _$GValidateTokenData_validateToken_user? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
-
-  String? _name;
-  String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
-
-  String? _email;
-  String? get email => _$this._email;
-  set email(String? email) => _$this._email = email;
-
-  GValidateTokenData_validateToken_userBuilder() {
-    GValidateTokenData_validateToken_user._initializeBuilder(this);
-  }
-
-  GValidateTokenData_validateToken_userBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _id = $v.id.toBuilder();
-      _name = $v.name;
-      _email = $v.email;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GValidateTokenData_validateToken_user other) {
-    _$v = other as _$GValidateTokenData_validateToken_user;
-  }
-
-  @override
-  void update(
-      void Function(GValidateTokenData_validateToken_userBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GValidateTokenData_validateToken_user build() => _build();
-
-  _$GValidateTokenData_validateToken_user _build() {
-    _$GValidateTokenData_validateToken_user _$result;
-    try {
-      _$result = _$v ??
-          _$GValidateTokenData_validateToken_user._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GValidateTokenData_validateToken_user', 'G__typename'),
-            id: id.build(),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GValidateTokenData_validateToken_user', 'name'),
-            email: BuiltValueNullFieldError.checkNotNull(
-                email, r'GValidateTokenData_validateToken_user', 'email'),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'id';
-        id.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GValidateTokenData_validateToken_user',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GLogInUserData extends GLogInUserData {
-  @override
-  final String G__typename;
-  @override
-  final GLogInUserData_logInUser logInUser;
-
-  factory _$GLogInUserData([void Function(GLogInUserDataBuilder)? updates]) =>
-      (GLogInUserDataBuilder()..update(updates))._build();
-
-  _$GLogInUserData._({required this.G__typename, required this.logInUser})
-      : super._();
-  @override
-  GLogInUserData rebuild(void Function(GLogInUserDataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GLogInUserDataBuilder toBuilder() => GLogInUserDataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GLogInUserData &&
-        G__typename == other.G__typename &&
-        logInUser == other.logInUser;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, logInUser.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GLogInUserData')
-          ..add('G__typename', G__typename)
-          ..add('logInUser', logInUser))
-        .toString();
-  }
-}
-
-class GLogInUserDataBuilder
-    implements Builder<GLogInUserData, GLogInUserDataBuilder> {
-  _$GLogInUserData? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  GLogInUserData_logInUserBuilder? _logInUser;
-  GLogInUserData_logInUserBuilder get logInUser =>
-      _$this._logInUser ??= GLogInUserData_logInUserBuilder();
-  set logInUser(GLogInUserData_logInUserBuilder? logInUser) =>
-      _$this._logInUser = logInUser;
-
-  GLogInUserDataBuilder() {
-    GLogInUserData._initializeBuilder(this);
-  }
-
-  GLogInUserDataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _logInUser = $v.logInUser.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GLogInUserData other) {
-    _$v = other as _$GLogInUserData;
-  }
-
-  @override
-  void update(void Function(GLogInUserDataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GLogInUserData build() => _build();
-
-  _$GLogInUserData _build() {
-    _$GLogInUserData _$result;
-    try {
-      _$result = _$v ??
-          _$GLogInUserData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GLogInUserData', 'G__typename'),
-            logInUser: logInUser.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'logInUser';
-        logInUser.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GLogInUserData', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GLogInUserData_logInUser extends GLogInUserData_logInUser {
-  @override
-  final String G__typename;
-  @override
-  final String error;
-  @override
-  final String token;
-  @override
-  final GLogInUserData_logInUser_user user;
-
-  factory _$GLogInUserData_logInUser(
-          [void Function(GLogInUserData_logInUserBuilder)? updates]) =>
-      (GLogInUserData_logInUserBuilder()..update(updates))._build();
-
-  _$GLogInUserData_logInUser._(
-      {required this.G__typename,
-      required this.error,
-      required this.token,
-      required this.user})
-      : super._();
-  @override
-  GLogInUserData_logInUser rebuild(
-          void Function(GLogInUserData_logInUserBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GLogInUserData_logInUserBuilder toBuilder() =>
-      GLogInUserData_logInUserBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GLogInUserData_logInUser &&
-        G__typename == other.G__typename &&
-        error == other.error &&
-        token == other.token &&
-        user == other.user;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, error.hashCode);
-    _$hash = $jc(_$hash, token.hashCode);
-    _$hash = $jc(_$hash, user.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GLogInUserData_logInUser')
-          ..add('G__typename', G__typename)
-          ..add('error', error)
-          ..add('token', token)
-          ..add('user', user))
-        .toString();
-  }
-}
-
-class GLogInUserData_logInUserBuilder
-    implements
-        Builder<GLogInUserData_logInUser, GLogInUserData_logInUserBuilder> {
-  _$GLogInUserData_logInUser? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  String? _error;
-  String? get error => _$this._error;
-  set error(String? error) => _$this._error = error;
-
-  String? _token;
-  String? get token => _$this._token;
-  set token(String? token) => _$this._token = token;
-
-  GLogInUserData_logInUser_userBuilder? _user;
-  GLogInUserData_logInUser_userBuilder get user =>
-      _$this._user ??= GLogInUserData_logInUser_userBuilder();
-  set user(GLogInUserData_logInUser_userBuilder? user) => _$this._user = user;
-
-  GLogInUserData_logInUserBuilder() {
-    GLogInUserData_logInUser._initializeBuilder(this);
-  }
-
-  GLogInUserData_logInUserBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _error = $v.error;
-      _token = $v.token;
-      _user = $v.user.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GLogInUserData_logInUser other) {
-    _$v = other as _$GLogInUserData_logInUser;
-  }
-
-  @override
-  void update(void Function(GLogInUserData_logInUserBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GLogInUserData_logInUser build() => _build();
-
-  _$GLogInUserData_logInUser _build() {
-    _$GLogInUserData_logInUser _$result;
-    try {
-      _$result = _$v ??
-          _$GLogInUserData_logInUser._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GLogInUserData_logInUser', 'G__typename'),
-            error: BuiltValueNullFieldError.checkNotNull(
-                error, r'GLogInUserData_logInUser', 'error'),
-            token: BuiltValueNullFieldError.checkNotNull(
-                token, r'GLogInUserData_logInUser', 'token'),
-            user: user.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'user';
-        user.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GLogInUserData_logInUser', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
-  @override
-  final String G__typename;
-  @override
-  final _i2.GBigInt id;
-  @override
-  final String name;
-
-  factory _$GLogInUserData_logInUser_user(
-          [void Function(GLogInUserData_logInUser_userBuilder)? updates]) =>
-      (GLogInUserData_logInUser_userBuilder()..update(updates))._build();
-
-  _$GLogInUserData_logInUser_user._(
-      {required this.G__typename, required this.id, required this.name})
-      : super._();
-  @override
-  GLogInUserData_logInUser_user rebuild(
-          void Function(GLogInUserData_logInUser_userBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GLogInUserData_logInUser_userBuilder toBuilder() =>
-      GLogInUserData_logInUser_userBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GLogInUserData_logInUser_user &&
-        G__typename == other.G__typename &&
-        id == other.id &&
-        name == other.name;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GLogInUserData_logInUser_user')
-          ..add('G__typename', G__typename)
-          ..add('id', id)
-          ..add('name', name))
-        .toString();
-  }
-}
-
-class GLogInUserData_logInUser_userBuilder
-    implements
-        Builder<GLogInUserData_logInUser_user,
-            GLogInUserData_logInUser_userBuilder> {
-  _$GLogInUserData_logInUser_user? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
-
-  String? _name;
-  String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
-
-  GLogInUserData_logInUser_userBuilder() {
-    GLogInUserData_logInUser_user._initializeBuilder(this);
-  }
-
-  GLogInUserData_logInUser_userBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _id = $v.id.toBuilder();
-      _name = $v.name;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GLogInUserData_logInUser_user other) {
-    _$v = other as _$GLogInUserData_logInUser_user;
-  }
-
-  @override
-  void update(void Function(GLogInUserData_logInUser_userBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GLogInUserData_logInUser_user build() => _build();
-
-  _$GLogInUserData_logInUser_user _build() {
-    _$GLogInUserData_logInUser_user _$result;
-    try {
-      _$result = _$v ??
-          _$GLogInUserData_logInUser_user._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GLogInUserData_logInUser_user', 'G__typename'),
-            id: id.build(),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GLogInUserData_logInUser_user', 'name'),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'id';
-        id.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GLogInUserData_logInUser_user', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 class _$GLogOutUserData extends GLogOutUserData {
   @override
   final String G__typename;
   @override
-  final _i2.GVoid? logOutUser;
+  final _i1.GVoid? logOutUser;
 
   factory _$GLogOutUserData([void Function(GLogOutUserDataBuilder)? updates]) =>
       (GLogOutUserDataBuilder()..update(updates))._build();
@@ -1994,9 +1323,9 @@ class GLogOutUserDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GVoidBuilder? _logOutUser;
-  _i2.GVoidBuilder get logOutUser => _$this._logOutUser ??= _i2.GVoidBuilder();
-  set logOutUser(_i2.GVoidBuilder? logOutUser) =>
+  _i1.GVoidBuilder? _logOutUser;
+  _i1.GVoidBuilder get logOutUser => _$this._logOutUser ??= _i1.GVoidBuilder();
+  set logOutUser(_i1.GVoidBuilder? logOutUser) =>
       _$this._logOutUser = logOutUser;
 
   GLogOutUserDataBuilder() {
@@ -2171,7 +1500,7 @@ class _$GCreateProductData_createOneProduct
   @override
   final String G__typename;
   @override
-  final _i2.GBigInt id;
+  final _i1.GBigInt id;
 
   factory _$GCreateProductData_createOneProduct(
           [void Function(GCreateProductData_createOneProductBuilder)?
@@ -2226,9 +1555,9 @@ class GCreateProductData_createOneProductBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  _i1.GBigIntBuilder? _id;
+  _i1.GBigIntBuilder get id => _$this._id ??= _i1.GBigIntBuilder();
+  set id(_i1.GBigIntBuilder? id) => _$this._id = id;
 
   GCreateProductData_createOneProductBuilder() {
     GCreateProductData_createOneProduct._initializeBuilder(this);
@@ -2608,7 +1937,7 @@ class _$GDeleteProductData_deleteOneProduct
   @override
   final String G__typename;
   @override
-  final _i2.GBigInt id;
+  final _i1.GBigInt id;
 
   factory _$GDeleteProductData_deleteOneProduct(
           [void Function(GDeleteProductData_deleteOneProductBuilder)?
@@ -2663,9 +1992,9 @@ class GDeleteProductData_deleteOneProductBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  _i1.GBigIntBuilder? _id;
+  _i1.GBigIntBuilder get id => _$this._id ??= _i1.GBigIntBuilder();
+  set id(_i1.GBigIntBuilder? id) => _$this._id = id;
 
   GDeleteProductData_deleteOneProductBuilder() {
     GDeleteProductData_deleteOneProduct._initializeBuilder(this);
@@ -2834,7 +2163,7 @@ class _$GDeleteItemData_deleteOneItem extends GDeleteItemData_deleteOneItem {
   @override
   final String G__typename;
   @override
-  final _i2.GBigInt id;
+  final _i1.GBigInt id;
 
   factory _$GDeleteItemData_deleteOneItem(
           [void Function(GDeleteItemData_deleteOneItemBuilder)? updates]) =>
@@ -2888,9 +2217,9 @@ class GDeleteItemData_deleteOneItemBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  _i1.GBigIntBuilder? _id;
+  _i1.GBigIntBuilder get id => _$this._id ??= _i1.GBigIntBuilder();
+  set id(_i1.GBigIntBuilder? id) => _$this._id = id;
 
   GDeleteItemData_deleteOneItemBuilder() {
     GDeleteItemData_deleteOneItem._initializeBuilder(this);
@@ -3068,7 +2397,7 @@ class _$GDeletePurchaseOrderData_deleteOnePurchaseOrder
   @override
   final String G__typename;
   @override
-  final _i2.GBigInt id;
+  final _i1.GBigInt id;
 
   factory _$GDeletePurchaseOrderData_deleteOnePurchaseOrder(
           [void Function(
@@ -3128,9 +2457,9 @@ class GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  _i1.GBigIntBuilder? _id;
+  _i1.GBigIntBuilder get id => _$this._id ??= _i1.GBigIntBuilder();
+  set id(_i1.GBigIntBuilder? id) => _$this._id = id;
 
   GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder() {
     GDeletePurchaseOrderData_deleteOnePurchaseOrder._initializeBuilder(this);
@@ -3194,7 +2523,7 @@ class _$GSendPasswordResetLinkData extends GSendPasswordResetLinkData {
   @override
   final String G__typename;
   @override
-  final _i2.GVoid? sendPasswordResetLink;
+  final _i1.GVoid? sendPasswordResetLink;
 
   factory _$GSendPasswordResetLinkData(
           [void Function(GSendPasswordResetLinkDataBuilder)? updates]) =>
@@ -3247,10 +2576,10 @@ class GSendPasswordResetLinkDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GVoidBuilder? _sendPasswordResetLink;
-  _i2.GVoidBuilder get sendPasswordResetLink =>
-      _$this._sendPasswordResetLink ??= _i2.GVoidBuilder();
-  set sendPasswordResetLink(_i2.GVoidBuilder? sendPasswordResetLink) =>
+  _i1.GVoidBuilder? _sendPasswordResetLink;
+  _i1.GVoidBuilder get sendPasswordResetLink =>
+      _$this._sendPasswordResetLink ??= _i1.GVoidBuilder();
+  set sendPasswordResetLink(_i1.GVoidBuilder? sendPasswordResetLink) =>
       _$this._sendPasswordResetLink = sendPasswordResetLink;
 
   GSendPasswordResetLinkDataBuilder() {
@@ -3309,13 +2638,13 @@ class _$GRegisterUserData extends GRegisterUserData {
   @override
   final String G__typename;
   @override
-  final _i2.GBigInt? registerUser;
+  final GRegisterUserData_registerUser registerUser;
 
   factory _$GRegisterUserData(
           [void Function(GRegisterUserDataBuilder)? updates]) =>
       (GRegisterUserDataBuilder()..update(updates))._build();
 
-  _$GRegisterUserData._({required this.G__typename, this.registerUser})
+  _$GRegisterUserData._({required this.G__typename, required this.registerUser})
       : super._();
   @override
   GRegisterUserData rebuild(void Function(GRegisterUserDataBuilder) updates) =>
@@ -3359,10 +2688,10 @@ class GRegisterUserDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GBigIntBuilder? _registerUser;
-  _i2.GBigIntBuilder get registerUser =>
-      _$this._registerUser ??= _i2.GBigIntBuilder();
-  set registerUser(_i2.GBigIntBuilder? registerUser) =>
+  GRegisterUserData_registerUserBuilder? _registerUser;
+  GRegisterUserData_registerUserBuilder get registerUser =>
+      _$this._registerUser ??= GRegisterUserData_registerUserBuilder();
+  set registerUser(GRegisterUserData_registerUserBuilder? registerUser) =>
       _$this._registerUser = registerUser;
 
   GRegisterUserDataBuilder() {
@@ -3373,7 +2702,7 @@ class GRegisterUserDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _registerUser = $v.registerUser?.toBuilder();
+      _registerUser = $v.registerUser.toBuilder();
       _$v = null;
     }
     return this;
@@ -3399,16 +2728,915 @@ class GRegisterUserDataBuilder
           _$GRegisterUserData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
                 G__typename, r'GRegisterUserData', 'G__typename'),
-            registerUser: _registerUser?.build(),
+            registerUser: registerUser.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'registerUser';
-        _registerUser?.build();
+        registerUser.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'GRegisterUserData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GRegisterUserData_registerUser extends GRegisterUserData_registerUser {
+  @override
+  final String G__typename;
+  @override
+  final String? error;
+  @override
+  final _i1.GBigInt? userId;
+
+  factory _$GRegisterUserData_registerUser(
+          [void Function(GRegisterUserData_registerUserBuilder)? updates]) =>
+      (GRegisterUserData_registerUserBuilder()..update(updates))._build();
+
+  _$GRegisterUserData_registerUser._(
+      {required this.G__typename, this.error, this.userId})
+      : super._();
+  @override
+  GRegisterUserData_registerUser rebuild(
+          void Function(GRegisterUserData_registerUserBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GRegisterUserData_registerUserBuilder toBuilder() =>
+      GRegisterUserData_registerUserBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GRegisterUserData_registerUser &&
+        G__typename == other.G__typename &&
+        error == other.error &&
+        userId == other.userId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, error.hashCode);
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GRegisterUserData_registerUser')
+          ..add('G__typename', G__typename)
+          ..add('error', error)
+          ..add('userId', userId))
+        .toString();
+  }
+}
+
+class GRegisterUserData_registerUserBuilder
+    implements
+        Builder<GRegisterUserData_registerUser,
+            GRegisterUserData_registerUserBuilder> {
+  _$GRegisterUserData_registerUser? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _error;
+  String? get error => _$this._error;
+  set error(String? error) => _$this._error = error;
+
+  _i1.GBigIntBuilder? _userId;
+  _i1.GBigIntBuilder get userId => _$this._userId ??= _i1.GBigIntBuilder();
+  set userId(_i1.GBigIntBuilder? userId) => _$this._userId = userId;
+
+  GRegisterUserData_registerUserBuilder() {
+    GRegisterUserData_registerUser._initializeBuilder(this);
+  }
+
+  GRegisterUserData_registerUserBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _error = $v.error;
+      _userId = $v.userId?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GRegisterUserData_registerUser other) {
+    _$v = other as _$GRegisterUserData_registerUser;
+  }
+
+  @override
+  void update(void Function(GRegisterUserData_registerUserBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GRegisterUserData_registerUser build() => _build();
+
+  _$GRegisterUserData_registerUser _build() {
+    _$GRegisterUserData_registerUser _$result;
+    try {
+      _$result = _$v ??
+          _$GRegisterUserData_registerUser._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GRegisterUserData_registerUser', 'G__typename'),
+            error: error,
+            userId: _userId?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userId';
+        _userId?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GRegisterUserData_registerUser', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GLogInUserData extends GLogInUserData {
+  @override
+  final String G__typename;
+  @override
+  final GLogInUserData_logInUser logInUser;
+
+  factory _$GLogInUserData([void Function(GLogInUserDataBuilder)? updates]) =>
+      (GLogInUserDataBuilder()..update(updates))._build();
+
+  _$GLogInUserData._({required this.G__typename, required this.logInUser})
+      : super._();
+  @override
+  GLogInUserData rebuild(void Function(GLogInUserDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GLogInUserDataBuilder toBuilder() => GLogInUserDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GLogInUserData &&
+        G__typename == other.G__typename &&
+        logInUser == other.logInUser;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, logInUser.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GLogInUserData')
+          ..add('G__typename', G__typename)
+          ..add('logInUser', logInUser))
+        .toString();
+  }
+}
+
+class GLogInUserDataBuilder
+    implements Builder<GLogInUserData, GLogInUserDataBuilder> {
+  _$GLogInUserData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  GLogInUserData_logInUserBuilder? _logInUser;
+  GLogInUserData_logInUserBuilder get logInUser =>
+      _$this._logInUser ??= GLogInUserData_logInUserBuilder();
+  set logInUser(GLogInUserData_logInUserBuilder? logInUser) =>
+      _$this._logInUser = logInUser;
+
+  GLogInUserDataBuilder() {
+    GLogInUserData._initializeBuilder(this);
+  }
+
+  GLogInUserDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _logInUser = $v.logInUser.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GLogInUserData other) {
+    _$v = other as _$GLogInUserData;
+  }
+
+  @override
+  void update(void Function(GLogInUserDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GLogInUserData build() => _build();
+
+  _$GLogInUserData _build() {
+    _$GLogInUserData _$result;
+    try {
+      _$result = _$v ??
+          _$GLogInUserData._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GLogInUserData', 'G__typename'),
+            logInUser: logInUser.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'logInUser';
+        logInUser.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GLogInUserData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GLogInUserData_logInUser extends GLogInUserData_logInUser {
+  @override
+  final String G__typename;
+  @override
+  final String? error;
+  @override
+  final String? token;
+  @override
+  final GLogInUserData_logInUser_user? user;
+
+  factory _$GLogInUserData_logInUser(
+          [void Function(GLogInUserData_logInUserBuilder)? updates]) =>
+      (GLogInUserData_logInUserBuilder()..update(updates))._build();
+
+  _$GLogInUserData_logInUser._(
+      {required this.G__typename, this.error, this.token, this.user})
+      : super._();
+  @override
+  GLogInUserData_logInUser rebuild(
+          void Function(GLogInUserData_logInUserBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GLogInUserData_logInUserBuilder toBuilder() =>
+      GLogInUserData_logInUserBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GLogInUserData_logInUser &&
+        G__typename == other.G__typename &&
+        error == other.error &&
+        token == other.token &&
+        user == other.user;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, error.hashCode);
+    _$hash = $jc(_$hash, token.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GLogInUserData_logInUser')
+          ..add('G__typename', G__typename)
+          ..add('error', error)
+          ..add('token', token)
+          ..add('user', user))
+        .toString();
+  }
+}
+
+class GLogInUserData_logInUserBuilder
+    implements
+        Builder<GLogInUserData_logInUser, GLogInUserData_logInUserBuilder> {
+  _$GLogInUserData_logInUser? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _error;
+  String? get error => _$this._error;
+  set error(String? error) => _$this._error = error;
+
+  String? _token;
+  String? get token => _$this._token;
+  set token(String? token) => _$this._token = token;
+
+  GLogInUserData_logInUser_userBuilder? _user;
+  GLogInUserData_logInUser_userBuilder get user =>
+      _$this._user ??= GLogInUserData_logInUser_userBuilder();
+  set user(GLogInUserData_logInUser_userBuilder? user) => _$this._user = user;
+
+  GLogInUserData_logInUserBuilder() {
+    GLogInUserData_logInUser._initializeBuilder(this);
+  }
+
+  GLogInUserData_logInUserBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _error = $v.error;
+      _token = $v.token;
+      _user = $v.user?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GLogInUserData_logInUser other) {
+    _$v = other as _$GLogInUserData_logInUser;
+  }
+
+  @override
+  void update(void Function(GLogInUserData_logInUserBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GLogInUserData_logInUser build() => _build();
+
+  _$GLogInUserData_logInUser _build() {
+    _$GLogInUserData_logInUser _$result;
+    try {
+      _$result = _$v ??
+          _$GLogInUserData_logInUser._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GLogInUserData_logInUser', 'G__typename'),
+            error: error,
+            token: token,
+            user: _user?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'user';
+        _user?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GLogInUserData_logInUser', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
+  @override
+  final String G__typename;
+  @override
+  final _i1.GBigInt id;
+  @override
+  final String name;
+
+  factory _$GLogInUserData_logInUser_user(
+          [void Function(GLogInUserData_logInUser_userBuilder)? updates]) =>
+      (GLogInUserData_logInUser_userBuilder()..update(updates))._build();
+
+  _$GLogInUserData_logInUser_user._(
+      {required this.G__typename, required this.id, required this.name})
+      : super._();
+  @override
+  GLogInUserData_logInUser_user rebuild(
+          void Function(GLogInUserData_logInUser_userBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GLogInUserData_logInUser_userBuilder toBuilder() =>
+      GLogInUserData_logInUser_userBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GLogInUserData_logInUser_user &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GLogInUserData_logInUser_user')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name))
+        .toString();
+  }
+}
+
+class GLogInUserData_logInUser_userBuilder
+    implements
+        Builder<GLogInUserData_logInUser_user,
+            GLogInUserData_logInUser_userBuilder> {
+  _$GLogInUserData_logInUser_user? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  _i1.GBigIntBuilder? _id;
+  _i1.GBigIntBuilder get id => _$this._id ??= _i1.GBigIntBuilder();
+  set id(_i1.GBigIntBuilder? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  GLogInUserData_logInUser_userBuilder() {
+    GLogInUserData_logInUser_user._initializeBuilder(this);
+  }
+
+  GLogInUserData_logInUser_userBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id.toBuilder();
+      _name = $v.name;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GLogInUserData_logInUser_user other) {
+    _$v = other as _$GLogInUserData_logInUser_user;
+  }
+
+  @override
+  void update(void Function(GLogInUserData_logInUser_userBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GLogInUserData_logInUser_user build() => _build();
+
+  _$GLogInUserData_logInUser_user _build() {
+    _$GLogInUserData_logInUser_user _$result;
+    try {
+      _$result = _$v ??
+          _$GLogInUserData_logInUser_user._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GLogInUserData_logInUser_user', 'G__typename'),
+            id: id.build(),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'GLogInUserData_logInUser_user', 'name'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GLogInUserData_logInUser_user', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GValidateTokenData extends GValidateTokenData {
+  @override
+  final String G__typename;
+  @override
+  final GValidateTokenData_validateToken validateToken;
+
+  factory _$GValidateTokenData(
+          [void Function(GValidateTokenDataBuilder)? updates]) =>
+      (GValidateTokenDataBuilder()..update(updates))._build();
+
+  _$GValidateTokenData._(
+      {required this.G__typename, required this.validateToken})
+      : super._();
+  @override
+  GValidateTokenData rebuild(
+          void Function(GValidateTokenDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GValidateTokenDataBuilder toBuilder() =>
+      GValidateTokenDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GValidateTokenData &&
+        G__typename == other.G__typename &&
+        validateToken == other.validateToken;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, validateToken.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GValidateTokenData')
+          ..add('G__typename', G__typename)
+          ..add('validateToken', validateToken))
+        .toString();
+  }
+}
+
+class GValidateTokenDataBuilder
+    implements Builder<GValidateTokenData, GValidateTokenDataBuilder> {
+  _$GValidateTokenData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  GValidateTokenData_validateTokenBuilder? _validateToken;
+  GValidateTokenData_validateTokenBuilder get validateToken =>
+      _$this._validateToken ??= GValidateTokenData_validateTokenBuilder();
+  set validateToken(GValidateTokenData_validateTokenBuilder? validateToken) =>
+      _$this._validateToken = validateToken;
+
+  GValidateTokenDataBuilder() {
+    GValidateTokenData._initializeBuilder(this);
+  }
+
+  GValidateTokenDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _validateToken = $v.validateToken.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GValidateTokenData other) {
+    _$v = other as _$GValidateTokenData;
+  }
+
+  @override
+  void update(void Function(GValidateTokenDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GValidateTokenData build() => _build();
+
+  _$GValidateTokenData _build() {
+    _$GValidateTokenData _$result;
+    try {
+      _$result = _$v ??
+          _$GValidateTokenData._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GValidateTokenData', 'G__typename'),
+            validateToken: validateToken.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'validateToken';
+        validateToken.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GValidateTokenData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GValidateTokenData_validateToken
+    extends GValidateTokenData_validateToken {
+  @override
+  final String G__typename;
+  @override
+  final String? error;
+  @override
+  final String? token;
+  @override
+  final GValidateTokenData_validateToken_user? user;
+
+  factory _$GValidateTokenData_validateToken(
+          [void Function(GValidateTokenData_validateTokenBuilder)? updates]) =>
+      (GValidateTokenData_validateTokenBuilder()..update(updates))._build();
+
+  _$GValidateTokenData_validateToken._(
+      {required this.G__typename, this.error, this.token, this.user})
+      : super._();
+  @override
+  GValidateTokenData_validateToken rebuild(
+          void Function(GValidateTokenData_validateTokenBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GValidateTokenData_validateTokenBuilder toBuilder() =>
+      GValidateTokenData_validateTokenBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GValidateTokenData_validateToken &&
+        G__typename == other.G__typename &&
+        error == other.error &&
+        token == other.token &&
+        user == other.user;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, error.hashCode);
+    _$hash = $jc(_$hash, token.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GValidateTokenData_validateToken')
+          ..add('G__typename', G__typename)
+          ..add('error', error)
+          ..add('token', token)
+          ..add('user', user))
+        .toString();
+  }
+}
+
+class GValidateTokenData_validateTokenBuilder
+    implements
+        Builder<GValidateTokenData_validateToken,
+            GValidateTokenData_validateTokenBuilder> {
+  _$GValidateTokenData_validateToken? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  String? _error;
+  String? get error => _$this._error;
+  set error(String? error) => _$this._error = error;
+
+  String? _token;
+  String? get token => _$this._token;
+  set token(String? token) => _$this._token = token;
+
+  GValidateTokenData_validateToken_userBuilder? _user;
+  GValidateTokenData_validateToken_userBuilder get user =>
+      _$this._user ??= GValidateTokenData_validateToken_userBuilder();
+  set user(GValidateTokenData_validateToken_userBuilder? user) =>
+      _$this._user = user;
+
+  GValidateTokenData_validateTokenBuilder() {
+    GValidateTokenData_validateToken._initializeBuilder(this);
+  }
+
+  GValidateTokenData_validateTokenBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _error = $v.error;
+      _token = $v.token;
+      _user = $v.user?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GValidateTokenData_validateToken other) {
+    _$v = other as _$GValidateTokenData_validateToken;
+  }
+
+  @override
+  void update(void Function(GValidateTokenData_validateTokenBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GValidateTokenData_validateToken build() => _build();
+
+  _$GValidateTokenData_validateToken _build() {
+    _$GValidateTokenData_validateToken _$result;
+    try {
+      _$result = _$v ??
+          _$GValidateTokenData_validateToken._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GValidateTokenData_validateToken', 'G__typename'),
+            error: error,
+            token: token,
+            user: _user?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'user';
+        _user?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GValidateTokenData_validateToken', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GValidateTokenData_validateToken_user
+    extends GValidateTokenData_validateToken_user {
+  @override
+  final String G__typename;
+  @override
+  final _i1.GBigInt id;
+  @override
+  final String name;
+  @override
+  final String email;
+
+  factory _$GValidateTokenData_validateToken_user(
+          [void Function(GValidateTokenData_validateToken_userBuilder)?
+              updates]) =>
+      (GValidateTokenData_validateToken_userBuilder()..update(updates))
+          ._build();
+
+  _$GValidateTokenData_validateToken_user._(
+      {required this.G__typename,
+      required this.id,
+      required this.name,
+      required this.email})
+      : super._();
+  @override
+  GValidateTokenData_validateToken_user rebuild(
+          void Function(GValidateTokenData_validateToken_userBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GValidateTokenData_validateToken_userBuilder toBuilder() =>
+      GValidateTokenData_validateToken_userBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GValidateTokenData_validateToken_user &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name &&
+        email == other.email;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, email.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GValidateTokenData_validateToken_user')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('email', email))
+        .toString();
+  }
+}
+
+class GValidateTokenData_validateToken_userBuilder
+    implements
+        Builder<GValidateTokenData_validateToken_user,
+            GValidateTokenData_validateToken_userBuilder> {
+  _$GValidateTokenData_validateToken_user? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  _i1.GBigIntBuilder? _id;
+  _i1.GBigIntBuilder get id => _$this._id ??= _i1.GBigIntBuilder();
+  set id(_i1.GBigIntBuilder? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  String? _email;
+  String? get email => _$this._email;
+  set email(String? email) => _$this._email = email;
+
+  GValidateTokenData_validateToken_userBuilder() {
+    GValidateTokenData_validateToken_user._initializeBuilder(this);
+  }
+
+  GValidateTokenData_validateToken_userBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id.toBuilder();
+      _name = $v.name;
+      _email = $v.email;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GValidateTokenData_validateToken_user other) {
+    _$v = other as _$GValidateTokenData_validateToken_user;
+  }
+
+  @override
+  void update(
+      void Function(GValidateTokenData_validateToken_userBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GValidateTokenData_validateToken_user build() => _build();
+
+  _$GValidateTokenData_validateToken_user _build() {
+    _$GValidateTokenData_validateToken_user _$result;
+    try {
+      _$result = _$v ??
+          _$GValidateTokenData_validateToken_user._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GValidateTokenData_validateToken_user', 'G__typename'),
+            id: id.build(),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'GValidateTokenData_validateToken_user', 'name'),
+            email: BuiltValueNullFieldError.checkNotNull(
+                email, r'GValidateTokenData_validateToken_user', 'email'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'id';
+        id.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'GValidateTokenData_validateToken_user',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -3421,7 +3649,7 @@ class _$GVerifyPhoneNumberData extends GVerifyPhoneNumberData {
   @override
   final String G__typename;
   @override
-  final _i2.GVoid? verifyPhoneNumber;
+  final _i1.GVoid? verifyPhoneNumber;
 
   factory _$GVerifyPhoneNumberData(
           [void Function(GVerifyPhoneNumberDataBuilder)? updates]) =>
@@ -3473,10 +3701,10 @@ class GVerifyPhoneNumberDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i2.GVoidBuilder? _verifyPhoneNumber;
-  _i2.GVoidBuilder get verifyPhoneNumber =>
-      _$this._verifyPhoneNumber ??= _i2.GVoidBuilder();
-  set verifyPhoneNumber(_i2.GVoidBuilder? verifyPhoneNumber) =>
+  _i1.GVoidBuilder? _verifyPhoneNumber;
+  _i1.GVoidBuilder get verifyPhoneNumber =>
+      _$this._verifyPhoneNumber ??= _i1.GVoidBuilder();
+  set verifyPhoneNumber(_i1.GVoidBuilder? verifyPhoneNumber) =>
       _$this._verifyPhoneNumber = verifyPhoneNumber;
 
   GVerifyPhoneNumberDataBuilder() {

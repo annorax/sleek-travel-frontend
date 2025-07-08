@@ -6,10 +6,6 @@ part of 'mutations.var.gql.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GValidateTokenVars> _$gValidateTokenVarsSerializer =
-    _$GValidateTokenVarsSerializer();
-Serializer<GLogInUserVars> _$gLogInUserVarsSerializer =
-    _$GLogInUserVarsSerializer();
 Serializer<GLogOutUserVars> _$gLogOutUserVarsSerializer =
     _$GLogOutUserVarsSerializer();
 Serializer<GCreateProductVars> _$gCreateProductVarsSerializer =
@@ -26,100 +22,12 @@ Serializer<GSendPasswordResetLinkVars> _$gSendPasswordResetLinkVarsSerializer =
     _$GSendPasswordResetLinkVarsSerializer();
 Serializer<GRegisterUserVars> _$gRegisterUserVarsSerializer =
     _$GRegisterUserVarsSerializer();
+Serializer<GLogInUserVars> _$gLogInUserVarsSerializer =
+    _$GLogInUserVarsSerializer();
+Serializer<GValidateTokenVars> _$gValidateTokenVarsSerializer =
+    _$GValidateTokenVarsSerializer();
 Serializer<GVerifyPhoneNumberVars> _$gVerifyPhoneNumberVarsSerializer =
     _$GVerifyPhoneNumberVarsSerializer();
-
-class _$GValidateTokenVarsSerializer
-    implements StructuredSerializer<GValidateTokenVars> {
-  @override
-  final Iterable<Type> types = const [GValidateTokenVars, _$GValidateTokenVars];
-  @override
-  final String wireName = 'GValidateTokenVars';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GValidateTokenVars object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'tokenValue',
-      serializers.serialize(object.tokenValue,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GValidateTokenVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GValidateTokenVarsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'tokenValue':
-          result.tokenValue = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GLogInUserVarsSerializer
-    implements StructuredSerializer<GLogInUserVars> {
-  @override
-  final Iterable<Type> types = const [GLogInUserVars, _$GLogInUserVars];
-  @override
-  final String wireName = 'GLogInUserVars';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, GLogInUserVars object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'emailOrPhone',
-      serializers.serialize(object.emailOrPhone,
-          specifiedType: const FullType(String)),
-      'password',
-      serializers.serialize(object.password,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GLogInUserVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GLogInUserVarsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'emailOrPhone':
-          result.emailOrPhone = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'password':
-          result.password = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
 
 class _$GLogOutUserVarsSerializer
     implements StructuredSerializer<GLogOutUserVars> {
@@ -476,6 +384,98 @@ class _$GRegisterUserVarsSerializer
   }
 }
 
+class _$GLogInUserVarsSerializer
+    implements StructuredSerializer<GLogInUserVars> {
+  @override
+  final Iterable<Type> types = const [GLogInUserVars, _$GLogInUserVars];
+  @override
+  final String wireName = 'GLogInUserVars';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GLogInUserVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'emailOrPhone',
+      serializers.serialize(object.emailOrPhone,
+          specifiedType: const FullType(String)),
+      'password',
+      serializers.serialize(object.password,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GLogInUserVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GLogInUserVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'emailOrPhone':
+          result.emailOrPhone = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'password':
+          result.password = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GValidateTokenVarsSerializer
+    implements StructuredSerializer<GValidateTokenVars> {
+  @override
+  final Iterable<Type> types = const [GValidateTokenVars, _$GValidateTokenVars];
+  @override
+  final String wireName = 'GValidateTokenVars';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GValidateTokenVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'tokenValue',
+      serializers.serialize(object.tokenValue,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GValidateTokenVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GValidateTokenVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'tokenValue':
+          result.tokenValue = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$GVerifyPhoneNumberVarsSerializer
     implements StructuredSerializer<GVerifyPhoneNumberVars> {
   @override
@@ -525,183 +525,6 @@ class _$GVerifyPhoneNumberVarsSerializer
     }
 
     return result.build();
-  }
-}
-
-class _$GValidateTokenVars extends GValidateTokenVars {
-  @override
-  final String tokenValue;
-
-  factory _$GValidateTokenVars(
-          [void Function(GValidateTokenVarsBuilder)? updates]) =>
-      (GValidateTokenVarsBuilder()..update(updates))._build();
-
-  _$GValidateTokenVars._({required this.tokenValue}) : super._();
-  @override
-  GValidateTokenVars rebuild(
-          void Function(GValidateTokenVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GValidateTokenVarsBuilder toBuilder() =>
-      GValidateTokenVarsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GValidateTokenVars && tokenValue == other.tokenValue;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, tokenValue.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GValidateTokenVars')
-          ..add('tokenValue', tokenValue))
-        .toString();
-  }
-}
-
-class GValidateTokenVarsBuilder
-    implements Builder<GValidateTokenVars, GValidateTokenVarsBuilder> {
-  _$GValidateTokenVars? _$v;
-
-  String? _tokenValue;
-  String? get tokenValue => _$this._tokenValue;
-  set tokenValue(String? tokenValue) => _$this._tokenValue = tokenValue;
-
-  GValidateTokenVarsBuilder();
-
-  GValidateTokenVarsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _tokenValue = $v.tokenValue;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GValidateTokenVars other) {
-    _$v = other as _$GValidateTokenVars;
-  }
-
-  @override
-  void update(void Function(GValidateTokenVarsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GValidateTokenVars build() => _build();
-
-  _$GValidateTokenVars _build() {
-    final _$result = _$v ??
-        _$GValidateTokenVars._(
-          tokenValue: BuiltValueNullFieldError.checkNotNull(
-              tokenValue, r'GValidateTokenVars', 'tokenValue'),
-        );
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GLogInUserVars extends GLogInUserVars {
-  @override
-  final String emailOrPhone;
-  @override
-  final String password;
-
-  factory _$GLogInUserVars([void Function(GLogInUserVarsBuilder)? updates]) =>
-      (GLogInUserVarsBuilder()..update(updates))._build();
-
-  _$GLogInUserVars._({required this.emailOrPhone, required this.password})
-      : super._();
-  @override
-  GLogInUserVars rebuild(void Function(GLogInUserVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GLogInUserVarsBuilder toBuilder() => GLogInUserVarsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GLogInUserVars &&
-        emailOrPhone == other.emailOrPhone &&
-        password == other.password;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, emailOrPhone.hashCode);
-    _$hash = $jc(_$hash, password.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GLogInUserVars')
-          ..add('emailOrPhone', emailOrPhone)
-          ..add('password', password))
-        .toString();
-  }
-}
-
-class GLogInUserVarsBuilder
-    implements Builder<GLogInUserVars, GLogInUserVarsBuilder> {
-  _$GLogInUserVars? _$v;
-
-  String? _emailOrPhone;
-  String? get emailOrPhone => _$this._emailOrPhone;
-  set emailOrPhone(String? emailOrPhone) => _$this._emailOrPhone = emailOrPhone;
-
-  String? _password;
-  String? get password => _$this._password;
-  set password(String? password) => _$this._password = password;
-
-  GLogInUserVarsBuilder();
-
-  GLogInUserVarsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _emailOrPhone = $v.emailOrPhone;
-      _password = $v.password;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GLogInUserVars other) {
-    _$v = other as _$GLogInUserVars;
-  }
-
-  @override
-  void update(void Function(GLogInUserVarsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GLogInUserVars build() => _build();
-
-  _$GLogInUserVars _build() {
-    final _$result = _$v ??
-        _$GLogInUserVars._(
-          emailOrPhone: BuiltValueNullFieldError.checkNotNull(
-              emailOrPhone, r'GLogInUserVars', 'emailOrPhone'),
-          password: BuiltValueNullFieldError.checkNotNull(
-              password, r'GLogInUserVars', 'password'),
-        );
-    replace(_$result);
-    return _$result;
   }
 }
 
@@ -1452,6 +1275,183 @@ class GRegisterUserVarsBuilder
               email, r'GRegisterUserVars', 'email'),
           password: BuiltValueNullFieldError.checkNotNull(
               password, r'GRegisterUserVars', 'password'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GLogInUserVars extends GLogInUserVars {
+  @override
+  final String emailOrPhone;
+  @override
+  final String password;
+
+  factory _$GLogInUserVars([void Function(GLogInUserVarsBuilder)? updates]) =>
+      (GLogInUserVarsBuilder()..update(updates))._build();
+
+  _$GLogInUserVars._({required this.emailOrPhone, required this.password})
+      : super._();
+  @override
+  GLogInUserVars rebuild(void Function(GLogInUserVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GLogInUserVarsBuilder toBuilder() => GLogInUserVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GLogInUserVars &&
+        emailOrPhone == other.emailOrPhone &&
+        password == other.password;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, emailOrPhone.hashCode);
+    _$hash = $jc(_$hash, password.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GLogInUserVars')
+          ..add('emailOrPhone', emailOrPhone)
+          ..add('password', password))
+        .toString();
+  }
+}
+
+class GLogInUserVarsBuilder
+    implements Builder<GLogInUserVars, GLogInUserVarsBuilder> {
+  _$GLogInUserVars? _$v;
+
+  String? _emailOrPhone;
+  String? get emailOrPhone => _$this._emailOrPhone;
+  set emailOrPhone(String? emailOrPhone) => _$this._emailOrPhone = emailOrPhone;
+
+  String? _password;
+  String? get password => _$this._password;
+  set password(String? password) => _$this._password = password;
+
+  GLogInUserVarsBuilder();
+
+  GLogInUserVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _emailOrPhone = $v.emailOrPhone;
+      _password = $v.password;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GLogInUserVars other) {
+    _$v = other as _$GLogInUserVars;
+  }
+
+  @override
+  void update(void Function(GLogInUserVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GLogInUserVars build() => _build();
+
+  _$GLogInUserVars _build() {
+    final _$result = _$v ??
+        _$GLogInUserVars._(
+          emailOrPhone: BuiltValueNullFieldError.checkNotNull(
+              emailOrPhone, r'GLogInUserVars', 'emailOrPhone'),
+          password: BuiltValueNullFieldError.checkNotNull(
+              password, r'GLogInUserVars', 'password'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GValidateTokenVars extends GValidateTokenVars {
+  @override
+  final String tokenValue;
+
+  factory _$GValidateTokenVars(
+          [void Function(GValidateTokenVarsBuilder)? updates]) =>
+      (GValidateTokenVarsBuilder()..update(updates))._build();
+
+  _$GValidateTokenVars._({required this.tokenValue}) : super._();
+  @override
+  GValidateTokenVars rebuild(
+          void Function(GValidateTokenVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GValidateTokenVarsBuilder toBuilder() =>
+      GValidateTokenVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GValidateTokenVars && tokenValue == other.tokenValue;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, tokenValue.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'GValidateTokenVars')
+          ..add('tokenValue', tokenValue))
+        .toString();
+  }
+}
+
+class GValidateTokenVarsBuilder
+    implements Builder<GValidateTokenVars, GValidateTokenVarsBuilder> {
+  _$GValidateTokenVars? _$v;
+
+  String? _tokenValue;
+  String? get tokenValue => _$this._tokenValue;
+  set tokenValue(String? tokenValue) => _$this._tokenValue = tokenValue;
+
+  GValidateTokenVarsBuilder();
+
+  GValidateTokenVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _tokenValue = $v.tokenValue;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GValidateTokenVars other) {
+    _$v = other as _$GValidateTokenVars;
+  }
+
+  @override
+  void update(void Function(GValidateTokenVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GValidateTokenVars build() => _build();
+
+  _$GValidateTokenVars _build() {
+    final _$result = _$v ??
+        _$GValidateTokenVars._(
+          tokenValue: BuiltValueNullFieldError.checkNotNull(
+              tokenValue, r'GValidateTokenVars', 'tokenValue'),
         );
     replace(_$result);
     return _$result;

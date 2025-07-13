@@ -127,6 +127,7 @@ class ListPageState extends State<ListPage> {
         }
       ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
       if (result.hasErrors) {
+        print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
         showError("Error: ${result.graphqlErrors.toString()}", context ?? givenContext);
       } else {
         setState(() {
@@ -184,8 +185,8 @@ class ListPageState extends State<ListPage> {
         if (response.data == null) {
           return Text('No ${widget.entityType.displayNamePlural}');
         }
-        if (response.hasErrors == true) {
-          print(response.graphqlErrors.toString());
+        if (response.hasErrors) {
+          print("GraphQL errors: ${response.graphqlErrors ?? response.linkException}");
           return Text('Error encountered (2)');
         }
         if (response.loading == true) {

@@ -93,7 +93,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
-                      print(result.graphqlErrors);
+                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
                       if (context.mounted) {
                         showError("Sign up failed", context);
                       }
@@ -121,7 +121,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             )
                           ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                           if (result.hasErrors) {
-                            print(result.graphqlErrors);
+                            print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
                             if (context.mounted) {
                               showError("Phone number verification failed", context);
                             }

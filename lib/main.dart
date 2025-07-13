@@ -72,7 +72,7 @@ Future<User?> validateToken(String tokenValue) async {
       )
     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
     if (result.hasErrors) {
-      print(result.graphqlErrors);
+      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
     } else {
       validateToken = result.data?.validateToken;
     }

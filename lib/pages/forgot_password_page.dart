@@ -55,7 +55,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
-                      print(result.graphqlErrors);
+                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
                       if (context.mounted) {
                         showError("Sending failed", context);
                       }

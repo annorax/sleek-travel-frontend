@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
-                      print(result.graphqlErrors);
+                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
                       if (context.mounted) {
                         showError("Failed to resend verification email.", context);
                       }
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
-                      print(result.graphqlErrors);
+                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
                       if (context.mounted) {
                         showError("Failed to resend verification SMS.", context);
                       }
@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                           )
                         ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                         if (result.hasErrors) {
-                          print(result.graphqlErrors);
+                          print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
                           if (context.mounted) {
                             showError("Phone number verification failed", context);
                           }
@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
-                      print(result.graphqlErrors);
+                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
                       if (context.mounted) {
                         showError("Login failed", context);
                       }

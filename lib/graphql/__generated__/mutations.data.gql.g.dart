@@ -992,6 +992,12 @@ class _$GLogInUserData_logInUser_userSerializer
           specifiedType: const FullType(_i1.GBigInt)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'email',
+      serializers.serialize(object.email,
+          specifiedType: const FullType(String)),
+      'phoneNumber',
+      serializers.serialize(object.phoneNumber,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -1019,6 +1025,14 @@ class _$GLogInUserData_logInUser_userSerializer
           break;
         case 'name':
           result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'phoneNumber':
+          result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
       }
@@ -3375,13 +3389,21 @@ class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
   final _i1.GBigInt id;
   @override
   final String name;
+  @override
+  final String email;
+  @override
+  final String phoneNumber;
 
   factory _$GLogInUserData_logInUser_user(
           [void Function(GLogInUserData_logInUser_userBuilder)? updates]) =>
       (GLogInUserData_logInUser_userBuilder()..update(updates))._build();
 
   _$GLogInUserData_logInUser_user._(
-      {required this.G__typename, required this.id, required this.name})
+      {required this.G__typename,
+      required this.id,
+      required this.name,
+      required this.email,
+      required this.phoneNumber})
       : super._();
   @override
   GLogInUserData_logInUser_user rebuild(
@@ -3398,7 +3420,9 @@ class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
     return other is GLogInUserData_logInUser_user &&
         G__typename == other.G__typename &&
         id == other.id &&
-        name == other.name;
+        name == other.name &&
+        email == other.email &&
+        phoneNumber == other.phoneNumber;
   }
 
   @override
@@ -3407,6 +3431,8 @@ class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
     _$hash = $jc(_$hash, G__typename.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, email.hashCode);
+    _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -3416,7 +3442,9 @@ class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
     return (newBuiltValueToStringHelper(r'GLogInUserData_logInUser_user')
           ..add('G__typename', G__typename)
           ..add('id', id)
-          ..add('name', name))
+          ..add('name', name)
+          ..add('email', email)
+          ..add('phoneNumber', phoneNumber))
         .toString();
   }
 }
@@ -3439,6 +3467,14 @@ class GLogInUserData_logInUser_userBuilder
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
+  String? _email;
+  String? get email => _$this._email;
+  set email(String? email) => _$this._email = email;
+
+  String? _phoneNumber;
+  String? get phoneNumber => _$this._phoneNumber;
+  set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
+
   GLogInUserData_logInUser_userBuilder() {
     GLogInUserData_logInUser_user._initializeBuilder(this);
   }
@@ -3449,6 +3485,8 @@ class GLogInUserData_logInUser_userBuilder
       _G__typename = $v.G__typename;
       _id = $v.id.toBuilder();
       _name = $v.name;
+      _email = $v.email;
+      _phoneNumber = $v.phoneNumber;
       _$v = null;
     }
     return this;
@@ -3477,6 +3515,10 @@ class GLogInUserData_logInUser_userBuilder
             id: id.build(),
             name: BuiltValueNullFieldError.checkNotNull(
                 name, r'GLogInUserData_logInUser_user', 'name'),
+            email: BuiltValueNullFieldError.checkNotNull(
+                email, r'GLogInUserData_logInUser_user', 'email'),
+            phoneNumber: BuiltValueNullFieldError.checkNotNull(
+                phoneNumber, r'GLogInUserData_logInUser_user', 'phoneNumber'),
           );
     } catch (_) {
       late String _$failedField;

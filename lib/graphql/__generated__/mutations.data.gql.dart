@@ -515,6 +515,8 @@ abstract class GLogInUserData_logInUser_user
   String get G__typename;
   _i1.GBigInt get id;
   String get name;
+  String get email;
+  String get phoneNumber;
   static Serializer<GLogInUserData_logInUser_user> get serializer =>
       _$gLogInUserDataLogInUserUserSerializer;
 

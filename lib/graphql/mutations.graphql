@@ -47,7 +47,9 @@ mutation LogInUser($emailOrPhone: String!, $password: String!) {
     token,
     user {
       id,
-      name
+      name,
+      email,
+      phoneNumber
     }
   }
 }

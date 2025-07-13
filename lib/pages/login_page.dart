@@ -25,8 +25,8 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final GlobalKey emailOrPhoneFieldKey = GlobalKey<FormFieldState>();
   final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
-  String? resendEmailLink;
-  String? resendSMSLink;
+  String? resendEmailLinkTo;
+  String? resendSMSLinkTo;
 
   @override
   Widget build(BuildContext context) =>
@@ -56,13 +56,13 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
                 ),
                 const SizedBox(height: 16),
-                if (resendEmailLink != null) InkWell(
+                if (resendEmailLinkTo != null) InkWell(
                   onTap: () async {
                     final OperationResponse result = await client.request(
                       GResendEmailVerificationRequestReq(
                         (builder) =>
                           builder.vars
-                            ..email = resendEmailLink
+                            ..email = resendEmailLinkTo
                       )
                     ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                     if (result.hasErrors) {
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: Text('Resend verification email'),
                 ),
-                if (resendSMSLink != null) InkWell(
+                if (resendSMSLinkTo != null) InkWell(
                   onTap: () {
                     // TODO: implement this
                   },
@@ -114,10 +114,10 @@ class _LoginPageState extends State<LoginPage> {
                     if (response.error != null) {
                       setState(() {
                         if (response.error!.toLowerCase().contains('email')) {
-                          resendEmailLink = true;
+                          resendEmailLinkTo = response.user!.email;
                         }
                         if (response.error!.toLowerCase().contains('sms')) {
-                          resendSMSLink = true;
+                          resendSMSLinkTo = response.user!.phoneNumber;
                         }
                       });
                     }

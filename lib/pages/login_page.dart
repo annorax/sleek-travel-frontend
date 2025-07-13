@@ -2,6 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
+import 'package:sleek_travel_frontend/forms/pinput_form.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/main.dart';
@@ -27,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
   String? resendEmailLinkTo;
   String? resendSMSLinkTo;
+  BigInt? userId;
 
   @override
   Widget build(BuildContext context) =>
@@ -78,6 +80,10 @@ class _LoginPageState extends State<LoginPage> {
                         showError("Failed to resend verification email.", context);
                       } else {
                         showInfo("Resent verification email. Please check your inbox / spam and click the link.", context);
+                        setState(() {
+                          resendEmailLinkTo = null;
+                          userId = null;
+                        });
                       }
                     }
                   },
@@ -102,9 +108,36 @@ class _LoginPageState extends State<LoginPage> {
                     if (context.mounted) {
                       if (response.error != null) {
                         print(response.error);
-                        showError("Failed to resend verification SMSl.", context);
+                        showError("Failed to resend verification SMS.", context);
                       } else {
-                        // TODO: display pinput UI
+                        String otp = await showModalBottomSheet(
+                          isScrollControlled: true,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          builder: (BuildContext context) => PinputForm(phoneNumber: resendSMSLinkTo!),
+                          context: context,
+                          useSafeArea: true
+                        );
+                        final OperationResponse result = await client.request(
+                          GVerifyPhoneNumberReq(
+                            (builder) =>
+                              builder.vars
+                                ..userId.value = userId.toString()
+                                ..otp = otp
+                          )
+                        ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                        if (result.hasErrors) {
+                          print(result.graphqlErrors);
+                          if (context.mounted) {
+                            showError("Phone number verification failed", context);
+                          }
+                        } else {
+                          setState(() {
+                            resendSMSLinkTo = null;
+                            userId = null;
+                          });
+                        }
                       }
                     }
                   },
@@ -136,9 +169,11 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {
                         if (response.error!.toLowerCase().contains('email')) {
                           resendEmailLinkTo = response.user!.email;
+                          userId = BigInt.parse(response.user!.id.value);
                         }
                         if (response.error!.toLowerCase().contains('sms')) {
                           resendSMSLinkTo = response.user!.phoneNumber;
+                          userId = BigInt.parse(response.user!.id.value);
                         }
                       });
                     }

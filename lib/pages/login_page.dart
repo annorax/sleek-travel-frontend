@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16),
                 if (resendEmailLinkTo != null) InkWell(
                   onTap: () async {
-                    final OperationResponse result = await client.request(
+                    final result = await client.request(
                       GResendEmailVerificationRequestReq(
                         (builder) =>
                           builder.vars
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                         showError("Failed to resend verification email.", context);
                       }
                     }
-                    GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data.resendEmailVerificationRequest;
+                    GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data!.resendEmailVerificationRequest;
                     if (context.mounted) {
                       if (response.error != null) {
                         print(response.error);
@@ -84,8 +84,29 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text('Resend verification email'),
                 ),
                 if (resendSMSLinkTo != null) InkWell(
-                  onTap: () {
-                    // TODO: implement this
+                  onTap: () async {
+                    final result = await client.request(
+                      GResendPhoneNumberVerificationRequestReq(
+                        (builder) =>
+                          builder.vars
+                            ..phoneNumber = resendSMSLinkTo
+                      )
+                    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                    if (result.hasErrors) {
+                      print(result.graphqlErrors);
+                      if (context.mounted) {
+                        showError("Failed to resend verification SMS.", context);
+                      }
+                    }
+                    GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest response = result.data!.resendPhoneNumberVerificationRequest;
+                    if (context.mounted) {
+                      if (response.error != null) {
+                        print(response.error);
+                        showError("Failed to resend verification SMSl.", context);
+                      } else {
+                        // TODO: display pinput UI
+                      }
+                    }
                   },
                   child: Text('Resend verification sms'),
                 ),

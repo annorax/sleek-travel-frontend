@@ -6,7 +6,6 @@ import 'package:sleek_travel_frontend/forms/pinput_form.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/main.dart';
-import 'package:sleek_travel_frontend/model/user.model.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/forgot_password_page.dart';
@@ -58,91 +57,97 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) => (value == null || value.isEmpty) ? 'Required' : null
                 ),
                 const SizedBox(height: 16),
-                if (resendEmailLinkTo != null) InkWell(
-                  onTap: () async {
-                    final result = await client.request(
-                      GResendEmailVerificationRequestReq(
-                        (builder) =>
-                          builder.vars
-                            ..email = resendEmailLinkTo
-                      )
-                    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                    if (result.hasErrors) {
-                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                if (resendEmailLinkTo != null) Column(children: [
+                  Text('Unable to log in because the email address has not yet been verified.'),
+                  InkWell(
+                    child: Text('Resend verification email'),
+                    onTap: () async {
+                      final result = await client.request(
+                        GResendEmailVerificationRequestReq(
+                          (builder) =>
+                            builder.vars
+                              ..email = resendEmailLinkTo
+                        )
+                      ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                      if (result.hasErrors) {
+                        print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                        if (context.mounted) {
+                          showError("Failed to resend verification email.", context);
+                        }
+                      }
+                      GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data!.resendEmailVerificationRequest;
                       if (context.mounted) {
-                        showError("Failed to resend verification email.", context);
-                      }
-                    }
-                    GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data!.resendEmailVerificationRequest;
-                    if (context.mounted) {
-                      if (response.error != null) {
-                        print(response.error);
-                        showError("Failed to resend verification email.", context);
-                      } else {
-                        showInfo("Resent verification email. Please check your inbox / spam and click the link.", context);
-                        setState(() {
-                          resendEmailLinkTo = null;
-                          userId = null;
-                        });
-                      }
-                    }
-                  },
-                  child: Text('Resend verification email'),
-                ),
-                if (resendSMSLinkTo != null) InkWell(
-                  onTap: () async {
-                    final result = await client.request(
-                      GResendPhoneNumberVerificationRequestReq(
-                        (builder) =>
-                          builder.vars
-                            ..phoneNumber = resendSMSLinkTo
-                      )
-                    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                    if (result.hasErrors) {
-                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
-                      if (context.mounted) {
-                        showError("Failed to resend verification SMS.", context);
-                      }
-                    }
-                    GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest response = result.data!.resendPhoneNumberVerificationRequest;
-                    if (context.mounted) {
-                      if (response.error != null) {
-                        print(response.error);
-                        showError("Failed to resend verification SMS.", context);
-                      } else {
-                        String otp = await showModalBottomSheet(
-                          isScrollControlled: true,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          builder: (BuildContext context) => PinputForm(phoneNumber: resendSMSLinkTo!),
-                          context: context,
-                          useSafeArea: true
-                        );
-                        final OperationResponse result = await client.request(
-                          GVerifyPhoneNumberReq(
-                            (builder) =>
-                              builder.vars
-                                ..userId.value = userId.toString()
-                                ..otp = otp
-                          )
-                        ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                        if (result.hasErrors) {
-                          print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
-                          if (context.mounted) {
-                            showError("Phone number verification failed", context);
-                          }
+                        if (response.error != null) {
+                          print(response.error);
+                          showError("Failed to resend verification email.", context);
                         } else {
+                          showInfo("Resent verification email. Please check your inbox / spam and click the link.", context);
                           setState(() {
-                            resendSMSLinkTo = null;
+                            resendEmailLinkTo = null;
                             userId = null;
                           });
                         }
                       }
-                    }
-                  },
-                  child: Text('Resend verification sms'),
-                ),
+                    },
+                  ),
+                ]),
+                if (resendSMSLinkTo != null) Column(children: [
+                    Text('Unable to log in because the phone number has not yet been verified.'),
+                    InkWell(
+                    onTap: () async {
+                      final result = await client.request(
+                        GResendPhoneNumberVerificationRequestReq(
+                          (builder) =>
+                            builder.vars
+                              ..phoneNumber = resendSMSLinkTo
+                        )
+                      ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                      if (result.hasErrors) {
+                        print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                        if (context.mounted) {
+                          showError("Failed to resend verification SMS.", context);
+                        }
+                      }
+                      GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest response = result.data!.resendPhoneNumberVerificationRequest;
+                      if (context.mounted) {
+                        if (response.error != null) {
+                          print(response.error);
+                          showError("Failed to resend verification SMS.", context);
+                        } else {
+                          String otp = await showModalBottomSheet(
+                            isScrollControlled: true,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            builder: (BuildContext context) => PinputForm(phoneNumber: resendSMSLinkTo!),
+                            context: context,
+                            useSafeArea: true
+                          );
+                          final OperationResponse result = await client.request(
+                            GVerifyPhoneNumberReq(
+                              (builder) =>
+                                builder.vars
+                                  ..userId.value = userId.toString()
+                                  ..otp = otp
+                            )
+                          ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                          if (result.hasErrors) {
+                            print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                            if (context.mounted) {
+                              showError("Phone number verification failed", context);
+                            }
+                          } else {
+                            setState(() {
+                              resendSMSLinkTo = null;
+                              userId = null;
+                            });
+                          }
+                        }
+                      }
+                    },
+                    child: Text('Resend verification sms'),
+                  ),
+                ]),
                 const SizedBox(height: 16),
                 MaterialButton(
                   color: Theme.of(context).colorScheme.secondary,
@@ -176,16 +181,10 @@ class _LoginPageState extends State<LoginPage> {
                           userId = BigInt.parse(response.user!.id.value);
                         }
                       });
+                    } else {
+                      await userState.setValue(response);
+                      NavigationManager.instance.pushReplacement(DashboardTab.items.name);
                     }
-                    final dynamic safeUser = response.user;
-                    final User user = User(
-                      id: safeUser.id,
-                      name: safeUser.name,
-                      email: extractValue(emailOrPhoneFieldKey),
-                      token: response.token!
-                    );
-                    await userState.setValue(user);
-                    NavigationManager.instance.pushReplacement(DashboardTab.items.name);
                   },
                   child: const Text('Login'),
                 ),

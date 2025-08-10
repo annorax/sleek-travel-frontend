@@ -2,6 +2,7 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:sleek_travel_frontend/constants.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/queries.req.gql.dart';
@@ -10,7 +11,6 @@ import 'package:sleek_travel_frontend/listable_entity_type.dart';
 import 'package:sleek_travel_frontend/main.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/slidable/action_pane_motions.dart';
-import 'package:sleek_travel_frontend/model/user.model.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/util.dart';
 import 'package:collection/collection.dart';
@@ -146,8 +146,8 @@ class ListPageState extends State<ListPage> {
       widget.sortDirectionParam == "null") {
       return const Text("Loading");
     }
-    User? user = userState.getValueSyncNoInit();
-    if (user == null) {
+    GLogInUserData_logInUser? user = userState.getValueSyncNoInit();
+    if (user?.user == null) {
       return CircularProgressIndicator();
     }
     final OperationRequest<dynamic, dynamic> request = switch (widget.entityType) {
@@ -160,14 +160,14 @@ class ListPageState extends State<ListPage> {
         ListableEntityType.item => GListUserItemsReq(
           (b) => b
             ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.userId.value = user.id.toString()
+            ..vars.userId.value = user!.user!.id.toString()
             ..vars.sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
           (b) => b
             ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.userId.value = user.id.toString()
+            ..vars.userId.value = user!.user!.id.toString()
             ..vars.sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),

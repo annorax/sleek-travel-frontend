@@ -4,9 +4,9 @@ import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/globals.dart';
+import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/main.dart';
-import 'package:sleek_travel_frontend/model/user.model.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/pages/items_page.dart';
 import 'package:sleek_travel_frontend/pages/products_page.dart';
@@ -176,7 +176,8 @@ class DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    final User? user = userState.getValueSyncNoInit();
+    final GLogInUserData_logInUser? user = userState.getValueSyncNoInit();
+    final String? name = user?.user?.name;
 
     return Scaffold(
       appBar: AppBar(
@@ -193,7 +194,7 @@ class DashboardPageState extends State<DashboardPage> {
               ),
             menuChildren: [
               MenuItemButton(
-                child: Text(user == null ? "Signed out" : "Signed in as ${user.name}",),
+                child: Text(name == null ? "Signed out" : "Signed in as $name",),
               ),
               MenuItemButton(
                 leadingIcon: Icon(Icons.logout),

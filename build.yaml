@@ -9,3 +9,6 @@ targets:
         enabled: true
         options:
           schema: sleek_travel_frontend|lib/graphql/schema.graphql
+          custom_serializers:
+            - import: "package:sleek_travel_frontend/model/bigint_serializer.dart"
+              name: GBigIntSerializer

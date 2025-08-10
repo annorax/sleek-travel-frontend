@@ -10,7 +10,6 @@ import 'package:sleek_travel_frontend/globals.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
 import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
-import 'package:sleek_travel_frontend/model/user.model.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/login_page.dart';
@@ -26,9 +25,9 @@ Future<void> main() async {
       link: HttpLink(backendUrl),
       cache: Cache(possibleTypes: possibleTypesMap)
     );
-    User? user = await userState.getValue();
-    if (user != null) {
-      user = await validateToken(user.token);
+    GLogInUserData_logInUser? user = await userState.getValue();
+    if (user?.token != null) {
+      user = await validateToken(user!.token!);
     }
     userState.listen((user) {
       if (user == null) {
@@ -62,7 +61,7 @@ Future<void> main() async {
   }
 }
 
-Future<User?> validateToken(String tokenValue) async {
+Future<GLogInUserData_logInUser?> validateToken(String tokenValue) async {
   GValidateTokenData_validateToken? validateToken;
   try {
     final OperationResponse result = await client.request(
@@ -76,7 +75,6 @@ Future<User?> validateToken(String tokenValue) async {
     } else {
       validateToken = result.data?.validateToken;
     }
-    
   } catch (e) {
     validateToken = null;
   }
@@ -86,9 +84,11 @@ Future<User?> validateToken(String tokenValue) async {
   }
   final token = validateToken.token;
   final GValidateTokenData_validateToken_user safeUser = validateToken.user!;
-  final Map<String, dynamic> userJson = {...safeUser.toJson(), "token": token};
-  final user = User.fromJson(userJson);
-  await userState.setValue(user);
+  final Map<String, dynamic> userJson = {"user": safeUser.toJson(), "token": token};
+  final user = GLogInUserData_logInUser.fromJson(userJson);
+  if (user != null) {
+    await userState.setValue(user);
+  }
   return user;
 }
 
@@ -123,7 +123,7 @@ class AppState extends State<App> {
     });
       
     // Set initialization page.
-    User? user = await userState.getValue();
+    GLogInUserData_logInUser? user = await userState.getValue();
     if (user == null) {
       NavigationManager.instance.set([LoginPage.name]);
     } else {

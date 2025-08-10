@@ -371,11 +371,14 @@ import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.da
         GUserWhereInput,
         GUserWhereUniqueInput,
         GVoid;
+import 'package:sleek_travel_frontend/model/bigint_serializer.dart'
+    show GBigIntSerializer;
 
 part 'serializers.gql.g.dart';
 
 final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   ..add(OperationSerializer())
+  ..add(GBigIntSerializer())
   ..addPlugin(StandardJsonPlugin());
 @SerializersFor([
   GAccessTokenCreateManyUserInput,

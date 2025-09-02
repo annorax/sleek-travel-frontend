@@ -15,16 +15,16 @@ dependencies:
   envied: ^1.1.1
   ferry: ^0.16.0+1
   ferry_flutter: ^0.9.1+1
-  flutter_slidable: ^4.0.0
+  flutter_slidable: ^4.0.1
   form_validator: ^2.1.1
   gql_code_builder_serializers: ^0.1.0
   gql_http_link: ^1.1.0
-  image_picker: ^1.1.2
+  image_picker: ^1.2.0
   intl: ^0.20.2
   json_theme: ^9.0.1+2
   mobile_scanner: ^7.0.1
   navigation_utils: ^0.9.3
-  pinput: ^5.0.1
+  pinput: ^5.0.2
   rxdart: ^0.28.0
   shared_preferences: ^2.5.3
   smart_auth: ^3.2.0

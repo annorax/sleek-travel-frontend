@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gql_http_link/gql_http_link.dart';
-import 'package:json_theme/json_theme.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/constants.dart';
 import 'package:sleek_travel_frontend/globals.dart';
@@ -47,15 +44,17 @@ Future<void> main() async {
         cache: Cache(possibleTypes: possibleTypesMap)
       );
     });
-    final themeStr = await rootBundle.loadString('assets/appainter_theme.json');
-    final themeJson = jsonDecode(themeStr);
-    final theme = ThemeDecoder.decodeThemeData(themeJson)!;
-
     NavigationManager.init(
       mainRouterDelegate: DefaultRouterDelegate(navigationDataRoutes: routes),
       routeInformationParser: DefaultRouteInformationParser(defaultRoutePath: '/${user != null ? DashboardTab.items.name : LoginPage.name}'),
     );
-    runApp(App(theme: theme));
+    runApp(
+      App(
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+        ),
+      )
+    );
   } catch (e) {
     runApp(ErrorApp(error: e.toString()));
   }

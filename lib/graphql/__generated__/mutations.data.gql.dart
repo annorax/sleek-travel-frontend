@@ -84,7 +84,7 @@ abstract class GCreateProductData_createOneProduct
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i1.GBigInt get id;
+  int get id;
   static Serializer<GCreateProductData_createOneProduct> get serializer =>
       _$gCreateProductDataCreateOneProductSerializer;
 
@@ -207,7 +207,7 @@ abstract class GDeleteProductData_deleteOneProduct
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i1.GBigInt get id;
+  int get id;
   static Serializer<GDeleteProductData_deleteOneProduct> get serializer =>
       _$gDeleteProductDataDeleteOneProductSerializer;
 
@@ -267,7 +267,7 @@ abstract class GDeleteItemData_deleteOneItem
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i1.GBigInt get id;
+  int get id;
   static Serializer<GDeleteItemData_deleteOneItem> get serializer =>
       _$gDeleteItemDataDeleteOneItemSerializer;
 
@@ -329,7 +329,7 @@ abstract class GDeletePurchaseOrderData_deleteOnePurchaseOrder
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i1.GBigInt get id;
+  int get id;
   static Serializer<GDeletePurchaseOrderData_deleteOnePurchaseOrder>
       get serializer =>
           _$gDeletePurchaseOrderDataDeleteOnePurchaseOrderSerializer;
@@ -422,7 +422,7 @@ abstract class GRegisterUserData_registerUser
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String? get error;
-  _i1.GBigInt? get userId;
+  int? get userId;
   static Serializer<GRegisterUserData_registerUser> get serializer =>
       _$gRegisterUserDataRegisterUserSerializer;
 
@@ -513,7 +513,7 @@ abstract class GLogInUserData_logInUser_user
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i1.GBigInt get id;
+  int get id;
   String get name;
   String get email;
   String get phoneNumber;
@@ -611,7 +611,7 @@ abstract class GValidateTokenData_validateToken_user
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i1.GBigInt get id;
+  int get id;
   String get name;
   String get email;
   static Serializer<GValidateTokenData_validateToken_user> get serializer =>

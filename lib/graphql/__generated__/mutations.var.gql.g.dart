@@ -29,10 +29,10 @@ Serializer<GValidateTokenVars> _$gValidateTokenVarsSerializer =
 Serializer<GVerifyPhoneNumberVars> _$gVerifyPhoneNumberVarsSerializer =
     _$GVerifyPhoneNumberVarsSerializer();
 Serializer<GResendEmailVerificationRequestVars>
-    _$gResendEmailVerificationRequestVarsSerializer =
+_$gResendEmailVerificationRequestVarsSerializer =
     _$GResendEmailVerificationRequestVarsSerializer();
 Serializer<GResendPhoneNumberVerificationRequestVars>
-    _$gResendPhoneNumberVerificationRequestVarsSerializer =
+_$gResendPhoneNumberVerificationRequestVarsSerializer =
     _$GResendPhoneNumberVerificationRequestVarsSerializer();
 
 class _$GLogOutUserVarsSerializer
@@ -43,15 +43,20 @@ class _$GLogOutUserVarsSerializer
   final String wireName = 'GLogOutUserVars';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GLogOutUserVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GLogOutUserVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     return <Object?>[];
   }
 
   @override
   GLogOutUserVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     return GLogOutUserVarsBuilder().build();
   }
 }
@@ -65,12 +70,16 @@ class _$GCreateProductVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GCreateProductVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GCreateProductVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'product',
-      serializers.serialize(object.product,
-          specifiedType: const FullType(_i2.GProductCreateInput)),
+      serializers.serialize(
+        object.product,
+        specifiedType: const FullType(_i2.GProductCreateInput),
+      ),
     ];
 
     return result;
@@ -78,8 +87,10 @@ class _$GCreateProductVarsSerializer
 
   @override
   GCreateProductVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GCreateProductVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -89,9 +100,13 @@ class _$GCreateProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'product':
-          result.product.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GProductCreateInput))!
-              as _i2.GProductCreateInput);
+          result.product.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(_i2.GProductCreateInput),
+                )!
+                as _i2.GProductCreateInput,
+          );
           break;
       }
     }
@@ -109,15 +124,18 @@ class _$GUpdateProductVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GUpdateProductVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GUpdateProductVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
       'product',
-      serializers.serialize(object.product,
-          specifiedType: const FullType(_i2.GProductUpdateInput)),
+      serializers.serialize(
+        object.product,
+        specifiedType: const FullType(_i2.GProductUpdateInput),
+      ),
     ];
 
     return result;
@@ -125,8 +143,10 @@ class _$GUpdateProductVarsSerializer
 
   @override
   GUpdateProductVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GUpdateProductVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -136,13 +156,21 @@ class _$GUpdateProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+          result.id =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(BigInt),
+                  )!
+                  as BigInt;
           break;
         case 'product':
-          result.product.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GProductUpdateInput))!
-              as _i2.GProductUpdateInput);
+          result.product.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(_i2.GProductUpdateInput),
+                )!
+                as _i2.GProductUpdateInput,
+          );
           break;
       }
     }
@@ -160,12 +188,13 @@ class _$GDeleteProductVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GDeleteProductVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GDeleteProductVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
     ];
 
     return result;
@@ -173,8 +202,10 @@ class _$GDeleteProductVarsSerializer
 
   @override
   GDeleteProductVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GDeleteProductVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -184,8 +215,12 @@ class _$GDeleteProductVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+          result.id =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(BigInt),
+                  )!
+                  as BigInt;
           break;
       }
     }
@@ -202,12 +237,14 @@ class _$GDeleteItemVarsSerializer
   final String wireName = 'GDeleteItemVars';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GDeleteItemVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GDeleteItemVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
     ];
 
     return result;
@@ -215,8 +252,10 @@ class _$GDeleteItemVarsSerializer
 
   @override
   GDeleteItemVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GDeleteItemVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -226,8 +265,12 @@ class _$GDeleteItemVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+          result.id =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(BigInt),
+                  )!
+                  as BigInt;
           break;
       }
     }
@@ -241,19 +284,20 @@ class _$GDeletePurchaseOrderVarsSerializer
   @override
   final Iterable<Type> types = const [
     GDeletePurchaseOrderVars,
-    _$GDeletePurchaseOrderVars
+    _$GDeletePurchaseOrderVars,
   ];
   @override
   final String wireName = 'GDeletePurchaseOrderVars';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GDeletePurchaseOrderVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GDeletePurchaseOrderVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id,
-          specifiedType: const FullType(_i2.GBigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
     ];
 
     return result;
@@ -261,8 +305,10 @@ class _$GDeletePurchaseOrderVarsSerializer
 
   @override
   GDeletePurchaseOrderVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GDeletePurchaseOrderVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -272,8 +318,12 @@ class _$GDeletePurchaseOrderVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+          result.id =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(BigInt),
+                  )!
+                  as BigInt;
           break;
       }
     }
@@ -287,19 +337,23 @@ class _$GSendPasswordResetLinkVarsSerializer
   @override
   final Iterable<Type> types = const [
     GSendPasswordResetLinkVars,
-    _$GSendPasswordResetLinkVars
+    _$GSendPasswordResetLinkVars,
   ];
   @override
   final String wireName = 'GSendPasswordResetLinkVars';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GSendPasswordResetLinkVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GSendPasswordResetLinkVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'emailOrPhone',
-      serializers.serialize(object.emailOrPhone,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.emailOrPhone,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
@@ -307,8 +361,10 @@ class _$GSendPasswordResetLinkVarsSerializer
 
   @override
   GSendPasswordResetLinkVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GSendPasswordResetLinkVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -318,8 +374,12 @@ class _$GSendPasswordResetLinkVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'emailOrPhone':
-          result.emailOrPhone = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.emailOrPhone =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -336,20 +396,29 @@ class _$GRegisterUserVarsSerializer
   final String wireName = 'GRegisterUserVars';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GRegisterUserVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GRegisterUserVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'phoneNumber',
-      serializers.serialize(object.phoneNumber,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.phoneNumber,
+        specifiedType: const FullType(String),
+      ),
       'email',
-      serializers.serialize(object.email,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.email,
+        specifiedType: const FullType(String),
+      ),
       'password',
-      serializers.serialize(object.password,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.password,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
@@ -357,8 +426,10 @@ class _$GRegisterUserVarsSerializer
 
   @override
   GRegisterUserVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GRegisterUserVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -368,20 +439,36 @@ class _$GRegisterUserVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'name':
-          result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.name =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'phoneNumber':
-          result.phoneNumber = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.phoneNumber =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'email':
-          result.email = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.email =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'password':
-          result.password = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.password =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -398,15 +485,22 @@ class _$GLogInUserVarsSerializer
   final String wireName = 'GLogInUserVars';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GLogInUserVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GLogInUserVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'emailOrPhone',
-      serializers.serialize(object.emailOrPhone,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.emailOrPhone,
+        specifiedType: const FullType(String),
+      ),
       'password',
-      serializers.serialize(object.password,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.password,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
@@ -414,8 +508,10 @@ class _$GLogInUserVarsSerializer
 
   @override
   GLogInUserVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GLogInUserVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -425,12 +521,20 @@ class _$GLogInUserVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'emailOrPhone':
-          result.emailOrPhone = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.emailOrPhone =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
         case 'password':
-          result.password = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.password =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -448,12 +552,16 @@ class _$GValidateTokenVarsSerializer
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GValidateTokenVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GValidateTokenVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'tokenValue',
-      serializers.serialize(object.tokenValue,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.tokenValue,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
@@ -461,8 +569,10 @@ class _$GValidateTokenVarsSerializer
 
   @override
   GValidateTokenVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GValidateTokenVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -472,8 +582,12 @@ class _$GValidateTokenVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'tokenValue':
-          result.tokenValue = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.tokenValue =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -487,19 +601,23 @@ class _$GVerifyPhoneNumberVarsSerializer
   @override
   final Iterable<Type> types = const [
     GVerifyPhoneNumberVars,
-    _$GVerifyPhoneNumberVars
+    _$GVerifyPhoneNumberVars,
   ];
   @override
   final String wireName = 'GVerifyPhoneNumberVars';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GVerifyPhoneNumberVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GVerifyPhoneNumberVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'userId',
-      serializers.serialize(object.userId,
-          specifiedType: const FullType(_i2.GBigInt)),
+      serializers.serialize(
+        object.userId,
+        specifiedType: const FullType(BigInt),
+      ),
       'otp',
       serializers.serialize(object.otp, specifiedType: const FullType(String)),
     ];
@@ -509,8 +627,10 @@ class _$GVerifyPhoneNumberVarsSerializer
 
   @override
   GVerifyPhoneNumberVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GVerifyPhoneNumberVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -520,12 +640,20 @@ class _$GVerifyPhoneNumberVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'userId':
-          result.userId.replace(serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GBigInt))! as _i2.GBigInt);
+          result.userId =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(BigInt),
+                  )!
+                  as BigInt;
           break;
         case 'otp':
-          result.otp = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.otp =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -539,19 +667,23 @@ class _$GResendEmailVerificationRequestVarsSerializer
   @override
   final Iterable<Type> types = const [
     GResendEmailVerificationRequestVars,
-    _$GResendEmailVerificationRequestVars
+    _$GResendEmailVerificationRequestVars,
   ];
   @override
   final String wireName = 'GResendEmailVerificationRequestVars';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GResendEmailVerificationRequestVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GResendEmailVerificationRequestVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'email',
-      serializers.serialize(object.email,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.email,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
@@ -559,8 +691,10 @@ class _$GResendEmailVerificationRequestVarsSerializer
 
   @override
   GResendEmailVerificationRequestVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GResendEmailVerificationRequestVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -570,8 +704,12 @@ class _$GResendEmailVerificationRequestVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'email':
-          result.email = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.email =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -585,19 +723,23 @@ class _$GResendPhoneNumberVerificationRequestVarsSerializer
   @override
   final Iterable<Type> types = const [
     GResendPhoneNumberVerificationRequestVars,
-    _$GResendPhoneNumberVerificationRequestVars
+    _$GResendPhoneNumberVerificationRequestVars,
   ];
   @override
   final String wireName = 'GResendPhoneNumberVerificationRequestVars';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GResendPhoneNumberVerificationRequestVars object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    GResendPhoneNumberVerificationRequestVars object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'phoneNumber',
-      serializers.serialize(object.phoneNumber,
-          specifiedType: const FullType(String)),
+      serializers.serialize(
+        object.phoneNumber,
+        specifiedType: const FullType(String),
+      ),
     ];
 
     return result;
@@ -605,8 +747,10 @@ class _$GResendPhoneNumberVerificationRequestVarsSerializer
 
   @override
   GResendPhoneNumberVerificationRequestVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GResendPhoneNumberVerificationRequestVarsBuilder();
 
     final iterator = serialized.iterator;
@@ -616,8 +760,12 @@ class _$GResendPhoneNumberVerificationRequestVarsSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'phoneNumber':
-          result.phoneNumber = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
+          result.phoneNumber =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(String),
+                  )!
+                  as String;
           break;
       }
     }
@@ -685,15 +833,15 @@ class _$GCreateProductVars extends GCreateProductVars {
   @override
   final _i2.GProductCreateInput product;
 
-  factory _$GCreateProductVars(
-          [void Function(GCreateProductVarsBuilder)? updates]) =>
-      (GCreateProductVarsBuilder()..update(updates))._build();
+  factory _$GCreateProductVars([
+    void Function(GCreateProductVarsBuilder)? updates,
+  ]) => (GCreateProductVarsBuilder()..update(updates))._build();
 
   _$GCreateProductVars._({required this.product}) : super._();
   @override
   GCreateProductVars rebuild(
-          void Function(GCreateProductVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GCreateProductVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GCreateProductVarsBuilder toBuilder() =>
@@ -715,9 +863,9 @@ class _$GCreateProductVars extends GCreateProductVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GCreateProductVars')
-          ..add('product', product))
-        .toString();
+    return (newBuiltValueToStringHelper(
+      r'GCreateProductVars',
+    )..add('product', product)).toString();
   }
 }
 
@@ -758,10 +906,7 @@ class GCreateProductVarsBuilder
   _$GCreateProductVars _build() {
     _$GCreateProductVars _$result;
     try {
-      _$result = _$v ??
-          _$GCreateProductVars._(
-            product: product.build(),
-          );
+      _$result = _$v ?? _$GCreateProductVars._(product: product.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -769,7 +914,10 @@ class GCreateProductVarsBuilder
         product.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'GCreateProductVars', _$failedField, e.toString());
+          r'GCreateProductVars',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -780,19 +928,19 @@ class GCreateProductVarsBuilder
 
 class _$GUpdateProductVars extends GUpdateProductVars {
   @override
-  final _i2.GBigInt id;
+  final BigInt id;
   @override
   final _i2.GProductUpdateInput product;
 
-  factory _$GUpdateProductVars(
-          [void Function(GUpdateProductVarsBuilder)? updates]) =>
-      (GUpdateProductVarsBuilder()..update(updates))._build();
+  factory _$GUpdateProductVars([
+    void Function(GUpdateProductVarsBuilder)? updates,
+  ]) => (GUpdateProductVarsBuilder()..update(updates))._build();
 
   _$GUpdateProductVars._({required this.id, required this.product}) : super._();
   @override
   GUpdateProductVars rebuild(
-          void Function(GUpdateProductVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GUpdateProductVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GUpdateProductVarsBuilder toBuilder() =>
@@ -828,9 +976,9 @@ class GUpdateProductVarsBuilder
     implements Builder<GUpdateProductVars, GUpdateProductVarsBuilder> {
   _$GUpdateProductVars? _$v;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  BigInt? _id;
+  BigInt? get id => _$this._id;
+  set id(BigInt? id) => _$this._id = id;
 
   _i2.GProductUpdateInputBuilder? _product;
   _i2.GProductUpdateInputBuilder get product =>
@@ -843,7 +991,7 @@ class GUpdateProductVarsBuilder
   GUpdateProductVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id.toBuilder();
+      _id = $v.id;
       _product = $v.product.toBuilder();
       _$v = null;
     }
@@ -866,21 +1014,27 @@ class GUpdateProductVarsBuilder
   _$GUpdateProductVars _build() {
     _$GUpdateProductVars _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$GUpdateProductVars._(
-            id: id.build(),
+            id: BuiltValueNullFieldError.checkNotNull(
+              id,
+              r'GUpdateProductVars',
+              'id',
+            ),
             product: product.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'id';
-        id.build();
         _$failedField = 'product';
         product.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'GUpdateProductVars', _$failedField, e.toString());
+          r'GUpdateProductVars',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -891,17 +1045,17 @@ class GUpdateProductVarsBuilder
 
 class _$GDeleteProductVars extends GDeleteProductVars {
   @override
-  final _i2.GBigInt id;
+  final BigInt id;
 
-  factory _$GDeleteProductVars(
-          [void Function(GDeleteProductVarsBuilder)? updates]) =>
-      (GDeleteProductVarsBuilder()..update(updates))._build();
+  factory _$GDeleteProductVars([
+    void Function(GDeleteProductVarsBuilder)? updates,
+  ]) => (GDeleteProductVarsBuilder()..update(updates))._build();
 
   _$GDeleteProductVars._({required this.id}) : super._();
   @override
   GDeleteProductVars rebuild(
-          void Function(GDeleteProductVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GDeleteProductVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GDeleteProductVarsBuilder toBuilder() =>
@@ -923,8 +1077,9 @@ class _$GDeleteProductVars extends GDeleteProductVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GDeleteProductVars')..add('id', id))
-        .toString();
+    return (newBuiltValueToStringHelper(
+      r'GDeleteProductVars',
+    )..add('id', id)).toString();
   }
 }
 
@@ -932,16 +1087,16 @@ class GDeleteProductVarsBuilder
     implements Builder<GDeleteProductVars, GDeleteProductVarsBuilder> {
   _$GDeleteProductVars? _$v;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  BigInt? _id;
+  BigInt? get id => _$this._id;
+  set id(BigInt? id) => _$this._id = id;
 
   GDeleteProductVarsBuilder();
 
   GDeleteProductVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id.toBuilder();
+      _id = $v.id;
       _$v = null;
     }
     return this;
@@ -961,23 +1116,15 @@ class GDeleteProductVarsBuilder
   GDeleteProductVars build() => _build();
 
   _$GDeleteProductVars _build() {
-    _$GDeleteProductVars _$result;
-    try {
-      _$result = _$v ??
-          _$GDeleteProductVars._(
-            id: id.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'id';
-        id.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GDeleteProductVars', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result =
+        _$v ??
+        _$GDeleteProductVars._(
+          id: BuiltValueNullFieldError.checkNotNull(
+            id,
+            r'GDeleteProductVars',
+            'id',
+          ),
+        );
     replace(_$result);
     return _$result;
   }
@@ -985,7 +1132,7 @@ class GDeleteProductVarsBuilder
 
 class _$GDeleteItemVars extends GDeleteItemVars {
   @override
-  final _i2.GBigInt id;
+  final BigInt id;
 
   factory _$GDeleteItemVars([void Function(GDeleteItemVarsBuilder)? updates]) =>
       (GDeleteItemVarsBuilder()..update(updates))._build();
@@ -1014,8 +1161,9 @@ class _$GDeleteItemVars extends GDeleteItemVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GDeleteItemVars')..add('id', id))
-        .toString();
+    return (newBuiltValueToStringHelper(
+      r'GDeleteItemVars',
+    )..add('id', id)).toString();
   }
 }
 
@@ -1023,16 +1171,16 @@ class GDeleteItemVarsBuilder
     implements Builder<GDeleteItemVars, GDeleteItemVarsBuilder> {
   _$GDeleteItemVars? _$v;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  BigInt? _id;
+  BigInt? get id => _$this._id;
+  set id(BigInt? id) => _$this._id = id;
 
   GDeleteItemVarsBuilder();
 
   GDeleteItemVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id.toBuilder();
+      _id = $v.id;
       _$v = null;
     }
     return this;
@@ -1052,23 +1200,15 @@ class GDeleteItemVarsBuilder
   GDeleteItemVars build() => _build();
 
   _$GDeleteItemVars _build() {
-    _$GDeleteItemVars _$result;
-    try {
-      _$result = _$v ??
-          _$GDeleteItemVars._(
-            id: id.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'id';
-        id.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GDeleteItemVars', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result =
+        _$v ??
+        _$GDeleteItemVars._(
+          id: BuiltValueNullFieldError.checkNotNull(
+            id,
+            r'GDeleteItemVars',
+            'id',
+          ),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1076,17 +1216,17 @@ class GDeleteItemVarsBuilder
 
 class _$GDeletePurchaseOrderVars extends GDeletePurchaseOrderVars {
   @override
-  final _i2.GBigInt id;
+  final BigInt id;
 
-  factory _$GDeletePurchaseOrderVars(
-          [void Function(GDeletePurchaseOrderVarsBuilder)? updates]) =>
-      (GDeletePurchaseOrderVarsBuilder()..update(updates))._build();
+  factory _$GDeletePurchaseOrderVars([
+    void Function(GDeletePurchaseOrderVarsBuilder)? updates,
+  ]) => (GDeletePurchaseOrderVarsBuilder()..update(updates))._build();
 
   _$GDeletePurchaseOrderVars._({required this.id}) : super._();
   @override
   GDeletePurchaseOrderVars rebuild(
-          void Function(GDeletePurchaseOrderVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GDeletePurchaseOrderVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GDeletePurchaseOrderVarsBuilder toBuilder() =>
@@ -1108,9 +1248,9 @@ class _$GDeletePurchaseOrderVars extends GDeletePurchaseOrderVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GDeletePurchaseOrderVars')
-          ..add('id', id))
-        .toString();
+    return (newBuiltValueToStringHelper(
+      r'GDeletePurchaseOrderVars',
+    )..add('id', id)).toString();
   }
 }
 
@@ -1119,16 +1259,16 @@ class GDeletePurchaseOrderVarsBuilder
         Builder<GDeletePurchaseOrderVars, GDeletePurchaseOrderVarsBuilder> {
   _$GDeletePurchaseOrderVars? _$v;
 
-  _i2.GBigIntBuilder? _id;
-  _i2.GBigIntBuilder get id => _$this._id ??= _i2.GBigIntBuilder();
-  set id(_i2.GBigIntBuilder? id) => _$this._id = id;
+  BigInt? _id;
+  BigInt? get id => _$this._id;
+  set id(BigInt? id) => _$this._id = id;
 
   GDeletePurchaseOrderVarsBuilder();
 
   GDeletePurchaseOrderVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _id = $v.id.toBuilder();
+      _id = $v.id;
       _$v = null;
     }
     return this;
@@ -1148,23 +1288,15 @@ class GDeletePurchaseOrderVarsBuilder
   GDeletePurchaseOrderVars build() => _build();
 
   _$GDeletePurchaseOrderVars _build() {
-    _$GDeletePurchaseOrderVars _$result;
-    try {
-      _$result = _$v ??
-          _$GDeletePurchaseOrderVars._(
-            id: id.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'id';
-        id.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GDeletePurchaseOrderVars', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result =
+        _$v ??
+        _$GDeletePurchaseOrderVars._(
+          id: BuiltValueNullFieldError.checkNotNull(
+            id,
+            r'GDeletePurchaseOrderVars',
+            'id',
+          ),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1174,15 +1306,15 @@ class _$GSendPasswordResetLinkVars extends GSendPasswordResetLinkVars {
   @override
   final String emailOrPhone;
 
-  factory _$GSendPasswordResetLinkVars(
-          [void Function(GSendPasswordResetLinkVarsBuilder)? updates]) =>
-      (GSendPasswordResetLinkVarsBuilder()..update(updates))._build();
+  factory _$GSendPasswordResetLinkVars([
+    void Function(GSendPasswordResetLinkVarsBuilder)? updates,
+  ]) => (GSendPasswordResetLinkVarsBuilder()..update(updates))._build();
 
   _$GSendPasswordResetLinkVars._({required this.emailOrPhone}) : super._();
   @override
   GSendPasswordResetLinkVars rebuild(
-          void Function(GSendPasswordResetLinkVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GSendPasswordResetLinkVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GSendPasswordResetLinkVarsBuilder toBuilder() =>
@@ -1205,9 +1337,9 @@ class _$GSendPasswordResetLinkVars extends GSendPasswordResetLinkVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GSendPasswordResetLinkVars')
-          ..add('emailOrPhone', emailOrPhone))
-        .toString();
+    return (newBuiltValueToStringHelper(
+      r'GSendPasswordResetLinkVars',
+    )..add('emailOrPhone', emailOrPhone)).toString();
   }
 }
 
@@ -1245,10 +1377,14 @@ class GSendPasswordResetLinkVarsBuilder
   GSendPasswordResetLinkVars build() => _build();
 
   _$GSendPasswordResetLinkVars _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$GSendPasswordResetLinkVars._(
           emailOrPhone: BuiltValueNullFieldError.checkNotNull(
-              emailOrPhone, r'GSendPasswordResetLinkVars', 'emailOrPhone'),
+            emailOrPhone,
+            r'GSendPasswordResetLinkVars',
+            'emailOrPhone',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1265,16 +1401,16 @@ class _$GRegisterUserVars extends GRegisterUserVars {
   @override
   final String password;
 
-  factory _$GRegisterUserVars(
-          [void Function(GRegisterUserVarsBuilder)? updates]) =>
-      (GRegisterUserVarsBuilder()..update(updates))._build();
+  factory _$GRegisterUserVars([
+    void Function(GRegisterUserVarsBuilder)? updates,
+  ]) => (GRegisterUserVarsBuilder()..update(updates))._build();
 
-  _$GRegisterUserVars._(
-      {required this.name,
-      required this.phoneNumber,
-      required this.email,
-      required this.password})
-      : super._();
+  _$GRegisterUserVars._({
+    required this.name,
+    required this.phoneNumber,
+    required this.email,
+    required this.password,
+  }) : super._();
   @override
   GRegisterUserVars rebuild(void Function(GRegisterUserVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1363,16 +1499,29 @@ class GRegisterUserVarsBuilder
   GRegisterUserVars build() => _build();
 
   _$GRegisterUserVars _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$GRegisterUserVars._(
           name: BuiltValueNullFieldError.checkNotNull(
-              name, r'GRegisterUserVars', 'name'),
+            name,
+            r'GRegisterUserVars',
+            'name',
+          ),
           phoneNumber: BuiltValueNullFieldError.checkNotNull(
-              phoneNumber, r'GRegisterUserVars', 'phoneNumber'),
+            phoneNumber,
+            r'GRegisterUserVars',
+            'phoneNumber',
+          ),
           email: BuiltValueNullFieldError.checkNotNull(
-              email, r'GRegisterUserVars', 'email'),
+            email,
+            r'GRegisterUserVars',
+            'email',
+          ),
           password: BuiltValueNullFieldError.checkNotNull(
-              password, r'GRegisterUserVars', 'password'),
+            password,
+            r'GRegisterUserVars',
+            'password',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1389,7 +1538,7 @@ class _$GLogInUserVars extends GLogInUserVars {
       (GLogInUserVarsBuilder()..update(updates))._build();
 
   _$GLogInUserVars._({required this.emailOrPhone, required this.password})
-      : super._();
+    : super._();
   @override
   GLogInUserVars rebuild(void Function(GLogInUserVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1461,12 +1610,19 @@ class GLogInUserVarsBuilder
   GLogInUserVars build() => _build();
 
   _$GLogInUserVars _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$GLogInUserVars._(
           emailOrPhone: BuiltValueNullFieldError.checkNotNull(
-              emailOrPhone, r'GLogInUserVars', 'emailOrPhone'),
+            emailOrPhone,
+            r'GLogInUserVars',
+            'emailOrPhone',
+          ),
           password: BuiltValueNullFieldError.checkNotNull(
-              password, r'GLogInUserVars', 'password'),
+            password,
+            r'GLogInUserVars',
+            'password',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1477,15 +1633,15 @@ class _$GValidateTokenVars extends GValidateTokenVars {
   @override
   final String tokenValue;
 
-  factory _$GValidateTokenVars(
-          [void Function(GValidateTokenVarsBuilder)? updates]) =>
-      (GValidateTokenVarsBuilder()..update(updates))._build();
+  factory _$GValidateTokenVars([
+    void Function(GValidateTokenVarsBuilder)? updates,
+  ]) => (GValidateTokenVarsBuilder()..update(updates))._build();
 
   _$GValidateTokenVars._({required this.tokenValue}) : super._();
   @override
   GValidateTokenVars rebuild(
-          void Function(GValidateTokenVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GValidateTokenVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GValidateTokenVarsBuilder toBuilder() =>
@@ -1507,9 +1663,9 @@ class _$GValidateTokenVars extends GValidateTokenVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GValidateTokenVars')
-          ..add('tokenValue', tokenValue))
-        .toString();
+    return (newBuiltValueToStringHelper(
+      r'GValidateTokenVars',
+    )..add('tokenValue', tokenValue)).toString();
   }
 }
 
@@ -1546,10 +1702,14 @@ class GValidateTokenVarsBuilder
   GValidateTokenVars build() => _build();
 
   _$GValidateTokenVars _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$GValidateTokenVars._(
           tokenValue: BuiltValueNullFieldError.checkNotNull(
-              tokenValue, r'GValidateTokenVars', 'tokenValue'),
+            tokenValue,
+            r'GValidateTokenVars',
+            'tokenValue',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1558,20 +1718,20 @@ class GValidateTokenVarsBuilder
 
 class _$GVerifyPhoneNumberVars extends GVerifyPhoneNumberVars {
   @override
-  final _i2.GBigInt userId;
+  final BigInt userId;
   @override
   final String otp;
 
-  factory _$GVerifyPhoneNumberVars(
-          [void Function(GVerifyPhoneNumberVarsBuilder)? updates]) =>
-      (GVerifyPhoneNumberVarsBuilder()..update(updates))._build();
+  factory _$GVerifyPhoneNumberVars([
+    void Function(GVerifyPhoneNumberVarsBuilder)? updates,
+  ]) => (GVerifyPhoneNumberVarsBuilder()..update(updates))._build();
 
   _$GVerifyPhoneNumberVars._({required this.userId, required this.otp})
-      : super._();
+    : super._();
   @override
   GVerifyPhoneNumberVars rebuild(
-          void Function(GVerifyPhoneNumberVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GVerifyPhoneNumberVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GVerifyPhoneNumberVarsBuilder toBuilder() =>
@@ -1607,9 +1767,9 @@ class GVerifyPhoneNumberVarsBuilder
     implements Builder<GVerifyPhoneNumberVars, GVerifyPhoneNumberVarsBuilder> {
   _$GVerifyPhoneNumberVars? _$v;
 
-  _i2.GBigIntBuilder? _userId;
-  _i2.GBigIntBuilder get userId => _$this._userId ??= _i2.GBigIntBuilder();
-  set userId(_i2.GBigIntBuilder? userId) => _$this._userId = userId;
+  BigInt? _userId;
+  BigInt? get userId => _$this._userId;
+  set userId(BigInt? userId) => _$this._userId = userId;
 
   String? _otp;
   String? get otp => _$this._otp;
@@ -1620,7 +1780,7 @@ class GVerifyPhoneNumberVarsBuilder
   GVerifyPhoneNumberVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _userId = $v.userId.toBuilder();
+      _userId = $v.userId;
       _otp = $v.otp;
       _$v = null;
     }
@@ -1641,25 +1801,20 @@ class GVerifyPhoneNumberVarsBuilder
   GVerifyPhoneNumberVars build() => _build();
 
   _$GVerifyPhoneNumberVars _build() {
-    _$GVerifyPhoneNumberVars _$result;
-    try {
-      _$result = _$v ??
-          _$GVerifyPhoneNumberVars._(
-            userId: userId.build(),
-            otp: BuiltValueNullFieldError.checkNotNull(
-                otp, r'GVerifyPhoneNumberVars', 'otp'),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'userId';
-        userId.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GVerifyPhoneNumberVars', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result =
+        _$v ??
+        _$GVerifyPhoneNumberVars._(
+          userId: BuiltValueNullFieldError.checkNotNull(
+            userId,
+            r'GVerifyPhoneNumberVars',
+            'userId',
+          ),
+          otp: BuiltValueNullFieldError.checkNotNull(
+            otp,
+            r'GVerifyPhoneNumberVars',
+            'otp',
+          ),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1670,16 +1825,16 @@ class _$GResendEmailVerificationRequestVars
   @override
   final String email;
 
-  factory _$GResendEmailVerificationRequestVars(
-          [void Function(GResendEmailVerificationRequestVarsBuilder)?
-              updates]) =>
+  factory _$GResendEmailVerificationRequestVars([
+    void Function(GResendEmailVerificationRequestVarsBuilder)? updates,
+  ]) =>
       (GResendEmailVerificationRequestVarsBuilder()..update(updates))._build();
 
   _$GResendEmailVerificationRequestVars._({required this.email}) : super._();
   @override
   GResendEmailVerificationRequestVars rebuild(
-          void Function(GResendEmailVerificationRequestVarsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GResendEmailVerificationRequestVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GResendEmailVerificationRequestVarsBuilder toBuilder() =>
@@ -1701,16 +1856,18 @@ class _$GResendEmailVerificationRequestVars
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GResendEmailVerificationRequestVars')
-          ..add('email', email))
-        .toString();
+    return (newBuiltValueToStringHelper(
+      r'GResendEmailVerificationRequestVars',
+    )..add('email', email)).toString();
   }
 }
 
 class GResendEmailVerificationRequestVarsBuilder
     implements
-        Builder<GResendEmailVerificationRequestVars,
-            GResendEmailVerificationRequestVarsBuilder> {
+        Builder<
+          GResendEmailVerificationRequestVars,
+          GResendEmailVerificationRequestVarsBuilder
+        > {
   _$GResendEmailVerificationRequestVars? _$v;
 
   String? _email;
@@ -1735,7 +1892,8 @@ class GResendEmailVerificationRequestVarsBuilder
 
   @override
   void update(
-      void Function(GResendEmailVerificationRequestVarsBuilder)? updates) {
+    void Function(GResendEmailVerificationRequestVarsBuilder)? updates,
+  ) {
     if (updates != null) updates(this);
   }
 
@@ -1743,10 +1901,14 @@ class GResendEmailVerificationRequestVarsBuilder
   GResendEmailVerificationRequestVars build() => _build();
 
   _$GResendEmailVerificationRequestVars _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$GResendEmailVerificationRequestVars._(
           email: BuiltValueNullFieldError.checkNotNull(
-              email, r'GResendEmailVerificationRequestVars', 'email'),
+            email,
+            r'GResendEmailVerificationRequestVars',
+            'email',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1758,19 +1920,17 @@ class _$GResendPhoneNumberVerificationRequestVars
   @override
   final String phoneNumber;
 
-  factory _$GResendPhoneNumberVerificationRequestVars(
-          [void Function(GResendPhoneNumberVerificationRequestVarsBuilder)?
-              updates]) =>
-      (GResendPhoneNumberVerificationRequestVarsBuilder()..update(updates))
-          ._build();
+  factory _$GResendPhoneNumberVerificationRequestVars([
+    void Function(GResendPhoneNumberVerificationRequestVarsBuilder)? updates,
+  ]) => (GResendPhoneNumberVerificationRequestVarsBuilder()..update(updates))
+      ._build();
 
   _$GResendPhoneNumberVerificationRequestVars._({required this.phoneNumber})
-      : super._();
+    : super._();
   @override
   GResendPhoneNumberVerificationRequestVars rebuild(
-          void Function(GResendPhoneNumberVerificationRequestVarsBuilder)
-              updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GResendPhoneNumberVerificationRequestVarsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GResendPhoneNumberVerificationRequestVarsBuilder toBuilder() =>
@@ -1794,16 +1954,17 @@ class _$GResendPhoneNumberVerificationRequestVars
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            r'GResendPhoneNumberVerificationRequestVars')
-          ..add('phoneNumber', phoneNumber))
-        .toString();
+      r'GResendPhoneNumberVerificationRequestVars',
+    )..add('phoneNumber', phoneNumber)).toString();
   }
 }
 
 class GResendPhoneNumberVerificationRequestVarsBuilder
     implements
-        Builder<GResendPhoneNumberVerificationRequestVars,
-            GResendPhoneNumberVerificationRequestVarsBuilder> {
+        Builder<
+          GResendPhoneNumberVerificationRequestVars,
+          GResendPhoneNumberVerificationRequestVarsBuilder
+        > {
   _$GResendPhoneNumberVerificationRequestVars? _$v;
 
   String? _phoneNumber;
@@ -1828,8 +1989,8 @@ class GResendPhoneNumberVerificationRequestVarsBuilder
 
   @override
   void update(
-      void Function(GResendPhoneNumberVerificationRequestVarsBuilder)?
-          updates) {
+    void Function(GResendPhoneNumberVerificationRequestVarsBuilder)? updates,
+  ) {
     if (updates != null) updates(this);
   }
 
@@ -1837,10 +1998,14 @@ class GResendPhoneNumberVerificationRequestVarsBuilder
   GResendPhoneNumberVerificationRequestVars build() => _build();
 
   _$GResendPhoneNumberVerificationRequestVars _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$GResendPhoneNumberVerificationRequestVars._(
-          phoneNumber: BuiltValueNullFieldError.checkNotNull(phoneNumber,
-              r'GResendPhoneNumberVerificationRequestVars', 'phoneNumber'),
+          phoneNumber: BuiltValueNullFieldError.checkNotNull(
+            phoneNumber,
+            r'GResendPhoneNumberVerificationRequestVars',
+            'phoneNumber',
+          ),
         );
     replace(_$result);
     return _$result;

@@ -65,7 +65,7 @@ abstract class GUpdateProductVars
           [void Function(GUpdateProductVarsBuilder b) updates]) =
       _$GUpdateProductVars;
 
-  _i2.GBigInt get id;
+  BigInt get id;
   _i2.GProductUpdateInput get product;
   static Serializer<GUpdateProductVars> get serializer =>
       _$gUpdateProductVarsSerializer;
@@ -90,7 +90,7 @@ abstract class GDeleteProductVars
           [void Function(GDeleteProductVarsBuilder b) updates]) =
       _$GDeleteProductVars;
 
-  _i2.GBigInt get id;
+  BigInt get id;
   static Serializer<GDeleteProductVars> get serializer =>
       _$gDeleteProductVarsSerializer;
 
@@ -113,7 +113,7 @@ abstract class GDeleteItemVars
   factory GDeleteItemVars([void Function(GDeleteItemVarsBuilder b) updates]) =
       _$GDeleteItemVars;
 
-  _i2.GBigInt get id;
+  BigInt get id;
   static Serializer<GDeleteItemVars> get serializer =>
       _$gDeleteItemVarsSerializer;
 
@@ -138,7 +138,7 @@ abstract class GDeletePurchaseOrderVars
           [void Function(GDeletePurchaseOrderVarsBuilder b) updates]) =
       _$GDeletePurchaseOrderVars;
 
-  _i2.GBigInt get id;
+  BigInt get id;
   static Serializer<GDeletePurchaseOrderVars> get serializer =>
       _$gDeletePurchaseOrderVarsSerializer;
 
@@ -262,7 +262,7 @@ abstract class GVerifyPhoneNumberVars
           [void Function(GVerifyPhoneNumberVarsBuilder b) updates]) =
       _$GVerifyPhoneNumberVars;
 
-  _i2.GBigInt get userId;
+  BigInt get userId;
   String get otp;
   static Serializer<GVerifyPhoneNumberVars> get serializer =>
       _$gVerifyPhoneNumberVarsSerializer;

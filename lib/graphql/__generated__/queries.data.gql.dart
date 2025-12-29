@@ -5,8 +5,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart'
-    as _i2;
 import 'package:sleek_travel_frontend/graphql/__generated__/serializers.gql.dart'
     as _i1;
 
@@ -56,7 +54,7 @@ abstract class GListUserItemsData_listAllItems
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt get id;
+  int get id;
   String get name;
   static Serializer<GListUserItemsData_listAllItems> get serializer =>
       _$gListUserItemsDataListAllItemsSerializer;
@@ -120,7 +118,7 @@ abstract class GListUserPurchaseOrdersData_listAllPurchaseOrders
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt get id;
+  int get id;
   BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
       get entries;
   static Serializer<GListUserPurchaseOrdersData_listAllPurchaseOrders>
@@ -221,7 +219,7 @@ abstract class GListAllProductsData_listAllProducts
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  _i2.GBigInt get id;
+  int get id;
   String get name;
   static Serializer<GListAllProductsData_listAllProducts> get serializer =>
       _$gListAllProductsDataListAllProductsSerializer;

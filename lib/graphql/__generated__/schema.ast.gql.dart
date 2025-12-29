@@ -410,7 +410,7 @@ const AccessTokenScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -909,7 +909,7 @@ const AccessTokenWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -996,7 +996,7 @@ const AccessTokenWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -1202,487 +1202,6 @@ const AggregatePurchaseOrder = _i1.ObjectTypeDefinitionNode(
     ),
   ],
 );
-const BigInt = _i1.ScalarTypeDefinitionNode(
-  name: _i1.NameNode(value: 'BigInt'),
-  directives: [],
-);
-const BigIntFieldUpdateOperationsInput = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'set'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'increment'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'decrement'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'multiply'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'divide'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
-const BigIntFilter = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'BigIntFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
-const BigIntNullableFilter = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'BigIntNullableFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
-const BigIntNullableWithAggregatesFilter = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'BigIntNullableWithAggregatesFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableWithAggregatesFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_count'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_avg'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedFloatNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_sum'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_min'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_max'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
-const BigIntWithAggregatesFilter = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'BigIntWithAggregatesFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntWithAggregatesFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_count'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_avg'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedFloatFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_sum'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_min'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_max'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
 const BoolFieldUpdateOperationsInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'BoolFieldUpdateOperationsInput'),
   directives: [],
@@ -1807,7 +1326,7 @@ const CreateManyAndReturnItem = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -1816,7 +1335,7 @@ const CreateManyAndReturnItem = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -1852,7 +1371,7 @@ const CreateManyAndReturnItem = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -1950,7 +1469,7 @@ const CreateManyAndReturnProduct = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -2119,7 +1638,7 @@ const CreateManyAndReturnPurchaseOrder = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -2128,7 +1647,7 @@ const CreateManyAndReturnPurchaseOrder = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -3447,6 +2966,348 @@ const IntFilter = _i1.InputObjectTypeDefinitionNode(
     ),
   ],
 );
+const IntNullableFilter = _i1.InputObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'IntNullableFilter'),
+  directives: [],
+  fields: [
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'equals'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'in'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'notIn'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'not'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+  ],
+);
+const IntNullableWithAggregatesFilter = _i1.InputObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'IntNullableWithAggregatesFilter'),
+  directives: [],
+  fields: [
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'equals'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'in'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'notIn'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'not'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableWithAggregatesFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_count'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_avg'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedFloatNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_sum'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_min'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_max'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+  ],
+);
+const IntWithAggregatesFilter = _i1.InputObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'IntWithAggregatesFilter'),
+  directives: [],
+  fields: [
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'equals'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'in'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'notIn'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'not'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntWithAggregatesFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_count'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_avg'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedFloatFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_sum'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_min'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_max'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+  ],
+);
 const Item = _i1.ObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'Item'),
   directives: [],
@@ -3457,7 +3318,7 @@ const Item = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -3466,7 +3327,7 @@ const Item = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -3502,7 +3363,7 @@ const Item = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -3926,15 +3787,6 @@ const ItemCreateInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'code'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -4043,7 +3895,7 @@ const ItemCreateManyInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -4052,7 +3904,7 @@ const ItemCreateManyInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: null,
@@ -4088,7 +3940,7 @@ const ItemCreateManyInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -4157,7 +4009,7 @@ const ItemCreateManyProductInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -4166,7 +4018,7 @@ const ItemCreateManyProductInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: null,
@@ -4289,7 +4141,7 @@ const ItemCreateManyUserInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -4325,7 +4177,7 @@ const ItemCreateManyUserInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -4570,15 +4422,6 @@ const ItemCreateWithoutProductInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'code'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -4674,15 +4517,6 @@ const ItemCreateWithoutUserInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'ItemCreateWithoutUserInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'code'),
       directives: [],
@@ -4785,7 +4619,7 @@ const ItemGroupBy = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -4794,7 +4628,7 @@ const ItemGroupBy = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -4830,7 +4664,7 @@ const ItemGroupBy = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -4978,7 +4812,7 @@ const ItemMaxAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -4987,7 +4821,7 @@ const ItemMaxAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -5023,7 +4857,7 @@ const ItemMaxAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -5207,7 +5041,7 @@ const ItemMinAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -5216,7 +5050,7 @@ const ItemMinAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -5252,7 +5086,7 @@ const ItemMinAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -5830,7 +5664,7 @@ const ItemScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -5839,7 +5673,7 @@ const ItemScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -5875,7 +5709,7 @@ const ItemScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntNullableFilter'),
+        name: _i1.NameNode(value: 'IntNullableFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -5980,7 +5814,7 @@ const ItemScalarWhereWithAggregatesInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntWithAggregatesFilter'),
+        name: _i1.NameNode(value: 'IntWithAggregatesFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -5989,7 +5823,7 @@ const ItemScalarWhereWithAggregatesInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntWithAggregatesFilter'),
+        name: _i1.NameNode(value: 'IntWithAggregatesFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -6025,7 +5859,7 @@ const ItemScalarWhereWithAggregatesInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntNullableWithAggregatesFilter'),
+        name: _i1.NameNode(value: 'IntNullableWithAggregatesFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -6096,7 +5930,7 @@ const ItemSumAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -6105,7 +5939,7 @@ const ItemSumAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -6114,7 +5948,7 @@ const ItemSumAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -6230,15 +6064,6 @@ const ItemUpdateInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'code'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -6344,15 +6169,6 @@ const ItemUpdateManyMutationInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'ItemUpdateManyMutationInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'code'),
       directives: [],
@@ -6767,15 +6583,6 @@ const ItemUpdateWithoutProductInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'code'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -6872,15 +6679,6 @@ const ItemUpdateWithoutUserInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'ItemUpdateWithoutUserInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'code'),
       directives: [],
@@ -7135,7 +6933,7 @@ const ItemWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7144,7 +6942,7 @@ const ItemWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7180,7 +6978,7 @@ const ItemWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntNullableFilter'),
+        name: _i1.NameNode(value: 'IntNullableFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7267,7 +7065,7 @@ const ItemWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7321,7 +7119,7 @@ const ItemWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7348,7 +7146,7 @@ const ItemWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntNullableFilter'),
+        name: _i1.NameNode(value: 'IntNullableFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7435,7 +7233,7 @@ const LoginCreateManyAccessTokenInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7453,7 +7251,7 @@ const LoginCreateManyAccessTokenInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: null,
@@ -7514,7 +7312,7 @@ const LoginCreateManyUserInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7742,15 +7540,6 @@ const LoginCreateWithoutAccessTokenInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'ipAddress'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -7792,15 +7581,6 @@ const LoginCreateWithoutUserInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'LoginCreateWithoutUserInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'ipAddress'),
       directives: [],
@@ -7932,7 +7712,7 @@ const LoginScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7950,7 +7730,7 @@ const LoginScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -7988,15 +7768,6 @@ const LoginUpdateManyMutationInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'LoginUpdateManyMutationInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'ipAddress'),
       directives: [],
@@ -8358,15 +8129,6 @@ const LoginUpdateWithoutAccessTokenInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'ipAddress'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -8409,15 +8171,6 @@ const LoginUpdateWithoutUserInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'LoginUpdateWithoutUserInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'ipAddress'),
       directives: [],
@@ -8655,7 +8408,7 @@ const LoginWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -8673,7 +8426,7 @@ const LoginWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -8733,7 +8486,7 @@ const LoginWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -8787,7 +8540,7 @@ const LoginWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -9600,7 +9353,7 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
           name: _i1.NameNode(value: 'userId'),
           directives: [],
           type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'BigInt'),
+            name: _i1.NameNode(value: 'Int'),
             isNonNull: true,
           ),
           defaultValue: null,
@@ -9694,433 +9447,6 @@ const Mutation = _i1.ObjectTypeDefinitionNode(
         name: _i1.NameNode(value: 'ValidateTokenResponse'),
         isNonNull: true,
       ),
-    ),
-  ],
-);
-const NestedBigIntFilter = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'NestedBigIntFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
-const NestedBigIntNullableFilter = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
-const NestedBigIntNullableWithAggregatesFilter =
-    _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'NestedBigIntNullableWithAggregatesFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableWithAggregatesFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_count'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_avg'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedFloatNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_sum'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_min'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_max'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntNullableFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-  ],
-);
-const NestedBigIntWithAggregatesFilter = _i1.InputObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'NestedBigIntWithAggregatesFilter'),
-  directives: [],
-  fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'equals'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'in'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'notIn'),
-      directives: [],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'BigInt'),
-          isNonNull: true,
-        ),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'lte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gt'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'gte'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'not'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntWithAggregatesFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_count'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_avg'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedFloatFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_sum'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_min'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: '_max'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'NestedBigIntFilter'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
     ),
   ],
 );
@@ -11480,6 +10806,264 @@ const NestedIntNullableFilter = _i1.InputObjectTypeDefinitionNode(
     ),
   ],
 );
+const NestedIntNullableWithAggregatesFilter = _i1.InputObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'NestedIntNullableWithAggregatesFilter'),
+  directives: [],
+  fields: [
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'equals'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'in'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'notIn'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'not'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableWithAggregatesFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_count'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_avg'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedFloatNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_sum'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_min'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_max'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntNullableFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+  ],
+);
+const NestedIntWithAggregatesFilter = _i1.InputObjectTypeDefinitionNode(
+  name: _i1.NameNode(value: 'NestedIntWithAggregatesFilter'),
+  directives: [],
+  fields: [
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'equals'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'in'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'notIn'),
+      directives: [],
+      type: _i1.ListTypeNode(
+        type: _i1.NamedTypeNode(
+          name: _i1.NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'lte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gt'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'gte'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'Int'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: 'not'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntWithAggregatesFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_count'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_avg'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedFloatFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_sum'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_min'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+    _i1.InputValueDefinitionNode(
+      name: _i1.NameNode(value: '_max'),
+      directives: [],
+      type: _i1.NamedTypeNode(
+        name: _i1.NameNode(value: 'NestedIntFilter'),
+        isNonNull: false,
+      ),
+      defaultValue: null,
+    ),
+  ],
+);
 const NestedStringFilter = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'NestedStringFilter'),
   directives: [],
@@ -12103,7 +11687,7 @@ const Product = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -12770,15 +12354,6 @@ const ProductCreateInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -12960,7 +12535,7 @@ const ProductCreateManyInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -13248,15 +12823,6 @@ const ProductCreateWithoutItemsInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -13426,15 +12992,6 @@ const ProductCreateWithoutPurchaseOrderEntriesInput =
   name: _i1.NameNode(value: 'ProductCreateWithoutPurchaseOrderEntriesInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -13609,7 +13166,7 @@ const ProductGroupBy = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -13823,7 +13380,7 @@ const ProductMaxAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -14160,7 +13717,7 @@ const ProductMinAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -15057,7 +14614,7 @@ const ProductScalarWhereWithAggregatesInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntWithAggregatesFilter'),
+        name: _i1.NameNode(value: 'IntWithAggregatesFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -15227,7 +14784,7 @@ const ProductSumAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -15342,15 +14899,6 @@ const ProductUpdateInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'ProductUpdateInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -15529,15 +15077,6 @@ const ProductUpdateManyMutationInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'ProductUpdateManyMutationInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -15879,15 +15418,6 @@ const ProductUpdateWithoutItemsInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -16057,15 +15587,6 @@ const ProductUpdateWithoutPurchaseOrderEntriesInput =
   name: _i1.NameNode(value: 'ProductUpdateWithoutPurchaseOrderEntriesInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -16343,7 +15864,7 @@ const ProductWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -16529,7 +16050,7 @@ const ProductWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -16753,7 +16274,7 @@ const PurchaseOrder = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -16762,7 +16283,7 @@ const PurchaseOrder = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -17107,15 +16628,6 @@ const PurchaseOrderCreateInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'price'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -17181,7 +16693,7 @@ const PurchaseOrderCreateManyInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -17190,7 +16702,7 @@ const PurchaseOrderCreateManyInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: null,
@@ -17241,7 +16753,7 @@ const PurchaseOrderCreateManyUserInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -17456,15 +16968,6 @@ const PurchaseOrderCreateWithoutEntriesInput =
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'price'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -17516,15 +17019,6 @@ const PurchaseOrderCreateWithoutUserInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'PurchaseOrderCreateWithoutUserInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'price'),
       directives: [],
@@ -17583,7 +17077,7 @@ const PurchaseOrderEntry = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -17592,7 +17086,7 @@ const PurchaseOrderEntry = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -17610,7 +17104,7 @@ const PurchaseOrderEntry = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -17643,7 +17137,7 @@ const PurchaseOrderEntryCreateManyOrderInput =
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -17661,7 +17155,7 @@ const PurchaseOrderEntryCreateManyOrderInput =
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: null,
@@ -17732,7 +17226,7 @@ const PurchaseOrderEntryCreateManyProductInput =
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -17741,7 +17235,7 @@ const PurchaseOrderEntryCreateManyProductInput =
       name: _i1.NameNode(value: 'orderId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: null,
@@ -17983,15 +17477,6 @@ const PurchaseOrderEntryCreateWithoutOrderInput =
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'quantity'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -18044,15 +17529,6 @@ const PurchaseOrderEntryCreateWithoutProductInput =
   name: _i1.NameNode(value: 'PurchaseOrderEntryCreateWithoutProductInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'quantity'),
       directives: [],
@@ -18316,7 +17792,7 @@ const PurchaseOrderEntryScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -18325,7 +17801,7 @@ const PurchaseOrderEntryScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'orderId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -18343,7 +17819,7 @@ const PurchaseOrderEntryScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -18382,15 +17858,6 @@ const PurchaseOrderEntryUpdateManyMutationInput =
   name: _i1.NameNode(value: 'PurchaseOrderEntryUpdateManyMutationInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'quantity'),
       directives: [],
@@ -18778,15 +18245,6 @@ const PurchaseOrderEntryUpdateWithoutOrderInput =
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'quantity'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -18840,15 +18298,6 @@ const PurchaseOrderEntryUpdateWithoutProductInput =
   name: _i1.NameNode(value: 'PurchaseOrderEntryUpdateWithoutProductInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'quantity'),
       directives: [],
@@ -19066,7 +18515,7 @@ const PurchaseOrderEntryWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -19075,7 +18524,7 @@ const PurchaseOrderEntryWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'orderId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -19093,7 +18542,7 @@ const PurchaseOrderEntryWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -19153,7 +18602,7 @@ const PurchaseOrderEntryWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -19198,7 +18647,7 @@ const PurchaseOrderEntryWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'orderId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -19216,7 +18665,7 @@ const PurchaseOrderEntryWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'productId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -19278,7 +18727,7 @@ const PurchaseOrderGroupBy = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -19287,7 +18736,7 @@ const PurchaseOrderGroupBy = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -19417,7 +18866,7 @@ const PurchaseOrderMaxAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -19426,7 +18875,7 @@ const PurchaseOrderMaxAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -19538,7 +18987,7 @@ const PurchaseOrderMinAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -19547,7 +18996,7 @@ const PurchaseOrderMinAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -19948,7 +19397,7 @@ const PurchaseOrderScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -19957,7 +19406,7 @@ const PurchaseOrderScalarWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -20048,7 +19497,7 @@ const PurchaseOrderScalarWhereWithAggregatesInput =
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntWithAggregatesFilter'),
+        name: _i1.NameNode(value: 'IntWithAggregatesFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -20057,7 +19506,7 @@ const PurchaseOrderScalarWhereWithAggregatesInput =
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntWithAggregatesFilter'),
+        name: _i1.NameNode(value: 'IntWithAggregatesFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -20133,7 +19582,7 @@ const PurchaseOrderSumAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -20142,7 +19591,7 @@ const PurchaseOrderSumAggregate = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -20194,15 +19643,6 @@ const PurchaseOrderUpdateInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'PurchaseOrderUpdateInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'price'),
       directives: [],
@@ -20266,15 +19706,6 @@ const PurchaseOrderUpdateManyMutationInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'PurchaseOrderUpdateManyMutationInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'price'),
       directives: [],
@@ -20566,15 +19997,6 @@ const PurchaseOrderUpdateWithoutEntriesInput =
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'price'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -20627,15 +20049,6 @@ const PurchaseOrderUpdateWithoutUserInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'PurchaseOrderUpdateWithoutUserInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'price'),
       directives: [],
@@ -20824,7 +20237,7 @@ const PurchaseOrderWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -20833,7 +20246,7 @@ const PurchaseOrderWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -20902,7 +20315,7 @@ const PurchaseOrderWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -20947,7 +20360,7 @@ const PurchaseOrderWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'userId'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -22411,7 +21824,7 @@ const RegisterUserResponse = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
     ),
@@ -22473,7 +21886,7 @@ const SafeUser = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -23239,7 +22652,7 @@ const User = _i1.ObjectTypeDefinitionNode(
       directives: [],
       args: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
     ),
@@ -23657,15 +23070,6 @@ const UserCreateWithoutAccessTokensInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -23798,15 +23202,6 @@ const UserCreateWithoutItemsInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'UserCreateWithoutItemsInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -23942,15 +23337,6 @@ const UserCreateWithoutLoginsInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -24084,15 +23470,6 @@ const UserCreateWithoutPurchaseOrdersInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'UserCreateWithoutPurchaseOrdersInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -24716,15 +24093,6 @@ const UserUpdateWithoutAccessTokensInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -24857,15 +24225,6 @@ const UserUpdateWithoutItemsInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'UserUpdateWithoutItemsInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -25001,15 +24360,6 @@ const UserUpdateWithoutLoginsInput = _i1.InputObjectTypeDefinitionNode(
   directives: [],
   fields: [
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -25143,15 +24493,6 @@ const UserUpdateWithoutPurchaseOrdersInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'UserUpdateWithoutPurchaseOrdersInput'),
   directives: [],
   fields: [
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'id'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFieldUpdateOperationsInput'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
     _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'name'),
       directives: [],
@@ -25457,7 +24798,7 @@ const UserWhereInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigIntFilter'),
+        name: _i1.NameNode(value: 'IntFilter'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -25607,7 +24948,7 @@ const UserWhereUniqueInput = _i1.InputObjectTypeDefinitionNode(
       name: _i1.NameNode(value: 'id'),
       directives: [],
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -25854,12 +25195,6 @@ const document = _i1.DocumentNode(definitions: [
   AggregateItem,
   AggregateProduct,
   AggregatePurchaseOrder,
-  BigInt,
-  BigIntFieldUpdateOperationsInput,
-  BigIntFilter,
-  BigIntNullableFilter,
-  BigIntNullableWithAggregatesFilter,
-  BigIntWithAggregatesFilter,
   BoolFieldUpdateOperationsInput,
   BoolFilter,
   BoolNullableFilter,
@@ -25889,6 +25224,9 @@ const document = _i1.DocumentNode(definitions: [
   FloatNullableWithAggregatesFilter,
   IntFieldUpdateOperationsInput,
   IntFilter,
+  IntNullableFilter,
+  IntNullableWithAggregatesFilter,
+  IntWithAggregatesFilter,
   Item,
   ItemAvgAggregate,
   ItemAvgOrderByAggregateInput,
@@ -25962,10 +25300,6 @@ const document = _i1.DocumentNode(definitions: [
   LoginWhereInput,
   LoginWhereUniqueInput,
   Mutation,
-  NestedBigIntFilter,
-  NestedBigIntNullableFilter,
-  NestedBigIntNullableWithAggregatesFilter,
-  NestedBigIntWithAggregatesFilter,
   NestedBoolFilter,
   NestedBoolNullableFilter,
   NestedBoolNullableWithAggregatesFilter,
@@ -25984,6 +25318,8 @@ const document = _i1.DocumentNode(definitions: [
   NestedFloatNullableWithAggregatesFilter,
   NestedIntFilter,
   NestedIntNullableFilter,
+  NestedIntNullableWithAggregatesFilter,
+  NestedIntWithAggregatesFilter,
   NestedStringFilter,
   NestedStringNullableFilter,
   NestedStringNullableWithAggregatesFilter,

@@ -44,7 +44,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 MaterialButton(
                   color: Theme.of(context).colorScheme.secondary,
                   onPressed: () async {
-                    if (!_formKey.currentState!.validate()) {
+                    if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
                       return;
                     }
                     final OperationResponse result = await client.request(

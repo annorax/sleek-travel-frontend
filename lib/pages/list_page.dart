@@ -103,6 +103,9 @@ class ListPageState extends State<ListPage> {
       if (sortOption != null && sortDirection == null) {
         sortDirection = sortOption.defaultDirection;
       }
+      if (widget.updateDashboardState == null) {
+        throw "Attempted to invoke updateDashboardState without a reference";
+      }
       widget.updateDashboardState!(
         title: widget.entityType.displayNamePlural.toCapitalized(),
         sortOptions: widget.sortOptions,
@@ -117,6 +120,9 @@ class ListPageState extends State<ListPage> {
     return ([BuildContext? context]) async {
       if (!(await showConfirmationDialog(context ?? givenContext))) {
         return;
+      }
+      if (_items == null) {
+        throw "No items";
       }
       int index = _items!.indexOf(item);
       final OperationResponse result = await client.request(
@@ -160,14 +166,12 @@ class ListPageState extends State<ListPage> {
         ListableEntityType.item => GListUserItemsReq(
           (b) => b
             ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.userId = user!.user!.id
             ..vars.sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),
         ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
           (b) => b
             ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.userId = user!.user!.id
             ..vars.sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
             ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
         ),

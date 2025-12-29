@@ -77,11 +77,11 @@ Future<GLogInUserData_logInUser?> validateToken(String tokenValue) async {
   } catch (e) {
     validateToken = null;
   }
-  if (validateToken == null) {
+  if (validateToken?.user == null) {
     await userState.removeValue();
     return null;
   }
-  final token = validateToken.token;
+  final token = validateToken!.token;
   final GValidateTokenData_validateToken_user safeUser = validateToken.user!;
   final Map<String, dynamic> userJson = {"user": safeUser.toJson(), "token": token};
   final user = GLogInUserData_logInUser.fromJson(userJson);

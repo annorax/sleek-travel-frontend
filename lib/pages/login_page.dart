@@ -75,6 +75,9 @@ class _LoginPageState extends State<LoginPage> {
                           showError("Failed to resend verification email.", context);
                         }
                       }
+                      if (result.data == null && context.mounted) {
+                        showError("No data.", context);
+                      }
                       GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data!.resendEmailVerificationRequest;
                       if (context.mounted) {
                         if (response.error != null) {
@@ -107,6 +110,9 @@ class _LoginPageState extends State<LoginPage> {
                         if (context.mounted) {
                           showError("Failed to resend verification SMS.", context);
                         }
+                      }
+                      if (result.data == null && context.mounted) {
+                        showError("No data.", context);
                       }
                       GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest response = result.data!.resendPhoneNumberVerificationRequest;
                       if (context.mounted) {
@@ -170,15 +176,17 @@ class _LoginPageState extends State<LoginPage> {
                       }
                     }
                     GLogInUserData_logInUser response = result.data.logInUser;
-                    if (response.error != null) {
+                    if (response.error != null && response.user != null) {
+                      String error = response.error!;
+                      GLogInUserData_logInUser_user user = response.user!;
                       setState(() {
-                        if (response.error!.toLowerCase().contains('email')) {
-                          resendEmailLinkTo = response.user!.email;
-                          userId = response.user!.id;
+                        if (error.toLowerCase().contains('email')) {
+                          resendEmailLinkTo = user.email;
+                          userId = user.id;
                         }
-                        if (response.error!.toLowerCase().contains('sms')) {
-                          resendSMSLinkTo = response.user!.phoneNumber;
-                          userId = response.user!.id;
+                        if (error.toLowerCase().contains('sms')) {
+                          resendSMSLinkTo = user.phoneNumber;
+                          userId = user.id;
                         }
                       });
                     } else {

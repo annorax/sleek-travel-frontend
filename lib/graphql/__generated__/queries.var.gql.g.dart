@@ -38,8 +38,6 @@ class _$GListUserItemsVarsSerializer
         object.sortDirection,
         specifiedType: const FullType(_i1.GSortOrder),
       ),
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -75,14 +73,6 @@ class _$GListUserItemsVarsSerializer
                   )!
                   as _i1.GSortOrder;
           break;
-        case 'userId':
-          result.userId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
-          break;
       }
     }
 
@@ -117,8 +107,6 @@ class _$GListUserPurchaseOrdersVarsSerializer
         object.sortDirection,
         specifiedType: const FullType(_i1.GSortOrder),
       ),
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -155,14 +143,6 @@ class _$GListUserPurchaseOrdersVarsSerializer
                     specifiedType: const FullType(_i1.GSortOrder),
                   )!
                   as _i1.GSortOrder;
-          break;
-        case 'userId':
-          result.userId =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
           break;
       }
     }
@@ -245,8 +225,6 @@ class _$GListUserItemsVars extends GListUserItemsVars {
   final _i1.GItemScalarFieldEnum sortOption;
   @override
   final _i1.GSortOrder sortDirection;
-  @override
-  final int userId;
 
   factory _$GListUserItemsVars([
     void Function(GListUserItemsVarsBuilder)? updates,
@@ -255,7 +233,6 @@ class _$GListUserItemsVars extends GListUserItemsVars {
   _$GListUserItemsVars._({
     required this.sortOption,
     required this.sortDirection,
-    required this.userId,
   }) : super._();
   @override
   GListUserItemsVars rebuild(
@@ -271,8 +248,7 @@ class _$GListUserItemsVars extends GListUserItemsVars {
     if (identical(other, this)) return true;
     return other is GListUserItemsVars &&
         sortOption == other.sortOption &&
-        sortDirection == other.sortDirection &&
-        userId == other.userId;
+        sortDirection == other.sortDirection;
   }
 
   @override
@@ -280,7 +256,6 @@ class _$GListUserItemsVars extends GListUserItemsVars {
     var _$hash = 0;
     _$hash = $jc(_$hash, sortOption.hashCode);
     _$hash = $jc(_$hash, sortDirection.hashCode);
-    _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -289,8 +264,7 @@ class _$GListUserItemsVars extends GListUserItemsVars {
   String toString() {
     return (newBuiltValueToStringHelper(r'GListUserItemsVars')
           ..add('sortOption', sortOption)
-          ..add('sortDirection', sortDirection)
-          ..add('userId', userId))
+          ..add('sortDirection', sortDirection))
         .toString();
   }
 }
@@ -309,10 +283,6 @@ class GListUserItemsVarsBuilder
   set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
-
   GListUserItemsVarsBuilder();
 
   GListUserItemsVarsBuilder get _$this {
@@ -320,7 +290,6 @@ class GListUserItemsVarsBuilder
     if ($v != null) {
       _sortOption = $v.sortOption;
       _sortDirection = $v.sortDirection;
-      _userId = $v.userId;
       _$v = null;
     }
     return this;
@@ -353,11 +322,6 @@ class GListUserItemsVarsBuilder
             r'GListUserItemsVars',
             'sortDirection',
           ),
-          userId: BuiltValueNullFieldError.checkNotNull(
-            userId,
-            r'GListUserItemsVars',
-            'userId',
-          ),
         );
     replace(_$result);
     return _$result;
@@ -369,8 +333,6 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
   final _i1.GPurchaseOrderScalarFieldEnum sortOption;
   @override
   final _i1.GSortOrder sortDirection;
-  @override
-  final int userId;
 
   factory _$GListUserPurchaseOrdersVars([
     void Function(GListUserPurchaseOrdersVarsBuilder)? updates,
@@ -379,7 +341,6 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
   _$GListUserPurchaseOrdersVars._({
     required this.sortOption,
     required this.sortDirection,
-    required this.userId,
   }) : super._();
   @override
   GListUserPurchaseOrdersVars rebuild(
@@ -395,8 +356,7 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
     if (identical(other, this)) return true;
     return other is GListUserPurchaseOrdersVars &&
         sortOption == other.sortOption &&
-        sortDirection == other.sortDirection &&
-        userId == other.userId;
+        sortDirection == other.sortDirection;
   }
 
   @override
@@ -404,7 +364,6 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
     var _$hash = 0;
     _$hash = $jc(_$hash, sortOption.hashCode);
     _$hash = $jc(_$hash, sortDirection.hashCode);
-    _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -413,8 +372,7 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
   String toString() {
     return (newBuiltValueToStringHelper(r'GListUserPurchaseOrdersVars')
           ..add('sortOption', sortOption)
-          ..add('sortDirection', sortDirection)
-          ..add('userId', userId))
+          ..add('sortDirection', sortDirection))
         .toString();
   }
 }
@@ -437,10 +395,6 @@ class GListUserPurchaseOrdersVarsBuilder
   set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
-  int? _userId;
-  int? get userId => _$this._userId;
-  set userId(int? userId) => _$this._userId = userId;
-
   GListUserPurchaseOrdersVarsBuilder();
 
   GListUserPurchaseOrdersVarsBuilder get _$this {
@@ -448,7 +402,6 @@ class GListUserPurchaseOrdersVarsBuilder
     if ($v != null) {
       _sortOption = $v.sortOption;
       _sortDirection = $v.sortDirection;
-      _userId = $v.userId;
       _$v = null;
     }
     return this;
@@ -480,11 +433,6 @@ class GListUserPurchaseOrdersVarsBuilder
             sortDirection,
             r'GListUserPurchaseOrdersVars',
             'sortDirection',
-          ),
-          userId: BuiltValueNullFieldError.checkNotNull(
-            userId,
-            r'GListUserPurchaseOrdersVars',
-            'userId',
           ),
         );
     replace(_$result);

@@ -74,9 +74,11 @@ class DashboardPageState extends State<DashboardPage> {
   }
 
   void _updateSortOptionAndDirection({required dynamic sortOption, SortDirection? sortDirection}) {
+    String sortOptionName = enumValueToName(sortOption) ?? _sortOption;
+    String? sortDirectionName = sortDirection?.name ?? enumValueToName(sortOption.defaultDirection) ?? enumValueToName(sortOption.defaultDirection);
     NavigationManager.instance.pushReplacement(DashboardTab.values[_selectedIndex].name, queryParameters: {
-      QueryParam.sortOption.name: enumValueToName(sortOption) ?? _sortOption,
-      QueryParam.sortDirection.name: sortDirection?.name ?? enumValueToName(sortOption.defaultDirection)!
+      QueryParam.sortOption.name: sortOptionName,
+      QueryParam.sortDirection.name: sortDirectionName ?? SortDirection.desc.toString()
     });
   }
 
@@ -91,7 +93,10 @@ class DashboardPageState extends State<DashboardPage> {
 
   List<Widget> _buildSortMenuItems() =>
       _sortOptions?.map<Widget>((sortOption) {
-        String sortOptionName = enumValueToName(sortOption)!;
+        String? sortOptionName = enumValueToName(sortOption);
+        if (sortOptionName == null) {
+          throw "Failed to parse sort option";
+        }
         String sortOptionCaption = sortOptionName.camelToSentence();
         return MenuItemButton(
           leadingIcon: Icon(_sortOption != sortOption
@@ -271,9 +276,11 @@ class DashboardPageState extends State<DashboardPage> {
             useSafeArea: true
           );
           if (saved == true) {
-            final route = NavigationManager.instance.currentRoute!;
-            route.queryParameters[QueryParam.refresh.name] = "true";
-            NavigationManager.instance.pushReplacementRoute(route);
+            final route = NavigationManager.instance.currentRoute;
+            if (route != null) {
+              route.queryParameters[QueryParam.refresh.name] = "true";
+              NavigationManager.instance.pushReplacementRoute(route);
+            }
           }
         },
         tooltip: 'Create',

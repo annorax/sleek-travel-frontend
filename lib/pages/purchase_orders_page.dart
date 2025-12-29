@@ -7,9 +7,7 @@ import 'package:sleek_travel_frontend/pages/list_page.dart';
 enum PurchaseOrderSortOption {
   status(defaultDirection: SortDirection.asc),
   updatedAt(defaultDirection: SortDirection.desc);
-
   final SortDirection defaultDirection;
-
   const PurchaseOrderSortOption({required this.defaultDirection});
 }
 

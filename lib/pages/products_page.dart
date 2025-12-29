@@ -9,9 +9,7 @@ import 'package:sleek_travel_frontend/pages/list_page.dart';
 enum ProductSortOption {
   name(defaultDirection: SortDirection.asc),
   updatedAt(defaultDirection: SortDirection.desc);
-
   final SortDirection defaultDirection;
-
   const ProductSortOption({required this.defaultDirection});
 }
 

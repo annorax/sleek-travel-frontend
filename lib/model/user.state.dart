@@ -11,8 +11,13 @@ class _UserState extends AbstractState<GLogInUserData_logInUser> {
   Map<String, dynamic> toJson(GLogInUserData_logInUser model) => model.toJson();
 
   @override
-  GLogInUserData_logInUser fromJson(Map<String, dynamic> json) => GLogInUserData_logInUser.fromJson(json)!;
-  
+  GLogInUserData_logInUser fromJson(Map<String, dynamic> json) {
+    GLogInUserData_logInUser? result = GLogInUserData_logInUser.fromJson(json);
+    if (result == null) {
+      throw "User instantiation failed";
+    }
+    return result;
+  }
 }
 
 final userState = _UserState();

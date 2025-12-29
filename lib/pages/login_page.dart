@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey passwordFieldKey = GlobalKey<FormFieldState>();
   String? resendEmailLinkTo;
   String? resendSMSLinkTo;
-  BigInt? userId;
+  int? userId;
 
   @override
   Widget build(BuildContext context) =>
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                             GVerifyPhoneNumberReq(
                               (builder) =>
                                 builder.vars
-                                  ..userId.value = userId.toString()
+                                  ..userId = userId
                                   ..otp = otp
                             )
                           ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
@@ -174,11 +174,11 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {
                         if (response.error!.toLowerCase().contains('email')) {
                           resendEmailLinkTo = response.user!.email;
-                          userId = BigInt.parse(response.user!.id.value);
+                          userId = response.user!.id;
                         }
                         if (response.error!.toLowerCase().contains('sms')) {
                           resendSMSLinkTo = response.user!.phoneNumber;
-                          userId = BigInt.parse(response.user!.id.value);
+                          userId = response.user!.id;
                         }
                       });
                     } else {

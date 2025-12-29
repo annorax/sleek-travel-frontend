@@ -64,7 +64,7 @@ const UpdateProduct = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -112,7 +112,7 @@ const DeleteProduct = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -155,7 +155,7 @@ const DeleteItem = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -198,7 +198,7 @@ const DeletePurchaseOrder = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -523,7 +523,7 @@ const VerifyPhoneNumber = _i1.OperationDefinitionNode(
     _i1.VariableDefinitionNode(
       variable: _i1.VariableNode(name: _i1.NameNode(value: 'userId')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'BigInt'),
+        name: _i1.NameNode(value: 'Int'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),

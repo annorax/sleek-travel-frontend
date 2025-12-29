@@ -130,7 +130,7 @@ class _$GUpdateProductVarsSerializer
   }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
       'product',
       serializers.serialize(
         object.product,
@@ -159,9 +159,9 @@ class _$GUpdateProductVarsSerializer
           result.id =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(BigInt),
+                    specifiedType: const FullType(int),
                   )!
-                  as BigInt;
+                  as int;
           break;
         case 'product':
           result.product.replace(
@@ -194,7 +194,7 @@ class _$GDeleteProductVarsSerializer
   }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -218,9 +218,9 @@ class _$GDeleteProductVarsSerializer
           result.id =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(BigInt),
+                    specifiedType: const FullType(int),
                   )!
-                  as BigInt;
+                  as int;
           break;
       }
     }
@@ -244,7 +244,7 @@ class _$GDeleteItemVarsSerializer
   }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -268,9 +268,9 @@ class _$GDeleteItemVarsSerializer
           result.id =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(BigInt),
+                    specifiedType: const FullType(int),
                   )!
-                  as BigInt;
+                  as int;
           break;
       }
     }
@@ -297,7 +297,7 @@ class _$GDeletePurchaseOrderVarsSerializer
   }) {
     final result = <Object?>[
       'id',
-      serializers.serialize(object.id, specifiedType: const FullType(BigInt)),
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -321,9 +321,9 @@ class _$GDeletePurchaseOrderVarsSerializer
           result.id =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(BigInt),
+                    specifiedType: const FullType(int),
                   )!
-                  as BigInt;
+                  as int;
           break;
       }
     }
@@ -614,10 +614,7 @@ class _$GVerifyPhoneNumberVarsSerializer
   }) {
     final result = <Object?>[
       'userId',
-      serializers.serialize(
-        object.userId,
-        specifiedType: const FullType(BigInt),
-      ),
+      serializers.serialize(object.userId, specifiedType: const FullType(int)),
       'otp',
       serializers.serialize(object.otp, specifiedType: const FullType(String)),
     ];
@@ -643,9 +640,9 @@ class _$GVerifyPhoneNumberVarsSerializer
           result.userId =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(BigInt),
+                    specifiedType: const FullType(int),
                   )!
-                  as BigInt;
+                  as int;
           break;
         case 'otp':
           result.otp =
@@ -928,7 +925,7 @@ class GCreateProductVarsBuilder
 
 class _$GUpdateProductVars extends GUpdateProductVars {
   @override
-  final BigInt id;
+  final int id;
   @override
   final _i2.GProductUpdateInput product;
 
@@ -976,9 +973,9 @@ class GUpdateProductVarsBuilder
     implements Builder<GUpdateProductVars, GUpdateProductVarsBuilder> {
   _$GUpdateProductVars? _$v;
 
-  BigInt? _id;
-  BigInt? get id => _$this._id;
-  set id(BigInt? id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
   _i2.GProductUpdateInputBuilder? _product;
   _i2.GProductUpdateInputBuilder get product =>
@@ -1045,7 +1042,7 @@ class GUpdateProductVarsBuilder
 
 class _$GDeleteProductVars extends GDeleteProductVars {
   @override
-  final BigInt id;
+  final int id;
 
   factory _$GDeleteProductVars([
     void Function(GDeleteProductVarsBuilder)? updates,
@@ -1087,9 +1084,9 @@ class GDeleteProductVarsBuilder
     implements Builder<GDeleteProductVars, GDeleteProductVarsBuilder> {
   _$GDeleteProductVars? _$v;
 
-  BigInt? _id;
-  BigInt? get id => _$this._id;
-  set id(BigInt? id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
   GDeleteProductVarsBuilder();
 
@@ -1132,7 +1129,7 @@ class GDeleteProductVarsBuilder
 
 class _$GDeleteItemVars extends GDeleteItemVars {
   @override
-  final BigInt id;
+  final int id;
 
   factory _$GDeleteItemVars([void Function(GDeleteItemVarsBuilder)? updates]) =>
       (GDeleteItemVarsBuilder()..update(updates))._build();
@@ -1171,9 +1168,9 @@ class GDeleteItemVarsBuilder
     implements Builder<GDeleteItemVars, GDeleteItemVarsBuilder> {
   _$GDeleteItemVars? _$v;
 
-  BigInt? _id;
-  BigInt? get id => _$this._id;
-  set id(BigInt? id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
   GDeleteItemVarsBuilder();
 
@@ -1216,7 +1213,7 @@ class GDeleteItemVarsBuilder
 
 class _$GDeletePurchaseOrderVars extends GDeletePurchaseOrderVars {
   @override
-  final BigInt id;
+  final int id;
 
   factory _$GDeletePurchaseOrderVars([
     void Function(GDeletePurchaseOrderVarsBuilder)? updates,
@@ -1259,9 +1256,9 @@ class GDeletePurchaseOrderVarsBuilder
         Builder<GDeletePurchaseOrderVars, GDeletePurchaseOrderVarsBuilder> {
   _$GDeletePurchaseOrderVars? _$v;
 
-  BigInt? _id;
-  BigInt? get id => _$this._id;
-  set id(BigInt? id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
   GDeletePurchaseOrderVarsBuilder();
 
@@ -1718,7 +1715,7 @@ class GValidateTokenVarsBuilder
 
 class _$GVerifyPhoneNumberVars extends GVerifyPhoneNumberVars {
   @override
-  final BigInt userId;
+  final int userId;
   @override
   final String otp;
 
@@ -1767,9 +1764,9 @@ class GVerifyPhoneNumberVarsBuilder
     implements Builder<GVerifyPhoneNumberVars, GVerifyPhoneNumberVarsBuilder> {
   _$GVerifyPhoneNumberVars? _$v;
 
-  BigInt? _userId;
-  BigInt? get userId => _$this._userId;
-  set userId(BigInt? userId) => _$this._userId = userId;
+  int? _userId;
+  int? get userId => _$this._userId;
+  set userId(int? userId) => _$this._userId = userId;
 
   String? _otp;
   String? get otp => _$this._otp;

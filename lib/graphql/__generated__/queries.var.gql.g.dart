@@ -39,10 +39,7 @@ class _$GListUserItemsVarsSerializer
         specifiedType: const FullType(_i1.GSortOrder),
       ),
       'userId',
-      serializers.serialize(
-        object.userId,
-        specifiedType: const FullType(BigInt),
-      ),
+      serializers.serialize(object.userId, specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -82,9 +79,9 @@ class _$GListUserItemsVarsSerializer
           result.userId =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(BigInt),
+                    specifiedType: const FullType(int),
                   )!
-                  as BigInt;
+                  as int;
           break;
       }
     }
@@ -121,10 +118,7 @@ class _$GListUserPurchaseOrdersVarsSerializer
         specifiedType: const FullType(_i1.GSortOrder),
       ),
       'userId',
-      serializers.serialize(
-        object.userId,
-        specifiedType: const FullType(BigInt),
-      ),
+      serializers.serialize(object.userId, specifiedType: const FullType(int)),
     ];
 
     return result;
@@ -166,9 +160,9 @@ class _$GListUserPurchaseOrdersVarsSerializer
           result.userId =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(BigInt),
+                    specifiedType: const FullType(int),
                   )!
-                  as BigInt;
+                  as int;
           break;
       }
     }
@@ -252,7 +246,7 @@ class _$GListUserItemsVars extends GListUserItemsVars {
   @override
   final _i1.GSortOrder sortDirection;
   @override
-  final BigInt userId;
+  final int userId;
 
   factory _$GListUserItemsVars([
     void Function(GListUserItemsVarsBuilder)? updates,
@@ -315,9 +309,9 @@ class GListUserItemsVarsBuilder
   set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
-  BigInt? _userId;
-  BigInt? get userId => _$this._userId;
-  set userId(BigInt? userId) => _$this._userId = userId;
+  int? _userId;
+  int? get userId => _$this._userId;
+  set userId(int? userId) => _$this._userId = userId;
 
   GListUserItemsVarsBuilder();
 
@@ -376,7 +370,7 @@ class _$GListUserPurchaseOrdersVars extends GListUserPurchaseOrdersVars {
   @override
   final _i1.GSortOrder sortDirection;
   @override
-  final BigInt userId;
+  final int userId;
 
   factory _$GListUserPurchaseOrdersVars([
     void Function(GListUserPurchaseOrdersVarsBuilder)? updates,
@@ -443,9 +437,9 @@ class GListUserPurchaseOrdersVarsBuilder
   set sortDirection(_i1.GSortOrder? sortDirection) =>
       _$this._sortDirection = sortDirection;
 
-  BigInt? _userId;
-  BigInt? get userId => _$this._userId;
-  set userId(BigInt? userId) => _$this._userId = userId;
+  int? _userId;
+  int? get userId => _$this._userId;
+  set userId(int? userId) => _$this._userId = userId;
 
   GListUserPurchaseOrdersVarsBuilder();
 

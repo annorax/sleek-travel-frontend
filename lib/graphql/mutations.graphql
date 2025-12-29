@@ -8,23 +8,23 @@ mutation CreateProduct($product: ProductCreateInput!) {
   }
 }
 
-mutation UpdateProduct($id: BigInt!, $product: ProductUpdateInput!) {
+mutation UpdateProduct($id: Int!, $product: ProductUpdateInput!) {
   updateOneProduct(where: {id: $id}, data: $product) {}
 }
 
-mutation DeleteProduct($id: BigInt!) {
+mutation DeleteProduct($id: Int!) {
   deleteOneProduct(where: {id: $id}) {
     id
   }
 }
 
-mutation DeleteItem($id: BigInt!) {
+mutation DeleteItem($id: Int!) {
   deleteOneItem(where: {id: $id}) {
     id
   }
 }
 
-mutation DeletePurchaseOrder($id: BigInt!) {
+mutation DeletePurchaseOrder($id: Int!) {
   deleteOnePurchaseOrder(where: {id: $id}) {
     id
   }
@@ -66,7 +66,7 @@ mutation ValidateToken($tokenValue: String!) {
   }
 }
 
-mutation VerifyPhoneNumber($userId: BigInt!, $otp: String!) {
+mutation VerifyPhoneNumber($userId: Int!, $otp: String!) {
   verifyPhoneNumber(userId: $userId, otp: $otp)
 }
 

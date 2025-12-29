@@ -116,7 +116,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             GVerifyPhoneNumberReq(
                               (builder) =>
                                 builder.vars
-                                  ..userId.value = response.userId!.value
+                                  ..userId = response.userId
                                   ..otp = otp
                             )
                           ).firstWhere((response) => response.dataSource != DataSource.Optimistic);

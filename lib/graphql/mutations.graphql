@@ -1,33 +1,29 @@
-mutation LogOutUser() {
+mutation LogOutUser {
   logOutUser
 }
 
-mutation CreateProduct($product: ProductCreateInput!) {
-  createOneProduct(data: $product) {
+mutation CreateProduct($input: CreateProductInput!) {
+  createProduct(input: $input) {
     id
   }
 }
 
-mutation UpdateProduct($id: Int!, $product: ProductUpdateInput!) {
-  updateOneProduct(where: {id: $id}, data: $product) {}
+mutation UpdateProduct($id: Int!, $input: UpdateProductInput!) {
+  updateProduct(id: $id, input: $input) {
+    id
+  }
 }
 
 mutation DeleteProduct($id: Int!) {
-  deleteOneProduct(where: {id: $id}) {
-    id
-  }
+  deleteProduct(id: $id)
 }
 
 mutation DeleteItem($id: Int!) {
-  deleteOneItem(where: {id: $id}) {
-    id
-  }
+  deleteItem(id: $id)
 }
 
 mutation DeletePurchaseOrder($id: Int!) {
-  deleteOnePurchaseOrder(where: {id: $id}) {
-    id
-  }
+  deletePurchaseOrder(id: $id)
 }
 
 mutation SendPasswordResetLink($emailOrPhone: String!) {
@@ -36,19 +32,19 @@ mutation SendPasswordResetLink($emailOrPhone: String!) {
 
 mutation RegisterUser($name: String!, $phoneNumber: String!, $email: String!, $password: String!) {
   registerUser(name: $name, phoneNumber: $phoneNumber, email: $email, password: $password) {
-    error,
+    error
     userId
   }
 }
 
 mutation LogInUser($emailOrPhone: String!, $password: String!) {
   logInUser(emailOrPhone: $emailOrPhone, password: $password) {
-    error,
-    token,
+    error
+    token
     user {
-      id,
-      name,
-      email,
+      id
+      name
+      email
       phoneNumber
     }
   }
@@ -56,11 +52,11 @@ mutation LogInUser($emailOrPhone: String!, $password: String!) {
 
 mutation ValidateToken($tokenValue: String!) {
   validateToken(tokenValue: $tokenValue) {
-    error,
-    token,
+    error
+    token
     user {
-      id,
-      name,
+      id
+      name
       email
     }
   }

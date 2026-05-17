@@ -75,10 +75,10 @@ class _$GCreateProductVarsSerializer
     FullType specifiedType = FullType.unspecified,
   }) {
     final result = <Object?>[
-      'product',
+      'input',
       serializers.serialize(
-        object.product,
-        specifiedType: const FullType(_i2.GProductCreateInput),
+        object.input,
+        specifiedType: const FullType(_i2.GCreateProductInput),
       ),
     ];
 
@@ -99,13 +99,13 @@ class _$GCreateProductVarsSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'product':
-          result.product.replace(
+        case 'input':
+          result.input.replace(
             serializers.deserialize(
                   value,
-                  specifiedType: const FullType(_i2.GProductCreateInput),
+                  specifiedType: const FullType(_i2.GCreateProductInput),
                 )!
-                as _i2.GProductCreateInput,
+                as _i2.GCreateProductInput,
           );
           break;
       }
@@ -131,10 +131,10 @@ class _$GUpdateProductVarsSerializer
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'product',
+      'input',
       serializers.serialize(
-        object.product,
-        specifiedType: const FullType(_i2.GProductUpdateInput),
+        object.input,
+        specifiedType: const FullType(_i2.GUpdateProductInput),
       ),
     ];
 
@@ -163,13 +163,13 @@ class _$GUpdateProductVarsSerializer
                   )!
                   as int;
           break;
-        case 'product':
-          result.product.replace(
+        case 'input':
+          result.input.replace(
             serializers.deserialize(
                   value,
-                  specifiedType: const FullType(_i2.GProductUpdateInput),
+                  specifiedType: const FullType(_i2.GUpdateProductInput),
                 )!
-                as _i2.GProductUpdateInput,
+                as _i2.GUpdateProductInput,
           );
           break;
       }
@@ -828,13 +828,13 @@ class GLogOutUserVarsBuilder
 
 class _$GCreateProductVars extends GCreateProductVars {
   @override
-  final _i2.GProductCreateInput product;
+  final _i2.GCreateProductInput input;
 
   factory _$GCreateProductVars([
     void Function(GCreateProductVarsBuilder)? updates,
   ]) => (GCreateProductVarsBuilder()..update(updates))._build();
 
-  _$GCreateProductVars._({required this.product}) : super._();
+  _$GCreateProductVars._({required this.input}) : super._();
   @override
   GCreateProductVars rebuild(
     void Function(GCreateProductVarsBuilder) updates,
@@ -847,13 +847,13 @@ class _$GCreateProductVars extends GCreateProductVars {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GCreateProductVars && product == other.product;
+    return other is GCreateProductVars && input == other.input;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, product.hashCode);
+    _$hash = $jc(_$hash, input.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -862,7 +862,7 @@ class _$GCreateProductVars extends GCreateProductVars {
   String toString() {
     return (newBuiltValueToStringHelper(
       r'GCreateProductVars',
-    )..add('product', product)).toString();
+    )..add('input', input)).toString();
   }
 }
 
@@ -870,18 +870,17 @@ class GCreateProductVarsBuilder
     implements Builder<GCreateProductVars, GCreateProductVarsBuilder> {
   _$GCreateProductVars? _$v;
 
-  _i2.GProductCreateInputBuilder? _product;
-  _i2.GProductCreateInputBuilder get product =>
-      _$this._product ??= _i2.GProductCreateInputBuilder();
-  set product(_i2.GProductCreateInputBuilder? product) =>
-      _$this._product = product;
+  _i2.GCreateProductInputBuilder? _input;
+  _i2.GCreateProductInputBuilder get input =>
+      _$this._input ??= _i2.GCreateProductInputBuilder();
+  set input(_i2.GCreateProductInputBuilder? input) => _$this._input = input;
 
   GCreateProductVarsBuilder();
 
   GCreateProductVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _product = $v.product.toBuilder();
+      _input = $v.input.toBuilder();
       _$v = null;
     }
     return this;
@@ -903,12 +902,12 @@ class GCreateProductVarsBuilder
   _$GCreateProductVars _build() {
     _$GCreateProductVars _$result;
     try {
-      _$result = _$v ?? _$GCreateProductVars._(product: product.build());
+      _$result = _$v ?? _$GCreateProductVars._(input: input.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'product';
-        product.build();
+        _$failedField = 'input';
+        input.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GCreateProductVars',
@@ -927,13 +926,13 @@ class _$GUpdateProductVars extends GUpdateProductVars {
   @override
   final int id;
   @override
-  final _i2.GProductUpdateInput product;
+  final _i2.GUpdateProductInput input;
 
   factory _$GUpdateProductVars([
     void Function(GUpdateProductVarsBuilder)? updates,
   ]) => (GUpdateProductVarsBuilder()..update(updates))._build();
 
-  _$GUpdateProductVars._({required this.id, required this.product}) : super._();
+  _$GUpdateProductVars._({required this.id, required this.input}) : super._();
   @override
   GUpdateProductVars rebuild(
     void Function(GUpdateProductVarsBuilder) updates,
@@ -948,14 +947,14 @@ class _$GUpdateProductVars extends GUpdateProductVars {
     if (identical(other, this)) return true;
     return other is GUpdateProductVars &&
         id == other.id &&
-        product == other.product;
+        input == other.input;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, product.hashCode);
+    _$hash = $jc(_$hash, input.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -964,7 +963,7 @@ class _$GUpdateProductVars extends GUpdateProductVars {
   String toString() {
     return (newBuiltValueToStringHelper(r'GUpdateProductVars')
           ..add('id', id)
-          ..add('product', product))
+          ..add('input', input))
         .toString();
   }
 }
@@ -977,11 +976,10 @@ class GUpdateProductVarsBuilder
   int? get id => _$this._id;
   set id(int? id) => _$this._id = id;
 
-  _i2.GProductUpdateInputBuilder? _product;
-  _i2.GProductUpdateInputBuilder get product =>
-      _$this._product ??= _i2.GProductUpdateInputBuilder();
-  set product(_i2.GProductUpdateInputBuilder? product) =>
-      _$this._product = product;
+  _i2.GUpdateProductInputBuilder? _input;
+  _i2.GUpdateProductInputBuilder get input =>
+      _$this._input ??= _i2.GUpdateProductInputBuilder();
+  set input(_i2.GUpdateProductInputBuilder? input) => _$this._input = input;
 
   GUpdateProductVarsBuilder();
 
@@ -989,7 +987,7 @@ class GUpdateProductVarsBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _product = $v.product.toBuilder();
+      _input = $v.input.toBuilder();
       _$v = null;
     }
     return this;
@@ -1019,13 +1017,13 @@ class GUpdateProductVarsBuilder
               r'GUpdateProductVars',
               'id',
             ),
-            product: product.build(),
+            input: input.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'product';
-        product.build();
+        _$failedField = 'input';
+        input.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GUpdateProductVars',

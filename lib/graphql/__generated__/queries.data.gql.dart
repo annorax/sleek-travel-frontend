@@ -23,7 +23,7 @@ abstract class GListUserItemsData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  BuiltList<GListUserItemsData_listAllItems> get listAllItems;
+  BuiltList<GListUserItemsData_listAllItems>? get listAllItems;
   static Serializer<GListUserItemsData> get serializer =>
       _$gListUserItemsDataSerializer;
 
@@ -54,8 +54,8 @@ abstract class GListUserItemsData_listAllItems
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  int get id;
-  String get name;
+  int? get id;
+  String? get name;
   static Serializer<GListUserItemsData_listAllItems> get serializer =>
       _$gListUserItemsDataListAllItemsSerializer;
 
@@ -85,7 +85,7 @@ abstract class GListUserPurchaseOrdersData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders>
+  BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders>?
       get listAllPurchaseOrders;
   static Serializer<GListUserPurchaseOrdersData> get serializer =>
       _$gListUserPurchaseOrdersDataSerializer;
@@ -118,8 +118,8 @@ abstract class GListUserPurchaseOrdersData_listAllPurchaseOrders
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  int get id;
-  BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
+  int? get id;
+  BuiltList<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>?
       get entries;
   static Serializer<GListUserPurchaseOrdersData_listAllPurchaseOrders>
       get serializer =>
@@ -156,7 +156,7 @@ abstract class GListUserPurchaseOrdersData_listAllPurchaseOrders_entries
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  int get quantity;
+  int? get quantity;
   static Serializer<GListUserPurchaseOrdersData_listAllPurchaseOrders_entries>
       get serializer =>
           _$gListUserPurchaseOrdersDataListAllPurchaseOrdersEntriesSerializer;
@@ -187,7 +187,7 @@ abstract class GListAllProductsData
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  BuiltList<GListAllProductsData_listAllProducts> get listAllProducts;
+  BuiltList<GListAllProductsData_listAllProducts>? get listAllProducts;
   static Serializer<GListAllProductsData> get serializer =>
       _$gListAllProductsDataSerializer;
 
@@ -219,8 +219,8 @@ abstract class GListAllProductsData_listAllProducts
 
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  int get id;
-  String get name;
+  int? get id;
+  String? get name;
   static Serializer<GListAllProductsData_listAllProducts> get serializer =>
       _$gListAllProductsDataListAllProductsSerializer;
 

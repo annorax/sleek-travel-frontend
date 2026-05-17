@@ -134,23 +134,23 @@ class _ProductFormState extends State<ProductForm> {
                   final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
                   final OperationResponse result = await client.request(
                     widget.product?.id == null
-                      ? GCreateProductReq((builder) => builder.vars.product
+                      ? GCreateProductReq((builder) => builder.vars.input
                         ..name = name
                         ..description = description.isEmpty ? null : description
                         ..upc = upc.isEmpty ? null : upc
                         ..upcScanned = upcScanned
-                        ..price.value = priceString
+                        ..price = priceString
                         ..currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
                       : GUpdateProductReq((builder) => builder.vars
-                        ..id = widget.product?.id
-                        ..product.description.set = description.isEmpty ? null : description
-                        ..product.upc.set = upc.isEmpty ? null : upc
-                        ..product.upcScanned.set = upcScanned
-                        ..product.price.set.value = priceString
-                        ..product.currency.set = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
+                        ..id = widget.product!.id
+                        ..input.description = description.isEmpty ? null : description
+                        ..input.upc = upc.isEmpty ? null : upc
+                        ..input.upcScanned = upcScanned
+                        ..input.price = priceString
+                        ..input.currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
                   ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
                   if (context.mounted) {
-                    Navigator.pop(context, result.data.createOneProduct.id != null);
+                    Navigator.pop(context, result.data.createProduct?.id != null);
                   }
                 }
               },

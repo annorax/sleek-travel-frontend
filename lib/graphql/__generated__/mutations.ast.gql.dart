@@ -24,9 +24,9 @@ const CreateProduct = _i1.OperationDefinitionNode(
   name: _i1.NameNode(value: 'CreateProduct'),
   variableDefinitions: [
     _i1.VariableDefinitionNode(
-      variable: _i1.VariableNode(name: _i1.NameNode(value: 'product')),
+      variable: _i1.VariableNode(name: _i1.NameNode(value: 'input')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'ProductCreateInput'),
+        name: _i1.NameNode(value: 'CreateProductInput'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -36,12 +36,12 @@ const CreateProduct = _i1.OperationDefinitionNode(
   directives: [],
   selectionSet: _i1.SelectionSetNode(selections: [
     _i1.FieldNode(
-      name: _i1.NameNode(value: 'createOneProduct'),
+      name: _i1.NameNode(value: 'createProduct'),
       alias: null,
       arguments: [
         _i1.ArgumentNode(
-          name: _i1.NameNode(value: 'data'),
-          value: _i1.VariableNode(name: _i1.NameNode(value: 'product')),
+          name: _i1.NameNode(value: 'input'),
+          value: _i1.VariableNode(name: _i1.NameNode(value: 'input')),
         )
       ],
       directives: [],
@@ -71,9 +71,9 @@ const UpdateProduct = _i1.OperationDefinitionNode(
       directives: [],
     ),
     _i1.VariableDefinitionNode(
-      variable: _i1.VariableNode(name: _i1.NameNode(value: 'product')),
+      variable: _i1.VariableNode(name: _i1.NameNode(value: 'input')),
       type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'ProductUpdateInput'),
+        name: _i1.NameNode(value: 'UpdateProductInput'),
         isNonNull: true,
       ),
       defaultValue: _i1.DefaultValueNode(value: null),
@@ -83,25 +83,28 @@ const UpdateProduct = _i1.OperationDefinitionNode(
   directives: [],
   selectionSet: _i1.SelectionSetNode(selections: [
     _i1.FieldNode(
-      name: _i1.NameNode(value: 'updateOneProduct'),
+      name: _i1.NameNode(value: 'updateProduct'),
       alias: null,
       arguments: [
         _i1.ArgumentNode(
-          name: _i1.NameNode(value: 'where'),
-          value: _i1.ObjectValueNode(fields: [
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'id'),
-              value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
-            )
-          ]),
+          name: _i1.NameNode(value: 'id'),
+          value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
         ),
         _i1.ArgumentNode(
-          name: _i1.NameNode(value: 'data'),
-          value: _i1.VariableNode(name: _i1.NameNode(value: 'product')),
+          name: _i1.NameNode(value: 'input'),
+          value: _i1.VariableNode(name: _i1.NameNode(value: 'input')),
         ),
       ],
       directives: [],
-      selectionSet: _i1.SelectionSetNode(selections: []),
+      selectionSet: _i1.SelectionSetNode(selections: [
+        _i1.FieldNode(
+          name: _i1.NameNode(value: 'id'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        )
+      ]),
     )
   ]),
 );
@@ -122,29 +125,16 @@ const DeleteProduct = _i1.OperationDefinitionNode(
   directives: [],
   selectionSet: _i1.SelectionSetNode(selections: [
     _i1.FieldNode(
-      name: _i1.NameNode(value: 'deleteOneProduct'),
+      name: _i1.NameNode(value: 'deleteProduct'),
       alias: null,
       arguments: [
         _i1.ArgumentNode(
-          name: _i1.NameNode(value: 'where'),
-          value: _i1.ObjectValueNode(fields: [
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'id'),
-              value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
-            )
-          ]),
+          name: _i1.NameNode(value: 'id'),
+          value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
         )
       ],
       directives: [],
-      selectionSet: _i1.SelectionSetNode(selections: [
-        _i1.FieldNode(
-          name: _i1.NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        )
-      ]),
+      selectionSet: null,
     )
   ]),
 );
@@ -165,29 +155,16 @@ const DeleteItem = _i1.OperationDefinitionNode(
   directives: [],
   selectionSet: _i1.SelectionSetNode(selections: [
     _i1.FieldNode(
-      name: _i1.NameNode(value: 'deleteOneItem'),
+      name: _i1.NameNode(value: 'deleteItem'),
       alias: null,
       arguments: [
         _i1.ArgumentNode(
-          name: _i1.NameNode(value: 'where'),
-          value: _i1.ObjectValueNode(fields: [
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'id'),
-              value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
-            )
-          ]),
+          name: _i1.NameNode(value: 'id'),
+          value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
         )
       ],
       directives: [],
-      selectionSet: _i1.SelectionSetNode(selections: [
-        _i1.FieldNode(
-          name: _i1.NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        )
-      ]),
+      selectionSet: null,
     )
   ]),
 );
@@ -208,29 +185,16 @@ const DeletePurchaseOrder = _i1.OperationDefinitionNode(
   directives: [],
   selectionSet: _i1.SelectionSetNode(selections: [
     _i1.FieldNode(
-      name: _i1.NameNode(value: 'deleteOnePurchaseOrder'),
+      name: _i1.NameNode(value: 'deletePurchaseOrder'),
       alias: null,
       arguments: [
         _i1.ArgumentNode(
-          name: _i1.NameNode(value: 'where'),
-          value: _i1.ObjectValueNode(fields: [
-            _i1.ObjectFieldNode(
-              name: _i1.NameNode(value: 'id'),
-              value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
-            )
-          ]),
+          name: _i1.NameNode(value: 'id'),
+          value: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
         )
       ],
       directives: [],
-      selectionSet: _i1.SelectionSetNode(selections: [
-        _i1.FieldNode(
-          name: _i1.NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        )
-      ]),
+      selectionSet: null,
     )
   ]),
 );

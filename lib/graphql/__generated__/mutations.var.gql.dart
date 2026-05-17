@@ -41,7 +41,7 @@ abstract class GCreateProductVars
           [void Function(GCreateProductVarsBuilder b) updates]) =
       _$GCreateProductVars;
 
-  _i2.GProductCreateInput get product;
+  _i2.GCreateProductInput get input;
   static Serializer<GCreateProductVars> get serializer =>
       _$gCreateProductVarsSerializer;
 
@@ -66,7 +66,7 @@ abstract class GUpdateProductVars
       _$GUpdateProductVars;
 
   int get id;
-  _i2.GProductUpdateInput get product;
+  _i2.GUpdateProductInput get input;
   static Serializer<GUpdateProductVars> get serializer =>
       _$gUpdateProductVarsSerializer;
 

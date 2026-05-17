@@ -10,29 +10,20 @@ Serializer<GLogOutUserData> _$gLogOutUserDataSerializer =
     _$GLogOutUserDataSerializer();
 Serializer<GCreateProductData> _$gCreateProductDataSerializer =
     _$GCreateProductDataSerializer();
-Serializer<GCreateProductData_createOneProduct>
-_$gCreateProductDataCreateOneProductSerializer =
-    _$GCreateProductData_createOneProductSerializer();
+Serializer<GCreateProductData_createProduct>
+_$gCreateProductDataCreateProductSerializer =
+    _$GCreateProductData_createProductSerializer();
 Serializer<GUpdateProductData> _$gUpdateProductDataSerializer =
     _$GUpdateProductDataSerializer();
-Serializer<GUpdateProductData_updateOneProduct>
-_$gUpdateProductDataUpdateOneProductSerializer =
-    _$GUpdateProductData_updateOneProductSerializer();
+Serializer<GUpdateProductData_updateProduct>
+_$gUpdateProductDataUpdateProductSerializer =
+    _$GUpdateProductData_updateProductSerializer();
 Serializer<GDeleteProductData> _$gDeleteProductDataSerializer =
     _$GDeleteProductDataSerializer();
-Serializer<GDeleteProductData_deleteOneProduct>
-_$gDeleteProductDataDeleteOneProductSerializer =
-    _$GDeleteProductData_deleteOneProductSerializer();
 Serializer<GDeleteItemData> _$gDeleteItemDataSerializer =
     _$GDeleteItemDataSerializer();
-Serializer<GDeleteItemData_deleteOneItem>
-_$gDeleteItemDataDeleteOneItemSerializer =
-    _$GDeleteItemData_deleteOneItemSerializer();
 Serializer<GDeletePurchaseOrderData> _$gDeletePurchaseOrderDataSerializer =
     _$GDeletePurchaseOrderDataSerializer();
-Serializer<GDeletePurchaseOrderData_deleteOnePurchaseOrder>
-_$gDeletePurchaseOrderDataDeleteOnePurchaseOrderSerializer =
-    _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer();
 Serializer<GSendPasswordResetLinkData> _$gSendPasswordResetLinkDataSerializer =
     _$GSendPasswordResetLinkDataSerializer();
 Serializer<GRegisterUserData> _$gRegisterUserDataSerializer =
@@ -98,10 +89,7 @@ class _$GLogOutUserDataSerializer
       result
         ..add('logOutUser')
         ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.GVoid),
-          ),
+          serializers.serialize(value, specifiedType: const FullType(bool)),
         );
     }
     return result;
@@ -130,13 +118,12 @@ class _$GLogOutUserDataSerializer
                   as String;
           break;
         case 'logOutUser':
-          result.logOutUser.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i1.GVoid),
-                )!
-                as _i1.GVoid,
-          );
+          result.logOutUser =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(bool),
+                  )
+                  as bool?;
           break;
       }
     }
@@ -164,13 +151,19 @@ class _$GCreateProductDataSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'createOneProduct',
-      serializers.serialize(
-        object.createOneProduct,
-        specifiedType: const FullType(GCreateProductData_createOneProduct),
-      ),
     ];
-
+    Object? value;
+    value = object.createProduct;
+    if (value != null) {
+      result
+        ..add('createProduct')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(GCreateProductData_createProduct),
+          ),
+        );
+    }
     return result;
   }
 
@@ -196,15 +189,15 @@ class _$GCreateProductDataSerializer
                   )!
                   as String;
           break;
-        case 'createOneProduct':
-          result.createOneProduct.replace(
+        case 'createProduct':
+          result.createProduct.replace(
             serializers.deserialize(
                   value,
                   specifiedType: const FullType(
-                    GCreateProductData_createOneProduct,
+                    GCreateProductData_createProduct,
                   ),
                 )!
-                as GCreateProductData_createOneProduct,
+                as GCreateProductData_createProduct,
           );
           break;
       }
@@ -214,20 +207,20 @@ class _$GCreateProductDataSerializer
   }
 }
 
-class _$GCreateProductData_createOneProductSerializer
-    implements StructuredSerializer<GCreateProductData_createOneProduct> {
+class _$GCreateProductData_createProductSerializer
+    implements StructuredSerializer<GCreateProductData_createProduct> {
   @override
   final Iterable<Type> types = const [
-    GCreateProductData_createOneProduct,
-    _$GCreateProductData_createOneProduct,
+    GCreateProductData_createProduct,
+    _$GCreateProductData_createProduct,
   ];
   @override
-  final String wireName = 'GCreateProductData_createOneProduct';
+  final String wireName = 'GCreateProductData_createProduct';
 
   @override
   Iterable<Object?> serialize(
     Serializers serializers,
-    GCreateProductData_createOneProduct object, {
+    GCreateProductData_createProduct object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     final result = <Object?>[
@@ -236,20 +229,24 @@ class _$GCreateProductData_createOneProductSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
-
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
   @override
-  GCreateProductData_createOneProduct deserialize(
+  GCreateProductData_createProduct deserialize(
     Serializers serializers,
     Iterable<Object?> serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = GCreateProductData_createOneProductBuilder();
+    final result = GCreateProductData_createProductBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -267,11 +264,8 @@ class _$GCreateProductData_createOneProductSerializer
           break;
         case 'id':
           result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
       }
     }
@@ -301,14 +295,14 @@ class _$GUpdateProductDataSerializer
       ),
     ];
     Object? value;
-    value = object.updateOneProduct;
+    value = object.updateProduct;
     if (value != null) {
       result
-        ..add('updateOneProduct')
+        ..add('updateProduct')
         ..add(
           serializers.serialize(
             value,
-            specifiedType: const FullType(GUpdateProductData_updateOneProduct),
+            specifiedType: const FullType(GUpdateProductData_updateProduct),
           ),
         );
     }
@@ -337,15 +331,15 @@ class _$GUpdateProductDataSerializer
                   )!
                   as String;
           break;
-        case 'updateOneProduct':
-          result.updateOneProduct.replace(
+        case 'updateProduct':
+          result.updateProduct.replace(
             serializers.deserialize(
                   value,
                   specifiedType: const FullType(
-                    GUpdateProductData_updateOneProduct,
+                    GUpdateProductData_updateProduct,
                   ),
                 )!
-                as GUpdateProductData_updateOneProduct,
+                as GUpdateProductData_updateProduct,
           );
           break;
       }
@@ -355,20 +349,20 @@ class _$GUpdateProductDataSerializer
   }
 }
 
-class _$GUpdateProductData_updateOneProductSerializer
-    implements StructuredSerializer<GUpdateProductData_updateOneProduct> {
+class _$GUpdateProductData_updateProductSerializer
+    implements StructuredSerializer<GUpdateProductData_updateProduct> {
   @override
   final Iterable<Type> types = const [
-    GUpdateProductData_updateOneProduct,
-    _$GUpdateProductData_updateOneProduct,
+    GUpdateProductData_updateProduct,
+    _$GUpdateProductData_updateProduct,
   ];
   @override
-  final String wireName = 'GUpdateProductData_updateOneProduct';
+  final String wireName = 'GUpdateProductData_updateProduct';
 
   @override
   Iterable<Object?> serialize(
     Serializers serializers,
-    GUpdateProductData_updateOneProduct object, {
+    GUpdateProductData_updateProduct object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     final result = <Object?>[
@@ -378,17 +372,23 @@ class _$GUpdateProductData_updateOneProductSerializer
         specifiedType: const FullType(String),
       ),
     ];
-
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
   @override
-  GUpdateProductData_updateOneProduct deserialize(
+  GUpdateProductData_updateProduct deserialize(
     Serializers serializers,
     Iterable<Object?> serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = GUpdateProductData_updateOneProductBuilder();
+    final result = GUpdateProductData_updateProductBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -403,6 +403,11 @@ class _$GUpdateProductData_updateOneProductSerializer
                     specifiedType: const FullType(String),
                   )!
                   as String;
+          break;
+        case 'id':
+          result.id =
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
       }
     }
@@ -432,15 +437,12 @@ class _$GDeleteProductDataSerializer
       ),
     ];
     Object? value;
-    value = object.deleteOneProduct;
+    value = object.deleteProduct;
     if (value != null) {
       result
-        ..add('deleteOneProduct')
+        ..add('deleteProduct')
         ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(GDeleteProductData_deleteOneProduct),
-          ),
+          serializers.serialize(value, specifiedType: const FullType(bool)),
         );
     }
     return result;
@@ -468,82 +470,13 @@ class _$GDeleteProductDataSerializer
                   )!
                   as String;
           break;
-        case 'deleteOneProduct':
-          result.deleteOneProduct.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(
-                    GDeleteProductData_deleteOneProduct,
-                  ),
-                )!
-                as GDeleteProductData_deleteOneProduct,
-          );
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GDeleteProductData_deleteOneProductSerializer
-    implements StructuredSerializer<GDeleteProductData_deleteOneProduct> {
-  @override
-  final Iterable<Type> types = const [
-    GDeleteProductData_deleteOneProduct,
-    _$GDeleteProductData_deleteOneProduct,
-  ];
-  @override
-  final String wireName = 'GDeleteProductData_deleteOneProduct';
-
-  @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeleteProductData_deleteOneProduct object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GDeleteProductData_deleteOneProduct deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GDeleteProductData_deleteOneProductBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename =
+        case 'deleteProduct':
+          result.deleteProduct =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
-          break;
-        case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+                    specifiedType: const FullType(bool),
+                  )
+                  as bool?;
           break;
       }
     }
@@ -573,15 +506,12 @@ class _$GDeleteItemDataSerializer
       ),
     ];
     Object? value;
-    value = object.deleteOneItem;
+    value = object.deleteItem;
     if (value != null) {
       result
-        ..add('deleteOneItem')
+        ..add('deleteItem')
         ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(GDeleteItemData_deleteOneItem),
-          ),
+          serializers.serialize(value, specifiedType: const FullType(bool)),
         );
     }
     return result;
@@ -609,80 +539,13 @@ class _$GDeleteItemDataSerializer
                   )!
                   as String;
           break;
-        case 'deleteOneItem':
-          result.deleteOneItem.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(GDeleteItemData_deleteOneItem),
-                )!
-                as GDeleteItemData_deleteOneItem,
-          );
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GDeleteItemData_deleteOneItemSerializer
-    implements StructuredSerializer<GDeleteItemData_deleteOneItem> {
-  @override
-  final Iterable<Type> types = const [
-    GDeleteItemData_deleteOneItem,
-    _$GDeleteItemData_deleteOneItem,
-  ];
-  @override
-  final String wireName = 'GDeleteItemData_deleteOneItem';
-
-  @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeleteItemData_deleteOneItem object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GDeleteItemData_deleteOneItem deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GDeleteItemData_deleteOneItemBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename =
+        case 'deleteItem':
+          result.deleteItem =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
-          break;
-        case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+                    specifiedType: const FullType(bool),
+                  )
+                  as bool?;
           break;
       }
     }
@@ -715,17 +578,12 @@ class _$GDeletePurchaseOrderDataSerializer
       ),
     ];
     Object? value;
-    value = object.deleteOnePurchaseOrder;
+    value = object.deletePurchaseOrder;
     if (value != null) {
       result
-        ..add('deleteOnePurchaseOrder')
+        ..add('deletePurchaseOrder')
         ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(
-              GDeletePurchaseOrderData_deleteOnePurchaseOrder,
-            ),
-          ),
+          serializers.serialize(value, specifiedType: const FullType(bool)),
         );
     }
     return result;
@@ -753,83 +611,13 @@ class _$GDeletePurchaseOrderDataSerializer
                   )!
                   as String;
           break;
-        case 'deleteOnePurchaseOrder':
-          result.deleteOnePurchaseOrder.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(
-                    GDeletePurchaseOrderData_deleteOnePurchaseOrder,
-                  ),
-                )!
-                as GDeletePurchaseOrderData_deleteOnePurchaseOrder,
-          );
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GDeletePurchaseOrderData_deleteOnePurchaseOrderSerializer
-    implements
-        StructuredSerializer<GDeletePurchaseOrderData_deleteOnePurchaseOrder> {
-  @override
-  final Iterable<Type> types = const [
-    GDeletePurchaseOrderData_deleteOnePurchaseOrder,
-    _$GDeletePurchaseOrderData_deleteOnePurchaseOrder,
-  ];
-  @override
-  final String wireName = 'GDeletePurchaseOrderData_deleteOnePurchaseOrder';
-
-  @override
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GDeletePurchaseOrderData_deleteOnePurchaseOrder object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(
-        object.G__typename,
-        specifiedType: const FullType(String),
-      ),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GDeletePurchaseOrderData_deleteOnePurchaseOrder deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename =
+        case 'deletePurchaseOrder':
+          result.deletePurchaseOrder =
               serializers.deserialize(
                     value,
-                    specifiedType: const FullType(String),
-                  )!
-                  as String;
-          break;
-        case 'id':
-          result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+                    specifiedType: const FullType(bool),
+                  )
+                  as bool?;
           break;
       }
     }
@@ -867,10 +655,7 @@ class _$GSendPasswordResetLinkDataSerializer
       result
         ..add('sendPasswordResetLink')
         ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.GVoid),
-          ),
+          serializers.serialize(value, specifiedType: const FullType(bool)),
         );
     }
     return result;
@@ -899,13 +684,12 @@ class _$GSendPasswordResetLinkDataSerializer
                   as String;
           break;
         case 'sendPasswordResetLink':
-          result.sendPasswordResetLink.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i1.GVoid),
-                )!
-                as _i1.GVoid,
-          );
+          result.sendPasswordResetLink =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(bool),
+                  )
+                  as bool?;
           break;
       }
     }
@@ -933,13 +717,19 @@ class _$GRegisterUserDataSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'registerUser',
-      serializers.serialize(
-        object.registerUser,
-        specifiedType: const FullType(GRegisterUserData_registerUser),
-      ),
     ];
-
+    Object? value;
+    value = object.registerUser;
+    if (value != null) {
+      result
+        ..add('registerUser')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(GRegisterUserData_registerUser),
+          ),
+        );
+    }
     return result;
   }
 
@@ -1083,13 +873,19 @@ class _$GLogInUserDataSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'logInUser',
-      serializers.serialize(
-        object.logInUser,
-        specifiedType: const FullType(GLogInUserData_logInUser),
-      ),
     ];
-
+    Object? value;
+    value = object.logInUser;
+    if (value != null) {
+      result
+        ..add('logInUser')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(GLogInUserData_logInUser),
+          ),
+        );
+    }
     return result;
   }
 
@@ -1261,22 +1057,38 @@ class _$GLogInUserData_logInUser_userSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'email',
-      serializers.serialize(
-        object.email,
-        specifiedType: const FullType(String),
-      ),
-      'phoneNumber',
-      serializers.serialize(
-        object.phoneNumber,
-        specifiedType: const FullType(String),
-      ),
     ];
-
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+    value = object.email;
+    if (value != null) {
+      result
+        ..add('email')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+    value = object.phoneNumber;
+    if (value != null) {
+      result
+        ..add('phoneNumber')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
     return result;
   }
 
@@ -1304,35 +1116,32 @@ class _$GLogInUserData_logInUser_userSerializer
           break;
         case 'id':
           result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'name':
           result.name =
               serializers.deserialize(
                     value,
                     specifiedType: const FullType(String),
-                  )!
-                  as String;
+                  )
+                  as String?;
           break;
         case 'email':
           result.email =
               serializers.deserialize(
                     value,
                     specifiedType: const FullType(String),
-                  )!
-                  as String;
+                  )
+                  as String?;
           break;
         case 'phoneNumber':
           result.phoneNumber =
               serializers.deserialize(
                     value,
                     specifiedType: const FullType(String),
-                  )!
-                  as String;
+                  )
+                  as String?;
           break;
       }
     }
@@ -1360,13 +1169,19 @@ class _$GValidateTokenDataSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'validateToken',
-      serializers.serialize(
-        object.validateToken,
-        specifiedType: const FullType(GValidateTokenData_validateToken),
-      ),
     ];
-
+    Object? value;
+    value = object.validateToken;
+    if (value != null) {
+      result
+        ..add('validateToken')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(GValidateTokenData_validateToken),
+          ),
+        );
+    }
     return result;
   }
 
@@ -1544,17 +1359,30 @@ class _$GValidateTokenData_validateToken_userSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'email',
-      serializers.serialize(
-        object.email,
-        specifiedType: const FullType(String),
-      ),
     ];
-
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+    value = object.email;
+    if (value != null) {
+      result
+        ..add('email')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
     return result;
   }
 
@@ -1582,27 +1410,24 @@ class _$GValidateTokenData_validateToken_userSerializer
           break;
         case 'id':
           result.id =
-              serializers.deserialize(
-                    value,
-                    specifiedType: const FullType(int),
-                  )!
-                  as int;
+              serializers.deserialize(value, specifiedType: const FullType(int))
+                  as int?;
           break;
         case 'name':
           result.name =
               serializers.deserialize(
                     value,
                     specifiedType: const FullType(String),
-                  )!
-                  as String;
+                  )
+                  as String?;
           break;
         case 'email':
           result.email =
               serializers.deserialize(
                     value,
                     specifiedType: const FullType(String),
-                  )!
-                  as String;
+                  )
+                  as String?;
           break;
       }
     }
@@ -1640,10 +1465,7 @@ class _$GVerifyPhoneNumberDataSerializer
       result
         ..add('verifyPhoneNumber')
         ..add(
-          serializers.serialize(
-            value,
-            specifiedType: const FullType(_i1.GVoid),
-          ),
+          serializers.serialize(value, specifiedType: const FullType(bool)),
         );
     }
     return result;
@@ -1672,13 +1494,12 @@ class _$GVerifyPhoneNumberDataSerializer
                   as String;
           break;
         case 'verifyPhoneNumber':
-          result.verifyPhoneNumber.replace(
-            serializers.deserialize(
-                  value,
-                  specifiedType: const FullType(_i1.GVoid),
-                )!
-                as _i1.GVoid,
-          );
+          result.verifyPhoneNumber =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(bool),
+                  )
+                  as bool?;
           break;
       }
     }
@@ -1709,15 +1530,21 @@ class _$GResendEmailVerificationRequestDataSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'resendEmailVerificationRequest',
-      serializers.serialize(
-        object.resendEmailVerificationRequest,
-        specifiedType: const FullType(
-          GResendEmailVerificationRequestData_resendEmailVerificationRequest,
-        ),
-      ),
     ];
-
+    Object? value;
+    value = object.resendEmailVerificationRequest;
+    if (value != null) {
+      result
+        ..add('resendEmailVerificationRequest')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(
+              GResendEmailVerificationRequestData_resendEmailVerificationRequest,
+            ),
+          ),
+        );
+    }
     return result;
   }
 
@@ -1861,15 +1688,21 @@ class _$GResendPhoneNumberVerificationRequestDataSerializer
         object.G__typename,
         specifiedType: const FullType(String),
       ),
-      'resendPhoneNumberVerificationRequest',
-      serializers.serialize(
-        object.resendPhoneNumberVerificationRequest,
-        specifiedType: const FullType(
-          GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest,
-        ),
-      ),
     ];
-
+    Object? value;
+    value = object.resendPhoneNumberVerificationRequest;
+    if (value != null) {
+      result
+        ..add('resendPhoneNumberVerificationRequest')
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(
+              GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest,
+            ),
+          ),
+        );
+    }
     return result;
   }
 
@@ -1996,7 +1829,7 @@ class _$GLogOutUserData extends GLogOutUserData {
   @override
   final String G__typename;
   @override
-  final _i1.GVoid? logOutUser;
+  final bool? logOutUser;
 
   factory _$GLogOutUserData([void Function(GLogOutUserDataBuilder)? updates]) =>
       (GLogOutUserDataBuilder()..update(updates))._build();
@@ -2043,10 +1876,9 @@ class GLogOutUserDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i1.GVoidBuilder? _logOutUser;
-  _i1.GVoidBuilder get logOutUser => _$this._logOutUser ??= _i1.GVoidBuilder();
-  set logOutUser(_i1.GVoidBuilder? logOutUser) =>
-      _$this._logOutUser = logOutUser;
+  bool? _logOutUser;
+  bool? get logOutUser => _$this._logOutUser;
+  set logOutUser(bool? logOutUser) => _$this._logOutUser = logOutUser;
 
   GLogOutUserDataBuilder() {
     GLogOutUserData._initializeBuilder(this);
@@ -2056,7 +1888,7 @@ class GLogOutUserDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _logOutUser = $v.logOutUser?.toBuilder();
+      _logOutUser = $v.logOutUser;
       _$v = null;
     }
     return this;
@@ -2076,32 +1908,16 @@ class GLogOutUserDataBuilder
   GLogOutUserData build() => _build();
 
   _$GLogOutUserData _build() {
-    _$GLogOutUserData _$result;
-    try {
-      _$result =
-          _$v ??
-          _$GLogOutUserData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GLogOutUserData',
-              'G__typename',
-            ),
-            logOutUser: _logOutUser?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'logOutUser';
-        _logOutUser?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'GLogOutUserData',
-          _$failedField,
-          e.toString(),
+    final _$result =
+        _$v ??
+        _$GLogOutUserData._(
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+            G__typename,
+            r'GLogOutUserData',
+            'G__typename',
+          ),
+          logOutUser: logOutUser,
         );
-      }
-      rethrow;
-    }
     replace(_$result);
     return _$result;
   }
@@ -2111,16 +1927,14 @@ class _$GCreateProductData extends GCreateProductData {
   @override
   final String G__typename;
   @override
-  final GCreateProductData_createOneProduct createOneProduct;
+  final GCreateProductData_createProduct? createProduct;
 
   factory _$GCreateProductData([
     void Function(GCreateProductDataBuilder)? updates,
   ]) => (GCreateProductDataBuilder()..update(updates))._build();
 
-  _$GCreateProductData._({
-    required this.G__typename,
-    required this.createOneProduct,
-  }) : super._();
+  _$GCreateProductData._({required this.G__typename, this.createProduct})
+    : super._();
   @override
   GCreateProductData rebuild(
     void Function(GCreateProductDataBuilder) updates,
@@ -2135,14 +1949,14 @@ class _$GCreateProductData extends GCreateProductData {
     if (identical(other, this)) return true;
     return other is GCreateProductData &&
         G__typename == other.G__typename &&
-        createOneProduct == other.createOneProduct;
+        createProduct == other.createProduct;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, createOneProduct.hashCode);
+    _$hash = $jc(_$hash, createProduct.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2151,7 +1965,7 @@ class _$GCreateProductData extends GCreateProductData {
   String toString() {
     return (newBuiltValueToStringHelper(r'GCreateProductData')
           ..add('G__typename', G__typename)
-          ..add('createOneProduct', createOneProduct))
+          ..add('createProduct', createProduct))
         .toString();
   }
 }
@@ -2164,12 +1978,11 @@ class GCreateProductDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GCreateProductData_createOneProductBuilder? _createOneProduct;
-  GCreateProductData_createOneProductBuilder get createOneProduct =>
-      _$this._createOneProduct ??= GCreateProductData_createOneProductBuilder();
-  set createOneProduct(
-    GCreateProductData_createOneProductBuilder? createOneProduct,
-  ) => _$this._createOneProduct = createOneProduct;
+  GCreateProductData_createProductBuilder? _createProduct;
+  GCreateProductData_createProductBuilder get createProduct =>
+      _$this._createProduct ??= GCreateProductData_createProductBuilder();
+  set createProduct(GCreateProductData_createProductBuilder? createProduct) =>
+      _$this._createProduct = createProduct;
 
   GCreateProductDataBuilder() {
     GCreateProductData._initializeBuilder(this);
@@ -2179,7 +1992,7 @@ class GCreateProductDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _createOneProduct = $v.createOneProduct.toBuilder();
+      _createProduct = $v.createProduct?.toBuilder();
       _$v = null;
     }
     return this;
@@ -2209,13 +2022,13 @@ class GCreateProductDataBuilder
               r'GCreateProductData',
               'G__typename',
             ),
-            createOneProduct: createOneProduct.build(),
+            createProduct: _createProduct?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'createOneProduct';
-        createOneProduct.build();
+        _$failedField = 'createProduct';
+        _createProduct?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GCreateProductData',
@@ -2230,35 +2043,32 @@ class GCreateProductDataBuilder
   }
 }
 
-class _$GCreateProductData_createOneProduct
-    extends GCreateProductData_createOneProduct {
+class _$GCreateProductData_createProduct
+    extends GCreateProductData_createProduct {
   @override
   final String G__typename;
   @override
-  final int id;
+  final int? id;
 
-  factory _$GCreateProductData_createOneProduct([
-    void Function(GCreateProductData_createOneProductBuilder)? updates,
-  ]) =>
-      (GCreateProductData_createOneProductBuilder()..update(updates))._build();
+  factory _$GCreateProductData_createProduct([
+    void Function(GCreateProductData_createProductBuilder)? updates,
+  ]) => (GCreateProductData_createProductBuilder()..update(updates))._build();
 
-  _$GCreateProductData_createOneProduct._({
-    required this.G__typename,
-    required this.id,
-  }) : super._();
+  _$GCreateProductData_createProduct._({required this.G__typename, this.id})
+    : super._();
   @override
-  GCreateProductData_createOneProduct rebuild(
-    void Function(GCreateProductData_createOneProductBuilder) updates,
+  GCreateProductData_createProduct rebuild(
+    void Function(GCreateProductData_createProductBuilder) updates,
   ) => (toBuilder()..update(updates)).build();
 
   @override
-  GCreateProductData_createOneProductBuilder toBuilder() =>
-      GCreateProductData_createOneProductBuilder()..replace(this);
+  GCreateProductData_createProductBuilder toBuilder() =>
+      GCreateProductData_createProductBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GCreateProductData_createOneProduct &&
+    return other is GCreateProductData_createProduct &&
         G__typename == other.G__typename &&
         id == other.id;
   }
@@ -2274,20 +2084,20 @@ class _$GCreateProductData_createOneProduct
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GCreateProductData_createOneProduct')
+    return (newBuiltValueToStringHelper(r'GCreateProductData_createProduct')
           ..add('G__typename', G__typename)
           ..add('id', id))
         .toString();
   }
 }
 
-class GCreateProductData_createOneProductBuilder
+class GCreateProductData_createProductBuilder
     implements
         Builder<
-          GCreateProductData_createOneProduct,
-          GCreateProductData_createOneProductBuilder
+          GCreateProductData_createProduct,
+          GCreateProductData_createProductBuilder
         > {
-  _$GCreateProductData_createOneProduct? _$v;
+  _$GCreateProductData_createProduct? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
@@ -2297,11 +2107,11 @@ class GCreateProductData_createOneProductBuilder
   int? get id => _$this._id;
   set id(int? id) => _$this._id = id;
 
-  GCreateProductData_createOneProductBuilder() {
-    GCreateProductData_createOneProduct._initializeBuilder(this);
+  GCreateProductData_createProductBuilder() {
+    GCreateProductData_createProduct._initializeBuilder(this);
   }
 
-  GCreateProductData_createOneProductBuilder get _$this {
+  GCreateProductData_createProductBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
@@ -2312,34 +2122,28 @@ class GCreateProductData_createOneProductBuilder
   }
 
   @override
-  void replace(GCreateProductData_createOneProduct other) {
-    _$v = other as _$GCreateProductData_createOneProduct;
+  void replace(GCreateProductData_createProduct other) {
+    _$v = other as _$GCreateProductData_createProduct;
   }
 
   @override
-  void update(
-    void Function(GCreateProductData_createOneProductBuilder)? updates,
-  ) {
+  void update(void Function(GCreateProductData_createProductBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GCreateProductData_createOneProduct build() => _build();
+  GCreateProductData_createProduct build() => _build();
 
-  _$GCreateProductData_createOneProduct _build() {
+  _$GCreateProductData_createProduct _build() {
     final _$result =
         _$v ??
-        _$GCreateProductData_createOneProduct._(
+        _$GCreateProductData_createProduct._(
           G__typename: BuiltValueNullFieldError.checkNotNull(
             G__typename,
-            r'GCreateProductData_createOneProduct',
+            r'GCreateProductData_createProduct',
             'G__typename',
           ),
-          id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GCreateProductData_createOneProduct',
-            'id',
-          ),
+          id: id,
         );
     replace(_$result);
     return _$result;
@@ -2350,13 +2154,13 @@ class _$GUpdateProductData extends GUpdateProductData {
   @override
   final String G__typename;
   @override
-  final GUpdateProductData_updateOneProduct? updateOneProduct;
+  final GUpdateProductData_updateProduct? updateProduct;
 
   factory _$GUpdateProductData([
     void Function(GUpdateProductDataBuilder)? updates,
   ]) => (GUpdateProductDataBuilder()..update(updates))._build();
 
-  _$GUpdateProductData._({required this.G__typename, this.updateOneProduct})
+  _$GUpdateProductData._({required this.G__typename, this.updateProduct})
     : super._();
   @override
   GUpdateProductData rebuild(
@@ -2372,14 +2176,14 @@ class _$GUpdateProductData extends GUpdateProductData {
     if (identical(other, this)) return true;
     return other is GUpdateProductData &&
         G__typename == other.G__typename &&
-        updateOneProduct == other.updateOneProduct;
+        updateProduct == other.updateProduct;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, updateOneProduct.hashCode);
+    _$hash = $jc(_$hash, updateProduct.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2388,7 +2192,7 @@ class _$GUpdateProductData extends GUpdateProductData {
   String toString() {
     return (newBuiltValueToStringHelper(r'GUpdateProductData')
           ..add('G__typename', G__typename)
-          ..add('updateOneProduct', updateOneProduct))
+          ..add('updateProduct', updateProduct))
         .toString();
   }
 }
@@ -2401,12 +2205,11 @@ class GUpdateProductDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GUpdateProductData_updateOneProductBuilder? _updateOneProduct;
-  GUpdateProductData_updateOneProductBuilder get updateOneProduct =>
-      _$this._updateOneProduct ??= GUpdateProductData_updateOneProductBuilder();
-  set updateOneProduct(
-    GUpdateProductData_updateOneProductBuilder? updateOneProduct,
-  ) => _$this._updateOneProduct = updateOneProduct;
+  GUpdateProductData_updateProductBuilder? _updateProduct;
+  GUpdateProductData_updateProductBuilder get updateProduct =>
+      _$this._updateProduct ??= GUpdateProductData_updateProductBuilder();
+  set updateProduct(GUpdateProductData_updateProductBuilder? updateProduct) =>
+      _$this._updateProduct = updateProduct;
 
   GUpdateProductDataBuilder() {
     GUpdateProductData._initializeBuilder(this);
@@ -2416,7 +2219,7 @@ class GUpdateProductDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _updateOneProduct = $v.updateOneProduct?.toBuilder();
+      _updateProduct = $v.updateProduct?.toBuilder();
       _$v = null;
     }
     return this;
@@ -2446,13 +2249,13 @@ class GUpdateProductDataBuilder
               r'GUpdateProductData',
               'G__typename',
             ),
-            updateOneProduct: _updateOneProduct?.build(),
+            updateProduct: _updateProduct?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'updateOneProduct';
-        _updateOneProduct?.build();
+        _$failedField = 'updateProduct';
+        _updateProduct?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GUpdateProductData',
@@ -2467,99 +2270,107 @@ class GUpdateProductDataBuilder
   }
 }
 
-class _$GUpdateProductData_updateOneProduct
-    extends GUpdateProductData_updateOneProduct {
+class _$GUpdateProductData_updateProduct
+    extends GUpdateProductData_updateProduct {
   @override
   final String G__typename;
+  @override
+  final int? id;
 
-  factory _$GUpdateProductData_updateOneProduct([
-    void Function(GUpdateProductData_updateOneProductBuilder)? updates,
-  ]) =>
-      (GUpdateProductData_updateOneProductBuilder()..update(updates))._build();
+  factory _$GUpdateProductData_updateProduct([
+    void Function(GUpdateProductData_updateProductBuilder)? updates,
+  ]) => (GUpdateProductData_updateProductBuilder()..update(updates))._build();
 
-  _$GUpdateProductData_updateOneProduct._({required this.G__typename})
+  _$GUpdateProductData_updateProduct._({required this.G__typename, this.id})
     : super._();
   @override
-  GUpdateProductData_updateOneProduct rebuild(
-    void Function(GUpdateProductData_updateOneProductBuilder) updates,
+  GUpdateProductData_updateProduct rebuild(
+    void Function(GUpdateProductData_updateProductBuilder) updates,
   ) => (toBuilder()..update(updates)).build();
 
   @override
-  GUpdateProductData_updateOneProductBuilder toBuilder() =>
-      GUpdateProductData_updateOneProductBuilder()..replace(this);
+  GUpdateProductData_updateProductBuilder toBuilder() =>
+      GUpdateProductData_updateProductBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUpdateProductData_updateOneProduct &&
-        G__typename == other.G__typename;
+    return other is GUpdateProductData_updateProduct &&
+        G__typename == other.G__typename &&
+        id == other.id;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'GUpdateProductData_updateOneProduct',
-    )..add('G__typename', G__typename)).toString();
+    return (newBuiltValueToStringHelper(r'GUpdateProductData_updateProduct')
+          ..add('G__typename', G__typename)
+          ..add('id', id))
+        .toString();
   }
 }
 
-class GUpdateProductData_updateOneProductBuilder
+class GUpdateProductData_updateProductBuilder
     implements
         Builder<
-          GUpdateProductData_updateOneProduct,
-          GUpdateProductData_updateOneProductBuilder
+          GUpdateProductData_updateProduct,
+          GUpdateProductData_updateProductBuilder
         > {
-  _$GUpdateProductData_updateOneProduct? _$v;
+  _$GUpdateProductData_updateProduct? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GUpdateProductData_updateOneProductBuilder() {
-    GUpdateProductData_updateOneProduct._initializeBuilder(this);
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  GUpdateProductData_updateProductBuilder() {
+    GUpdateProductData_updateProduct._initializeBuilder(this);
   }
 
-  GUpdateProductData_updateOneProductBuilder get _$this {
+  GUpdateProductData_updateProductBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
+      _id = $v.id;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GUpdateProductData_updateOneProduct other) {
-    _$v = other as _$GUpdateProductData_updateOneProduct;
+  void replace(GUpdateProductData_updateProduct other) {
+    _$v = other as _$GUpdateProductData_updateProduct;
   }
 
   @override
-  void update(
-    void Function(GUpdateProductData_updateOneProductBuilder)? updates,
-  ) {
+  void update(void Function(GUpdateProductData_updateProductBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GUpdateProductData_updateOneProduct build() => _build();
+  GUpdateProductData_updateProduct build() => _build();
 
-  _$GUpdateProductData_updateOneProduct _build() {
+  _$GUpdateProductData_updateProduct _build() {
     final _$result =
         _$v ??
-        _$GUpdateProductData_updateOneProduct._(
+        _$GUpdateProductData_updateProduct._(
           G__typename: BuiltValueNullFieldError.checkNotNull(
             G__typename,
-            r'GUpdateProductData_updateOneProduct',
+            r'GUpdateProductData_updateProduct',
             'G__typename',
           ),
+          id: id,
         );
     replace(_$result);
     return _$result;
@@ -2570,13 +2381,13 @@ class _$GDeleteProductData extends GDeleteProductData {
   @override
   final String G__typename;
   @override
-  final GDeleteProductData_deleteOneProduct? deleteOneProduct;
+  final bool? deleteProduct;
 
   factory _$GDeleteProductData([
     void Function(GDeleteProductDataBuilder)? updates,
   ]) => (GDeleteProductDataBuilder()..update(updates))._build();
 
-  _$GDeleteProductData._({required this.G__typename, this.deleteOneProduct})
+  _$GDeleteProductData._({required this.G__typename, this.deleteProduct})
     : super._();
   @override
   GDeleteProductData rebuild(
@@ -2592,14 +2403,14 @@ class _$GDeleteProductData extends GDeleteProductData {
     if (identical(other, this)) return true;
     return other is GDeleteProductData &&
         G__typename == other.G__typename &&
-        deleteOneProduct == other.deleteOneProduct;
+        deleteProduct == other.deleteProduct;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, deleteOneProduct.hashCode);
+    _$hash = $jc(_$hash, deleteProduct.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2608,7 +2419,7 @@ class _$GDeleteProductData extends GDeleteProductData {
   String toString() {
     return (newBuiltValueToStringHelper(r'GDeleteProductData')
           ..add('G__typename', G__typename)
-          ..add('deleteOneProduct', deleteOneProduct))
+          ..add('deleteProduct', deleteProduct))
         .toString();
   }
 }
@@ -2621,12 +2432,10 @@ class GDeleteProductDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GDeleteProductData_deleteOneProductBuilder? _deleteOneProduct;
-  GDeleteProductData_deleteOneProductBuilder get deleteOneProduct =>
-      _$this._deleteOneProduct ??= GDeleteProductData_deleteOneProductBuilder();
-  set deleteOneProduct(
-    GDeleteProductData_deleteOneProductBuilder? deleteOneProduct,
-  ) => _$this._deleteOneProduct = deleteOneProduct;
+  bool? _deleteProduct;
+  bool? get deleteProduct => _$this._deleteProduct;
+  set deleteProduct(bool? deleteProduct) =>
+      _$this._deleteProduct = deleteProduct;
 
   GDeleteProductDataBuilder() {
     GDeleteProductData._initializeBuilder(this);
@@ -2636,7 +2445,7 @@ class GDeleteProductDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _deleteOneProduct = $v.deleteOneProduct?.toBuilder();
+      _deleteProduct = $v.deleteProduct;
       _$v = null;
     }
     return this;
@@ -2656,147 +2465,15 @@ class GDeleteProductDataBuilder
   GDeleteProductData build() => _build();
 
   _$GDeleteProductData _build() {
-    _$GDeleteProductData _$result;
-    try {
-      _$result =
-          _$v ??
-          _$GDeleteProductData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GDeleteProductData',
-              'G__typename',
-            ),
-            deleteOneProduct: _deleteOneProduct?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'deleteOneProduct';
-        _deleteOneProduct?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'GDeleteProductData',
-          _$failedField,
-          e.toString(),
-        );
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GDeleteProductData_deleteOneProduct
-    extends GDeleteProductData_deleteOneProduct {
-  @override
-  final String G__typename;
-  @override
-  final int id;
-
-  factory _$GDeleteProductData_deleteOneProduct([
-    void Function(GDeleteProductData_deleteOneProductBuilder)? updates,
-  ]) =>
-      (GDeleteProductData_deleteOneProductBuilder()..update(updates))._build();
-
-  _$GDeleteProductData_deleteOneProduct._({
-    required this.G__typename,
-    required this.id,
-  }) : super._();
-  @override
-  GDeleteProductData_deleteOneProduct rebuild(
-    void Function(GDeleteProductData_deleteOneProductBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
-
-  @override
-  GDeleteProductData_deleteOneProductBuilder toBuilder() =>
-      GDeleteProductData_deleteOneProductBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GDeleteProductData_deleteOneProduct &&
-        G__typename == other.G__typename &&
-        id == other.id;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GDeleteProductData_deleteOneProduct')
-          ..add('G__typename', G__typename)
-          ..add('id', id))
-        .toString();
-  }
-}
-
-class GDeleteProductData_deleteOneProductBuilder
-    implements
-        Builder<
-          GDeleteProductData_deleteOneProduct,
-          GDeleteProductData_deleteOneProductBuilder
-        > {
-  _$GDeleteProductData_deleteOneProduct? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
-
-  GDeleteProductData_deleteOneProductBuilder() {
-    GDeleteProductData_deleteOneProduct._initializeBuilder(this);
-  }
-
-  GDeleteProductData_deleteOneProductBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _id = $v.id;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GDeleteProductData_deleteOneProduct other) {
-    _$v = other as _$GDeleteProductData_deleteOneProduct;
-  }
-
-  @override
-  void update(
-    void Function(GDeleteProductData_deleteOneProductBuilder)? updates,
-  ) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GDeleteProductData_deleteOneProduct build() => _build();
-
-  _$GDeleteProductData_deleteOneProduct _build() {
     final _$result =
         _$v ??
-        _$GDeleteProductData_deleteOneProduct._(
+        _$GDeleteProductData._(
           G__typename: BuiltValueNullFieldError.checkNotNull(
             G__typename,
-            r'GDeleteProductData_deleteOneProduct',
+            r'GDeleteProductData',
             'G__typename',
           ),
-          id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GDeleteProductData_deleteOneProduct',
-            'id',
-          ),
+          deleteProduct: deleteProduct,
         );
     replace(_$result);
     return _$result;
@@ -2807,13 +2484,12 @@ class _$GDeleteItemData extends GDeleteItemData {
   @override
   final String G__typename;
   @override
-  final GDeleteItemData_deleteOneItem? deleteOneItem;
+  final bool? deleteItem;
 
   factory _$GDeleteItemData([void Function(GDeleteItemDataBuilder)? updates]) =>
       (GDeleteItemDataBuilder()..update(updates))._build();
 
-  _$GDeleteItemData._({required this.G__typename, this.deleteOneItem})
-    : super._();
+  _$GDeleteItemData._({required this.G__typename, this.deleteItem}) : super._();
   @override
   GDeleteItemData rebuild(void Function(GDeleteItemDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -2826,14 +2502,14 @@ class _$GDeleteItemData extends GDeleteItemData {
     if (identical(other, this)) return true;
     return other is GDeleteItemData &&
         G__typename == other.G__typename &&
-        deleteOneItem == other.deleteOneItem;
+        deleteItem == other.deleteItem;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, deleteOneItem.hashCode);
+    _$hash = $jc(_$hash, deleteItem.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2842,7 +2518,7 @@ class _$GDeleteItemData extends GDeleteItemData {
   String toString() {
     return (newBuiltValueToStringHelper(r'GDeleteItemData')
           ..add('G__typename', G__typename)
-          ..add('deleteOneItem', deleteOneItem))
+          ..add('deleteItem', deleteItem))
         .toString();
   }
 }
@@ -2855,11 +2531,9 @@ class GDeleteItemDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GDeleteItemData_deleteOneItemBuilder? _deleteOneItem;
-  GDeleteItemData_deleteOneItemBuilder get deleteOneItem =>
-      _$this._deleteOneItem ??= GDeleteItemData_deleteOneItemBuilder();
-  set deleteOneItem(GDeleteItemData_deleteOneItemBuilder? deleteOneItem) =>
-      _$this._deleteOneItem = deleteOneItem;
+  bool? _deleteItem;
+  bool? get deleteItem => _$this._deleteItem;
+  set deleteItem(bool? deleteItem) => _$this._deleteItem = deleteItem;
 
   GDeleteItemDataBuilder() {
     GDeleteItemData._initializeBuilder(this);
@@ -2869,7 +2543,7 @@ class GDeleteItemDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _deleteOneItem = $v.deleteOneItem?.toBuilder();
+      _deleteItem = $v.deleteItem;
       _$v = null;
     }
     return this;
@@ -2889,143 +2563,15 @@ class GDeleteItemDataBuilder
   GDeleteItemData build() => _build();
 
   _$GDeleteItemData _build() {
-    _$GDeleteItemData _$result;
-    try {
-      _$result =
-          _$v ??
-          _$GDeleteItemData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GDeleteItemData',
-              'G__typename',
-            ),
-            deleteOneItem: _deleteOneItem?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'deleteOneItem';
-        _deleteOneItem?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'GDeleteItemData',
-          _$failedField,
-          e.toString(),
-        );
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GDeleteItemData_deleteOneItem extends GDeleteItemData_deleteOneItem {
-  @override
-  final String G__typename;
-  @override
-  final int id;
-
-  factory _$GDeleteItemData_deleteOneItem([
-    void Function(GDeleteItemData_deleteOneItemBuilder)? updates,
-  ]) => (GDeleteItemData_deleteOneItemBuilder()..update(updates))._build();
-
-  _$GDeleteItemData_deleteOneItem._({
-    required this.G__typename,
-    required this.id,
-  }) : super._();
-  @override
-  GDeleteItemData_deleteOneItem rebuild(
-    void Function(GDeleteItemData_deleteOneItemBuilder) updates,
-  ) => (toBuilder()..update(updates)).build();
-
-  @override
-  GDeleteItemData_deleteOneItemBuilder toBuilder() =>
-      GDeleteItemData_deleteOneItemBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GDeleteItemData_deleteOneItem &&
-        G__typename == other.G__typename &&
-        id == other.id;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GDeleteItemData_deleteOneItem')
-          ..add('G__typename', G__typename)
-          ..add('id', id))
-        .toString();
-  }
-}
-
-class GDeleteItemData_deleteOneItemBuilder
-    implements
-        Builder<
-          GDeleteItemData_deleteOneItem,
-          GDeleteItemData_deleteOneItemBuilder
-        > {
-  _$GDeleteItemData_deleteOneItem? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
-
-  GDeleteItemData_deleteOneItemBuilder() {
-    GDeleteItemData_deleteOneItem._initializeBuilder(this);
-  }
-
-  GDeleteItemData_deleteOneItemBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _id = $v.id;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GDeleteItemData_deleteOneItem other) {
-    _$v = other as _$GDeleteItemData_deleteOneItem;
-  }
-
-  @override
-  void update(void Function(GDeleteItemData_deleteOneItemBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GDeleteItemData_deleteOneItem build() => _build();
-
-  _$GDeleteItemData_deleteOneItem _build() {
     final _$result =
         _$v ??
-        _$GDeleteItemData_deleteOneItem._(
+        _$GDeleteItemData._(
           G__typename: BuiltValueNullFieldError.checkNotNull(
             G__typename,
-            r'GDeleteItemData_deleteOneItem',
+            r'GDeleteItemData',
             'G__typename',
           ),
-          id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GDeleteItemData_deleteOneItem',
-            'id',
-          ),
+          deleteItem: deleteItem,
         );
     replace(_$result);
     return _$result;
@@ -3036,7 +2582,7 @@ class _$GDeletePurchaseOrderData extends GDeletePurchaseOrderData {
   @override
   final String G__typename;
   @override
-  final GDeletePurchaseOrderData_deleteOnePurchaseOrder? deleteOnePurchaseOrder;
+  final bool? deletePurchaseOrder;
 
   factory _$GDeletePurchaseOrderData([
     void Function(GDeletePurchaseOrderDataBuilder)? updates,
@@ -3044,7 +2590,7 @@ class _$GDeletePurchaseOrderData extends GDeletePurchaseOrderData {
 
   _$GDeletePurchaseOrderData._({
     required this.G__typename,
-    this.deleteOnePurchaseOrder,
+    this.deletePurchaseOrder,
   }) : super._();
   @override
   GDeletePurchaseOrderData rebuild(
@@ -3060,14 +2606,14 @@ class _$GDeletePurchaseOrderData extends GDeletePurchaseOrderData {
     if (identical(other, this)) return true;
     return other is GDeletePurchaseOrderData &&
         G__typename == other.G__typename &&
-        deleteOnePurchaseOrder == other.deleteOnePurchaseOrder;
+        deletePurchaseOrder == other.deletePurchaseOrder;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, deleteOnePurchaseOrder.hashCode);
+    _$hash = $jc(_$hash, deletePurchaseOrder.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -3076,7 +2622,7 @@ class _$GDeletePurchaseOrderData extends GDeletePurchaseOrderData {
   String toString() {
     return (newBuiltValueToStringHelper(r'GDeletePurchaseOrderData')
           ..add('G__typename', G__typename)
-          ..add('deleteOnePurchaseOrder', deleteOnePurchaseOrder))
+          ..add('deletePurchaseOrder', deletePurchaseOrder))
         .toString();
   }
 }
@@ -3090,15 +2636,10 @@ class GDeletePurchaseOrderDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder?
-  _deleteOnePurchaseOrder;
-  GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
-  get deleteOnePurchaseOrder => _$this._deleteOnePurchaseOrder ??=
-      GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder();
-  set deleteOnePurchaseOrder(
-    GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder?
-    deleteOnePurchaseOrder,
-  ) => _$this._deleteOnePurchaseOrder = deleteOnePurchaseOrder;
+  bool? _deletePurchaseOrder;
+  bool? get deletePurchaseOrder => _$this._deletePurchaseOrder;
+  set deletePurchaseOrder(bool? deletePurchaseOrder) =>
+      _$this._deletePurchaseOrder = deletePurchaseOrder;
 
   GDeletePurchaseOrderDataBuilder() {
     GDeletePurchaseOrderData._initializeBuilder(this);
@@ -3108,7 +2649,7 @@ class GDeletePurchaseOrderDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _deleteOnePurchaseOrder = $v.deleteOnePurchaseOrder?.toBuilder();
+      _deletePurchaseOrder = $v.deletePurchaseOrder;
       _$v = null;
     }
     return this;
@@ -3128,154 +2669,15 @@ class GDeletePurchaseOrderDataBuilder
   GDeletePurchaseOrderData build() => _build();
 
   _$GDeletePurchaseOrderData _build() {
-    _$GDeletePurchaseOrderData _$result;
-    try {
-      _$result =
-          _$v ??
-          _$GDeletePurchaseOrderData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GDeletePurchaseOrderData',
-              'G__typename',
-            ),
-            deleteOnePurchaseOrder: _deleteOnePurchaseOrder?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'deleteOnePurchaseOrder';
-        _deleteOnePurchaseOrder?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'GDeletePurchaseOrderData',
-          _$failedField,
-          e.toString(),
-        );
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GDeletePurchaseOrderData_deleteOnePurchaseOrder
-    extends GDeletePurchaseOrderData_deleteOnePurchaseOrder {
-  @override
-  final String G__typename;
-  @override
-  final int id;
-
-  factory _$GDeletePurchaseOrderData_deleteOnePurchaseOrder([
-    void Function(GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder)?
-    updates,
-  ]) =>
-      (GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder()
-            ..update(updates))
-          ._build();
-
-  _$GDeletePurchaseOrderData_deleteOnePurchaseOrder._({
-    required this.G__typename,
-    required this.id,
-  }) : super._();
-  @override
-  GDeletePurchaseOrderData_deleteOnePurchaseOrder rebuild(
-    void Function(GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder)
-    updates,
-  ) => (toBuilder()..update(updates)).build();
-
-  @override
-  GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder toBuilder() =>
-      GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GDeletePurchaseOrderData_deleteOnePurchaseOrder &&
-        G__typename == other.G__typename &&
-        id == other.id;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            r'GDeletePurchaseOrderData_deleteOnePurchaseOrder',
-          )
-          ..add('G__typename', G__typename)
-          ..add('id', id))
-        .toString();
-  }
-}
-
-class GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
-    implements
-        Builder<
-          GDeletePurchaseOrderData_deleteOnePurchaseOrder,
-          GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder
-        > {
-  _$GDeletePurchaseOrderData_deleteOnePurchaseOrder? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
-
-  GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder() {
-    GDeletePurchaseOrderData_deleteOnePurchaseOrder._initializeBuilder(this);
-  }
-
-  GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _id = $v.id;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GDeletePurchaseOrderData_deleteOnePurchaseOrder other) {
-    _$v = other as _$GDeletePurchaseOrderData_deleteOnePurchaseOrder;
-  }
-
-  @override
-  void update(
-    void Function(GDeletePurchaseOrderData_deleteOnePurchaseOrderBuilder)?
-    updates,
-  ) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GDeletePurchaseOrderData_deleteOnePurchaseOrder build() => _build();
-
-  _$GDeletePurchaseOrderData_deleteOnePurchaseOrder _build() {
     final _$result =
         _$v ??
-        _$GDeletePurchaseOrderData_deleteOnePurchaseOrder._(
+        _$GDeletePurchaseOrderData._(
           G__typename: BuiltValueNullFieldError.checkNotNull(
             G__typename,
-            r'GDeletePurchaseOrderData_deleteOnePurchaseOrder',
+            r'GDeletePurchaseOrderData',
             'G__typename',
           ),
-          id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GDeletePurchaseOrderData_deleteOnePurchaseOrder',
-            'id',
-          ),
+          deletePurchaseOrder: deletePurchaseOrder,
         );
     replace(_$result);
     return _$result;
@@ -3286,7 +2688,7 @@ class _$GSendPasswordResetLinkData extends GSendPasswordResetLinkData {
   @override
   final String G__typename;
   @override
-  final _i1.GVoid? sendPasswordResetLink;
+  final bool? sendPasswordResetLink;
 
   factory _$GSendPasswordResetLinkData([
     void Function(GSendPasswordResetLinkDataBuilder)? updates,
@@ -3340,10 +2742,9 @@ class GSendPasswordResetLinkDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i1.GVoidBuilder? _sendPasswordResetLink;
-  _i1.GVoidBuilder get sendPasswordResetLink =>
-      _$this._sendPasswordResetLink ??= _i1.GVoidBuilder();
-  set sendPasswordResetLink(_i1.GVoidBuilder? sendPasswordResetLink) =>
+  bool? _sendPasswordResetLink;
+  bool? get sendPasswordResetLink => _$this._sendPasswordResetLink;
+  set sendPasswordResetLink(bool? sendPasswordResetLink) =>
       _$this._sendPasswordResetLink = sendPasswordResetLink;
 
   GSendPasswordResetLinkDataBuilder() {
@@ -3354,7 +2755,7 @@ class GSendPasswordResetLinkDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _sendPasswordResetLink = $v.sendPasswordResetLink?.toBuilder();
+      _sendPasswordResetLink = $v.sendPasswordResetLink;
       _$v = null;
     }
     return this;
@@ -3374,32 +2775,16 @@ class GSendPasswordResetLinkDataBuilder
   GSendPasswordResetLinkData build() => _build();
 
   _$GSendPasswordResetLinkData _build() {
-    _$GSendPasswordResetLinkData _$result;
-    try {
-      _$result =
-          _$v ??
-          _$GSendPasswordResetLinkData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GSendPasswordResetLinkData',
-              'G__typename',
-            ),
-            sendPasswordResetLink: _sendPasswordResetLink?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'sendPasswordResetLink';
-        _sendPasswordResetLink?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'GSendPasswordResetLinkData',
-          _$failedField,
-          e.toString(),
+    final _$result =
+        _$v ??
+        _$GSendPasswordResetLinkData._(
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+            G__typename,
+            r'GSendPasswordResetLinkData',
+            'G__typename',
+          ),
+          sendPasswordResetLink: sendPasswordResetLink,
         );
-      }
-      rethrow;
-    }
     replace(_$result);
     return _$result;
   }
@@ -3409,13 +2794,13 @@ class _$GRegisterUserData extends GRegisterUserData {
   @override
   final String G__typename;
   @override
-  final GRegisterUserData_registerUser registerUser;
+  final GRegisterUserData_registerUser? registerUser;
 
   factory _$GRegisterUserData([
     void Function(GRegisterUserDataBuilder)? updates,
   ]) => (GRegisterUserDataBuilder()..update(updates))._build();
 
-  _$GRegisterUserData._({required this.G__typename, required this.registerUser})
+  _$GRegisterUserData._({required this.G__typename, this.registerUser})
     : super._();
   @override
   GRegisterUserData rebuild(void Function(GRegisterUserDataBuilder) updates) =>
@@ -3473,7 +2858,7 @@ class GRegisterUserDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _registerUser = $v.registerUser.toBuilder();
+      _registerUser = $v.registerUser?.toBuilder();
       _$v = null;
     }
     return this;
@@ -3503,13 +2888,13 @@ class GRegisterUserDataBuilder
               r'GRegisterUserData',
               'G__typename',
             ),
-            registerUser: registerUser.build(),
+            registerUser: _registerUser?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'registerUser';
-        registerUser.build();
+        _registerUser?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GRegisterUserData',
@@ -3648,13 +3033,12 @@ class _$GLogInUserData extends GLogInUserData {
   @override
   final String G__typename;
   @override
-  final GLogInUserData_logInUser logInUser;
+  final GLogInUserData_logInUser? logInUser;
 
   factory _$GLogInUserData([void Function(GLogInUserDataBuilder)? updates]) =>
       (GLogInUserDataBuilder()..update(updates))._build();
 
-  _$GLogInUserData._({required this.G__typename, required this.logInUser})
-    : super._();
+  _$GLogInUserData._({required this.G__typename, this.logInUser}) : super._();
   @override
   GLogInUserData rebuild(void Function(GLogInUserDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -3710,7 +3094,7 @@ class GLogInUserDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _logInUser = $v.logInUser.toBuilder();
+      _logInUser = $v.logInUser?.toBuilder();
       _$v = null;
     }
     return this;
@@ -3740,13 +3124,13 @@ class GLogInUserDataBuilder
               r'GLogInUserData',
               'G__typename',
             ),
-            logInUser: logInUser.build(),
+            logInUser: _logInUser?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'logInUser';
-        logInUser.build();
+        _logInUser?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GLogInUserData',
@@ -3911,13 +3295,13 @@ class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
   @override
   final String G__typename;
   @override
-  final int id;
+  final int? id;
   @override
-  final String name;
+  final String? name;
   @override
-  final String email;
+  final String? email;
   @override
-  final String phoneNumber;
+  final String? phoneNumber;
 
   factory _$GLogInUserData_logInUser_user([
     void Function(GLogInUserData_logInUser_userBuilder)? updates,
@@ -3925,10 +3309,10 @@ class _$GLogInUserData_logInUser_user extends GLogInUserData_logInUser_user {
 
   _$GLogInUserData_logInUser_user._({
     required this.G__typename,
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.phoneNumber,
+    this.id,
+    this.name,
+    this.email,
+    this.phoneNumber,
   }) : super._();
   @override
   GLogInUserData_logInUser_user rebuild(
@@ -4041,26 +3425,10 @@ class GLogInUserData_logInUser_userBuilder
             r'GLogInUserData_logInUser_user',
             'G__typename',
           ),
-          id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GLogInUserData_logInUser_user',
-            'id',
-          ),
-          name: BuiltValueNullFieldError.checkNotNull(
-            name,
-            r'GLogInUserData_logInUser_user',
-            'name',
-          ),
-          email: BuiltValueNullFieldError.checkNotNull(
-            email,
-            r'GLogInUserData_logInUser_user',
-            'email',
-          ),
-          phoneNumber: BuiltValueNullFieldError.checkNotNull(
-            phoneNumber,
-            r'GLogInUserData_logInUser_user',
-            'phoneNumber',
-          ),
+          id: id,
+          name: name,
+          email: email,
+          phoneNumber: phoneNumber,
         );
     replace(_$result);
     return _$result;
@@ -4071,16 +3439,14 @@ class _$GValidateTokenData extends GValidateTokenData {
   @override
   final String G__typename;
   @override
-  final GValidateTokenData_validateToken validateToken;
+  final GValidateTokenData_validateToken? validateToken;
 
   factory _$GValidateTokenData([
     void Function(GValidateTokenDataBuilder)? updates,
   ]) => (GValidateTokenDataBuilder()..update(updates))._build();
 
-  _$GValidateTokenData._({
-    required this.G__typename,
-    required this.validateToken,
-  }) : super._();
+  _$GValidateTokenData._({required this.G__typename, this.validateToken})
+    : super._();
   @override
   GValidateTokenData rebuild(
     void Function(GValidateTokenDataBuilder) updates,
@@ -4138,7 +3504,7 @@ class GValidateTokenDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _validateToken = $v.validateToken.toBuilder();
+      _validateToken = $v.validateToken?.toBuilder();
       _$v = null;
     }
     return this;
@@ -4168,13 +3534,13 @@ class GValidateTokenDataBuilder
               r'GValidateTokenData',
               'G__typename',
             ),
-            validateToken: validateToken.build(),
+            validateToken: _validateToken?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'validateToken';
-        validateToken.build();
+        _validateToken?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GValidateTokenData',
@@ -4345,11 +3711,11 @@ class _$GValidateTokenData_validateToken_user
   @override
   final String G__typename;
   @override
-  final int id;
+  final int? id;
   @override
-  final String name;
+  final String? name;
   @override
-  final String email;
+  final String? email;
 
   factory _$GValidateTokenData_validateToken_user([
     void Function(GValidateTokenData_validateToken_userBuilder)? updates,
@@ -4358,9 +3724,9 @@ class _$GValidateTokenData_validateToken_user
 
   _$GValidateTokenData_validateToken_user._({
     required this.G__typename,
-    required this.id,
-    required this.name,
-    required this.email,
+    this.id,
+    this.name,
+    this.email,
   }) : super._();
   @override
   GValidateTokenData_validateToken_user rebuild(
@@ -4469,21 +3835,9 @@ class GValidateTokenData_validateToken_userBuilder
             r'GValidateTokenData_validateToken_user',
             'G__typename',
           ),
-          id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'GValidateTokenData_validateToken_user',
-            'id',
-          ),
-          name: BuiltValueNullFieldError.checkNotNull(
-            name,
-            r'GValidateTokenData_validateToken_user',
-            'name',
-          ),
-          email: BuiltValueNullFieldError.checkNotNull(
-            email,
-            r'GValidateTokenData_validateToken_user',
-            'email',
-          ),
+          id: id,
+          name: name,
+          email: email,
         );
     replace(_$result);
     return _$result;
@@ -4494,7 +3848,7 @@ class _$GVerifyPhoneNumberData extends GVerifyPhoneNumberData {
   @override
   final String G__typename;
   @override
-  final _i1.GVoid? verifyPhoneNumber;
+  final bool? verifyPhoneNumber;
 
   factory _$GVerifyPhoneNumberData([
     void Function(GVerifyPhoneNumberDataBuilder)? updates,
@@ -4547,10 +3901,9 @@ class GVerifyPhoneNumberDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  _i1.GVoidBuilder? _verifyPhoneNumber;
-  _i1.GVoidBuilder get verifyPhoneNumber =>
-      _$this._verifyPhoneNumber ??= _i1.GVoidBuilder();
-  set verifyPhoneNumber(_i1.GVoidBuilder? verifyPhoneNumber) =>
+  bool? _verifyPhoneNumber;
+  bool? get verifyPhoneNumber => _$this._verifyPhoneNumber;
+  set verifyPhoneNumber(bool? verifyPhoneNumber) =>
       _$this._verifyPhoneNumber = verifyPhoneNumber;
 
   GVerifyPhoneNumberDataBuilder() {
@@ -4561,7 +3914,7 @@ class GVerifyPhoneNumberDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _verifyPhoneNumber = $v.verifyPhoneNumber?.toBuilder();
+      _verifyPhoneNumber = $v.verifyPhoneNumber;
       _$v = null;
     }
     return this;
@@ -4581,32 +3934,16 @@ class GVerifyPhoneNumberDataBuilder
   GVerifyPhoneNumberData build() => _build();
 
   _$GVerifyPhoneNumberData _build() {
-    _$GVerifyPhoneNumberData _$result;
-    try {
-      _$result =
-          _$v ??
-          _$GVerifyPhoneNumberData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-              G__typename,
-              r'GVerifyPhoneNumberData',
-              'G__typename',
-            ),
-            verifyPhoneNumber: _verifyPhoneNumber?.build(),
-          );
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'verifyPhoneNumber';
-        _verifyPhoneNumber?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-          r'GVerifyPhoneNumberData',
-          _$failedField,
-          e.toString(),
+    final _$result =
+        _$v ??
+        _$GVerifyPhoneNumberData._(
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+            G__typename,
+            r'GVerifyPhoneNumberData',
+            'G__typename',
+          ),
+          verifyPhoneNumber: verifyPhoneNumber,
         );
-      }
-      rethrow;
-    }
     replace(_$result);
     return _$result;
   }
@@ -4617,7 +3954,7 @@ class _$GResendEmailVerificationRequestData
   @override
   final String G__typename;
   @override
-  final GResendEmailVerificationRequestData_resendEmailVerificationRequest
+  final GResendEmailVerificationRequestData_resendEmailVerificationRequest?
   resendEmailVerificationRequest;
 
   factory _$GResendEmailVerificationRequestData([
@@ -4627,7 +3964,7 @@ class _$GResendEmailVerificationRequestData
 
   _$GResendEmailVerificationRequestData._({
     required this.G__typename,
-    required this.resendEmailVerificationRequest,
+    this.resendEmailVerificationRequest,
   }) : super._();
   @override
   GResendEmailVerificationRequestData rebuild(
@@ -4698,7 +4035,7 @@ class GResendEmailVerificationRequestDataBuilder
     if ($v != null) {
       _G__typename = $v.G__typename;
       _resendEmailVerificationRequest = $v.resendEmailVerificationRequest
-          .toBuilder();
+          ?.toBuilder();
       _$v = null;
     }
     return this;
@@ -4730,14 +4067,14 @@ class GResendEmailVerificationRequestDataBuilder
               r'GResendEmailVerificationRequestData',
               'G__typename',
             ),
-            resendEmailVerificationRequest: resendEmailVerificationRequest
-                .build(),
+            resendEmailVerificationRequest: _resendEmailVerificationRequest
+                ?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'resendEmailVerificationRequest';
-        resendEmailVerificationRequest.build();
+        _resendEmailVerificationRequest?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GResendEmailVerificationRequestData',
@@ -4894,7 +4231,7 @@ class _$GResendPhoneNumberVerificationRequestData
   @override
   final String G__typename;
   @override
-  final GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest
+  final GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest?
   resendPhoneNumberVerificationRequest;
 
   factory _$GResendPhoneNumberVerificationRequestData([
@@ -4904,7 +4241,7 @@ class _$GResendPhoneNumberVerificationRequestData
 
   _$GResendPhoneNumberVerificationRequestData._({
     required this.G__typename,
-    required this.resendPhoneNumberVerificationRequest,
+    this.resendPhoneNumberVerificationRequest,
   }) : super._();
   @override
   GResendPhoneNumberVerificationRequestData rebuild(
@@ -4981,7 +4318,7 @@ class GResendPhoneNumberVerificationRequestDataBuilder
       _G__typename = $v.G__typename;
       _resendPhoneNumberVerificationRequest = $v
           .resendPhoneNumberVerificationRequest
-          .toBuilder();
+          ?.toBuilder();
       _$v = null;
     }
     return this;
@@ -5014,13 +4351,13 @@ class GResendPhoneNumberVerificationRequestDataBuilder
               'G__typename',
             ),
             resendPhoneNumberVerificationRequest:
-                resendPhoneNumberVerificationRequest.build(),
+                _resendPhoneNumberVerificationRequest?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'resendPhoneNumberVerificationRequest';
-        resendPhoneNumberVerificationRequest.build();
+        _resendPhoneNumberVerificationRequest?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'GResendPhoneNumberVerificationRequestData',

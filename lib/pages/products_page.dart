@@ -33,7 +33,7 @@ class ProductsPage extends ListPage {
   List<Enum> get sortOptions => ProductSortOption.values;
 
   @override
-  String createItemDescription(item) => (item as GListAllProductsData_listAllProducts).name;
+  String createItemDescription(item) => (item as GListAllProductsData_listAllProducts).name!;
   
   @override
   Widget? get createForm => ProductForm();

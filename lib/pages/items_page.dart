@@ -33,5 +33,5 @@ class ItemsPage extends ListPage {
   List<Enum> get sortOptions => ItemSortOption.values;
   
   @override
-  String createItemDescription(item) => (item as GListUserItemsData_listAllItems).name;
+  String createItemDescription(item) => (item as GListUserItemsData_listAllItems).name!;
 }

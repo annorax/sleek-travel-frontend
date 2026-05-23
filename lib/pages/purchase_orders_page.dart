@@ -35,6 +35,9 @@ class PurchaseOrdersPage extends ListPage {
   List<Enum> get sortOptions => PurchaseOrderSortOption.values;
 
   @override
-  String createItemDescription(item) =>
-      "${(item as GListUserPurchaseOrdersData_listAllPurchaseOrders).entries.map((entry) => entry.quantity).reduce((a, b) => a + b)} items";
+  String createItemDescription(item) {
+    final entries = (item as GListUserPurchaseOrdersData_listAllPurchaseOrders).entries;
+    final count = entries?.map((e) => e.quantity ?? 0).fold(0, (a, b) => a + b) ?? 0;
+    return '$count items';
+  }
 }

@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (result.data == null && context.mounted) {
                         showError("No data.", context);
                       }
-                      GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data!.resendEmailVerificationRequest;
+                      GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data!.resendEmailVerificationRequest!;
                       if (context.mounted) {
                         if (response.error != null) {
                           print(response.error);
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (result.data == null && context.mounted) {
                         showError("No data.", context);
                       }
-                      GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest response = result.data!.resendPhoneNumberVerificationRequest;
+                      GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest response = result.data!.resendPhoneNumberVerificationRequest!;
                       if (context.mounted) {
                         if (response.error != null) {
                           print(response.error);

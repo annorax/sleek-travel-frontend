@@ -198,11 +198,11 @@ class ListPageState extends State<ListPage> {
         }
         _items = switch (widget.entityType) {
           ListableEntityType.item =>
-            (response.data as GListUserItemsData).listAllItems.asList(),
+            (response.data as GListUserItemsData).listAllItems!.asList(),
           ListableEntityType.product =>
-            (response.data as GListAllProductsData).listAllProducts.asList(),
+            (response.data as GListAllProductsData).listAllProducts!.asList(),
           ListableEntityType.purchaseOrder =>
-            (response.data as GListUserPurchaseOrdersData).listAllPurchaseOrders.asList()
+            (response.data as GListUserPurchaseOrdersData).listAllPurchaseOrders!.asList()
         };
         if (_items == null || _items!.isEmpty) {
           return Text('No ${widget.entityType.displayNamePlural}');

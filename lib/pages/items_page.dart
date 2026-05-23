@@ -1,5 +1,8 @@
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:sleek_travel_frontend/constants.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
+import 'package:sleek_travel_frontend/graphql/queries.graphql.dart';
+import 'package:sleek_travel_frontend/graphql/schema.graphql.dart';
 import 'package:sleek_travel_frontend/listable_entity_type.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/list_page.dart';
@@ -12,8 +15,6 @@ enum ItemSortOption {
 
   const ItemSortOption({required this.defaultDirection});
 }
-
-enum ItemsField { id, name }
 
 class ItemsPage extends ListPage {
   static const path = basePath;
@@ -31,7 +32,33 @@ class ItemsPage extends ListPage {
 
   @override
   List<Enum> get sortOptions => ItemSortOption.values;
-  
+
   @override
-  String createItemDescription(item) => (item as GListUserItemsData_listAllItems).name!;
+  QueryOptions buildQueryOptions(String sortOption, String sortDirection, bool refresh) {
+    return Options$Query$ListUserItems(
+      variables: Variables$Query$ListUserItems(
+        sortOption: Enum$ItemScalarFieldEnum.values.byName(sortOption),
+        sortDirection: Enum$SortOrder.values.byName(sortDirection),
+      ),
+      fetchPolicy: refresh ? FetchPolicy.networkOnly : FetchPolicy.cacheFirst,
+    );
+  }
+
+  @override
+  List<dynamic> parseQueryData(Map<String, dynamic> data) {
+    return Query$ListUserItems.fromJson(data).listAllItems ?? [];
+  }
+
+  @override
+  MutationOptions buildDeleteOptions(dynamic item) {
+    final typed = item as Query$ListUserItems$listAllItems;
+    return Options$Mutation$DeleteItem(
+      variables: Variables$Mutation$DeleteItem(id: typed.id!),
+    );
+  }
+
+  @override
+  String createItemDescription(item) {
+    return (item as Query$ListUserItems$listAllItems).name ?? '';
+  }
 }

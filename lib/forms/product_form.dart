@@ -1,12 +1,11 @@
-import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import 'package:sleek_travel_frontend/constants.dart';
 import 'package:sleek_travel_frontend/currency_input_formatter.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
+import 'package:sleek_travel_frontend/graphql/schema.graphql.dart';
 import 'package:sleek_travel_frontend/main.dart';
 import 'package:sleek_travel_frontend/model/product.model.dart';
 import 'package:sleek_travel_frontend/scanner.dart';
@@ -132,25 +131,43 @@ class _ProductFormState extends State<ProductForm> {
                   final String description = descriptionController.text;
                   final String upc = upcController.text;
                   final String priceString = priceController.text.replaceAll(RegExp(r'[^0-9.]'), '');
-                  final OperationResponse result = await client.request(
-                    widget.product?.id == null
-                      ? GCreateProductReq((builder) => builder.vars.input
-                        ..name = name
-                        ..description = description.isEmpty ? null : description
-                        ..upc = upc.isEmpty ? null : upc
-                        ..upcScanned = upcScanned
-                        ..price = priceString
-                        ..currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
-                      : GUpdateProductReq((builder) => builder.vars
-                        ..id = widget.product!.id
-                        ..input.description = description.isEmpty ? null : description
-                        ..input.upc = upc.isEmpty ? null : upc
-                        ..input.upcScanned = upcScanned
-                        ..input.price = priceString
-                        ..input.currency = GCurrency.valueOf(widget.product?.currency ?? currencyCode))
-                  ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
+                  final currency = widget.product?.currency ?? currencyCode;
+                  final bool saved;
+                  if (widget.product?.id == null) {
+                    final result = await client.mutate$CreateProduct(
+                      Options$Mutation$CreateProduct(
+                        variables: Variables$Mutation$CreateProduct(
+                          input: Input$CreateProductInput(
+                            name: name,
+                            price: priceString,
+                            currency: Enum$Currency.values.byName(currency),
+                            description: description.isEmpty ? null : description,
+                            upc: upc.isEmpty ? null : upc,
+                            upcScanned: upcScanned,
+                          ),
+                        ),
+                      ),
+                    );
+                    saved = result.parsedData?.createProduct?.id != null;
+                  } else {
+                    final result = await client.mutate$UpdateProduct(
+                      Options$Mutation$UpdateProduct(
+                        variables: Variables$Mutation$UpdateProduct(
+                          id: widget.product!.id!,
+                          input: Input$UpdateProductInput(
+                            price: priceString,
+                            currency: Enum$Currency.values.byName(currency),
+                            description: description.isEmpty ? null : description,
+                            upc: upc.isEmpty ? null : upc,
+                            upcScanned: upcScanned,
+                          ),
+                        ),
+                      ),
+                    );
+                    saved = result.parsedData?.updateProduct?.id != null;
+                  }
                   if (context.mounted) {
-                    Navigator.pop(context, result.data.createProduct?.id != null);
+                    Navigator.pop(context, saved);
                   }
                 }
               },

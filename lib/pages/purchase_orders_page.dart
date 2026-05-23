@@ -1,5 +1,8 @@
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:sleek_travel_frontend/constants.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
+import 'package:sleek_travel_frontend/graphql/queries.graphql.dart';
+import 'package:sleek_travel_frontend/graphql/schema.graphql.dart';
 import 'package:sleek_travel_frontend/listable_entity_type.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/list_page.dart';
@@ -9,12 +12,6 @@ enum PurchaseOrderSortOption {
   updatedAt(defaultDirection: SortDirection.desc);
   final SortDirection defaultDirection;
   const PurchaseOrderSortOption({required this.defaultDirection});
-}
-
-enum PurchaseOrdersField {
-  id,
-  entries,
-  quantity
 }
 
 class PurchaseOrdersPage extends ListPage {
@@ -35,9 +32,34 @@ class PurchaseOrdersPage extends ListPage {
   List<Enum> get sortOptions => PurchaseOrderSortOption.values;
 
   @override
+  QueryOptions buildQueryOptions(String sortOption, String sortDirection, bool refresh) {
+    return Options$Query$ListUserPurchaseOrders(
+      variables: Variables$Query$ListUserPurchaseOrders(
+        sortOption: Enum$PurchaseOrderScalarFieldEnum.values.byName(sortOption),
+        sortDirection: Enum$SortOrder.values.byName(sortDirection),
+      ),
+      fetchPolicy: refresh ? FetchPolicy.networkOnly : FetchPolicy.cacheFirst,
+    );
+  }
+
+  @override
+  List<dynamic> parseQueryData(Map<String, dynamic> data) {
+    return Query$ListUserPurchaseOrders.fromJson(data).listAllPurchaseOrders ?? [];
+  }
+
+  @override
+  MutationOptions buildDeleteOptions(dynamic item) {
+    final typed = item as Query$ListUserPurchaseOrders$listAllPurchaseOrders;
+    return Options$Mutation$DeletePurchaseOrder(
+      variables: Variables$Mutation$DeletePurchaseOrder(id: typed.id!),
+    );
+  }
+
+  @override
   String createItemDescription(item) {
-    final entries = (item as GListUserPurchaseOrdersData_listAllPurchaseOrders).entries;
-    final count = entries?.map((e) => e.quantity ?? 0).fold(0, (a, b) => a + b) ?? 0;
+    final typed = item as Query$ListUserPurchaseOrders$listAllPurchaseOrders;
+    final count = typed.entries?.fold<int>(
+          0, (sum, e) => sum + (e.quantity ?? 0)) ?? 0;
     return '$count items';
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:sleek_travel_frontend/constants.dart';
 import 'package:sleek_travel_frontend/forms/product_form.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
+import 'package:sleek_travel_frontend/graphql/queries.graphql.dart';
+import 'package:sleek_travel_frontend/graphql/schema.graphql.dart';
 import 'package:sleek_travel_frontend/listable_entity_type.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/list_page.dart';
@@ -12,8 +15,6 @@ enum ProductSortOption {
   final SortDirection defaultDirection;
   const ProductSortOption({required this.defaultDirection});
 }
-
-enum ProductsField { id, name }
 
 class ProductsPage extends ListPage {
   static const path = basePath;
@@ -33,8 +34,34 @@ class ProductsPage extends ListPage {
   List<Enum> get sortOptions => ProductSortOption.values;
 
   @override
-  String createItemDescription(item) => (item as GListAllProductsData_listAllProducts).name!;
-  
+  QueryOptions buildQueryOptions(String sortOption, String sortDirection, bool refresh) {
+    return Options$Query$ListAllProducts(
+      variables: Variables$Query$ListAllProducts(
+        sortOption: Enum$ProductScalarFieldEnum.values.byName(sortOption),
+        sortDirection: Enum$SortOrder.values.byName(sortDirection),
+      ),
+      fetchPolicy: refresh ? FetchPolicy.networkOnly : FetchPolicy.cacheFirst,
+    );
+  }
+
+  @override
+  List<dynamic> parseQueryData(Map<String, dynamic> data) {
+    return Query$ListAllProducts.fromJson(data).listAllProducts ?? [];
+  }
+
+  @override
+  MutationOptions buildDeleteOptions(dynamic item) {
+    final typed = item as Query$ListAllProducts$listAllProducts;
+    return Options$Mutation$DeleteProduct(
+      variables: Variables$Mutation$DeleteProduct(id: typed.id!),
+    );
+  }
+
+  @override
+  String createItemDescription(item) {
+    return (item as Query$ListAllProducts$listAllProducts).name ?? '';
+  }
+
   @override
   Widget? get createForm => ProductForm();
 }

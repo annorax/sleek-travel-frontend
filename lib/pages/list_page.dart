@@ -1,12 +1,7 @@
-import 'package:ferry/ferry.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:sleek_travel_frontend/constants.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/queries.data.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/queries.req.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
 import 'package:sleek_travel_frontend/listable_entity_type.dart';
 import 'package:sleek_travel_frontend/main.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
@@ -68,12 +63,17 @@ abstract class ListPage extends StatefulWidget {
 
   ListableEntityType get entityType;
 
+  QueryOptions buildQueryOptions(
+      String sortOption, String sortDirection, bool refresh);
+  List<dynamic> parseQueryData(Map<String, dynamic> data);
+  MutationOptions buildDeleteOptions(dynamic item);
+
   @override
   State<ListPage> createState() => ListPageState();
 }
 
 class ListPageState extends State<ListPage> {
-  List? _items;
+  VoidCallback? _refetch;
 
   @override
   void initState() {
@@ -95,10 +95,12 @@ class ListPageState extends State<ListPage> {
       dynamic sortOption;
       SortDirection? sortDirection;
       if (widget.sortOptionParam != null && widget.sortOptionParam!.isNotEmpty) {
-        sortOption = widget.sortOptions.firstWhereOrNull((sortOption) => enumValueToName(sortOption) == widget.sortOptionParam);
+        sortOption = widget.sortOptions.firstWhereOrNull(
+            (sortOption) => enumValueToName(sortOption) == widget.sortOptionParam);
       }
       if (widget.sortDirectionParam != null && widget.sortDirectionParam!.isNotEmpty) {
-        sortDirection = SortDirection.values.firstWhereOrNull((sortDirection) => sortDirection.name == widget.sortDirectionParam);
+        sortDirection = SortDirection.values.firstWhereOrNull(
+            (sortDirection) => sortDirection.name == widget.sortDirectionParam);
       }
       if (sortOption != null && sortDirection == null) {
         sortDirection = sortOption.defaultDirection;
@@ -111,106 +113,68 @@ class ListPageState extends State<ListPage> {
         sortOptions: widget.sortOptions,
         createForm: widget.createForm,
         sortOption: sortOption,
-        sortDirection: sortDirection
+        sortDirection: sortDirection,
       );
     });
   }
 
-  void Function([BuildContext context]) onPressedDelete(BuildContext givenContext, dynamic item) {
+  void Function([BuildContext? context]) onPressedDelete(BuildContext givenContext, dynamic item) {
     return ([BuildContext? context]) async {
       if (!(await showConfirmationDialog(context ?? givenContext))) {
         return;
       }
-      if (_items == null) {
-        throw "No items";
-      }
-      int index = _items!.indexOf(item);
-      final OperationResponse result = await client.request(
-        switch (widget.entityType) {
-          ListableEntityType.item => GDeleteItemReq((builder) => builder.vars.id = item["id"]),
-          ListableEntityType.product => GDeleteProductReq((builder) => builder.vars.id = item["id"]),
-          ListableEntityType.purchaseOrder => GDeletePurchaseOrderReq((builder) => builder.vars.id = item["id"])
-        }
-      ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-      if (result.hasErrors) {
-        print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
-        showError("Error: ${result.graphqlErrors.toString()}", context ?? givenContext);
+      final result = await client.mutate(widget.buildDeleteOptions(item));
+      if (result.hasException) {
+        showError(
+          'Error: ${result.exception}',
+          context ?? givenContext,
+        );
       } else {
-        setState(() {
-          _items!.removeAt(index);
-        });
+        _refetch?.call();
       }
     };
   }
 
   @override
   Widget build(BuildContext context) {
-    if (
-      widget.sortOptionParam == null ||
-      widget.sortOptionParam == "null" ||
-      widget.sortDirectionParam == null ||
-      widget.sortDirectionParam == "null") {
+    if (widget.sortOptionParam == null ||
+        widget.sortOptionParam == "null" ||
+        widget.sortDirectionParam == null ||
+        widget.sortDirectionParam == "null") {
       return const Text("Loading");
     }
-    GLogInUserData_logInUser? user = userState.getValueSyncNoInit();
+    final user = userState.getValueSyncNoInit();
     if (user?.user == null) {
-      return CircularProgressIndicator();
+      return const CircularProgressIndicator();
     }
-    final OperationRequest<dynamic, dynamic> request = switch (widget.entityType) {
-        ListableEntityType.product => GListAllProductsReq(
-          (b) => b
-            ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.sortOption = GProductScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
-            ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
-        ),
-        ListableEntityType.item => GListUserItemsReq(
-          (b) => b
-            ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.sortOption = GItemScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
-            ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
-        ),
-        ListableEntityType.purchaseOrder => GListUserPurchaseOrdersReq(
-          (b) => b
-            ..fetchPolicy = (widget.refreshParam ?? false) ? FetchPolicy.NetworkOnly : FetchPolicy.CacheFirst
-            ..vars.sortOption = GPurchaseOrderScalarFieldEnum.valueOf(widget.sortOptionParam == "name" ? "Gname" : widget.sortOptionParam!)
-            ..vars.sortDirection = GSortOrder.valueOf(widget.sortDirectionParam!)
-        ),
-    };
-    return StreamBuilder<OperationResponse>(
-      stream: client.request(request), // a Future<String> or null
-      builder: (BuildContext context, AsyncSnapshot<OperationResponse> snapshot) {
-        if (snapshot.hasError) {
-          return Text('Error encountered (1)');
+
+    return Query(
+      options: widget.buildQueryOptions(
+        widget.sortOptionParam!,
+        widget.sortDirectionParam!,
+        widget.refreshParam ?? false,
+      ),
+      builder: (QueryResult result, {VoidCallback? refetch, FetchMore? fetchMore}) {
+        _refetch = refetch;
+
+        if (result.isLoading) return const Text('Loading');
+        if (result.hasException) {
+          print('GraphQL errors: ${result.exception}');
+          return const Text('Error encountered');
         }
-        if (snapshot.data == null) {
+        if (result.data == null) {
           return Text('No ${widget.entityType.displayNamePlural}');
         }
-        OperationResponse response = snapshot.data!;
-        if (response.data == null) {
+
+        final items = widget.parseQueryData(result.data!);
+        if (items.isEmpty) {
           return Text('No ${widget.entityType.displayNamePlural}');
         }
-        if (response.hasErrors) {
-          print("GraphQL errors: ${response.graphqlErrors ?? response.linkException}");
-          return Text('Error encountered (2)');
-        }
-        if (response.loading == true) {
-          return const Text('Loading');
-        }
-        _items = switch (widget.entityType) {
-          ListableEntityType.item =>
-            (response.data as GListUserItemsData).listAllItems!.asList(),
-          ListableEntityType.product =>
-            (response.data as GListAllProductsData).listAllProducts!.asList(),
-          ListableEntityType.purchaseOrder =>
-            (response.data as GListUserPurchaseOrdersData).listAllPurchaseOrders!.asList()
-        };
-        if (_items == null || _items!.isEmpty) {
-          return Text('No ${widget.entityType.displayNamePlural}');
-        }
+
         return ListView.builder(
-          itemCount: _items!.length,
+          itemCount: items.length,
           itemBuilder: (context, index) {
-            final item = _items![index];
+            final item = items[index];
             return Slidable(
               enabled: isMobilePlatform(),
               endActionPane: ActionPane(
@@ -225,10 +189,8 @@ class ListPageState extends State<ListPage> {
                   ),
                   SlidableAction(
                     onPressed: onPressedDelete(context, item),
-                    backgroundColor:
-                        ItemAction.delete.backgroundColor,
-                    foregroundColor:
-                        ItemAction.delete.foregroundColor,
+                    backgroundColor: ItemAction.delete.backgroundColor,
+                    foregroundColor: ItemAction.delete.foregroundColor,
                     icon: ItemAction.delete.icon,
                     label: ItemAction.delete.label,
                   ),
@@ -237,39 +199,38 @@ class ListPageState extends State<ListPage> {
               child: ListTile(
                 title: Text(widget.createItemDescription(item)),
                 trailing: isMobilePlatform()
-                  ? null
-                  : MenuAnchor(
-                      builder: (BuildContext context,
-                          MenuController controller,
-                          Widget? child) {
-                        return IconButton(
-                          onPressed: () {
-                            if (controller.isOpen) {
-                              controller.close();
-                            } else {
-                              controller.open();
-                            }
-                          },
-                          icon: const Icon(Icons.more_vert),
-                        );
-                      },
-                      menuChildren: [
-                        MenuItemButton(
-                          leadingIcon: Icon(ItemAction.edit.icon),
-                          onPressed: () {},
-                          child: Text(ItemAction.edit.label),
-                        ),
-                        MenuItemButton(
-                          leadingIcon:
-                              Icon(ItemAction.delete.icon),
-                          onPressed: onPressedDelete(context, item),
-                          child: Text(ItemAction.delete.label),
-                        )
-                      ],
-                    )
-              )
+                    ? null
+                    : MenuAnchor(
+                        builder: (BuildContext context,
+                            MenuController controller,
+                            Widget? child) {
+                          return IconButton(
+                            onPressed: () {
+                              if (controller.isOpen) {
+                                controller.close();
+                              } else {
+                                controller.open();
+                              }
+                            },
+                            icon: const Icon(Icons.more_vert),
+                          );
+                        },
+                        menuChildren: [
+                          MenuItemButton(
+                            leadingIcon: Icon(ItemAction.edit.icon),
+                            onPressed: () {},
+                            child: Text(ItemAction.edit.label),
+                          ),
+                          MenuItemButton(
+                            leadingIcon: Icon(ItemAction.delete.icon),
+                            onPressed: onPressedDelete(context, item),
+                            child: Text(ItemAction.delete.label),
+                          ),
+                        ],
+                      ),
+              ),
             );
-          }
+          },
         );
       },
     );

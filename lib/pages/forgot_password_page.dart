@@ -1,8 +1,7 @@
-import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
 import 'package:sleek_travel_frontend/main.dart';
 import 'package:sleek_travel_frontend/pages/login_page.dart';
 import 'package:sleek_travel_frontend/util.dart';
@@ -47,15 +46,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
                       return;
                     }
-                    final OperationResponse result = await client.request(
-                      GSendPasswordResetLinkReq(
-                        (builder) =>
-                          builder.vars
-                            ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
-                      )
-                    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                    if (result.hasErrors) {
-                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                    final result = await client.mutate$SendPasswordResetLink(
+                      Options$Mutation$SendPasswordResetLink(
+                        variables: Variables$Mutation$SendPasswordResetLink(
+                          emailOrPhone: extractValue(emailOrPhoneFieldKey),
+                        ),
+                      ),
+                    );
+                    if (result.hasException) {
+                      print("GraphQL errors: ${result.exception}");
                       if (context.mounted) {
                         showError("Sending failed", context);
                       }

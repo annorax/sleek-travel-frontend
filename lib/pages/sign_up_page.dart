@@ -1,10 +1,8 @@
-import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/forms/pinput_form.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
 import 'package:sleek_travel_frontend/main.dart';
 import 'package:sleek_travel_frontend/pages/login_page.dart';
 import 'package:sleek_travel_frontend/util.dart';
@@ -69,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   key: repeatPasswordFieldKey,
                   decoration: const InputDecoration(labelText: 'Repeat password'),
                   obscureText: true,
-                  validator:  (value) => (value != passwordController.text) ? 'Does not match' : null
+                  validator: (value) => (value != passwordController.text) ? 'Does not match' : null
                 ),
                 const SizedBox(height: 16),
                 MaterialButton(
@@ -82,26 +80,27 @@ class _SignUpPageState extends State<SignUpPage> {
                     final email = extractValue(emailFieldKey);
                     final phoneNumber = extractValue(phoneNumberFieldKey);
                     final password = extractValue(passwordFieldKey);
-                    final OperationResponse result = await client.request(
-                      GRegisterUserReq(
-                        (builder) =>
-                          builder.vars
-                            ..name = name
-                            ..email = email
-                            ..phoneNumber = phoneNumber
-                            ..password = password
-                      )
-                    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                    if (result.hasErrors) {
-                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                    final result = await client.mutate$RegisterUser(
+                      Options$Mutation$RegisterUser(
+                        variables: Variables$Mutation$RegisterUser(
+                          name: name,
+                          email: email,
+                          phoneNumber: phoneNumber,
+                          password: password,
+                        ),
+                      ),
+                    );
+                    if (result.hasException) {
+                      print("GraphQL errors: ${result.exception}");
                       if (context.mounted) {
                         showError("Sign up failed", context);
                       }
                     } else {
-                      GRegisterUserData_registerUser response = result.data.registerUser;
+                      final registerData = result.parsedData?.registerUser;
                       if (context.mounted) {
-                        if (response.error != null && response.error!.toLowerCase().contains('sms')) {
-                          showError(response.error!, context);
+                        final error = registerData?.error;
+                        if (error != null && error.toLowerCase().contains('sms')) {
+                          showError(error, context);
                         } else {
                           String otp = await showModalBottomSheet(
                             isScrollControlled: true,
@@ -112,16 +111,16 @@ class _SignUpPageState extends State<SignUpPage> {
                             context: context,
                             useSafeArea: true
                           );
-                          final OperationResponse result = await client.request(
-                            GVerifyPhoneNumberReq(
-                              (builder) =>
-                                builder.vars
-                                  ..userId = response.userId
-                                  ..otp = otp
-                            )
-                          ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                          if (result.hasErrors) {
-                            print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                          final verifyResult = await client.mutate$VerifyPhoneNumber(
+                            Options$Mutation$VerifyPhoneNumber(
+                              variables: Variables$Mutation$VerifyPhoneNumber(
+                                userId: registerData!.userId!,
+                                otp: otp,
+                              ),
+                            ),
+                          );
+                          if (verifyResult.hasException) {
+                            print("GraphQL errors: ${verifyResult.exception}");
                             if (context.mounted) {
                               showError("Phone number verification failed", context);
                             }
@@ -138,21 +137,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: const Text('Create account'),
                 ),
                 const SizedBox(height: 16),
-                // This is for when we add buttons for signing up with Google / Apple
-                /*Row(
-                  children: [
-                    Expanded(
-                      child: Divider(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text('Or'),
-                    ),
-                    Expanded(
-                      child: Divider(),
-                    ),
-                  ],
-                ),*/
                 InkWell(
                   onTap: () => NavigationManager.instance.pushReplacement(LoginPage.name),
                   child: Text("Already have an account? Log in here."),

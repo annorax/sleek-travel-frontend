@@ -1,12 +1,11 @@
 import 'dart:async';
 
-import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/globals.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
 import 'package:sleek_travel_frontend/main.dart';
+import 'package:sleek_travel_frontend/model/auth_data.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/pages/items_page.dart';
 import 'package:sleek_travel_frontend/pages/products_page.dart';
@@ -181,7 +180,7 @@ class DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    final GLogInUserData_logInUser? user = userState.getValueSyncNoInit();
+    final AuthData? user = userState.getValueSyncNoInit();
     final String? name = user?.user?.name;
 
     return Scaffold(
@@ -204,11 +203,9 @@ class DashboardPageState extends State<DashboardPage> {
               MenuItemButton(
                 leadingIcon: Icon(Icons.logout),
                 onPressed: () async {
-                  final OperationResponse result = await client.request(
-                    GLogOutUserReq()
-                  ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                  if (result.hasErrors) {
-                    print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                  final result = await client.mutate$LogOutUser();
+                  if (result.hasException) {
+                    print("GraphQL errors: ${result.exception}");
                     if (context.mounted) {
                       showError("Logout failed", context);
                     }

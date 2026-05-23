@@ -1,11 +1,10 @@
-import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/forms/pinput_form.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
 import 'package:sleek_travel_frontend/main.dart';
+import 'package:sleek_travel_frontend/model/auth_data.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/forgot_password_page.dart';
@@ -62,26 +61,24 @@ class _LoginPageState extends State<LoginPage> {
                   InkWell(
                     child: Text('Resend verification email'),
                     onTap: () async {
-                      final result = await client.request(
-                        GResendEmailVerificationRequestReq(
-                          (builder) =>
-                            builder.vars
-                              ..email = resendEmailLinkTo
-                        )
-                      ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                      if (result.hasErrors) {
-                        print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                      final result = await client.mutate$ResendEmailVerificationRequest(
+                        Options$Mutation$ResendEmailVerificationRequest(
+                          variables: Variables$Mutation$ResendEmailVerificationRequest(
+                            email: resendEmailLinkTo!,
+                          ),
+                        ),
+                      );
+                      if (result.hasException) {
+                        print("GraphQL errors: ${result.exception}");
                         if (context.mounted) {
                           showError("Failed to resend verification email.", context);
                         }
+                        return;
                       }
-                      if (result.data == null && context.mounted) {
-                        showError("No data.", context);
-                      }
-                      GResendEmailVerificationRequestData_resendEmailVerificationRequest response = result.data!.resendEmailVerificationRequest!;
+                      final error = result.parsedData?.resendEmailVerificationRequest?.error;
                       if (context.mounted) {
-                        if (response.error != null) {
-                          print(response.error);
+                        if (error != null) {
+                          print(error);
                           showError("Failed to resend verification email.", context);
                         } else {
                           showInfo("Resent verification email. Please check your inbox / spam and click the link.", context);
@@ -95,29 +92,27 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ]),
                 if (resendSMSLinkTo != null) Column(children: [
-                    Text('Unable to log in because the phone number has not yet been verified.'),
-                    InkWell(
+                  Text('Unable to log in because the phone number has not yet been verified.'),
+                  InkWell(
                     onTap: () async {
-                      final result = await client.request(
-                        GResendPhoneNumberVerificationRequestReq(
-                          (builder) =>
-                            builder.vars
-                              ..phoneNumber = resendSMSLinkTo
-                        )
-                      ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                      if (result.hasErrors) {
-                        print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                      final result = await client.mutate$ResendPhoneNumberVerificationRequest(
+                        Options$Mutation$ResendPhoneNumberVerificationRequest(
+                          variables: Variables$Mutation$ResendPhoneNumberVerificationRequest(
+                            phoneNumber: resendSMSLinkTo!,
+                          ),
+                        ),
+                      );
+                      if (result.hasException) {
+                        print("GraphQL errors: ${result.exception}");
                         if (context.mounted) {
                           showError("Failed to resend verification SMS.", context);
                         }
+                        return;
                       }
-                      if (result.data == null && context.mounted) {
-                        showError("No data.", context);
-                      }
-                      GResendPhoneNumberVerificationRequestData_resendPhoneNumberVerificationRequest response = result.data!.resendPhoneNumberVerificationRequest!;
+                      final error = result.parsedData?.resendPhoneNumberVerificationRequest?.error;
                       if (context.mounted) {
-                        if (response.error != null) {
-                          print(response.error);
+                        if (error != null) {
+                          print(error);
                           showError("Failed to resend verification SMS.", context);
                         } else {
                           String otp = await showModalBottomSheet(
@@ -129,16 +124,16 @@ class _LoginPageState extends State<LoginPage> {
                             context: context,
                             useSafeArea: true
                           );
-                          final OperationResponse result = await client.request(
-                            GVerifyPhoneNumberReq(
-                              (builder) =>
-                                builder.vars
-                                  ..userId = userId
-                                  ..otp = otp
-                            )
-                          ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                          if (result.hasErrors) {
-                            print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                          final verifyResult = await client.mutate$VerifyPhoneNumber(
+                            Options$Mutation$VerifyPhoneNumber(
+                              variables: Variables$Mutation$VerifyPhoneNumber(
+                                userId: userId!,
+                                otp: otp,
+                              ),
+                            ),
+                          );
+                          if (verifyResult.hasException) {
+                            print("GraphQL errors: ${verifyResult.exception}");
                             if (context.mounted) {
                               showError("Phone number verification failed", context);
                             }
@@ -161,57 +156,52 @@ class _LoginPageState extends State<LoginPage> {
                     if (!_formKey.currentState!.validate()) {
                       return;
                     }
-                    final OperationResponse result = await client.request(
-                      GLogInUserReq(
-                        (builder) =>
-                          builder.vars
-                            ..emailOrPhone = extractValue(emailOrPhoneFieldKey)
-                            ..password = extractValue(passwordFieldKey)
-                      )
-                    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-                    if (result.hasErrors) {
-                      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
+                    final result = await client.mutate$LogInUser(
+                      Options$Mutation$LogInUser(
+                        variables: Variables$Mutation$LogInUser(
+                          emailOrPhone: extractValue(emailOrPhoneFieldKey),
+                          password: extractValue(passwordFieldKey),
+                        ),
+                      ),
+                    );
+                    if (result.hasException) {
+                      print("GraphQL errors: ${result.exception}");
                       if (context.mounted) {
                         showError("Login failed", context);
                       }
+                      return;
                     }
-                    GLogInUserData_logInUser response = result.data.logInUser;
-                    if (response.error != null && response.user != null) {
-                      String error = response.error!;
-                      GLogInUserData_logInUser_user user = response.user!;
+                    final loginData = result.parsedData?.logInUser;
+                    if (loginData == null) return;
+                    final error = loginData.error;
+                    final userData = loginData.user;
+                    if (error != null && userData != null) {
                       setState(() {
                         if (error.toLowerCase().contains('email')) {
-                          resendEmailLinkTo = user.email;
-                          userId = user.id;
+                          resendEmailLinkTo = userData.email;
+                          userId = userData.id;
                         }
                         if (error.toLowerCase().contains('sms')) {
-                          resendSMSLinkTo = user.phoneNumber;
-                          userId = user.id;
+                          resendSMSLinkTo = userData.phoneNumber;
+                          userId = userData.id;
                         }
                       });
                     } else {
-                      await userState.setValue(response);
+                      await userState.setValue(AuthData(
+                        token: loginData.token,
+                        user: AuthUser(
+                          id: userData!.id!,
+                          name: userData.name,
+                          email: userData.email,
+                          phoneNumber: userData.phoneNumber,
+                        ),
+                      ));
                       NavigationManager.instance.pushReplacement(DashboardTab.items.name);
                     }
                   },
                   child: const Text('Login'),
                 ),
                 const SizedBox(height: 16),
-                // This is for when we add buttons for signing in with Google / Apple
-                /*Row(
-                  children: [
-                    Expanded(
-                      child: Divider(),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text('Or'),
-                    ),
-                    Expanded(
-                      child: Divider(),
-                    ),
-                  ],
-                ),*/
                 InkWell(
                   onTap: () => NavigationManager.instance.pushReplacement(SignUpPage.name),
                   child: Text("Don't have an account? Sign up here."),

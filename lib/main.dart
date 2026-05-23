@@ -1,94 +1,71 @@
-import 'package:ferry/ferry.dart';
 import 'package:flutter/material.dart';
-import 'package:gql_http_link/gql_http_link.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:navigation_utils/navigation_utils.dart';
 import 'package:sleek_travel_frontend/constants.dart';
 import 'package:sleek_travel_frontend/globals.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.data.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/mutations.req.gql.dart';
-import 'package:sleek_travel_frontend/graphql/__generated__/schema.schema.gql.dart';
+import 'package:sleek_travel_frontend/graphql/mutations.graphql.dart';
+import 'package:sleek_travel_frontend/model/auth_data.dart';
 import 'package:sleek_travel_frontend/model/user.state.dart';
 import 'package:sleek_travel_frontend/pages/dashboard_page.dart';
 import 'package:sleek_travel_frontend/pages/login_page.dart';
 import 'package:sleek_travel_frontend/router/routes.dart';
 import 'package:sleek_travel_frontend/router/routes.dart' as navigation_routes;
 
-late Client client;
+late GraphQLClient client;
 
 Future<void> main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
-    client = Client(
-      link: HttpLink(backendUrl),
-      cache: Cache(possibleTypes: possibleTypesMap)
+    final authLink = AuthLink(
+      getToken: () {
+        final user = userState.getValueSyncNoInit();
+        return user?.token != null ? 'Bearer ${user!.token}' : null;
+      },
     );
-    GLogInUserData_logInUser? user = await userState.getValue();
+    client = GraphQLClient(
+      link: authLink.concat(HttpLink(backendUrl)),
+      cache: GraphQLCache(),
+    );
+    AuthData? user = await userState.getValue();
     if (user?.token != null) {
       user = await validateToken(user!.token!);
     }
-    userState.listen((user) {
-      if (user == null) {
-        client = Client(
-          link: HttpLink(backendUrl),
-          cache: Cache(possibleTypes: possibleTypesMap)
-        );
-        return;
-      }
-      client = Client(
-        link: HttpLink(
-          backendUrl,
-          defaultHeaders: {
-            'Authorization': 'Bearer ${user.token}',
-          },
-        ),
-        cache: Cache(possibleTypes: possibleTypesMap)
-      );
-    });
     NavigationManager.init(
       mainRouterDelegate: DefaultRouterDelegate(navigationDataRoutes: routes),
-      routeInformationParser: DefaultRouteInformationParser(defaultRoutePath: '/${user != null ? DashboardTab.items.name : LoginPage.name}'),
+      routeInformationParser: DefaultRouteInformationParser(
+        defaultRoutePath: '/${user != null ? DashboardTab.items.name : LoginPage.name}',
+      ),
     );
-    runApp(
-      App(
-        theme: ThemeData(
-          primarySwatch: Colors.purple,
-        ),
-      )
-    );
+    runApp(App(theme: ThemeData(primarySwatch: Colors.purple)));
   } catch (e) {
     runApp(ErrorApp(error: e.toString()));
   }
 }
 
-Future<GLogInUserData_logInUser?> validateToken(String tokenValue) async {
-  GValidateTokenData_validateToken? validateToken;
+Future<AuthData?> validateToken(String tokenValue) async {
   try {
-    final OperationResponse result = await client.request(
-      GValidateTokenReq(
-        (builder) => builder
-          ..vars.tokenValue = tokenValue
-      )
-    ).firstWhere((response) => response.dataSource != DataSource.Optimistic);
-    if (result.hasErrors) {
-      print("GraphQL errors: ${result.graphqlErrors ?? result.linkException}");
-    } else {
-      validateToken = result.data?.validateToken;
+    final result = await client.mutate$ValidateToken(Options$Mutation$ValidateToken(
+      variables: Variables$Mutation$ValidateToken(tokenValue: tokenValue),
+    ));
+    final payload = result.parsedData?.validateToken;
+    if (result.hasException || payload == null || payload.user == null) {
+      await userState.removeValue();
+      return null;
     }
-  } catch (e) {
-    validateToken = null;
-  }
-  if (validateToken?.user == null) {
+    final user = AuthData(
+      token: payload.token,
+      user: AuthUser(
+        id: payload.user!.id!,
+        name: payload.user!.name,
+        email: payload.user!.email,
+      ),
+    );
+    await userState.setValue(user);
+    return user;
+  } catch (_) {
     await userState.removeValue();
     return null;
   }
-  final token = validateToken!.token;
-  final GValidateTokenData_validateToken_user safeUser = validateToken.user!;
-  final Map<String, dynamic> userJson = {"user": safeUser.toJson(), "token": token};
-  final user = GLogInUserData_logInUser.fromJson(userJson);
-  if (user != null) {
-    await userState.setValue(user);
-  }
-  return user;
 }
 
 class App extends StatefulWidget {
@@ -100,9 +77,7 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
-  bool initialized = false;
   bool loadInitialRoute = true;
-  String? errorMessage;
 
   @override
   void initState() {
@@ -112,7 +87,6 @@ class AppState extends State<App> {
 
   Future<void> init() async {
     NavigationManager.instance.setMainRoutes = setMainRoutes;
-
     userState.listen((dynamic data) {
       if (data == null) {
         onUserUnauthenticated();
@@ -120,9 +94,7 @@ class AppState extends State<App> {
         onUserAuthenticated();
       }
     });
-      
-    // Set initialization page.
-    GLogInUserData_logInUser? user = await userState.getValue();
+    final AuthData? user = await userState.getValue();
     if (user == null) {
       NavigationManager.instance.set([LoginPage.name]);
     } else {
@@ -137,15 +109,14 @@ class AppState extends State<App> {
       routeInformationParser: NavigationManager.instance.routeInformationParser,
       scaffoldMessengerKey: scaffoldMessengerKey,
       theme: widget.theme,
-      debugShowCheckedModeBanner: false
+      debugShowCheckedModeBanner: false,
     );
   }
 
   Future<void> onUserAuthenticated() async {
     if (loadInitialRoute) {
       loadInitialRoute = false;
-      initialized = true;
-      String initialRoute =
+      final String initialRoute =
           NavigationManager.instance.routeInformationParser.initialRoute;
       NavigationManager.instance.set([initialRoute]);
     } else {
@@ -164,7 +135,6 @@ class AppState extends State<App> {
       routes.removeWhere((element) => element.metadata?['type'] != 'auth');
       if (routes.isEmpty) {
         routes.add(DefaultRoute(label: LoginPage.name, path: '/${LoginPage.name}'));
-        // Handle edge case
         NavigationManager.instance.resumeNavigation();
       }
     } else {
@@ -172,7 +142,7 @@ class AppState extends State<App> {
       if (routes.isEmpty) {
         routes.add(NavigationUtils.buildDefaultRouteFromName(
           navigation_routes.routes,
-          '/'
+          '/',
         ));
       }
     }
@@ -188,9 +158,7 @@ class ErrorApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('An error occurred: $error'),
-        ),
+        body: Center(child: Text('An error occurred: $error')),
       ),
     );
   }

@@ -78,11 +78,19 @@ class App extends StatefulWidget {
 
 class AppState extends State<App> {
   bool loadInitialRoute = true;
+  late final ValueNotifier<GraphQLClient> _clientNotifier;
 
   @override
   void initState() {
     super.initState();
+    _clientNotifier = ValueNotifier(client);
     init();
+  }
+
+  @override
+  void dispose() {
+    _clientNotifier.dispose();
+    super.dispose();
   }
 
   Future<void> init() async {
@@ -104,12 +112,15 @@ class AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerDelegate: NavigationManager.instance.routerDelegate,
-      routeInformationParser: NavigationManager.instance.routeInformationParser,
-      scaffoldMessengerKey: scaffoldMessengerKey,
-      theme: widget.theme,
-      debugShowCheckedModeBanner: false,
+    return GraphQLProvider(
+      client: _clientNotifier,
+      child: MaterialApp.router(
+        routerDelegate: NavigationManager.instance.routerDelegate,
+        routeInformationParser: NavigationManager.instance.routeInformationParser,
+        scaffoldMessengerKey: scaffoldMessengerKey,
+        theme: widget.theme,
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 

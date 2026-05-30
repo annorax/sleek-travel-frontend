@@ -1,0 +1,34 @@
+# dart_test.yaml — configuration for `flutter test` and `flutter drive`.
+#
+# Currently empty: no test in this repo genuinely runs differently per
+# platform yet, so there are no tag presets to define. When a test does
+# need declarative platform gating (e.g. "this test only makes sense on
+# desktop because it relies on a file picker"), uncomment the `tags:`
+# section below and tag the test with `@Tags(['desktop-only'])` (or
+# whatever applies). The orchestrator (tool/integration_tests.dart) can
+# then pass `--tags <name>` / `--exclude-tags <name>` through to flutter.
+#
+# Reference: https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md
+#
+# tags:
+#   # Tests that only run on desktop (Windows/macOS/Linux). Tag a test with
+#   # `@Tags(['desktop-only'])` to opt in. Skipped on web.
+#   desktop-only:
+#     # No special config — the tag's mere presence is enough to filter on
+#     # via `flutter test --tags desktop-only` / `--exclude-tags desktop-only`.
+#
+#   # Tests that only run on web (need DOM, document, etc.).
+#   web-only:
+#
+#   # Tests that hit the real network. Excluded by default in unit-test runs;
+#   # included automatically by the integration_test harness.
+#   network:
+#
+#   # Slow integration tests (>30s) that the developer-loop run should skip.
+#   slow:
+#
+# # Per-tag overrides (timeout, retries, etc.) go here. Example:
+# #
+# # tags:
+# #   slow:
+# #     timeout: 2x

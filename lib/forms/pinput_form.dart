@@ -50,6 +50,11 @@ class _PinputFormState extends State<PinputForm> with AutomaticKeepAliveClientMi
             child: Column(
               children: [
                 Pinput(
+                  // Backend OTP is `crypto.randomInt(0, 1000000)` zero-padded
+                  // to 6 digits (see sleek-travel-backend src/auth.ts). Pinput
+                  // defaults to length 4, which silently truncates the entry
+                  // and breaks phone verification.
+                  length: 6,
                   controller: pinController,
                   focusNode: focusNode,
                   hapticFeedbackType: HapticFeedbackType.lightImpact,

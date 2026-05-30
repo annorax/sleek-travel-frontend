@@ -90,14 +90,22 @@ class TestBackend {
     return (jsonDecode(response.body) as List).cast<Map<String, dynamic>>();
   }
 
-  /// Parses the OTP out of the most recent SMS body. The backend sends
-  /// `Your SleekTravel OTP is 123456 (valid ...)` for phone verification.
-  Future<int?> lastOtp() async {
+  /// The OTP exactly as rendered in the most recent SMS — a zero-padded
+  /// 6-digit string suitable for typing into the Pinput field. The backend
+  /// sends `Your SleekTravel OTP is 012345 (valid ...)`. Returns null if no
+  /// SMS has been captured.
+  Future<String?> lastOtpDigits() async {
     final sms = await smsbox();
     if (sms.isEmpty) return null;
     final body = sms.last['MessageBody'] as String? ?? '';
-    final match = RegExp(r'OTP is (\d+)').firstMatch(body);
-    return match == null ? null : int.parse(match.group(1)!);
+    return RegExp(r'OTP is (\d+)').firstMatch(body)?.group(1);
+  }
+
+  /// The most recent OTP as an int (leading zeros dropped). Prefer
+  /// [lastOtpDigits] when typing into a fixed-length field.
+  Future<int?> lastOtp() async {
+    final digits = await lastOtpDigits();
+    return digits == null ? null : int.parse(digits);
   }
 
   void _checkOk(http.Response r) {

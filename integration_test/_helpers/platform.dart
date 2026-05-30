@@ -50,6 +50,26 @@ void screenshotTest(
   );
 }
 
+/// Pump frames until [finder] matches at least one widget, or [timeout]
+/// elapses. Use this for asynchronous UI transitions driven by real
+/// network round-trips, where `pumpAndSettle()` can return prematurely
+/// before a setState fires.
+Future<void> pumpUntilFound(
+  WidgetTester tester,
+  Finder finder, {
+  Duration timeout = const Duration(seconds: 15),
+  Duration step = const Duration(milliseconds: 150),
+}) async {
+  final deadline = DateTime.now().add(timeout);
+  while (DateTime.now().isBefore(deadline)) {
+    if (finder.evaluate().isNotEmpty) return;
+    await tester.pump(step);
+  }
+  if (finder.evaluate().isEmpty) {
+    throw TestFailure('pumpUntilFound timed out waiting for $finder');
+  }
+}
+
 Future<void> _captureScreenshot(String description) async {
   try {
     final binding = IntegrationTestWidgetsFlutterBinding.instance;
